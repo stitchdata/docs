@@ -1,25 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "table": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "key": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "size": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "lastModified": {
@@ -28,12 +12,63 @@
         "date-time"
       ]
     },
-    "value": {
+    "size": {
       "type": [
         "null",
-        "object"
-      ],
+        "integer"
+      ]
+    },
+    "table": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value": {
       "properties": {
+        "categories": {
+          "items": {},
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "compare_at_price": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "discount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "handle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "imageUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "inventory": {
           "type": [
             "null",
@@ -41,6 +76,24 @@
           ]
         },
         "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "price": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_type": {
           "type": [
             "null",
             "string"
@@ -58,74 +111,21 @@
             "string"
           ]
         },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "price": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "product_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "compare_at_price": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "product_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "categories": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {}
-        },
         "vendor": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "discount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "imageUrl": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "handle": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

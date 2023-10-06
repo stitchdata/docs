@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "address_line1": {
@@ -17,9 +16,7 @@
     "campaigns": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "campaign_id": {
@@ -52,8 +49,10 @@
                   "date-time"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -67,10 +66,6 @@
       ]
     },
     "contact": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "email_address": {
@@ -97,7 +92,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "country": {
       "type": [
@@ -132,9 +131,7 @@
     "groups": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "group_id": {
@@ -149,8 +146,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -259,5 +258,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

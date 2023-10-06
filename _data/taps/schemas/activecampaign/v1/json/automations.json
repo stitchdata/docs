@@ -1,35 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "cdate": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "mdate": {
+    "defaultscreenshot": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "userid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
     "entered": {
@@ -50,7 +31,19 @@
         "integer"
       ]
     },
-    "defaultscreenshot": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -62,11 +55,18 @@
         "string"
       ]
     },
-    "id": {
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "userid": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

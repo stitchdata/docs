@@ -1,14 +1,26 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "clearbit_domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "integer"
       ]
     },
-    "uuid": {
+    "logo_url": {
       "type": [
+        "null",
         "string"
       ]
     },
@@ -24,47 +36,11 @@
         "string"
       ]
     },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "clearbit_domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "logo_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "users": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": [
-              "integer"
-            ]
-          },
           "first_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "last_name": {
             "type": [
               "null",
               "string"
@@ -75,9 +51,33 @@
               "null",
               "string"
             ]
+          },
+          "id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "last_name": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

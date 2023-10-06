@@ -1,58 +1,12 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "user_id": {
+    "active_flag": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "deal_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "person_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "org_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "product_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "email_message_id": {
-      "type": [
-        "null",
-        "integer"
+        "boolean"
       ]
     },
     "activity_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "note_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "log_id": {
       "type": [
         "null",
         "integer"
@@ -64,67 +18,13 @@
         "date-time"
       ]
     },
-    "update_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "file_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "file_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "file_size": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "active_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "inline_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "remote_location": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "remote_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "cid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "s3_bucket": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "mail_message_id": {
+    "deal_id": {
       "type": [
         "null",
         "integer"
@@ -136,7 +36,76 @@
         "string"
       ]
     },
-    "person_name": {
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_message_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "file_size": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "file_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "inline_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "log_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mail_message_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "org_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "org_name": {
       "type": [
         "null",
         "string"
@@ -148,10 +117,22 @@
         "string"
       ]
     },
-    "org_name": {
+    "person_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "person_name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "product_name": {
@@ -160,23 +141,42 @@
         "string"
       ]
     },
+    "remote_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "remote_location": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "s3_bucket": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "user_id": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

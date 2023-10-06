@@ -1,15 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "balance": {
       "type": [
         "null",
@@ -20,6 +10,12 @@
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "currency": {
@@ -41,17 +37,17 @@
       ]
     },
     "discounts": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
+        "properties": {},
         "type": [
           "null",
           "object"
-        ],
-        "properties": {}
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "draft": {
       "type": [
@@ -59,18 +55,11 @@
         "boolean"
       ]
     },
-    "items": {
+    "id": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {}
-      }
+        "integer"
+      ]
     },
     "invoice": {
       "type": [
@@ -78,12 +67,25 @@
         "integer"
       ]
     },
+    "items": {
+      "items": {
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "name": {
       "type": [
@@ -122,28 +124,22 @@
       ]
     },
     "taxes": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
+        "properties": {},
         "type": [
           "null",
           "object"
-        ],
-        "properties": {}
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "total": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_at": {
@@ -152,5 +148,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

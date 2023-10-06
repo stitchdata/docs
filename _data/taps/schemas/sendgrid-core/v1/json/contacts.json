@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "created_at": {
       "type": [
@@ -7,13 +6,19 @@
         "integer"
       ]
     },
-    "updated_at": {
+    "custom_fields": {
       "type": [
         "null",
-        "integer"
+        "array"
       ]
     },
     "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
       "type": [
         "null",
         "string"
@@ -25,28 +30,16 @@
         "string"
       ]
     },
-    "last_emailed": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "last_clicked": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "last_opened": {
+    "last_emailed": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "last_name": {
@@ -55,11 +48,18 @@
         "string"
       ]
     },
-    "custom_fields": {
+    "last_opened": {
       "type": [
         "null",
-        "array"
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

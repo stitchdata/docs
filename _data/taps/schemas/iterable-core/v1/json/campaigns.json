@@ -1,13 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "campaignState": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "createdAt": {
@@ -16,16 +12,10 @@
         "date-time"
       ]
     },
-    "updatedAt": {
+    "createdByUserId": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "startAt": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "endedAt": {
@@ -34,16 +24,29 @@
         "date-time"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "templateId": {
+    "id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "labels": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "listIds": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "messageMedium": {
@@ -52,46 +55,10 @@
         "string"
       ]
     },
-    "createdByUserId": {
+    "name": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "campaignState": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "listIds": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "suppressionListIds": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "sendSize": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "recurringCampaignId": {
@@ -100,18 +67,35 @@
         "integer"
       ]
     },
-    "workflowId": {
+    "sendSize": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "startAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "suppressionListIds": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "templateId": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "labels": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
     },
     "type": {
       "type": [
@@ -119,11 +103,27 @@
         "string"
       ]
     },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "updatedByUserId": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "workflowId": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

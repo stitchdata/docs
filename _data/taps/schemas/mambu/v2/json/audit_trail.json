@@ -1,17 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "client_ip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "event_source": {
       "type": [
         "null",
         "string"
       ]
     },
-    "request_uri": {
+    "occurred_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "request_method": {
@@ -26,7 +31,7 @@
         "string"
       ]
     },
-    "user_agent": {
+    "request_uri": {
       "type": [
         "null",
         "string"
@@ -44,28 +49,10 @@
         "string"
       ]
     },
-    "username": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "client_ip": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "response_code": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "occurred_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "response_payload": {
@@ -73,6 +60,19 @@
         "null",
         "string"
       ]
+    },
+    "user_agent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

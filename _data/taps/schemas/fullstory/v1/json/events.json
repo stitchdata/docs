@@ -1,37 +1,12 @@
 {
-  "type": "object",
   "properties": {
-    "IndvId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "UserId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "SessionId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "PageId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "EventStart": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "EventType": {
+    "EventTargetSelectorTok": {
       "type": [
         "null",
         "string"
@@ -43,13 +18,13 @@
         "string"
       ]
     },
-    "EventTargetSelectorTok": {
+    "EventType": {
       "type": [
         "null",
         "string"
       ]
     },
-    "PageDuration": {
+    "IndvId": {
       "type": [
         "null",
         "integer"
@@ -59,30 +34,6 @@
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "PageUrl": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PageRefererUrl": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PageIp": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PageLatLong": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "PageAgent": {
@@ -103,10 +54,34 @@
         "string"
       ]
     },
-    "PageOperatingSystem": {
+    "PageDuration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "PageId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "PageIp": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "PageLatLong": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PageNumErrors": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "PageNumInfos": {
@@ -121,7 +96,25 @@
         "integer"
       ]
     },
-    "PageNumErrors": {
+    "PageOperatingSystem": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PageRefererUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PageUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SessionId": {
       "type": [
         "null",
         "integer"
@@ -144,6 +137,13 @@
         "null",
         "string"
       ]
+    },
+    "UserId": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

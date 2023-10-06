@@ -1,14 +1,20 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "string"
       ]
     },
-    "webinar_id": {
+    "join_url": {
       "type": [
+        "null",
         "string"
       ]
     },
@@ -18,17 +24,11 @@
         "string"
       ]
     },
-    "email": {
+    "webinar_id": {
       "type": [
-        "null",
-        "string"
-      ]
-    },
-    "join_url": {
-      "type": [
-        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

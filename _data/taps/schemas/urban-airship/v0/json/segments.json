@@ -1,8 +1,10 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
+    "creation_date": {
+      "type": [
+        "date-time",
+        "null"
+      ]
     },
     "display_name": {
       "type": [
@@ -10,11 +12,8 @@
         "null"
       ]
     },
-    "creation_date": {
-      "type": [
-        "date-time",
-        "null"
-      ]
+    "id": {
+      "type": "string"
     },
     "modification_date": {
       "type": [
@@ -22,5 +21,6 @@
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

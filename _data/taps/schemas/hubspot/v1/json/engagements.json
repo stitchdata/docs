@@ -1,18 +1,56 @@
 {
-  "type": "object",
   "properties": {
-    "engagement_id": {
-      "type": "integer"
+    "associations": {
+      "properties": {
+        "companyIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "contactIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "dealIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "attachments": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "engagement": {
-      "type": "object",
       "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "portalId": {
-          "type": "integer"
-        },
         "active": {
           "type": "boolean"
         },
@@ -21,6 +59,9 @@
             "null",
             "date-time"
           ]
+        },
+        "id": {
+          "type": "integer"
         },
         "lastUpdated": {
           "type": [
@@ -31,198 +72,61 @@
         "ownerId": {
           "type": "integer"
         },
-        "type": {
-          "type": "string"
+        "portalId": {
+          "type": "integer"
         },
         "timestamp": {
           "type": [
             "null",
             "date-time"
           ]
-        }
-      }
-    },
-    "associations": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "contactIds": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": "integer"
-          }
         },
-        "companyIds": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": "integer"
-          }
-        },
-        "dealIds": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": "integer"
-          }
+        "type": {
+          "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
-    "attachments": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          }
-        }
-      }
+    "engagement_id": {
+      "type": "integer"
     },
     "metadata": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
+        "bcc": {
+          "items": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
         "body": {
           "type": [
             "null",
             "string"
           ]
         },
-        "from": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "email": {
-              "type": "string"
-            },
-            "firstName": {
-              "type": "string"
-            },
-            "lastName": {
-              "type": "string"
-            }
-          }
-        },
-        "to": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              }
-            }
-          }
-        },
         "cc": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": "object",
             "properties": {
               "email": {
                 "type": "string"
               }
-            }
-          }
-        },
-        "bcc": {
+            },
+            "type": "object"
+          },
           "type": [
             "null",
             "array"
-          ],
-          "items": {
-            "type": "object",
-            "properties": {
-              "email": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "subject": {
-          "type": [
-            "null",
-            "string"
           ]
         },
-        "html": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "text": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "forObjectType": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "startTime": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "endTime": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "title": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "toNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fromNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "externalId": {
+        "disposition": {
           "type": [
             "null",
             "string"
@@ -234,7 +138,54 @@
             "integer"
           ]
         },
+        "endTime": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
         "externalAccountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "externalId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "forObjectType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "from": {
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "fromNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html": {
           "type": [
             "null",
             "string"
@@ -246,13 +197,62 @@
             "string"
           ]
         },
-        "disposition": {
+        "startTime": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "to": {
+          "items": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "toNumber": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "activity": {
@@ -51,10 +50,6 @@
       ]
     },
     "status": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "color": {
@@ -81,13 +76,13 @@
             "integer"
           ]
         }
-      }
-    },
-    "whodunnit": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "whodunnit": {
       "additionalProperties": false,
       "properties": {
         "agent_number": {
@@ -126,7 +121,12 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

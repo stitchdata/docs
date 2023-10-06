@@ -1,15 +1,5 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "skill": {
-      "type": "string"
-    },
-    "timestamp": {
-      "type": "integer"
-    },
     "abandonedEng": {
       "type": "number"
     },
@@ -46,6 +36,9 @@
     "enteredQEng": {
       "type": "number"
     },
+    "id": {
+      "type": "string"
+    },
     "maxAvailableSlots": {
       "type": "number"
     },
@@ -64,11 +57,18 @@
     "queueSizeSum": {
       "type": "number"
     },
+    "skill": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "integer"
+    },
     "totalTimeToAbandon": {
       "type": "number"
     },
     "totalTimeToAnswer": {
       "type": "number"
     }
-  }
+  },
+  "type": "object"
 }

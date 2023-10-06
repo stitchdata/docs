@@ -1,96 +1,22 @@
 {
   "additionalProperties": false,
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "campaignTrialType": {
+    "adServingOptimizationStatus": {
       "type": [
         "null",
         "string"
       ]
     },
-    "endDate": {
+    "advertisingChannelType": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "settings": {
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "details": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "criterionTypeGroup": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "targetAll": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                }
-              }
-            }
-          },
-          "languageCode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "negativeGeoTargetType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Setting.Type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "positiveGeoTargetType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "domainName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
+    "baseCampaignId": {
       "type": [
         "null",
-        "array"
-      ]
-    },
-    "startDate": {
-      "type": [
-        "null",
-        "date-time"
+        "integer"
       ]
     },
     "budgetId": {
@@ -99,29 +25,13 @@
         "integer"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "adServingOptimizationStatus": {
+    "campaignTrialType": {
       "type": [
         "null",
         "string"
       ]
     },
     "conversionOptimizerEligibility": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "eligible": {
           "type": [
@@ -129,39 +39,19 @@
             "integer"
           ]
         }
-      }
-    },
-    "advertisingChannelType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "networkSetting": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "targetGoogleSearch": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
+      ]
     },
-    "baseCampaignId": {
+    "endDate": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
     "frequencyCap": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "impressions": {
           "type": [
@@ -175,20 +65,28 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     },
     "labels": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "attribute": {
+          "Label.Type": {
             "type": [
               "null",
-              "object"
-            ],
+              "string"
+            ]
+          },
+          "attribute": {
             "properties": {
               "LabelAttribute.Type": {
                 "type": [
@@ -208,18 +106,10 @@
                   "string"
                 ]
               }
-            }
-          },
-          "name": {
+            },
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "Label.Type": {
-            "type": [
-              "null",
-              "string"
+              "object"
             ]
           },
           "id": {
@@ -228,23 +118,47 @@
               "integer"
             ]
           },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "status": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
         "null",
         "array"
       ]
     },
-    "status": {
+    "name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "networkSetting": {
+      "properties": {
+        "targetGoogleSearch": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "servingStatus": {
@@ -253,23 +167,99 @@
         "string"
       ]
     },
-    "urlCustomParameters": {
+    "settings": {
+      "items": {
+        "properties": {
+          "Setting.Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "details": {
+            "items": {
+              "properties": {
+                "criterionTypeGroup": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "targetAll": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "domainName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "languageCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "negativeGeoTargetType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "positiveGeoTargetType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "startDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "urlCustomParameters": {
       "properties": {
+        "doReplace": {
+          "type": "boolean"
+        },
         "parameters": {
-          "type": [
-            "array",
-            "null"
-          ],
           "items": {
-            "type": [
-              "object",
-              "null"
-            ],
             "properties": {
+              "isRemove": {
+                "type": "boolean"
+              },
               "key": {
                 "type": "string"
               },
@@ -278,17 +268,27 @@
                   "string",
                   "null"
                 ]
-              },
-              "isRemove": {
-                "type": "boolean"
               }
-            }
-          }
-        },
-        "doReplace": {
-          "type": "boolean"
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

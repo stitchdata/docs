@@ -1,17 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
+    "action": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "campaignId": {
@@ -20,7 +13,27 @@
         "integer"
       ]
     },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fields": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "first": {
       "type": [
         "null",
         "string"
@@ -32,10 +45,10 @@
         "string"
       ]
     },
-    "first": {
+    "id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "last": {
@@ -44,25 +57,12 @@
         "string"
       ]
     },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "action": {
+    "object": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "fields": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
     }
-  }
+  },
+  "type": "object"
 }

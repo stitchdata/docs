@@ -1,13 +1,19 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "id": {
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "client_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "name": {
+    "code": {
       "type": [
         "null",
         "string"
@@ -19,7 +25,25 @@
         "string"
       ]
     },
-    "code": {
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "harvest_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -37,23 +61,11 @@
         "date-time"
       ]
     },
-    "end_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "harvest_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
-      ]
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "updated_at": {
       "type": [
@@ -66,19 +78,7 @@
         "null",
         "integer"
       ]
-    },
-    "client_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

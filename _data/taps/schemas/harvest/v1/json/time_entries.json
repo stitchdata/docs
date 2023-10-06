@@ -1,22 +1,15 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
+    "adjustment_record": {
       "type": [
         "null",
-        "integer"
+        "boolean"
       ]
     },
-    "notes": {
+    "created_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "spent_at": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "hours": {
@@ -25,10 +18,34 @@
         "number"
       ]
     },
-    "user_id": {
+    "hours_with_timer": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "is_billed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "project_id": {
@@ -37,13 +54,19 @@
         "integer"
       ]
     },
+    "spent_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "task_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "created_at": {
+    "timer_started_at": {
       "type": [
         "null",
         "date-time"
@@ -55,35 +78,12 @@
         "date-time"
       ]
     },
-    "adjustment_record": {
+    "user_id": {
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "timer_started_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "is_closed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_billed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hours_with_timer": {
-      "type": [
-        "null",
-        "number"
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

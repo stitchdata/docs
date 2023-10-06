@@ -1,41 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "stopped_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "project_slug": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "pipeline_number": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
+    "canceled_by": {
       "type": [
         "null",
         "string"
@@ -47,7 +13,37 @@
         "date-time"
       ]
     },
+    "errored_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "pipeline_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pipeline_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "project_slug": {
       "type": [
         "null",
         "string"
@@ -59,16 +55,16 @@
         "string"
       ]
     },
-    "errored_by": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "canceled_by": {
+    "stopped_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "tag": {
@@ -77,5 +73,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

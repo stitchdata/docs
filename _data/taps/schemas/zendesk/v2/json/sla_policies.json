@@ -1,20 +1,9 @@
 {
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
-    "url": {
+    "created_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "description": {
@@ -23,19 +12,9 @@
         "string"
       ]
     },
-    "position": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "filter": {
       "properties": {
         "all": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
             "properties": {
               "field": {
@@ -60,13 +39,13 @@
             "type": [
               "object"
             ]
-          }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
         "any": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
             "properties": {
               "field": {
@@ -91,7 +70,11 @@
             "type": [
               "object"
             ]
-          }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         }
       },
       "type": [
@@ -99,13 +82,21 @@
         "object"
       ]
     },
-    "policy_metrics": {
+    "id": {
       "type": [
-        "null",
-        "array"
-      ],
+        "integer"
+      ]
+    },
+    "policy_metrics": {
       "items": {
         "properties": {
+          "business_hours": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "metric": {},
           "priority": {
             "type": [
               "null",
@@ -117,31 +108,40 @@
               "null",
               "integer"
             ]
-          },
-          "business_hours": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "metric": {}
+          }
         },
         "type": [
           "null",
           "object"
         ]
-      }
-    },
-    "created_at": {
+      },
       "type": [
         "null",
-        "date-time"
+        "array"
+      ]
+    },
+    "position": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
       ]
     }
   },

@@ -1,34 +1,9 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sku": {
+    "admin_graphql_api_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "requires_shipping": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "cost": {
@@ -43,10 +18,36 @@
         "string"
       ]
     },
-    "province_code_of_origin": {
+    "country_harmonized_system_codes": {
+      "items": {
+        "properties": {
+          "country_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "harmonized_system_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "harmonized_system_code": {
@@ -55,43 +56,42 @@
         "integer"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "province_code_of_origin": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "requires_shipping": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "tracked": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "country_harmonized_system_codes": {
+    "updated_at": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "harmonized_system_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "country_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "admin_graphql_api_id": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

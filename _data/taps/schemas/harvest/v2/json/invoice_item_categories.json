@@ -1,6 +1,11 @@
 {
-  "type": "object",
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -13,10 +18,10 @@
         "string"
       ]
     },
-    "use_as_service": {
+    "updated_at": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
       ]
     },
     "use_as_expense": {
@@ -25,17 +30,12 @@
         "boolean"
       ]
     },
-    "created_at": {
+    "use_as_service": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
+        "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

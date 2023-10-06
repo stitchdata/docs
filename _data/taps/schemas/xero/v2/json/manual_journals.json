@@ -1,8 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
     "Date": {
       "type": [
@@ -10,62 +7,21 @@
         "date-time"
       ]
     },
-    "LineAmountTypes": {
+    "HasAttachments": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "Status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Narration": {
-      "type": [
-        "null",
-        "string"
+        "boolean"
       ]
     },
     "JournalLines": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": false,
         "properties": {
-          "LineAmount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "minimum": -1e+33,
-            "maximum": 1e+33,
-            "multipleOf": 1e-05,
-            "exclusiveMinimum": true,
-            "exclusiveMaximum": true
-          },
-          "Description": {
+          "AccountCode": {
             "type": [
               "null",
               "string"
             ]
-          },
-          "TaxAmount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "minimum": -1e+33,
-            "maximum": 1e+33,
-            "multipleOf": 1e-05,
-            "exclusiveMinimum": true,
-            "exclusiveMaximum": true
           },
           "AccountID": {
             "type": [
@@ -73,7 +29,7 @@
               "string"
             ]
           },
-          "AccountCode": {
+          "Description": {
             "type": [
               "null",
               "string"
@@ -85,6 +41,28 @@
               "boolean"
             ]
           },
+          "LineAmount": {
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
+            "maximum": 1e+33,
+            "minimum": -1e+33,
+            "multipleOf": 1e-05,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "TaxAmount": {
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
+            "maximum": 1e+33,
+            "minimum": -1e+33,
+            "multipleOf": 1e-05,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
           "TaxType": {
             "type": [
               "null",
@@ -93,6 +71,75 @@
           },
           "Tracking": {
             "items": {
+              "Name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "Option": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "Options": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "HasValidationErrors": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "IsActive": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "IsArchived": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "IsDeleted": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "Name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "Status": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "TrackingOptionID": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
               "Status": {
                 "type": [
                   "null",
@@ -101,12 +148,6 @@
               },
               "TrackingCategoryID": {
                 "type": [
-                  "string"
-                ]
-              },
-              "Option": {
-                "type": [
-                  "null",
                   "string"
                 ]
               },
@@ -127,69 +168,6 @@
                   "null",
                   "string"
                 ]
-              },
-              "Options": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "IsActive": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "IsDeleted": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "TrackingOptionID": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "IsArchived": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "Status": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "Name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "HasValidationErrors": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    }
-                  },
-                  "additionalProperties": false
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "Name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
               }
             },
             "type": [
@@ -198,10 +176,28 @@
             ]
           }
         },
-        "additionalProperties": false
-      }
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "Url": {
+    "LineAmountTypes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ManualJournalID": {
+      "type": [
+        "string"
+      ]
+    },
+    "Narration": {
       "type": [
         "null",
         "string"
@@ -213,10 +209,10 @@
         "boolean"
       ]
     },
-    "HasAttachments": {
+    "Status": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
     "UpdatedDateUTC": {
@@ -225,8 +221,9 @@
         "date-time"
       ]
     },
-    "ManualJournalID": {
+    "Url": {
       "type": [
+        "null",
         "string"
       ]
     }
@@ -234,5 +231,8 @@
   "tap_schema_dependencies": [
     "tracking_categories"
   ],
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

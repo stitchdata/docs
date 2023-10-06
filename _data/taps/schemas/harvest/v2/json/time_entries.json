@@ -1,130 +1,15 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "spent_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "user_assignment_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "client_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "project_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "task_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "task_assignment_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "external_reference_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "invoice_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "hours": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_locked": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "locked_reason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_closed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_billed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "timer_started_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "started_time": {
-      "type": [
-        "null",
-        "time"
-      ]
-    },
-    "ended_time": {
-      "type": [
-        "null",
-        "time"
-      ]
-    },
-    "is_running": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "billable": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "billable_rate": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "budgeted": {
@@ -133,10 +18,10 @@
         "number"
       ]
     },
-    "billable_rate": {
+    "client_id": {
       "type": [
         "null",
-        "number"
+        "integer"
       ]
     },
     "cost_rate": {
@@ -151,11 +36,126 @@
         "date-time"
       ]
     },
+    "ended_time": {
+      "type": [
+        "null",
+        "time"
+      ]
+    },
+    "external_reference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hours": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "invoice_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_billed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_locked": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_running": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "locked_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "spent_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "started_time": {
+      "type": [
+        "null",
+        "time"
+      ]
+    },
+    "task_assignment_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "task_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "timer_started_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
+    },
+    "user_assignment_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

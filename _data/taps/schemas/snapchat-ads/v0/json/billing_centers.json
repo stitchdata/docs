@@ -1,50 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "organization_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "address_line_1": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "locality": {
       "type": [
         "null",
         "string"
@@ -56,7 +13,49 @@
         "string"
       ]
     },
+    "alternative_email_addresses": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locality": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_id": {
       "type": [
         "null",
         "string"
@@ -68,11 +67,12 @@
         "string"
       ]
     },
-    "alternative_email_addresses": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

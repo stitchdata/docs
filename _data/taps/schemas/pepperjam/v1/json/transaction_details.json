@@ -1,11 +1,55 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "transaction_id": {
+    "click_id": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "commission_publisher": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "commission_site": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "coupons": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "creative_id": {
@@ -14,13 +58,13 @@
         "string"
       ]
     },
-    "order_id": {
+    "device_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "publisher_id": {
+    "group_id": {
       "type": [
         "null",
         "integer"
@@ -38,7 +82,25 @@
         "string"
       ]
     },
-    "transaction_type": {
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "publisher_type": {
       "type": [
         "null",
         "string"
@@ -50,41 +112,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "commission": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "commission_publisher": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "commission_site": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -100,47 +129,18 @@
         "string"
       ]
     },
-    "publisher": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "publisher_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "company": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "group_id": {
+    "transaction_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "coupons": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "device_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "click_id": {
+    "transaction_type": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

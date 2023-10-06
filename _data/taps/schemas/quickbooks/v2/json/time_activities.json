@@ -1,131 +1,9 @@
 {
   "properties": {
-    "HourlyRate": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "CustomerRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "Taxable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "Description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Minutes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "MetaData": {
-      "properties": {
-        "CreateTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "LastUpdatedTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "ItemRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "Id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TxnDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "EmployeeRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
     "BillableStatus": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "NameOf": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Hours": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "BreakHours": {
@@ -154,7 +32,47 @@
         ]
       }
     },
+    "CostRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "CustomerRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
     "DepartmentRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EmployeeRef": {
       "name": {
         "type": [
           "null",
@@ -174,10 +92,68 @@
         "date-time"
       ]
     },
-    "StartTime": {
+    "HourlyRate": {
       "type": [
         "null",
-        "date-time"
+        "integer"
+      ]
+    },
+    "Hours": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ItemRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "Minutes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "NameOf": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "PayrollItemRef": {
@@ -194,10 +170,34 @@
         ]
       }
     },
+    "StartTime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Taxable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "TransactionLocationType": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "TxnDate": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "VendorRef": {
@@ -214,10 +214,10 @@
         ]
       }
     },
-    "CostRate": {
+    "domain": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
     "patternProperties": {

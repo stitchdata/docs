@@ -1,6 +1,40 @@
 {
   "properties": {
-    "SalesTermRef": {
+    "APAccountRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "Balance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "CurrencyRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "DepartmentRef": {
       "name": {
         "type": [
           "null",
@@ -20,24 +54,28 @@
         "string"
       ]
     },
-    "CurrencyRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+    "DueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
-    "SyncToken": {
+    "ExchangeRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "GlobalTaxCalculation": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "HomeBalance": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "Id": {
@@ -46,255 +84,15 @@
         "string"
       ]
     },
-    "Balance": {
+    "IncludeInAnnualTPAR": {
       "type": [
         "null",
-        "number"
-      ]
-    },
-    "APAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "DueDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "MetaData": {
-      "properties": {
-        "CreateTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "LastUpdatedTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "LinkedTxn": {
-      "items": {
-        "properties": {
-          "TxnId": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TxnType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TxnLineId": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
+        "boolean"
       ]
     },
     "Line": {
       "items": {
         "properties": {
-          "Id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "LineNum": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "DetailType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Description": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "ItemBasedExpenseLineDetail": {
-            "TaxInclusiveAmt": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "ItemRef": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "CustomerRef": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "PriceLevelRef": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "ClassRef": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "TaxCodeRef": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "MarkupInfo": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "MarkUpIncomeAccountRef": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "value": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                "Percent": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "PriceLevelRef": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "value": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            },
-            "BillableStatus": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "Qty": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "UnitPrice": {
-              "type": [
-                "null",
-                "number"
-              ]
-            }
-          },
-          "Amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
           "AccountBasedExpenseLineDetail": {
             "AccountRef": {
               "name": {
@@ -345,10 +143,6 @@
               }
             },
             "MarkupInfo": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "MarkUpIncomeAccountRef": {
                   "name": {
@@ -384,7 +178,11 @@
                     ]
                   }
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "TaxAmount": {
               "type": [
@@ -413,6 +211,174 @@
               ]
             }
           },
+          "Amount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "Description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "DetailType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ItemBasedExpenseLineDetail": {
+            "BillableStatus": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassRef": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "CustomerRef": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "ItemRef": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "MarkupInfo": {
+              "properties": {
+                "MarkUpIncomeAccountRef": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "Percent": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "PriceLevelRef": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "PriceLevelRef": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "Qty": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "TaxCodeRef": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "TaxInclusiveAmt": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "UnitPrice": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "LineNum": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "LinkedTxn": {
             "items": {
               "properties": {
@@ -422,13 +388,13 @@
                     "string"
                   ]
                 },
-                "TxnType": {
+                "TxnLineId": {
                   "type": [
                     "null",
                     "string"
                   ]
                 },
-                "TxnLineId": {
+                "TxnType": {
                   "type": [
                     "null",
                     "string"
@@ -456,77 +422,59 @@
         "array"
       ]
     },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TxnDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "VendorRef": {
-      "name": {
+    "LinkedTxn": {
+      "items": {
+        "properties": {
+          "TxnId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TxnLineId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TxnType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
         "type": [
           "null",
-          "string"
+          "object"
         ]
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "TotalAmt": {
       "type": [
         "null",
-        "number"
+        "array"
       ]
     },
-    "ExchangeRate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "DepartmentRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "PrivateNote": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "HomeBalance": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "IncludeInAnnualTPAR": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "TransactionLocationType": {
       "type": [
         "null",
         "string"
@@ -546,7 +494,123 @@
         ]
       }
     },
+    "SalesTermRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TotalAmt": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "TransactionLocationType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TxnDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "TxnTaxDetail": {
+      "TaxLine": {
+        "items": {
+          "properties": {
+            "Amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "DetailType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "TaxLineDetail": {
+              "properties": {
+                "NetAmountTaxable": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "OverrideDeltaAmount": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "PercentBased": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "TaxInclusiveAmount": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "TaxPercent": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "TaxRateRef": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
       "TotalTax": {
         "type": [
           "null",
@@ -566,87 +630,23 @@
             "string"
           ]
         }
-      },
-      "TaxLine": {
-        "items": {
-          "properties": {
-            "DetailType": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "Amount": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "TaxLineDetail": {
-              "properties": {
-                "TaxRateRef": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "value": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                "NetAmountTaxable": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "PercentBased": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "TaxInclusiveAmount": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "OverrideDeltaAmount": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "TaxPercent": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                }
-              },
-              "type": [
-                "null",
-                "object"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
+      }
+    },
+    "VendorRef": {
+      "name": {
         "type": [
           "null",
-          "array"
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
         ]
       }
     },
-    "GlobalTaxCalculation": {
+    "domain": {
       "type": [
         "null",
         "string"

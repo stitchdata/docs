@@ -1,17 +1,44 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "creative_id": {
+    "affiliate_usage": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "creative_type": {
+    "click_through_rate": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "clicks": {
       "type": [
         "null",
-        "string"
+        "integer"
+      ]
+    },
+    "commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "creative_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "creative_name": {
@@ -20,10 +47,10 @@
         "string"
       ]
     },
-    "group_id": {
+    "creative_type": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "date": {
@@ -38,7 +65,18 @@
         "date-time"
       ]
     },
-    "affiliate_usage": {
+    "earnings_per_click": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "group_id": {
       "type": [
         "null",
         "integer"
@@ -56,61 +94,23 @@
         "integer"
       ]
     },
-    "transactions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "click_through_rate": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
     "sales": {
       "anyOf": [
         {
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
-    "earnings_per_click": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "commission": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
+    "transactions": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

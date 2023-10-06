@@ -1,23 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "container_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "container_kind": {
@@ -26,7 +13,13 @@
         "string"
       ]
     },
-    "container_id": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -49,6 +42,13 @@
         "null",
         "string"
       ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

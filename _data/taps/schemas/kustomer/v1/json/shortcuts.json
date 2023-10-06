@@ -1,19 +1,10 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
     "conversation": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "name": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "operator": {
@@ -28,13 +19,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "tags": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "tags": {
           "additionalProperties": false,
           "properties": {
             "operator": {
@@ -44,17 +35,25 @@
               ]
             },
             "value": {
-              "type": "array",
               "items": {
                 "type": [
                   "null",
                   "string"
                 ]
-              }
+              },
+              "type": "array"
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "created_at": {
       "type": [
@@ -212,7 +211,6 @@
                       "entity_ranges": {
                         "anyOf": [
                           {
-                            "type": "array",
                             "items": {
                               "additionalProperties": false,
                               "properties": {
@@ -239,7 +237,8 @@
                                 "null",
                                 "object"
                               ]
-                            }
+                            },
+                            "type": "array"
                           },
                           {
                             "type": "null"
@@ -515,5 +514,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

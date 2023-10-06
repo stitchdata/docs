@@ -1,22 +1,27 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "active_flag": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "type": {
+    "add_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_view_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -28,16 +33,10 @@
         "boolean"
       ]
     },
-    "user_id": {
+    "type": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "add_time": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "update_time": {
@@ -46,17 +45,18 @@
         "date-time"
       ]
     },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "visible_to": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "custom_view_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

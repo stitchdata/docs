@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
     "app_id": {
       "type": [
@@ -10,34 +6,24 @@
         "number"
       ]
     },
-    "created_by_user": {
+    "color": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by_user": {
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "app_id": {
           "type": [
             "null",
             "number"
-          ]
-        },
-        "username": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
           ]
         },
         "app_wide": {
@@ -46,35 +32,41 @@
             "boolean"
           ]
         },
-        "is_core_event": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
         "event_property_configurations": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": "integer"
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         },
-        "last": {
+        "first": {
           "type": [
             "null",
             "string"
           ]
         },
-        "valid_through": {
+        "id": {
           "type": [
             "null",
-            "number"
+            "string"
+          ]
+        },
+        "is_core_event": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
           ]
         },
         "role": {
@@ -88,26 +80,6 @@
             "null",
             "string"
           ]
-        }
-      }
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_updated_by_user": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
         },
         "username": {
           "type": [
@@ -115,130 +87,59 @@
             "string"
           ]
         },
-        "first": {
+        "valid_through": {
           "type": [
             "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "role": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
+            "number"
           ]
         }
-      }
-    },
-    "last_updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "kind": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "root_version_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "stable_version_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "color": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "group": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "dirty": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "element_path_rules": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "group": {
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "color": {
           "type": [
             "null",
             "string"
           ]
         },
-        "length": {
+        "created_at": {
           "type": [
             "null",
-            "integer"
+            "date-time"
           ]
         },
-        "items": {},
         "created_by_user": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "username": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "first": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
               "type": [
                 "null",
                 "string"
@@ -261,34 +162,47 @@
                 "null",
                 "string"
               ]
-            }
-          }
-        },
-        "created_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "last_updated_by_user": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
             },
             "username": {
               "type": [
                 "null",
                 "string"
               ]
-            },
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "items": {},
+        "last_updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_updated_by_user": {
+          "properties": {
             "first": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
               "type": [
                 "null",
                 "string"
@@ -305,21 +219,103 @@
                 "null",
                 "integer"
               ]
+            },
+            "username": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
-        },
-        "last_updated_at": {
+          },
           "type": [
             "null",
-            "date-time"
+            "object"
+          ]
+        },
+        "length": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
           ]
         }
-      }
-    },
-    "dirty": {
+      },
       "type": [
         "null",
-        "boolean"
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "kind": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_updated_by_user": {
+      "properties": {
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "role": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "page_id": {
@@ -328,17 +324,21 @@
         "string"
       ]
     },
-    "element_path_rules": {
+    "root_version_id": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+        "string"
+      ]
+    },
+    "stable_version_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

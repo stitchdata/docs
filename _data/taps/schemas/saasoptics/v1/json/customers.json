@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "autopay_enrollment": {
@@ -9,10 +8,6 @@
       ]
     },
     "billing_profile": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "account_number": {
@@ -291,7 +286,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "cc_email": {
       "type": [
@@ -420,25 +419,25 @@
       ]
     },
     "number_field1": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "number_field2": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "number_field3": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "parent": {
       "type": [
@@ -524,5 +523,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

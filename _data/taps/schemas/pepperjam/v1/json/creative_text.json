@@ -1,29 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "allow_deep_link": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "type": {
+    "created": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "link_anchor_text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "description": {
@@ -32,35 +19,28 @@
         "string"
       ]
     },
-    "promotions": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "link_anchor_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "private": {
@@ -72,12 +52,7 @@
     "private_affiliates": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "affiliate_id": {
@@ -98,45 +73,51 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "allow_deep_link": {
-      "type": [
-        "null",
-        "integer"
+    "promotions": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "view_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modified": {
       "type": [
         "null",
         "date-time"
@@ -147,6 +128,25 @@
         "null",
         "string"
       ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

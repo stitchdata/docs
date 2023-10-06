@@ -1,82 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "timeCreated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "timeLastModified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "organization": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "shortId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "trackingURL": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "worker": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "merchant": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "executor": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creator": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "dependencies": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "state": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "completeAfter": {
       "type": [
         "null",
@@ -89,35 +12,33 @@
         "number"
       ]
     },
-    "pickupTask": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "completionDetails": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "events": {
+          "items": {},
           "type": [
             "null",
             "array"
-          ],
-          "items": {}
+          ]
         },
         "failureReason": {
           "type": [
             "null",
             "string"
+          ]
+        },
+        "firstLocation": {
+          "items": {},
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "lastLocation": {
+          "items": {},
+          "type": [
+            "null",
+            "array"
           ]
         },
         "time": {
@@ -126,98 +47,23 @@
             "date-time"
           ]
         },
-        "firstLocation": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {}
-        },
-        "lastLocation": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {}
-        },
         "unavailableAttachments": {
+          "items": {},
           "type": [
             "null",
             "array"
-          ],
-          "items": {}
+          ]
         }
-      }
-    },
-    "feedback": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "metadata": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "overrides": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
-    },
-    "quantity": {
-      "type": [
-        "null",
-        "number"
       ]
     },
-    "serviceTime": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "identity": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "failedScanCount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "checksum": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "sourceTaskId": {
+    "creator": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "trackingViewed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "estimatedCompletionTime": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "delayTime": {
@@ -226,137 +72,18 @@
         "number"
       ]
     },
-    "recipients": {
+    "dependencies": {
+      "items": {},
       "type": [
         "null",
         "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "organization": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "timeCreated": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "timeLastModified": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "phone": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "notes": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "skipSMSNotifications": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "metadata": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {}
-          }
-        }
-      }
+      ]
     },
     "destination": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "timeCreated": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "timeLastModified": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "location": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {}
-        },
         "address": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "apartment": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "state": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "postalCode": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "number": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "street": {
               "type": [
                 "null",
                 "string"
@@ -373,8 +100,56 @@
                 "null",
                 "string"
               ]
+            },
+            "number": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "postalCode": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "state": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "street": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "location": {
+          "items": {},
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "metadata": {
+          "items": {},
+          "type": [
+            "null",
+            "array"
+          ]
         },
         "notes": {
           "type": [
@@ -382,14 +157,239 @@
             "string"
           ]
         },
-        "metadata": {
+        "timeCreated": {
           "type": [
             "null",
-            "array"
-          ],
-          "items": {}
+            "date-time"
+          ]
+        },
+        "timeLastModified": {
+          "type": [
+            "null",
+            "date-time"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "estimatedCompletionTime": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "executor": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "feedback": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "identity": {
+      "properties": {
+        "checksum": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "failedScanCount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "merchant": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "metadata": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "overrides": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "pickupTask": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "recipients": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "metadata": {
+            "items": {},
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "notes": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "organization": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "skipSMSNotifications": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "timeCreated": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "timeLastModified": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "serviceTime": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "shortId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sourceTaskId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "timeCreated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "timeLastModified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "trackingURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trackingViewed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "worker": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

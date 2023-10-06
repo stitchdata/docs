@@ -1,36 +1,48 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "web_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "name": {
+    "beamer_address": {
       "type": [
         "null",
         "string"
       ]
     },
-    "contact": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "campaign_defaults": {
       "additionalProperties": false,
       "properties": {
-        "company": {
+        "from_email": {
           "type": [
             "null",
             "string"
           ]
         },
+        "from_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "language": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "contact": {
+      "additionalProperties": false,
+      "properties": {
         "address1": {
           "type": [
             "null",
@@ -49,13 +61,7 @@
             "string"
           ]
         },
-        "state": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zip": {
+        "company": {
           "type": [
             "null",
             "string"
@@ -72,53 +78,82 @@
             "null",
             "string"
           ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "permission_reminder": {
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "use_archive_bar": {
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "double_optin": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "campaign_defaults": {
+    "email_type_option": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "from_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "from_email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "subject": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "language": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "boolean"
+      ]
+    },
+    "has_welcome": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "list_rating": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "marketing_permissions": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "modules": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "notify_on_subscribe": {
       "type": [
@@ -132,118 +167,25 @@
         "string"
       ]
     },
-    "date_created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "list_rating": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "email_type_option": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "subscribe_url_short": {
+    "permission_reminder": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "subscribe_url_long": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "beamer_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "visibility": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "double_optin": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "has_welcome": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "marketing_permissions": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "modules": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
     },
     "stats": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "member_count": {
+        "avg_sub_rate": {
           "type": [
             "null",
-            "integer"
+            "number"
           ]
         },
-        "unsubscribe_count": {
+        "avg_unsub_rate": {
           "type": [
             "null",
-            "integer"
-          ]
-        },
-        "cleaned_count": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "member_count_since_send": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "unsubscribe_count_since_send": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "cleaned_count_since_send": {
-          "type": [
-            "null",
-            "integer"
+            "number"
           ]
         },
         "campaign_count": {
@@ -258,34 +200,16 @@
             "date-time"
           ]
         },
-        "merge_field_count": {
+        "cleaned_count": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "avg_sub_rate": {
+        "cleaned_count_since_send": {
           "type": [
             "null",
-            "number"
-          ]
-        },
-        "avg_unsub_rate": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "target_sub_rate": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "open_rate": {
-          "type": [
-            "null",
-            "number"
+            "integer"
           ]
         },
         "click_rate": {
@@ -305,8 +229,84 @@
             "null",
             "date-time"
           ]
+        },
+        "member_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "member_count_since_send": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "merge_field_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "open_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "target_sub_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "unsubscribe_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "unsubscribe_count_since_send": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "subscribe_url_long": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscribe_url_short": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "use_archive_bar": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "visibility": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "web_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "contact": {
@@ -8,103 +7,25 @@
         "integer"
       ]
     },
-    "tstamp": {
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "geo_tstamp": {
+    "fb_id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
-    "geo_ip4": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_country2": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_city": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_zip": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_area": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_lat": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_lon": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_tz": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "geo_tz_offset": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ga_campaign_source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ga_campaign_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ga_campaign_medium": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ga_campaign_term": {
+    "fb_name": {
       "type": [
         "null",
         "string"
@@ -122,6 +43,30 @@
         "string"
       ]
     },
+    "ga_campaign_medium": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ga_campaign_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ga_campaign_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ga_campaign_term": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "ga_first_visit": {
       "type": [
         "null",
@@ -134,37 +79,91 @@
         "integer"
       ]
     },
-    "fb_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "fb_name": {
+    "geo_area": {
       "type": [
         "null",
         "string"
       ]
     },
-    "tw_id": {
+    "geo_city": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_country2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_ip4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_lat": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_lon": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_tstamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "geo_tz": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_tz_offset": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "geo_zip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "created_timestamp": {
+    "tstamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "updated_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_by": {
+    "tw_id": {
       "type": [
         "null",
         "integer"
@@ -176,11 +175,12 @@
         "integer"
       ]
     },
-    "id": {
+    "updated_timestamp": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

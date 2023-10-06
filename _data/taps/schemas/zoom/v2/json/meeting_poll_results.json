@@ -1,13 +1,12 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "meeting_uuid": {
+    "email": {
       "type": [
         "string"
       ]
     },
-    "email": {
+    "meeting_uuid": {
       "type": [
         "string"
       ]
@@ -19,23 +18,9 @@
       ]
     },
     "question_details": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
-          "question": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "answer": {
             "type": [
               "null",
@@ -53,9 +38,24 @@
               "null",
               "string"
             ]
+          },
+          "question": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

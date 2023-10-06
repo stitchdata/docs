@@ -1,6 +1,5 @@
 {
   "additional_properties": false,
-  "type": "object",
   "properties": {
     "account_id": {
       "type": [
@@ -20,16 +19,16 @@
         "date-time"
       ]
     },
-    "hour": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "feature_id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "hour": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "num_events": {
@@ -42,6 +41,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "parameters": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "remote_ip": {
@@ -67,12 +72,7 @@
         "null",
         "string"
       ]
-    },
-    "parameters": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

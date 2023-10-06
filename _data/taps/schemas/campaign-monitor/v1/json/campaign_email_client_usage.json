@@ -1,13 +1,9 @@
 {
-  "type": "object",
   "properties": {
     "CampaignID": {
       "type": "string"
     },
     "Client": {
-      "type": "string"
-    },
-    "Version": {
       "type": "string"
     },
     "Percentage": {
@@ -21,6 +17,10 @@
         "null",
         "integer"
       ]
+    },
+    "Version": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

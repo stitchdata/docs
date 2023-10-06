@@ -1,6 +1,29 @@
 {
-  "type": "object",
   "properties": {
+    "budget": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "client_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "hourly_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -19,22 +42,10 @@
         "boolean"
       ]
     },
-    "hourly_rate": {
+    "project_id": {
       "type": [
         "null",
-        "number"
-      ]
-    },
-    "budget": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
+        "integer"
       ]
     },
     "updated_at": {
@@ -43,23 +54,12 @@
         "date-time"
       ]
     },
-    "project_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "client_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "user_id": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

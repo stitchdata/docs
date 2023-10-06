@@ -1,26 +1,39 @@
 {
-  "type": [
-    "null",
-    "object",
-    "string"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "assignee_id": {
       "type": [
         "null",
         "integer"
       ]
     },
+    "comment": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "group_id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reason": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "reason_id": {
@@ -35,6 +48,12 @@
         "integer"
       ]
     },
+    "score": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "ticket_id": {
       "type": [
         "null",
@@ -47,35 +66,16 @@
         "date-time"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "url": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "score": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "comment": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object",
+    "string"
+  ]
 }

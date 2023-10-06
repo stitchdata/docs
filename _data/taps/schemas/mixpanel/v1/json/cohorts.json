@@ -1,23 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "count": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "created": {
@@ -26,7 +13,13 @@
         "date-time"
       ]
     },
-    "count": {
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
@@ -38,11 +31,18 @@
         "integer"
       ]
     },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "project_id": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

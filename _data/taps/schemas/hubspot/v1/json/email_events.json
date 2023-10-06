@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "appId": {
       "type": [
@@ -14,10 +13,6 @@
       ]
     },
     "browser": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "family": {
           "type": [
@@ -55,7 +50,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "created": {
       "type": [
@@ -75,13 +74,13 @@
         "integer"
       ]
     },
-    "emailCampaignId": {
+    "emailCampaignGroupId": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "emailCampaignGroupId": {
+    "emailCampaignId": {
       "type": [
         "null",
         "integer"
@@ -124,10 +123,6 @@
       ]
     },
     "location": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "city": {
           "type": [
@@ -147,7 +142,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "portalId": {
       "type": [
@@ -168,10 +167,6 @@
       ]
     },
     "sentBy": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "created": {
           "type": [
@@ -185,7 +180,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "smtpId": {
       "type": [
@@ -217,5 +216,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

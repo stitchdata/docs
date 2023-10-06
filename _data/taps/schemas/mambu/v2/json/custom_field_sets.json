@@ -1,243 +1,37 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "created_date": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "index_in_list": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "usage": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "data_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value_length": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "is_default": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "is_required": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "index_in_list": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "state": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "unique": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "view_rights": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "encoded_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "is_accessible_by_all_users": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  },
-                  "roles": {
-                    "anyOf": [
-                      {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                }
-              },
-              "edit_rights": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "encoded_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "is_accessible_by_all_users": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  },
-                  "roles": {
-                    "anyOf": [
-                      {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                }
-              },
               "amounts": {
                 "type": [
                   "null",
                   "object"
                 ]
               },
-              "values": {
-                "anyOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
               "custom_field_product_settings": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
+                        "custom_field_encoded_key": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
                         "encoded_key": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "link_type": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "product_key": {
                           "type": [
                             "null",
                             "string"
@@ -255,14 +49,22 @@
                             "boolean"
                           ]
                         },
-                        "custom_field_encoded_key": {
+                        "link_type": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "product_key": {
                           "type": [
                             "null",
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
@@ -272,24 +74,10 @@
               "custom_field_selection_options": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "encoded_key": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "value": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "score": {
                           "type": [
                             "null",
                             "string"
@@ -300,22 +88,234 @@
                             "null",
                             "boolean"
                           ]
+                        },
+                        "score": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
                   }
                 ]
+              },
+              "data_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "edit_rights": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "is_accessible_by_all_users": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "roles": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "index_in_list": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "is_default": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "is_required": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "state": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "unique": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "value_length": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "values": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "view_rights": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "is_accessible_by_all_users": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "roles": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "index_in_list": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

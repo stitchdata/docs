@@ -1,65 +1,9 @@
 {
   "properties": {
-    "metadata": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "updated_by_event_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reversals": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {}
-      }
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "statement_description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "amount": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "balance_transaction": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reversed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "amount_reversed": {
@@ -68,13 +12,31 @@
         "integer"
       ]
     },
-    "source_type": {
+    "arrival_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "automatic": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "balance_transaction": {
       "type": [
         "null",
         "string"
       ]
     },
-    "source_transaction": {
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
       "type": [
         "null",
         "string"
@@ -86,25 +48,7 @@
         "date-time"
       ]
     },
-    "livemode": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "statement_descriptor": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "failure_balance_transaction": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recipient": {
+    "description": {
       "type": [
         "null",
         "string"
@@ -116,10 +60,29 @@
         "string"
       ]
     },
-    "automatic": {
+    "failure_balance_transaction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "livemode": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "metadata": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
       ]
     },
     "object": {
@@ -128,7 +91,50 @@
         "string"
       ]
     },
-    "currency": {
+    "recipient": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reversals": {
+      "items": {
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "reversed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "source_transaction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_descriptor": {
       "type": [
         "null",
         "string"
@@ -140,22 +146,16 @@
         "string"
       ]
     },
-    "arrival_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "updated": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "updated_by_event_type": {
+      "type": [
+        "null",
+        "string"
       ]
     }
   },

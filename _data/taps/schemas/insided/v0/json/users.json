@@ -1,127 +1,69 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "userid": {
-      "type": [
-        "string"
-      ]
-    },
-    "usergroupid": {
+    "_related": {
+      "additionalProperties": false,
+      "properties": {
+        "_related": {
+          "additionalProperties": false,
+          "properties": {
+            "userprofilefields": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "profilefield_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "profilefieldid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "userid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "membergroupids": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "displaygroupid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "username": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "posts": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "deleted_posts": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "options": {
-      "type": [
-        "null",
-        "integer"
+        "object"
       ]
     },
     "autosubscribe": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "customoptions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "topics": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "solved": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ipaddress": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "usertitle": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "customtitle": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "pmunread": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "subscriptions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "pmtotal": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "following": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "followers": {
       "type": [
         "null",
         "integer"
@@ -133,13 +75,85 @@
         "string"
       ]
     },
-    "signature": {
+    "blogposts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdn": {
       "type": [
         "null",
         "string"
       ]
     },
-    "lastvisit": {
+    "crudListCacheDependencyKey": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customoptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customtitle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted_posts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "displaygroupid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "followers": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "following": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "insided_sso_customeruid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ipaddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_moderator": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "joindate": {
       "type": [
         "null",
         "date-time"
@@ -151,10 +165,10 @@
         "date-time"
       ]
     },
-    "insided_sso_customeruid": {
+    "lastpost": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "lastpostid": {
@@ -163,13 +177,7 @@
         "string"
       ]
     },
-    "lastpost": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "joindate": {
+    "lastvisit": {
       "type": [
         "null",
         "date-time"
@@ -187,22 +195,34 @@
         "integer"
       ]
     },
-    "rank_id": {
+    "membergroupids": {
       "type": [
         "null",
         "string"
       ]
     },
-    "rank_name": {
+    "options": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "rank_display_name": {
+    "pmtotal": {
       "type": [
         "null",
-        "string"
+        "integer"
+      ]
+    },
+    "pmunread": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "posts": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "rank_avatar_icon": {
@@ -217,25 +237,25 @@
         "string"
       ]
     },
-    "is_moderator": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cdn": {
+    "rank_display_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "blogposts": {
+    "rank_id": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "researches": {
+    "rank_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ratingcount": {
       "type": [
         "null",
         "integer"
@@ -247,85 +267,65 @@
         "integer"
       ]
     },
+    "researches": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "reviewcount": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "ratingcount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "crudListCacheDependencyKey": {
+    "signature": {
       "type": [
         "null",
         "string"
       ]
     },
-    "_related": {
+    "solved": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "_related": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "userprofilefields": {
-              "type": [
-                "null",
-                "array"
-              ],
-              "items": {
-                "type": [
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "id": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "userid": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "profilefieldid": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "value": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "profilefield_name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+        "integer"
+      ]
+    },
+    "subscriptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "topics": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "usergroupid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "userid": {
+      "type": [
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usertitle": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

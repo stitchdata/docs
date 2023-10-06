@@ -1,21 +1,77 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "campaign_parameter": {
       "type": [
-        "integer"
+        "null",
+        "string"
       ]
     },
-    "visitor_id": {
+    "content_parameter": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "duration_in_seconds": {
       "type": [
         "null",
         "integer"
       ]
     },
+    "first_visitor_page_view_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "last_visitor_page_view_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "medium_parameter": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "prospect_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "source_parameter": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "term_parameter": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "visitor_id": {
       "type": [
         "null",
         "integer"
@@ -28,28 +84,10 @@
       ]
     },
     "visitor_page_views": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "visitor_page_view": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
-              "url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "created_at": {
                 "type": [
                   "null",
@@ -66,71 +104,33 @@
                   "null",
                   "string"
                 ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         }
-      }
-    },
-    "first_visitor_page_view_at": {
+      },
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "last_visitor_page_view_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "duration_in_seconds": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "campaign_parameter": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "medium_parameter": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source_parameter": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "content_parameter": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "term_parameter": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
+        "object"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

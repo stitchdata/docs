@@ -1,11 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "aggregation_null_replacement": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "aggregation_type_id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "asset_i_ds_string": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "asset_id": {
@@ -14,22 +25,10 @@
         "integer"
       ]
     },
-    "object_type_id": {
+    "category_id": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "scenario_i_ds_string": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     },
     "conversion_type_id": {
@@ -44,61 +43,19 @@
         "integer"
       ]
     },
-    "is_global": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "aggregation_type_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "formula_type_i_ds_string": {
+    "description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "aggregation_null_replacement": {
+    "enabled_capabilities_string": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
     "excel_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "is_carry_over": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "category_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "is_scalable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "name": {
       "type": [
         "null",
         "string"
@@ -110,7 +67,31 @@
         "integer"
       ]
     },
-    "is_putable": {
+    "format_type_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "formula_type_i_ds_string": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_carry_over": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_global": {
       "type": [
         "null",
         "boolean"
@@ -128,30 +109,49 @@
         "boolean"
       ]
     },
-    "format_type_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "asset_i_ds_string": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "enabled_capabilities_string": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_soft_deleted": {
+    "is_putable": {
       "type": [
         "null",
         "boolean"
-      ],
-      "default": false
+      ]
+    },
+    "is_scalable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "scenario_i_ds_string": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

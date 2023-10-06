@@ -1,86 +1,34 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "git_owner": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_repository": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_html_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_path": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_sha": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_file_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_last_modified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "__sdc_row_number": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "date": {
+    "active": {
       "type": [
         "null",
-        "date"
+        "integer"
       ]
     },
-    "datetime": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "province_state": {
+    "admin_area": {
       "type": [
         "null",
         "string"
       ]
     },
-    "province_state_cleansed": {
+    "combined_key": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "confirmed": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "country_region": {
@@ -95,16 +43,16 @@
         "string"
       ]
     },
-    "last_update": {
+    "date": {
+      "type": [
+        "null",
+        "date"
+      ]
+    },
+    "datetime": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "confirmed": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "deaths": {
@@ -113,45 +61,55 @@
         "integer"
       ]
     },
-    "recovered": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "latitude": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-10
-    },
-    "longitude": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-10
-    },
-    "active": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "combined_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "fips": {
       "type": [
         "null",
         "string"
       ]
     },
-    "admin_area": {
+    "git_file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_last_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_sha": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_url": {
       "type": [
         "null",
         "string"
@@ -162,6 +120,48 @@
         "null",
         "boolean"
       ]
+    },
+    "last_update": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "latitude": {
+      "multipleOf": 1e-10,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "longitude": {
+      "multipleOf": 1e-10,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "province_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "province_state_cleansed": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recovered": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,19 +1,21 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "use_case": {
+    "abm_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "eid": {
+    "adgroups": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
     },
     "advertisable": {
@@ -28,67 +30,13 @@
         "string"
       ]
     },
-    "is_apple": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "facebook_campaign_objective": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_coop": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "abm_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "bid_strategy_target": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_retargeting": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "cpc": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "spend_limit_until": {
+    "bid_type": {
       "type": [
         "null",
         "string"
@@ -100,19 +48,43 @@
         "number"
       ]
     },
-    "is_facebook": {
+    "campaign_type": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
-    "ui_budget_daily": {
+    "cpc": {
       "type": [
         "null",
-        "boolean"
+        "number"
       ]
     },
-    "bid_type": {
+    "cpm": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "eid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "facebook_campaign_objective": {
       "type": [
         "null",
         "string"
@@ -124,58 +96,16 @@
         "string"
       ]
     },
-    "is_fbx_newsfeed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "cpm": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "is_pubgraph": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "is_active": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "adgroups": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "campaign_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_fb_lookalike": {
+    "is_apple": {
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "created_date": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "is_cats4gold": {
@@ -184,7 +114,19 @@
         "boolean"
       ]
     },
-    "is_rtb": {
+    "is_coop": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_facebook": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_fb_lookalike": {
       "type": [
         "null",
         "boolean"
@@ -196,13 +138,73 @@
         "boolean"
       ]
     },
-    "updated_date": {
+    "is_fbx_newsfeed": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
       ]
     },
-    "end_date": {
+    "is_pubgraph": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_retargeting": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_rtb": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "max_cpm": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pa_sales_stage_eid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pricing_strategies": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "spend_limit_until": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_date": {
       "type": [
         "null",
         "date-time"
@@ -214,29 +216,27 @@
         "string"
       ]
     },
-    "max_cpm": {
+    "ui_budget_daily": {
       "type": [
         "null",
-        "number"
+        "boolean"
       ]
     },
-    "pa_sales_stage_eid": {
+    "updated_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "use_case": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "pricing_strategies": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

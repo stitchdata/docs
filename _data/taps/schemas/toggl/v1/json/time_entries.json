@@ -1,19 +1,82 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "billable": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "client": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cur": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dur": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "end": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
+    "is_billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "pid": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "project": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "tags": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "task": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "tid": {
@@ -28,40 +91,10 @@
         "integer"
       ]
     },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "dur": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "user": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "use_stop": {
@@ -70,48 +103,15 @@
         "boolean"
       ]
     },
-    "client": {
+    "user": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "project": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "task": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "billable": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "is_billable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "cur": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tags": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

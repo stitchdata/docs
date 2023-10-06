@@ -1,22 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "username": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "email": {
+    "accessRole": {
       "type": [
         "string",
         "null"
@@ -34,7 +18,22 @@
         "null"
       ]
     },
-    "accessRole": {
+    "email": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "externalDirectoryId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
       "type": [
         "string",
         "null"
@@ -46,11 +45,12 @@
         "null"
       ]
     },
-    "externalDirectoryId": {
+    "username": {
       "type": [
         "string",
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

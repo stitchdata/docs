@@ -1,10 +1,12 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "giftCardHistoryId": {
+    "checkDetailId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "checkId": {
       "type": [
         "null",
         "integer"
@@ -16,37 +18,7 @@
         "integer"
       ]
     },
-    "userId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "points": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "checkId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "checkDetailId": {
+    "giftCardHistoryId": {
       "type": [
         "null",
         "integer"
@@ -58,11 +30,39 @@
         "string"
       ]
     },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "points": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "transactionDate": {
       "type": [
         "null",
         "date-time"
       ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "userId": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

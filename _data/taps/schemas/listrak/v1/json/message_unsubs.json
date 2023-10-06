@@ -1,9 +1,10 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "MsgID": {
+    "AdditionDate": {
       "type": [
-        "integer"
+        "null",
+        "string"
       ]
     },
     "ContactID": {
@@ -18,10 +19,9 @@
         "string"
       ]
     },
-    "AdditionDate": {
+    "MsgID": {
       "type": [
-        "null",
-        "string"
+        "integer"
       ]
     },
     "RemovalDate": {
@@ -37,5 +37,5 @@
       ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

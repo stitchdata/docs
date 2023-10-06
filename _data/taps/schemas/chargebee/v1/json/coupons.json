@@ -1,80 +1,22 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "addon_constraint": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "addon_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "invoice_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "discount_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "discount_percentage": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "discount_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "currency_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "duration_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "valid_till": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "duration_month": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "max_redemptions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "apply_discount_on": {
@@ -89,16 +31,10 @@
         "string"
       ]
     },
-    "plan_constraint": {
+    "archived_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "addon_constraint": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "created_at": {
@@ -107,28 +43,88 @@
         "date-time"
       ]
     },
-    "archived_at": {
+    "currency_code": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "resource_version": {
+    "discount_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "discount_percentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "discount_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration_month": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "updated_at": {
+    "duration_type": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "included_in_mrr": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "invoice_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice_notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "max_redemptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "meta_data": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "period": {
@@ -143,10 +139,22 @@
         "string"
       ]
     },
-    "object": {
+    "plan_constraint": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "plan_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "redemptions": {
@@ -155,41 +163,33 @@
         "integer"
       ]
     },
-    "plan_ids": {
+    "resource_version": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+        "integer"
+      ]
     },
-    "addon_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "invoice_notes": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "meta_data": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
+      ]
+    },
+    "valid_till": {
+      "type": [
+        "null",
+        "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,151 +1,148 @@
 {
-  "type": "object",
   "properties": {
     "BackgroundColor": {
+      "description": "Indicates background color of content area",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates background color of content area"
+      ]
     },
     "BorderColor": {
+      "description": "Indicates color of border surrounding content area",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates color of border surrounding content area"
+      ]
     },
     "BorderWidth": {
+      "description": "Indicates pixel width of border surrounding content area",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Indicates pixel width of border surrounding content area"
+      ]
     },
     "CategoryID": {
+      "description": "Specifies the identifier of the folder.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Specifies the identifier of the folder."
+      ]
     },
     "Cellpadding": {
+      "description": "Indicates pixel value of padding around content area",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Indicates pixel value of padding around content area"
+      ]
     },
     "Cellspacing": {
+      "description": "Indicates pixel value of spacing for content area",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Indicates pixel value of spacing for content area"
+      ]
     },
     "Content": {
+      "description": "Identifies content contained in a content area.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Identifies content contained in a content area."
+      ]
     },
     "CreatedDate": {
+      "description": "Read-only date and time of the object's creation.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Read-only date and time of the object's creation."
+      ]
     },
     "CustomerKey": {
+      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface).",
       "type": [
         "null",
         "string"
-      ],
-      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface)."
+      ]
     },
     "FontFamily": {
+      "description": "Indicates font family used in content area",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates font family used in content area"
+      ]
     },
     "HasFontSize": {
+      "description": "Indicates whether the content area includes a specified font size or not",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates whether the content area includes a specified font size or not"
+      ]
     },
     "ID": {
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+      ]
     },
     "IsBlank": {
+      "description": "Indicates if specified content area contains no content.",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates if specified content area contains no content."
+      ]
     },
     "IsDynamicContent": {
+      "description": "Indicates if specific content area contains dynamic content.",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates if specific content area contains dynamic content."
+      ]
     },
     "IsLocked": {
+      "description": "Indicates if specific email content area within an Enterprise or Enterprise 2.0 account is locked and cannot be changed by subaccounts.",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates if specific email content area within an Enterprise or Enterprise 2.0 account is locked and cannot be changed by subaccounts."
+      ]
     },
     "IsSurvey": {
+      "description": "Indicates whether a specific content area contains survey questions.",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates whether a specific content area contains survey questions."
+      ]
     },
     "Key": {
+      "description": "Specifies key associated with content area in HTML body. Relates to the Email object via a custom type.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Specifies key associated with content area in HTML body. Relates to the Email object via a custom type."
+      ]
     },
     "ModifiedDate": {
+      "description": "Indicates the last time object information was modified.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates the last time object information was modified."
+      ]
     },
     "Name": {
+      "description": "Name of the object or property.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Name of the object or property."
+      ]
     },
     "ObjectID": {
+      "description": "System-controlled, read-only text string identifier for object.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "System-controlled, read-only text string identifier for object."
+      ]
     },
     "PartnerProperties": {
-      "type": "array",
       "description": "Specifies key-value pairs of properties associated with an object.",
       "items": {
-        "type": "object",
         "properties": {
           "Name": {
             "type": [
@@ -159,15 +156,18 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "Width": {
+      "description": "Indicates pixel width of content area",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Indicates pixel width of content area"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,397 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "migration_event_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "transaction_details": {
+    "account_balances": {
+      "additionalProperties": false,
+      "properties": {
+        "total_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "transaction_channel_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "transaction_channel_key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "payment_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "payment_identification": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "end_to_end_identification": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "instruction_identification": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "transaction_identification": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "payment_type_information": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "service_level": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "code": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "debtor": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "debtor_agent": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "financial_institution_identification": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "bic": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "debtor_account": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "identification": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "iban": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "other": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "identification": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "scheme": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "creditor": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "creditor_agent": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "financial_institution_identification": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "bic": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "creditor_account": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "identification": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "iban": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "other": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "identification": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "scheme": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "remittance_information": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "structured": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "creditor_reference_information": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "reference": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "reference_issuer": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "reference_type": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            "unstructured": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "fees": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "trigger": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tax_amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "predefined_fee_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
       ]
     },
-    "notes": {
+    "adjustment_transaction_key": {
       "type": [
         "null",
         "string"
       ]
     },
     "affected_amounts": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "fees_amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "overdraft_interest_amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "overdraft_fees_amount": {
           "type": [
             "null",
             "number"
@@ -403,13 +37,7 @@
             "number"
           ]
         },
-        "technical_overdraft_amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "overdraft_amount": {
+        "funds_amount": {
           "type": [
             "null",
             "number"
@@ -421,31 +49,67 @@
             "number"
           ]
         },
-        "technical_overdraft_interest_amount": {
+        "overdraft_amount": {
           "type": [
             "null",
             "number"
           ]
         },
-        "funds_amount": {
+        "overdraft_fees_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "overdraft_interest_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "technical_overdraft_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "technical_overdraft_interest_amount": {
           "type": [
             "null",
             "number"
           ]
         }
-      }
-    },
-    "card_transaction": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "booking_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "card_transaction": {
       "additionalProperties": false,
       "properties": {
-        "external_reference_id": {
+        "advice": {
           "type": [
             "null",
-            "string"
+            "boolean"
           ]
         },
         "amount": {
@@ -454,26 +118,10 @@
             "number"
           ]
         },
-        "advice": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "external_authorization_reference_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "card_acceptor": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
-            "zip": {
+            "city": {
               "type": [
                 "null",
                 "string"
@@ -485,10 +133,10 @@
                 "string"
               ]
             },
-            "city": {
+            "mcc": {
               "type": [
                 "null",
-                "string"
+                "integer"
               ]
             },
             "name": {
@@ -503,21 +151,19 @@
                 "string"
               ]
             },
-            "mcc": {
+            "zip": {
               "type": [
                 "null",
-                "integer"
+                "string"
               ]
             }
-          }
-        },
-        "encoded_key": {
+          },
           "type": [
             "null",
-            "string"
+            "object"
           ]
         },
-        "user_transaction_time": {
+        "card_token": {
           "type": [
             "null",
             "string"
@@ -529,164 +175,34 @@
             "string"
           ]
         },
-        "card_token": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "taxes": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "tax_rate": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1000000000000000,
-          "maximum": 1000000000000000
-        }
-      }
-    },
-    "till_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "adjustment_transaction_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "branch_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "terms": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "interest_settings": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "interest_rate": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "minimum": -1000000000000000,
-              "maximum": 1000000000000000
-            }
-          }
-        },
-        "overdraft_settings": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "overdraft_limit": {
-              "type": [
-                "null",
-                "number"
-              ]
-            }
-          }
-        },
-        "overdraft_interest_settings": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "interest_rate": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "minimum": -1000000000000000,
-              "maximum": 1000000000000000
-            },
-            "index_interest_rate": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "minimum": -1000000000000000,
-              "maximum": 1000000000000000
-            }
-          }
-        }
-      }
-    },
-    "transfer_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "linked_loan_transaction_key": {
+        "encoded_key": {
           "type": [
             "null",
             "string"
           ]
         },
-        "linked_deposit_transaction_key": {
+        "external_authorization_reference_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "external_reference_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_transaction_time": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "encoded_key": {
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "original_transaction_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "amount": {
-      "type": [
-        "null",
-        "number"
+        "object"
       ]
     },
     "centre_key": {
@@ -695,58 +211,7 @@
         "string"
       ]
     },
-    "external_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "value_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "user_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "parent_account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "linked_loan_transaction_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_balances": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "total_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "booking_date": {
       "type": [
         "null",
         "date-time"
@@ -761,9 +226,7 @@
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "field_set_id": {
@@ -784,13 +247,550 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fees": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "predefined_fee_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tax_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "trigger": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "linked_loan_transaction_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "migration_event_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_transaction_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_details": {
+      "additionalProperties": false,
+      "properties": {
+        "creditor": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "creditor_account": {
+          "additionalProperties": false,
+          "properties": {
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "identification": {
+              "additionalProperties": false,
+              "properties": {
+                "iban": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "other": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "identification": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "scheme": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "creditor_agent": {
+          "additionalProperties": false,
+          "properties": {
+            "financial_institution_identification": {
+              "additionalProperties": false,
+              "properties": {
+                "bic": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "debtor": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "debtor_account": {
+          "additionalProperties": false,
+          "properties": {
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "identification": {
+              "additionalProperties": false,
+              "properties": {
+                "iban": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "other": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "identification": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "scheme": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "debtor_agent": {
+          "additionalProperties": false,
+          "properties": {
+            "financial_institution_identification": {
+              "additionalProperties": false,
+              "properties": {
+                "bic": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "payment_identification": {
+          "additionalProperties": false,
+          "properties": {
+            "end_to_end_identification": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "instruction_identification": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transaction_identification": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "payment_type_information": {
+          "additionalProperties": false,
+          "properties": {
+            "service_level": {
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "remittance_information": {
+          "additionalProperties": false,
+          "properties": {
+            "structured": {
+              "additionalProperties": false,
+              "properties": {
+                "creditor_reference_information": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "reference": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "reference_issuer": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "reference_type": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "unstructured": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "taxes": {
+      "additionalProperties": false,
+      "properties": {
+        "tax_rate": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "terms": {
+      "additionalProperties": false,
+      "properties": {
+        "interest_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "interest_rate": {
+              "maximum": 1000000000000000,
+              "minimum": -1000000000000000,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "overdraft_interest_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "index_interest_rate": {
+              "maximum": 1000000000000000,
+              "minimum": -1000000000000000,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "interest_rate": {
+              "maximum": 1000000000000000,
+              "minimum": -1000000000000000,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "overdraft_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "overdraft_limit": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "till_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_details": {
+      "additionalProperties": false,
+      "properties": {
+        "transaction_channel_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transaction_channel_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "transfer_details": {
+      "additionalProperties": false,
+      "properties": {
+        "linked_deposit_transaction_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "linked_loan_transaction_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

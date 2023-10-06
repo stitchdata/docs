@@ -1,13 +1,35 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "hub": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "managers": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tasks": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
       ]
     },
     "timeCreated": {
@@ -22,38 +44,16 @@
         "date-time"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "workers": {
+      "items": {},
       "type": [
         "null",
         "array"
-      ],
-      "items": {}
-    },
-    "managers": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "hub": {
-      "type": [
-        "null",
-        "string"
       ]
-    },
-    "tasks": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

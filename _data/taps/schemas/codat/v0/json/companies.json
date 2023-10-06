@@ -1,8 +1,17 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "lastSync": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "name": {
       "type": [
         "null",
@@ -15,20 +24,9 @@
         "string"
       ]
     },
-    "lastSync": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "redirect": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
         "string"
       ]
     },
@@ -39,5 +37,7 @@
       ]
     }
   },
-  "additionalProperties": true
+  "type": [
+    "object"
+  ]
 }

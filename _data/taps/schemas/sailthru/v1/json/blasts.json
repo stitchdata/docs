@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
     "blast_id": {
       "type": [
@@ -10,16 +6,22 @@
         "integer"
       ]
     },
-    "name": {
+    "copy_template": {
       "type": [
         "null",
         "string"
       ]
     },
-    "subject": {
+    "data_feed_url": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "email_count": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "list": {
@@ -34,37 +36,53 @@
         "string"
       ]
     },
+    "modify_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "modify_user": {
       "type": [
         "null",
         "string"
       ]
     },
-    "copy_template": {
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "stats": {
+    "schedule_time": {
       "type": [
         "null",
-        "object"
-      ],
+        "date-time"
+      ]
+    },
+    "sent_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "stats": {
       "properties": {
         "total": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
-            "count": {
+            "beacon_noclick": {
               "type": [
                 "null",
                 "integer"
               ]
             },
-            "beacon_noclick": {
+            "count": {
               "type": [
                 "null",
                 "integer"
@@ -82,14 +100,16 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "sent_count": {
+      },
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
     "status": {
@@ -98,35 +118,15 @@
         "string"
       ]
     },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modify_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "schedule_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "email_count": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "data_feed_url": {
+    "subject": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

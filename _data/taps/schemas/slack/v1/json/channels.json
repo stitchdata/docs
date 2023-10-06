@@ -1,23 +1,49 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
+    "channel_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creator": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "is_archived": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "is_channel": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_ext_shared": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_general": {
       "type": [
         "null",
         "boolean"
@@ -35,49 +61,13 @@
         "boolean"
       ]
     },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "creator": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_archived": {
+    "is_member": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "is_general": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "unlinked": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "name_normalized": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_shared": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_ext_shared": {
+    "is_mpim": {
       "type": [
         "null",
         "boolean"
@@ -95,129 +85,41 @@
         "boolean"
       ]
     },
-    "shared_team_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "pending_shared": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "pending_connected_team_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "parent_conversation": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_member": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "is_private": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "is_mpim": {
+    "is_shared": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "topic": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "creator": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_set": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "purpose": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "creator": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_set": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "previous_names": {
-      "type": [
-        "null",
-        "array"
-      ],
+    "members": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name_normalized": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "num_members": {
       "type": [
@@ -225,23 +127,121 @@
         "integer"
       ]
     },
-    "members": {
+    "parent_conversation": {
       "type": [
         "null",
-        "array"
-      ],
+        "string"
+      ]
+    },
+    "pending_connected_team_ids": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "channel_id": {
+      },
       "type": [
         "null",
-        "string"
+        "array"
+      ]
+    },
+    "pending_shared": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "previous_names": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "purpose": {
+      "properties": {
+        "creator": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_set": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "shared_team_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "topic": {
+      "properties": {
+        "creator": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_set": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "unlinked": {
+      "type": [
+        "null",
+        "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

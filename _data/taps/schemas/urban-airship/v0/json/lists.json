@@ -1,8 +1,16 @@
 {
-  "type": "object",
   "properties": {
-    "name": {
-      "type": "string"
+    "channel_count": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "created": {
+      "type": [
+        "date-time",
+        "null"
+      ]
     },
     "description": {
       "type": [
@@ -16,9 +24,7 @@
           "type": "null"
         },
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "properties": {
               "key": {
                 "type": "string"
@@ -29,15 +35,11 @@
                   "null"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         }
-      ]
-    },
-    "created": {
-      "type": [
-        "date-time",
-        "null"
       ]
     },
     "last_modified": {
@@ -46,11 +48,8 @@
         "null"
       ]
     },
-    "channel_count": {
-      "type": [
-        "integer",
-        "null"
-      ]
+    "name": {
+      "type": "string"
     },
     "status": {
       "type": [
@@ -58,5 +57,6 @@
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

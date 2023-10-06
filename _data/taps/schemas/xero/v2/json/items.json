@@ -1,30 +1,22 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "ItemID": {
-      "type": [
-        "string"
-      ]
-    },
     "Code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "Name": {
+    "Description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "IsSold": {
+    "InventoryAssetAccountCode": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
     "IsPurchased": {
@@ -33,7 +25,24 @@
         "boolean"
       ]
     },
-    "Description": {
+    "IsSold": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "IsTrackedAsInventory": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ItemID": {
+      "type": [
+        "string"
+      ]
+    },
+    "Name": {
       "type": [
         "null",
         "string"
@@ -46,8 +55,9 @@
       ]
     },
     "PurchaseDetails": {
+      "additionalProperties": false,
       "properties": {
-        "TaxType": {
+        "AccountCode": {
           "type": [
             "null",
             "string"
@@ -59,32 +69,6 @@
             "string"
           ]
         },
-        "UnitPrice": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "AccountCode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false
-    },
-    "SalesDetails": {
-      "properties": {
         "TaxType": {
           "type": [
             "null",
@@ -92,48 +76,61 @@
           ]
         },
         "UnitPrice": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
           "type": [
             "null",
             "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "AccountCode": {
-          "type": [
-            "null",
-            "string"
           ]
         }
       },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false
-    },
-    "IsTrackedAsInventory": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
-    "InventoryAssetAccountCode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TotalCostPool": {
+    "QuantityOnHand": {
       "type": [
         "null",
         "number"
       ]
     },
-    "QuantityOnHand": {
+    "SalesDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "AccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UnitPrice": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "TotalCostPool": {
       "type": [
         "null",
         "number"
@@ -146,5 +143,8 @@
       ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

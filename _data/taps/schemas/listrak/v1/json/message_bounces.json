@@ -1,9 +1,28 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "MsgID": {
+    "BounceCount": {
       "type": [
+        "null",
         "integer"
+      ]
+    },
+    "BounceDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "BounceDetail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "BounceReason": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "ContactID": {
@@ -18,30 +37,11 @@
         "string"
       ]
     },
-    "BounceReason": {
+    "MsgID": {
       "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BounceDetail": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BounceDate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BounceCount": {
-      "type": [
-        "null",
         "integer"
       ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

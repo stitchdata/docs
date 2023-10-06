@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "agent_number": {
@@ -23,10 +22,6 @@
     "channels": {
       "anyOf": [
         {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
             "channel_type": {
               "type": [
@@ -90,7 +85,11 @@
                 "object"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
         {
           "type": "null"
@@ -166,13 +165,13 @@
     "roles": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -220,12 +219,7 @@
     "teams": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "agents_count": {
@@ -264,8 +258,13 @@
                   "integer"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -278,5 +277,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

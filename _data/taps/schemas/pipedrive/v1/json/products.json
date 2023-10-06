@@ -1,13 +1,15 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "name": {
+    "active_flag": {
       "type": [
         "null",
-        "string"
+        "boolean"
+      ]
+    },
+    "add_time": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "code": {
@@ -16,28 +18,10 @@
         "string"
       ]
     },
-    "unit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tax": {
+    "files_count": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "active_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "selectable": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "first_char": {
@@ -46,7 +30,16 @@
         "string"
       ]
     },
-    "visible_to": {
+    "followers_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -58,44 +51,44 @@
         "integer"
       ]
     },
-    "files_count": {
+    "owner_name": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "followers_count": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "add_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "update_time": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "prices": {
-      "type": [
-        "null",
-        "object",
-        "array"
-      ],
       "items": {
         "type": "object"
       },
       "properties": {
         "USD": {
-          "type": "object",
           "properties": {
+            "cost": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
             "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "overhead_cost": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "price": {
               "type": [
                 "null",
                 "integer"
@@ -106,40 +99,47 @@
                 "null",
                 "integer"
               ]
-            },
-            "price": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "cost": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "overhead_cost": {
-              "type": [
-                "null",
-                "number"
-              ]
             }
-          }
+          },
+          "type": "object"
         }
-      }
+      },
+      "type": [
+        "null",
+        "object",
+        "array"
+      ]
     },
-    "owner_name": {
+    "selectable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tax": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "visible_to": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

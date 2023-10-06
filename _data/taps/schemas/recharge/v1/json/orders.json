@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "address_id": {
@@ -15,10 +14,6 @@
       ]
     },
     "billing_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "address1": {
@@ -81,7 +76,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "charge_id": {
       "type": [
@@ -110,9 +109,7 @@
     "discount_codes": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "amount": {
@@ -133,8 +130,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -180,9 +179,7 @@
     "line_items": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "grams": {
@@ -192,10 +189,6 @@
                 ]
               },
               "images": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "additionalProperties": false,
                 "properties": {
                   "large": {
@@ -222,21 +215,23 @@
                       "string"
                     ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               },
               "price": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               },
               "properties": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "name": {
@@ -251,8 +246,10 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
@@ -301,8 +298,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -318,9 +317,7 @@
     "note_attributes": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "name": {
@@ -335,8 +332,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -368,10 +367,6 @@
       ]
     },
     "shipping_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "address1": {
@@ -434,7 +429,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "shipping_date": {
       "type": [
@@ -445,9 +444,7 @@
     "shipping_lines": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "code": {
@@ -468,8 +465,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -527,9 +526,7 @@
     "tax_lines": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "code": {
@@ -550,8 +547,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -559,18 +558,18 @@
       ]
     },
     "total_discounts": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "total_line_items_price": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "total_price": {
       "type": [
@@ -579,18 +578,18 @@
       ]
     },
     "total_refunds": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "total_tax": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "total_weight": {
       "type": [
@@ -616,5 +615,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

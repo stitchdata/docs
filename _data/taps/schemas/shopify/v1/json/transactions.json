@@ -1,45 +1,9 @@
 {
   "properties": {
-    "error_code": {
+    "admin_graphql_api_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "device_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "parent_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "test": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "kind": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "order_id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "amount": {
@@ -54,19 +18,31 @@
         "string"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "currency": {
       "type": [
         "null",
         "string"
       ]
     },
-    "source_name": {
+    "device_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "error_code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "message": {
+    "gateway": {
       "type": [
         "null",
         "string"
@@ -78,21 +54,39 @@
         "integer"
       ]
     },
-    "created_at": {
+    "kind": {
       "type": [
         "null",
         "string"
       ]
     },
-    "status": {
+    "location_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "message": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "parent_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "payment_details": {
       "properties": {
-        "cvv_result_code": {
+        "avs_result_code": {
           "type": [
             "null",
             "string"
@@ -140,7 +134,7 @@
             "string"
           ]
         },
-        "avs_result_code": {
+        "cvv_result_code": {
           "type": [
             "null",
             "string"
@@ -152,23 +146,42 @@
         "object"
       ]
     },
-    "gateway": {
+    "payment_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "admin_graphql_api_id": {
+    "payments_refund_attributes": {
+      "properties": {
+        "acquirer_reference_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "processed_at": {
       "type": [
         "null",
         "string"
       ]
     },
     "receipt": {
-      "type": [
-        "null",
-        "object"
-      ],
+      "patternProperties": {
+        ".+": {}
+      },
       "properties": {
         "fee_amount": {
           "type": [
@@ -189,95 +202,82 @@
           ]
         }
       },
-      "patternProperties": {
-        ".+": {}
-      }
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "location_id": {
+    "source_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "total_unsettled_set": {
+      "properties": {
+        "presentment_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "shop_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "user_id": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "processed_at": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "payments_refund_attributes": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "acquirer_reference_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "payment_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "total_unsettled_set": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "presentment_money": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "amount": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "shop_money": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "amount": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
     }
   },
   "type": "object"

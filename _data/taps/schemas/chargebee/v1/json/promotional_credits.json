@@ -1,28 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "customer_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "amount": {
       "type": [
         "null",
@@ -35,7 +13,31 @@
         "string"
       ]
     },
+    "closing_balance": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "credit_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_id": {
       "type": [
         "null",
         "string"
@@ -47,7 +49,19 @@
         "string"
       ]
     },
-    "credit_type": {
+    "done_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
       "type": [
         "null",
         "string"
@@ -59,29 +73,15 @@
         "string"
       ]
     },
-    "closing_balance": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "done_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "object": {
+    "type": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,32 +1,19 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
+    "AverageOrderValue": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "ClickCount": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "SendDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "OrderTotal": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "RemovePercent": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "RemoveCount": {
+    "ClickerCount": {
       "type": [
         "null",
         "integer"
@@ -38,25 +25,13 @@
         "number"
       ]
     },
-    "DeliverCount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ReadCount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "Subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "ConversionCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "DeliverCount": {
       "type": [
         "null",
         "integer"
@@ -65,6 +40,11 @@
     "ListID": {
       "type": [
         "null",
+        "integer"
+      ]
+    },
+    "MsgID": {
+      "type": [
         "integer"
       ]
     },
@@ -86,18 +66,13 @@
         "number"
       ]
     },
-    "RepeatClickerCount": {
+    "OrderTotal": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
-    "MsgID": {
-      "type": [
-        "integer"
-      ]
-    },
-    "ClickerCount": {
+    "ReadCount": {
       "type": [
         "null",
         "integer"
@@ -109,11 +84,36 @@
         "number"
       ]
     },
-    "AverageOrderValue": {
+    "RemoveCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "RemovePercent": {
       "type": [
         "null",
         "number"
       ]
+    },
+    "RepeatClickerCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "SendDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Subject": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,7 +1,329 @@
 {
-  "title": "Change History",
-  "type": "object",
+  "definitions": {
+    "history-metadata-participant": {
+      "properties": {
+        "avatarUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "displayNameKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "History Metadata Participant",
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
   "properties": {
+    "author": {
+      "properties": {
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "historyMetadata": {
+      "properties": {
+        "activityDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "activityDescriptionKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "actor": {
+          "properties": {
+            "avatarUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayNameKey": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "title": "History Metadata Participant",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "cause": {
+          "properties": {
+            "avatarUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayNameKey": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "title": "History Metadata Participant",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "descriptionKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailDescriptionKey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "extraData": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "generator": {
+          "properties": {
+            "avatarUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "displayNameKey": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "title": "History Metadata Participant",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "History Metadata",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -14,94 +336,8 @@
         "string"
       ]
     },
-    "author": {
-      "title": "User",
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "timeZone": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "items": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "title": "Change Item",
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "field": {
             "type": [
@@ -109,13 +345,13 @@
               "string"
             ]
           },
-          "fieldtype": {
+          "fieldId": {
             "type": [
               "null",
               "string"
             ]
           },
-          "fieldId": {
+          "fieldtype": {
             "type": [
               "null",
               "string"
@@ -145,255 +381,19 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "historyMetadata": {
-      "title": "History Metadata",
+        },
+        "title": "Change Item",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "descriptionKey": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "activityDescription": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "activityDescriptionKey": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailDescription": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailDescriptionKey": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "actor": {
-          "title": "History Metadata Participant",
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "displayName": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "displayNameKey": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "avatarUrl": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "url": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "generator": {
-          "title": "History Metadata Participant",
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "displayName": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "displayNameKey": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "avatarUrl": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "url": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "cause": {
-          "title": "History Metadata Participant",
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "displayName": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "displayNameKey": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "avatarUrl": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "url": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "extraData": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
+        "array"
+      ]
     }
   },
-  "definitions": {
-    "history-metadata-participant": {
-      "title": "History Metadata Participant",
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "displayNameKey": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrl": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    }
-  }
+  "title": "Change History",
+  "type": "object"
 }

@@ -1,6 +1,47 @@
 {
-  "type": "object",
   "properties": {
+    "billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "budget": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deactivated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "estimate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "hourly_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "project_id": {
       "type": [
         "null",
@@ -13,53 +54,12 @@
         "integer"
       ]
     },
-    "billable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "deactivated": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "hourly_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "budget": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "estimate": {
-      "type": [
-        "null",
-        "number"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

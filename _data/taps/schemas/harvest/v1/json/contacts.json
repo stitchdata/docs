@@ -1,28 +1,15 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "client_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "first_name": {
+    "created_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "email": {
@@ -31,7 +18,25 @@
         "string"
       ]
     },
-    "phone_office": {
+    "fax": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
       "type": [
         "null",
         "string"
@@ -43,7 +48,7 @@
         "string"
       ]
     },
-    "fax": {
+    "phone_office": {
       "type": [
         "null",
         "string"
@@ -60,12 +65,7 @@
         "null",
         "date-time"
       ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

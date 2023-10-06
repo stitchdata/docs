@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account": {
@@ -11,30 +7,22 @@
         "string"
       ]
     },
-    "campaign_contact": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "account_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "change_audit_stamps": {
+    "campaign_contact": {
       "type": [
         "null",
-        "object"
-      ],
+        "boolean"
+      ]
+    },
+    "change_audit_stamps": {
       "additionalProperties": false,
       "properties": {
         "created": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -43,13 +31,13 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "last_modified": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -58,9 +46,17 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "created_time": {
       "type": [
@@ -92,5 +88,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

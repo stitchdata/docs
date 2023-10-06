@@ -1,19 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "hash_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "excel_formula": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "currency_code": {
       "type": [
         "null",
@@ -26,19 +13,7 @@
         "integer"
       ]
     },
-    "entity_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "data_value_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "exchange_rate_type": {
       "type": [
         "null",
         "string"
@@ -56,16 +31,40 @@
         "date-time"
       ]
     },
-    "reported_date_value": {
+    "entity_id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
+      ]
+    },
+    "excel_formula": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "exchange_rate_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hash_key": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "period_type": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "reported_date_value": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "request_identifier": {
@@ -104,5 +103,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

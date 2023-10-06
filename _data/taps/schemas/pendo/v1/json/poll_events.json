@@ -1,13 +1,6 @@
 {
   "additional_properties": false,
-  "type": "object",
   "properties": {
-    "app_id": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "account_id": {
       "type": [
         "null",
@@ -17,26 +10,20 @@
     "account_ids": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "poll_id": {
+    "app_id": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "guide_id": {
-      "type": [
-        "null",
-        "string"
+        "number"
       ]
     },
     "browser_time": {
@@ -51,7 +38,7 @@
         "string"
       ]
     },
-    "type": {
+    "guide_id": {
       "type": [
         "null",
         "string"
@@ -75,6 +62,18 @@
         "number"
       ]
     },
+    "poll_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "poll_response": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "region": {
       "type": [
         "null",
@@ -93,6 +92,12 @@
         "string"
       ]
     },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "user_agent": {
       "type": [
         "null",
@@ -104,12 +109,7 @@
         "null",
         "string"
       ]
-    },
-    "poll_response": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

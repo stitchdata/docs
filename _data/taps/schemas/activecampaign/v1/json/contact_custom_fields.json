@@ -1,8 +1,19 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "title": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "cols": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "defval": {
       "type": [
         "null",
         "string"
@@ -14,13 +25,19 @@
         "string"
       ]
     },
-    "type": {
+    "id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "isrequired": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ordernum": {
       "type": [
         "null",
         "integer"
@@ -32,31 +49,7 @@
         "string"
       ]
     },
-    "defval": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "show_in_list": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "rows": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cols": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "visible": {
       "type": [
         "null",
         "integer"
@@ -68,16 +61,22 @@
         "string"
       ]
     },
-    "ordernum": {
+    "show_in_list": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "cdate": {
+    "title": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "udate": {
@@ -86,11 +85,12 @@
         "date-time"
       ]
     },
-    "id": {
+    "visible": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,52 +1,33 @@
 {
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "objective": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "effective_status": {
+    "adlabels": {
+      "items": {
+        "properties": {
+          "created_time": {
+            "type": "date-time"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "updated_time": {
+            "type": "date-time"
+          }
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
-    },
-    "buying_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "spend_cap": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "start_time": {
-      "type": "date-time"
-    },
-    "updated_time": {
-      "type": "date-time"
     },
     "ads": {
       "properties": {
@@ -76,28 +57,47 @@
         "object"
       ]
     },
-    "adlabels": {
+    "buying_type": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "created_time": {
-            "type": "date-time"
-          },
-          "updated_time": {
-            "type": "date-time"
-          }
-        }
-      }
+        "string"
+      ]
+    },
+    "effective_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "objective": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "spend_cap": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "start_time": {
+      "type": "date-time"
+    },
+    "updated_time": {
+      "type": "date-time"
     }
   },
   "type": [

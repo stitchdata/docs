@@ -1,6 +1,12 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -13,11 +19,11 @@
         "string"
       ]
     },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
-      ]
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "updated_at": {
       "type": [
@@ -30,13 +36,7 @@
         "null",
         "integer"
       ]
-    },
-    "roles": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

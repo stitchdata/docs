@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "approvals_before_merge": {
       "type": [
@@ -118,7 +117,6 @@
       ]
     },
     "namespace": {
-      "type": "object",
       "properties": {
         "id": {
           "type": [
@@ -144,7 +142,8 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "only_allow_merge_if_all_discussions_are_resolved": {
       "type": [
@@ -183,12 +182,10 @@
       ]
     },
     "permissions": {
-      "type": "object",
       "properties": {
         "group_access": {
           "anyOf": [
             {
-              "type": "object",
               "properties": {
                 "access_level": {
                   "type": [
@@ -202,7 +199,8 @@
                     "integer"
                   ]
                 }
-              }
+              },
+              "type": "object"
             },
             {
               "type": "null"
@@ -212,7 +210,6 @@
         "project_access": {
           "anyOf": [
             {
-              "type": "object",
               "properties": {
                 "access_level": {
                   "type": [
@@ -226,14 +223,16 @@
                     "integer"
                   ]
                 }
-              }
+              },
+              "type": "object"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "public": {
       "type": [
@@ -262,21 +261,21 @@
     "shared_with_groups": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "properties": {
+              "group_access_level": {
+                "type": "integer"
+              },
               "group_id": {
                 "type": "integer"
               },
               "group_name": {
                 "type": "string"
-              },
-              "group_access_level": {
-                "type": "integer"
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -304,10 +303,10 @@
     "tag_list": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -332,5 +331,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

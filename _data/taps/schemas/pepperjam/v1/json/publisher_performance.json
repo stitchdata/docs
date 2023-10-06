@@ -1,11 +1,27 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "publisher_id": {
+    "bonus_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "clicks": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "date": {
@@ -20,19 +36,24 @@
         "date-time"
       ]
     },
+    "earnings_per_click": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sales": {
       "type": [
         "null",
         "integer"
@@ -44,48 +65,10 @@
         "integer"
       ]
     },
-    "sale_lead_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "earnings_per_click": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "bonus_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "total_commission": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
+    "publisher": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "publisher_bonus": {
@@ -94,8 +77,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -105,9 +88,38 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "publisher_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sale_lead_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "sales": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "site_bonus": {
@@ -116,8 +128,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -127,27 +139,9 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
-      ]
-    },
-    "publisher": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "publisher_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "company": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "state": {
@@ -156,17 +150,23 @@
         "string"
       ]
     },
+    "total_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
     "website": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "group_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

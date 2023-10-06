@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additional_properties": false,
   "properties": {
     "app_id": {
@@ -11,43 +7,11 @@
         "number"
       ]
     },
-    "created_by_user": {
+    "color": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "role": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
+        "string"
+      ]
     },
     "created_at": {
       "type": [
@@ -55,26 +19,15 @@
         "date-time"
       ]
     },
-    "last_updated_by_user": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additional_properties": false,
+    "created_by_user": {
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
           "type": [
             "null",
             "string"
@@ -91,8 +44,163 @@
             "null",
             "integer"
           ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "dirty": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "group": {
+      "additional_properties": false,
+      "properties": {
+        "color": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "created_by_user": {
+          "properties": {
+            "first": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "role": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_updated_by_user": {
+          "properties": {
+            "first": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "role": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "length": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "kind": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "last_updated_at": {
       "type": [
@@ -100,7 +208,46 @@
         "date-time"
       ]
     },
-    "kind": {
+    "last_updated_by_user": {
+      "additional_properties": false,
+      "properties": {
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "role": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -112,180 +259,9 @@
         "string"
       ]
     },
-    "stable_version_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "color": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "group": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additional_properties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "color": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "length": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "created_by_user": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "username": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "first": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "last": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "role": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          }
-        },
-        "created_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "last_updated_by_user": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "username": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "first": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "last": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "role": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          }
-        },
-        "last_updated_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "dirty": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "rules": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "rule": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "designer_hint": {
             "type": [
               "null",
@@ -297,9 +273,33 @@
               "null",
               "string"
             ]
+          },
+          "rule": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "stable_version_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

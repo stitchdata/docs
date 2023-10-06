@@ -1,16 +1,94 @@
 {
   "additionalProperties": false,
   "properties": {
-    "ListID": {
+    "BounceUnsubscribeCount": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "CreateDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "DomainAliasEmail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "DomainAliasLink": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EnableBrowserLink": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "EnableDoubleOptin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "EnableDynamicContent": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "EnableGoogleAnalytics": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "EnableInternationalization": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "EnableListHygiene": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "EnableListRemoveHeader": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "EnableRSS": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "EnableRemovalLink": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "FromEmail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "FromName": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "GoogleTrackingDomains": {
@@ -25,10 +103,10 @@
         "array"
       ]
     },
-    "EnableInternationalization": {
+    "ListID": {
       "type": [
         "null",
-        "boolean"
+        "integer"
       ]
     },
     "ListName": {
@@ -37,31 +115,13 @@
         "string"
       ]
     },
-    "bounceHandling": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "CreateDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "ShowEmailList": {
+    "ShowAdvancedPersonalization": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "BounceUnsubscribeCount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "EnableRSS": {
+    "ShowEmailList": {
       "type": [
         "null",
         "boolean"
@@ -88,70 +148,10 @@
         "object"
       ]
     },
-    "EnableDoubleOptin": {
+    "bounceHandling": {
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "EnableListHygiene": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "DomainAliasLink": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "EnableListRemoveHeader": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "EnableDynamicContent": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "EnableBrowserLink": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "EnableRemovalLink": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "FromName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "FromEmail": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ShowAdvancedPersonalization": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "DomainAliasEmail": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     }
   },

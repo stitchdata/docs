@@ -1,8 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "assignee": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deal_tasktype": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "done_automation": {
       "type": [
         "null",
         "integer"
@@ -20,16 +43,10 @@
         "date-time"
       ]
     },
-    "status": {
+    "id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "note": {
@@ -38,65 +55,7 @@
         "string"
       ]
     },
-    "relid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "reltype": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deal_tasktype": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "udate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "automation": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "done_automation": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "user": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "assignee": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "owner": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -111,7 +70,48 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "relid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reltype": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "udate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

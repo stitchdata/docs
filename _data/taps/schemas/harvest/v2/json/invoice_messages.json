@@ -1,10 +1,89 @@
 {
-  "type": "object",
   "properties": {
+    "attach_pdf": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "event_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "include_link_to_client_invoice": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "invoice_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recipients": {
+      "items": {
+        "properties": {
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "reminder": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "send_me_a_copy": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "send_reminder_on": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "sent_by": {
@@ -37,58 +116,10 @@
         "string"
       ]
     },
-    "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "include_link_to_client_invoice": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "attach_pdf": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "send_me_a_copy": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "thank_you": {
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "event_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reminder": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "send_reminder_on": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_at": {
@@ -96,38 +127,7 @@
         "null",
         "date-time"
       ]
-    },
-    "invoice_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "recipients": {
-      "items": {
-        "properties": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "email": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

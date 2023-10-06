@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "deleted": {
@@ -8,17 +7,18 @@
         "date-time"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "deleted_by": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

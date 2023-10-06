@@ -1,37 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "client_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "billable": {
       "type": [
         "null",
         "boolean"
@@ -43,10 +12,10 @@
         "string"
       ]
     },
-    "hourly_rate": {
+    "billable": {
       "type": [
         "null",
-        "number"
+        "boolean"
       ]
     },
     "budget": {
@@ -61,25 +30,25 @@
         "string"
       ]
     },
-    "notify_when_over_budget": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "over_budget_notification_percetange": {
+    "client_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "over_budget_notified_at": {
+    "code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "show_budget_to_all": {
+    "cost_budget": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cost_budget_include_expenses": {
       "type": [
         "null",
         "boolean"
@@ -89,18 +58,6 @@
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "starts_on": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "ends_on": {
@@ -133,23 +90,66 @@
         "string"
       ]
     },
+    "hourly_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "notes": {
       "type": [
         "null",
         "string"
       ]
     },
-    "cost_budget": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "cost_budget_include_expenses": {
+    "notify_when_over_budget": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "over_budget_notification_percetange": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "over_budget_notified_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "show_budget_to_all": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "starts_on": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

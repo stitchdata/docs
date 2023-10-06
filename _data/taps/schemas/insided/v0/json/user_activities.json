@@ -1,14 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "customer": {
+    "control": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
-    "event_uuid": {
+    "customer": {
       "type": [
         "null",
         "string"
@@ -20,7 +19,13 @@
         "string"
       ]
     },
-    "yip_id": {
+    "event_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "event_uuid": {
       "type": [
         "null",
         "string"
@@ -32,27 +37,19 @@
         "string"
       ]
     },
-    "source": {
+    "pageinfo": {
+      "additionalProperties": false,
+      "properties": {
+        "post_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "time_added": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "event_type": {
-      "type": [
-        "null",
-        "string"
+        "object"
       ]
     },
     "parent_event_type": {
@@ -61,11 +58,30 @@
         "string"
       ]
     },
-    "user": {
+    "source": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "time_added": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "time_processed": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user": {
       "additionalProperties": false,
       "properties": {
         "userid": {
@@ -80,34 +96,18 @@
             "string"
           ]
         }
-      }
-    },
-    "control": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "pageinfo": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "post_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      ]
     },
-    "time_processed": {
+    "yip_id": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "analytics_date": {
@@ -17,28 +13,40 @@
         "string"
       ]
     },
-    "resource_t": {
+    "avg_first_response_p": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "resource_v": {
+    "avg_first_response_v": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "resource_id": {
+    "avg_resolution_p": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
-    "resource_url": {
+    "avg_resolution_v": {
       "type": [
         "null",
-        "string"
+        "number"
+      ]
+    },
+    "avg_response_p": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "avg_response_v": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "num_received_p": {
@@ -65,41 +73,33 @@
         "integer"
       ]
     },
-    "avg_first_response_p": {
+    "resource_id": {
       "type": [
         "null",
-        "number"
+        "integer"
       ]
     },
-    "avg_first_response_v": {
+    "resource_t": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "avg_response_p": {
+    "resource_url": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "avg_response_v": {
+    "resource_v": {
       "type": [
         "null",
-        "number"
-      ]
-    },
-    "avg_resolution_p": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "avg_resolution_v": {
-      "type": [
-        "null",
-        "number"
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

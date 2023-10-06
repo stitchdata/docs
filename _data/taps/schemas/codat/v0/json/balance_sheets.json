@@ -1,19 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
     "companyId": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "object",
         "string"
       ]
     },
@@ -23,17 +13,43 @@
         "string"
       ]
     },
+    "mostRecentAvailableMonth": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "reports": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": true,
         "properties": {
-          "netAssets": {
+          "assets": {
+            "items": {
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
             "type": [
               "null",
-              "number"
+              "array"
             ]
           },
           "date": {
@@ -42,42 +58,14 @@
               "date-time"
             ]
           },
-          "assets": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "object",
-              "properties": {
-                "accountId": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "number"
-                }
-              },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
-          },
           "equity": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": "object",
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
               "properties": {
                 "accountId": {
                   "type": [
@@ -92,21 +80,21 @@
                   "type": "number"
                 }
               },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           },
           "liabilities": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": "object",
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
               "properties": {
                 "accountId": {
                   "type": [
@@ -121,31 +109,43 @@
                   "type": "number"
                 }
               },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "netAssets": {
+            "type": [
+              "null",
+              "number"
+            ]
           }
         },
-        "additionalProperties": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
         "null",
         "array"
       ]
     },
-    "mostRecentAvailableMonth": {
+    "status": {
       "type": [
         "null",
+        "object",
         "string"
       ]
     }
   },
-  "additionalProperties": true,
   "tap_schema_dependencies": [
     "flattened_report"
+  ],
+  "type": [
+    "null",
+    "object"
   ]
 }

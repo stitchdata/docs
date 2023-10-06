@@ -1,14 +1,37 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "contact": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "deal": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "contact": {
+    "id": {
       "type": [
         "null",
         "integer"
@@ -20,16 +43,10 @@
         "string"
       ]
     },
-    "cdate": {
+    "updated_by": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
+        "integer"
       ]
     },
     "updated_timestamp": {
@@ -37,24 +54,7 @@
         "null",
         "date-time"
       ]
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

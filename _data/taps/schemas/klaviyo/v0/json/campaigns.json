@@ -1,110 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "from_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "list_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "template": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "html": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "status_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "num_recipients": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "lists": {},
-    "is_segmented": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "send_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "excluded_lists": {},
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sent_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "campaign_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
       "type": [
         "null",
         "string"
@@ -116,13 +12,87 @@
         "date-time"
       ]
     },
-    "status_label": {
+    "excluded_lists": {},
+    "from_email": {
       "type": [
         "null",
         "string"
       ]
     },
-    "from_email": {
+    "from_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_segmented": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "list_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lists": {},
+    "message_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "num_recipients": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "send_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "sent_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status_label": {
       "type": [
         "null",
         "string"
@@ -134,10 +104,30 @@
         "string"
       ]
     },
-    "message_type": {
+    "template": {
+      "properties": {
+        "html": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
     "template_id": {
@@ -145,6 +135,16 @@
         "null",
         "string"
       ]
+    },
+    "updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

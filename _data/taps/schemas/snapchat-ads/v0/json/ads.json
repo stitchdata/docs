@@ -1,37 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "paying_advertiser_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "ad_account_id": {
       "type": [
         "null",
@@ -44,19 +13,31 @@
         "string"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "creative_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "status": {
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "type": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paying_advertiser_name": {
       "type": [
         "null",
         "string"
@@ -77,35 +58,28 @@
     "review_status_reasons": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "third_party_paid_impression_tracking_urls": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
-              "tracking_url_metadata": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              },
               "expanded_tracking_url": {
                 "type": [
                   "null",
@@ -117,9 +91,22 @@
                   "null",
                   "string"
                 ]
+              },
+              "tracking_url_metadata": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -129,22 +116,9 @@
     "third_party_swipe_tracking_urls": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
-              "tracking_url_metadata": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              },
               "expanded_tracking_url": {
                 "type": [
                   "null",
@@ -156,14 +130,40 @@
                   "null",
                   "string"
                 ]
+              },
+              "tracking_url_metadata": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

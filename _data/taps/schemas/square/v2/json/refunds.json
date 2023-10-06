@@ -1,86 +1,58 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "unlinked": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "destination_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "destination_details": {
+    "amount_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "app_fee_money": {
       "properties": {
-        "card_details": {
+        "amount": {
           "type": [
             "null",
-            "object"
-          ],
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "destination_details": {
+      "properties": {
+        "card_details": {
           "properties": {
             "card": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
-                "id": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "card_brand": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "last_4": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "exp_month": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "exp_year": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "cardholder_name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "billing_address": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
                     "address_line_1": {
                       "type": [
@@ -95,30 +67,6 @@
                       ]
                     },
                     "address_line_3": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "locality": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "sublocality": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "sublocality_2": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "sublocality_3": {
                       "type": [
                         "null",
                         "string"
@@ -142,12 +90,6 @@
                         "string"
                       ]
                     },
-                    "postal_code": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "country": {
                       "type": [
                         "null",
@@ -165,10 +107,68 @@
                         "null",
                         "string"
                       ]
+                    },
+                    "locality": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "postal_code": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sublocality": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sublocality_2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sublocality_3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
                     }
-                  }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
                 },
-                "fingerprint": {
+                "bin": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "card_brand": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "card_co_brand": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "card_type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "cardholder_name": {
                   "type": [
                     "null",
                     "string"
@@ -180,25 +180,43 @@
                     "string"
                   ]
                 },
-                "merchant_id": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "reference_id": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "enabled": {
                   "type": [
                     "null",
                     "boolean"
                   ]
                 },
-                "card_type": {
+                "exp_month": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "exp_year": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "fingerprint": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "last_4": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "merchant_id": {
                   "type": [
                     "null",
                     "string"
@@ -210,7 +228,7 @@
                     "string"
                   ]
                 },
-                "bin": {
+                "reference_id": {
                   "type": [
                     "null",
                     "string"
@@ -221,14 +239,12 @@
                     "null",
                     "integer"
                   ]
-                },
-                "card_co_brand": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "entry_method": {
               "type": [
@@ -236,63 +252,31 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "reason": {
+    "destination_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "status": {
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "amount_money": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "app_fee_money": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "payment_id": {
+    "location_id": {
       "type": [
         "null",
         "string"
@@ -304,46 +288,16 @@
         "string"
       ]
     },
-    "created_at": {
+    "payment_id": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "processing_fee": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "effective_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "amount_money": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
               "amount": {
                 "type": [
@@ -357,12 +311,42 @@
                   "string"
                 ]
               }
-            }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "effective_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "location_id": {
+    "reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
       "type": [
         "null",
         "string"
@@ -373,6 +357,22 @@
         "null",
         "string"
       ]
+    },
+    "unlinked": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

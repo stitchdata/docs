@@ -1,20 +1,12 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "type": {
-      "type": "string"
-    },
-    "status": {
-      "type": "string"
-    },
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
+    "account": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
     },
     "email": {
       "type": "string"
@@ -22,36 +14,44 @@
     "extensionNumber": {
       "type": "integer"
     },
-    "name": {
+    "firstName": {
       "type": "string"
+    },
+    "id": {
+      "type": "integer"
     },
     "jobTitle": {
       "type": "string"
     },
-    "account": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        }
-      }
+    "lastName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
     },
     "phoneNumbers": {
-      "type": "array",
       "items": {
-        "type": "object",
         "properties": {
-          "type": {
+          "phoneNumber": {
             "type": "string"
           },
-          "phoneNumber": {
+          "type": {
             "type": "string"
           },
           "usageType": {
             "type": "string"
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

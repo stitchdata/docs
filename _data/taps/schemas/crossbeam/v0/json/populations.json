@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "base_schema": {
       "type": [
         "null",
@@ -17,6 +11,103 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "current_version": {
+      "additionalProperties": false,
+      "properties": {
+        "first_processed_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "is_active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "filter_expression": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "filter_parts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "column": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "operand": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "operator": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "schema": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "table": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
       ]
     },
     "name": {
@@ -36,98 +127,7 @@
         "null",
         "integer"
       ]
-    },
-    "filter_expression": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "current_version": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "integer"
-          ]
-        },
-        "is_active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "first_processed_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "filter_parts": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": [
-              "integer"
-            ]
-          },
-          "schema": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "table": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "column": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "label": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "operator": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "operand": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
     }
-  }
+  },
+  "type": "object"
 }

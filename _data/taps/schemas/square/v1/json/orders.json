@@ -1,157 +1,17 @@
 {
   "properties": {
-    "processing_fee": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "properties": {
-          "effective_at": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      }
-    },
-    "location_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "return_amounts": {
+    "amount_money": {
       "properties": {
-        "tip_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
+        "amount": {
           "type": [
             "null",
-            "object"
+            "integer"
           ]
         },
-        "service_charge_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
+        "currency": {
           "type": [
             "null",
-            "object"
-          ]
-        },
-        "tax_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "discount_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "total_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
+            "string"
           ]
         }
       },
@@ -160,30 +20,92 @@
         "object"
       ]
     },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "total_tip_money": {
+    "card_details": {
       "properties": {
-        "currency": {
+        "avs_status": {
           "type": [
             "null",
             "string"
           ]
         },
-        "amount": {
+        "card": {
+          "properties": {
+            "bin": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_brand": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "exp_month": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "exp_year": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "fingerprint": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last_4": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "prepaid_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
           "type": [
             "null",
-            "integer"
+            "object"
+          ]
+        },
+        "cvv_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "entry_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statement_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
           ]
         }
       },
@@ -192,18 +114,82 @@
         "object"
       ]
     },
-    "total_service_charge_money": {
+    "category_data": {
       "properties": {
-        "currency": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "closed_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "delay_action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "delay_duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "delayed_until": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discount_data": {
+      "properties": {
+        "amount_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "discount_type": {
           "type": [
             "null",
             "string"
           ]
         },
-        "amount": {
+        "name": {
           "type": [
             "null",
-            "integer"
+            "string"
           ]
         }
       },
@@ -213,34 +199,10 @@
       ]
     },
     "fulfillments": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "pickup_details": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
-              "rejected_at": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
               "canceled_at": {
                 "type": [
                   "null",
@@ -259,23 +221,19 @@
                   "date-time"
                 ]
               },
-              "pickup_at": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
               "note": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "recipient": {
+              "pickup_at": {
                 "type": [
                   "null",
-                  "object"
-                ],
+                  "date-time"
+                ]
+              },
+              "recipient": {
                 "properties": {
                   "display_name": {
                     "type": [
@@ -283,11 +241,31 @@
                       "string"
                     ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "rejected_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
               }
-            }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
           },
           "state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
             "type": [
               "null",
               "string"
@@ -299,22 +277,18 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "source_type": {
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
     },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "note": {
+    "id": {
       "type": [
         "null",
         "string"
@@ -326,15 +300,399 @@
         "boolean"
       ]
     },
-    "version": {
+    "line_items": {
+      "items": {
+        "properties": {
+          "base_price_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "catalog_object_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "gross_sales_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "note": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "total_discount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "total_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "total_tax_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "uid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "variation_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "variation_total_price_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "integer"
+        "array"
       ]
     },
-    "source": {
+    "location_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "net_amounts": {
       "properties": {
-        "name": {
+        "discount_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "service_charge_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tip_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "total_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "present_at_all_locations": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "processing_fee": {
+      "items": {
+        "properties": {
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "effective_at": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receipt_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receipt_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "refund_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "refunded_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
           "type": [
             "null",
             "string"
@@ -346,38 +704,300 @@
         "object"
       ]
     },
-    "returns": {
-      "type": [
-        "null",
-        "array"
-      ],
+    "refunds": {
       "items": {
         "properties": {
-          "source_order_id": {
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "created_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "id": {
             "type": [
               "null",
               "string"
             ]
           },
-          "return_line_items": {
+          "location_id": {
             "type": [
               "null",
-              "array"
-            ],
+              "string"
+            ]
+          },
+          "reason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tender_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "return_amounts": {
+      "properties": {
+        "discount_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "service_charge_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tip_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "total_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "returns": {
+      "items": {
+        "properties": {
+          "return_line_items": {
             "items": {
               "properties": {
+                "applied_discounts": {
+                  "items": {
+                    "properties": {
+                      "applied_money": {
+                        "properties": {
+                          "amount": {
+                            "type": [
+                              "null",
+                              "integer"
+                            ]
+                          },
+                          "currency": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "discount_uid": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "uid": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "applied_taxes": {
+                  "items": {
+                    "properties": {
+                      "applied_money": {
+                        "properties": {
+                          "amount": {
+                            "type": [
+                              "null",
+                              "integer"
+                            ]
+                          },
+                          "currency": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "tax_uid": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "uid": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
                 "base_price_money": {
                   "properties": {
-                    "currency": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "amount": {
                       "type": [
                         "null",
                         "integer"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "null",
+                        "string"
                       ]
                     }
                   },
@@ -392,6 +1012,26 @@
                     "string"
                   ]
                 },
+                "gross_return_money": {
+                  "properties": {
+                    "amount": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
                 "name": {
                   "type": [
                     "null",
@@ -404,23 +1044,15 @@
                     "string"
                   ]
                 },
-                "quantity_unit": {
+                "quantity": {
                   "type": [
                     "null",
-                    "object"
-                  ],
+                    "string"
+                  ]
+                },
+                "quantity_unit": {
                   "properties": {
-                    "precision": {
-                      "type": [
-                        "null",
-                        "integer"
-                      ]
-                    },
                     "measurement_unit": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
                       "properties": {
                         "area_unit": {
                           "type": [
@@ -429,10 +1061,6 @@
                           ]
                         },
                         "custom_unit": {
-                          "type": [
-                            "null",
-                            "object"
-                          ],
                           "properties": {
                             "abbreviation": {
                               "type": [
@@ -446,7 +1074,11 @@
                                 "string"
                               ]
                             }
-                          }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
                         },
                         "generic_unit": {
                           "type": [
@@ -484,33 +1116,39 @@
                             "string"
                           ]
                         }
-                      }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "precision": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
                     }
-                  }
-                },
-                "return_modifiers": {
+                  },
                   "type": [
                     "null",
-                    "array"
-                  ],
+                    "object"
+                  ]
+                },
+                "return_modifiers": {
                   "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
                     "properties": {
                       "base_price_money": {
                         "properties": {
-                          "currency": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
                           "amount": {
                             "type": [
                               "null",
                               "integer"
+                            ]
+                          },
+                          "currency": {
+                            "type": [
+                              "null",
+                              "string"
                             ]
                           }
                         },
@@ -539,16 +1177,16 @@
                       },
                       "total_price_money": {
                         "properties": {
-                          "currency": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
                           "amount": {
                             "type": [
                               "null",
                               "integer"
+                            ]
+                          },
+                          "currency": {
+                            "type": [
+                              "null",
+                              "string"
                             ]
                           }
                         },
@@ -563,8 +1201,16 @@
                           "string"
                         ]
                       }
-                    }
-                  }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "source_line_item_uid": {
                   "type": [
@@ -574,62 +1220,16 @@
                 },
                 "total_discount_money": {
                   "properties": {
-                    "currency": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "amount": {
                       "type": [
                         "null",
                         "integer"
                       ]
-                    }
-                  },
-                  "type": [
-                    "null",
-                    "object"
-                  ]
-                },
-                "variation_name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "total_tax_money": {
-                  "properties": {
+                    },
                     "currency": {
                       "type": [
                         "null",
                         "string"
-                      ]
-                    },
-                    "amount": {
-                      "type": [
-                        "null",
-                        "integer"
-                      ]
-                    }
-                  },
-                  "type": [
-                    "null",
-                    "object"
-                  ]
-                },
-                "gross_return_money": {
-                  "properties": {
-                    "currency": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "amount": {
-                      "type": [
-                        "null",
-                        "integer"
                       ]
                     }
                   },
@@ -640,16 +1240,16 @@
                 },
                 "total_money": {
                   "properties": {
-                    "currency": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "amount": {
                       "type": [
                         "null",
                         "integer"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "null",
+                        "string"
                       ]
                     }
                   },
@@ -658,18 +1258,18 @@
                     "object"
                   ]
                 },
-                "variation_total_price_money": {
+                "total_tax_money": {
                   "properties": {
-                    "currency": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "amount": {
                       "type": [
                         "null",
                         "integer"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "null",
+                        "string"
                       ]
                     }
                   },
@@ -677,109 +1277,37 @@
                     "null",
                     "object"
                   ]
-                },
-                "quantity": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "applied_discounts": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "properties": {
-                      "discount_uid": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "applied_money": {
-                        "properties": {
-                          "currency": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "amount": {
-                            "type": [
-                              "null",
-                              "integer"
-                            ]
-                          }
-                        },
-                        "type": [
-                          "null",
-                          "object"
-                        ]
-                      },
-                      "uid": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "object"
-                    ]
-                  }
-                },
-                "applied_taxes": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "properties": {
-                      "tax_uid": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "applied_money": {
-                        "properties": {
-                          "currency": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "amount": {
-                            "type": [
-                              "null",
-                              "integer"
-                            ]
-                          }
-                        },
-                        "type": [
-                          "null",
-                          "object"
-                        ]
-                      },
-                      "uid": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "object"
-                    ]
-                  }
                 },
                 "uid": {
                   "type": [
                     "null",
                     "string"
+                  ]
+                },
+                "variation_name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "variation_total_price_money": {
+                  "properties": {
+                    "amount": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 }
               },
@@ -787,7 +1315,17 @@
                 "null",
                 "object"
               ]
-            }
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "source_order_id": {
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "uid": {
             "type": [
@@ -800,169 +1338,13 @@
           "null",
           "object"
         ]
-      }
-    },
-    "closed_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "total_tax_money": {
-      "properties": {
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
       },
       "type": [
         "null",
-        "object"
+        "array"
       ]
     },
-    "card_details": {
-      "properties": {
-        "statement_description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "entry_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cvv_status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avs_status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "card": {
-          "properties": {
-            "exp_year": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "last_4": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "fingerprint": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "exp_month": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "bin": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "card_type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "card_brand": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "prepaid_type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "total_money": {
-      "properties": {
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "amount_money": {
-      "properties": {
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "category_data": {
+    "source": {
       "properties": {
         "name": {
           "type": [
@@ -976,243 +1358,23 @@
         "object"
       ]
     },
-    "refund_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "receipt_number": {
+    "source_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "delay_action": {
+    "state": {
       "type": [
         "null",
         "string"
       ]
     },
-    "receipt_url": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "net_amounts": {
-      "properties": {
-        "tip_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "service_charge_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "tax_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "discount_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "total_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "delay_duration": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "present_at_all_locations": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "refunds": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "properties": {
-          "location_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "transaction_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "created_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "tender_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "reason": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      }
     },
     "tax_data": {
       "properties": {
@@ -1228,334 +1390,40 @@
         "object"
       ]
     },
-    "refunded_money": {
-      "properties": {
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "payment_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "line_items": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "properties": {
-          "base_price_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "total_discount_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "variation_total_price_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "quantity": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "note": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "uid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "gross_sales_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "total_tax_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "total_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "catalog_object_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "variation_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      }
-    },
-    "order_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "delayed_until": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "discount_data": {
-      "properties": {
-        "amount_money": {
-          "properties": {
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "discount_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "total_discount_money": {
-      "properties": {
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
     "tenders": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "properties": {
-          "location_id": {
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "transaction_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "created_at": {
-            "type": [
-              "null",
-              "date-time"
+              "object"
             ]
           },
           "card_details": {
             "properties": {
               "card": {
                 "properties": {
-                  "exp_year": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "last_4": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "fingerprint": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "exp_month": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
                   "bin": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "card_brand": {
                     "type": [
                       "null",
                       "string"
@@ -1567,7 +1435,25 @@
                       "string"
                     ]
                   },
-                  "card_brand": {
+                  "exp_month": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "exp_year": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "fingerprint": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "last_4": {
                     "type": [
                       "null",
                       "string"
@@ -1603,39 +1489,19 @@
               "object"
             ]
           },
-          "payment_id": {
+          "created_at": {
             "type": [
               "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount_money": {
-            "properties": {
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
+              "date-time"
             ]
           },
           "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "location_id": {
             "type": [
               "null",
               "string"
@@ -1646,18 +1512,152 @@
               "null",
               "string"
             ]
+          },
+          "payment_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "transaction_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "type": [
           "null",
           "object"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "reason": {
+    "total_discount_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "total_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "total_service_charge_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "total_tax_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "total_tip_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "version": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
   },

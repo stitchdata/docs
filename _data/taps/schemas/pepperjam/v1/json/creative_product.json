@@ -1,13 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "age_range": {
       "type": [
         "null",
@@ -134,12 +127,6 @@
         "string"
       ]
     },
-    "product_format": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "functions": {
       "type": [
         "null",
@@ -164,6 +151,12 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "image_thumb_url": {
       "type": [
         "null",
@@ -176,13 +169,13 @@
         "string"
       ]
     },
-    "installation": {
+    "in_stock": {
       "type": [
         "null",
         "string"
       ]
     },
-    "in_stock": {
+    "installation": {
       "type": [
         "null",
         "string"
@@ -326,8 +319,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -337,8 +330,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -348,8 +341,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -359,12 +352,18 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
     "processor": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_format": {
       "type": [
         "null",
         "string"
@@ -496,5 +495,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

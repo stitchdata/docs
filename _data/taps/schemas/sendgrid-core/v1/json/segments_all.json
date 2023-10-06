@@ -1,6 +1,11 @@
 {
-  "type": "object",
   "properties": {
+    "conditions": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "id": {
       "type": [
         "integer"
@@ -17,12 +22,7 @@
         "null",
         "integer"
       ]
-    },
-    "conditions": {
-      "type": [
-        "null",
-        "array"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

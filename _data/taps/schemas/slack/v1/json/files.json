@@ -2,16 +2,16 @@
   "additionalProperties": false,
   "properties": {
     "channels": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "comments_count": {
       "type": [
@@ -74,16 +74,16 @@
       ]
     },
     "groups": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "has_rich_preview": {
       "type": [
@@ -104,16 +104,16 @@
       ]
     },
     "ims": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "is_external": {
       "type": [
@@ -200,12 +200,12 @@
       ]
     },
     "pinned_info": {
+      "additionalProperties": true,
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
+      ]
     },
     "pinned_to": {
       "items": {

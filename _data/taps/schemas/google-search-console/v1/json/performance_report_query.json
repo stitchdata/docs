@@ -1,8 +1,39 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "site_url": {
+    "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ctr": {
+      "multipleOf": 1e-25,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "position": {
+      "multipleOf": 1e-25,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "query": {
       "type": [
         "null",
         "string"
@@ -14,43 +45,12 @@
         "string"
       ]
     },
-    "date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "query": {
+    "site_url": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ctr": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-25
-    },
-    "position": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-25
     }
-  }
+  },
+  "type": "object"
 }

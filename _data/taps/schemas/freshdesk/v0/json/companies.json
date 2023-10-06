@@ -1,16 +1,13 @@
 {
-  "type": "object",
   "properties": {
-    "custom_fields": {
+    "created_at": {
       "type": [
         "null",
-        "array"
-      ],
+        "date-time"
+      ]
+    },
+    "custom_fields": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "name": {
             "type": [
@@ -24,8 +21,16 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "description": {
       "type": [
@@ -34,16 +39,16 @@
       ]
     },
     "domains": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "id": {
       "type": [
@@ -63,17 +68,12 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

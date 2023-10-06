@@ -1,12 +1,338 @@
 {
   "properties": {
+    "agent_ids": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "agent_names": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "comment": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversions": {
+      "items": {
+        "attribution": {
+          "properties": {
+            "agent_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "agent_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "chat_timestamp": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "department_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "department_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "goal_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "goal_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "timestamp": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "count": {
+      "agent": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "total": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "visitor": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      }
+    },
     "department_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "comment": {
+    "department_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "end_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "history": {
+      "items": {
+        "channel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "conversion": {
+          "attribution": {
+            "properties": {
+              "agent_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "agent_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "chat_timestamp": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "department_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "department_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "goal_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "goal_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "string"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "department_id": {
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "department_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "msg": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "msg_id": {
+          "type": [
+            "null",
+            "string",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "new_rating": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "new_tags": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "nick": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "options": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "prev_department_id": {
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "rating": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "skills_name": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "tags": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "timestamp": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message": {
       "type": [
         "null",
         "string"
@@ -24,73 +350,78 @@
         "string"
       ]
     },
-    "conversions": {
+    "referrer_search_engine": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "referrer_search_terms": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "response_time": {
+      "avg": {
+        "type": [
+          "null",
+          "number",
+          "integer"
+        ]
+      },
+      "first": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "max": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      }
+    },
+    "session": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "started_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
       "items": {
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "goal_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "goal_id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "attribution": {
-          "properties": {
-            "chat_timestamp": {
-              "type": [
-                "null",
-                "date-time"
-              ]
-            },
-            "department_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "agent_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "department_id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "agent_id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "timestamp": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
+        "type": [
+          "string"
+        ]
       },
       "type": [
         "null",
         "array"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "triggered": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "triggered_response": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "type": {
@@ -99,23 +430,49 @@
         "string"
       ]
     },
+    "unread": {
+      "type": [
+        "null",
+        "boolean",
+        "integer"
+      ]
+    },
+    "visitor": {
+      "email": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "id": {
+        "type": [
+          "string"
+        ]
+      },
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "notes": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "phone": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
     "webpath": {
       "items": {
         "anyOf": [
           {
             "properties": {
-              "to": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "title": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "from": {
                 "type": [
                   "null",
@@ -126,6 +483,18 @@
                 "type": [
                   "null",
                   "date-time"
+                ]
+              },
+              "title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "to": {
+                "type": [
+                  "null",
+                  "string"
                 ]
               }
             },
@@ -154,386 +523,13 @@
         "array"
       ]
     },
-    "triggered": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "message": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "referrer_search_terms": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "referrer_search_engine": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "zendesk_ticket_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "unread": {
-      "type": [
-        "null",
-        "boolean",
-        "integer"
-      ]
-    },
-    "timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "response_time": {
-      "first": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "max": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "avg": {
-        "type": [
-          "null",
-          "number",
-          "integer"
-        ]
-      }
-    },
-    "session": {
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "history": {
-      "items": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "channel": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "conversion": {
-          "id": {
-            "type": [
-              "string"
-            ]
-          },
-          "goal_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "goal_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "attribution": {
-            "properties": {
-              "chat_timestamp": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
-              "department_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "agent_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "department_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "agent_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "timestamp": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          }
-        },
-        "timestamp": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "msg": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "nick": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "options": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "department_id": {
-          "type": [
-            "null",
-            "integer",
-            "string"
-          ]
-        },
-        "prev_department_id": {
-          "type": [
-            "null",
-            "integer",
-            "string"
-          ]
-        },
-        "department_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "msg_id": {
-          "type": [
-            "null",
-            "string",
-            "integer"
-          ]
-        },
-        "tags": {
-          "items": {
-            "type": [
-              "string"
-            ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        },
-        "new_tags": {
-          "items": {
-            "type": [
-              "string"
-            ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        },
-        "rating": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "new_rating": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "skills_name": {
-          "items": {
-            "type": [
-              "string"
-            ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "agent_names": {
-      "items": {
-        "type": [
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "tags": {
-      "items": {
-        "type": [
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "visitor": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "string"
-        ]
-      },
-      "email": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "notes": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "phone": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "started_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "triggered_response": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "count": {
-      "total": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "agent": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "visitor": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "agent_ids": {
-      "items": {
-        "type": [
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "department_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "duration": {
       "type": [
         "null",
         "integer"
       ]
     }
   },
-  "type": [
-    "null",
-    "object"
-  ],
   "tap_schema_dependencies": [
     "chat_conversion",
     "chat_count",
@@ -541,5 +537,9 @@
     "chat_response_time",
     "chat_visitor",
     "chat_webpath"
+  ],
+  "type": [
+    "null",
+    "object"
   ]
 }

@@ -1,17 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
+    "cdate": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "value": {
-      "type": [
-        "null",
-        "integer"
+        "date-time"
       ]
     },
     "currency": {
@@ -20,22 +13,28 @@
         "string"
       ]
     },
-    "limit": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "enforcelimit": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "cdate": {
+    "id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
+      ]
+    },
+    "limit": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "udate": {
@@ -44,11 +43,12 @@
         "date-time"
       ]
     },
-    "id": {
+    "value": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

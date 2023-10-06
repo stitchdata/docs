@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -11,29 +7,10 @@
         "string"
       ]
     },
-    "targetable": {
+    "audience_size": {
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "targetable_types": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+        "integer"
       ]
     },
     "audience_type": {
@@ -42,13 +19,13 @@
         "string"
       ]
     },
-    "permission_level": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "is_owner": {
+    "deleted": {
       "type": [
         "null",
         "boolean"
@@ -60,29 +37,16 @@
         "string"
       ]
     },
-    "reasons_not_targetable": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "created_at": {
+    "is_owner": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
       ]
     },
-    "updated_at": {
+    "name": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "partner_source": {
@@ -91,17 +55,53 @@
         "string"
       ]
     },
-    "deleted": {
+    "permission_level": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reasons_not_targetable": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "targetable": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "audience_size": {
+    "targetable_types": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,12 +1,5 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "closed_at": {
       "type": [
         "null",
@@ -14,10 +7,6 @@
       ]
     },
     "closed_cash_money": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "amount": {
           "type": [
@@ -31,7 +20,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "description": {
       "type": [
@@ -46,10 +39,6 @@
       ]
     },
     "expected_cash_money": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "amount": {
           "type": [
@@ -63,7 +52,17 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "opened_at": {
       "type": [
@@ -72,10 +71,6 @@
       ]
     },
     "opened_cash_money": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "amount": {
           "type": [
@@ -89,7 +84,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "state": {
       "type": [
@@ -97,5 +96,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

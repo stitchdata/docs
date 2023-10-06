@@ -1,19 +1,12 @@
 {
-  "type": "object",
   "properties": {
-    "project_id": {
-      "type": "integer"
-    },
-    "name": {
-      "type": "string"
-    },
-    "merged": {
+    "commit_id": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
-    "protected": {
+    "developers_can_merge": {
       "type": [
         "null",
         "boolean"
@@ -25,17 +18,24 @@
         "boolean"
       ]
     },
-    "developers_can_merge": {
+    "merged": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "commit_id": {
+    "name": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "integer"
+    },
+    "protected": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

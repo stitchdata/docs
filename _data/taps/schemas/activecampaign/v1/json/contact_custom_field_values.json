@@ -1,8 +1,19 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "contact": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_by": {
       "type": [
         "null",
         "integer"
@@ -12,24 +23,6 @@
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "value": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "udate": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "id": {
@@ -44,10 +37,10 @@
         "integer"
       ]
     },
-    "created_by": {
+    "udate": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
     "updated_by": {
@@ -55,6 +48,13 @@
         "null",
         "integer"
       ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,29 +1,15 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
-    "companyId": {
-      "type": [
-        "string"
-      ]
-    },
-    "reference": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "totalAmount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "amountDue": {
       "type": [
         "null",
         "number"
+      ]
+    },
+    "companyId": {
+      "type": [
+        "string"
       ]
     },
     "currency": {
@@ -32,124 +18,7 @@
         "string"
       ]
     },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "supplierRef": {
-      "companyId": {
-        "type": [
-          "string"
-        ]
-      },
-      "emailAddress": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "status": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "contactName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "registrationNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "supplierName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "string"
-        ]
-      },
-      "phone": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "addresses": {
-        "items": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {
-            "region": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "postalCode": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "line2": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "line1": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "country": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "city": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "type": [
-          "null",
-          "array"
-        ]
-      },
-      "taxNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "issueDate": {
+    "dueDate": {
       "type": [
         "null",
         "date-time"
@@ -160,51 +29,74 @@
         "string"
       ]
     },
-    "subTotal": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "dueDate": {
+    "issueDate": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "taxAmount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "lineItems": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
+          "accountRef": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
           "description": {
             "type": [
               "null",
               "string"
             ]
           },
-          "unitAmount": {
+          "discountAmount": {
             "type": [
               "null",
               "number"
+            ]
+          },
+          "discountPercentage": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "itemRef": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
             ]
           },
           "quantity": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "discountAmount": {
             "type": [
               "null",
               "number"
@@ -222,84 +114,192 @@
               "number"
             ]
           },
+          "taxRateRef": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
           "totalAmount": {
             "type": [
               "null",
               "number"
             ]
           },
-          "accountRef": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          },
-          "discountPercentage": {
+          "unitAmount": {
             "type": [
               "null",
               "number"
             ]
-          },
-          "taxRateRef": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          },
-          "itemRef": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
           }
-        }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subTotal": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "supplierRef": {
+      "addresses": {
+        "items": {
+          "additionalProperties": true,
+          "properties": {
+            "city": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "country": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "line1": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "line2": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "postalCode": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "region": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
+      "companyId": {
+        "type": [
+          "string"
+        ]
+      },
+      "contactName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "emailAddress": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "id": {
+        "type": [
+          "string"
+        ]
+      },
+      "phone": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "registrationNumber": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "supplierName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "taxNumber": {
+        "type": [
+          "null",
+          "string"
+        ]
       }
+    },
+    "taxAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
     }
   },
-  "additionalProperties": true,
   "tap_schema_dependencies": [
     "suppliers"
+  ],
+  "type": [
+    "object"
   ]
 }

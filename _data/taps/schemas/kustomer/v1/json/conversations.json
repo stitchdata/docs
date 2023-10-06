@@ -1,6 +1,5 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
     "assigned_teams": {
       "anyOf": [
@@ -21,13 +20,13 @@
     "assigned_users": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -37,13 +36,13 @@
     "channels": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -57,10 +56,6 @@
       ]
     },
     "created_by": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -75,13 +70,13 @@
             "string"
           ]
         }
-      }
-    },
-    "custom": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "custom": {
       "additionalProperties": false,
       "properties": {
         "auto_response_at": {
@@ -91,6 +86,12 @@
           ]
         },
         "brand_str": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "business_area_str": {
           "type": [
             "null",
             "string"
@@ -120,7 +121,19 @@
             "string"
           ]
         },
+        "issue_report_tree": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "new_primary_menu_str": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "order_number_id": {
           "type": [
             "null",
             "string"
@@ -151,6 +164,12 @@
           ]
         },
         "serial_number_str": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shopify_order_str": {
           "type": [
             "null",
             "string"
@@ -197,38 +216,14 @@
             "null",
             "string"
           ]
-        },
-        "shopify_order_str": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "business_area_str": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "order_number_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "issue_report_tree": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
-    },
-    "customer": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "customer": {
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -243,7 +238,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "direction": {
       "type": [
@@ -309,22 +308,18 @@
       ]
     },
     "first_done": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": [
                   "null",
                   "string"
                 ]
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
@@ -334,13 +329,13 @@
         "assigned_users": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": [
                   "null",
                   "string"
                 ]
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
@@ -439,10 +434,6 @@
           ]
         },
         "outbound_message_count_by_channel": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "email": {
@@ -463,7 +454,11 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "time": {
           "type": [
@@ -471,13 +466,13 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "first_message_in": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "channel": {
@@ -510,13 +505,13 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "first_message_out": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "channel": {
@@ -571,13 +566,13 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "first_response": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
@@ -670,13 +665,13 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "first_response_since_last_done": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
@@ -769,7 +764,11 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "id": {
       "type": [
@@ -790,10 +789,6 @@
       ]
     },
     "last_done": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
@@ -881,10 +876,6 @@
           ]
         },
         "message_count_by_channel": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "email": {
@@ -905,7 +896,11 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "note_count": {
           "type": [
@@ -920,10 +915,6 @@
           ]
         },
         "outbound_message_count_by_channel": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "email": {
@@ -944,7 +935,11 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "time": {
           "type": [
@@ -952,7 +947,11 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "last_message_at": {
       "type": [
@@ -967,10 +966,6 @@
       ]
     },
     "last_message_in": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created_at": {
@@ -991,13 +986,13 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "last_message_out": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created_at": {
@@ -1018,13 +1013,13 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "last_message_unresponded_to": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created_at": {
@@ -1045,13 +1040,13 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "last_message_unresponded_to_since_last_done": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created_at": {
@@ -1072,7 +1067,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "last_received_at": {
       "type": [
@@ -1081,10 +1080,6 @@
       ]
     },
     "last_response": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "assigned_teams": {
@@ -1165,13 +1160,13 @@
             "integer"
           ]
         }
-      }
-    },
-    "links": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "links": {
       "additionalProperties": false,
       "properties": {
         "self": {
@@ -1180,7 +1175,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "merged_target": {
       "type": [
@@ -1201,10 +1200,6 @@
       ]
     },
     "modified_by": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -1219,7 +1214,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "name": {
       "type": [
@@ -1469,10 +1468,6 @@
       ]
     },
     "sla_data": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -1487,13 +1482,13 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "sla_version": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -1508,13 +1503,13 @@
             "string"
           ]
         }
-      }
-    },
-    "snooze": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "snooze": {
       "additionalProperties": false,
       "properties": {
         "status": {
@@ -1535,7 +1530,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "snooze_count": {
       "type": [
@@ -1564,13 +1563,13 @@
     "tags": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -1578,10 +1577,6 @@
       ]
     },
     "total_done": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "business_time": {
@@ -1596,7 +1591,11 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "total_open": {
       "additionalProperties": false,
@@ -1664,5 +1663,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

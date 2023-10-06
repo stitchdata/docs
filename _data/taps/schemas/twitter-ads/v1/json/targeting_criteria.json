@@ -1,11 +1,25 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -23,7 +37,7 @@
         "string"
       ]
     },
-    "id": {
+    "operator_type": {
       "type": [
         "null",
         "string"
@@ -35,16 +49,16 @@
         "boolean"
       ]
     },
-    "operator_type": {
+    "tailored_audience_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
+    "targeting_type": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "targeting_value": {
@@ -58,24 +72,10 @@
         "null",
         "date-time"
       ]
-    },
-    "tailored_audience_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "targeting_type": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

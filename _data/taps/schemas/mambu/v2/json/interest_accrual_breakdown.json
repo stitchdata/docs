@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -57,17 +56,9 @@
       ]
     },
     "foreign_amount": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "accounting_rate": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "encoded_key": {
@@ -106,7 +97,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "amount": {
           "type": [
@@ -115,10 +110,6 @@
           ]
         },
         "currency": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "code": {
@@ -127,9 +118,17 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "gl_account_id": {
       "type": [
@@ -185,5 +184,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,13 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "action": {
       "type": [
         "null",
@@ -15,29 +8,14 @@
       ]
     },
     "actiondata": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "actions": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "additionalProperties": false,
                 "properties": {
-                  "type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
                   "email": {
                     "type": [
                       "null",
@@ -49,54 +27,48 @@
                       "null",
                       "integer"
                     ]
+                  },
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
                   }
-                }
-              }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
-    },
-    "submit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "submitdata": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
       ]
     },
-    "layout": {
+    "address": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "title": {
+    "addressid": {
       "type": [
         "null",
-        "string"
+        "integer"
+      ]
+    },
+    "aid": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "body": {
@@ -111,23 +83,290 @@
         "string"
       ]
     },
-    "thanks": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "cfields": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "class": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "default_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "header": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "html": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "required": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "contacts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "deals": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "defaultscreenshot": {
       "type": [
         "null",
         "string"
       ]
     },
-    "style": {
+    "entries": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "layout": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "options": {
+      "additionalProperties": false,
+      "properties": {
+        "blank_overwrite": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "confaction": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "confform": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "optin_created": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "optin_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "sendoptin": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "parentformid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recent": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {}
+            },
+            "type": [
+              "null",
+              "object",
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "style": {
       "additionalProperties": false,
       "properties": {
+        "ac_branding": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "background": {
           "type": [
             "null",
             "string"
+          ]
+        },
+        "border": {
+          "additionalProperties": false,
+          "properties": {
+            "color": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "radius": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "style": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "width": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "button": {
+          "additionalProperties": false,
+          "properties": {
+            "background": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "border": {
+              "additionalProperties": false,
+              "properties": {
+                "color": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "radius": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "style": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "width": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "fontcolor": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "padding": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
           ]
         },
         "dark": {
@@ -148,238 +387,49 @@
             "string"
           ]
         },
-        "border": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "width": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "style": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "color": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "radius": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          }
-        },
         "width": {
           "type": [
             "null",
             "integer"
           ]
-        },
-        "ac_branding": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "button": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "padding": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "background": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "fontcolor": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "border": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "width": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "style": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "color": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "radius": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              }
-            }
-          }
         }
-      }
-    },
-    "options": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false,
+      ]
+    },
+    "submit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "submitdata": {
+      "additionalProperties": true,
       "properties": {
-        "blank_overwrite": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "confaction": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sendoptin": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "optin_id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "optin_created": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "confform": {
+        "url": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "cfields": {
-      "anyOf": [
-        {
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "header": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "default_text": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "html": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "class": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "required": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
-          }
-        }
-      ]
-    },
-    "parentformid": {
+      },
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
-    "userid": {
+    "thanks": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "addressid": {
+    "title": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "udate": {
@@ -388,68 +438,18 @@
         "date-time"
       ]
     },
-    "entries": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "aid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "defaultscreenshot": {
+    "url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "recent": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object",
-              "string"
-            ],
-            "additionalProperties": true,
-            "properties": {
-              "id": {}
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "contacts": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "deals": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "address": {
+    "userid": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

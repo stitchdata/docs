@@ -1,35 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "available_credit_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "amount": {
       "type": [
         "null",
         "number"
       ]
     },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_modified_date": {
+    "approved_date": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "holder_key": {
+    "available_credit_amount": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "consumed_credit_amount": {
@@ -44,60 +31,10 @@
         "date-time"
       ]
     },
-    "approved_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "sub_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "expire_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "holder_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "custom_field_sets": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "custom_field_set_id": {
@@ -109,9 +46,7 @@
               "custom_field_values": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "custom_field_id": {
@@ -126,21 +61,86 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
                   }
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expire_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "holder_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "holder_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sub_state": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,13 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "status": {
+    "adGroupId": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "baseAdGroupId": {
@@ -16,13 +12,15 @@
         "integer"
       ]
     },
-    "policySummary": {
+    "baseCampaignId": {
       "type": [
         "null",
-        "object"
-      ],
+        "integer"
+      ]
+    },
+    "policySummary": {
       "properties": {
-        "reviewState": {
+        "combinedApprovalStatus": {
           "type": [
             "null",
             "string"
@@ -35,55 +33,47 @@
           ]
         },
         "policyTopicEntries": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
-              "policyTopicName": {
+              "policyTopicEntryType": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
               "policyTopicEvidences": {
-                "type": [
-                  "null",
-                  "array"
-                ],
                 "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
-                    "policyTopicEvidenceType": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "evidenceTextList": {
-                      "type": [
-                        "null",
-                        "array"
-                      ],
                       "items": {
                         "type": [
                           "null",
                           "string"
                         ]
-                      }
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "policyTopicEvidenceType": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
                     }
-                  }
-                }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
               },
-              "policyTopicEntryType": {
+              "policyTopicHelpCenterUrl": {
                 "type": [
                   "null",
                   "string"
@@ -95,33 +85,39 @@
                   "string"
                 ]
               },
-              "policyTopicHelpCenterUrl": {
+              "policyTopicName": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
-        "combinedApprovalStatus": {
+        "reviewState": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "baseCampaignId": {
+      },
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
-    "adGroupId": {
+    "status": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "trademarkDisapproved": {
@@ -130,5 +126,9 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

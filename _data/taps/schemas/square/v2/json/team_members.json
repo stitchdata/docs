@@ -1,34 +1,38 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "assigned_locations": {
+      "properties": {
+        "assignment_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "location_ids": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "reference_id": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "is_owner": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "given_name": {
+    "email_address": {
       "type": [
         "null",
         "string"
@@ -40,10 +44,22 @@
         "string"
       ]
     },
-    "email_address": {
+    "given_name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_owner": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "phone_number": {
@@ -52,10 +68,16 @@
         "string"
       ]
     },
-    "created_at": {
+    "reference_id": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -63,32 +85,10 @@
         "null",
         "date-time"
       ]
-    },
-    "assigned_locations": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "assignment_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "location_ids": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

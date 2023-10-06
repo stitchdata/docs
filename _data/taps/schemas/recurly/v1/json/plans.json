@@ -1,19 +1,15 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "accounting_code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "object": {
+    "auto_renew": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "code": {
@@ -22,16 +18,50 @@
         "string"
       ]
     },
-    "state": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "name": {
+    "currencies": {
+      "items": {
+        "properties": {
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "setup_fee": {
+            "multipleOf": 1e-08,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "unit_amount": {
+            "multipleOf": 1e-08,
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "description": {
@@ -40,7 +70,39 @@
         "string"
       ]
     },
-    "interval_unit": {
+    "hosted_pages": {
+      "properties": {
+        "bypass_confirmation": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "cancel_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "display_quantity": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "success_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -52,37 +114,31 @@
         "integer"
       ]
     },
-    "trial_unit": {
+    "interval_unit": {
       "type": [
         "null",
         "string"
       ]
     },
-    "trial_length": {
+    "name": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "total_billing_cycles": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "auto_renew": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "accounting_code": {
+    "object": {
       "type": [
         "null",
         "string"
       ]
     },
     "setup_fee_accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
       "type": [
         "null",
         "string"
@@ -100,76 +156,22 @@
         "boolean"
       ]
     },
-    "currencies": {
+    "total_billing_cycles": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "currency": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "setup_fee": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-08
-          },
-          "unit_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-08
-          }
-        }
-      }
+        "integer"
+      ]
     },
-    "hosted_pages": {
+    "trial_length": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "success_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cancel_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "bypass_confirmation": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "display_quantity": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
+        "integer"
+      ]
     },
-    "created_at": {
+    "trial_unit": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "updated_at": {
@@ -177,12 +179,10 @@
         "null",
         "date-time"
       ]
-    },
-    "deleted_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

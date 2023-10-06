@@ -1,8 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "sid": {
+    "account_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "annotation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "answered_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "api_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "caller_name": {
       "type": [
         "null",
         "string"
@@ -20,25 +43,25 @@
         "date-time"
       ]
     },
-    "parent_call_sid": {
+    "direction": {
       "type": [
         "null",
         "string"
       ]
     },
-    "account_sid": {
+    "duration": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "to": {
+    "end_time": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "to_formatted": {
+    "forwarded_from": {
       "type": [
         "null",
         "string"
@@ -56,86 +79,32 @@
         "string"
       ]
     },
-    "phone_number_sid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "duration": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "price": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-08
-    },
-    "price_unit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "direction": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "answered_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "annotation": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "api_version": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "forwarded_from": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "group_sid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "caller_name": {
+    "parent_call_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_number_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "price_unit": {
       "type": [
         "null",
         "string"
@@ -147,13 +116,19 @@
         "integer"
       ]
     },
-    "trunk_sid": {
+    "sid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "uri": {
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
       "type": [
         "null",
         "string"
@@ -162,12 +137,7 @@
     "subresource_uris": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "subresource": {
@@ -182,34 +152,64 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         },
         {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
-            "recordings": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "notifications": {
               "type": [
                 "null",
                 "string"
               ]
+            },
+            "recordings": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
       ]
+    },
+    "to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to_formatted": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trunk_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

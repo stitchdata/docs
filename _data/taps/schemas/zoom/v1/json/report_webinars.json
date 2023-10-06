@@ -1,68 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "webinar_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "uuid": {
-      "type": [
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
-    "host_id": {
+    "dept": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "topic": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_time": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "duration": {
@@ -71,9 +13,20 @@
         "integer"
       ]
     },
-    "total_minutes": {
+    "end_time": {
       "type": [
         "null",
+        "date-time"
+      ]
+    },
+    "host_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
         "integer"
       ]
     },
@@ -83,15 +36,26 @@
         "integer"
       ]
     },
-    "tracking_fields": {
+    "start_time": {
       "type": [
         "null",
-        "array"
-      ],
+        "date-time"
+      ]
+    },
+    "topic": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_minutes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tracking_fields": {
       "items": {
-        "type": [
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
           "field": {
@@ -106,14 +70,50 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "dept": {
+    "type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_email": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "string"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

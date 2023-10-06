@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "collection_id": {
@@ -15,13 +14,19 @@
       ]
     },
     "discount_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "discount_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "handle": {
       "type": [
         "null",
         "string"
@@ -34,10 +39,6 @@
       ]
     },
     "images": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "large": {
@@ -64,7 +65,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "product_id": {
       "type": [
@@ -79,10 +84,6 @@
       ]
     },
     "subscription_defaults": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "charge_interval_frequency": {
@@ -115,6 +116,19 @@
             "string"
           ]
         },
+        "modifiable_properties": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "number_charges_until_expiration": {
           "type": [
             "null",
@@ -142,10 +156,10 @@
         "order_interval_frequency_options": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
@@ -163,21 +177,12 @@
             "null",
             "string"
           ]
-        },
-        "modifiable_properties": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "title": {
       "type": [
@@ -190,12 +195,7 @@
         "null",
         "date-time"
       ]
-    },
-    "handle": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

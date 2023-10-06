@@ -1,40 +1,37 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "contentType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "content": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "featuredImage": {
+    "author": {
+      "additionalProperties": false,
+      "properties": {
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "publicLabel": {
+    "bestAnswer": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "categoryId": {
@@ -49,128 +46,17 @@
         "string"
       ]
     },
-    "tags": {
+    "content": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "moderatorTags": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "replyCount": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
-    "likes": {
+    "contentType": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
-    },
-    "votes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "voteSet": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "sticky": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "trashed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "bestAnswer": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "author": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "lastContributor": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
     },
     "createdAt": {
       "type": [
@@ -178,25 +64,26 @@
         "date-time"
       ]
     },
-    "lastActivityAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
+    "featuredImage": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ideaStatus": {
+    "id": {
       "type": [
-        "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "ideaStatus": {
       "additionalProperties": false,
       "properties": {
+        "backgroundColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "name": {
           "type": [
             "null",
@@ -208,14 +95,127 @@
             "null",
             "string"
           ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "lastActivityAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lastContributor": {
+      "additionalProperties": false,
+      "properties": {
+        "avatar": {
+          "type": [
+            "null",
+            "string"
+          ]
         },
-        "backgroundColor": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "likes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "moderatorTags": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "publicLabel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "replyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sticky": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trashed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "voteSet": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "votes": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

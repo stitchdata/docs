@@ -1,103 +1,33 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "ad_format": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "ad_format_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "updated_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "has_pending_edits": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "body": {
+    "ad_format_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_outlined": {
+    "ad_parameters": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "multiple_products": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "src": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "has_future_campaigns": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "original_ad": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "inventory_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "call_to_action": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "body_dynamic": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "outline_color": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "eid": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "adgroups": {
@@ -126,7 +56,25 @@
         "array"
       ]
     },
+    "advertisable": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "app_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body_dynamic": {
       "type": [
         "null",
         "string"
@@ -138,13 +86,19 @@
         "string"
       ]
     },
-    "message": {
+    "call_to_action": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ad_format": {
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "destination_url": {
       "type": [
         "null",
         "string"
@@ -156,19 +110,7 @@
         "string"
       ]
     },
-    "multi_share_optimized": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lead_gen_form_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "destination_url": {
+    "eid": {
       "type": [
         "null",
         "string"
@@ -180,61 +122,19 @@
         "boolean"
       ]
     },
-    "height": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "is_liquid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ad_format_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "width": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "message_dynamic": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "headline": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_fb_dynamic": {
+    "has_future_campaigns": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "status": {
+    "has_pending_edits": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
-    "name": {
+    "headline": {
       "type": [
         "null",
         "string"
@@ -246,13 +146,85 @@
         "string"
       ]
     },
-    "valid_clicktag": {
+    "height": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "inventory_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_active": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "advertisable": {
+    "is_fb_dynamic": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_liquid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_outlined": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lead_gen_form_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message_dynamic": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "multi_share_optimized": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "multiple_products": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_ad": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "outline_color": {
       "type": [
         "null",
         "string"
@@ -264,17 +236,45 @@
         "string"
       ]
     },
-    "ad_parameters": {
+    "src": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "valid_clicktag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "width": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

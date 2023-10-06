@@ -1,31 +1,32 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "bo_mtg_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "failover": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
       "type": [
-        "string"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "meeting_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_email": {
-      "type": [
-        "null",
         "string"
       ]
     },
@@ -41,19 +42,12 @@
         "date-time"
       ]
     },
-    "duration": {
+    "meeting_id": {
       "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
-    "failover": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "customer_key": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -71,11 +65,17 @@
         "string"
       ]
     },
-    "bo_mtg_id": {
+    "user_email": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "user_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

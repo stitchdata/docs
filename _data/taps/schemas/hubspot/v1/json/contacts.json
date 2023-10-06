@@ -1,10 +1,10 @@
 {
-  "type": "object",
   "properties": {
-    "vid": {
+    "associated-company": {
+      "properties": {},
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
     "canonical-vid": {
@@ -13,59 +13,58 @@
         "integer"
       ]
     },
-    "merged-vids": {
-      "type": [
-        "null",
-        "array"
-      ],
+    "form-submissions": {
       "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "portal-id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "is-contact": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "profile-token": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "profile-url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "associated-company": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "identity-profiles": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
+        "properties": {
+          "conversion-id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "form-id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "page-url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "portal-id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "identity-profiles": {
+      "items": {
         "properties": {
           "deleted-changed-timestamp": {
             "type": [
@@ -73,28 +72,8 @@
               "date-time"
             ]
           },
-          "saved-at-timestamp": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "vid": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
           "identities": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "timestamp": {
                   "type": [
@@ -114,22 +93,48 @@
                     "string"
                   ]
                 }
-              }
-            }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "saved-at-timestamp": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "vid": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
-        }
-      }
-    },
-    "list-memberships": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "is-contact": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "list-memberships": {
+      "items": {
         "properties": {
           "internal-list-id": {
             "type": [
@@ -161,69 +166,19 @@
               "integer"
             ]
           }
-        }
-      }
-    },
-    "form-submissions": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
+        },
         "type": [
           "null",
           "object"
-        ],
-        "properties": {
-          "conversion-id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "timestamp": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "form-id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "portal-id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "page-url": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "merge-audits": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "canonical-vid": {
             "type": [
@@ -231,7 +186,107 @@
               "integer"
             ]
           },
-          "vid-to-merge": {
+          "merged_from_email": {
+            "properties": {
+              "selected": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "source-id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source-label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source-type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source-vids": {
+                "items": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "timestamp": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "merged_to_email": {
+            "properties": {
+              "selected": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "source-id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source-label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source-type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "timestamp": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "num-properties-moved": {
             "type": [
               "null",
               "integer"
@@ -249,114 +304,59 @@
               "integer"
             ]
           },
-          "num-properties-moved": {
+          "vid-to-merge": {
             "type": [
               "null",
               "integer"
             ]
-          },
-          "merged_from_email": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-label": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-vids": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              },
-              "timestamp": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "selected": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
-          },
-          "merged_to_email": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source-label": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "timestamp": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "selected": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "merged-vids": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "portal-id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "profile-token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "profile-url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vid": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

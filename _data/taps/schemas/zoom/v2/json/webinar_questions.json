@@ -1,22 +1,52 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "webinar_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "questions": {
-      "type": [
-        "null",
-        "array"
-      ],
+    "custom_questions": {
       "items": {
+        "additionalProperties": false,
+        "properties": {
+          "answers": {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "required": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "questions": {
+      "items": {
         "additionalProperties": false,
         "properties": {
           "field_name": {
@@ -31,52 +61,22 @@
               "boolean"
             ]
           }
-        }
-      }
-    },
-    "custom_questions": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
+        },
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "required": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "answers": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        }
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

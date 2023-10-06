@@ -1,14 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "orderid": {
+    "category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "connectionid": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "connectionid": {
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ecom_order": {
       "type": [
         "null",
         "integer"
@@ -20,7 +37,13 @@
         "string"
       ]
     },
-    "sku": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "image_url": {
       "type": [
         "null",
         "string"
@@ -32,10 +55,10 @@
         "string"
       ]
     },
-    "description": {
+    "orderid": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "price": {
@@ -44,27 +67,9 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
-      ]
-    },
-    "quantity": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "category": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "image_url": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "product_url": {
@@ -73,7 +78,19 @@
         "string"
       ]
     },
-    "created_date": {
+    "quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tstamp": {
       "type": [
         "null",
         "date-time"
@@ -84,24 +101,7 @@
         "null",
         "date-time"
       ]
-    },
-    "tstamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ecom_order": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

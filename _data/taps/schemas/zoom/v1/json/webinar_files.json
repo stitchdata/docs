@@ -1,19 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "webinar_uuid": {
-      "type": [
-        "string"
-      ]
-    },
-    "file_name": {
+    "download_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "download_url": {
+    "file_name": {
       "type": [
         "null",
         "string"
@@ -24,6 +18,12 @@
         "null",
         "integer"
       ]
+    },
+    "webinar_uuid": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

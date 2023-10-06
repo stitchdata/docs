@@ -1,12 +1,6 @@
 {
   "properties": {
-    "CurrentBalanceWithSubAccounts": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "AcctNum": {
+    "AccountAlias": {
       "type": [
         "null",
         "string"
@@ -16,6 +10,24 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "AccountType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "AcctNum": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Active": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "Classification": {
@@ -38,10 +50,16 @@
         ]
       }
     },
-    "Name": {
+    "CurrentBalance": {
       "type": [
         "null",
-        "string"
+        "number"
+      ]
+    },
+    "CurrentBalanceWithSubAccounts": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "Description": {
@@ -57,12 +75,6 @@
       ]
     },
     "Id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "AccountType": {
       "type": [
         "null",
         "string"
@@ -88,28 +100,10 @@
         "object"
       ]
     },
-    "CurrentBalance": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "Active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "domain": {
+    "Name": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "SubAccount": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "ParentRef": {
@@ -126,19 +120,13 @@
         ]
       }
     },
+    "SubAccount": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "AccountAlias": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TxnLocationType": {
       "type": [
         "null",
         "string"
@@ -157,6 +145,18 @@
           "string"
         ]
       }
+    },
+    "TxnLocationType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   },
   "type": [

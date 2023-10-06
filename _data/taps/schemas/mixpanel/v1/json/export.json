@@ -1,8 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "event": {
+    "dataset": {
       "type": [
         "null",
         "string"
@@ -14,19 +13,19 @@
         "string"
       ]
     },
-    "time": {
+    "event": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "labels": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -39,11 +38,12 @@
         "integer"
       ]
     },
-    "dataset": {
+    "time": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

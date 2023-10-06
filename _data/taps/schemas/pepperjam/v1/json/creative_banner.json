@@ -1,26 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "allow_deep_link": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "destination_url": {
+    "alt_text": {
       "type": [
         "null",
         "string"
@@ -32,22 +19,28 @@
         "string"
       ]
     },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "alt_text": {
+    "destination_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "width": {
+    "end_date": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
     "height": {
@@ -56,35 +49,22 @@
         "integer"
       ]
     },
-    "promotions": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "private": {
@@ -96,12 +76,7 @@
     "private_affiliates": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "affiliate_id": {
@@ -122,45 +97,51 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "allow_deep_link": {
-      "type": [
-        "null",
-        "integer"
+    "promotions": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "view_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modified": {
       "type": [
         "null",
         "date-time"
@@ -171,6 +152,25 @@
         "null",
         "string"
       ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "width": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

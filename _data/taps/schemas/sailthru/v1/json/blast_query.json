@@ -1,58 +1,12 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "profile_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "blast_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "email_hash": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "send_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "open_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "click_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "first_ten_clicks": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "purchase_time": {
       "type": [
         "null",
         "date-time"
@@ -64,17 +18,63 @@
         "string"
       ]
     },
-    "first_ten_clicks_time": {
+    "email_hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_ten_clicks": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
         "array"
-      ],
+      ]
+    },
+    "first_ten_clicks_time": {
       "items": {
         "type": [
           "null",
           "date-time"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "open_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "profile_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "purchase_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "send_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

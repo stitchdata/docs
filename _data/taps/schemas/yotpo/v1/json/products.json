@@ -1,54 +1,10 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "created_at": {
-      "type": "date-time"
-    },
-    "updated_at": {
-      "type": "date-time"
-    },
     "average_score": {
       "type": "number"
     },
-    "total_reviews": {
-      "type": "number"
-    },
-    "url": {
-      "type": "string"
-    },
-    "external_product_id": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "description": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "product_specs": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "category": {
-      "type": "object",
       "properties": {
         "id": {
           "type": [
@@ -62,19 +18,27 @@
             "null"
           ]
         }
-      }
+      },
+      "type": "object"
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "external_product_id": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
     },
     "images": {
-      "type": "array",
       "items": {
-        "type": "object",
         "properties": {
-          "original": {
-            "type": "string"
-          },
-          "square": {
-            "type": "string"
-          },
           "facebook": {
             "type": "string"
           },
@@ -83,10 +47,46 @@
           },
           "kind": {
             "type": "string"
+          },
+          "original": {
+            "type": "string"
+          },
+          "square": {
+            "type": "string"
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "product_specs": {
+      "items": {
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "total_reviews": {
+      "type": "number"
+    },
+    "updated_at": {
+      "type": "date-time"
+    },
+    "url": {
+      "type": "string"
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

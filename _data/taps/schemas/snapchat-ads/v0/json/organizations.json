@@ -1,62 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "postal_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "locality": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "contact_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "contact_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "contact_phone": {
+    "accepted_term_version": {
       "type": [
         "null",
         "string"
@@ -74,7 +19,34 @@
         "string"
       ]
     },
-    "accepted_term_version": {
+    "configuration_settings": {
+      "additionalProperties": true,
+      "properties": {
+        "notifications_enabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "contact_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact_phone": {
       "type": [
         "null",
         "string"
@@ -86,44 +58,28 @@
         "boolean"
       ]
     },
-    "configuration_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "notifications_enabled": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "type": {
+    "country": {
       "type": [
         "null",
         "string"
       ]
     },
-    "state": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "roles": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+    "locality": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "my_display_name": {
@@ -143,6 +99,50 @@
         "null",
         "string"
       ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "postal_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "roles": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

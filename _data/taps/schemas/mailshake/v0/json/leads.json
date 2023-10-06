@@ -1,17 +1,82 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
+    "assignedTo": {
+      "additionalProperties": false,
+      "properties": {
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "id": {
+    "campaign": {
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
     "created": {
@@ -20,10 +85,10 @@
         "date-time"
       ]
     },
-    "openedDate": {
+    "id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
     "lastStatusChangeDate": {
@@ -32,26 +97,42 @@
         "date-time"
       ]
     },
-    "recipient": {
+    "object": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "openedDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "recipient": {
       "additionalProperties": false,
       "properties": {
-        "object": {
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "emailAddress": {
           "type": [
             "null",
             "string"
           ]
         },
-        "id": {
+        "fields": {
+          "additionalProperties": true,
+          "properties": {},
           "type": [
             "null",
-            "integer"
+            "object"
           ]
         },
-        "emailAddress": {
+        "first": {
           "type": [
             "null",
             "string"
@@ -63,10 +144,10 @@
             "string"
           ]
         },
-        "first": {
+        "id": {
           "type": [
             "null",
-            "string"
+            "integer"
           ]
         },
         "last": {
@@ -75,105 +156,24 @@
             "string"
           ]
         },
-        "created": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "fields": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {}
-        }
-      }
-    },
-    "campaign": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
         "object": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "title": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "created": {
-          "type": [
-            "null",
-            "date-time"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "status": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "assignedTo": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fullName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
     }
-  }
+  },
+  "type": "object"
 }

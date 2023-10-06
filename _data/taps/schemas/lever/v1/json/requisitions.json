@@ -1,28 +1,26 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "requisitionCode": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "backfill": {
       "type": "boolean"
     },
+    "compensationBand": {},
     "createdAt": {
       "type": "date-time"
     },
     "creator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "customFields": {},
+    "department": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "employmentStatus": {
       "type": [
         "string",
         "null"
@@ -40,26 +38,16 @@
         "null"
       ]
     },
-    "status": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "hiringManager": {
       "type": [
         "string",
         "null"
       ]
     },
-    "owner": {
-      "type": [
-        "string",
-        "null"
-      ]
+    "id": {
+      "type": "string"
     },
-    "compensationBand": {},
-    "employmentStatus": {
+    "internalNotes": {
       "type": [
         "string",
         "null"
@@ -71,19 +59,37 @@
         "null"
       ]
     },
-    "internalNotes": {
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "offerIds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner": {
       "type": [
         "string",
         "null"
       ]
     },
     "postings": {
-      "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "type": "array"
     },
-    "department": {
+    "requisitionCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
       "type": [
         "string",
         "null"
@@ -94,13 +100,7 @@
         "string",
         "null"
       ]
-    },
-    "offerIds": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "customFields": {}
-  }
+    }
+  },
+  "type": "object"
 }

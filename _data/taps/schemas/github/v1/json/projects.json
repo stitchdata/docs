@@ -1,22 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "owner_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "html_url": {
+    "body": {
       "type": [
         "null",
         "string"
@@ -28,16 +12,42 @@
         "string"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creator": {
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "node_id": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "name": {
@@ -46,7 +56,7 @@
         "string"
       ]
     },
-    "body": {
+    "node_id": {
       "type": [
         "null",
         "string"
@@ -58,36 +68,16 @@
         "number"
       ]
     },
-    "state": {
+    "owner_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "creator": {
+    "state": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "updated_at": {
@@ -95,6 +85,16 @@
         "null",
         "date-time"
       ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,6 +1,26 @@
 {
-  "type": "object",
   "properties": {
+    "created_at": {
+      "type": "date-time"
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -19,30 +39,6 @@
         "integer"
       ]
     },
-    "group_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "due_date": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "start_date": {
       "type": [
         "null",
@@ -55,11 +51,15 @@
         "string"
       ]
     },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "updated_at": {
       "type": "date-time"
-    },
-    "created_at": {
-      "type": "date-time"
     }
-  }
+  },
+  "type": "object"
 }

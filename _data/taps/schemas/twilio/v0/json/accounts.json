@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "auth_token": {
@@ -47,12 +46,7 @@
     "subresource_uris": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "subresource": {
@@ -67,17 +61,18 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         },
         {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "addresses": {
@@ -86,31 +81,7 @@
                 "string"
               ]
             },
-            "conferences": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "signing_keys": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "transcriptions": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "connect_apps": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "sip": {
+            "applications": {
               "type": [
                 "null",
                 "string"
@@ -122,7 +93,37 @@
                 "string"
               ]
             },
-            "usage": {
+            "available_phone_numbers": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "balance": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "calls": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "conferences": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "connect_apps": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "incoming_phone_numbers": {
               "type": [
                 "null",
                 "string"
@@ -134,7 +135,25 @@
                 "string"
               ]
             },
-            "applications": {
+            "messages": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "notifications": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "outgoing_caller_ids": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "queues": {
               "type": [
                 "null",
                 "string"
@@ -152,55 +171,35 @@
                 "string"
               ]
             },
-            "calls": {
+            "signing_keys": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "notifications": {
+            "sip": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "incoming_phone_numbers": {
+            "transcriptions": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "queues": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "messages": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "outgoing_caller_ids": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "available_phone_numbers": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "balance": {
+            "usage": {
               "type": [
                 "null",
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
       ]
     },
@@ -216,5 +215,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

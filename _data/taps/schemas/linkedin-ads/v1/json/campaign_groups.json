@@ -1,40 +1,28 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "run_schedule": {
+    "account": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "start": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "end": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
+        "string"
+      ]
+    },
+    "account_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "backfilled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "change_audit_stamps": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -43,13 +31,13 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "last_modified": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -58,14 +46,28 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "created_time": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "last_modified_time": {
@@ -80,41 +82,38 @@
         "string"
       ]
     },
+    "run_schedule": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "start": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "serving_statuses": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
-      ]
-    },
-    "backfilled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "account": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "status": {
@@ -123,5 +122,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

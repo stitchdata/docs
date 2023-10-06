@@ -1,18 +1,55 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "integer"
+    "archived": {
+      "description": "Available in APi Response Object",
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
-    "title": {
+    "content": {
       "type": [
         "null",
         "string"
       ]
     },
-    "content": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "description": "Available in APi Response Object",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "escalated": {
+      "description": "Available in APi Response Object",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reviewer_type": {
       "type": [
         "null",
         "string"
@@ -22,30 +59,6 @@
       "type": [
         "null",
         "number"
-      ]
-    },
-    "votes_up": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "votes_down": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "sentiment": {
@@ -60,51 +73,38 @@
         "string"
       ]
     },
-    "name": {
+    "title": {
       "type": [
         "null",
         "string"
       ]
     },
-    "email": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
-    },
-    "reviewer_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "description": "Available in APi Response Object"
-    },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "description": "Available in APi Response Object"
-    },
-    "escalated": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "description": "Available in APi Response Object"
     },
     "user_reference": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "votes_down": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "votes_up": {
+      "type": [
+        "null",
+        "number"
+      ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

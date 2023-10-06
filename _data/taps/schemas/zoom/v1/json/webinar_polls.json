@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -7,9 +6,41 @@
         "string"
       ]
     },
-    "webinar_id": {
+    "questions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "answers": {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
       "type": [
-        "string"
+        "null",
+        "array"
       ]
     },
     "status": {
@@ -24,42 +55,11 @@
         "string"
       ]
     },
-    "questions": {
+    "webinar_id": {
       "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "answers": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "string"
-              ]
-            }
-          }
-        }
-      }
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

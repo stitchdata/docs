@@ -1,42 +1,19 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "actionDate": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "isDuplicate": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "recipient": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "campaign": {
       "additionalProperties": false,
       "properties": {
-        "object": {
+        "created": {
           "type": [
             "null",
-            "string"
+            "date-time"
           ]
         },
         "id": {
@@ -45,7 +22,132 @@
             "integer"
           ]
         },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "isDuplicate": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "message": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "object": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "subject": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "recipient": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
         "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fields": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "first": {
           "type": [
             "null",
             "string"
@@ -57,28 +159,10 @@
             "string"
           ]
         },
-        "first": {
+        "id": {
           "type": [
             "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "created": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "action": {
-          "type": [
-            "null",
-            "string"
+            "integer"
           ]
         },
         "isPaused": {
@@ -87,108 +171,24 @@
             "boolean"
           ]
         },
-        "fields": {
+        "last": {
           "type": [
             "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {}
-        }
-      }
-    },
-    "campaign": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
+            "string"
+          ]
+        },
         "object": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "title": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "created": {
-          "type": [
-            "null",
-            "date-time"
-          ]
         }
-      }
-    },
-    "parent": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "message": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "object": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "subject": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
+      ]
     }
-  }
+  },
+  "type": "object"
 }

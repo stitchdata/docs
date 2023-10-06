@@ -1,9 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "categories": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "additional_category": {
@@ -15,13 +13,13 @@
         "additional_sub_categories": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": [
                   "null",
                   "string"
                 ]
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
@@ -37,27 +35,26 @@
         "primary_sub_categories": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": [
                   "null",
                   "string"
                 ]
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "company_contacts": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "email_address": {
@@ -84,8 +81,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -93,10 +92,6 @@
       ]
     },
     "direct_tracking_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "session_window_length": {
@@ -111,7 +106,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "display_future_ads": {
       "type": [
@@ -126,10 +125,6 @@
       ]
     },
     "gateway_tracking_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "campaign_tracking_template": {
@@ -192,7 +187,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "gift_card_payouts": {
       "type": [
@@ -255,18 +254,12 @@
       ]
     },
     "resources": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "additional_related_links": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": "object",
                 "additionalProperties": false,
                 "properties": {
                   "link_display_name": {
@@ -287,8 +280,10 @@
                       "string"
                     ]
                   }
-                }
-              }
+                },
+                "type": "object"
+              },
+              "type": "array"
             },
             {
               "type": "null"
@@ -313,7 +308,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "search_keywords": {
       "type": [
@@ -369,5 +368,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

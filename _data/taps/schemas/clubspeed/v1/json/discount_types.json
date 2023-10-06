@@ -1,19 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "discountId": {
+    "amount": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
+        "number"
       ]
     },
     "calculateType": {
@@ -22,10 +12,22 @@
         "integer"
       ]
     },
-    "amount": {
+    "deleted": {
       "type": [
         "null",
-        "number"
+        "boolean"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discountId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "enabled": {
@@ -45,12 +47,10 @@
         "null",
         "integer"
       ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

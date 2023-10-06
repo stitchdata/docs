@@ -1,6 +1,46 @@
 {
   "properties": {
-    "PrivateNote": {
+    "Amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "CurrencyRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "ExchangeRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "FromAccountRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "Id": {
       "type": [
         "null",
         "string"
@@ -8,13 +48,13 @@
     },
     "MetaData": {
       "properties": {
-        "LastUpdatedTime": {
+        "CreateTime": {
           "type": [
             "null",
             "date-time"
           ]
         },
-        "CreateTime": {
+        "LastUpdatedTime": {
           "type": [
             "null",
             "date-time"
@@ -26,35 +66,25 @@
         "object"
       ]
     },
-    "TxnDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "Id": {
+    "PrivateNote": {
       "type": [
         "null",
         "string"
       ]
     },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ExchangeRate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "Amount": {
-      "type": [
-        "null",
-        "number"
-      ]
+    "RecurDataRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
     },
     "SyncToken": {
       "type": [
@@ -76,49 +106,19 @@
         ]
       }
     },
-    "CurrencyRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "FromAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "RecurDataRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
     "TransactionLocationType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TxnDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "domain": {
       "type": [
         "null",
         "string"

@@ -1,86 +1,91 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "actualCost": {
       "type": "string"
     },
-    "type": {
+    "badgeId": {
+      "type": "string"
+    },
+    "budgetedCost": {
+      "type": "string"
+    },
+    "campaignCategory": {
+      "type": "string"
+    },
+    "campaignType": {
+      "type": "string"
+    },
+    "clrEndDate": {
+      "type": "date-time"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "crmId": {
       "type": "string"
     },
     "currentStatus": {
       "type": "string"
     },
-    "name": {
+    "depth": {
       "type": "string"
     },
     "description": {
       "type": "string"
     },
-    "permissions": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "folderId": {
-      "type": "string"
-    },
-    "sourceTemplateId": {
-      "type": "string"
-    },
-    "createdBy": {
-      "type": "string"
-    },
-    "createdAt": {
-      "type": "date-time"
-    },
-    "updatedBy": {
-      "type": "string"
-    },
-    "updatedAt": {
-      "type": "date-time"
-    },
-    "accessedAt": {
-      "type": "date-time"
-    },
-    "scheduledFor": {
-      "type": "date-time"
-    },
-    "depth": {
-      "type": "string"
-    },
     "elements": {
-      "type": "array",
-      "items": {}
-    },
-    "isReadOnly": {
-      "type": "string"
-    },
-    "runAsUserId": {
-      "type": "string"
-    },
-    "startAt": {
-      "type": "date-time"
+      "items": {},
+      "type": "array"
     },
     "endAt": {
       "type": "date-time"
     },
-    "budgetedCost": {
+    "fieldValues": {
+      "items": {},
+      "type": "array"
+    },
+    "firstActivation": {
+      "type": "date-time"
+    },
+    "folderId": {
       "type": "string"
     },
-    "actualCost": {
+    "id": {
+      "type": "string"
+    },
+    "isEmailMarketingCampaign": {
+      "type": "string"
+    },
+    "isIncludedInROI": {
       "type": "string"
     },
     "isMemberAllowedReEntry": {
       "type": "string"
     },
-    "fieldValues": {
-      "type": "array",
-      "items": {}
-    },
-    "campaignType": {
+    "isReadOnly": {
       "type": "string"
+    },
+    "isSyncedWithCRM": {
+      "type": "string"
+    },
+    "memberCount": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "permissions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "product": {
       "type": "string"
@@ -88,32 +93,27 @@
     "region": {
       "type": "string"
     },
-    "clrEndDate": {
+    "runAsUserId": {
+      "type": "string"
+    },
+    "scheduledFor": {
       "type": "date-time"
     },
-    "crmId": {
+    "sourceTemplateId": {
       "type": "string"
     },
-    "isSyncedWithCRM": {
-      "type": "string"
-    },
-    "isIncludedInROI": {
-      "type": "string"
-    },
-    "badgeId": {
-      "type": "string"
-    },
-    "isEmailMarketingCampaign": {
-      "type": "string"
-    },
-    "campaignCategory": {
-      "type": "string"
-    },
-    "firstActivation": {
+    "startAt": {
       "type": "date-time"
     },
-    "memberCount": {
+    "type": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
       "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

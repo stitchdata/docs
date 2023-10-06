@@ -1,67 +1,10 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "yotpo_id": {
-      "type": "integer"
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "external_id": {
-      "type": "string"
-    },
-    "name": {
+    "brand": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_valid_url_format": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "description": "Actual response displays `is_valid_url_format` whereas documentation mention `is_valid_url`"
-    },
-    "image_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "price": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "compare_at_price": {
@@ -70,7 +13,83 @@
         "number"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_properties": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "external_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "group_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gtins": {
+      "items": {
+        "properties": {
+          "declared_type": {
+            "type": "string"
+          },
+          "detected_type": {
+            "description": "Actual response shows `detected_type` whereas documentation does not mention it",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "handle": {
+      "description": "Actual response shows `handle` whereas documentation does not mention it",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "image_url": {
       "type": [
         "null",
         "string"
@@ -88,22 +107,11 @@
         "boolean"
       ]
     },
-    "group_name": {
+    "is_valid_url_format": {
+      "description": "Actual response displays `is_valid_url_format` whereas documentation mention `is_valid_url`",
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "brand": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sku": {
-      "type": [
-        "null",
-        "string"
+        "boolean"
       ]
     },
     "mpn": {
@@ -112,55 +120,47 @@
         "string"
       ]
     },
-    "handle": {
+    "name": {
       "type": [
         "null",
         "string"
-      ],
-      "description": "Actual response shows `handle` whereas documentation does not mention it"
+      ]
     },
-    "external_created_at": {
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "external_updated_at": {
+    "url": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "gtins": {
-      "type": [
-        "array",
-        "null"
-      ],
-      "items": {
-        "type": "object",
-        "properties": {
-          "declared_type": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          },
-          "detected_type": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "description": "Actual response shows `detected_type` whereas documentation does not mention it"
-          }
-        }
-      }
-    },
-    "custom_properties": {
-      "type": [
-        "null",
-        "object"
-      ]
+    "yotpo_id": {
+      "type": "integer"
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

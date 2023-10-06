@@ -1,18 +1,80 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "order_date": {
+    "billing_address": {
+      "properties": {
+        "address1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "province_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "order_name": {
+    "cancellation": {
+      "properties": {
+        "cancellation_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
     "checkout_token": {
@@ -21,22 +83,10 @@
         "string"
       ]
     },
-    "payment_method": {
+    "created_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "total_price": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "subtotal_price": {
-      "type": [
-        "null",
-        "number"
+        "date-time"
       ]
     },
     "currency": {
@@ -45,162 +95,6 @@
         "string"
       ]
     },
-    "landing_site_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "payment_status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cancellation": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cancellation_date": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "billing_address": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "address1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "city": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "company": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "state": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zip": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "province_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "phone_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "shipping_address": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "address1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "city": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "company": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "state": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zip": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "province_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "phone_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
     "custom_properties": {
       "type": [
         "null",
@@ -208,11 +102,31 @@
       ]
     },
     "customer": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
+        "accepts_email_marketing": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accepts_sms_marketing": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "custom_properties": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "external_id": {
           "type": [
             "null",
@@ -231,94 +145,35 @@
             "string"
           ]
         },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "phone_number": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "accepts_email_marketing": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accepts_sms_marketing": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "custom_properties": {
-          "type": [
-            "null",
-            "object"
-          ]
         }
-      }
-    },
-    "fulfillments": {
+      },
       "type": [
         "null",
-        "array"
-      ],
+        "object"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fulfillments": {
       "items": {
-        "type": "object",
         "properties": {
-          "fulfillment_date": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "status": {
+          "external_id": {
             "type": [
               "null",
               "string"
             ]
           },
-          "shipment_info": {
-            "type": "object",
-            "properties": {
-              "shipment_status": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tracking_company": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tracking_url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tracking_number": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          },
           "fulfilled_items": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": "object",
               "properties": {
                 "external_product_id": {
                   "type": [
@@ -332,32 +187,77 @@
                     "integer"
                   ]
                 }
-              }
-            }
+              },
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           },
-          "external_id": {
+          "fulfillment_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "shipment_info": {
+            "properties": {
+              "shipment_status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tracking_company": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tracking_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tracking_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "status": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
-      }
-    },
-    "line_items": {
+        },
+        "type": "object"
+      },
       "type": [
         "null",
         "array"
-      ],
+      ]
+    },
+    "landing_site_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_items": {
       "items": {
-        "type": "object",
         "properties": {
-          "yotpo_id": {
+          "coupon_code": {
             "type": [
               "null",
-              "integer"
-            ],
-            "description": "Actual response displays `yotpo_id` whereas documentation mention `yotpo_product_id`"
+              "string"
+            ]
           },
           "created_at": {
             "type": [
@@ -365,10 +265,23 @@
               "date-time"
             ]
           },
-          "updated_at": {
+          "custom_properties": {
             "type": [
               "null",
-              "date-time"
+              "object"
+            ]
+          },
+          "external_product_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "product_id": {
+            "description": "Actual response contains `product_id` whereas documentation does not mention it.",
+            "type": [
+              "null",
+              "string"
             ]
           },
           "quantity": {
@@ -377,56 +290,141 @@
               "integer"
             ]
           },
-          "total_price": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
           "subtotal_price": {
             "type": [
               "null",
               "number"
             ]
           },
-          "coupon_code": {
+          "total_price": {
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
-          "product_id": {
+          "updated_at": {
             "type": [
               "null",
-              "string"
-            ],
-            "description": "Actual response contains `product_id` whereas documentation does not mention it."
-          },
-          "external_product_id": {
-            "type": [
-              "null",
-              "string"
+              "date-time"
             ]
           },
-          "custom_properties": {
+          "yotpo_id": {
+            "description": "Actual response displays `yotpo_id` whereas documentation mention `yotpo_product_id`",
             "type": [
               "null",
-              "object"
+              "integer"
             ]
           }
-        }
-      }
-    },
-    "yotpo_id": {
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "integer"
+        "array"
       ]
     },
-    "created_at": {
+    "order_date": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "order_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipping_address": {
+      "properties": {
+        "address1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "province_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subtotal_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_price": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "updated_at": {
@@ -435,12 +433,14 @@
         "date-time"
       ]
     },
-    "external_id": {
+    "yotpo_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

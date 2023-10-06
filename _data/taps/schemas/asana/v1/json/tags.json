@@ -1,13 +1,8 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "color": {
       "type": [
         "null",
-        "integer",
         "string"
       ]
     },
@@ -18,26 +13,18 @@
       ]
     },
     "followers": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "id": {
             "type": [
               "null",
               "integer",
-              "string"
-            ]
-          },
-          "gid": {
-            "type": [
-              "null",
               "string"
             ]
           },
@@ -47,16 +34,25 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "name": {
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer",
         "string"
       ]
     },
-    "color": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -69,21 +65,17 @@
       ]
     },
     "workspace": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "id": {
           "type": [
             "null",
             "integer",
-            "string"
-          ]
-        },
-        "gid": {
-          "type": [
-            "null",
             "string"
           ]
         },
@@ -93,7 +85,15 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

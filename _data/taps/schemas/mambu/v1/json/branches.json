@@ -1,46 +1,25 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "email_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "addresses": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "parent_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "city": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "latitude": {
+              "country": {
                 "type": [
                   "null",
-                  "number"
+                  "string"
                 ]
               },
-              "postcode": {
+              "encoded_key": {
                 "type": [
                   "null",
                   "string"
@@ -52,13 +31,13 @@
                   "integer"
                 ]
               },
-              "encoded_key": {
+              "latitude": {
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
-              "region": {
+              "line1": {
                 "type": [
                   "null",
                   "string"
@@ -70,86 +49,50 @@
                   "string"
                 ]
               },
-              "line1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "longitude": {
                 "type": [
                   "null",
                   "number"
                 ]
+              },
+              "parent_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postcode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "phone_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "branch_holidays": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "name": {
+              "creation_date": {
                 "type": [
                   "null",
-                  "string"
+                  "date-time"
                 ]
               },
               "date": {
@@ -170,26 +113,32 @@
                   "boolean"
                 ]
               },
-              "creation_date": {
+              "name": {
                 "type": [
                   "null",
-                  "date-time"
+                  "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "custom_field_sets": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "custom_field_set_id": {
@@ -201,9 +150,7 @@
               "custom_field_values": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "custom_field_id": {
@@ -218,21 +165,74 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
                   }
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

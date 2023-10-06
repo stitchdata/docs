@@ -1,10 +1,15 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
+    "accepted_at": {
       "type": [
         "null",
-        "integer"
+        "date-time"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "client_id": {
@@ -13,13 +18,62 @@
         "integer"
       ]
     },
+    "client_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "creator_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "client_key": {
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "declined_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "discount": {
+      "type": [
+        "null",
+        "string",
+        "number"
+      ]
+    },
+    "discount_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "issue_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "notes": {
       "type": [
         "null",
         "string"
@@ -37,22 +91,28 @@
         "string"
       ]
     },
-    "amount": {
+    "sent_at": {
       "type": [
         "null",
-        "number"
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "tax": {
       "type": [
         "null",
         "string",
-        "number"
-      ]
-    },
-    "tax_amount": {
-      "type": [
-        "null",
         "number"
       ]
     },
@@ -69,71 +129,10 @@
         "number"
       ]
     },
-    "discount": {
-      "type": [
-        "null",
-        "string",
-        "number"
-      ]
-    },
-    "discount_amount": {
+    "tax_amount": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "issue_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "sent_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "accepted_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "declined_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_at": {
@@ -142,5 +141,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

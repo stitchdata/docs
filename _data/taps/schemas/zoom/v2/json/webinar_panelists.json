@@ -1,26 +1,14 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "webinar_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "email": {
       "type": [
         "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
         "string"
       ]
     },
@@ -30,7 +18,13 @@
         "string"
       ]
     },
-    "virtual_background_id": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name_tag_description": {
       "type": [
         "null",
         "string"
@@ -54,11 +48,17 @@
         "string"
       ]
     },
-    "name_tag_description": {
+    "virtual_background_id": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

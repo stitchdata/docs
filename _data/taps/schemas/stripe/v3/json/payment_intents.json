@@ -1,16 +1,18 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "amount": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "amount": {
+    "amount_capturable": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount_received": {
       "type": [
         "null",
         "integer"
@@ -22,13 +24,33 @@
         "string"
       ]
     },
-    "source": {
+    "application_fee_amount": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "status": {
+    "automatic_payment_methods": {
+      "properties": {
+        "enabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "canceled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "cancellation_reason": {
       "type": [
         "null",
         "string"
@@ -46,10 +68,16 @@
         "string"
       ]
     },
-    "latest_charge": {
+    "confirmation_method": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "currency": {
@@ -70,11 +98,19 @@
         "string"
       ]
     },
-    "last_payment_error": {
+    "id": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "invoice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_payment_error": {
       "properties": {
         "charge": {
           "type": [
@@ -124,26 +160,34 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "latest_charge": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "livemode": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "next_action": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "alipay_handle_redirect": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "native_data": {
               "type": [
@@ -169,13 +213,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "boleto_display_details": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "boleto_display_details": {
           "properties": {
             "expires_at": {
               "type": [
@@ -201,13 +245,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "oxxo_display_details": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "oxxo_display_details": {
           "properties": {
             "expires_after": {
               "type": [
@@ -227,13 +271,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "redirect_to_url": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "redirect_to_url": {
           "properties": {
             "return_url": {
               "type": [
@@ -247,7 +291,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "type": {
           "type": [
@@ -256,17 +304,13 @@
           ]
         },
         "use_stripe_sdk": {
+          "properties": {},
           "type": [
             "null",
             "object"
-          ],
-          "properties": {}
+          ]
         },
         "verify_with_microdeposits": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "arrival_date": {
               "type": [
@@ -280,13 +324,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "wechat_pay_display_qr_code": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "wechat_pay_display_qr_code": {
           "properties": {
             "data": {
               "type": [
@@ -312,13 +356,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "wechat_pay_redirect_to_android_app": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "wechat_pay_redirect_to_android_app": {
           "properties": {
             "app_id": {
               "type": [
@@ -362,13 +406,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "wechat_pay_redirect_to_ios_app": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "wechat_pay_redirect_to_ios_app": {
           "properties": {
             "native_url": {
               "type": [
@@ -376,121 +420,16 @@
                 "string"
               ]
             }
-          }
-        }
-      }
-    },
-    "payment_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "payment_method_types": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "receipt_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "setup_future_usage": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "shipping": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "address": {
+          },
           "type": [
             "null",
             "object"
-          ],
-          "properties": {
-            "line2": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "state": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "city": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "postal_code": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "country": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "line1": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "phone": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "carrier": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "tracking_number": {
-          "type": [
-            "null",
-            "string"
           ]
         }
-      }
-    },
-    "statement_descriptor": {
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "statement_descriptor_suffix": {
-      "type": [
-        "null",
-        "string"
+        "object"
       ]
     },
     "object": {
@@ -499,97 +438,23 @@
         "string"
       ]
     },
-    "amount_capturable": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "amount_received": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "application_fee_amount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "automatic_payment_methods": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "enabled": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "canceled_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "cancellation_reason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "invoice": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "confirmation_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "livemode": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "on_behalf_of": {
       "type": [
         "null",
         "string"
       ]
     },
-    "payment_method_options": {
+    "payment_method": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "payment_method_options": {
       "properties": {
         "acss_debit": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "mandate_options": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "custom_mandate_url": {
                   "type": [
@@ -622,6 +487,10 @@
                   "string"
                 ]
               },
+              "type": [
+                "null",
+                "object"
+              ],
               "verification_method": {
                 "type": [
                   "null",
@@ -629,13 +498,13 @@
                 ]
               }
             }
-          }
-        },
-        "afterpay_clearpay": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "afterpay_clearpay": {
           "properties": {
             "reference": {
               "type": [
@@ -649,13 +518,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "alipay": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -663,13 +532,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "au_becs_debit": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -677,13 +546,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "bacs_debit": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -691,70 +560,58 @@
                 "string"
               ]
             }
-          }
-        },
-        "bancontact": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "bancontact": {
           "properties": {
-            "setup_future_usage": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "preferred_language": {
               "type": [
                 "null",
                 "string"
               ]
-            }
-          }
-        },
-        "boleto": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
+            },
             "setup_future_usage": {
               "type": [
                 "null",
                 "string"
               ]
-            },
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "boleto": {
+          "properties": {
             "expires_after_days": {
               "type": [
                 "null",
                 "integer"
               ]
+            },
+            "setup_future_usage": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
-        },
-        "card": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "card": {
           "properties": {
             "installments": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "available_plans": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
                     "properties": {
                       "count": {
                         "type": [
@@ -774,8 +631,16 @@
                           "string"
                         ]
                       }
-                    }
-                  }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "enabled": {
                   "type": [
@@ -784,10 +649,6 @@
                   ]
                 },
                 "plan": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
                     "count": {
                       "type": [
@@ -807,9 +668,17 @@
                         "string"
                       ]
                     }
-                  }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "network": {
               "type": [
@@ -829,20 +698,20 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "card_present": {
+          "properties": {},
           "type": [
             "null",
             "object"
-          ],
-          "properties": {}
+          ]
         },
         "eps": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -850,13 +719,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "fps": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -864,13 +733,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "giropay": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -878,13 +747,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "grabpay": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -892,13 +761,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "ideal": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -906,20 +775,20 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "interac_present": {
+          "properties": {},
           "type": [
             "null",
             "object"
-          ],
-          "properties": {}
+          ]
         },
         "klarna": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "preferred_locale": {
               "type": [
@@ -933,13 +802,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "oxxo": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "oxxo": {
           "properties": {
             "expires_after_days": {
               "type": [
@@ -953,13 +822,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "p24": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "p24": {
           "properties": {
             "setup_future_usage": {
               "type": [
@@ -967,20 +836,20 @@
                 "string"
               ]
             }
-          }
-        },
-        "sepa_debit": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "sepa_debit": {
           "properties": {
             "mandate_options": {
+              "properties": {},
               "type": [
                 "null",
                 "object"
-              ],
-              "properties": {}
+              ]
             },
             "setup_future_usage": {
               "type": [
@@ -988,13 +857,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "sofort": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "sofort": {
           "properties": {
             "preferred_language": {
               "type": [
@@ -1008,13 +877,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "wechat_pay": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "wechat_pay": {
           "properties": {
             "app_id": {
               "type": [
@@ -1034,16 +903,37 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "processing": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
+    },
+    "payment_method_types": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "processing": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "receipt_email": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "review": {
       "type": [
@@ -1051,11 +941,113 @@
         "string"
       ]
     },
-    "transfer_data": {
+    "setup_future_usage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipping": {
+      "properties": {
+        "address": {
+          "properties": {
+            "city": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "country": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "line1": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "line2": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "postal_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "state": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "carrier": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_descriptor": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_descriptor_suffix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transfer_data": {
       "properties": {
         "amount": {
           "type": [
@@ -1069,7 +1061,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "transfer_group": {
       "type": [
@@ -1089,5 +1085,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

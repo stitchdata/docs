@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "admin_id": {
@@ -71,10 +70,10 @@
     "options": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -99,5 +98,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

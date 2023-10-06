@@ -1,50 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "organization_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "total_budget_micro": {
+    "available_credit_micro": {
       "type": [
         "null",
         "integer"
@@ -56,37 +13,25 @@
         "integer"
       ]
     },
-    "available_credit_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "card_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
       "type": [
         "null",
         "string"
       ]
     },
-    "last_4": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "expiration_year": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "expiration_month": {
+    "daily_spend_limit_currency": {
       "type": [
         "null",
         "string"
@@ -98,22 +43,10 @@
         "integer"
       ]
     },
-    "daily_spend_limit_currency": {
+    "email": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "value_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "end_date": {
@@ -122,11 +55,78 @@
         "date-time"
       ]
     },
-    "email": {
+    "expiration_month": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "expiration_year": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_budget_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "value_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

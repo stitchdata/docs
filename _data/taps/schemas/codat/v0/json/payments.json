@@ -1,22 +1,36 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
     "companyId": {
       "type": [
         "string"
       ]
     },
-    "totalAmount": {
+    "currency": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "id": {
+    "customerRef": {
+      "additionalProperties": true,
+      "properties": {
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
-        "string"
+        "null",
+        "object"
       ]
     },
     "date": {
@@ -25,17 +39,24 @@
         "date-time"
       ]
     },
-    "note": {
+    "id": {
       "type": [
-        "null",
         "string"
       ]
     },
     "lines": {
       "items": {
+        "additionalProperties": true,
         "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
           "links": {
             "items": {
+              "additionalProperties": true,
               "properties": {
                 "id": {
                   "type": [
@@ -53,59 +74,38 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": true
+              ]
             },
             "type": [
               "null",
               "array"
-            ]
-          },
-          "amount": {
-            "type": [
-              "null",
-              "number"
             ]
           }
         },
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": true
+        ]
       },
       "type": [
         "null",
         "array"
       ]
     },
-    "currency": {
+    "note": {
       "type": [
         "null",
         "string"
       ]
     },
-    "customerRef": {
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "companyName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
+    "totalAmount": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": true
+        "number"
+      ]
     }
   },
-  "additionalProperties": true
+  "type": [
+    "object"
+  ]
 }

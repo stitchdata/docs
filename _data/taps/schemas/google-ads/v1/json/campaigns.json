@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
     "accessibleBiddingStrategy": {
       "type": [
@@ -29,10 +25,6 @@
       ]
     },
     "appCampaignSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "appId": {
           "type": [
@@ -52,7 +44,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "baseCampaign": {
       "type": [
@@ -79,10 +75,6 @@
       ]
     },
     "commission": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "commissionRateMicros": {
           "type": [
@@ -90,82 +82,106 @@
             "integer"
           ]
         }
-      }
-    },
-    "dynamicSearchAdsSetting": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "domainName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "feeds": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
+      ]
+    },
+    "definitions": {
+      "AppCampaignSetting": {
+        "properties": {
+          "appId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "appStore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "biddingStrategyGoalType": {
             "type": [
               "null",
               "string"
             ]
           }
         },
-        "languageCode": {
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "Commission": {
+        "properties": {
+          "commissionRateMicros": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "CustomParameter": {
+        "key": {
           "type": [
             "null",
             "string"
           ]
         },
-        "useSuppliedUrlsOnly": {
+        "value": {
           "type": [
             "null",
-            "boolean"
+            "string"
           ]
         }
-      }
-    },
-    "endDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "excludedParentAssetFieldTypes": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
+      },
+      "DynamicSearchAdsSetting": {
+        "properties": {
+          "domainName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "feeds": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "languageCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "useSuppliedUrlsOnly": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
         "type": [
           "null",
-          "string"
+          "object"
         ]
-      }
-    },
-    "experimentType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "finalUrlSuffix": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "frequencyCaps": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
+      },
+      "FrequencyCapEntry": {
         "cap": {
           "type": [
             "null",
@@ -173,10 +189,6 @@
           ]
         },
         "key": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "eventType": {
               "type": [
@@ -202,662 +214,14 @@
                 "string"
               ]
             }
-          }
-        }
-      }
-    },
-    "geoTargetTypeSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "negativeGeoTargetType": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "positiveGeoTargetType": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "hotelSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "hotelCenterId": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "labels": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "localCampaignSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "locationSourceType": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "manualCpc": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "enhancedCpcEnabled": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "manualCpm": {
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "manualCpv": {
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "maximizeConversionValue": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "cpcBidFloorMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "targetRoas": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "maximizeConversions": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "cpcBidFloorMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "targetCpa": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "networkSettings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "targetContentNetwork": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "targetGoogleSearch": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "targetPartnerSearchNetwork": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "targetSearchNetwork": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "optimizationGoalSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "optimizationGoalTypes": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      }
-    },
-    "optimizationScore": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "paymentMode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "percentCpc": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "enhancedCpcEnabled": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "realTimeBiddingSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "optIn": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "resourceName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "selectiveOptimization": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "conversionActions": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "servingStatus": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "shoppingSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "campaignPriority": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "enableLocal": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "merchantId": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "salesCountry": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "startDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "targetCpa": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "cpcBidFloorMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "targetCpaMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "targetCpm": {
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "targetImpressionShare": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "location": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locationFractionMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "targetRoas": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "cpcBidFloorMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "targetRoas": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "targetSpend": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "cpcBidCeilingMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "targetSpendMicros": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "targetingSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "targetRestrictionOperations": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "operator": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "value": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "bidOnly": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "targetingDimension": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "targetRestrictions": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "bidOnly": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "targetingDimension": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "trackingSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "trackingUrl": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "trackingUrlTemplate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "urlCustomParameters": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "urlExpansionOptOut": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "vanityPharma": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "vanityPharmaDisplayUrlMode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "vanityPharmaText": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "videoBrandSafetySuitability": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "definitions": {
-      "AppCampaignSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "appId": {
-            "type": [
-              "null",
-              "string"
-            ]
           },
-          "appStore": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "biddingStrategyGoalType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
-      "Commission": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "commissionRateMicros": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      },
-      "DynamicSearchAdsSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "domainName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "feeds": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "languageCode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "useSuppliedUrlsOnly": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         }
       },
       "FrequencyCapKey": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "eventType": {
             "type": [
@@ -883,53 +247,13 @@
               "string"
             ]
           }
-        }
-      },
-      "FrequencyCapEntry": {
-        "cap": {
-          "type": [
-            "null",
-            "integer"
-          ]
         },
-        "key": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "eventType": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "level": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "timeLength": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "timeUnit": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      },
-      "GeoTargetTypeSetting": {
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "GeoTargetTypeSetting": {
         "properties": {
           "negativeGeoTargetType": {
             "type": [
@@ -943,13 +267,13 @@
               "string"
             ]
           }
-        }
-      },
-      "HotelSettingInfo": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "HotelSettingInfo": {
         "properties": {
           "hotelCenterId": {
             "type": [
@@ -957,13 +281,13 @@
               "integer"
             ]
           }
-        }
-      },
-      "LocalCampaignSetting": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "LocalCampaignSetting": {
         "properties": {
           "locationSourceType": {
             "type": [
@@ -971,13 +295,13 @@
               "string"
             ]
           }
-        }
-      },
-      "ManualCpc": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "ManualCpc": {
         "properties": {
           "enhancedCpcEnabled": {
             "type": [
@@ -985,7 +309,11 @@
               "boolean"
             ]
           }
-        }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "ManualCpm": {
         "type": [
@@ -1000,10 +328,6 @@
         ]
       },
       "MaximizeConversionValue": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1023,13 +347,13 @@
               "number"
             ]
           }
-        }
-      },
-      "MaximizeConversions": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "MaximizeConversions": {
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1049,13 +373,13 @@
               "integer"
             ]
           }
-        }
-      },
-      "NetworkSettings": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "NetworkSettings": {
         "properties": {
           "targetContentNetwork": {
             "type": [
@@ -1081,33 +405,33 @@
               "boolean"
             ]
           }
-        }
-      },
-      "OptimizationGoalSetting": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "OptimizationGoalSetting": {
         "properties": {
           "optimizationGoalTypes": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
               "type": [
                 "null",
                 "integer"
               ]
-            }
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           }
-        }
-      },
-      "PercentCpc": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "PercentCpc": {
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1121,13 +445,13 @@
               "boolean"
             ]
           }
-        }
-      },
-      "RealTimeBiddingSetting": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "RealTimeBiddingSetting": {
         "properties": {
           "optIn": {
             "type": [
@@ -1135,33 +459,33 @@
               "boolean"
             ]
           }
-        }
-      },
-      "SelectiveOptimization": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "SelectiveOptimization": {
         "properties": {
           "conversionActions": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
               "type": [
                 "null",
                 "string"
               ]
-            }
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           }
-        }
-      },
-      "ShoppingSetting": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "ShoppingSetting": {
         "properties": {
           "campaignPriority": {
             "type": [
@@ -1187,13 +511,13 @@
               "string"
             ]
           }
-        }
-      },
-      "TargetCpa": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "TargetCpa": {
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1213,7 +537,11 @@
               "integer"
             ]
           }
-        }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "TargetCpm": {
         "type": [
@@ -1222,10 +550,6 @@
         ]
       },
       "TargetImpressionShare": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1245,13 +569,61 @@
               "integer"
             ]
           }
-        }
-      },
-      "TargetRoas": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "TargetRestriction": {
+        "properties": {
+          "bidOnly": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "targetingDimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "TargetRestrictionOperation": {
+        "operator": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "properties": {
+            "bidOnly": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "targetingDimension": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "TargetRoas": {
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1271,13 +643,13 @@
               "number"
             ]
           }
-        }
-      },
-      "TargetSpend": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "TargetSpend": {
         "properties": {
           "cpcBidCeilingMicros": {
             "type": [
@@ -1291,67 +663,15 @@
               "integer"
             ]
           }
-        }
-      },
-      "TargetRestriction": {
+        },
         "type": [
           "null",
           "object"
-        ],
-        "properties": {
-          "bidOnly": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "targetingDimension": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
-      "TargetRestrictionOperation": {
-        "operator": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "bidOnly": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "targetingDimension": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
+        ]
       },
       "TargetingSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "targetRestrictionOperations": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
               "operator": {
                 "type": [
@@ -1360,10 +680,6 @@
                 ]
               },
               "value": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "properties": {
                   "bidOnly": {
                     "type": [
@@ -1377,20 +693,20 @@
                       "string"
                     ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               }
-            }
-          },
-          "targetRestrictions": {
+            },
             "type": [
               "null",
               "array"
-            ],
+            ]
+          },
+          "targetRestrictions": {
             "items": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "bidOnly": {
                   "type": [
@@ -1404,16 +720,24 @@
                     "string"
                   ]
                 }
-              }
-            }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           }
-        }
-      },
-      "TrackingSetting": {
+        },
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "TrackingSetting": {
         "properties": {
           "trackingUrl": {
             "type": [
@@ -1421,27 +745,13 @@
               "string"
             ]
           }
-        }
-      },
-      "CustomParameter": {
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
         },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "VanityPharma": {
         "type": [
           "null",
           "object"
-        ],
+        ]
+      },
+      "VanityPharma": {
         "properties": {
           "vanityPharmaDisplayUrlMode": {
             "type": [
@@ -1455,8 +765,698 @@
               "string"
             ]
           }
-        }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       }
+    },
+    "dynamicSearchAdsSetting": {
+      "properties": {
+        "domainName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "feeds": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "languageCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "useSuppliedUrlsOnly": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "endDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "excludedParentAssetFieldTypes": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "experimentType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "finalUrlSuffix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "frequencyCaps": {
+      "items": {
+        "cap": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "key": {
+          "properties": {
+            "eventType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "level": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "timeLength": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "timeUnit": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "geoTargetTypeSetting": {
+      "properties": {
+        "negativeGeoTargetType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "positiveGeoTargetType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "hotelSetting": {
+      "properties": {
+        "hotelCenterId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "labels": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "localCampaignSetting": {
+      "properties": {
+        "locationSourceType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "manualCpc": {
+      "properties": {
+        "enhancedCpcEnabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "manualCpm": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "manualCpv": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "maximizeConversionValue": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "cpcBidFloorMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "targetRoas": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "maximizeConversions": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "cpcBidFloorMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "targetCpa": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "networkSettings": {
+      "properties": {
+        "targetContentNetwork": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "targetGoogleSearch": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "targetPartnerSearchNetwork": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "targetSearchNetwork": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "optimizationGoalSetting": {
+      "properties": {
+        "optimizationGoalTypes": {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "optimizationScore": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "paymentMode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "percentCpc": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "enhancedCpcEnabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "realTimeBiddingSetting": {
+      "properties": {
+        "optIn": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "resourceName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "selectiveOptimization": {
+      "properties": {
+        "conversionActions": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "servingStatus": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shoppingSetting": {
+      "properties": {
+        "campaignPriority": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "enableLocal": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "merchantId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "salesCountry": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "startDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targetCpa": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "cpcBidFloorMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "targetCpaMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targetCpm": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targetImpressionShare": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locationFractionMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targetRoas": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "cpcBidFloorMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "targetRoas": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targetSpend": {
+      "properties": {
+        "cpcBidCeilingMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "targetSpendMicros": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targetingSetting": {
+      "properties": {
+        "targetRestrictionOperations": {
+          "items": {
+            "operator": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "properties": {
+                "bidOnly": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "targetingDimension": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "targetRestrictions": {
+          "items": {
+            "properties": {
+              "bidOnly": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "targetingDimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "trackingSetting": {
+      "properties": {
+        "trackingUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "trackingUrlTemplate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "urlCustomParameters": {
+      "items": {
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "urlExpansionOptOut": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "vanityPharma": {
+      "properties": {
+        "vanityPharmaDisplayUrlMode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vanityPharmaText": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "videoBrandSafetySuitability": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

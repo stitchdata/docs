@@ -1,23 +1,44 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "site_url": {
-      "type": [
-        "null",
-        "string"
+    "contents": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "indexed": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "submitted": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
-    "path": {
+    "errors": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "last_submitted": {
-      "type": [
-        "null",
-        "date-time"
+        "integer"
       ]
     },
     "is_pending": {
@@ -32,16 +53,34 @@
         "boolean"
       ]
     },
-    "type": {
+    "last_downloaded": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_submitted": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "path": {
       "type": [
         "null",
         "string"
       ]
     },
-    "last_downloaded": {
+    "site_url": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "warnings": {
@@ -49,46 +88,7 @@
         "null",
         "integer"
       ]
-    },
-    "errors": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "contents": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "submitted": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "indexed": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
     }
-  }
+  },
+  "type": "object"
 }

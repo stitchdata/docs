@@ -1,6 +1,11 @@
 {
-  "type": "object",
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -13,17 +18,12 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

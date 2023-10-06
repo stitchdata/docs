@@ -1,68 +1,11 @@
 {
   "additionalProperties": true,
-  "type": [
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "companyId": {
-      "type": [
-        "string"
-      ]
-    },
-    "taxNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "modifiedDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "registrationNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "emailAddress": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "defaultCurrency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "addresses": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "additionalProperties": true,
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "type": {
+          "city": {
             "type": [
               "null",
               "string"
@@ -74,19 +17,13 @@
               "string"
             ]
           },
-          "region": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "line1": {
             "type": [
               "null",
               "string"
             ]
           },
-          "city": {
+          "line2": {
             "type": [
               "null",
               "string"
@@ -98,14 +35,33 @@
               "string"
             ]
           },
-          "line2": {
+          "region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "companyId": {
+      "type": [
+        "string"
+      ]
     },
     "contactName": {
       "type": [
@@ -113,31 +69,62 @@
         "string"
       ]
     },
-    "customerName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "contacts": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "additionalProperties": true,
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "status": {
+          "address": {
+            "additionalProperties": true,
+            "properties": {
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postalCode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "email": {
             "type": [
               "null",
               "string"
@@ -156,16 +143,8 @@
             ]
           },
           "phone": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
               "additionalProperties": true,
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "number": {
                   "type": [
@@ -179,68 +158,89 @@
                     "string"
                   ]
                 }
-              }
-            }
-          },
-          "address": {
-            "additionalProperties": true,
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
             "type": [
               "null",
-              "object"
-            ],
-            "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "region": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "line1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "city": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "postalCode": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "line2": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
+              "array"
+            ]
           },
-          "email": {
+          "status": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "customerName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "defaultCurrency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "registrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "object"
+  ]
 }

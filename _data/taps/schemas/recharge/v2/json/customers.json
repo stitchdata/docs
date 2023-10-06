@@ -1,26 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "analytics_data": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "utm_params": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": "object",
                 "additionalProperties": false,
                 "properties": {
                   "utm_campaign": {
@@ -41,13 +28,13 @@
                       "string"
                     ]
                   },
-                  "utm_source": {
+                  "utm_medium": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "utm_medium": {
+                  "utm_source": {
                     "type": [
                       "null",
                       "string"
@@ -65,15 +52,21 @@
                       "string"
                     ]
                   }
-                }
-              }
+                },
+                "type": "object"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "billing_address1": {
       "type": [
@@ -82,12 +75,6 @@
       ]
     },
     "billing_address2": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "billing_zip": {
       "type": [
         "null",
         "string"
@@ -105,12 +92,6 @@
         "string"
       ]
     },
-    "billing_province": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "billing_country": {
       "type": [
         "null",
@@ -118,6 +99,18 @@
       ]
     },
     "billing_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_province": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_zip": {
       "type": [
         "null",
         "string"
@@ -142,10 +135,6 @@
       ]
     },
     "external_customer_id": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "ecommerce": {
@@ -154,7 +143,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "first_charge_processed_at": {
       "type": [
@@ -190,6 +183,12 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "last_name": {
@@ -252,5 +251,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

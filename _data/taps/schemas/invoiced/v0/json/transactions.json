@@ -1,19 +1,15 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "amount": {
       "type": [
         "null",
         "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "credit_note": {
@@ -58,6 +54,12 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "invoice": {
       "type": [
         "null",
@@ -65,11 +67,11 @@
       ]
     },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "method": {
       "type": [
@@ -90,11 +92,11 @@
       ]
     },
     "payment_source": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "status": {
       "type": [
@@ -108,17 +110,15 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

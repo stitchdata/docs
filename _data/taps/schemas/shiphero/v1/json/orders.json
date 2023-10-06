@@ -1,23 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "account_id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "payment_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "hold_shipment_until": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "adult_signature_required": {
@@ -26,74 +13,40 @@
         "integer"
       ]
     },
-    "has_dry_ice": {
+    "alcohol": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "shipping_price": {
+    "allocation_priority": {
       "type": [
         "null",
-        "number"
+        "integer"
       ]
     },
-    "shop_name": {
+    "allow_partial": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "source": {
+    "allow_split": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
-    },
-    "order_history": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "username": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "information": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "created_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          }
-        }
-      }
     },
     "billing_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "province": {
+        "address1": {
           "type": [
             "null",
             "string"
           ]
         },
-        "province_code": {
+        "address2": {
           "type": [
             "null",
             "string"
@@ -105,19 +58,7 @@
             "string"
           ]
         },
-        "first_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zip": {
+        "company": {
           "type": [
             "null",
             "string"
@@ -135,19 +76,19 @@
             "string"
           ]
         },
-        "address1": {
+        "email": {
           "type": [
             "null",
             "string"
           ]
         },
-        "company": {
+        "first_name": {
           "type": [
             "null",
             "string"
           ]
         },
-        "address2": {
+        "last_name": {
           "type": [
             "null",
             "string"
@@ -159,36 +100,76 @@
             "string"
           ]
         },
-        "email": {
+        "province": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "province_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "account_id": {
+      },
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
-    "required_ship_date": {
+    "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "partner_order_id": {
+    "currency": {
       "type": [
         "null",
         "string"
       ]
     },
-    "require_signature": {
+    "discount": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expected_weight_in_oz": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "flagged": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "fraudscore": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "fraudscore_details": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fulfillment_status": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "gift_invoice": {
@@ -197,25 +178,104 @@
         "integer"
       ]
     },
-    "line_items": {
+    "gift_note": {
       "type": [
         "null",
-        "array"
-      ],
+        "string"
+      ]
+    },
+    "has_dry_ice": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "hold_shipment_until": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "holds": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "fraud": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "operator": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "payment": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "shipping_method": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ignore_address_validation_errors": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "insurance": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "insurance_amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "invoice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_items": {
       "items": {
-        "type": "object",
         "additionalProperties": false,
         "properties": {
-          "id": {
+          "backorder_quantity": {
             "type": [
               "null",
               "integer"
             ]
           },
-          "updated_at": {
+          "barcode": {
             "type": [
               "null",
-              "date-time"
+              "string"
             ]
           },
           "created_at": {
@@ -224,7 +284,13 @@
               "date-time"
             ]
           },
-          "option_title": {
+          "custom_barcode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "custom_options": {
             "type": [
               "null",
               "string"
@@ -236,13 +302,25 @@
               "string"
             ]
           },
-          "backorder_quantity": {
+          "eligible_for_return": {
             "type": [
               "null",
               "integer"
             ]
           },
-          "sku": {
+          "fulfillment_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "large_thumbnail": {
             "type": [
               "null",
               "string"
@@ -254,61 +332,13 @@
               "integer"
             ]
           },
-          "warehouse": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "thumbnail": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "price": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "barcode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "warehouse_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "eligible_for_return": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "custom_options": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "subtotal": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "name": {
             "type": [
               "null",
               "string"
             ]
           },
-          "large_thumbnail": {
+          "option_title": {
             "type": [
               "null",
               "string"
@@ -320,19 +350,7 @@
               "string"
             ]
           },
-          "quantity_allocated": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "quantity_pending_fulfillment": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "fulfillment_status": {
+          "price": {
             "type": [
               "null",
               "string"
@@ -350,10 +368,16 @@
               "integer"
             ]
           },
-          "custom_barcode": {
+          "quantity_allocated": {
             "type": [
               "null",
-              "string"
+              "integer"
+            ]
+          },
+          "quantity_pending_fulfillment": {
+            "type": [
+              "null",
+              "integer"
             ]
           },
           "quantity_shipped": {
@@ -361,60 +385,161 @@
               "null",
               "integer"
             ]
+          },
+          "sku": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subtotal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "thumbnail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "warehouse": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "warehouse_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "total_price": {
+    "lock_data": {
+      "properties": {},
+      "type": "object"
+    },
+    "order_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "order_history": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "created_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "information": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "username": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "order_number": {
       "type": [
         "null",
         "string"
       ]
     },
-    "insurance_amount": {
+    "packing_note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "partner_order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "priority_flag": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "expected_weight_in_oz": {
+    "profile": {
       "type": [
         "null",
-        "number"
+        "string"
+      ]
+    },
+    "requested_delivery_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "require_signature": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "required_ship_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "saturday_delivery": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "shipping_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "province": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "address1": {
           "type": [
             "null",
             "string"
           ]
         },
-        "company": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "phone": {
+        "address2": {
           "type": [
             "null",
             "string"
@@ -426,13 +551,7 @@
             "string"
           ]
         },
-        "first_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zip": {
+        "company": {
           "type": [
             "null",
             "string"
@@ -450,37 +569,43 @@
             "string"
           ]
         },
-        "address2": {
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "province": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "allow_split": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "fraudscore_details": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "priority_flag": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "shipping_lines": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "shipping_lines": {
       "additionalProperties": false,
       "properties": {
         "carrier": {
@@ -501,154 +626,28 @@
             "string"
           ]
         }
-      }
-    },
-    "updated_at": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "gift_note": {
+    "shipping_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "shop_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "currency": {
+    "source": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "invoice": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "packing_note": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lock_data": {
-      "type": "object",
-      "properties": {}
-    },
-    "ignore_address_validation_errors": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "alcohol": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "allocation_priority": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "holds": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "operator": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "fraud": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "shipping_method": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "payment": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "address": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "requested_delivery_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "insurance": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "fraudscore": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "allow_partial": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "profile": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "total_tax": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tags": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "discount": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "order_date": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "subtotal": {
@@ -657,41 +656,28 @@
         "string"
       ]
     },
-    "saturday_delivery": {
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "flagged": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "fulfillment_status": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "third_party_shipper": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
-        "country": {
+        "account_number": {
           "type": [
             "null",
             "string"
           ]
         },
-        "account_number": {
+        "country": {
           "type": [
             "null",
             "string"
@@ -703,13 +689,27 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
-    "order_number": {
+    "total_price": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "total_tax": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

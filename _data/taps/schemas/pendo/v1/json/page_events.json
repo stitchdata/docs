@@ -1,17 +1,16 @@
 {
   "additional_properties": false,
-  "type": "object",
   "properties": {
-    "app_id": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "account_id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "app_id": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "day": {
@@ -26,12 +25,6 @@
         "date-time"
       ]
     },
-    "visitor_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "num_events": {
       "type": [
         "null",
@@ -44,13 +37,7 @@
         "integer"
       ]
     },
-    "server": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "remote_ip": {
+    "page_id": {
       "type": [
         "null",
         "string"
@@ -62,17 +49,30 @@
         "string"
       ]
     },
+    "remote_ip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "server": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "user_agent": {
       "type": [
         "null",
         "string"
       ]
     },
-    "page_id": {
+    "visitor_id": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

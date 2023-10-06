@@ -1,19 +1,46 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
+    "archived": {},
     "candidateId": {
       "type": "string"
     },
-    "type": {
+    "comments": {},
+    "company": {},
+    "createdAt": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "customQuestions": {},
+    "email": {
       "type": [
         "null",
         "string"
       ]
     },
+    "id": {
+      "type": "string"
+    },
+    "links": {},
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone": {},
     "posting": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "postingHiringManager": {},
+    "postingOwner": {},
+    "requisitionForHire": {},
+    "resume": {},
+    "type": {
       "type": [
         "null",
         "string"
@@ -24,34 +51,7 @@
         "null",
         "string"
       ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "createdAt": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "phone": {},
-    "company": {},
-    "links": {},
-    "comments": {},
-    "resume": {},
-    "customQuestions": {},
-    "archived": {},
-    "postingHiringManager": {},
-    "postingOwner": {},
-    "requisitionForHire": {}
-  }
+    }
+  },
+  "type": "object"
 }

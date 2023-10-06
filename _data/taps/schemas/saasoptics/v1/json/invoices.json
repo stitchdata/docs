@@ -1,13 +1,12 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "applied_amount": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "auditentry_created": {
       "type": [
@@ -76,11 +75,11 @@
       ]
     },
     "balance": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "billing_addr1": {
       "type": [
@@ -191,11 +190,11 @@
       ]
     },
     "foreign_exchange_rate": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "id": {
       "type": [
@@ -218,12 +217,7 @@
     "line_items": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "deleted_in_qb": {
@@ -245,11 +239,11 @@
                 ]
               },
               "home_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "id": {
                 "type": [
@@ -270,11 +264,11 @@
                 ]
               },
               "local_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "modified": {
                 "type": [
@@ -319,11 +313,11 @@
                 ]
               },
               "quantity": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "recurly_id": {
                 "type": [
@@ -367,8 +361,13 @@
                   "integer"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -466,18 +465,18 @@
       ]
     },
     "sales_tax": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "sales_tax_percentage": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "sf_id": {
       "type": [
@@ -546,11 +545,11 @@
       ]
     },
     "subtotal": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "sync_date": {
       "type": [
@@ -576,5 +575,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,22 +1,26 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "_links": {
+      "properties": {
+        "display": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "title": {
       "type": [
         "null",
         "string"
@@ -28,17 +32,21 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "settings": {
+    "self": {
+      "properties": {
+        "href": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "settings": {
       "properties": {
         "is_public": {
           "type": [
@@ -52,27 +60,13 @@
             "boolean"
           ]
         }
-      }
-    },
-    "self": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "href": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      ]
     },
     "theme": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "href": {
           "type": [
@@ -80,21 +74,27 @@
             "string"
           ]
         }
-      }
-    },
-    "_links": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "display": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

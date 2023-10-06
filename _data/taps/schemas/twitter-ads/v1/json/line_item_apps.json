@@ -1,17 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "line_item_id": {
       "type": [
         "null",
         "string"
@@ -23,22 +13,28 @@
         "string"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "updated_at": {
+    "deleted": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_item_id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "os_type": {
@@ -47,11 +43,15 @@
         "string"
       ]
     },
-    "deleted": {
+    "updated_at": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

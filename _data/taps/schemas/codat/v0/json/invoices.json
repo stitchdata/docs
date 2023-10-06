@@ -1,16 +1,58 @@
 {
-  "type": [
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
+    "amountDue": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "companyId": {
       "type": [
         "string"
       ]
     },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customerRef": {
+      "additionalProperties": true,
+      "properties": {
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "dueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
+        "string"
+      ]
+    },
+    "invoiceNumber": {
+      "type": [
+        "null",
         "string"
       ]
     },
@@ -20,116 +62,9 @@
         "date-time"
       ]
     },
-    "dueDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "customerRef": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "companyName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "amountDue": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "totalAmount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "paymentAllocations": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "companyId": {
-          "type": "string"
-        },
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "date": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "totalAmount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "note": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "paidOnDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "modifiedDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "lineItems": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
+        "additionalProperties": true,
         "properties": {
           "description": {
             "type": [
@@ -174,8 +109,82 @@
             ]
           }
         },
-        "additionalProperties": true
-      }
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "paidOnDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "paymentAllocations": {
+      "items": {
+        "companyId": {
+          "type": "string"
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "note": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "totalAmount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subTotal": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
     },
     "totalDiscount": {
       "type": [
@@ -188,21 +197,12 @@
         "null",
         "number"
       ]
-    },
-    "subTotal": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "invoiceNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
   },
   "tap_schema_dependencies": [
     "payment_allocations"
+  ],
+  "type": [
+    "object"
   ]
 }

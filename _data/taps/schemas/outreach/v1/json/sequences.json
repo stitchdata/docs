@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "automationPercentage": {
       "type": [
         "null",
@@ -29,6 +23,12 @@
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "deliverCount": {
@@ -71,6 +71,11 @@
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
       ]
     },
     "lastUsedAt": {
@@ -139,6 +144,12 @@
         "integer"
       ]
     },
+    "ownerId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "positiveReplyCount": {
       "type": [
         "null",
@@ -158,6 +169,12 @@
       ]
     },
     "replyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "rulesetId": {
       "type": [
         "null",
         "integer"
@@ -206,16 +223,16 @@
       ]
     },
     "tags": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "throttleCapacity": {
       "type": [
@@ -253,29 +270,12 @@
         "date-time"
       ]
     },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ownerId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "rulesetId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "updaterId": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

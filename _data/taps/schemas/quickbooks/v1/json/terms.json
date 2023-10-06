@@ -1,15 +1,9 @@
 {
   "properties": {
-    "Id": {
+    "Active": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "DiscountPercent": {
-      "type": [
-        "null",
-        "number"
+        "boolean"
       ]
     },
     "DayOfMonthDue": {
@@ -24,28 +18,16 @@
         "integer"
       ]
     },
-    "DueNextMonthDays": {
+    "DiscountDays": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "domain": {
+    "DiscountPercent": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "Type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Active": {
-      "type": [
-        "null",
-        "boolean"
+        "number"
       ]
     },
     "DueDays": {
@@ -54,22 +36,16 @@
         "integer"
       ]
     },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "DiscountDays": {
+    "DueNextMonthDays": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "MetaData": {
@@ -90,6 +66,30 @@
       "type": [
         "null",
         "object"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
       ]
     }
   },

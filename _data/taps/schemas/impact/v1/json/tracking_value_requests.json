@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "additional_instructions": {
@@ -33,11 +32,11 @@
       ]
     },
     "bogo_get_discount_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "bogo_get_discount_currency": {
       "type": [
@@ -150,17 +149,15 @@
     "deal_products": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "product_after_price_amount": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               },
               "product_after_price_currency": {
                 "type": [
@@ -169,11 +166,11 @@
                 ]
               },
               "product_before_price_amount": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               },
               "product_before_price_currency": {
                 "type": [
@@ -193,8 +190,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -204,10 +203,10 @@
     "deal_restricted_media_partner_groups": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -217,10 +216,10 @@
     "deal_restricted_media_partners": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -252,11 +251,11 @@
       ]
     },
     "discount_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "discount_currency": {
       "type": [
@@ -307,11 +306,11 @@
       ]
     },
     "maximum_savings_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "maximum_savings_currency": {
       "type": [
@@ -332,11 +331,11 @@
       ]
     },
     "minimum_purchase_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "minimum_purchase_amount_currency": {
       "type": [
@@ -353,9 +352,7 @@
     "phone_numbers": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "assigned_phone_number": {
@@ -376,8 +373,10 @@
                   "integer"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -393,9 +392,7 @@
     "promo_codes": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "approved_code": {
@@ -428,8 +425,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -443,11 +442,11 @@
       ]
     },
     "rebate_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "rebate_currency": {
       "type": [
@@ -476,9 +475,7 @@
     "unique_urls": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -499,8 +496,10 @@
                   "integer"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -513,5 +512,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

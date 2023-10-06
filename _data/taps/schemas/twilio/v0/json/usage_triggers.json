@@ -1,38 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "usage_record_uri": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date_updated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "date_fired": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "friendly_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "uri": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "api_version": {
       "type": [
         "null",
         "string"
@@ -44,24 +19,18 @@
         "string"
       ]
     },
-    "trigger_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sid": {
+    "callback_url": {
       "type": [
         "null",
         "string"
       ]
     },
     "current_value": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "date_created": {
       "type": [
@@ -69,7 +38,19 @@
         "date-time"
       ]
     },
-    "callback_url": {
+    "date_fired": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "friendly_name": {
       "type": [
         "null",
         "string"
@@ -81,24 +62,43 @@
         "string"
       ]
     },
-    "usage_category": {
+    "sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trigger_by": {
       "type": [
         "null",
         "string"
       ]
     },
     "trigger_value": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
-    "api_version": {
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage_category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage_record_uri": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

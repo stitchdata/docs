@@ -1,37 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "billable_by_default": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "default_hourly_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "is_default": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_active": {
       "type": [
         "null",
         "boolean"
@@ -43,11 +12,42 @@
         "date-time"
       ]
     },
+    "default_hourly_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_default": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

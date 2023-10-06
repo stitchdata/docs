@@ -1,18 +1,24 @@
 {
   "properties": {
-    "country_code": {
+    "active": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
+        "boolean"
       ]
     },
     "address1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "address2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "admin_graphql_api_id": {
       "type": [
         "null",
         "string"
@@ -24,25 +30,43 @@
         "string"
       ]
     },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "address2": {
+    "legacy": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
-    "province_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "zip": {
+    "localized_country_name": {
       "type": [
         "null",
         "string"
@@ -54,19 +78,7 @@
         "string"
       ]
     },
-    "localized_country_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "province": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -78,37 +90,25 @@
         "string"
       ]
     },
-    "legacy": {
+    "province": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
-    "created_at": {
+    "province_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "admin_graphql_api_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "country_name": {
+    "zip": {
       "type": [
         "null",
         "string"

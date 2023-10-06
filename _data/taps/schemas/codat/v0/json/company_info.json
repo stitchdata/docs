@@ -1,26 +1,7 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
-    "companyId": {
-      "type": [
-        "string"
-      ]
-    },
-    "registrationNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "createdDate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "companyLegalName": {
+    "accountingPlatformRef": {
       "type": [
         "null",
         "string"
@@ -28,30 +9,15 @@
     },
     "addresses": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": true,
         "properties": {
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "country": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "region": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "postalCode": {
             "type": [
               "null",
               "string"
@@ -69,18 +35,62 @@
               "string"
             ]
           },
-          "city": {
+          "postalCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "region": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
             "type": [
               "null",
               "string"
             ]
           }
         },
-        "additionalProperties": true
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
         "null",
         "array"
+      ]
+    },
+    "baseCurrency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "companyLegalName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "companyName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdDate": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "financialYearStartDate": {
@@ -89,7 +99,40 @@
         "date-time"
       ]
     },
-    "accountingPlatformRef": {
+    "phoneNumbers": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "number": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "registrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxNumber": {
       "type": [
         "null",
         "string"
@@ -97,10 +140,7 @@
     },
     "webLinks": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": true,
         "properties": {
           "type": {
             "type": [
@@ -115,58 +155,18 @@
             ]
           }
         },
-        "additionalProperties": true
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "phoneNumbers": {
-      "items": {
         "type": [
           "null",
           "object"
-        ],
-        "properties": {
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "number": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "additionalProperties": true
+        ]
       },
       "type": [
         "null",
         "array"
       ]
-    },
-    "baseCurrency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "companyName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "taxNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
   },
-  "additionalProperties": true
+  "type": [
+    "object"
+  ]
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -11,29 +7,22 @@
         "string"
       ]
     },
-    "name": {
+    "budget_optimization": {
       "type": [
         "null",
         "string"
       ]
     },
-    "reasons_not_servable": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "servable": {
+    "created_at": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "daily_budget_amount_local_micro": {
@@ -42,34 +31,16 @@
         "integer"
       ]
     },
-    "funding_instrument_id": {
+    "deleted": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "duration_in_days": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "standard_delivery": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "total_budget_amount_local_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "entity_status": {
@@ -84,16 +55,53 @@
         "integer"
       ]
     },
-    "currency": {
+    "funding_instrument_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
+    "id": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reasons_not_servable": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "servable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "standard_delivery": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "total_budget_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "updated_at": {
@@ -101,18 +109,10 @@
         "null",
         "date-time"
       ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "budget_optimization": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,12 +1,10 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "name": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "external_id": {
@@ -15,16 +13,10 @@
         "string"
       ]
     },
-    "yotpo_id": {
+    "name": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "updated_at": {
@@ -32,7 +24,15 @@
         "null",
         "date-time"
       ]
+    },
+    "yotpo_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

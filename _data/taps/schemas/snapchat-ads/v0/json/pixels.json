@@ -1,23 +1,28 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "ad_account_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "created_at": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "effective_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "name": {
@@ -32,7 +37,7 @@
         "string"
       ]
     },
-    "ad_account_id": {
+    "pixel_javascript": {
       "type": [
         "null",
         "string"
@@ -44,30 +49,25 @@
         "string"
       ]
     },
-    "effective_status": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "pixel_javascript": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "visible_to": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     }
-  }
+  },
+  "type": "object"
 }

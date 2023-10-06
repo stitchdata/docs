@@ -1,70 +1,15 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
+    "cost_rate": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
+        "number"
       ]
     },
     "created_at": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "is_admin": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "timezone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_contractor": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "telephone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "has_access_to_all_future_projects": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "default_hourly_rate": {
@@ -79,22 +24,28 @@
         "string"
       ]
     },
-    "wants_newsletter": {
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_access_to_all_future_projects": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "updated_at": {
+    "id": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "cost_rate": {
-      "type": [
-        "null",
-        "number"
+        "integer"
       ]
     },
     "identity_account_id": {
@@ -108,6 +59,55 @@
         "null",
         "integer"
       ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_admin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_contractor": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "telephone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "wants_newsletter": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

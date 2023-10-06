@@ -1,13 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "account_custom_field_metum_id": {
       "type": [
         "null",
@@ -20,22 +13,16 @@
         "integer"
       ]
     },
-    "custom_field_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "created_timestamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "updated_timestamp": {
+    "custom_field_id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
     "field_value": {
@@ -43,6 +30,19 @@
         "null",
         "string"
       ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

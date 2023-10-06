@@ -1,28 +1,12 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "permissions": {
+    "created_at": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
-    "name": {
+    "id": {
       "type": [
         "null",
         "string"
@@ -34,17 +18,33 @@
         "boolean"
       ]
     },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "permissions": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

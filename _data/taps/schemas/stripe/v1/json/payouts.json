@@ -1,58 +1,9 @@
 {
   "properties": {
-    "metadata": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "failure_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "original_payout": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reversed_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "statement_description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "amount": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "balance_transaction": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "amount_reversed": {
@@ -61,7 +12,19 @@
         "integer"
       ]
     },
-    "source_type": {
+    "arrival_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "automatic": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "balance_transaction": {
       "type": [
         "null",
         "string"
@@ -69,14 +32,7 @@
     },
     "bank_account": {
       "properties": {
-        "metadata": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {}
-        },
-        "routing_number": {
+        "account_holder_name": {
           "type": [
             "null",
             "string"
@@ -88,49 +44,13 @@
             "string"
           ]
         },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "bank_name": {
           "type": [
             "null",
             "string"
           ]
         },
-        "last4": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fingerprint": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "account_holder_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "status": {
+        "country": {
           "type": [
             "null",
             "string"
@@ -142,7 +62,50 @@
             "string"
           ]
         },
-        "country": {
+        "fingerprint": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last4": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "metadata": {
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "routing_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
           "type": [
             "null",
             "string"
@@ -154,43 +117,25 @@
         "object"
       ]
     },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "date": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "livemode": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "statement_descriptor": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "failure_message": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "failure_balance_transaction": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recipient": {
+    "description": {
       "type": [
         "null",
         "string"
@@ -202,10 +147,47 @@
         "string"
       ]
     },
-    "automatic": {
+    "failure_balance_transaction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "failure_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "failure_message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "livemode": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "metadata": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "method": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "object": {
@@ -214,13 +196,49 @@
         "string"
       ]
     },
-    "status": {
+    "original_payout": {
       "type": [
         "null",
         "string"
       ]
     },
-    "currency": {
+    "recipient": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reversed_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_transaction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_descriptor": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
       "type": [
         "null",
         "string"
@@ -233,24 +251,6 @@
       ]
     },
     "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "arrival_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source_transaction": {
       "type": [
         "null",
         "string"

@@ -1,6 +1,23 @@
 {
-  "type": "object",
   "properties": {
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "displayOrder": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "pipelineId": {
       "type": [
         "null",
@@ -8,17 +25,24 @@
       ]
     },
     "stages": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
-          "stageId": {
+          "active": {
             "type": [
               "null",
-              "string"
+              "boolean"
+            ]
+          },
+          "closedWon": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "displayOrder": {
+            "type": [
+              "null",
+              "integer"
             ]
           },
           "label": {
@@ -33,43 +57,18 @@
               "number"
             ]
           },
-          "active": {
+          "stageId": {
             "type": [
               "null",
-              "boolean"
-            ]
-          },
-          "displayOrder": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "closedWon": {
-            "type": [
-              "null",
-              "boolean"
+              "string"
             ]
           }
-        }
-      }
-    },
-    "label": {
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "displayOrder": {
-      "type": [
-        "null",
-        "integer"
+        "array"
       ]
     },
     "staticDefault": {
@@ -78,5 +77,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

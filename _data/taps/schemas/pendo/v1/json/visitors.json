@@ -1,16 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additional_properties": false,
   "properties": {
-    "visitor_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "lastupdated": {
       "type": [
         "null",
@@ -18,10 +8,6 @@
       ]
     },
     "metadata_agent": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additional_properties": false,
       "properties": {
         "email": {
@@ -42,13 +28,13 @@
             "string"
           ]
         }
-      }
-    },
-    "metadata_auto": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "metadata_auto": {
       "additional_properties": false,
       "properties": {
         "accountid": {
@@ -58,16 +44,16 @@
           ]
         },
         "accountids": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
         "firstvisit": {
           "type": [
@@ -135,14 +121,28 @@
             "integer"
           ]
         }
-      }
-    },
-    "metadata_custom": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additional_properties": false
+      ]
+    },
+    "metadata_custom": {
+      "additional_properties": false,
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "visitor_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

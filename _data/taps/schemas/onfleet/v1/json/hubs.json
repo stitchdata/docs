@@ -1,41 +1,8 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "location": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
     "address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "street": {
+        "apartment": {
           "type": [
             "null",
             "string"
@@ -47,13 +14,13 @@
             "string"
           ]
         },
-        "state": {
+        "country": {
           "type": [
             "null",
             "string"
           ]
         },
-        "country": {
+        "number": {
           "type": [
             "null",
             "string"
@@ -65,20 +32,53 @@
             "string"
           ]
         },
-        "apartment": {
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "street": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "teams": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location": {
+      "items": {},
       "type": [
         "null",
         "array"
-      ],
-      "items": {}
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "teams": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

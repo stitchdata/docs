@@ -1,13 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "object_status": {
-      "type": "string"
-    },
     "object_created": {
-      "type": "date-time"
-    },
-    "object_updated": {
       "type": "date-time"
     },
     "object_id": {
@@ -16,17 +9,24 @@
     "object_owner": {
       "type": "string"
     },
-    "transaction": {
+    "object_status": {
       "type": "string"
+    },
+    "object_updated": {
+      "type": "date-time"
     },
     "test": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "transaction": {
+      "type": "string"
     }
   },
   "required": [
     "object_id"
-  ]
+  ],
+  "type": "object"
 }

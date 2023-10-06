@@ -1,9 +1,9 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "accountId": {
       "type": [
+        "null",
         "integer"
       ]
     },
@@ -11,6 +11,12 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "callId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "createdAt": {
@@ -31,16 +37,39 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "mailingId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "name": {
       "type": [
         "null",
         "string"
       ]
     },
+    "opportunityId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "payload": {
       "type": [
         "null",
         "object"
+      ]
+    },
+    "prospectId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "requestCity": {
@@ -73,36 +102,6 @@
         "boolean"
       ]
     },
-    "accountId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "callId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mailingId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "opportunityId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "prospectId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "taskId": {
       "type": [
         "null",
@@ -115,5 +114,6 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

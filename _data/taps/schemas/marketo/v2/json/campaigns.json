@@ -1,27 +1,23 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "createdAt": {
-      "type": "date-time"
-    },
-    "updatedAt": {
-      "type": "date-time"
-    },
     "active": {
       "type": [
         "boolean",
         "null"
       ]
     },
+    "createdAt": {
+      "type": "date-time"
+    },
     "description": {
       "type": [
         "string",
         "null"
       ]
+    },
+    "id": {
+      "type": "integer"
     },
     "name": {
       "type": "string"
@@ -41,11 +37,15 @@
     "type": {
       "type": "string"
     },
+    "updatedAt": {
+      "type": "date-time"
+    },
     "workspaceName": {
       "type": [
         "string",
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

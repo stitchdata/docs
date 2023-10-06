@@ -1,21 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "spreadsheetId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "properties": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "title": {
+        "autoRecalc": {
           "type": [
             "null",
             "string"
@@ -27,19 +16,29 @@
             "string"
           ]
         },
-        "autoRecalc": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "timeZone": {
           "type": [
             "null",
             "string"
           ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "spreadsheetId": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "spreadsheetUrl": {
       "type": [
@@ -47,5 +46,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

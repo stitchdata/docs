@@ -1,11 +1,13 @@
 {
   "additionalProperties": false,
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "query_id": {
+    "dashboard_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dims_hash_key": {
       "type": [
         "null",
         "string"
@@ -17,7 +19,26 @@
         "string"
       ]
     },
-    "dims_hash_key": {
+    "history_query_run_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "history_total_runtime": {
+      "multipleOf": 1e-20,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "look_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "query_id": {
       "type": [
         "null",
         "string"
@@ -41,36 +62,15 @@
         "string"
       ]
     },
-    "look_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "dashboard_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "user_id": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "history_query_run_count": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "history_total_runtime": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-20
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

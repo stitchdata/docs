@@ -1,9 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "billing_address": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "address_line1": {
@@ -42,10 +40,10 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "commercial_contact": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "cell_phone_number": {
@@ -90,7 +88,8 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "company_name": {
       "type": [
@@ -99,7 +98,6 @@
       ]
     },
     "corporate_address": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "address_line1": {
@@ -138,7 +136,8 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "currency": {
       "type": [
@@ -153,7 +152,6 @@
       ]
     },
     "financial_contact": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "cell_phone_number": {
@@ -198,7 +196,8 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "indirect_tax_number": {
       "type": [
@@ -207,7 +206,6 @@
       ]
     },
     "industry": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "industry_id": {
@@ -222,7 +220,8 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "minimum_contact_rating": {
       "type": [
@@ -267,7 +266,6 @@
       ]
     },
     "technical_contact": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
         "cell_phone_number": {
@@ -312,7 +310,8 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
     "timezone": {
       "type": [
@@ -332,5 +331,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

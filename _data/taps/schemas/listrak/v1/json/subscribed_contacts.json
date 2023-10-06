@@ -1,17 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "AdditionDate": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "EmailAddress": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "AdditionMethod": {
@@ -25,10 +18,17 @@
         "string"
       ]
     },
+    "EmailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "ListID": {
       "type": [
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

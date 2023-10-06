@@ -1,14 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "owner_type_id": {
+    "business_unit_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "excel_name": {
+    "calendar_type": {
       "type": [
         "null",
         "string"
@@ -18,18 +17,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "currency_code": {
@@ -44,19 +31,7 @@
         "string"
       ]
     },
-    "type_of_plan_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "calendar_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object_type_id": {
+    "excel_name": {
       "type": [
         "null",
         "string"
@@ -74,16 +49,17 @@
         "integer"
       ]
     },
-    "business_unit_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "initial_period": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "last_modified_date": {
@@ -92,47 +68,25 @@
         "date-time"
       ]
     },
-    "status_id": {
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner_type_id": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "total_committed_capital": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "vintage": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "is_soft_deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "default": false
     },
     "period_mapping": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "fiscal_period_mapping": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "additionalProperties": false,
                 "properties": {
                   "calendar_period": {
@@ -171,35 +125,81 @@
                       "integer"
                     ]
                   },
+                  "is_calendar_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "is_fiscal_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
                   "object_id": {
                     "type": [
                       "null",
                       "integer"
                     ]
-                  },
-                  "is_fiscal_year_end": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ],
-                    "default": false
-                  },
-                  "is_calendar_year_end": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ],
-                    "default": false
                   }
-                }
-              }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_committed_capital": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "type_of_plan_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vintage": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

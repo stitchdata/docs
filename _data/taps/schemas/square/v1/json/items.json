@@ -1,87 +1,179 @@
 {
   "properties": {
+    "absent_at_location_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
+    "is_deleted": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "present_at_location_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "absent_at_location_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "version": {
-      "type": [
-        "null",
-        "integer"
+        "boolean"
       ]
     },
     "item_data": {
       "properties": {
-        "variations": {
+        "abbreviation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "available_electronically": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "available_for_pickup": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "available_online": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "category_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "item_options": {
+          "items": {
+            "item_option_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
           "type": [
             "null",
             "array"
-          ],
+          ]
+        },
+        "label_color": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "legacy_tax_ids": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "modifier_list_info": {
+          "items": {
+            "enabled": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "modifier_list_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "skip_modifier_screen": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "tax_ids": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "variations": {
           "items": {
             "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "is_deleted": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
               "item_variation_data": {
                 "properties": {
-                  "sku": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "user_data": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
                   "inventory_alert_type": {
                     "type": [
                       "null",
                       "string"
                     ]
                   },
-                  "track_inventory": {
+                  "item_id": {
                     "type": [
                       "null",
-                      "boolean"
+                      "string"
                     ]
                   },
                   "location_overrides": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
                     "items": {
                       "properties": {
                         "inventory_alert_threshold": {
@@ -119,12 +211,10 @@
                         "null",
                         "object"
                       ]
-                    }
-                  },
-                  "ordinal": {
+                    },
                     "type": [
                       "null",
-                      "integer"
+                      "array"
                     ]
                   },
                   "name": {
@@ -133,10 +223,10 @@
                       "string"
                     ]
                   },
-                  "item_id": {
+                  "ordinal": {
                     "type": [
                       "null",
-                      "string"
+                      "integer"
                     ]
                   },
                   "price_money": {
@@ -164,35 +254,29 @@
                       "null",
                       "string"
                     ]
+                  },
+                  "sku": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "track_inventory": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "user_data": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
                   }
                 },
                 "type": [
                   "null",
                   "object"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "present_at_location_ids": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
-              "version": {
-                "type": [
-                  "null",
-                  "integer"
                 ]
               },
               "present_at_all_locations": {
@@ -201,16 +285,22 @@
                   "boolean"
                 ]
               },
+              "present_at_location_ids": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
               "type": {
                 "type": [
                   "null",
                   "string"
-                ]
-              },
-              "is_deleted": {
-                "type": [
-                  "null",
-                  "boolean"
                 ]
               },
               "updated_at": {
@@ -218,133 +308,25 @@
                   "null",
                   "date-time"
                 ]
+              },
+              "version": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
               }
             },
             "type": [
               "null",
               "object"
             ]
-          }
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "abbreviation": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "available_electronically": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "available_for_pickup": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "available_online": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "skip_modifier_screen": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "product_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "label_color": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "legacy_tax_ids": {
+          },
           "type": [
             "null",
             "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "tax_ids": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "modifier_list_info": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "enabled": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "modifier_list_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "item_options": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "item_option_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
+          ]
         },
         "visibility": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "category_id": {
           "type": [
             "null",
             "string"
@@ -356,22 +338,40 @@
         "object"
       ]
     },
+    "present_at_all_locations": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "present_at_location_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_deleted": {
+    "updated_at": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
       ]
     },
-    "present_at_all_locations": {
+    "version": {
       "type": [
         "null",
-        "boolean"
+        "integer"
       ]
     }
   },

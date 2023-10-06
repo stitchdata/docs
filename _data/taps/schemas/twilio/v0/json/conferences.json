@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "account_sid": {
@@ -38,12 +37,6 @@
         "string"
       ]
     },
-    "sid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "reason_conference_ended": {
       "type": [
         "null",
@@ -56,13 +49,13 @@
         "string"
       ]
     },
-    "status": {
+    "sid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "uri": {
+    "status": {
       "type": [
         "null",
         "string"
@@ -71,12 +64,7 @@
     "subresource_uris": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "subresource": {
@@ -91,13 +79,25 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

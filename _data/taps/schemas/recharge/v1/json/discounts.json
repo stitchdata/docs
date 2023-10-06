@@ -1,53 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "value": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ends_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "starts_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "usage_limit": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "applies_to_id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "applies_to_product_type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "applies_to_resource": {
@@ -56,10 +19,16 @@
         "string"
       ]
     },
-    "times_used": {
+    "code": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "duration": {
@@ -74,16 +43,40 @@
         "integer"
       ]
     },
-    "applies_to_product_type": {
+    "ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "once_per_customer": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "starts_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
+    "times_used": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
     "updated_at": {
@@ -92,11 +85,18 @@
         "date-time"
       ]
     },
-    "once_per_customer": {
+    "usage_limit": {
       "type": [
         "null",
-        "boolean"
+        "integer"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,10 +1,43 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
+    "genre": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locales": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "language": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "name": {
       "type": [
         "null",
@@ -16,43 +49,10 @@
         "null",
         "string"
       ]
-    },
-    "genre": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "locales": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "language": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

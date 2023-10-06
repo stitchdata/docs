@@ -1,9 +1,5 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
     "createdAt": {
       "type": [
         "date-time",
@@ -11,18 +7,22 @@
       ]
     },
     "file": {
+      "properties": {},
       "type": [
         "object",
         "null"
-      ],
-      "properties": {}
+      ]
+    },
+    "id": {
+      "type": "string"
     },
     "parsedData": {
+      "properties": {},
       "type": [
         "object",
         "null"
-      ],
-      "properties": {}
+      ]
     }
-  }
+  },
+  "type": "object"
 }

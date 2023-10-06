@@ -1,14 +1,13 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "username": {
+    "avatar_url": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "id": {
+      "type": "integer"
     },
     "name": {
       "type": [
@@ -22,7 +21,7 @@
         "string"
       ]
     },
-    "avatar_url": {
+    "username": {
       "type": [
         "null",
         "string"
@@ -34,5 +33,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

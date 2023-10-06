@@ -1,7 +1,12 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "contact": {
       "type": [
         "null",
@@ -20,10 +25,16 @@
         "integer"
       ]
     },
-    "converted_by_type": {
+    "conversiontrigger": {
       "type": [
         "null",
-        "string"
+        "integer"
+      ]
+    },
+    "converted_by": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "converted_by_id": {
@@ -32,22 +43,10 @@
         "integer"
       ]
     },
-    "trigger_type": {
+    "converted_by_type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "modifier": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "value": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "currency": {
@@ -62,29 +61,30 @@
         "integer"
       ]
     },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "conversiontrigger": {
+    "modifier": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "converted_by": {
+    "trigger_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

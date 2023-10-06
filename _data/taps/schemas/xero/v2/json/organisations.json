@@ -1,8 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
     "APIKey": {
       "type": [
@@ -10,167 +7,8 @@
         "string"
       ]
     },
-    "Name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "LegalName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PaysTax": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "Version": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "OrganisationType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BaseCurrency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "CountryCode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "IsDemoCompany": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "OrganisationStatus": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "RegistrationNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TaxNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "FinancialYearEndDay": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "FinancialYearEndMonth": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "SalesTaxBasis": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "SalesTaxPeriod": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "DefaultSalesTax": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "DefaultPurchasesTax": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PeriodLockDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "EndOfYearLockDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "CreatedDateUTC": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "Timezone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "OrganisationEntityType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ShortCode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "OrganisationID": {
-      "type": [
-        "string"
-      ]
-    },
-    "LineOfBusiness": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "Addresses": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "Region": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "AddressLine1": {
           "type": [
             "null",
@@ -195,6 +33,12 @@
             "string"
           ]
         },
+        "AddressType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "AttentionTo": {
           "type": [
             "null",
@@ -207,68 +51,69 @@
             "string"
           ]
         },
-        "PostalCode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "Country": {
           "type": [
             "null",
             "string"
           ]
         },
-        "AddressType": {
+        "PostalCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Region": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "Phones": {
+      },
       "type": [
         "null",
         "array"
-      ],
-      "items": {
-        "PhoneNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "PhoneAreaCode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "PhoneCountryCode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "PhoneType": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      ]
+    },
+    "BaseCurrency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CountryCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CreatedDateUTC": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "DefaultPurchasesTax": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "DefaultSalesTax": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EndOfYearLockDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
     "ExternalLinks": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": false,
         "properties": {
           "LinkType": {
             "type": [
@@ -283,36 +128,78 @@
             ]
           }
         },
-        "additionalProperties": false
-      }
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "FinancialYearEndDay": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "FinancialYearEndMonth": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "IsDemoCompany": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "LegalName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "LineOfBusiness": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "OrganisationEntityType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "OrganisationID": {
+      "type": [
+        "string"
+      ]
+    },
+    "OrganisationStatus": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "OrganisationType": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "PaymentTerms": {
-      "Sales": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "Day": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "Type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "additionalProperties": false
-      },
       "Bills": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": false,
         "properties": {
           "Day": {
             "type": [
@@ -327,8 +214,118 @@
             ]
           }
         },
-        "additionalProperties": false
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "Sales": {
+        "additionalProperties": false,
+        "properties": {
+          "Day": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       }
+    },
+    "PaysTax": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "PeriodLockDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Phones": {
+      "items": {
+        "PhoneAreaCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PhoneCountryCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PhoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PhoneType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "RegistrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SalesTaxBasis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SalesTaxPeriod": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ShortCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Version": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   },
   "tap_schema_dependencies": [
@@ -336,5 +333,8 @@
     "phones",
     "payment_terms"
   ],
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

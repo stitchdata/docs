@@ -1,14 +1,33 @@
 {
   "properties": {
-    "tags": {
+    "agents": {
       "items": {
-        "type": [
-          "string"
-        ]
+        "type": "integer"
       },
       "type": [
         "null",
         "array"
+      ]
+    },
+    "departments": {
+      "items": {
+        "type": "integer"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "name": {
@@ -22,41 +41,22 @@
         "string"
       ]
     },
-    "message": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "scope": {
       "type": [
         "null",
         "string"
       ]
     },
-    "id": {
+    "tags": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
-    },
-    "departments": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "integer"
-      }
-    },
-    "agents": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "integer"
-      }
     }
   },
   "type": [

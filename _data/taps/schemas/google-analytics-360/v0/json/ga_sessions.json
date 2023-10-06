@@ -1,42 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "visitNumber": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "customDimensions": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "index": {
-            "type": [
-              "null",
-              "number"
-            ]
-          }
-        }
-      }
-    },
-    "userId": {
+    "channelGrouping": {
       "type": [
         "null",
         "string"
@@ -48,10 +12,30 @@
         "string"
       ]
     },
-    "visitId": {
+    "customDimensions": {
+      "items": {
+        "properties": {
+          "index": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "number"
+        "array"
       ]
     },
     "date": {
@@ -60,121 +44,7 @@
         "date-time"
       ]
     },
-    "visitStartTime": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "totals": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "timeOnSite": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "newVisits": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "uniqueScreenViews": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "transactionRevenue": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "hits": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "screenviews": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "bounces": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "sessionQualityDim": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "totalTransactionRevenue": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "pageviews": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "timeOnScreen": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "visits": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "transactions": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "fullVisitorId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "socialEngagementType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "visitorId": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "device": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "browser": {
           "type": [
@@ -182,43 +52,7 @@
             "string"
           ]
         },
-        "mobileInputSelector": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "mobileDeviceBranding": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "browserSize": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "language": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "screenResolution": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "mobileDeviceMarketingName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "operatingSystemVersion": {
           "type": [
             "null",
             "string"
@@ -242,19 +76,43 @@
             "string"
           ]
         },
-        "mobileDeviceModel": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "javaEnabled": {
           "type": [
             "null",
             "boolean"
           ]
         },
-        "screenColors": {
+        "language": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mobileDeviceBranding": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mobileDeviceInfo": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mobileDeviceMarketingName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mobileDeviceModel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mobileInputSelector": {
           "type": [
             "null",
             "string"
@@ -266,39 +124,39 @@
             "string"
           ]
         },
-        "mobileDeviceInfo": {
+        "operatingSystemVersion": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "screenColors": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "screenResolution": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "channelGrouping": {
+    "fullVisitorId": {
       "type": [
         "null",
         "string"
       ]
     },
     "geoNetwork": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "subContinent": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "metro": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "region": {
+        "city": {
           "type": [
             "null",
             "string"
@@ -310,31 +168,13 @@
             "string"
           ]
         },
-        "city": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "longitude": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "networkLocation": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "continent": {
           "type": [
             "null",
             "string"
           ]
         },
-        "networkDomain": {
+        "country": {
           "type": [
             "null",
             "string"
@@ -346,33 +186,163 @@
             "string"
           ]
         },
-        "country": {
+        "longitude": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "metro": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "networkDomain": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "networkLocation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "region": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subContinent": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "trafficSource": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "socialEngagementType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "totals": {
       "properties": {
-        "referralPath": {
+        "bounces": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "hits": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "newVisits": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "pageviews": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "screenviews": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "sessionQualityDim": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "timeOnScreen": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "timeOnSite": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "totalTransactionRevenue": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "transactionRevenue": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "transactions": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "uniqueScreenViews": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "visits": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "trafficSource": {
+      "properties": {
+        "adContent": {
           "type": [
             "null",
             "string"
           ]
         },
         "adwordsClickInfo": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
-            "customerId": {
+            "adGroupId": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "adNetworkType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "campaignId": {
               "type": [
                 "null",
                 "number"
@@ -382,18 +352,6 @@
               "type": [
                 "null",
                 "number"
-              ]
-            },
-            "campaignId": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "slot": {
-              "type": [
-                "null",
-                "string"
               ]
             },
             "criteriaId": {
@@ -408,36 +366,10 @@
                 "string"
               ]
             },
-            "adGroupId": {
+            "customerId": {
               "type": [
                 "null",
                 "number"
-              ]
-            },
-            "targetingCriteria": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "boomUserlistId": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                }
-              }
-            },
-            "isVideoAd": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "adNetworkType": {
-              "type": [
-                "null",
-                "string"
               ]
             },
             "gclId": {
@@ -446,24 +378,60 @@
                 "string"
               ]
             },
+            "isVideoAd": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
             "page": {
               "type": [
                 "null",
                 "number"
               ]
+            },
+            "slot": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "targetingCriteria": {
+              "properties": {
+                "boomUserlistId": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             }
-          }
-        },
-        "isTrueDirect": {
+          },
           "type": [
             "null",
-            "boolean"
+            "object"
           ]
         },
         "campaign": {
           "type": [
             "null",
             "string"
+          ]
+        },
+        "campaignCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "isTrueDirect": {
+          "type": [
+            "null",
+            "boolean"
           ]
         },
         "keyword": {
@@ -478,13 +446,7 @@
             "string"
           ]
         },
-        "campaignCode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "adContent": {
+        "referralPath": {
           "type": [
             "null",
             "string"
@@ -496,7 +458,45 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "userId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "visitId": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "visitNumber": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "visitStartTime": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "visitorId": {
+      "type": [
+        "null",
+        "number"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

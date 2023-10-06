@@ -1,23 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "type": {
+    "coupon_code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "created": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "description": {
@@ -26,13 +19,25 @@
         "string"
       ]
     },
-    "coupon_code": {
+    "end_date": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "url": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -44,37 +49,6 @@
         "integer"
       ]
     },
-    "promotions": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
     "private": {
       "type": [
         "null",
@@ -84,12 +58,7 @@
     "private_affiliates": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "affiliate_id": {
@@ -110,8 +79,44 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "promotions": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -124,10 +129,22 @@
         "date-time"
       ]
     },
-    "end_date": {
+    "status": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "view_date": {
@@ -135,24 +152,7 @@
         "null",
         "date-time"
       ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,13 +1,24 @@
 {
-  "type": "object",
   "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "project_id": {
+    "invoice_id": {
       "type": [
         "null",
         "integer"
@@ -19,28 +30,16 @@
         "string"
       ]
     },
-    "description": {
+    "project_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "quantity": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "unit_price": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "amount": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "taxed": {
@@ -55,11 +54,12 @@
         "boolean"
       ]
     },
-    "invoice_id": {
+    "unit_price": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     }
-  }
+  },
+  "type": "object"
 }

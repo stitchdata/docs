@@ -1,10 +1,9 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
+    "billable": {
       "type": [
         "null",
-        "integer"
+        "boolean"
       ]
     },
     "client_id": {
@@ -13,10 +12,10 @@
         "integer"
       ]
     },
-    "project_id": {
+    "created_at": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
     "expense_category_id": {
@@ -25,40 +24,10 @@
         "integer"
       ]
     },
-    "user_id": {
+    "id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "user_assignment_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "receipt_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "receipt_file_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "receipt_file_size": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "receipt_content_type": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "invoice_id": {
@@ -67,13 +36,7 @@
         "integer"
       ]
     },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "billable": {
+    "is_billed": {
       "type": [
         "null",
         "boolean"
@@ -91,31 +54,49 @@
         "boolean"
       ]
     },
-    "is_billed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "locked_reason": {
       "type": [
         "null",
         "string"
       ]
     },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "receipt_content_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receipt_file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receipt_file_size": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "receipt_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "spent_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
       "type": [
         "null",
         "date-time"
@@ -132,6 +113,25 @@
         "null",
         "number"
       ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user_assignment_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,12 +1,6 @@
 {
   "properties": {
-    "handle": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sort_order": {
+    "admin_graphql_api_id": {
       "type": [
         "null",
         "string"
@@ -18,7 +12,7 @@
         "string"
       ]
     },
-    "title": {
+    "handle": {
       "type": [
         "null",
         "string"
@@ -30,42 +24,12 @@
         "integer"
       ]
     },
-    "published_scope": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "admin_graphql_api_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "image": {
       "properties": {
         "alt": {
           "type": [
             "null",
             "string"
-          ]
-        },
-        "src": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "width": {
-          "type": [
-            "null",
-            "integer"
           ]
         },
         "created_at": {
@@ -75,6 +39,18 @@
           ]
         },
         "height": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "src": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "width": {
           "type": [
             "null",
             "integer"
@@ -92,7 +68,31 @@
         "string"
       ]
     },
+    "published_scope": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sort_order": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "template_suffix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
         "string"

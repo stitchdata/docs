@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "date": {
@@ -8,10 +7,10 @@
         "date-time"
       ]
     },
-    "project_id": {
+    "description": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "id": {
@@ -20,11 +19,12 @@
         "integer"
       ]
     },
-    "description": {
+    "project_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

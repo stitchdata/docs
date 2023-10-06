@@ -1,67 +1,18 @@
 {
-  "type": "object",
   "properties": {
-    "CampaignID": {
-      "type": "string"
-    },
-    "Recipients": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "TotalOpened": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "Clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "Unsubscribed": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "Bounced": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "UniqueOpened": {
+    "CampaignID": {
+      "type": "string"
+    },
+    "Clicks": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "SpamComplaints": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "WebVersionURL": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "WebVersionTextURL": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "WorldviewURL": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "Forwards": {
@@ -81,6 +32,55 @@
         "null",
         "integer"
       ]
+    },
+    "Recipients": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "SpamComplaints": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "TotalOpened": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "UniqueOpened": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "Unsubscribed": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "WebVersionTextURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "WebVersionURL": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "WorldviewURL": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

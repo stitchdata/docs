@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "active_flag": {
       "type": [
@@ -13,6 +12,21 @@
         "string"
       ]
     },
+    "decimal_points": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "is_custom_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "name": {
       "type": [
         "null",
@@ -24,21 +38,7 @@
         "null",
         "string"
       ]
-    },
-    "is_custom_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "decimal_points": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": "integer"
     }
-  }
+  },
+  "type": "object"
 }

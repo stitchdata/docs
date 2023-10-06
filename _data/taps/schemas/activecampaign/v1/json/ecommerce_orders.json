@@ -1,29 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "externalid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source": {
+    "connection": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "connectionid": {
@@ -32,49 +13,22 @@
         "integer"
       ]
     },
-    "order_url": {
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
       "type": [
         "null",
         "string"
       ]
     },
-    "shipping_method": {
+    "customer": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "total_price": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "shipping_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "tax_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
+        "integer"
       ]
     },
     "discount_amount": {
@@ -83,9 +37,15 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "external_created_date": {
@@ -100,53 +60,13 @@
         "date-time"
       ]
     },
-    "total_products": {
+    "externalid": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "created_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "connection": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "order_products": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      ]
-    },
-    "customer": {
+    "id": {
       "type": [
         "null",
         "integer"
@@ -158,17 +78,97 @@
         "date-time"
       ]
     },
+    "order_products": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "order_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipping_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "shipping_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tax_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "total_price": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "total_products": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "tstamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "id": {
+    "updated_date": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

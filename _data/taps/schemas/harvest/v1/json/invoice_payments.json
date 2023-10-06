@@ -1,6 +1,23 @@
 {
-  "type": "object",
   "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "authorization": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -13,10 +30,10 @@
         "integer"
       ]
     },
-    "amount": {
+    "notes": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
     "paid_at": {
@@ -25,16 +42,16 @@
         "date-time"
       ]
     },
-    "created_at": {
+    "payment_gateway_id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
-    "notes": {
+    "paypal_transaction_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "recorded_by": {
@@ -49,29 +66,12 @@
         "string"
       ]
     },
-    "paypal_transaction_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "authorization": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "payment_gateway_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

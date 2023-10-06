@@ -1,10 +1,12 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "Status": {
+    "EmployeeID": {
+      "type": [
+        "string"
+      ]
+    },
+    "ExternalLink": {
       "type": [
         "null",
         "string"
@@ -22,7 +24,7 @@
         "string"
       ]
     },
-    "ExternalLink": {
+    "Status": {
       "type": [
         "null",
         "string"
@@ -33,12 +35,10 @@
         "null",
         "date-time"
       ]
-    },
-    "EmployeeID": {
-      "type": [
-        "string"
-      ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

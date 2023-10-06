@@ -1,8 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "messageid": {
+    "campaign": {
       "type": [
         "null",
         "integer"
@@ -14,72 +13,7 @@
         "integer"
       ]
     },
-    "percentage": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "sourcesize": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "send_amt": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "total_amt": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "opens": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniqueopens": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "linkclicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniquelinkclicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "subscriberclicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "forwards": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniqueforwards": {
       "type": [
         "null",
         "integer"
@@ -91,55 +25,7 @@
         "integer"
       ]
     },
-    "softbounces": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "unsubscribes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "unsubreasons": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updates": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "socialshares": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "replies": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniquereplies": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "spamcheck_score": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "spamcheck_max": {
+    "id": {
       "type": [
         "null",
         "integer"
@@ -151,30 +37,12 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
-    "screenshot": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "campaign": {
+    "linkclicks": {
       "type": [
         "null",
         "integer"
@@ -185,6 +53,138 @@
         "null",
         "integer"
       ]
+    },
+    "messageid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "opens": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "percentage": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "replies": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "screenshot": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "send_amt": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "socialshares": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "softbounces": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sourcesize": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "spamcheck_max": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "spamcheck_score": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscriberclicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_amt": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uniqueforwards": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uniquelinkclicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uniqueopens": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uniquereplies": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "unsubreasons": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "unsubscribes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updates": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

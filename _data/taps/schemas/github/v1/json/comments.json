@@ -1,25 +1,11 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
+    "_sdc_repository": {
       "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "node_id": {
-      "type": [
-        "null",
         "string"
       ]
     },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "home_url": {
+    "author_association": {
       "type": [
         "null",
         "string"
@@ -31,10 +17,28 @@
         "string"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "home_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "html_url": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "issue_url": {
@@ -43,56 +47,34 @@
         "string"
       ]
     },
-    "author_association": {
+    "node_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "url": {
       "type": [
         "null",
         "string"
       ]
     },
     "user": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "node_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "avatar_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "gravatar_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "html_url": {
+        "events_url": {
           "type": [
             "null",
             "string"
@@ -116,6 +98,60 @@
             "string"
           ]
         },
+        "gravatar_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "node_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "organizations_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "received_events_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "repos_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "site_admin": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "starred_url": {
           "type": [
             "null",
@@ -128,60 +164,24 @@
             "string"
           ]
         },
-        "organizations_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "repos_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "received_events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "type": {
           "type": [
             "null",
             "string"
           ]
         },
-        "site_admin": {
+        "url": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "created_at": {
+      },
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "_sdc_repository": {
-      "type": [
-        "string"
+        "object"
       ]
     }
-  }
+  },
+  "type": "object"
 }

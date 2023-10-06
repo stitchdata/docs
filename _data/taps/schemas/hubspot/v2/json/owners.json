@@ -1,19 +1,18 @@
 {
-  "type": "object",
   "properties": {
-    "portalId": {
+    "activeUserId": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "ownerId": {
+    "createdAt": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
-    "type": {
+    "email": {
       "type": [
         "null",
         "string"
@@ -23,36 +22,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "lastName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "signature": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updatedAt": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "hasContactsAccess": {
@@ -67,36 +36,46 @@
         "boolean"
       ]
     },
-    "activeUserId": {
+    "lastName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ownerId": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "userIdIncludingInactive": {
+    "portalId": {
       "type": [
         "null",
         "integer"
       ]
     },
     "remoteList": {
-      "type": "array",
       "items": {
-        "type": "object",
         "properties": {
+          "active": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "id": {
             "type": [
               "null",
               "integer"
             ]
           },
-          "portalId": {
+          "ownerId": {
             "type": [
               "null",
               "integer"
             ]
           },
-          "ownerId": {
+          "portalId": {
             "type": [
               "null",
               "integer"
@@ -113,15 +92,36 @@
               "null",
               "string"
             ]
-          },
-          "active": {
-            "type": [
-              "null",
-              "boolean"
-            ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "signature": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "userIdIncludingInactive": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

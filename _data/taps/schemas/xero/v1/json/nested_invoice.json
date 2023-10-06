@@ -1,82 +1,47 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "Type": {
+    "AmountCredited": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "AmountDue": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "AmountPaid": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "BrandingThemeID": {
       "type": [
         "null",
         "string"
       ]
     },
     "Contact": {
-      "ContactID": {
-        "type": [
-          "string"
-        ]
-      },
-      "ContactNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
       "AccountNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "ContactStatus": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "FirstName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "LastName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "EmailAddress": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "SkypeUserName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "BankAccountDetails": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "TaxNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "AccountsReceivableTaxType": {
         "type": [
           "null",
           "string"
@@ -88,14 +53,14 @@
           "string"
         ]
       },
+      "AccountsReceivableTaxType": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "Addresses": {
         "items": {
-          "Region": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "AddressLine1": {
             "type": [
               "null",
@@ -120,6 +85,12 @@
               "string"
             ]
           },
+          "AddressType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "AttentionTo": {
             "type": [
               "null",
@@ -132,19 +103,19 @@
               "string"
             ]
           },
-          "PostalCode": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "Country": {
             "type": [
               "null",
               "string"
             ]
           },
-          "AddressType": {
+          "PostalCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Region": {
             "type": [
               "null",
               "string"
@@ -156,14 +127,334 @@
           "array"
         ]
       },
-      "Phones": {
+      "Attachments": {
         "items": {
-          "PhoneNumber": {
+          "additionalProperties": false,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
+      "Balances": {
+        "additionalProperties": false,
+        "properties": {
+          "AccountsPayable": {
+            "additionalProperties": false,
+            "properties": {
+              "Outstanding": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "Overdue": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "AccountsReceivable": {
+            "additionalProperties": false,
+            "properties": {
+              "Outstanding": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "Overdue": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "BankAccountDetails": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "BatchPayments": {
+        "additionalProperties": false,
+        "properties": {
+          "BankAccountName": {
             "type": [
               "null",
               "string"
             ]
           },
+          "BankAccountNumber": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Details": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Reference": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "BrandingTheme": {
+        "BrandingThemeID": {
+          "type": [
+            "string"
+          ]
+        },
+        "CreatedDateUTC": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SortOrder": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "ContactGroups": {
+        "items": {
+          "ContactGroupID": {
+            "type": [
+              "string"
+            ]
+          },
+          "HasValidationErrors": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
+      "ContactID": {
+        "type": [
+          "string"
+        ]
+      },
+      "ContactNumber": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "ContactPersons": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "EmailAddress": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FirstName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "IncludeInEmails": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "LastName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
+      "ContactStatus": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "DefaultCurrency": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Discount": {
+        "type": [
+          "null",
+          "number"
+        ]
+      },
+      "EmailAddress": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "FirstName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "HasAttachments": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "HasValidationErrors": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "IsCustomer": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "IsSupplier": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "LastName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "PaymentTerms": {
+        "Bills": {
+          "additionalProperties": false,
+          "properties": {
+            "Day": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "Type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "Sales": {
+          "additionalProperties": false,
+          "properties": {
+            "Day": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "Type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "Phones": {
+        "items": {
           "PhoneAreaCode": {
             "type": [
               "null",
@@ -171,6 +462,12 @@
             ]
           },
           "PhoneCountryCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "PhoneNumber": {
             "type": [
               "null",
               "string"
@@ -188,73 +485,116 @@
           "array"
         ]
       },
-      "IsSupplier": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "IsCustomer": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "DefaultCurrency": {
+      "PurchasesDefaultAccountCode": {
         "type": [
           "null",
           "string"
         ]
       },
-      "UpdatedDateUTC": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "ContactPersons": {
+      "PurchasesTrackingCategories": {
+        "items": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Option": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Options": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "HasValidationErrors": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsActive": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsArchived": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsDeleted": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "Name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "Status": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TrackingOptionID": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "Status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingCategoryID": {
+            "type": [
+              "string"
+            ]
+          },
+          "TrackingCategoryName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingOptionID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingOptionName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
         "type": [
           "null",
           "array"
-        ],
-        "items": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "FirstName": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "LastName": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "EmailAddress": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "IncludeInEmails": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "XeroNetworkKey": {
-        "type": [
-          "null",
-          "string"
         ]
       },
       "SalesDefaultAccountCode": {
@@ -263,223 +603,123 @@
           "string"
         ]
       },
-      "PurchasesDefaultAccountCode": {
+      "SalesTrackingCategories": {
+        "items": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Option": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Options": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "HasValidationErrors": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsActive": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsArchived": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "IsDeleted": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "Name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "Status": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TrackingOptionID": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "Status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingCategoryID": {
+            "type": [
+              "string"
+            ]
+          },
+          "TrackingCategoryName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingOptionID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingOptionName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
+      "SkypeUserName": {
         "type": [
           "null",
           "string"
         ]
       },
-      "SalesTrackingCategories": {
+      "TaxNumber": {
         "type": [
           "null",
-          "array"
-        ],
-        "items": {
-          "Status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingCategoryID": {
-            "type": [
-              "string"
-            ]
-          },
-          "Option": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingCategoryName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingOptionID": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingOptionName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Options": {
-            "items": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "IsActive": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "IsDeleted": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "TrackingOptionID": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "IsArchived": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "Status": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "Name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "HasValidationErrors": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                }
-              },
-              "additionalProperties": false
-            },
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "Name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
-      "PurchasesTrackingCategories": {
-        "type": [
-          "null",
-          "array"
-        ],
-        "items": {
-          "Status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingCategoryID": {
-            "type": [
-              "string"
-            ]
-          },
-          "Option": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingCategoryName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingOptionID": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TrackingOptionName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Options": {
-            "items": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "IsActive": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "IsDeleted": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "TrackingOptionID": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "IsArchived": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "Status": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "Name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "HasValidationErrors": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                }
-              },
-              "additionalProperties": false
-            },
-            "type": [
-              "null",
-              "array"
-            ]
-          },
-          "Name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
+          "string"
+        ]
       },
       "TrackingCategoryName": {
         "type": [
@@ -493,75 +733,27 @@
           "string"
         ]
       },
-      "PaymentTerms": {
-        "Sales": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "Day": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "additionalProperties": false
-        },
-        "Bills": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "Day": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "additionalProperties": false
-        }
+      "UpdatedDateUTC": {
+        "type": [
+          "null",
+          "date-time"
+        ]
       },
-      "ContactGroups": {
+      "ValidationErrors": {
         "items": {
-          "Status": {
-            "type": [
-              "null",
-              "string"
-            ]
+          "additionalProperties": false,
+          "properties": {
+            "Message": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
-          "Name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "ContactGroupID": {
-            "type": [
-              "string"
-            ]
-          },
-          "HasValidationErrors": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "type": [
           "null",
@@ -574,176 +766,37 @@
           "string"
         ]
       },
-      "BrandingTheme": {
-        "CreatedDateUTC": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "SortOrder": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "Name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "BrandingThemeID": {
-          "type": [
-            "string"
-          ]
-        }
-      },
-      "BatchPayments": {
+      "XeroNetworkKey": {
         "type": [
           "null",
-          "object"
-        ],
-        "properties": {
-          "Details": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Reference": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "Code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "BankAccountNumber": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "BankAccountName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "additionalProperties": false
-      },
-      "Discount": {
-        "type": [
-          "null",
-          "number"
+          "string"
         ]
-      },
-      "Balances": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "AccountsReceivable": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "Outstanding": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "Overdue": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            },
-            "additionalProperties": false
-          },
-          "AccountsPayable": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "Outstanding": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "Overdue": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            },
-            "additionalProperties": false
-          }
-        },
-        "additionalProperties": false
-      },
-      "HasAttachments": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "Attachments": {
-        "type": [
-          "null",
-          "array"
-        ],
-        "items": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {},
-          "additionalProperties": false
-        }
-      },
-      "HasValidationErrors": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "ValidationErrors": {
-        "type": [
-          "null",
-          "array"
-        ],
-        "items": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "Message": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "additionalProperties": false
-        }
       }
     },
+    "CurrencyCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CurrencyRate": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-06,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "Date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "DateString": {
       "type": [
         "null",
         "date-time"
@@ -755,10 +808,51 @@
         "date-time"
       ]
     },
-    "Status": {
+    "DueDateString": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ExpectedPaymentDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "FullyPaidOnDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "HasAttachments": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "HasErrors": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "InvoiceID": {
+      "type": [
+        "string"
+      ]
+    },
+    "InvoiceNumber": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "IsDiscounted": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "LineAmountTypes": {
@@ -768,43 +862,28 @@
       ]
     },
     "LineItems": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
+        "AccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "Description": {
           "type": [
             "null",
             "string"
           ]
         },
-        "Quantity": {
+        "DiscountRate": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
           "type": [
             "null",
             "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "UnitAmount": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "AccountCode": {
-          "type": [
-            "null",
-            "string"
           ]
         },
         "ItemCode": {
@@ -813,9 +892,42 @@
             "string"
           ]
         },
+        "LineAmount": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
         "LineItemID": {
           "type": [
             "string"
+          ]
+        },
+        "Quantity": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "TaxAmount": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
           ]
         },
         "TaxType": {
@@ -824,41 +936,77 @@
             "string"
           ]
         },
-        "LineAmount": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "TaxAmount": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "DiscountRate": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
         "Tracking": {
           "items": {
+            "Name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "Option": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "Options": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "HasValidationErrors": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "IsActive": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "IsArchived": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "IsDeleted": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "Name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "Status": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "TrackingOptionID": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
             "Status": {
               "type": [
                 "null",
@@ -867,12 +1015,6 @@
             },
             "TrackingCategoryID": {
               "type": [
-                "string"
-              ]
-            },
-            "Option": {
-              "type": [
-                "null",
                 "string"
               ]
             },
@@ -893,169 +1035,37 @@
                 "null",
                 "string"
               ]
-            },
-            "Options": {
-              "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "IsActive": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  },
-                  "IsDeleted": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  },
-                  "TrackingOptionID": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "IsArchived": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  },
-                  "Status": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "Name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "HasValidationErrors": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  }
-                },
-                "additionalProperties": false
-              },
-              "type": [
-                "null",
-                "array"
-              ]
-            },
-            "Name": {
-              "type": [
-                "null",
-                "string"
-              ]
             }
           },
           "type": [
             "null",
             "array"
           ]
+        },
+        "UnitAmount": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
         }
-      }
-    },
-    "SubTotal": {
+      },
       "type": [
         "null",
-        "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
+        "array"
+      ]
     },
-    "TotalTax": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
-    },
-    "Total": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
-    },
-    "TotalDiscount": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
-    },
-    "UpdatedDateUTC": {
+    "PlannedPaymentDate": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "CurrencyCode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "CurrencyRate": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-06,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
-    },
-    "InvoiceID": {
-      "type": [
-        "string"
-      ]
-    },
-    "InvoiceNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "Reference": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BrandingThemeID": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Url": {
       "type": [
         "null",
         "string"
@@ -1067,85 +1077,72 @@
         "boolean"
       ]
     },
-    "ExpectedPaymentDate": {
+    "Status": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "PlannedPaymentDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "HasAttachments": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "AmountDue": {
+    "SubTotal": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
       "type": [
         "null",
         "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
+      ]
     },
-    "AmountPaid": {
+    "Total": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
       "type": [
         "null",
         "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
-    },
-    "FullyPaidOnDate": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
-    "AmountCredited": {
+    "TotalDiscount": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
       "type": [
         "null",
         "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
+      ]
+    },
+    "TotalTax": {
+      "exclusiveMaximum": true,
       "exclusiveMinimum": true,
-      "exclusiveMaximum": true
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
+      "type": [
+        "null",
+        "number"
+      ]
     },
-    "DueDateString": {
+    "Type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "UpdatedDateUTC": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "IsDiscounted": {
+    "Url": {
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "HasErrors": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "DateString": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     }
   },
@@ -1153,5 +1150,8 @@
     "contacts",
     "line_items"
   ],
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

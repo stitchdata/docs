@@ -1,35 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "contact_count": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "deal_count": {
@@ -43,6 +30,19 @@
         "null",
         "integer"
       ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

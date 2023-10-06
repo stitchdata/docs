@@ -1,16 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "advertiser_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "ad_id": {
       "type": [
         "null",
@@ -29,12 +19,6 @@
         "string"
       ]
     },
-    "stat_time_day": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "adgroup_id": {
       "type": [
         "null",
@@ -47,13 +31,7 @@
         "string"
       ]
     },
-    "campaign_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "campaign_name": {
+    "advertiser_id": {
       "type": [
         "null",
         "string"
@@ -65,187 +43,31 @@
         "string"
       ]
     },
-    "gender": {
+    "bid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "user_action": {
+    "bid_strategy": {
       "type": [
         "null",
         "string"
       ]
     },
-    "spend": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "cpc": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "cpm": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ctr": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "conversion": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cost_per_conversion": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "conversion_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "real_time_conversion": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "real_time_cost_per_conversion": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "real_time_conversion_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "result": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cost_per_result": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "result_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "real_time_result": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "real_time_cost_per_result": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "real_time_result_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "tt_app_id": {
+    "billing_event": {
       "type": [
         "null",
         "string"
       ]
     },
-    "tt_app_name": {
+    "budget": {
       "type": [
         "null",
         "string"
       ]
     },
-    "mobile_app_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "promotion_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "dpa_target_audience_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "gross_impressions": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_smart_creative": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "conversion_rate_v2": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "real_time_conversion_rate_v2": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "objective_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "split_test": {
+    "call_to_action": {
       "type": [
         "null",
         "string"
@@ -263,13 +85,181 @@
         "string"
       ]
     },
+    "campaign_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "conversion": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "conversion_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "conversion_rate_v2": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cost_per_conversion": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cost_per_result": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cpc": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cpm": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "ctr": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "dpa_target_audience_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gender": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gross_impressions": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_smart_creative": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "mobile_app_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "objective_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "opt_status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "budget": {
+    "promotion_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "real_time_conversion": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "real_time_conversion_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "real_time_conversion_rate_v2": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "real_time_cost_per_conversion": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "real_time_cost_per_result": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "real_time_result": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "real_time_result_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "result": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "result_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rf_campaign_type": {
       "type": [
         "null",
         "string"
@@ -281,35 +271,45 @@
         "string"
       ]
     },
-    "bid_strategy": {
+    "spend": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "split_test": {
       "type": [
         "null",
         "string"
       ]
     },
-    "bid": {
+    "stat_time_day": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "tt_app_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "call_to_action": {
+    "tt_app_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "billing_event": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "rf_campaign_type": {
+    "user_action": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

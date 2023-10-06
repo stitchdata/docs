@@ -1,14 +1,25 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
+    "active_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
-    "order_nr": {
+    "add_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deal_probability": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "id": {
+      "type": "integer"
     },
     "name": {
       "type": [
@@ -16,13 +27,7 @@
         "string"
       ]
     },
-    "active_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "deal_probability": {
+    "order_nr": {
       "type": [
         "null",
         "integer"
@@ -34,10 +39,10 @@
         "integer"
       ]
     },
-    "rotten_flag": {
+    "pipeline_name": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
     "rotten_days": {
@@ -46,10 +51,10 @@
         "integer"
       ]
     },
-    "add_time": {
+    "rotten_flag": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
       ]
     },
     "update_time": {
@@ -57,12 +62,7 @@
         "null",
         "date-time"
       ]
-    },
-    "pipeline_name": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

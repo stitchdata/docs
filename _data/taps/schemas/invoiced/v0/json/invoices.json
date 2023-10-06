@@ -1,15 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "attempt_count": {
       "type": [
         "null",
@@ -34,6 +24,12 @@
         "boolean"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "currency": {
       "type": [
         "null",
@@ -53,17 +49,17 @@
       ]
     },
     "discounts": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
+        "properties": {},
         "type": [
           "null",
           "object"
-        ],
-        "properties": {}
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "draft": {
       "type": [
@@ -77,25 +73,31 @@
         "date-time"
       ]
     },
-    "items": {
+    "id": {
       "type": [
         "null",
-        "array"
-      ],
+        "integer"
+      ]
+    },
+    "items": {
       "items": {
+        "properties": {},
         "type": [
           "null",
           "object"
-        ],
-        "properties": {}
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "name": {
       "type": [
@@ -158,28 +160,22 @@
       ]
     },
     "taxes": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
+        "properties": {},
         "type": [
           "null",
           "object"
-        ],
-        "properties": {}
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "total": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_at": {
@@ -188,5 +184,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

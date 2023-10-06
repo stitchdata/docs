@@ -1,24 +1,29 @@
 {
   "additional_properties": false,
-  "type": "object",
   "properties": {
-    "app_id": {
+    "account_id": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
     "account_ids": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
+      ]
+    },
+    "app_id": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "browser_time": {
@@ -33,12 +38,6 @@
         "string"
       ]
     },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "guide_id": {
       "type": [
         "null",
@@ -46,12 +45,6 @@
       ]
     },
     "guide_step_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "url": {
       "type": [
         "null",
         "string"
@@ -81,6 +74,12 @@
         "string"
       ]
     },
+    "poll_response": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "region": {
       "type": [
         "null",
@@ -99,6 +98,18 @@
         "string"
       ]
     },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "user_agent": {
       "type": [
         "null",
@@ -110,18 +121,7 @@
         "null",
         "string"
       ]
-    },
-    "account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "poll_response": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

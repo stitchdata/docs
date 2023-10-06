@@ -1,15 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "address1": {
       "type": [
         "null",
@@ -58,6 +48,12 @@
         "string"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "credit_hold": {
       "type": [
         "null",
@@ -76,6 +72,12 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "language": {
       "type": [
         "null",
@@ -83,11 +85,11 @@
       ]
     },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "name": {
       "type": [
@@ -120,11 +122,11 @@
       ]
     },
     "payment_source": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "payment_terms": {
       "type": [
@@ -169,28 +171,22 @@
       ]
     },
     "taxes": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
+        "properties": {},
         "type": [
           "null",
           "object"
-        ],
-        "properties": {}
-      }
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_at": {
@@ -199,5 +195,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

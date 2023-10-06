@@ -1,13 +1,96 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "accountStatus": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "activeTask": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "capacity": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "delayTime": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "displayName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "imageUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "metadata": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "onDuty": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "organization": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tasks": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "teams": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
       ]
     },
     "timeCreated": {
@@ -22,68 +105,15 @@
         "date-time"
       ]
     },
-    "organization": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "displayName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "activeTask": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tasks": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "onDuty": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "timeLastSeen": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "capacity": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "userData": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "deviceDescription": {
+        "appVersion": {
           "type": [
             "null",
             "string"
@@ -95,7 +125,7 @@
             "number"
           ]
         },
-        "appVersion": {
+        "deviceDescription": {
           "type": [
             "null",
             "string"
@@ -107,59 +137,15 @@
             "string"
           ]
         }
-      }
-    },
-    "accountStatus": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "metadata": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "imageUrl": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "teams": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "delayTime": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "location": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "vehicle": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "vehicle": {
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "type": {
+        "color": {
           "type": [
             "null",
             "string"
@@ -171,13 +157,13 @@
             "string"
           ]
         },
-        "licensePlate": {
+        "id": {
           "type": [
             "null",
             "string"
           ]
         },
-        "color": {
+        "licensePlate": {
           "type": [
             "null",
             "string"
@@ -188,8 +174,22 @@
             "null",
             "date-time"
           ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

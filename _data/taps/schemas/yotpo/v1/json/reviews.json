@@ -1,40 +1,32 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "integer"
+    "content": {
+      "type": "string"
     },
     "created_at": {
       "type": "date-time"
     },
-    "updated_at": {
-      "type": "date-time"
-    },
-    "votes_up": {
-      "type": "number"
-    },
-    "votes_down": {
-      "type": "number"
-    },
-    "score": {
-      "type": "number"
-    },
-    "content": {
-      "type": "string"
-    },
-    "title": {
-      "type": [
-        "string",
-        "null"
-      ]
+    "deleted": {
+      "type": "boolean"
     },
     "email": {
       "type": [
         "string",
         "null"
       ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "reviewer_type": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
     },
     "sentiment": {
       "type": [
@@ -48,21 +40,29 @@
         "string"
       ]
     },
-    "name": {
-      "type": "string"
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
-    "reviewer_type": {
-      "type": "string"
-    },
-    "deleted": {
-      "type": "boolean"
+    "updated_at": {
+      "type": "date-time"
     },
     "user_reference": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "votes_down": {
+      "type": "number"
+    },
+    "votes_up": {
+      "type": "number"
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

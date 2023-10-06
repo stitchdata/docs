@@ -1,25 +1,33 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "productId": {
+    "deleted": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "productType": {
-      "type": [
-        "null",
-        "integer"
+        "boolean"
       ]
     },
     "description": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "g_Points": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "p_Points": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "price1": {
@@ -34,10 +42,10 @@
         "number"
       ]
     },
-    "taxId": {
+    "priceCadet": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "productClassId": {
@@ -46,22 +54,16 @@
         "integer"
       ]
     },
-    "enabled": {
+    "productId": {
       "type": [
         "null",
-        "boolean"
+        "integer"
       ]
     },
-    "deleted": {
+    "productType": {
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "p_Points": {
-      "type": [
-        "null",
-        "number"
+        "integer"
       ]
     },
     "r_Points": {
@@ -70,17 +72,15 @@
         "number"
       ]
     },
-    "g_Points": {
+    "taxId": {
       "type": [
         "null",
-        "number"
-      ]
-    },
-    "priceCadet": {
-      "type": [
-        "null",
-        "number"
+        "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

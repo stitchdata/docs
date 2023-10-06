@@ -1,29 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "body": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ldate": {
+    "cdate": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "last_sent_user_id": {
@@ -32,7 +25,7 @@
         "integer"
       ]
     },
-    "cdate": {
+    "ldate": {
       "type": [
         "null",
         "date-time"
@@ -44,11 +37,18 @@
         "date-time"
       ]
     },
-    "id": {
+    "subject": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

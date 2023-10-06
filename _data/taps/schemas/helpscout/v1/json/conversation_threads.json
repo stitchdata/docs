@@ -1,11 +1,154 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "action": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "integer"
+        "object"
+      ]
+    },
+    "assigned_to": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "attachments": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "filename": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "mime_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "size": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "bcc": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cc": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "conversation_id": {
@@ -14,56 +157,115 @@
         "integer"
       ]
     },
-    "type": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "action": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "created_by": {
       "additionalProperties": false,
       "properties": {
-        "type": {
+        "email": {
           "type": [
             "null",
             "string"
           ]
         },
-        "text": {
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "customer": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "opened_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "saved_reply_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "source": {
       "additionalProperties": false,
       "properties": {
         "type": {
@@ -78,245 +280,43 @@
             "string"
           ]
         }
-      }
-    },
-    "customer": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "photo_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      ]
     },
-    "created_by": {
+    "state": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "photo_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "string"
+      ]
     },
-    "assigned_to": {
+    "status": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "photo_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "saved_reply_id": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
     "to": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "cc": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "bcc": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "created_at": {
+    "type": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "opened_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "attachments": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "filename": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "mime_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "width": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "height": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "size": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

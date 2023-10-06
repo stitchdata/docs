@@ -1,19 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
     "email_address": {
       "type": [
         "null",
         "string"
       ]
     },
-    "unique_email_id": {
+    "email_client": {
       "type": [
         "null",
         "string"
@@ -25,68 +19,22 @@
         "string"
       ]
     },
-    "status": {
+    "id": {
       "type": [
-        "null",
         "string"
       ]
     },
-    "merge_fields": {},
-    "stats": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "avg_open_rate": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "avg_click_rate": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "ip_signup": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "timestamp_signup": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
+    "interests": {},
     "ip_opt": {
       "type": [
         "null",
         "string"
       ]
     },
-    "timestamp_opt": {
+    "ip_signup": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "member_rating": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "last_changed": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "language": {
@@ -95,26 +43,39 @@
         "string"
       ]
     },
-    "vip": {
+    "last_changed": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
       ]
     },
-    "email_client": {
+    "list_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "interests": {},
     "location": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
+        "country_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "dstoff": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "gmtoff": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
         "latitude": {
           "type": [
             "null",
@@ -127,37 +88,76 @@
             "number"
           ]
         },
-        "gmtoff": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "dstoff": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "country_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "timezone": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "list_id": {
+    "member_rating": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "merge_fields": {},
+    "stats": {
+      "additionalProperties": false,
+      "properties": {
+        "avg_click_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "avg_open_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "timestamp_opt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "timestamp_signup": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unique_email_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vip": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

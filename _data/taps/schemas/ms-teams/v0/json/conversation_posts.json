@@ -1,17 +1,41 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
-    "id": {
+    "body": {
+      "additionalProperties": true,
+      "properties": {
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "content_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "thread_id": {
+    "categories": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "change_key": {
       "type": [
         "null",
         "string"
@@ -29,35 +53,34 @@
         "date-time"
       ]
     },
-    "last_modified_date_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "change_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "categories": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
+    "from": {
+      "additionalProperties": true,
+      "properties": {
+        "emailAddress": {
+          "additionalProperties": false,
+          "properties": {
+            "address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      ]
-    },
-    "received_date_time": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
     "has_attachments": {
@@ -66,86 +89,63 @@
         "boolean"
       ]
     },
-    "body": {
+    "id": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "content_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "content": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "string"
+      ]
     },
-    "from": {
+    "last_modified_date_time": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "emailAddress": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "address": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
+        "date-time"
+      ]
+    },
+    "received_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
     "sender": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": true,
       "properties": {
         "emailAddress": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": true,
           "properties": {
-            "name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "address": {
               "type": [
                 "null",
                 "string"
               ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "thread_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

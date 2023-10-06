@@ -1,66 +1,10 @@
 {
   "properties": {
-    "fee": {
+    "amount": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "fee_details": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "properties": {
-          "application": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "description": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "currency": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      }
     },
     "available_on": {
       "type": [
@@ -68,7 +12,13 @@
         "integer"
       ]
     },
-    "status": {
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
       "type": [
         "null",
         "string"
@@ -80,19 +30,81 @@
         "string"
       ]
     },
-    "net": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "exchange_rate": {
       "type": [
         "null",
         "number"
       ]
     },
-    "type": {
+    "fee": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "fee_details": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "application": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "net": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source": {
       "type": [
         "null",
         "string"
@@ -105,28 +117,16 @@
         "array"
       ]
     },
-    "id": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "object": {
+    "type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "amount": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "updated": {

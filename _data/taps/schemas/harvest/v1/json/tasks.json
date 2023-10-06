@@ -1,18 +1,5 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "billable_by_default": {
       "type": [
         "null",
@@ -25,13 +12,7 @@
         "date-time"
       ]
     },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "is_default": {
+    "deactivated": {
       "type": [
         "null",
         "boolean"
@@ -43,11 +24,30 @@
         "number"
       ]
     },
-    "deactivated": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_default": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,38 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "note": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "amount_money": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "amount": {
           "type": [
@@ -46,13 +14,13 @@
             "string"
           ]
         }
-      }
-    },
-    "tip_money": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "app_fee_money": {
       "properties": {
         "amount": {
           "type": [
@@ -66,85 +34,347 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "status": {
+    "application_details": {
+      "properties": {
+        "application_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "square_product": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "approved_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "bank_account_details": {
+      "properties": {
+        "account_ownership_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ach_details": {
+          "properties": {
+            "account_number_suffix": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "account_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "routing_number": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "bank_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "detail": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "fingerprint": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statement_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transfer_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "billing_address": {
+      "properties": {
+        "address_line_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_line_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_line_3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality_3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "buy_now_pay_later_details": {
+      "properties": {
+        "afterpay_details": {
+          "properties": {
+            "email_address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "brand": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "clearpay_details": {
+          "properties": {
+            "email_address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "buyer_email_address": {
       "type": [
         "null",
         "string"
       ]
     },
-    "delay_duration": {
+    "capabilities": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "source_type": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "card_details": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "status": {
+        "application_cryptogram": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "application_identifier": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "application_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "auth_result_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avs_status": {
           "type": [
             "null",
             "string"
           ]
         },
         "card": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
-            "id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "card_brand": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "last_4": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "exp_month": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "exp_year": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "cardholder_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "billing_address": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "address_line_1": {
                   "type": [
@@ -159,30 +389,6 @@
                   ]
                 },
                 "address_line_3": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "locality": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "sublocality": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "sublocality_2": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "sublocality_3": {
                   "type": [
                     "null",
                     "string"
@@ -206,12 +412,6 @@
                     "string"
                   ]
                 },
-                "postal_code": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "country": {
                   "type": [
                     "null",
@@ -229,10 +429,68 @@
                     "null",
                     "string"
                   ]
+                },
+                "locality": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "postal_code": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "sublocality": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "sublocality_2": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "sublocality_3": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
-            "fingerprint": {
+            "bin": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_brand": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_co_brand": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "cardholder_name": {
               "type": [
                 "null",
                 "string"
@@ -244,25 +502,43 @@
                 "string"
               ]
             },
-            "merchant_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "reference_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "enabled": {
               "type": [
                 "null",
                 "boolean"
               ]
             },
-            "card_type": {
+            "exp_month": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "exp_year": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "fingerprint": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last_4": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "merchant_id": {
               "type": [
                 "null",
                 "string"
@@ -274,7 +550,7 @@
                 "string"
               ]
             },
-            "bin": {
+            "reference_id": {
               "type": [
                 "null",
                 "string"
@@ -285,118 +561,14 @@
                 "null",
                 "integer"
               ]
-            },
-            "card_co_brand": {
-              "type": [
-                "null",
-                "string"
-              ]
             }
-          }
-        },
-        "entry_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cvv_status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avs_status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "auth_result_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "application_identifier": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "application_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "application_cryptogram": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "verification_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "verification_results": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "errors": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "category": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "code": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "detail": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "field": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        "statement_description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "card_payment_timeline": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "card_payment_timeline": {
           "properties": {
             "authorized_at": {
               "type": [
@@ -416,136 +588,26 @@
                 "date-time"
               ]
             }
-          }
-        }
-      }
-    },
-    "cash_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "buyer_supplied_money": {
+          },
           "type": [
             "null",
             "object"
-          ],
-          "properties": {
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
+          ]
         },
-        "change_back_money": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "bank_account_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "bank_name": {
+        "cvv_status": {
           "type": [
             "null",
             "string"
           ]
         },
-        "transfer_type": {
+        "entry_method": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "account_ownership_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fingerprint": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "statement_description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "ach_details": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "routing_number": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "account_number_suffix": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "account_type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
         },
         "errors": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
               "category": {
                 "type": [
@@ -571,40 +633,50 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "statement_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "verification_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "verification_results": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "external_details": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "cash_details": {
       "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "source": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "source_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "source_fee_money": {
-          "type": [
-            "null",
-            "object"
-          ],
+        "buyer_supplied_money": {
           "properties": {
             "amount": {
               "type": [
@@ -618,108 +690,42 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "change_back_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "wallet_details": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "brand": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cash_app_details": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "buyer_full_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "buyer_country_code": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "buyer_cashtag": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "buy_now_pay_later_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "brand": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "afterpay_details": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "email_address": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "clearpay_details": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "email_address": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "location_id": {
-      "type": [
-        "null",
-        "string"
       ]
     },
-    "order_id": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "customer_id": {
@@ -728,167 +734,25 @@
         "string"
       ]
     },
-    "reference_id": {
+    "delay_action": {
       "type": [
         "null",
         "string"
       ]
     },
-    "team_member_id": {
+    "delay_duration": {
       "type": [
         "null",
         "string"
       ]
     },
-    "processing_fee": {
+    "delayed_until": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "effective_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "amount_money": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "amount": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "currency": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "total_money": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "app_fee_money": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "approved_money": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "receipt_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "risk_evaluation": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "created_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "risk_level": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "receipt_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "version_token": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "device_details": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "device_id": {
           "type": [
@@ -908,253 +772,159 @@
             "string"
           ]
         }
-      }
-    },
-    "application_details": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "external_details": {
       "properties": {
-        "square_product": {
+        "source": {
           "type": [
             "null",
             "string"
           ]
         },
-        "application_id": {
+        "source_fee_money": {
+          "properties": {
+            "amount": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "source_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "statement_description_identifier": {
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "capabilities": {
+    "location_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processing_fee": {
+      "items": {
+        "properties": {
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "effective_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
         "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      ]
     },
-    "buyer_email_address": {
+    "receipt_number": {
       "type": [
         "null",
         "string"
       ]
     },
-    "billing_address": {
+    "receipt_url": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "address_line_1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address_line_2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address_line_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locality": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sublocality": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sublocality_2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sublocality_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "postal_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "string"
+      ]
     },
-    "shipping_address": {
+    "reference_id": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "address_line_1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address_line_2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address_line_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locality": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sublocality": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sublocality_2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sublocality_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_2": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "postal_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "string"
+      ]
     },
     "refund_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "refunded_money": {
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "refunded_money": {
       "properties": {
         "amount": {
           "type": [
@@ -1168,19 +938,249 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "delay_action": {
+    "risk_evaluation": {
+      "properties": {
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "risk_level": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "shipping_address": {
+      "properties": {
+        "address_line_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_line_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_line_3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality_3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "source_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "delayed_until": {
+    "statement_description_identifier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "team_member_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tip_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "total_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
+    },
+    "version_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "wallet_details": {
+      "properties": {
+        "brand": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cash_app_details": {
+          "properties": {
+            "buyer_cashtag": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "buyer_country_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "buyer_full_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

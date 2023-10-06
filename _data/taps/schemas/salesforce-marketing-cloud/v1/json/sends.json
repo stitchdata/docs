@@ -1,74 +1,71 @@
 {
-  "type": "object",
   "properties": {
     "CreatedDate": {
+      "description": "Read-only date and time of the object's creation.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Read-only date and time of the object's creation."
+      ]
     },
     "EmailID": {
+      "description": "Specifies the ID of an email message associated with a send.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Specifies the ID of an email message associated with a send."
+      ]
     },
     "EmailName": {
+      "description": "Specifies the name of an email message associated with a send.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Specifies the name of an email message associated with a send."
+      ]
     },
     "FromAddress": {
+      "description": "Indicates From address associated with a object. Deprecated for email send definitions and triggered send definitions.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates From address associated with a object. Deprecated for email send definitions and triggered send definitions."
+      ]
     },
     "FromName": {
+      "description": "Specifies the default email message From Name. Deprecated for email send definitions and triggered send definitions.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Specifies the default email message From Name. Deprecated for email send definitions and triggered send definitions."
+      ]
     },
     "ID": {
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+      ]
     },
     "IsAlwaysOn": {
+      "description": "Indicates whether the request can be performed while the system is is maintenance mode. A value of true indicates the system will process the request.",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates whether the request can be performed while the system is is maintenance mode. A value of true indicates the system will process the request."
+      ]
     },
     "IsMultipart": {
+      "description": "Indicates whether the email is sent with Multipart/MIME enabled.",
       "type": [
         "null",
         "boolean"
-      ],
-      "description": "Indicates whether the email is sent with Multipart/MIME enabled."
+      ]
     },
     "ModifiedDate": {
+      "description": "Indicates the last time object information was modified.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates the last time object information was modified."
+      ]
     },
     "PartnerProperties": {
-      "type": "array",
       "description": "Specifies key-value pairs of properties associated with an object.",
       "items": {
-        "type": "object",
         "properties": {
           "Name": {
             "type": [
@@ -82,36 +79,39 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "SendDate": {
+      "description": "Indicates the date on which a send occurred. Set this value to have a CST (Central Standard Time) value.",
       "type": [
         "null",
         "date-time"
-      ],
-      "description": "Indicates the date on which a send occurred. Set this value to have a CST (Central Standard Time) value."
+      ]
     },
     "SentDate": {
+      "description": "Indicates date on which a send took place.",
       "type": [
         "null",
         "date-time"
-      ],
-      "description": "Indicates date on which a send took place."
+      ]
     },
     "Status": {
+      "description": "Defines status of object. Status of an address.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Defines status of object. Status of an address."
+      ]
     },
     "Subject": {
+      "description": "Contains subject area information for a message.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Contains subject area information for a message."
+      ]
     }
-  }
+  },
+  "type": "object"
 }

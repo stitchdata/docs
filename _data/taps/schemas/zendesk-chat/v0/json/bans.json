@@ -1,10 +1,29 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ip_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
       "type": [
         "null",
         "string"
@@ -21,29 +40,10 @@
         "null",
         "string"
       ]
-    },
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ip_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

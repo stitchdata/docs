@@ -1,68 +1,15 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "group_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "tags": {
+    "deleted_at": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "shared_tickets": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "organization_fields": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "domain_names": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "shared_comments": {
-      "type": [
-        "null",
-        "boolean"
+        "date-time"
       ]
     },
     "details": {
@@ -71,16 +18,16 @@
         "string"
       ]
     },
-    "updated_at": {
+    "domain_names": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "external_id": {
@@ -89,10 +36,10 @@
         "string"
       ]
     },
-    "url": {
+    "group_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "id": {
@@ -101,11 +48,64 @@
         "integer"
       ]
     },
-    "deleted_at": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_fields": {
+      "additionalProperties": true,
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "shared_comments": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "shared_tickets": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

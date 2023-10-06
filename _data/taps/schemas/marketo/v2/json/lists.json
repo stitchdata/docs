@@ -1,17 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "name": {
-      "type": "string"
-    },
     "createdAt": {
-      "type": "date-time"
-    },
-    "updatedAt": {
       "type": "date-time"
     },
     "description": {
@@ -20,11 +10,20 @@
         "null"
       ]
     },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
     "programName": {
       "type": [
         "string",
         "null"
       ]
+    },
+    "updatedAt": {
+      "type": "date-time"
     },
     "workspaceName": {
       "type": [
@@ -32,5 +31,6 @@
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

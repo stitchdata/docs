@@ -1,17 +1,68 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "ad_account_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
+    "ad_product": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "ad_to_lens_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "ad_to_message_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "app_install_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "brand_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "call_to_action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "collection_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "composite_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
       ]
     },
     "created_at": {
@@ -20,25 +71,81 @@
         "date-time"
       ]
     },
+    "deep_link_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "dynamic_render_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "forced_view_eligibility": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "headline": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "longform_video_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ad_account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "packaging_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "playback_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preview_creative_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preview_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "render_type": {
       "type": [
         "null",
         "string"
@@ -56,25 +163,7 @@
         "boolean"
       ]
     },
-    "headline": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "brand_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "call_to_action": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "render_type": {
+    "top_snap_crop_position": {
       "type": [
         "null",
         "string"
@@ -86,115 +175,26 @@
         "string"
       ]
     },
-    "top_snap_crop_position": {
+    "type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "forced_view_eligibility": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
-    },
-    "preview_creative_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "playback_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ad_product": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ad_to_lens_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "ad_to_message_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "app_install_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "collection_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "composite_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "deep_link_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "dynamic_render_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "longform_video_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "preview_properties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
     },
     "web_view_properties": {
+      "additionalProperties": true,
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
+      ]
     }
-  }
+  },
+  "type": "object"
 }

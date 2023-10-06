@@ -1,34 +1,11 @@
 {
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "goal_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "goal_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "attribution": {
       "properties": {
-        "chat_timestamp": {
+        "agent_id": {
           "type": [
             "null",
-            "date-time"
-          ]
-        },
-        "department_name": {
-          "type": [
-            "null",
-            "string"
+            "integer"
           ]
         },
         "agent_name": {
@@ -37,22 +14,45 @@
             "string"
           ]
         },
+        "chat_timestamp": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
         "department_id": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "agent_id": {
+        "department_name": {
           "type": [
             "null",
-            "integer"
+            "string"
           ]
         }
       },
       "type": [
         "null",
         "object"
+      ]
+    },
+    "goal_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "goal_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
       ]
     },
     "timestamp": {

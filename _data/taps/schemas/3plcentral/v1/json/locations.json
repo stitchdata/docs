@@ -1,69 +1,32 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "facility_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "location_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "location_identifier": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "customer_identifier": {
       "additionalProperties": false,
       "properties": {
-        "name_key": {
+        "external_id": {
           "type": [
             "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "facility_identifier": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "id": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              }
-            },
-            "name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
+            "string"
+          ]
         },
         "id": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "description": {
       "type": [
@@ -71,62 +34,100 @@
         "string"
       ]
     },
-    "location_type_identifier": {
+    "facility_id": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
+        "integer"
+      ]
     },
     "item_traits": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "item_identifier": {
+        "expiration_date": {
           "type": [
             "null",
-            "object"
-          ],
+            "date-time"
+          ]
+        },
+        "item_identifier": {
           "additionalProperties": false,
           "properties": {
-            "sku": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "id": {
               "type": [
                 "null",
                 "integer"
               ]
+            },
+            "sku": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "qualifier": {
+        "lot_number": {
           "type": [
             "null",
             "string"
           ]
         },
-        "lot_number": {
+        "pallet_identifier": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "name_key": {
+              "additionalProperties": false,
+              "properties": {
+                "facility_identifier": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "qualifier": {
           "type": [
             "null",
             "string"
@@ -137,47 +138,39 @@
             "null",
             "string"
           ]
-        },
-        "expiration_date": {
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "location_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "location_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
           "type": [
             "null",
-            "date-time"
+            "integer"
           ]
         },
-        "pallet_identifier": {
-          "type": [
-            "null",
-            "object"
-          ],
+        "name_key": {
           "additionalProperties": false,
           "properties": {
-            "name_key": {
-              "type": [
-                "null",
-                "object"
-              ],
+            "facility_identifier": {
               "additionalProperties": false,
               "properties": {
-                "facility_identifier": {
+                "id": {
                   "type": [
                     "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "integer"
-                      ]
-                    }
-                  }
+                    "integer"
+                  ]
                 },
                 "name": {
                   "type": [
@@ -185,29 +178,37 @@
                     "string"
                   ]
                 }
-              }
-            },
-            "id": {
+              },
               "type": [
                 "null",
-                "integer"
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "customer_identifier": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "location_type_identifier": {
       "additionalProperties": false,
       "properties": {
-        "external_id": {
+        "id": {
           "type": [
             "null",
-            "string"
+            "integer"
           ]
         },
         "name": {
@@ -215,21 +216,20 @@
             "null",
             "string"
           ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "on_hand": {
+      "multipleOf": 1e-16,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-16
+      ]
     }
-  }
+  },
+  "type": "object"
 }

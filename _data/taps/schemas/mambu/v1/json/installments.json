@@ -1,11 +1,160 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "due_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "encoded_key": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "fee": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "interest": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "last_paid_date": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "number": {
@@ -14,16 +163,112 @@
         "string"
       ]
     },
-    "due_date": {
+    "penalty": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "last_paid_date": {
+    "principal": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
     "repaid_date": {
@@ -37,252 +282,7 @@
         "null",
         "string"
       ]
-    },
-    "fee": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        },
-        "tax": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        }
-      }
-    },
-    "penalty": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        },
-        "tax": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        }
-      }
-    },
-    "interest": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        },
-        "tax": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        }
-      }
-    },
-    "principal": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "expected": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "paid": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            },
-            "due": {
-              "type": [
-                "null",
-                "number"
-              ],
-              "multipleOf": 1e-10
-            }
-          }
-        }
-      }
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "appId": {
       "type": [
@@ -20,10 +19,6 @@
       ]
     },
     "counters": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "delievered": {
           "type": [
@@ -49,7 +44,11 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "id": {
       "type": [
@@ -93,5 +92,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

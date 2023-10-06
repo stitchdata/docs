@@ -1,6 +1,5 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
     "created_at": {
       "type": [
@@ -117,10 +116,6 @@
       ]
     },
     "customer": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -135,7 +130,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "description": {
       "type": [
@@ -165,10 +164,6 @@
       "type": "array"
     },
     "klass": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -183,13 +178,13 @@
             "string"
           ]
         }
-      }
-    },
-    "links": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "links": {
       "additionalProperties": false,
       "properties": {
         "self": {
@@ -198,13 +193,13 @@
             "string"
           ]
         }
-      }
-    },
-    "org": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "org": {
       "additionalProperties": false,
       "properties": {
         "type": {
@@ -213,7 +208,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "tags": {
       "type": "array"
@@ -236,5 +235,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

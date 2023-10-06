@@ -1,16 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "answeredAt": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "callDispositionId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "callPurposeId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "completedAt": {
@@ -49,16 +55,39 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
     "note": {
       "type": [
         "null",
         "string"
       ]
     },
+    "opportunityId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "outcome": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "phoneNumberId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "prospectId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "recordingUrl": {
@@ -77,6 +106,24 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "sequenceId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sequenceStateId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sequenceStepId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "shouldRecordCall": {
@@ -98,16 +145,22 @@
       ]
     },
     "tags": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "taskId": {
+      "type": [
+        "null",
+        "integer"
+      ]
     },
     "to": {
       "type": [
@@ -133,6 +186,12 @@
         "string"
       ]
     },
+    "userId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "vendorCallId": {
       "type": [
         "null",
@@ -144,66 +203,7 @@
         "null",
         "string"
       ]
-    },
-    "callDispositionId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "callPurposeId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "opportunityId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "phoneNumberId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "prospectId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceStateId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceStepId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "taskId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "userId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

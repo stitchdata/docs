@@ -1,16 +1,230 @@
 {
-  "type": "object",
   "properties": {
+    "campaign": {
+      "properties": {
+        "behaviorSystemDefault": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "campaignEngagementId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "campaignEngagementName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "campaignId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "campaignName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "engagementAgentNote": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "engagementApplicationId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "engagementApplicationName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "engagementApplicationTypeId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "engagementApplicationTypeName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "engagementSource": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "goalId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "goalName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "lobId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "lobName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locationId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locationName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "profileSystemDefault": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "visitorBehaviorId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "visitorBehaviorName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "visitorProfileId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "visitorProfileName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "coBrowseSessions": {
+      "properties": {
+        "coBrowseSessionsList": {
+          "items": {
+            "properties": {
+              "agentId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "duration": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "endReason": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "endTime": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "endTimeL": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "interactive": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "sessionId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "startTime": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "startTimeL": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "id": {
       "type": "string"
     },
     "info": {
-      "type": "object",
       "properties": {
         "accountId": {
           "type": [
             "null",
             "string"
+          ]
+        },
+        "agentDeleted": {
+          "type": [
+            "null",
+            "boolean"
           ]
         },
         "agentFullName": {
@@ -44,6 +258,24 @@
           ]
         },
         "agentNickName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "alertedMCS": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "brandId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "browser": {
           "type": [
             "null",
             "string"
@@ -91,6 +323,42 @@
             "string"
           ]
         },
+        "closeReason": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "closeReasonDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "conversationId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "csatRate": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "device": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "duration": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
         "endReason": {
           "type": [
             "null",
@@ -101,6 +369,18 @@
           "type": [
             "null",
             "string"
+          ]
+        },
+        "endTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "endTimeL": {
+          "type": [
+            "null",
+            "integer"
           ]
         },
         "ended": {
@@ -127,6 +407,12 @@
             "string"
           ]
         },
+        "firstConversation": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "interactive": {
           "type": [
             "null",
@@ -145,6 +431,12 @@
             "string"
           ]
         },
+        "isPartial": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "isPostChatSurvey": {
           "type": [
             "null",
@@ -152,6 +444,72 @@
           ]
         },
         "isPreChatSurvey": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestAgentFullName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestAgentGroupId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "latestAgentGroupName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestAgentId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestAgentLoginName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestAgentNickname": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestQueueState": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "latestSkillId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "latestSkillName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mcs": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "operatingSystem": {
           "type": [
             "null",
             "string"
@@ -175,6 +533,12 @@
             "string"
           ]
         },
+        "source": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "startReason": {
           "type": [
             "null",
@@ -182,18 +546,6 @@
           ]
         },
         "startReasonDesc": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "visitorId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "visitorName": {
           "type": [
             "null",
             "string"
@@ -211,183 +563,128 @@
             "integer"
           ]
         },
-        "endTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "endTimeL": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "duration": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "conversationId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "brandId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "latestAgentId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "latestAgentNickname": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "latestAgentFullName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "latestAgentLoginName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "agentDeleted": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "latestSkillId": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "latestSkillName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "source": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "closeReason": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "closeReasonDescription": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "mcs": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "alertedMCS": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "status": {
           "type": [
             "null",
             "string"
           ]
         },
-        "firstConversation": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "csatRate": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "device": {
+        "visitorId": {
           "type": [
             "null",
             "string"
           ]
         },
-        "browser": {
+        "visitorName": {
           "type": [
             "null",
             "string"
-          ]
-        },
-        "operatingSystem": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "latestAgentGroupId": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "latestAgentGroupName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "latestQueueState": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "isPartial": {
-          "type": [
-            "null",
-            "boolean"
           ]
         }
-      }
+      },
+      "type": "object"
     },
-    "transcript": {
-      "type": "object",
-      "required": [],
+    "lineScores": {
+      "items": {
+        "properties": {
+          "lineRawScore": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "lineSeq": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "mcs": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sdes": {
       "properties": {
-        "lines": {
-          "type": "array",
+        "events": {
           "items": {
-            "type": "object",
             "properties": {
-              "agentId": {
+              "cartStatus": {},
+              "customerInfo": {},
+              "isAuthenticated": {
                 "type": [
                   "null",
                   "string"
+                ]
+              },
+              "marketingCampaignInfo": {},
+              "purchase": {},
+              "sdeType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "serverTimeStamp": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "surveys": {
+      "properties": {
+        "postChat": {
+          "items": {
+            "properties": {
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "questionID": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "scope": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "surveyID": {
+                "type": [
+                  "null",
+                  "number"
                 ]
               },
               "time": {
@@ -402,19 +699,136 @@
                   "number"
                 ]
               },
-              "controlType": {
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "values": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "preChat": {
+          "items": {
+            "properties": {
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "questionID": {
                 "type": [
                   "null",
                   "number"
                 ]
               },
-              "text": {
+              "scope": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "surveyID": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "time": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "timeL": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "values": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "transcript": {
+      "properties": {
+        "lines": {
+          "items": {
+            "properties": {
+              "agentId": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
               "by": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "cannedAnswerType": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "controlType": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "json": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "lineSeq": {
                 "type": [
                   "null",
                   "string"
@@ -432,109 +846,18 @@
                   "string"
                 ]
               },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
               "textType": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "cannedAnswerType": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "lineSeq": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "json": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "lineScores": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [],
-        "properties": {
-          "lineSeq": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "lineRawScore": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "mcs": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      }
-    },
-    "surveys": {
-      "type": "object",
-      "properties": {
-        "preChat": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "scope": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "displayName": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "values": {
-                "type": "array",
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "time": {
                 "type": [
                   "null",
@@ -546,243 +869,19 @@
                   "null",
                   "number"
                 ]
-              },
-              "questionID": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "surveyID": {
-                "type": [
-                  "null",
-                  "number"
-                ]
               }
-            }
-          }
-        },
-        "postChat": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "scope": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "source": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "displayName": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "values": {
-                "type": "array",
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "time": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
-              "timeL": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "questionID": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "surveyID": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         }
-      }
-    },
-    "campaign": {
-      "type": "object",
-      "properties": {
-        "campaignEngagementId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "campaignEngagementName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "campaignId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "campaignName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "goalId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "goalName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "engagementAgentNote": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "engagementSource": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "visitorBehaviorId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "visitorBehaviorName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "engagementApplicationId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "engagementApplicationName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "engagementApplicationTypeId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "engagementApplicationTypeName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "visitorProfileId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "visitorProfileName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "lobId": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "lobName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locationId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locationName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "profileSystemDefault": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "behaviorSystemDefault": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
+      },
+      "required": [],
+      "type": "object"
     },
     "visitorInfo": {
-      "type": "object",
-      "required": [],
       "properties": {
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "countryCode": {
+        "browser": {
           "type": [
             "null",
             "string"
@@ -794,25 +893,19 @@
             "string"
           ]
         },
-        "state": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "city": {
           "type": [
             "null",
             "string"
           ]
         },
-        "isp": {
+        "country": {
           "type": [
             "null",
             "string"
           ]
         },
-        "org": {
+        "countryCode": {
           "type": [
             "null",
             "string"
@@ -830,7 +923,7 @@
             "string"
           ]
         },
-        "browser": {
+        "isp": {
           "type": [
             "null",
             "string"
@@ -841,116 +934,23 @@
             "null",
             "string"
           ]
+        },
+        "org": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "coBrowseSessions": {
-      "type": "object",
-      "properties": {
-        "coBrowseSessionsList": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "sessionId": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "startTime": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
-              "startTimeL": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "endTime": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              },
-              "endTimeL": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "endReason": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "duration": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "agentId": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "interactive": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "sdes": {
-      "type": "object",
-      "properties": {
-        "events": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "customerInfo": {},
-              "sdeType": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "serverTimeStamp": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "cartStatus": {},
-              "purchase": {},
-              "marketingCampaignInfo": {},
-              "isAuthenticated": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        }
-      }
+      },
+      "required": [],
+      "type": "object"
     }
-  }
+  },
+  "type": "object"
 }

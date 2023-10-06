@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "bodyHtml": {
       "type": [
         "null",
@@ -61,6 +55,12 @@
         "string"
       ]
     },
+    "followUpSequenceId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "followUpTaskScheduledAt": {
       "type": [
         "null",
@@ -73,10 +73,21 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
     "mailboxAddress": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "mailboxId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "mailingType": {
@@ -127,23 +138,35 @@
         "date-time"
       ]
     },
+    "opportunityId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "overrideSafetySettings": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "references": {
+    "prospectId": {
       "type": [
         "null",
-        "array"
-      ],
+        "integer"
+      ]
+    },
+    "references": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "repliedAt": {
       "type": [
@@ -175,6 +198,24 @@
         "date-time"
       ]
     },
+    "sequenceId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sequenceStateId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sequenceStepId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "state": {
       "type": [
         "null",
@@ -191,6 +232,18 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "taskId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "templateId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "trackLinks": {
@@ -217,65 +270,12 @@
         "date-time"
       ]
     },
-    "followUpSequenceId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mailboxId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "opportunityId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "prospectId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceStateId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceStepId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "taskId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "templateId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "userId": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

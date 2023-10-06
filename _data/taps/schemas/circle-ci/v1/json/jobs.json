@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "_pipeline_id": {
@@ -17,31 +13,7 @@
         "string"
       ]
     },
-    "dependencies": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "job_number": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "canceled_by": {
+    "approval_request_id": {
       "type": [
         "null",
         "string"
@@ -53,10 +25,34 @@
         "string"
       ]
     },
-    "started_at": {
+    "canceled_by": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "dependencies": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "job_number": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "name": {
@@ -71,13 +67,13 @@
         "string"
       ]
     },
-    "status": {
+    "started_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "type": {
+    "status": {
       "type": [
         "null",
         "string"
@@ -89,11 +85,15 @@
         "date-time"
       ]
     },
-    "approval_request_id": {
+    "type": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

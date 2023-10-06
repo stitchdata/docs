@@ -1,10 +1,73 @@
 {
-  "type": "object",
   "properties": {
-    "timestamp": {
+    "changes": {
+      "items": {
+        "properties": {
+          "causedByEvent": {
+            "properties": {
+              "created": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "change": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "changeType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "portalId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "source": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subscriptionId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "date-time"
+        "array"
       ]
     },
     "portalId": {
@@ -19,75 +82,12 @@
         "string"
       ]
     },
-    "changes": {
+    "timestamp": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "change": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "timestamp": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "source": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "portalId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "subscriptionId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "changeType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "causedByEvent": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "created": {
-                "type": [
-                  "null",
-                  "date-time"
-                ]
-              }
-            }
-          }
-        }
-      }
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,7 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "date": {
       "type": [
         "null",
@@ -14,23 +25,12 @@
         "date-time"
       ]
     },
-    "count": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "paid_count": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "amount": {
-      "type": [
-        "null",
-        "number"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

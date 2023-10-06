@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "created_at": {
       "type": [
@@ -7,10 +6,10 @@
         "integer"
       ]
     },
-    "updated_at": {
+    "custom_fields": {
       "type": [
         "null",
-        "integer"
+        "array"
       ]
     },
     "email": {
@@ -19,20 +18,15 @@
         "string"
       ]
     },
-    "segment_id": {
+    "first_name": {
       "type": [
-        "integer"
+        "null",
+        "string"
       ]
     },
     "id": {
       "type": [
         "string"
-      ]
-    },
-    "last_emailed": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "last_clicked": {
@@ -41,16 +35,10 @@
         "integer"
       ]
     },
-    "last_opened": {
+    "last_emailed": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "last_name": {
@@ -59,11 +47,23 @@
         "string"
       ]
     },
-    "custom_fields": {
+    "last_opened": {
       "type": [
         "null",
-        "array"
+        "integer"
+      ]
+    },
+    "segment_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

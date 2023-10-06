@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "webinar_uuid": {
-      "type": [
-        "string"
-      ]
-    },
     "email": {
       "type": [
         "string"
@@ -19,23 +13,9 @@
       ]
     },
     "question_details": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
-          "question": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "answer": {
             "type": [
               "null",
@@ -53,9 +33,29 @@
               "null",
               "string"
             ]
+          },
+          "question": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "webinar_uuid": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

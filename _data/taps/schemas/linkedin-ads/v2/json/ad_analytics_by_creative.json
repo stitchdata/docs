@@ -1,284 +1,13 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "landing_page_clicks": {
+    "action_clicks": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "average_daily_reach_metrics": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "approximate_cost_in_currency_per_thousand_members_reached": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "approximate_reach": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "approximate_frequency": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "average_previous_seven_day_reach_metrics": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "approximate_cost_in_currency_per_thousand_members_reached": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "approximate_reach": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "approximate_frequency": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "average_previous_thirty_day_reach_metrics": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "approximate_cost_in_currency_per_thousand_members_reached": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "approximate_reach": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "approximate_frequency": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "document_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "document_first_quartile_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "document_midpoint_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "document_third_quartile_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "download_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "job_applications": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "job_apply_clicks": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "post_click_job_applications": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "post_click_job_apply_clicks": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "post_click_registrations": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "post_view_job_applications": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "post_view_job_apply_clicks": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "post_view_registrations": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "registrations": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "talent_leads": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_document_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_document_first_quartile_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "full_screen_plays": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_document_midpoint_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_document_third_quartile_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_download_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_job_applications": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_job_apply_clicks": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_post_click_job_applications": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_post_click_job_apply_clicks": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_post_click_registrations": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_post_view_job_applications": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_post_view_job_apply_clicks": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "video_completions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_post_view_registrations": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "viral_registrations": {
+    "ad_unit_clicks": {
       "type": [
         "null",
         "integer"
@@ -288,6 +17,87 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "average_daily_reach_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "approximate_cost_in_currency_per_thousand_members_reached": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "approximate_frequency": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "approximate_reach": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "average_previous_seven_day_reach_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "approximate_cost_in_currency_per_thousand_members_reached": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "approximate_frequency": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "approximate_reach": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "average_previous_thirty_day_reach_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "approximate_cost_in_currency_per_thousand_members_reached": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "approximate_frequency": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "approximate_reach": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "card_clicks": {
@@ -302,67 +112,13 @@
         "integer"
       ]
     },
-    "comment_likes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_card_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_card_impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_comment_likes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "creative": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creative_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "start_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "action_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ad_unit_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "comment_likes": {
       "type": [
         "null",
         "integer"
@@ -398,18 +154,22 @@
         "number"
       ]
     },
-    "date_range": {
+    "creative": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "creative_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "date_range": {
       "additionalProperties": false,
       "properties": {
         "end": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "day": {
@@ -430,13 +190,13 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "start": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "day": {
@@ -457,9 +217,53 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "document_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "document_first_quartile_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "document_midpoint_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "document_third_quartile_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "download_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "end_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
     "external_website_conversions": {
       "type": [
@@ -480,6 +284,36 @@
       ]
     },
     "follows": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "full_screen_plays": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "job_applications": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "job_apply_clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "landing_page_clicks": {
       "type": [
         "null",
         "integer"
@@ -542,20 +376,62 @@
     "pivot_values": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
+    "post_click_job_applications": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "post_click_job_apply_clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "post_click_registrations": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "post_view_job_applications": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "post_view_job_apply_clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "post_view_registrations": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "reactions": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "registrations": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "sends": {
@@ -570,6 +446,18 @@
         "integer"
       ]
     },
+    "start_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "talent_leads": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "text_url_clicks": {
       "type": [
         "null",
@@ -577,6 +465,12 @@
       ]
     },
     "total_engagements": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "video_completions": {
       "type": [
         "null",
         "integer"
@@ -612,7 +506,25 @@
         "integer"
       ]
     },
+    "viral_card_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_card_impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "viral_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_comment_likes": {
       "type": [
         "null",
         "integer"
@@ -625,6 +537,36 @@
       ]
     },
     "viral_company_page_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_document_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_document_first_quartile_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_document_midpoint_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_document_third_quartile_completions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_download_clicks": {
       "type": [
         "null",
         "integer"
@@ -666,6 +608,18 @@
         "integer"
       ]
     },
+    "viral_job_applications": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "viral_job_apply_clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "viral_landing_page_clicks": {
       "type": [
         "null",
@@ -696,7 +650,49 @@
         "integer"
       ]
     },
+    "viral_post_click_job_applications": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "viral_post_click_job_apply_clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "viral_post_click_registrations": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "viral_post_view_job_applications": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "viral_post_view_job_apply_clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "viral_post_view_registrations": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "viral_reactions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_registrations": {
       "type": [
         "null",
         "integer"
@@ -750,5 +746,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

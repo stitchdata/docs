@@ -1,8 +1,67 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "account_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "barcode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "brand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_of_manufacture": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customs_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customs_value": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "do_not_count": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "dropship": {
       "type": [
         "null",
         "integer"
@@ -14,52 +73,57 @@
         "boolean"
       ]
     },
+    "height": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ignore_on_customs": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "ignore_on_invoice": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "reserve_inventory": {
+    "images": {
+      "items": {
+        "properties": {
+          "sort": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "integer"
+        "array"
       ]
     },
-    "account_id": {
+    "kit": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "weight": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "dropship": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "price": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "barcode": {
-      "type": [
-        "null",
-        "string"
+        "boolean"
       ]
     },
     "kit_build": {
@@ -68,54 +132,8 @@
         "boolean"
       ]
     },
-    "value_currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "images": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "sort": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      }
-    },
-    "height": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "customs_description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "kit_components": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "additionalProperties": false,
         "properties": {
           "quantity": {
@@ -130,46 +148,21 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "customs_value": {
+    "length": {
       "type": [
         "null",
         "number"
       ]
     },
-    "value": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "tariff_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "kit": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "option": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sku": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -181,37 +174,110 @@
         "boolean"
       ]
     },
-    "name": {
+    "option": {
       "type": [
         "null",
         "string"
       ]
     },
-    "country_of_manufacture": {
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "product_note": {
       "type": [
         "null",
         "string"
       ]
     },
-    "warehouses": {
+    "reorder_amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reorder_level": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reserve_inventory": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
         "array"
-      ],
+      ]
+    },
+    "tariff_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "thumbnail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "value_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "virtual": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "warehouses": {
       "items": {
-        "type": "object",
         "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
           "active": {
             "type": [
               "null",
               "number"
+            ]
+          },
+          "allocated": {
+            "type": [
+              "null",
+              "integer"
             ]
           },
           "available": {
@@ -220,16 +286,34 @@
               "number"
             ]
           },
+          "backorder": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "customs_value": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "inventory_bin": {
             "type": [
               "null",
               "string"
             ]
           },
-          "sell_ahead": {
+          "inventory_overstock_bin": {
             "type": [
               "null",
-              "number"
+              "string"
             ]
           },
           "name": {
@@ -238,13 +322,20 @@
               "string"
             ]
           },
-          "purchase_orders": {
+          "on_hand": {
             "type": [
               "null",
-              "array"
-            ],
+              "integer"
+            ]
+          },
+          "price": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "purchase_orders": {
             "items": {
-              "type": "object",
               "additionalProperties": false,
               "properties": {
                 "expected_date": {
@@ -277,19 +368,18 @@
                     "integer"
                   ]
                 }
-              }
-            }
-          },
-          "allocated": {
+              },
+              "type": "object"
+            },
             "type": [
               "null",
-              "integer"
+              "array"
             ]
           },
-          "value_currency": {
+          "sell_ahead": {
             "type": [
               "null",
-              "string"
+              "number"
             ]
           },
           "value": {
@@ -298,34 +388,10 @@
               "number"
             ]
           },
-          "warehouse_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "price": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "customs_value": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "inventory_overstock_bin": {
+          "value_currency": {
             "type": [
               "null",
               "string"
-            ]
-          },
-          "backorder": {
-            "type": [
-              "null",
-              "integer"
             ]
           },
           "warehouse": {
@@ -334,79 +400,24 @@
               "string"
             ]
           },
-          "on_hand": {
+          "warehouse_id": {
             "type": [
               "null",
               "integer"
             ]
           }
-        }
-      }
-    },
-    "product_note": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "do_not_count": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "tags": {
+        },
+        "type": "object"
+      },
       "type": [
         "null",
         "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "brand": {
-      "type": [
-        "null",
-        "string"
       ]
     },
-    "virtual": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "custom": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "width": {
+    "weight": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "length": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "ignore_on_customs": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "weight_in_oz": {
@@ -415,23 +426,12 @@
         "number"
       ]
     },
-    "reorder_level": {
+    "width": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "thumbnail": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reorder_amount": {
-      "type": [
-        "null",
-        "integer"
+        "number"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,17 +1,35 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "project_slug": {
+    "errors": {
+      "items": {
+        "properties": {
+          "message": {
+            "description": "A human-readable error message.",
+            "type": "string"
+          },
+          "type": {
+            "description": "The type of error",
+            "type": "string"
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -23,33 +41,62 @@
         "integer"
       ]
     },
-    "errors": {
+    "project_slug": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "type": {
-            "type": "string",
-            "description": "The type of error"
-          },
-          "message": {
-            "type": "string",
-            "description": "A human-readable error message."
-          }
-        }
-      }
+        "string"
+      ]
     },
-    "trigger_parameters": {
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trigger": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "additionalProperties": false,
+          "properties": {
+            "avatar_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "login": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "received_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "trigger_parameters": {
+      "additionalProperties": false,
       "properties": {
         "property_name": {
           "anyOf": [
@@ -71,12 +118,9 @@
           ]
         }
       },
-      "additionalProperties": false
-    },
-    "state": {
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
     "updated_at": {
@@ -85,90 +129,16 @@
         "date-time"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "trigger": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "received_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "actor": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "login": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "avatar_url": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
-    },
     "vcs": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "origin_repository_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "target_repository_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "revision": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "provider_name": {
+        "branch": {
           "type": [
             "null",
             "string"
           ]
         },
         "commit": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "body": {
@@ -183,9 +153,25 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "branch": {
+        "origin_repository_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "provider_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "revision": {
           "type": [
             "null",
             "string"
@@ -196,8 +182,22 @@
             "null",
             "string"
           ]
+        },
+        "target_repository_url": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

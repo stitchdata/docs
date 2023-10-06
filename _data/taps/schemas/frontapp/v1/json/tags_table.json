@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "analytics_date": {
@@ -17,19 +13,19 @@
         "string"
       ]
     },
-    "tag_v": {
+    "avg_message_conversations_p": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "tag_url": {
+    "avg_message_conversations_v": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "tag_id": {
+    "conversations_archived_p": {
       "type": [
         "null",
         "integer"
@@ -41,7 +37,7 @@
         "integer"
       ]
     },
-    "conversations_archived_p": {
+    "conversations_open_p": {
       "type": [
         "null",
         "integer"
@@ -53,7 +49,7 @@
         "integer"
       ]
     },
-    "conversations_open_p": {
+    "conversations_total_p": {
       "type": [
         "null",
         "integer"
@@ -65,7 +61,7 @@
         "integer"
       ]
     },
-    "conversations_total_p": {
+    "num_messages_p": {
       "type": [
         "null",
         "integer"
@@ -77,23 +73,27 @@
         "integer"
       ]
     },
-    "num_messages_p": {
+    "tag_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "avg_message_conversations_v": {
+    "tag_url": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "avg_message_conversations_p": {
+    "tag_v": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

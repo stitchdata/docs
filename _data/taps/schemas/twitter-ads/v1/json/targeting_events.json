@@ -1,16 +1,12 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "country_breakdown_percentage": {
+      "additionalProperties": true,
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true
+      ]
     },
     "country_code": {
       "type": [
@@ -19,41 +15,41 @@
       ]
     },
     "device_breakdown_percentage": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "ANDROID": {
+          "multipleOf": 1e-08,
           "type": [
             "null",
             "number"
-          ],
-          "multipleOf": 1e-08
+          ]
         },
         "DESKTOP": {
+          "multipleOf": 1e-08,
           "type": [
             "null",
             "number"
-          ],
-          "multipleOf": 1e-08
+          ]
         },
         "IOS": {
+          "multipleOf": 1e-08,
           "type": [
             "null",
             "number"
-          ],
-          "multipleOf": 1e-08
+          ]
         },
         "OTHER_MOBILE": {
+          "multipleOf": 1e-08,
           "type": [
             "null",
             "number"
-          ],
-          "multipleOf": 1e-08
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "end_time": {
       "type": [
@@ -68,27 +64,27 @@
       ]
     },
     "gender_breakdown_percentage": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "female": {
+          "multipleOf": 1e-08,
           "type": [
             "null",
             "number"
-          ],
-          "multipleOf": 1e-08
+          ]
         },
         "male": {
+          "multipleOf": 1e-08,
           "type": [
             "null",
             "number"
-          ],
-          "multipleOf": 1e-08
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "is_global": {
       "type": [
@@ -103,10 +99,6 @@
       ]
     },
     "reach": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "total_impressions": {
@@ -127,7 +119,11 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "start_time": {
       "type": [
@@ -144,10 +140,10 @@
     "top_hashtags": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -157,10 +153,10 @@
     "top_tweets": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "integer"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -170,15 +166,19 @@
     "top_users": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

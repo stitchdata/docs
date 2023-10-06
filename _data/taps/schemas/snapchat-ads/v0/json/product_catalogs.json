@@ -1,23 +1,53 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "default_product_set_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
+    "event_sources": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
-    "created_at": {
+    "id": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "name": {
@@ -38,42 +68,12 @@
         "string"
       ]
     },
-    "event_sources": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "default_product_set_id": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

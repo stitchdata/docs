@@ -1,31 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "highrise_id": {
       "type": [
         "null",
         "boolean"
@@ -37,25 +12,19 @@
         "integer"
       ]
     },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "currency_symbol": {
+    "currency": {
       "type": [
         "null",
         "string"
       ]
     },
-    "details": {
+    "currency_symbol": {
       "type": [
         "null",
         "string"
@@ -67,11 +36,42 @@
         "string"
       ]
     },
+    "details": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "highrise_id": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "last_invoice_kind": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

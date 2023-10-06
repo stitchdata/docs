@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "_sdc_repository": {
@@ -10,8 +6,14 @@
         "string"
       ]
     },
+    "starred_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "user": {
-      "name": {
+      "avatar_url": {
         "type": [
           "null",
           "string"
@@ -23,43 +25,7 @@
           "string"
         ]
       },
-      "login": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "node_id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "avatar_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "gravatar_id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "html_url": {
+      "events_url": {
         "type": [
           "null",
           "string"
@@ -83,13 +49,37 @@
           "string"
         ]
       },
-      "starred_url": {
+      "gravatar_id": {
         "type": [
           "null",
           "string"
         ]
       },
-      "subscriptions_url": {
+      "html_url": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "login": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "node_id": {
         "type": [
           "null",
           "string"
@@ -101,25 +91,13 @@
           "string"
         ]
       },
-      "repos_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "events_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
       "received_events_url": {
         "type": [
           "null",
           "string"
         ]
       },
-      "type": {
+      "repos_url": {
         "type": [
           "null",
           "string"
@@ -136,13 +114,31 @@
           "null",
           "string"
         ]
+      },
+      "starred_url": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "subscriptions_url": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "url": {
+        "type": [
+          "null",
+          "string"
+        ]
       }
-    },
-    "starred_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     },
     "user_id": {
       "type": [
@@ -150,5 +146,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

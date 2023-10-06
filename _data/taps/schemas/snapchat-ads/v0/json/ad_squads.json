@@ -1,32 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "ad_account_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
+    "auto_bid": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
       ]
     },
-    "created_at": {
+    "bid_micro": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
-    "name": {
+    "bid_strategy": {
       "type": [
         "null",
         "string"
       ]
     },
-    "status": {
+    "billing_event": {
       "type": [
         "null",
         "string"
@@ -38,227 +37,18 @@
         "string"
       ]
     },
-    "ad_account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "targeting": {
+    "cap_and_exclusion_config": {
+      "additionalProperties": true,
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "regulated_content": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "enable_targeting_expansion": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "demographics": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "devices": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "geos": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "interests": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": true,
-                "properties": {}
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "segments": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {}
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      }
-    },
-    "targeting_reach_status": {
-      "type": [
-        "null",
-        "string"
       ]
     },
-    "placement": {
+    "created_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "placement_v2": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "config": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "platforms": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "inclusion": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {
-            "content_types": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          }
-        },
-        "exclusion": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {
-            "content_types": {
-              "anyOf": [
-                {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
-    "billing_event": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "bid_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "auto_bid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "target_bid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "bid_strategy": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "daily_budget_micro": {
@@ -267,16 +57,10 @@
         "integer"
       ]
     },
-    "lifetime_budget_micro": {
+    "delivery_constraint": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "end_time": {
@@ -285,7 +69,7 @@
         "date-time"
       ]
     },
-    "optimization_goal": {
+    "id": {
       "type": [
         "null",
         "string"
@@ -297,25 +81,19 @@
         "string"
       ]
     },
-    "reach_goal": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reach_and_frequency_status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reach_and_frequency_micro": {
+    "lifetime_budget_micro": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "delivery_constraint": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "optimization_goal": {
       "type": [
         "null",
         "string"
@@ -333,21 +111,243 @@
         "string"
       ]
     },
-    "cap_and_exclusion_config": {
+    "placement": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placement_v2": {
+      "additionalProperties": true,
+      "properties": {
+        "config": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "exclusion": {
+          "additionalProperties": true,
+          "properties": {
+            "content_types": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "inclusion": {
+          "additionalProperties": true,
+          "properties": {
+            "content_types": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "platforms": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
+      ]
     },
     "product_properties": {
+      "additionalProperties": true,
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "reach_and_frequency_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reach_and_frequency_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reach_goal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "target_bid": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "targeting": {
       "additionalProperties": true,
-      "properties": {}
+      "properties": {
+        "demographics": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "devices": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "enable_targeting_expansion": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "geos": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interests": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "regulated_content": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "segments": {
+          "anyOf": [
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targeting_reach_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,11 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
-    "id": {
+    "conversation_id": {
       "type": [
         "null",
         "string"
@@ -17,19 +13,19 @@
         "string"
       ]
     },
-    "conversation_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "topic": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "has_attachments": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_locked": {
       "type": [
         "null",
         "boolean"
@@ -41,23 +37,27 @@
         "date-time"
       ]
     },
-    "unique_senders": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "preview": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_locked": {
+    "topic": {
       "type": [
         "null",
-        "boolean"
+        "string"
+      ]
+    },
+    "unique_senders": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

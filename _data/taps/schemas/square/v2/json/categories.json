@@ -1,14 +1,18 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "category_data": {
+    "absent_at_location_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "category_data": {
       "properties": {
         "name": {
           "type": [
@@ -16,7 +20,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "id": {
       "type": [
@@ -29,18 +37,6 @@
         "null",
         "boolean"
       ]
-    },
-    "absent_at_location_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
     },
     "present_at_all_locations": {
       "type": [
@@ -66,5 +62,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

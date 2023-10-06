@@ -1,11 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
-    "id": {
+    "channel_id": {
       "type": [
         "null",
         "string"
@@ -17,13 +13,25 @@
         "string"
       ]
     },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "roles": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -35,18 +43,10 @@
         "null",
         "string"
       ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "channel_id": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

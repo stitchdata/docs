@@ -1,125 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "hash": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "owner": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "contact": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "organization": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "group": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "stage": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "percent": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "mdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "nextdate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "nexttaskid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "value": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "win_probability": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "win_probability_mdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
+    "account": {
       "type": [
         "null",
         "integer"
@@ -131,16 +13,52 @@
         "integer"
       ]
     },
-    "nextdealid": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "contact": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_account": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "edate": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "group": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "hash": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "id": {
@@ -155,23 +73,105 @@
         "boolean"
       ]
     },
+    "mdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "next_task": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "account": {
+    "nextdate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "nextdealid": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "customer_account": {
+    "nexttaskid": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "organization": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "owner": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "percent": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "stage": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "win_probability": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "win_probability_mdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

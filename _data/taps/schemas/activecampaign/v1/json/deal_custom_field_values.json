@@ -1,8 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_field_id": {
       "type": [
         "null",
         "integer"
@@ -20,16 +25,16 @@
         "integer"
       ]
     },
-    "custom_field_id": {
+    "field_value": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_timestamp": {
@@ -37,12 +42,7 @@
         "null",
         "date-time"
       ]
-    },
-    "field_value": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

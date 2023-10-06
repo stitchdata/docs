@@ -1,26 +1,16 @@
 {
   "additional_properties": false,
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "app_id": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "track_type_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "app_id": {
+      "type": [
+        "null",
+        "number"
       ]
     },
     "day": {
@@ -35,12 +25,6 @@
         "date-time"
       ]
     },
-    "visitor_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "num_events": {
       "type": [
         "null",
@@ -53,29 +37,7 @@
         "integer"
       ]
     },
-    "server": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "remote_ip": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_agent": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "properties": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "android": {
@@ -108,7 +70,45 @@
             "boolean"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "remote_ip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "server": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "track_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_agent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "visitor_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

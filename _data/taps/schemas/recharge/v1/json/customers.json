@@ -1,55 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "hash": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "shopify_customer_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "billing_address1": {
       "type": [
         "null",
@@ -57,12 +8,6 @@
       ]
     },
     "billing_address2": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "billing_zip": {
       "type": [
         "null",
         "string"
@@ -80,12 +25,6 @@
         "string"
       ]
     },
-    "billing_province": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "billing_country": {
       "type": [
         "null",
@@ -98,19 +37,13 @@
         "string"
       ]
     },
-    "processor_type": {
+    "billing_province": {
       "type": [
         "null",
         "string"
       ]
     },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "paypal_customer_token": {
+    "billing_zip": {
       "type": [
         "null",
         "string"
@@ -122,13 +55,25 @@
         "string"
       ]
     },
-    "has_valid_payment_method": {
+    "created_at": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
       ]
     },
-    "reason_payment_method_not_valid": {
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_charge_processed_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "first_name": {
       "type": [
         "null",
         "string"
@@ -138,6 +83,30 @@
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "has_valid_payment_method": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "number_active_subscriptions": {
@@ -152,11 +121,42 @@
         "integer"
       ]
     },
-    "first_charge_processed_at": {
+    "paypal_customer_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reason_payment_method_not_valid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shopify_customer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

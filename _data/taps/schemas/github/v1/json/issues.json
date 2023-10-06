@@ -1,29 +1,102 @@
 {
   "properties": {
-    "state": {
+    "_sdc_repository": {
+      "type": [
+        "string"
+      ]
+    },
+    "assignee": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "author_association": {
       "type": [
         "null",
         "string"
       ]
     },
-    "url": {
+    "body": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "closed_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "comments": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "comments_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "events_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "labels": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
+          "color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "default": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "id": {
             "type": [
               "null",
               "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
             ]
           },
           "node_id": {
@@ -37,84 +110,16 @@
               "null",
               "string"
             ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "description": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "color": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "default": {
-            "type": [
-              "null",
-              "boolean"
-            ]
           }
-        }
-      }
-    },
-    "repository_url": {
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "number": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "closed_at": {
-      "type": [
-        "null",
-        "date-time"
+        "array"
       ]
     },
     "labels_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assignee": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "html_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "author_association": {
       "type": [
         "null",
         "string"
@@ -126,10 +131,16 @@
         "boolean"
       ]
     },
-    "events_url": {
+    "node_id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "pull_request": {
@@ -164,68 +175,51 @@
         "object"
       ]
     },
-    "node_id": {
+    "repository_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "body": {
+    "state": {
       "type": [
         "null",
         "string"
       ]
     },
-    "comments": {
+    "title": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "created_at": {
+    "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "_sdc_repository": {
+    "url": {
       "type": [
+        "null",
         "string"
       ]
     },
     "user": {
       "properties": {
-        "repos_url": {
+        "avatar_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "starred_url": {
+        "events_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "received_events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "site_admin": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "gravatar_id": {
+        "followers_url": {
           "type": [
             "null",
             "string"
@@ -237,13 +231,19 @@
             "string"
           ]
         },
-        "avatar_url": {
+        "gists_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "events_url": {
+        "gravatar_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html_url": {
           "type": [
             "null",
             "string"
@@ -261,19 +261,37 @@
             "string"
           ]
         },
+        "node_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "organizations_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "html_url": {
+        "received_events_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "type": {
+        "repos_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "site_admin": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "starred_url": {
           "type": [
             "null",
             "string"
@@ -285,19 +303,13 @@
             "string"
           ]
         },
-        "node_id": {
+        "type": {
           "type": [
             "null",
             "string"
           ]
         },
-        "followers_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "gists_url": {
+        "url": {
           "type": [
             "null",
             "string"
@@ -307,18 +319,6 @@
       "type": [
         "null",
         "object"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "comments_url": {
-      "type": [
-        "null",
-        "string"
       ]
     }
   },

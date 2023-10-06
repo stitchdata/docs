@@ -1,23 +1,19 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
+    "completed": {
+      "type": "boolean"
     },
     "created_at": {
       "type": "date-time"
     },
-    "updated_at": {
-      "type": "date-time"
-    },
-    "score": {
+    "end_user_id": {
       "type": "integer"
     },
-    "text": {
-      "type": [
-        "string",
-        "null"
-      ]
+    "excluded_from_calculations": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "integer"
     },
     "ip_address": {
       "type": "string"
@@ -25,26 +21,30 @@
     "origin_url": {
       "type": "string"
     },
-    "end_user_id": {
+    "score": {
       "type": "integer"
     },
     "survey_id": {
       "type": "integer"
     },
-    "completed": {
-      "type": "boolean"
-    },
-    "excluded_from_calculations": {
-      "type": "boolean"
-    },
     "tags": {
-      "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "type": "array"
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "type": "date-time"
     }
   },
   "required": [
     "id"
-  ]
+  ],
+  "type": "object"
 }

@@ -1,9 +1,10 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "MsgID": {
+    "ClickDate": {
       "type": [
-        "integer"
+        "null",
+        "string"
       ]
     },
     "ContactID": {
@@ -18,24 +19,23 @@
         "string"
       ]
     },
+    "LinkDescription": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "LinkUrl": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ClickDate": {
+    "MsgID": {
       "type": [
-        "null",
-        "string"
-      ]
-    },
-    "LinkDescription": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

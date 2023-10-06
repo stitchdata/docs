@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "account": {
@@ -15,17 +14,9 @@
       ]
     },
     "change_audit_stamps": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -34,13 +25,13 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "last_modified": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -49,9 +40,35 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "content_reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content_reference_share_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "content_reference_ucg_post_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     },
     "created_time": {
       "type": [
@@ -63,24 +80,6 @@
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "content_reference": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "content_reference_ucg_post_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "content_reference_share_id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "name": {
@@ -107,5 +106,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

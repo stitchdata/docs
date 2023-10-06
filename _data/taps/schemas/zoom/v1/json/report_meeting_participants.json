@@ -1,15 +1,27 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "string"
       ]
     },
-    "user_id": {
+    "join_time": {
       "type": [
-        "string"
+        "null",
+        "date-time"
+      ]
+    },
+    "leave_time": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "meeting_id": {
@@ -29,23 +41,11 @@
         "string"
       ]
     },
-    "join_time": {
+    "user_id": {
       "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "leave_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "duration": {
-      "type": [
-        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

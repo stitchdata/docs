@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "_sdc_repository": {
@@ -10,11 +6,13 @@
         "string"
       ]
     },
-    "user": {
+    "starred_at": {
       "type": [
         "null",
-        "object"
-      ],
+        "date-time"
+      ]
+    },
+    "user": {
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -23,12 +21,10 @@
             "integer"
           ]
         }
-      }
-    },
-    "starred_at": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
     "user_id": {
@@ -37,5 +33,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

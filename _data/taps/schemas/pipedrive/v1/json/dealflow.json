@@ -1,16 +1,42 @@
 {
-  "type": "object",
   "properties": {
+    "additional_data": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "change_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "field_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": "integer"
+    },
+    "is_bulk_update_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "item_id": {
       "type": "integer"
     },
-    "user_id": {
-      "type": "integer"
+    "log_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
-    "field_key": {
+    "new_value": {
       "type": [
         "null",
         "string"
@@ -22,35 +48,9 @@
         "string"
       ]
     },
-    "new_value": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_bulk_update_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "log_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "change_source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "additional_data": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "user_id": {
+      "type": "integer"
     }
-  }
+  },
+  "type": "object"
 }

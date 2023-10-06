@@ -1,29 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "field": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "orderid": {
+    "id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "value": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "label": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "isdefault": {
@@ -32,10 +25,16 @@
         "integer"
       ]
     },
-    "cdate": {
+    "label": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "orderid": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "udate": {
@@ -44,11 +43,12 @@
         "date-time"
       ]
     },
-    "id": {
+    "value": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

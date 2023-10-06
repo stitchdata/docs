@@ -1,8 +1,19 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
+    "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fullName": {
       "type": [
         "null",
         "string"
@@ -12,6 +23,36 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "isDisabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isTeamAdmin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "teamBlockedDate": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "teamID": {
@@ -25,48 +66,7 @@
         "null",
         "boolean"
       ]
-    },
-    "isTeamAdmin": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "isDisabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "emailAddress": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "fullName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "first": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "teamBlockedDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

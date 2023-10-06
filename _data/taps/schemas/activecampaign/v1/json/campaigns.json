@@ -1,56 +1,43 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "type": {
+    "activerss_interval": {
       "type": [
         "null",
         "string"
       ]
     },
-    "userid": {
+    "activerss_items": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "segmentid": {
+    "activerss_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "addressid": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "bounceid": {
+    "analytics_campaign_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "automation": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "realcid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sendid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "threadid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "seriesid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "formid": {
+    "basemessageid": {
       "type": [
         "null",
         "integer"
@@ -62,49 +49,13 @@
         "string"
       ]
     },
-    "basemessageid": {
+    "bounceid": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "addressid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "mdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "sdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "ldate": {
       "type": [
         "null",
         "date-time"
@@ -116,49 +67,25 @@
         "date-time"
       ]
     },
-    "updated_timestamp": {
+    "deletestamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "send_amt": {
+    "embed_images": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "total_amt": {
+    "facebook": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "opens": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniqueopens": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "linkclicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniquelinkclicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "subscriberclicks": {
+    "formid": {
       "type": [
         "null",
         "integer"
@@ -170,79 +97,49 @@
         "integer"
       ]
     },
-    "uniqueforwards": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "hardbounces": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "softbounces": {
+    "htmlunsub": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "unsubscribes": {
+    "htmlunsubdata": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "unsubreasons": {
+    "ip4": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "updates": {
+    "laststep": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "socialshares": {
+    "ldate": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
-    "replies": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "uniquereplies": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "public": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mail_transfer": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mail_send": {
+    "linkclicks": {
       "type": [
         "null",
         "integer"
@@ -254,7 +151,271 @@
         "integer"
       ]
     },
+    "mail_send": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mail_transfer": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "mailer_log_file": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "managetext": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opens": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "public": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "realcid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reminder_field": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reminder_format": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reminder_last_cron_run": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reminder_offset": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reminder_offset_sign": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reminder_offset_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reminder_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "replies": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "replysys": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "responder_existing": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "responder_offset": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "responder_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "schedule": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "scheduleddate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "segmentid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "send_amt": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sendid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "seriesid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "socialshares": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "softbounces": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "split_content": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "split_offset": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "split_offset_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "split_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "split_winner_awaiting": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "split_winner_messageid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscriberclicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "survey": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "textunsub": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "textunsubdata": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "threadid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_amt": {
       "type": [
         "null",
         "integer"
@@ -284,235 +445,61 @@
         "integer"
       ]
     },
-    "analytics_campaign_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "tweet": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "facebook": {
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uniqueforwards": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "survey": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "embed_images": {
+    "uniquelinkclicks": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "htmlunsub": {
+    "uniqueopens": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "textunsub": {
+    "uniquereplies": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "htmlunsubdata": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "textunsubdata": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recurring": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "willrecur": {
+    "unsubreasons": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "split_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "split_content": {
+    "unsubscribes": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "split_offset": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "split_offset_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "split_winner_messageid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "split_winner_awaiting": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "responder_offset": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "responder_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "responder_existing": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "reminder_field": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reminder_format": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reminder_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reminder_offset": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "reminder_offset_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reminder_offset_sign": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reminder_last_cron_run": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "activerss_interval": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "activerss_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "activerss_items": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ip4": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "laststep": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "managetext": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "schedule": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "scheduleddate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "waitpreview": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "deletestamp": {
+    "updated_timestamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "replysys": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
+    "updates": {
       "type": [
         "null",
         "integer"
@@ -524,11 +511,24 @@
         "integer"
       ]
     },
-    "automation": {
+    "userid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "waitpreview": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "willrecur": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

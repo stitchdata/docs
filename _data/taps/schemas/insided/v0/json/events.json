@@ -1,49 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "content": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "startDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "endDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "location": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "image": {
       "type": [
         "null",
         "string"
@@ -55,11 +13,53 @@
         "date-time"
       ]
     },
+    "endDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "image": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "startDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "trashed": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

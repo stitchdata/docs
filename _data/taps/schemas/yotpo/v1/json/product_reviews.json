@@ -1,110 +1,13 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "domain_key": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "created_at": {
-      "type": "date-time"
-    },
-    "score": {
-      "type": "number"
-    },
-    "votes_up": {
-      "type": "number"
-    },
-    "votes_down": {
-      "type": "number"
-    },
-    "content": {
-      "type": "string"
-    },
-    "title": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "verified_buyer": {
-      "type": "boolean"
-    },
-    "source_review_id": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "sentiment": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "product_id": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "user": {
-      "type": "object",
-      "properties": {
-        "user_id": {
-          "type": "number"
-        },
-        "display_name": {
-          "type": "string"
-        },
-        "social_image": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "user_type": {
-          "type": "string"
-        },
-        "is_social_connected": {
-          "type": "number"
-        }
-      }
-    },
-    "images_data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "original_url": {
-            "type": "string"
-          },
-          "thumb_url": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "comment": {
-      "type": "object",
       "properties": {
-        "id": {
-          "type": "number"
+        "comments_avatar": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "content": {
           "type": "string"
@@ -115,14 +18,111 @@
         "display_name": {
           "type": "string"
         },
-        "comments_avatar": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "id": {
+          "type": "number"
         }
-      }
+      },
+      "type": "object"
+    },
+    "content": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "domain_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "images_data": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "original_url": {
+            "type": "string"
+          },
+          "thumb_url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "score": {
+      "type": "number"
+    },
+    "sentiment": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_review_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "user": {
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "is_social_connected": {
+          "type": "number"
+        },
+        "social_image": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_id": {
+          "type": "number"
+        },
+        "user_type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "verified_buyer": {
+      "type": "boolean"
+    },
+    "votes_down": {
+      "type": "number"
+    },
+    "votes_up": {
+      "type": "number"
     }
   },
-  "additionalProperties": true
+  "type": [
+    "object"
+  ]
 }

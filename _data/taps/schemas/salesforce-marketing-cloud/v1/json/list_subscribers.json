@@ -1,39 +1,43 @@
 {
-  "type": "object",
   "properties": {
+    "CreatedDate": {
+      "description": "Read-only date and time of the object's creation.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "ID": {
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+      ]
     },
-    "CreatedDate": {
+    "ListID": {
+      "description": "Defines identification for a list the subscriber resides on.",
       "type": [
         "null",
-        "string"
-      ],
-      "description": "Read-only date and time of the object's creation."
+        "integer"
+      ]
     },
     "ModifiedDate": {
+      "description": "Indicates the last time object information was modified.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates the last time object information was modified."
+      ]
     },
     "ObjectID": {
+      "description": "System-controlled, read-only text string identifier for object.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "System-controlled, read-only text string identifier for object."
+      ]
     },
     "PartnerProperties": {
-      "type": "array",
       "description": "Specifies key-value pairs of properties associated with an object.",
       "items": {
-        "type": "object",
         "properties": {
           "Name": {
             "type": [
@@ -47,29 +51,25 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "ListID": {
-      "type": [
-        "null",
-        "integer"
-      ],
-      "description": "Defines identification for a list the subscriber resides on."
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "Status": {
+      "description": "Defines status of object. Status of an address.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Defines status of object. Status of an address."
+      ]
     },
     "SubscriberKey": {
+      "description": "Identification of a specific subscriber.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Identification of a specific subscriber."
+      ]
     }
-  }
+  },
+  "type": "object"
 }

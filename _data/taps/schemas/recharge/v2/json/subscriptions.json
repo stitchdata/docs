@@ -1,11 +1,77 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "address_id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "analytics_data": {
+      "additionalProperties": false,
+      "properties": {
+        "utm_params": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "utm_campaign": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_content": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_data_source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_medium": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_term": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_timestamp": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "cancellation_reason": {
@@ -50,6 +116,36 @@
         "integer"
       ]
     },
+    "external_product_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "external_variant_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "has_queued_charges": {
       "type": [
         "null",
@@ -60,6 +156,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "is_prepaid": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "is_skippable": {
@@ -110,6 +212,12 @@
         "string"
       ]
     },
+    "presentment_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "price": {
       "type": [
         "null",
@@ -125,9 +233,7 @@
     "properties": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "name": {
@@ -142,8 +248,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -203,115 +311,7 @@
         "null",
         "string"
       ]
-    },
-    "analytics_data": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "utm_params": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "utm_campaign": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "utm_content": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "utm_data_source": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "utm_medium": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "utm_source": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "utm_term": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "utm_timestamp": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      }
-    },
-    "external_product_id": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "ecommerce": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "external_variant_id": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "ecommerce": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "is_prepaid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "presentment_currency": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

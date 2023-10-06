@@ -1,5 +1,171 @@
 {
   "properties": {
+    "ARAccountRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "Active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "AlternatePhone": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "Balance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "BalanceWithJobs": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "BillAddr": {
+      "City": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Country": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "CountrySubDivisionCode": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Id": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Lat": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Line1": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Line2": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Line3": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Line4": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Line5": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "Long": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "PostalCode": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "BillWithParent": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "BusinessNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CompanyName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CurrencyRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "CustomerTypeRef": {
+      "properties": {
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "DefaultTaxCodeRef": {
       "name": {
         "type": [
@@ -14,7 +180,133 @@
         ]
       }
     },
-    "SalesTermRef": {
+    "DisplayName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "FamilyName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Fax": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "FullyQualifiedName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "GSTIN": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "GSTRegistrationType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "GivenName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "IsProject": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Job": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Level": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "MiddleName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Mobile": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "Notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "OpenBalanceDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ParentRef": {
       "name": {
         "type": [
           "null",
@@ -42,105 +334,11 @@
         ]
       }
     },
-    "ResaleNum": {
+    "PreferredDeliveryMethod": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "CurrencyRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "MiddleName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BillAddr": {
-      "Lat": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "CountrySubDivisionCode": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "City": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Long": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "PostalCode": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line1": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line2": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line3": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line4": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line5": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Country": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
     },
     "PrimaryEmailAddr": {
       "properties": {
@@ -154,30 +352,6 @@
       "type": [
         "null",
         "object"
-      ]
-    },
-    "Balance": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "CompanyName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "FamilyName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "FullyQualifiedName": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "PrimaryPhone": {
@@ -194,25 +368,25 @@
         "object"
       ]
     },
-    "BalanceWithJobs": {
+    "PrimaryTaxIdentifier": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "BillWithParent": {
+    "PrintOnCheckName": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     },
-    "Level": {
+    "ResaleNum": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "ParentRef": {
+    "SalesTermRef": {
       "name": {
         "type": [
           "null",
@@ -226,122 +400,20 @@
         ]
       }
     },
-    "PrintOnCheckName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Job": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "Mobile": {
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "PreferredDeliveryMethod": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Taxable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "DisplayName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "MetaData": {
-      "properties": {
-        "CreateTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "LastUpdatedTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "WebAddr": {
-      "properties": {
-        "URI": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "Id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "GivenName": {
+    "SecondaryTaxIdentifier": {
       "type": [
         "null",
         "string"
       ]
     },
     "ShipAddr": {
-      "Lat": {
+      "City": {
         "type": [
           "null",
           "string"
         ]
       },
-      "Id": {
+      "Country": {
         "type": [
           "null",
           "string"
@@ -353,19 +425,13 @@
           "string"
         ]
       },
-      "City": {
+      "Id": {
         "type": [
           "null",
           "string"
         ]
       },
-      "Long": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "PostalCode": {
+      "Lat": {
         "type": [
           "null",
           "string"
@@ -401,112 +467,20 @@
           "string"
         ]
       },
-      "Country": {
+      "Long": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "PostalCode": {
         "type": [
           "null",
           "string"
         ]
       }
     },
-    "Fax": {
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "ARAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "AlternatePhone": {
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "BusinessNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "CustomerTypeRef": {
-      "properties": {
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "GSTIN": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "GSTRegistrationType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "IsProject": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "Notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "OpenBalanceDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "PrimaryTaxIdentifier": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "SecondaryTaxIdentifier": {
+    "Source": {
       "type": [
         "null",
         "string"
@@ -518,10 +492,22 @@
         "string"
       ]
     },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "TaxExemptionReasonId": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "Taxable": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "Title": {
@@ -530,7 +516,21 @@
         "string"
       ]
     },
-    "Source": {
+    "WebAddr": {
+      "properties": {
+        "URI": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "domain": {
       "type": [
         "null",
         "string"

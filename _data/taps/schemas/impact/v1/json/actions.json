@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "action_tracker_id": {
@@ -21,11 +20,11 @@
       ]
     },
     "amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "caller_id": {
       "type": [
@@ -52,11 +51,11 @@
       ]
     },
     "client_cost": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "creation_date": {
       "type": [
@@ -113,18 +112,18 @@
       ]
     },
     "delta_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "delta_payout": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "event_date": {
       "type": [
@@ -139,18 +138,18 @@
       ]
     },
     "intended_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "intended_payout": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "ip_address": {
       "type": [
@@ -189,11 +188,11 @@
       ]
     },
     "payout": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "promo_code": {
       "type": [
@@ -237,5 +236,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

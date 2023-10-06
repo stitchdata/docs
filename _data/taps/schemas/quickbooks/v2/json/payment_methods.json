@@ -1,42 +1,38 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "Name": {
+    "Active": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
-    "domain": {
+    "Id": {
       "type": [
         "null",
         "string"
       ]
     },
     "MetaData": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "LastUpdatedTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
         "CreateTime": {
           "type": [
             "null",
             "date-time"
           ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "Id": {
+    "Name": {
       "type": [
         "null",
         "string"
@@ -54,11 +50,15 @@
         "string"
       ]
     },
-    "Active": {
+    "domain": {
       "type": [
         "null",
-        "boolean"
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

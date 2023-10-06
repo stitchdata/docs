@@ -1,14 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "admin_ids": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "integer"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -16,10 +15,6 @@
       ]
     },
     "avatar": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "image_url": {
@@ -28,7 +23,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "away_mode_enabled": {
       "type": [
@@ -75,10 +74,10 @@
     "team_ids": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "integer"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -91,5 +90,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

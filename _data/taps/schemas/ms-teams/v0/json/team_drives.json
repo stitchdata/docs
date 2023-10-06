@@ -1,10 +1,36 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
+    "created_by": {
+      "additionalProperties": true,
+      "properties": {
+        "user": {
+          "additionalProperties": true,
+          "properties": {
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "drive_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -23,30 +49,10 @@
         "string"
       ]
     },
-    "web_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "drive_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "owner": {
       "additionalProperties": true,
       "properties": {
-        "user": {
-          "type": [
-            "null",
-            "object"
-          ],
+        "group": {
           "additionalProperties": true,
           "properties": {
             "display_name": {
@@ -54,25 +60,7 @@
                 "null",
                 "string"
               ]
-            }
-          }
-        }
-      }
-    },
-    "owner": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "group": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {
+            },
             "email": {
               "type": [
                 "null",
@@ -84,22 +72,20 @@
                 "null",
                 "string"
               ]
-            },
-            "display_name": {
-              "type": [
-                "null",
-                "string"
-              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "quota": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "quota": {
       "additionalProperties": true,
       "properties": {
         "deleted": {
@@ -132,7 +118,21 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

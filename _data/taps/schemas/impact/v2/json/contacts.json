@@ -1,13 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "accounts": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -22,18 +19,15 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
-          "type": "object",
           "additionalProperties": false,
           "properties": {
             "account": {
-              "type": [
-                "null",
-                "object"
-              ],
               "additionalProperties": false,
               "properties": {
                 "id": {
@@ -48,9 +42,14 @@
                     "string"
                   ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             }
-          }
+          },
+          "type": "object"
         },
         {
           "type": "null"
@@ -96,13 +95,13 @@
     "labels": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -145,5 +144,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

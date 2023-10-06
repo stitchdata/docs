@@ -1,11 +1,36 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
+    "active_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
-    "user_id": {
-      "type": "integer"
+    "add_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal": {
+      "properties": {
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "deal_id": {
       "type": [
@@ -13,7 +38,10 @@
         "integer"
       ]
     },
-    "person_id": {
+    "id": {
+      "type": "integer"
+    },
+    "last_update_user_id": {
       "type": [
         "null",
         "integer"
@@ -25,37 +53,44 @@
         "integer"
       ]
     },
-    "content": {
+    "organization": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "add_time": {
+    "person": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "update_time": {
+    "person_id": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "active_flag": {
-      "type": [
-        "null",
-        "boolean"
+        "integer"
       ]
     },
     "pinned_to_deal_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "pinned_to_person_flag": {
       "type": [
         "null",
         "boolean"
@@ -67,67 +102,21 @@
         "boolean"
       ]
     },
-    "last_update_user_id": {
+    "pinned_to_person_flag": {
       "type": [
         "null",
-        "integer"
+        "boolean"
       ]
     },
-    "organization": {
+    "update_time": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "person": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "required": [
-        "name"
+        "date-time"
       ]
-    },
-    "deal": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "title": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
     },
     "user": {
-      "type": "object",
       "properties": {
         "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
           "type": [
             "null",
             "string"
@@ -141,8 +130,19 @@
         },
         "is_you": {
           "type": "boolean"
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": "object"
+    },
+    "user_id": {
+      "type": "integer"
     }
-  }
+  },
+  "type": "object"
 }

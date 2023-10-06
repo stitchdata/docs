@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "collection_id": {
@@ -15,11 +14,11 @@
       ]
     },
     "discount_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "discount_type": {
       "type": [
@@ -34,10 +33,6 @@
       ]
     },
     "images": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "large": {
@@ -64,7 +59,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "product_id": {
       "type": [
@@ -79,10 +78,6 @@
       ]
     },
     "subscription_defaults": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "charge_interval_frequency": {
@@ -142,10 +137,10 @@
         "order_interval_frequency_options": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "type": "array"
             },
             {
               "type": "null"
@@ -164,7 +159,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "title": {
       "type": [
@@ -178,5 +177,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

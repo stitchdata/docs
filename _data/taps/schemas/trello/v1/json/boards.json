@@ -1,13 +1,33 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "name": {
+    "closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "creationMethod": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "dateLastActivity": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "dateLastView": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "datePluginDisable": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "desc": {
@@ -22,13 +42,16 @@
         "string"
       ]
     },
-    "closed": {
+    "enterpriseOwned": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "idOrganization": {
+    "id": {
+      "type": "string"
+    },
+    "idBoardSource": {
       "type": [
         "null",
         "string"
@@ -40,76 +63,22 @@
         "string"
       ]
     },
-    "limits": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "attachments": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "perBoard": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "status": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "disableAt": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "warnAt": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "pinned": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "shortLink": {
+    "idOrganization": {
       "type": [
         "null",
         "string"
       ]
     },
-    "dateLastActivity": {
+    "idTags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "datePluginDisable": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "creationMethod": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "ixUpdate": {
@@ -118,272 +87,9 @@
         "integer"
       ]
     },
-    "enterpriseOwned": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "idBoardSource": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": "string"
-    },
-    "starred": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "powerUps": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "premiumFeatures": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "idTags": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "prefs": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "permissionLevel": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "hideVotes": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "voting": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "comments": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "invitations": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "selfJoin": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "cardCovers": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "isTemplate": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "cardAging": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "calendarFeedEnabled": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "background": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "backgroundImage": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "backgroundImageScaled": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "width": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "height": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        "backgroundTile": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "backgroundBrightness": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "backgroundBottomColor": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "backgroundTopColor": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "canBePublic": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "canBeEnterprise": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "canBeOrg": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "canBePrivate": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "canInvite": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "subscribed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "labelNames": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "green": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "yellow": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "orange": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "red": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "purple": {
+        "black": {
           "type": [
             "null",
             "string"
@@ -395,7 +101,7 @@
             "string"
           ]
         },
-        "sky": {
+        "green": {
           "type": [
             "null",
             "string"
@@ -407,49 +113,99 @@
             "string"
           ]
         },
+        "orange": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "pink": {
           "type": [
             "null",
             "string"
           ]
         },
-        "black": {
+        "purple": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "red": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sky": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "yellow": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "dateLastView": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "shortUrl": {
+    "limits": {
+      "properties": {
+        "attachments": {
+          "properties": {
+            "perBoard": {
+              "properties": {
+                "disableAt": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "status": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "warnAt": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "templateGallery": {
-      "type": [
-        "null",
-        "string"
+        "object"
       ]
     },
     "memberships": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
+          "deactivated": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "id": {
             "type": [
               "null",
@@ -473,15 +229,259 @@
               "null",
               "boolean"
             ]
-          },
-          "deactivated": {
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pinned": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "powerUps": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "prefs": {
+      "properties": {
+        "background": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "backgroundBottomColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "backgroundBrightness": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "backgroundImage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "backgroundImageScaled": {
+          "items": {
+            "properties": {
+              "height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
             "type": [
               "null",
-              "boolean"
+              "object"
             ]
-          }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "backgroundTile": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "backgroundTopColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "calendarFeedEnabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "canBeEnterprise": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "canBeOrg": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "canBePrivate": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "canBePublic": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "canInvite": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "cardAging": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cardCovers": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "comments": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "hideVotes": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "invitations": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "isTemplate": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "permissionLevel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "selfJoin": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "voting": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "premiumFeatures": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shortLink": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shortUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "starred": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "subscribed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "templateGallery": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

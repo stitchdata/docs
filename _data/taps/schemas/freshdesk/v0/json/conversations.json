@@ -1,7 +1,48 @@
 {
-  "type": "object",
   "properties": {
+    "bcc_emails": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "body_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cc_emails": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "created_at": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "from_email": {
       "type": [
         "null",
         "string"
@@ -25,7 +66,7 @@
         "boolean"
       ]
     },
-    "user_id": {
+    "source": {
       "type": [
         "null",
         "integer"
@@ -37,12 +78,6 @@
         "string"
       ]
     },
-    "source": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "ticket_id": {
       "type": [
         "null",
@@ -52,52 +87,10 @@
     "to_emails": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "from_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cc_emails": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "bcc_emails": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "created_at": {
-      "anyOf": [
-        {
-          "type": "date-time"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -113,6 +106,13 @@
           "type": "null"
         }
       ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

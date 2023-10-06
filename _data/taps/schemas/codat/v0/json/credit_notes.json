@@ -1,17 +1,15 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
     "companyId": {
       "type": [
         "string"
       ]
     },
-    "remainingCredit": {
+    "creditNoteNumber": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
     "currency": {
@@ -20,17 +18,46 @@
         "string"
       ]
     },
-    "paymentAllocations": {
+    "customerRef": {
+      "additionalProperties": true,
+      "properties": {
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "array"
-      ],
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "paymentAllocations": {
       "items": {
         "companyId": {
           "type": "string"
         },
-        "id": {
+        "currency": {
           "type": [
+            "null",
             "string"
           ]
         },
@@ -40,7 +67,12 @@
             "date-time"
           ]
         },
-        "currency": {
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "note": {
           "type": [
             "null",
             "string"
@@ -51,17 +83,22 @@
             "null",
             "number"
           ]
-        },
-        "note": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
-    },
-    "id": {
+      },
       "type": [
+        "null",
+        "array"
+      ]
+    },
+    "remainingCredit": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
         "string"
       ]
     },
@@ -70,49 +107,12 @@
         "null",
         "number"
       ]
-    },
-    "issueDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "customerRef": {
-      "additionalProperties": true,
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "companyName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "creditNoteNumber": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
   },
-  "additionalProperties": true,
   "tap_schema_dependencies": [
     "payment_allocations"
+  ],
+  "type": [
+    "object"
   ]
 }

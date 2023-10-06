@@ -1,9 +1,9 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "accountId": {
       "type": [
+        "null",
         "integer"
       ]
     },
@@ -37,6 +37,12 @@
         "date-time"
       ]
     },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "deliverCount": {
       "type": [
         "null",
@@ -50,6 +56,17 @@
       ]
     },
     "failureCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "mailboxId": {
       "type": [
         "null",
         "integer"
@@ -73,6 +90,12 @@
         "integer"
       ]
     },
+    "opportunityId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "optOutCount": {
       "type": [
         "null",
@@ -86,6 +109,12 @@
       ]
     },
     "positiveReplyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "prospectId": {
       "type": [
         "null",
         "integer"
@@ -109,6 +138,18 @@
         "integer"
       ]
     },
+    "sequenceId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sequenceStepId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "state": {
       "type": [
         "null",
@@ -126,48 +167,7 @@
         "null",
         "date-time"
       ]
-    },
-    "accountId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mailboxId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "opportunityId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "prospectId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceStepId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

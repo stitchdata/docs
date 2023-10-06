@@ -1,13 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "string"
       ]
     },
-    "name": {
+    "list_id": {
       "type": [
         "null",
         "string"
@@ -19,47 +24,17 @@
         "integer"
       ]
     },
-    "type": {
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "options": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "match": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "conditions": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "condition_type": {
@@ -86,16 +61,41 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "match": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "list_id": {
+    "type": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

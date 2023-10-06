@@ -1,23 +1,37 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "git_owner": {
+    "__sdc_row_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "country": {
       "type": [
         "null",
         "string"
       ]
     },
-    "git_repository": {
+    "date": {
       "type": [
         "null",
-        "string"
+        "date"
       ]
     },
-    "git_url": {
+    "date_of_notification": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "datetime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "git_file_name": {
       "type": [
         "null",
         "string"
@@ -29,7 +43,25 @@
         "string"
       ]
     },
+    "git_last_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "git_path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
       "type": [
         "null",
         "string"
@@ -41,61 +73,33 @@
         "string"
       ]
     },
-    "git_file_name": {
+    "git_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "git_last_modified": {
+    "lat": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
-        "date-time"
+        "number"
       ]
     },
-    "__sdc_row_number": {
+    "long": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
-    "date": {
-      "type": [
-        "null",
-        "date"
-      ]
-    },
-    "datetime": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "date_of_notification": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "country": {
+    "note_en": {
       "type": [
         "null",
         "string"
       ]
     },
-    "region_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "region": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "province_code": {
+    "note_it": {
       "type": [
         "null",
         "string"
@@ -113,37 +117,33 @@
         "string"
       ]
     },
-    "lat": {
+    "province_code": {
       "type": [
         "null",
-        "number"
-      ],
-      "multipleOf": 1e-10
+        "string"
+      ]
     },
-    "long": {
+    "region": {
       "type": [
         "null",
-        "number"
-      ],
-      "multipleOf": 1e-10
+        "string"
+      ]
+    },
+    "region_code": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "total_cases": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "note_it": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "note_en": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

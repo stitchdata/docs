@@ -1,23 +1,23 @@
 {
-  "type": "object",
   "properties": {
     "CampaignID": {
       "type": "string"
     },
-    "EmailAddress": {
-      "type": "string"
-    },
-    "ListID": {
-      "type": "string"
-    },
     "Date": {
       "type": "date-time"
+    },
+    "EmailAddress": {
+      "type": "string"
     },
     "IPAddress": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "ListID": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

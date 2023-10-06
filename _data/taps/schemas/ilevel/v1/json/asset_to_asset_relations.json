@@ -1,13 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "to_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "from_id": {
       "type": [
         "null",
@@ -20,7 +13,20 @@
         "integer"
       ]
     },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "to_id": {
       "type": [
         "null",
         "integer"
@@ -31,13 +37,7 @@
         "null",
         "string"
       ]
-    },
-    "is_soft_deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "default": false
     }
-  }
+  },
+  "type": "object"
 }

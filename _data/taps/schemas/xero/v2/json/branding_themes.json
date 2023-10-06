@@ -1,19 +1,15 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
+    "BrandingThemeID": {
+      "type": [
+        "string"
+      ]
+    },
     "CreatedDateUTC": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "SortOrder": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "Name": {
@@ -22,11 +18,15 @@
         "string"
       ]
     },
-    "BrandingThemeID": {
+    "SortOrder": {
       "type": [
-        "string"
+        "null",
+        "integer"
       ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

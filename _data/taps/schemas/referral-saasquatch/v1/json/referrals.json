@@ -1,47 +1,5 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string",
-      "key": true
-    },
-    "programId": {
-      "type": "string"
-    },
-    "referredUser": {
-      "type": "string"
-    },
-    "referredAccount": {
-      "type": "string"
-    },
-    "referredReward": {
-      "type": "string"
-    },
-    "referredModerationStatus": {
-      "type": "string"
-    },
-    "referrerUser": {
-      "type": "string"
-    },
-    "referrerAccount": {
-      "type": "string"
-    },
-    "referrerReward": {
-      "type": "string"
-    },
-    "referrerModerationStatus": {
-      "type": "string"
-    },
-    "dateReferralStarted": {
-      "anyOf": [
-        {
-          "type": "date-time"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
     "dateConverted": {
       "anyOf": [
         {
@@ -52,7 +10,7 @@
         }
       ]
     },
-    "dateReferralPaid": {
+    "dateModerated": {
       "anyOf": [
         {
           "type": "date-time"
@@ -72,7 +30,7 @@
         }
       ]
     },
-    "dateModerated": {
+    "dateReferralPaid": {
       "anyOf": [
         {
           "type": "date-time"
@@ -81,6 +39,48 @@
           "type": "null"
         }
       ]
+    },
+    "dateReferralStarted": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "key": true,
+      "type": "string"
+    },
+    "programId": {
+      "type": "string"
+    },
+    "referredAccount": {
+      "type": "string"
+    },
+    "referredModerationStatus": {
+      "type": "string"
+    },
+    "referredReward": {
+      "type": "string"
+    },
+    "referredUser": {
+      "type": "string"
+    },
+    "referrerAccount": {
+      "type": "string"
+    },
+    "referrerModerationStatus": {
+      "type": "string"
+    },
+    "referrerReward": {
+      "type": "string"
+    },
+    "referrerUser": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

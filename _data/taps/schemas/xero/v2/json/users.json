@@ -1,14 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "UserID": {
-      "type": [
-        "string"
-      ]
-    },
     "EmailAddress": {
       "type": [
         "null",
@@ -21,7 +13,19 @@
         "string"
       ]
     },
+    "IsSubscriber": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "LastName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "OrganisationRole": {
       "type": [
         "null",
         "string"
@@ -33,28 +37,14 @@
         "date-time"
       ]
     },
-    "IsSubscriber": {
+    "UserID": {
       "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "OrganisationRole": {
-      "type": [
-        "null",
         "string"
       ]
     },
     "ValidationErrors": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
+        "additionalProperties": false,
         "properties": {
           "Message": {
             "type": [
@@ -63,12 +53,22 @@
             ]
           }
         },
-        "additionalProperties": false
-      }
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     }
   },
-  "additionalProperties": false,
   "tap_schema_dependencies": [
     "validation_errors"
+  ],
+  "type": [
+    "null",
+    "object"
   ]
 }

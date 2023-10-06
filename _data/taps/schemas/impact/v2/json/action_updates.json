@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "action_date": {
@@ -75,18 +74,18 @@
       ]
     },
     "delta_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "delta_payout": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "disposition": {
       "type": [
@@ -166,5 +165,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,29 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "customer_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "scheme": {
+    "account_number": {
       "type": [
         "null",
         "string"
@@ -35,19 +13,25 @@
         "string"
       ]
     },
-    "account_number": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "routing_number": {
+    "deleted": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
-    "swift_code": {
+    "email": {
       "type": [
         "null",
         "string"
@@ -65,22 +49,16 @@
         "string"
       ]
     },
-    "resource_version": {
+    "id": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "updated_at": {
+    "object": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "reference_id": {
@@ -89,17 +67,39 @@
         "string"
       ]
     },
-    "deleted": {
+    "resource_version": {
       "type": [
         "null",
-        "boolean"
+        "integer"
       ]
     },
-    "object": {
+    "routing_number": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "scheme": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "swift_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

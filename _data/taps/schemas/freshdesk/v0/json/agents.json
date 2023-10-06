@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "available": {
       "type": [
@@ -13,76 +12,18 @@
         "date-time"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "occasional": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "signature": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ticket_scope": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "group_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "role_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "contact": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "active": {
           "type": [
             "null",
             "boolean"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
           ]
         },
         "email": {
@@ -133,19 +74,78 @@
             "string"
           ]
         },
-        "created_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
         "updated_at": {
           "type": [
             "null",
             "date-time"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "group_ids": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "occasional": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "role_ids": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "signature": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ticket_scope": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

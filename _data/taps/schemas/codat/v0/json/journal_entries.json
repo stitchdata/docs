@@ -1,17 +1,7 @@
 {
-  "type": "object",
   "properties": {
     "companyId": {
       "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "postedOn": {
-      "type": [
-        "null",
-        "string"
-      ]
     },
     "createdOn": {
       "type": [
@@ -19,27 +9,33 @@
         "string"
       ]
     },
-    "modifiedDate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sourceModifiedDate": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "id": {
+      "type": "string"
     },
     "journalLines": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
-          "id": {
+          "accountRef": {
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "currency": {
             "type": [
               "null",
               "string"
@@ -57,6 +53,12 @@
               "number"
             ]
           },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "netAmount": {
             "type": [
               "null",
@@ -68,35 +70,33 @@
               "null",
               "number"
             ]
-          },
-          "currency": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "accountRef": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "postedOn": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sourceModifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

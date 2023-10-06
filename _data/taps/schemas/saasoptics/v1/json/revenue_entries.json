@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "end_date": {
@@ -9,11 +8,11 @@
       ]
     },
     "home_amount": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "id": {
       "type": [
@@ -22,11 +21,11 @@
       ]
     },
     "local_amount": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "modified": {
       "type": [
@@ -46,5 +45,6 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

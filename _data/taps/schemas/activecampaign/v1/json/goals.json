@@ -1,23 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "automation_block": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "blockid": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "seriesid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "cdate": {
@@ -38,17 +37,18 @@
         "integer"
       ]
     },
-    "automation": {
+    "name": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "automation_block": {
+    "seriesid": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

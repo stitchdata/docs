@@ -1,40 +1,16 @@
 {
-  "type": "object",
   "properties": {
-    "object_state": {
+    "distance_unit": {
       "type": "string"
     },
-    "object_created": {
-      "type": "date-time"
-    },
-    "object_updated": {
-      "type": "date-time"
-    },
-    "object_id": {
-      "type": "string"
-    },
-    "object_owner": {
-      "type": "string"
-    },
-    "template": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "length": {
-      "type": "string"
-    },
-    "width": {
-      "type": "string"
+    "extra": {
+      "properties": {},
+      "type": "object"
     },
     "height": {
       "type": "string"
     },
-    "distance_unit": {
-      "type": "string"
-    },
-    "weight": {
+    "length": {
       "type": "string"
     },
     "mass_unit": {
@@ -43,18 +19,42 @@
     "metadata": {
       "type": "string"
     },
-    "extra": {
-      "type": "object",
-      "properties": {}
+    "object_created": {
+      "type": "date-time"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "object_owner": {
+      "type": "string"
+    },
+    "object_state": {
+      "type": "string"
+    },
+    "object_updated": {
+      "type": "date-time"
+    },
+    "template": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "test": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "weight": {
+      "type": "string"
+    },
+    "width": {
+      "type": "string"
     }
   },
   "required": [
     "object_id"
-  ]
+  ],
+  "type": "object"
 }

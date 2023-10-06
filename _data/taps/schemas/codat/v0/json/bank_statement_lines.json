@@ -1,32 +1,10 @@
 {
-  "type": "object",
   "properties": {
-    "companyId": {
-      "type": "string"
-    },
-    "accountName": {
-      "type": "string"
-    },
     "_lineIndex": {
       "type": "integer"
     },
-    "balance": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
+    "accountName": {
+      "type": "string"
     },
     "amount": {
       "type": [
@@ -34,7 +12,28 @@
         "number"
       ]
     },
+    "balance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -46,5 +45,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

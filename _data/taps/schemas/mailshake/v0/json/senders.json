@@ -1,17 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
+    "created": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "emailAddress": {
@@ -26,17 +19,24 @@
         "string"
       ]
     },
-    "offerType": {
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created": {
+    "object": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "offerType": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

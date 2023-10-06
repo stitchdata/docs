@@ -1,14 +1,32 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "site_url": {
+    "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "country": {
       "type": [
         "null",
         "string"
       ]
     },
-    "search_type": {
+    "ctr": {
+      "multipleOf": 1e-25,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "device": {
       "type": [
         "null",
         "string"
@@ -20,22 +38,10 @@
         "string"
       ]
     },
-    "date": {
+    "impressions": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "device": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     },
     "page": {
@@ -44,37 +50,31 @@
         "string"
       ]
     },
+    "position": {
+      "multipleOf": 1e-25,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "query": {
       "type": [
         "null",
         "string"
       ]
     },
-    "clicks": {
+    "search_type": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "impressions": {
+    "site_url": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
-    },
-    "ctr": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-25
-    },
-    "position": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-25
     }
-  }
+  },
+  "type": "object"
 }

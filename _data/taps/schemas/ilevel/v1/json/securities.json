@@ -1,23 +1,28 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "excel_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "asset_id": {
       "type": [
         "null",
         "integer"
       ]
     },
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "has_data": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "is_active": {
@@ -32,10 +37,29 @@
         "boolean"
       ]
     },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "last_modified_date": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "security_sub_type_id": {
@@ -61,31 +85,7 @@
         "null",
         "string"
       ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object_type_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_soft_deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "default": false
     }
-  }
+  },
+  "type": "object"
 }

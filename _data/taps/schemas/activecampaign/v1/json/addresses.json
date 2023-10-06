@@ -1,13 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "company_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "address1": {
       "type": [
         "null",
@@ -20,25 +13,19 @@
         "string"
       ]
     },
+    "allgroup": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "city": {
       "type": [
         "null",
         "string"
       ]
     },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "district": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "zip": {
+    "company_name": {
       "type": [
         "null",
         "string"
@@ -50,7 +37,13 @@
         "string"
       ]
     },
-    "allgroup": {
+    "district": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
@@ -62,11 +55,18 @@
         "boolean"
       ]
     },
-    "id": {
+    "state": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "zip": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

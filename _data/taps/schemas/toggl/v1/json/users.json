@@ -1,13 +1,21 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "beginning_of_week": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "date_format": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "default_wid": {
@@ -28,7 +36,19 @@
         "string"
       ]
     },
-    "jquery_timeofday_format": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invitation": {
       "type": [
         "null",
         "string"
@@ -40,28 +60,10 @@
         "string"
       ]
     },
-    "timeofday_format": {
+    "jquery_timeofday_format": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "date_format": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "store_start_and_stop_time": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "beginning_of_week": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "language": {
@@ -70,28 +72,10 @@
         "string"
       ]
     },
-    "image_url": {
+    "new_blog_post": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "sidebar_piechart": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "retention": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "record_timeline": {
@@ -101,6 +85,30 @@
       ]
     },
     "render_timeline": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "retention": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "should_upgrade": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "sidebar_piechart": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "store_start_and_stop_time": {
       "type": [
         "null",
         "boolean"
@@ -118,23 +126,15 @@
         "boolean"
       ]
     },
-    "new_blog_post": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "should_upgrade": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "invitation": {
+    "timeofday_format": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

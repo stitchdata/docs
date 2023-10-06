@@ -1,9 +1,32 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "campaign_id": {
       "type": [
+        "string"
+      ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ip": {
+      "type": [
+        "null",
         "string"
       ]
     },
@@ -17,37 +40,13 @@
         "boolean"
       ]
     },
-    "email_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "action": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "timestamp": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "ip": {
+    "type": {
       "type": [
         "null",
         "string"
@@ -59,5 +58,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

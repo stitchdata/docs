@@ -1,9 +1,17 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "create_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "list_id": {
       "type": [
         "null",
@@ -16,10 +24,10 @@
         "string"
       ]
     },
-    "email_count": {
+    "type": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "valid_count": {
@@ -27,18 +35,10 @@
         "null",
         "integer"
       ]
-    },
-    "create_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

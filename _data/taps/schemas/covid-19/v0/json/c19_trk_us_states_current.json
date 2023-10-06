@@ -1,41 +1,43 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "git_owner": {
+    "__sdc_row_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "check_time_et": {
       "type": [
         "null",
         "string"
       ]
     },
-    "git_repository": {
+    "commercial_score": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "git_url": {
+    "date_checked": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "git_html_url": {
+    "date_modified": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "git_path": {
+    "death": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "git_sha": {
+    "fips": {
       "type": [
         "null",
         "string"
@@ -47,22 +49,88 @@
         "string"
       ]
     },
+    "git_html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "git_last_modified": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "__sdc_row_number": {
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_sha": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "grade": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hospitalized": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "state": {
+    "last_update_et": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "negative": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "negative_regular_score": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pending": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "positive": {
@@ -77,52 +145,16 @@
         "integer"
       ]
     },
-    "negative_regular_score": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "commercial_score": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "grade": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "score": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "negative": {
+    "state": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "pending": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "hospitalized": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "death": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
     "total": {
@@ -131,47 +163,15 @@
         "integer"
       ]
     },
-    "last_update_et": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "check_time_et": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "total_test_results": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "fips": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date_modified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "date_checked": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

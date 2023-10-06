@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "account_sid": {
@@ -74,6 +73,12 @@
         "string"
       ]
     },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "validated": {
       "type": [
         "null",
@@ -85,12 +90,7 @@
         "null",
         "boolean"
       ]
-    },
-    "uri": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

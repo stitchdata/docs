@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "amount": {
@@ -15,10 +14,6 @@
       ]
     },
     "client": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -33,7 +28,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "cost_per_share": {
       "anyOf": [
@@ -41,8 +40,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -113,10 +112,6 @@
       ]
     },
     "investment": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -131,7 +126,18 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "last_modified": {
       "type": [
@@ -140,10 +146,6 @@
       ]
     },
     "last_modified_by": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "email_address": {
@@ -182,7 +184,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "local_amount": {
       "anyOf": [
@@ -190,8 +196,8 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
@@ -208,10 +214,6 @@
       ]
     },
     "owner": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -226,40 +228,40 @@
             "string"
           ]
         }
-      }
-    },
-    "scenario": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "scenario": {
       "additionalProperties": false,
       "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "excel_name": {
           "type": [
             "null",
             "string"
           ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "security": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "security": {
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -274,7 +276,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "shares": {
       "anyOf": [
@@ -282,16 +288,12 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
     },
     "transaction_category": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -306,12 +308,37 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "transaction_date": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "transaction_type": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "value_per_share": {
@@ -320,38 +347,11 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         }
       ]
-    },
-    "is_soft_deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ],
-      "default": false
-    },
-    "transaction_type": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
     }
-  }
+  },
+  "type": "object"
 }

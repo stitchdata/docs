@@ -1,18 +1,14 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": "integer"
+    "channel": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "createdAt": {
       "type": "date-time"
-    },
-    "updatedAt": {
-      "type": "date-time"
-    },
-    "name": {
-      "type": "string"
     },
     "description": {
       "type": [
@@ -20,39 +16,14 @@
         "string"
       ]
     },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "channel": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "workspace": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "folder": {
-      "type": "object",
       "properties": {
+        "folderName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "type": {
           "type": [
             "null",
@@ -64,14 +35,43 @@
             "null",
             "integer"
           ]
-        },
-        "folderName": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "workspace": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

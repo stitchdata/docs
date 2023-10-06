@@ -1,17 +1,18 @@
 {
-  "title": "Version",
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "expand": {
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "self": {
+    "expand": {
       "type": [
         "null",
         "string"
@@ -23,7 +24,7 @@
         "string"
       ]
     },
-    "description": {
+    "moveUnfixedIssuesTo": {
       "type": [
         "null",
         "string"
@@ -35,46 +36,67 @@
         "string"
       ]
     },
-    "archived": {
+    "operations": {
+      "items": {
+        "properties": {
+          "href": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "iconClass": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "styleClass": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "weight": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "title": "Simple Link",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "released": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "releaseDate": {
-      "type": [
-        "null",
-        "date-time"
+        "array"
       ]
     },
     "overdue": {
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "userStartDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "startDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "userReleaseDate": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "project": {
@@ -89,96 +111,74 @@
         "integer"
       ]
     },
-    "moveUnfixedIssuesTo": {
+    "releaseDate": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "operations": {
+    "released": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "title": "Simple Link",
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "styleClass": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "iconClass": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "label": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "href": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "weight": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      }
+        "boolean"
+      ]
     },
     "remotelinks": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "title": "Remote Entity Link",
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "self": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
+          "link": {},
           "name": {
             "type": [
               "null",
               "string"
             ]
           },
-          "link": {}
-        }
-      }
+          "self": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "title": "Remote Entity Link",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "startDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "userReleaseDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "userStartDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "title": "Version",
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
     "adRotationMode": {
       "type": [
@@ -40,6 +36,152 @@
         "integer"
       ]
     },
+    "definitions": {
+      "CustomParameter": {
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "ExplorerAutoOptimizerSetting": {
+        "properties": {
+          "optIn": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "TargetRestriction": {
+        "properties": {
+          "bidOnly": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "targetingDimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "TargetRestrictionOperation": {
+        "operator": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "properties": {
+            "bidOnly": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "targetingDimension": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "TargetingSetting": {
+        "properties": {
+          "targetRestrictionOperations": {
+            "items": {
+              "operator": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "properties": {
+                  "bidOnly": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "targetingDimension": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "targetRestrictions": {
+            "items": {
+              "properties": {
+                "bidOnly": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "targetingDimension": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
+    },
     "displayCustomBidDimension": {
       "type": [
         "null",
@@ -71,22 +213,18 @@
       ]
     },
     "excludedParentAssetFieldTypes": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "explorerAutoOptimizerSetting": {
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "explorerAutoOptimizerSetting": {
       "properties": {
         "optIn": {
           "type": [
@@ -94,7 +232,11 @@
             "boolean"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "finalUrlSuffix": {
       "type": [
@@ -109,16 +251,16 @@
       ]
     },
     "labels": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "name": {
       "type": [
@@ -163,16 +305,8 @@
       ]
     },
     "targetingSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "targetRestrictionOperations": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
             "operator": {
               "type": [
@@ -181,10 +315,6 @@
               ]
             },
             "value": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "bidOnly": {
                   "type": [
@@ -198,20 +328,20 @@
                     "string"
                   ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             }
-          }
-        },
-        "targetRestrictions": {
+          },
           "type": [
             "null",
             "array"
-          ],
+          ]
+        },
+        "targetRestrictions": {
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
               "bidOnly": {
                 "type": [
@@ -225,10 +355,22 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "trackingUrlTemplate": {
       "type": [
@@ -243,10 +385,6 @@
       ]
     },
     "urlCustomParameters": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "key": {
           "type": [
@@ -260,153 +398,15 @@
             "string"
           ]
         }
-      }
-    },
-    "definitions": {
-      "ExplorerAutoOptimizerSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "optIn": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
-        }
       },
-      "TargetRestriction": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "bidOnly": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "targetingDimension": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      },
-      "TargetRestrictionOperation": {
-        "operator": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "bidOnly": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "targetingDimension": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      },
-      "TargetingSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "targetRestrictionOperations": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "operator": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "bidOnly": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ]
-                  },
-                  "targetingDimension": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "targetRestrictions": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "bidOnly": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "targetingDimension": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      },
-      "CustomParameter": {
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

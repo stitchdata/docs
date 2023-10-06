@@ -1,21 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "customerId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "membershipTypeId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "byUserId": {
       "type": [
         "null",
@@ -28,10 +12,22 @@
         "date-time"
       ]
     },
+    "customerId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "expiration": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "membershipTypeId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "notes": {
@@ -40,5 +36,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

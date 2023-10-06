@@ -1,7 +1,12 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "_sdc_record_hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "admin_id": {
       "type": [
         "null",
@@ -50,6 +55,12 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "label": {
       "type": [
         "null",
@@ -71,10 +82,10 @@
     "options": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -98,18 +109,7 @@
         "null",
         "date-time"
       ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "_sdc_record_hash": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

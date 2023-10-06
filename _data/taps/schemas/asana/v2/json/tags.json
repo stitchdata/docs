@@ -1,17 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "gid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "resource_type": {
+    "color": {
       "type": [
         "null",
         "string"
@@ -24,24 +14,10 @@
       ]
     },
     "followers": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
           "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
             "type": [
               "null",
               "string"
@@ -52,17 +28,31 @@
               "null",
               "string"
             ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "name": {
+    "gid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "color": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -80,20 +70,16 @@
         "string"
       ]
     },
-    "workspace": {
+    "resource_type": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "workspace": {
       "additionalProperties": false,
       "properties": {
         "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
           "type": [
             "null",
             "string"
@@ -104,8 +90,22 @@
             "null",
             "string"
           ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

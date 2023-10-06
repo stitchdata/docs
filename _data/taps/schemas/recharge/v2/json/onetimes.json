@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "address_id": {
@@ -18,6 +17,36 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "external_product_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "external_variant_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "id": {
@@ -47,9 +76,7 @@
     "properties": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "name": {
@@ -64,8 +91,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -102,6 +131,12 @@
         "string"
       ]
     },
+    "sku_override": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "status": {
       "type": [
         "null",
@@ -119,42 +154,7 @@
         "null",
         "string"
       ]
-    },
-    "external_product_id": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "ecommerce": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "external_variant_id": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "ecommerce": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "sku_override": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

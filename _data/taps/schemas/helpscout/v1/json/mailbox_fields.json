@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -14,24 +13,6 @@
         "integer"
       ]
     },
-    "required": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "order": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "name": {
       "type": [
         "null",
@@ -41,18 +22,10 @@
     "options": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "order": {
                 "type": [
                   "null",
                   "integer"
@@ -63,14 +36,41 @@
                   "null",
                   "string"
                 ]
+              },
+              "order": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "order": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "required": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

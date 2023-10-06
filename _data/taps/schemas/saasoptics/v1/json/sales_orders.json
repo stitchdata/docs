@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "close_date": {
@@ -57,18 +56,18 @@
       ]
     },
     "contract_number_field1": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "contract_number_field2": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "contract_register_name": {
       "type": [
@@ -329,25 +328,25 @@
       ]
     },
     "customer_number_field1": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "customer_number_field2": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "customer_number_field3": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "customer_parent": {
       "type": [
@@ -502,12 +501,7 @@
     "line_items": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "affected_transaction": {
@@ -793,25 +787,25 @@
                 ]
               },
               "transaction_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_amount_after_discount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_arr_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_billing_method": {
                 "type": [
@@ -838,11 +832,11 @@
                 ]
               },
               "transaction_discount_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_duration": {
                 "type": [
@@ -875,11 +869,11 @@
                 ]
               },
               "transaction_foreign_exchange_rate": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_generate_invoices": {
                 "type": [
@@ -912,11 +906,11 @@
                 ]
               },
               "transaction_invoice_quantity": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_invoice_start_date": {
                 "type": [
@@ -943,18 +937,18 @@
                 ]
               },
               "transaction_monthly_rate": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_normalized_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_normalized_term": {
                 "type": [
@@ -969,18 +963,18 @@
                 ]
               },
               "transaction_number_field1": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_number_field2": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_order_date": {
                 "type": [
@@ -995,11 +989,11 @@
                 ]
               },
               "transaction_quantity": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_recognize": {
                 "type": [
@@ -1014,18 +1008,18 @@
                 ]
               },
               "transaction_renewal_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_renewal_amount_percentage": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_renewal_duration": {
                 "type": [
@@ -1040,25 +1034,25 @@
                 ]
               },
               "transaction_renewal_probability": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_renewal_quantity": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_revenue_amount": {
+                "multipleOf": 1e-10,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-10
+                ]
               },
               "transaction_revenue_end_date": {
                 "type": [
@@ -1138,8 +1132,13 @@
                   "boolean"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -1434,5 +1433,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

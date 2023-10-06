@@ -1,17 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
     "companyId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reportBasis": {
       "type": [
         "null",
         "string"
@@ -23,25 +13,122 @@
         "string"
       ]
     },
-    "reports": {
+    "mostRecentAvailableMonth": {
       "type": [
         "null",
-        "array"
-      ],
+        "string"
+      ]
+    },
+    "reportBasis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reports": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": true,
         "properties": {
+          "costOfSales": {
+            "items": {
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "expenses": {
+            "items": {
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
           "fromDate": {
             "type": [
               "null",
               "string"
             ]
           },
-          "netProfit": {
+          "grossProfit": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "income": {
+            "items": {
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
+              "properties": {
+                "accountId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "netOperatingProfit": {
             "type": [
               "null",
               "number"
@@ -53,48 +140,20 @@
               "number"
             ]
           },
-          "otherExpenses": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "object",
-              "properties": {
-                "accountId": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "number"
-                }
-              },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
-          },
-          "netOperatingProfit": {
+          "netProfit": {
             "type": [
               "null",
               "number"
             ]
           },
-          "expenses": {
-            "type": [
-              "null",
-              "array"
-            ],
+          "otherExpenses": {
             "items": {
-              "type": "object",
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
               "properties": {
                 "accountId": {
                   "type": [
@@ -109,56 +168,21 @@
                   "type": "number"
                 }
               },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
-          },
-          "costOfSales": {
+              "type": "object"
+            },
             "type": [
               "null",
               "array"
-            ],
-            "items": {
-              "type": "object",
-              "properties": {
-                "accountId": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "number"
-                }
-              },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
-          },
-          "grossProfit": {
-            "type": [
-              "null",
-              "number"
             ]
           },
           "otherIncome": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": "object",
+              "additionalProperties": true,
+              "patternProperties": {
+                "name_\\d+": {
+                  "type": "string"
+                }
+              },
               "properties": {
                 "accountId": {
                   "type": [
@@ -173,60 +197,36 @@
                   "type": "number"
                 }
               },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           },
           "toDate": {
             "type": [
               "null",
               "string"
             ]
-          },
-          "income": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": "object",
-              "properties": {
-                "accountId": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "name": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "number"
-                }
-              },
-              "patternProperties": {
-                "name_\\d+": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": true
-            }
           }
-        }
-      }
-    },
-    "mostRecentAvailableMonth": {
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
     }
   },
   "tap_schema_dependencies": [
     "flattened_report"
+  ],
+  "type": [
+    "null",
+    "object"
   ]
 }

@@ -1,27 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_by_event_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "active": {
       "type": [
         "null",
@@ -29,16 +7,16 @@
       ]
     },
     "attributes": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "caption": {
       "type": [
@@ -53,16 +31,16 @@
       ]
     },
     "deactivate_on": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "description": {
       "type": [
@@ -70,17 +48,23 @@
         "string"
       ]
     },
-    "images": {
+    "id": {
       "type": [
         "null",
-        "array"
-      ],
+        "string"
+      ]
+    },
+    "images": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "livemode": {
       "type": [
@@ -89,11 +73,11 @@
       ]
     },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "name": {
       "type": [
@@ -101,13 +85,15 @@
         "string"
       ]
     },
-    "package_dimensions": {
+    "object": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "package_dimensions": {
       "properties": {
-        "width": {
+        "height": {
           "type": [
             "null",
             "number"
@@ -125,13 +111,17 @@
             "number"
           ]
         },
-        "height": {
+        "width": {
           "type": [
             "null",
             "number"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "shippable": {
       "type": [
@@ -140,6 +130,12 @@
       ]
     },
     "statement_descriptor": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_code": {
       "type": [
         "null",
         "string"
@@ -163,17 +159,21 @@
         "date-time"
       ]
     },
-    "url": {
+    "updated_by_event_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "tax_code": {
+    "url": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

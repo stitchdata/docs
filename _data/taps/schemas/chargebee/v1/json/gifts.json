@@ -1,34 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "scheduled_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "auto_claim": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "no_expiry": {
       "type": [
         "null",
         "boolean"
@@ -40,55 +12,7 @@
         "date-time"
       ]
     },
-    "resource_version": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "gifter": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "customer_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "invoice_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "signature": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "note": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
     "gift_receiver": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "customer_id": {
           "type": [
@@ -96,7 +20,7 @@
             "string"
           ]
         },
-        "subscription_id": {
+        "email": {
           "type": [
             "null",
             "string"
@@ -114,39 +38,115 @@
             "string"
           ]
         },
-        "email": {
+        "subscription_id": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "gift_timelines": {
+      },
       "type": [
         "null",
-        "array"
-      ],
+        "object"
+      ]
+    },
+    "gift_timelines": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "occurred_at": {
             "type": [
               "null",
               "date-time"
             ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "gifter": {
+      "properties": {
+        "customer_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "invoice_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "note": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "no_expiry": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "scheduled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

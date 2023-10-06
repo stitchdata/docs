@@ -1,8 +1,10 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
+    "approvedAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
     },
     "createdAt": {
       "type": [
@@ -16,30 +18,16 @@
         "null"
       ]
     },
-    "status": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "fields": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "object",
-          "null"
-        ],
         "properties": {
-          "text": {
+          "identifier": {
             "type": [
               "string",
               "null"
             ]
           },
-          "identifier": {
+          "text": {
             "type": [
               "string",
               "null"
@@ -51,27 +39,28 @@
               "null"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "sentAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
     },
     "signatures": {
-      "type": [
-        "object",
-        "null"
-      ],
       "properties": {
-        "role": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "name": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "email": {
           "type": [
             "string",
@@ -90,9 +79,15 @@
             "null"
           ]
         },
-        "signedAt": {
+        "name": {
           "type": [
-            "date-time",
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "type": [
+            "string",
             "null"
           ]
         },
@@ -101,20 +96,25 @@
             "boolean",
             "null"
           ]
+        },
+        "signedAt": {
+          "type": [
+            "date-time",
+            "null"
+          ]
         }
-      }
-    },
-    "approvedAt": {
+      },
       "type": [
-        "date-time",
+        "object",
         "null"
       ]
     },
-    "sentAt": {
+    "status": {
       "type": [
-        "date-time",
+        "string",
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,28 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "type": {
-      "type": "string"
-    },
-    "visitorId": {
-      "type": "string"
-    },
-    "createdAt": {
-      "type": "string"
-    },
-    "contactId": {
-      "type": "string"
-    },
-    "V_IPAddress": {
-      "type": "string"
-    },
-    "V_LastVisitDateAndTime": {
-      "type": "date-time"
-    },
-    "id": {
-      "type": "string"
-    },
     "V_Browser_Type": {
       "type": "string"
     },
@@ -38,10 +16,25 @@
     "V_CountryFromIP": {
       "type": "string"
     },
+    "V_CountryName": {
+      "type": "string"
+    },
+    "V_Current_Total_Pages": {
+      "type": "integer"
+    },
+    "V_Current_Visit_Length": {
+      "type": "integer"
+    },
     "V_FirstPageInVisit": {
       "type": "string"
     },
+    "V_FirstVisitDateAndTime": {
+      "type": "date-time"
+    },
     "V_HostName": {
+      "type": "string"
+    },
+    "V_IPAddress": {
       "type": "string"
     },
     "V_ISPFromIP": {
@@ -49,6 +42,15 @@
     },
     "V_LastPageInVisit": {
       "type": "string"
+    },
+    "V_LastVisitDateAndTime": {
+      "type": "date-time"
+    },
+    "V_LatitudeFromIP": {
+      "type": "number"
+    },
+    "V_LongitudeFromIP": {
+      "type": "number"
     },
     "V_Name": {
       "type": "string"
@@ -58,24 +60,6 @@
     },
     "V_TimeZone": {
       "type": "string"
-    },
-    "currentStatus": {
-      "type": "string"
-    },
-    "externalId": {
-      "type": "string"
-    },
-    "V_CountryName": {
-      "type": "string"
-    },
-    "V_ZipCodeFromIP": {
-      "type": "string"
-    },
-    "V_Current_Total_Pages": {
-      "type": "integer"
-    },
-    "V_Current_Visit_Length": {
-      "type": "integer"
     },
     "V_TimeZoneOffsetMin": {
       "type": "integer"
@@ -89,14 +73,30 @@
     "V_Total_Visits": {
       "type": "integer"
     },
-    "V_FirstVisitDateAndTime": {
-      "type": "date-time"
+    "V_ZipCodeFromIP": {
+      "type": "string"
     },
-    "V_LatitudeFromIP": {
-      "type": "number"
+    "contactId": {
+      "type": "string"
     },
-    "V_LongitudeFromIP": {
-      "type": "number"
+    "createdAt": {
+      "type": "string"
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "visitorId": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

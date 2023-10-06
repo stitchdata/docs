@@ -1,21 +1,18 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "LinkedTransactionID": {
-      "type": [
-        "string"
-      ]
-    },
-    "Status": {
+    "ContactID": {
       "type": [
         "null",
         "string"
       ]
     },
-    "Type": {
+    "LinkedTransactionID": {
+      "type": [
+        "string"
+      ]
+    },
+    "SourceLineItemID": {
       "type": [
         "null",
         "string"
@@ -27,19 +24,19 @@
         "string"
       ]
     },
-    "SourceLineItemID": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "SourceTransactionTypeCode": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ContactID": {
+    "Status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TargetLineItemID": {
       "type": [
         "null",
         "string"
@@ -51,7 +48,7 @@
         "string"
       ]
     },
-    "TargetLineItemID": {
+    "Type": {
       "type": [
         "null",
         "string"
@@ -64,5 +61,8 @@
       ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

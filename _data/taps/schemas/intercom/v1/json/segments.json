@@ -1,17 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "count": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "id": {
@@ -38,5 +37,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

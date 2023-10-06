@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "assigned_to": {
@@ -11,29 +10,9 @@
     "attachments": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "content_type": {
                 "type": [
                   "null",
@@ -52,14 +31,34 @@
                   "integer"
                 ]
               },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
               "width": {
                 "type": [
                   "null",
                   "integer"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -67,19 +66,15 @@
       ]
     },
     "author": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "id": {
+        "email": {
           "type": [
             "null",
             "string"
           ]
         },
-        "type": {
+        "id": {
           "type": [
             "null",
             "string"
@@ -91,21 +86,19 @@
             "string"
           ]
         },
-        "email": {
+        "type": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "body": {
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "conversation_id": {
+    "body": {
       "type": [
         "null",
         "string"
@@ -117,16 +110,22 @@
         "date-time"
       ]
     },
-    "conversation_updated_at": {
+    "conversation_id": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "conversation_total_parts": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "conversation_updated_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "created_at": {
@@ -159,6 +158,12 @@
         "string"
       ]
     },
+    "redacted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "type": {
       "type": [
         "null",
@@ -170,12 +175,7 @@
         "null",
         "date-time"
       ]
-    },
-    "redacted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

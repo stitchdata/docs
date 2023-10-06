@@ -1,26 +1,30 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "campaignId": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "itblInternal": {
+    "createdAt": {
       "type": [
         "null",
-        "object"
-      ],
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "eventName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "itblInternal": {
       "properties": {
         "documentCreatedAt": {
           "type": [
@@ -34,21 +38,13 @@
             "date-time"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "messageId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "templateId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "email": {
       "type": [
         "null",
         "string"
@@ -60,11 +56,15 @@
         "string"
       ]
     },
-    "eventName": {
+    "templateId": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

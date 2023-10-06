@@ -1,8 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "email_id": {
+    "campaign_id": {
       "type": [
         "null",
         "string"
@@ -14,26 +13,7 @@
         "string"
       ]
     },
-    "merge_fields": {},
-    "vip": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "reason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "campaign_id": {
+    "email_id": {
       "type": [
         "null",
         "string"
@@ -50,6 +30,26 @@
         "null",
         "boolean"
       ]
+    },
+    "merge_fields": {},
+    "reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "vip": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

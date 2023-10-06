@@ -1,125 +1,24 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "metadata": {
+    "application_fee_percent": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "canceled_at": {
-      "type": [
-        "null",
-        "date-time"
+        "number"
       ]
     },
-    "schedule": {
+    "billing": {
       "type": [
         "null",
         "string"
       ]
     },
-    "next_pending_invoice_item_invoice": {
+    "billing_cycle_anchor": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "cancel_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "invoice_customer_balance_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "consume_applied_balance_on_void": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "pending_invoice_item_interval": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "interval": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "interval_count": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "pause_collection": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "behavior": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resumes_at": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "transfer_data": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "amount_percent": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "destination": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "latest_invoice": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "billing_thresholds": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "amount_gte": {
           "type": [
@@ -133,81 +32,13 @@
             "boolean"
           ]
         }
-      }
-    },
-    "pending_setup_intent": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "collection_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "default_source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "default_payment_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "livemode": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "start": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "items": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
       },
       "type": [
         "null",
-        "array"
+        "object"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "trial_start": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "application_fee_percent": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "billing_cycle_anchor": {
+    "cancel_at": {
       "type": [
         "null",
         "date-time"
@@ -219,72 +50,73 @@
         "boolean"
       ]
     },
-    "tax_percent": {
+    "canceled_at": {
       "type": [
         "null",
-        "number"
+        "date-time"
+      ]
+    },
+    "collection_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_period_end": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_period_start": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "days_until_due": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "default_payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "default_source": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "discount": {
-      "end": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
       "coupon": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "metadata": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {}
-          },
-          "valid": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "livemode": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
           "amount_off": {
             "type": [
               "null",
               "integer"
             ]
           },
-          "redeem_by": {
+          "created": {
             "type": [
               "null",
               "date-time"
-            ]
-          },
-          "duration_in_months": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "percent_off_precise": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "max_redemptions": {
-            "type": [
-              "null",
-              "integer"
             ]
           },
           "currency": {
@@ -293,13 +125,13 @@
               "string"
             ]
           },
-          "name": {
+          "duration": {
             "type": [
               "null",
               "string"
             ]
           },
-          "times_redeemed": {
+          "duration_in_months": {
             "type": [
               "null",
               "integer"
@@ -311,7 +143,26 @@
               "string"
             ]
           },
-          "duration": {
+          "livemode": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "max_redemptions": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "metadata": {
+            "properties": {},
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "name": {
             "type": [
               "null",
               "string"
@@ -329,13 +180,35 @@
               "integer"
             ]
           },
-          "created": {
+          "percent_off_precise": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "redeem_by": {
             "type": [
               "null",
               "date-time"
             ]
+          },
+          "times_redeemed": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "valid": {
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
-        }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "customer": {
         "type": [
@@ -343,7 +216,7 @@
           "string"
         ]
       },
-      "start": {
+      "end": {
         "type": [
           "null",
           "date-time"
@@ -355,6 +228,12 @@
           "string"
         ]
       },
+      "start": {
+        "type": [
+          "null",
+          "date-time"
+        ]
+      },
       "subscription": {
         "type": [
           "null",
@@ -362,24 +241,207 @@
         ]
       }
     },
-    "current_period_end": {
+    "ended_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "plan": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice_customer_balance_settings": {
+      "properties": {
+        "consume_applied_balance_on_void": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "items": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "latest_invoice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "livemode": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "metadata": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "next_pending_invoice_item_invoice": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pause_collection": {
       "properties": {
+        "behavior": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resumes_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "pending_invoice_item_interval": {
+      "properties": {
+        "interval": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "pending_setup_intent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "plan": {
+      "properties": {
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "aggregate_usage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "billing_scheme": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "livemode": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "metadata": {
+          "properties": {},
           "type": [
             "null",
             "object"
-          ],
-          "properties": {}
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
         },
         "product": {
           "type": [
@@ -393,47 +455,14 @@
             "string"
           ]
         },
-        "currency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "livemode": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "tiers_mode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "id": {
+        "statement_descriptor": {
           "type": [
             "null",
             "string"
           ]
         },
         "tiers": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "integer",
-              "object"
-            ],
             "properties": {
               "flat_amount": {
                 "type": [
@@ -453,16 +482,19 @@
                   "integer"
                 ]
               }
-            }
-          }
-        },
-        "created": {
+            },
+            "type": [
+              "null",
+              "integer",
+              "object"
+            ]
+          },
           "type": [
             "null",
-            "date-time"
+            "array"
           ]
         },
-        "nickname": {
+        "tiers_mode": {
           "type": [
             "null",
             "string"
@@ -474,52 +506,10 @@
             "string"
           ]
         },
-        "interval_count": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "interval": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "aggregate_usage": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "trial_period_days": {
           "type": [
             "null",
             "integer"
-          ]
-        },
-        "billing_scheme": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "statement_descriptor": {
-          "type": [
-            "null",
-            "string"
           ]
         },
         "usage_type": {
@@ -527,19 +517,11 @@
             "null",
             "string"
           ]
-        },
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
-    },
-    "billing": {
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
     "quantity": {
@@ -548,10 +530,22 @@
         "integer"
       ]
     },
-    "days_until_due": {
+    "schedule": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "start": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "status": {
@@ -560,28 +554,30 @@
         "string"
       ]
     },
-    "created": {
+    "tax_percent": {
       "type": [
         "null",
-        "date-time"
+        "number"
       ]
     },
-    "ended_at": {
+    "transfer_data": {
+      "properties": {
+        "amount_percent": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "destination": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "customer": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "current_period_start": {
-      "type": [
-        "null",
-        "date-time"
+        "object"
       ]
     },
     "trial_end": {
@@ -590,10 +586,10 @@
         "date-time"
       ]
     },
-    "object": {
+    "trial_start": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "updated": {
@@ -602,5 +598,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

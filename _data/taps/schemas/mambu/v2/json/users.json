@@ -1,32 +1,9 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "access": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "can_manage_entities_assigned_to_other_officers": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "mambu_access": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
         "administrator_access": {
           "type": [
             "null",
@@ -39,20 +16,16 @@
             "boolean"
           ]
         },
-        "permissions": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              }
-            },
-            {
-              "type": "null"
-            }
+        "can_manage_all_branches": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "can_manage_entities_assigned_to_other_officers": {
+          "type": [
+            "null",
+            "string"
           ]
         },
         "credit_officer_access": {
@@ -61,13 +34,7 @@
             "boolean"
           ]
         },
-        "can_manage_all_branches": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "support_access": {
+        "mambu_access": {
           "type": [
             "null",
             "boolean"
@@ -76,9 +43,7 @@
         "managed_branches": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": "object",
                 "additionalProperties": false,
                 "properties": {
                   "branch_key": {
@@ -87,12 +52,36 @@
                       "string"
                     ]
                   }
-                }
-              }
+                },
+                "type": "object"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
+          ]
+        },
+        "permissions": {
+          "anyOf": [
+            {
+              "items": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "support_access": {
+          "type": [
+            "null",
+            "boolean"
           ]
         },
         "teller_access": {
@@ -101,33 +90,13 @@
             "boolean"
           ]
         }
-      }
-    },
-    "notes": {
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "last_logged_in_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "home_phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "language": {
+    "assigned_branch_key": {
       "type": [
         "null",
         "string"
@@ -139,72 +108,10 @@
         "date-time"
       ]
     },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assigned_branch_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "mobile_phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "two_factor_authentication": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "username": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "field_set_id": {
@@ -225,13 +132,106 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "home_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_logged_in_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "two_factor_authentication": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "user_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

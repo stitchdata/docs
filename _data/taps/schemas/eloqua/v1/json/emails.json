@@ -1,69 +1,178 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "archive": {
+      "type": "boolean"
+    },
+    "bounceBackEmail": {
       "type": "string"
     },
-    "type": {
+    "contentSections": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "createdBy": {
       "type": "string"
     },
     "currentStatus": {
       "type": "string"
     },
-    "name": {
+    "depth": {
       "type": "string"
     },
     "description": {
       "type": "string"
     },
-    "permissions": {
+    "dynamicContents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "defaultContentSection": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "string"
+          },
+          "rules": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "emailFooterId": {
       "type": "string"
     },
-    "createdBy": {
+    "emailGroupId": {
       "type": "string"
     },
-    "createdAt": {
-      "type": "date-time"
-    },
-    "updatedBy": {
+    "emailHeaderId": {
       "type": "string"
     },
-    "updatedAt": {
-      "type": "date-time"
-    },
-    "accessedAt": {
-      "type": "date-time"
-    },
-    "depth": {
+    "encodingId": {
       "type": "string"
     },
-    "subject": {
+    "fieldMerges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowUrlsInValue": {
+            "type": "string"
+          },
+          "contactFieldId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "defaultValue": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "eventSessionFieldId": {
+            "type": "string"
+          },
+          "fieldConditions": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "mergeType": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "syntax": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "files": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "folderId": {
       "type": "string"
     },
-    "senderName": {
-      "type": "string"
-    },
-    "senderEmail": {
-      "type": "string"
-    },
-    "replyToName": {
-      "type": "string"
-    },
-    "replyToEmail": {
-      "type": "string"
-    },
-    "bounceBackEmail": {
-      "type": "string"
-    },
-    "virtualMTAId": {
-      "type": "string"
+    "forms": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
     },
     "htmlContent": {
-      "type": "object",
       "additionalProperties": false,
       "properties": {
-        "html": {
+        "contentSource": {
           "type": [
             "null",
             "string"
@@ -75,19 +184,19 @@
             "string"
           ]
         },
+        "docType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "documentDescription": {
           "type": [
             "null",
             "string"
           ]
         },
-        "contentSource": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "docType": {
+        "html": {
           "type": [
             "null",
             "string"
@@ -100,10 +209,10 @@
           ]
         },
         "metaTags": {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         "root": {
           "type": [
@@ -123,37 +232,59 @@
             "string"
           ]
         }
-      }
+      },
+      "type": "object"
     },
-    "plainText": {
-      "type": "string"
-    },
-    "isPlainTextEditable": {
-      "type": "string"
-    },
-    "sendPlainTextOnly": {
-      "type": "string"
-    },
-    "isTracked": {
-      "type": "string"
-    },
-    "layout": {
-      "type": "string"
-    },
-    "style": {
-      "type": "string"
-    },
-    "forms": {
-      "type": "array",
+    "hyperlinks": {
       "items": {
-        "type": "object",
-        "properties": {}
-      }
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "hyperlinkType": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "referencedEntityId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
     },
     "images": {
-      "type": "array",
       "items": {
-        "type": "object",
         "additionalProperties": false,
         "properties": {
           "createdAt": {
@@ -201,212 +332,81 @@
           "updatedBy": {
             "type": "string"
           }
-        }
-      }
-    },
-    "hyperlinks": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "createdAt": {
-            "type": "date-time"
-          },
-          "createdBy": {
-            "type": "string"
-          },
-          "depth": {
-            "type": "string"
-          },
-          "folderId": {
-            "type": "string"
-          },
-          "href": {
-            "type": "string"
-          },
-          "hyperlinkType": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "referencedEntityId": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "date-time"
-          },
-          "updatedBy": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "contentSections": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {}
-      }
-    },
-    "dynamicContents": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "createdAt": {
-            "type": "date-time"
-          },
-          "createdBy": {
-            "type": "string"
-          },
-          "defaultContentSection": {
-            "type": "string"
-          },
-          "depth": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "folderId": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "permissions": {
-            "type": "string"
-          },
-          "rules": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "date-time"
-          },
-          "updatedBy": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "landingPages": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {}
-      }
-    },
-    "files": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {}
-      }
-    },
-    "emailHeaderId": {
-      "type": "string"
-    },
-    "emailFooterId": {
-      "type": "string"
-    },
-    "emailGroupId": {
-      "type": "string"
-    },
-    "encodingId": {
-      "type": "string"
-    },
-    "fieldMerges": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "createdAt": {
-            "type": "date-time"
-          },
-          "createdBy": {
-            "type": "string"
-          },
-          "allowUrlsInValue": {
-            "type": "string"
-          },
-          "contactFieldId": {
-            "type": "string"
-          },
-          "defaultValue": {
-            "type": "string"
-          },
-          "depth": {
-            "type": "string"
-          },
-          "eventId": {
-            "type": "string"
-          },
-          "eventSessionFieldId": {
-            "type": "string"
-          },
-          "fieldConditions": {
-            "type": "string"
-          },
-          "folderId": {
-            "type": "string"
-          },
-          "id": {
-            "type": "string"
-          },
-          "mergeType": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "syntax": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "date-time"
-          },
-          "updatedBy": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "archive": {
-      "type": "boolean"
-    },
-    "folderId": {
-      "type": "string"
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "isContentProtected": {
       "type": "boolean"
     },
+    "isPlainTextEditable": {
+      "type": "string"
+    },
     "isPrivate": {
       "type": "boolean"
+    },
+    "isTracked": {
+      "type": "string"
+    },
+    "landingPages": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "layout": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "string"
+    },
+    "plainText": {
+      "type": "string"
     },
     "renderMode": {
       "type": "string"
     },
+    "replyToEmail": {
+      "type": "string"
+    },
+    "replyToName": {
+      "type": "string"
+    },
+    "sendPlainTextOnly": {
+      "type": "string"
+    },
+    "senderEmail": {
+      "type": "string"
+    },
+    "senderName": {
+      "type": "string"
+    },
     "sourceTemplateId": {
       "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "virtualMTAId": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

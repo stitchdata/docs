@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "accountsViewId": {
       "type": [
         "null",
@@ -55,6 +49,12 @@
         "date-time"
       ]
     },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "currentSignInAt": {
       "type": [
         "null",
@@ -98,22 +98,9 @@
       ]
     },
     "duties": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "duty_type": {
             "type": [
               "null",
@@ -125,9 +112,22 @@
               "null",
               "integer"
             ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "email": {
       "type": [
@@ -151,6 +151,11 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
       ]
     },
     "inboundBridgePhone": {
@@ -229,6 +234,12 @@
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "mailboxId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "meetingEngagementNotificationEnabled": {
@@ -345,6 +356,12 @@
         "string"
       ]
     },
+    "profileId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "prospectsViewId": {
       "type": [
         "null",
@@ -358,6 +375,12 @@
       ]
     },
     "reportsViewId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "roleId": {
       "type": [
         "null",
         "integer"
@@ -429,6 +452,12 @@
         "date-time"
       ]
     },
+    "updaterId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "userGuid": {
       "type": [
         "null",
@@ -458,36 +487,7 @@
         "null",
         "boolean"
       ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mailboxId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "profileId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "roleId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updaterId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

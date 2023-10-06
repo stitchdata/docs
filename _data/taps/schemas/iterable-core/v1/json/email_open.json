@@ -1,9 +1,23 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "campaignId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "city": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contentId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "country": {
       "type": [
         "null",
@@ -16,23 +30,25 @@
         "date-time"
       ]
     },
-    "city": {
+    "email": {
       "type": [
         "null",
         "string"
       ]
     },
-    "campaignId": {
+    "eventName": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "ip": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "itblInternal": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "documentCreatedAt": {
           "type": [
@@ -46,21 +62,13 @@
             "date-time"
           ]
         }
-      }
-    },
-    "ip": {
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "contentId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "eventName": {
+    "messageId": {
       "type": [
         "null",
         "string"
@@ -72,19 +80,7 @@
         "string"
       ]
     },
-    "userAgentDevice": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "messageId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "userAgent": {
+    "region": {
       "type": [
         "null",
         "string"
@@ -96,17 +92,21 @@
         "integer"
       ]
     },
-    "region": {
+    "userAgent": {
       "type": [
         "null",
         "string"
       ]
     },
-    "email": {
+    "userAgentDevice": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

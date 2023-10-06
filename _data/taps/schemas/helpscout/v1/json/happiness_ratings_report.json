@@ -1,28 +1,20 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "thread_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "conversation_id": {
       "type": [
         "integer"
       ]
     },
-    "thread_created_at": {
+    "rating_comments": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "rating_id": {
+    "rating_created_at": {
       "type": [
-        "null",
-        "integer"
+        "date-time"
       ]
     },
     "rating_customer_id": {
@@ -36,15 +28,10 @@
         "string"
       ]
     },
-    "rating_comments": {
+    "rating_id": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "rating_created_at": {
-      "type": [
-        "date-time"
+        "integer"
       ]
     },
     "rating_user_id": {
@@ -59,11 +46,24 @@
         "string"
       ]
     },
+    "thread_created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "thread_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "type": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

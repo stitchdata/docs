@@ -1,98 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "contact": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "list": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "form": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "seriesid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "udate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "responder": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sync": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "unsubreason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "campaign": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "message": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ip_4sub": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sourceid": {
+    "automation": {
       "type": [
         "null",
         "integer"
@@ -104,13 +13,19 @@
         "integer"
       ]
     },
-    "ip4_last": {
+    "campaign": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "ip_4unsub": {
+    "contact": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_by": {
       "type": [
         "null",
         "integer"
@@ -122,25 +37,13 @@
         "date-time"
       ]
     },
-    "updated_timestamp": {
+    "first_name": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "created_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "unsubscribe_automation": {
+    "form": {
       "type": [
         "null",
         "integer"
@@ -152,11 +55,108 @@
         "integer"
       ]
     },
-    "automation": {
+    "ip4_last": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "ip_4sub": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ip_4unsub": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "list": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "responder": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "seriesid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sourceid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sync": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "udate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "unsubreason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unsubscribe_automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

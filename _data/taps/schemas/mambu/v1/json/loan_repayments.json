@@ -1,32 +1,25 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "parent_account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "due_date": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "principal_due": {
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fees_due": {
       "type": [
         "null",
         "number"
       ]
     },
-    "principal_paid": {
+    "fees_paid": {
       "type": [
         "null",
         "number"
@@ -44,16 +37,10 @@
         "number"
       ]
     },
-    "fees_due": {
+    "parent_account_key": {
       "type": [
         "null",
-        "number"
-      ]
-    },
-    "fees_paid": {
-      "type": [
-        "null",
-        "number"
+        "string"
       ]
     },
     "penalty_due": {
@@ -68,22 +55,22 @@
         "number"
       ]
     },
+    "principal_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "principal_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "state": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "tax_interest_due": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "tax_interest_paid": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "tax_fees_due": {
@@ -93,6 +80,18 @@
       ]
     },
     "tax_fees_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_interest_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_interest_paid": {
       "type": [
         "null",
         "number"
@@ -110,5 +109,6 @@
         "number"
       ]
     }
-  }
+  },
+  "type": "object"
 }

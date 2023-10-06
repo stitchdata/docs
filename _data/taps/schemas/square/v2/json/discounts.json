@@ -1,20 +1,20 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "discount_data": {
+    "absent_at_location_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "discount_data": {
       "properties": {
         "amount_money": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "amount": {
               "type": [
@@ -28,7 +28,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "application_method": {
           "type": [
@@ -37,6 +41,12 @@
           ]
         },
         "discount_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "label_color": {
           "type": [
             "null",
             "string"
@@ -54,7 +64,7 @@
             "string"
           ]
         },
-        "label_color": {
+        "percentage": {
           "type": [
             "null",
             "string"
@@ -65,14 +75,12 @@
             "null",
             "boolean"
           ]
-        },
-        "percentage": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "id": {
       "type": [
@@ -85,18 +93,6 @@
         "null",
         "boolean"
       ]
-    },
-    "absent_at_location_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
     },
     "present_at_all_locations": {
       "type": [
@@ -122,5 +118,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

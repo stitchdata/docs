@@ -1,92 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "sender_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "send_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "num_retries": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "loan_account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "destination": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deposit_account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "failure_cause": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reference_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "group_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "repayment_key": {
       "type": [
         "null",
         "string"
@@ -98,42 +13,16 @@
         "string"
       ]
     },
-    "failure_reason": {
+    "creation_date": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "event": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "template_key": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "custom_field_sets": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "custom_field_set_id": {
@@ -145,9 +34,7 @@
               "custom_field_values": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "custom_field_id": {
@@ -162,21 +49,134 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
                   }
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "deposit_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "destination": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "failure_cause": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "failure_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "loan_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "num_retries": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "repayment_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "send_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "sender_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "template_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

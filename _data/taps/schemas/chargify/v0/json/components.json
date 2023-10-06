@@ -1,16 +1,36 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "archived": {
       "type": [
         "null",
-        "integer"
+        "boolean"
       ]
     },
-    "name": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "default_price_point_id": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "default_price_point_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "downgrade_credit": {
       "type": [
         "null",
         "string"
@@ -22,31 +42,7 @@
         "string"
       ]
     },
-    "pricing_scheme": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "unit_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "unit_price": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "product_family_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "price_per_unit_in_cents": {
+    "id": {
       "type": [
         "null",
         "integer"
@@ -58,28 +54,16 @@
         "string"
       ]
     },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "taxable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "description": {
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "default_price_point_id": {
+    "price_per_unit_in_cents": {
       "type": [
         "null",
-        "number"
+        "integer"
       ]
     },
     "price_point_count": {
@@ -94,69 +78,10 @@
         "string"
       ]
     },
-    "tax_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recurring": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "upgrade_charge": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "downgrade_credit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "default_price_point_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "product_family_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "prices": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
           "component_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "starting_quantity": {
             "type": [
               "null",
               "integer"
@@ -168,10 +93,16 @@
               "integer"
             ]
           },
-          "unit_price": {
+          "formatted_unit_price": {
             "type": [
               "null",
               "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
             ]
           },
           "price_point_id": {
@@ -180,14 +111,83 @@
               "integer"
             ]
           },
-          "formatted_unit_price": {
+          "starting_quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unit_price": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pricing_scheme": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_family_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "product_family_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "unit_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unit_price": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "upgrade_charge": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

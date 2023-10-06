@@ -1,11 +1,32 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "cdate": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "events": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "listid": {
@@ -20,49 +41,28 @@
         "string"
       ]
     },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "events": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      ]
-    },
     "sources": {
       "anyOf": [
         {
           "type": "null"
         },
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         }
       ]
     },
-    "id": {
+    "url": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

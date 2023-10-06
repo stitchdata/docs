@@ -1,15 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "campaignId": {
       "type": [
         "null",
@@ -28,23 +18,37 @@
         "integer"
       ]
     },
+    "channelId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "contentId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "espName": {
       "type": [
         "null",
         "string"
       ]
     },
-    "productRecommendationCount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "itblInternal": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "documentCreatedAt": {
           "type": [
@@ -58,7 +62,23 @@
             "date-time"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "messageBusId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "messageId": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "messageTypeId": {
       "type": [
@@ -66,64 +86,31 @@
         "integer"
       ]
     },
-    "transactionalData": {
+    "productRecommendationCount": {
       "type": [
         "null",
-        "object"
-      ],
+        "integer"
+      ]
+    },
+    "templateId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "transactionalData": {
       "properties": {
-        "inventory": {
+        "campaignId": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "eventName": {
+        "categories": {
+          "items": {},
           "type": [
             "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "sku": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "price": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "product_type": {
-          "type": [
-            "null",
-            "string"
+            "array"
           ]
         },
         "compare_at_price": {
@@ -132,44 +119,31 @@
             "number"
           ]
         },
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "templateId": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "product_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "categories": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {}
-        },
         "createdAt": {
           "type": [
             "null",
             "date-time"
           ]
         },
-        "campaignId": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "discount": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "vendor": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "eventName": {
           "type": [
             "null",
             "string"
@@ -181,10 +155,16 @@
             "date-time"
           ]
         },
-        "discount": {
+        "handle": {
           "type": [
             "null",
-            "integer"
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
           ]
         },
         "imageUrl": {
@@ -193,11 +173,13 @@
             "string"
           ]
         },
-        "itblInternal": {
+        "inventory": {
           "type": [
             "null",
-            "object"
-          ],
+            "integer"
+          ]
+        },
+        "itblInternal": {
           "properties": {
             "documentCreatedAt": {
               "type": [
@@ -211,51 +193,69 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "handle": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "price": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sku": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "templateId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vendor": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "contentId": {
+      },
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "messageId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "messageBusId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "templateId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "channelId": {
-      "type": [
-        "null",
-        "integer"
+        "object"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

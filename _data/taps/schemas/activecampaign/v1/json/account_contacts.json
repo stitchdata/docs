@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "account": {
@@ -14,19 +13,7 @@
         "integer"
       ]
     },
-    "job_title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_timestamp": {
       "type": [
         "null",
         "date-time"
@@ -37,6 +24,19 @@
         "null",
         "integer"
       ]
+    },
+    "job_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

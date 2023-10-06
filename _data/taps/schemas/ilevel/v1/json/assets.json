@@ -1,86 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "acquisition_as_of": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "type_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "investment_thesis": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object_type_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "excel_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "calendar_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "has_acquisition_as_of": {
-      "type": [
-        "null",
-        "boolean"
+        "date-time"
       ]
     },
     "acquisition_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "initial_period": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "acquisition_as_of": {
       "type": [
         "null",
         "date-time"
@@ -92,10 +19,10 @@
         "integer"
       ]
     },
-    "lead_fund_id": {
+    "calendar_type": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "currency_code": {
@@ -104,10 +31,28 @@
         "string"
       ]
     },
-    "url": {
+    "description": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_acquisition_as_of": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "industry_id": {
@@ -116,29 +61,56 @@
         "integer"
       ]
     },
+    "initial_period": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "investment_thesis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "is_soft_deleted": {
+      "default": false,
       "type": [
         "null",
         "boolean"
-      ],
-      "default": false
+      ]
     },
-    "period_mapping": {
+    "last_modified_date": {
       "type": [
         "null",
-        "object"
-      ],
+        "date-time"
+      ]
+    },
+    "lead_fund_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "period_mapping": {
       "additionalProperties": false,
       "properties": {
         "fiscal_period_mapping": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "additionalProperties": false,
                 "properties": {
                   "calendar_period": {
@@ -177,35 +149,63 @@
                       "integer"
                     ]
                   },
+                  "is_calendar_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "is_fiscal_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
                   "object_id": {
                     "type": [
                       "null",
                       "integer"
                     ]
-                  },
-                  "is_fiscal_year_end": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ],
-                    "default": false
-                  },
-                  "is_calendar_year_end": {
-                    "type": [
-                      "null",
-                      "boolean"
-                    ],
-                    "default": false
                   }
-                }
-              }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

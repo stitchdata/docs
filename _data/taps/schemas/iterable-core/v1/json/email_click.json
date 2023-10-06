@@ -1,13 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "country": {
+    "campaignId": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "city": {
@@ -16,17 +12,49 @@
         "string"
       ]
     },
-    "campaignId": {
+    "contentId": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "itblInternal": {
+    "country": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "eventName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hrefIndex": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "itblInternal": {
       "properties": {
         "documentCreatedAt": {
           "type": [
@@ -40,24 +68,10 @@
             "date-time"
           ]
         }
-      }
-    },
-    "ip": {
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "contentId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "userAgentDevice": {
-      "type": [
-        "null",
-        "string"
+        "object"
       ]
     },
     "messageId": {
@@ -66,13 +80,7 @@
         "string"
       ]
     },
-    "hrefIndex": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "userAgent": {
+    "region": {
       "type": [
         "null",
         "string"
@@ -90,29 +98,21 @@
         "string"
       ]
     },
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "region": {
+    "userAgent": {
       "type": [
         "null",
         "string"
       ]
     },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "eventName": {
+    "userAgentDevice": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

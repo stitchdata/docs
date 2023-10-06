@@ -1,6 +1,23 @@
 {
-  "type": "object",
   "properties": {
+    "contacts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "keyword": {
       "type": [
         "null",
@@ -13,10 +30,10 @@
         "string"
       ]
     },
-    "country": {
+    "leads": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "visits": {
@@ -24,24 +41,7 @@
         "null",
         "integer"
       ]
-    },
-    "contacts": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "leads": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

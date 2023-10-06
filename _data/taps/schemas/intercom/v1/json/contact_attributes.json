@@ -1,23 +1,43 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "type": {
+    "admin_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "model": {
+    "api_writable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "data_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "description": {
       "type": [
         "null",
         "string"
@@ -35,34 +55,34 @@
         "string"
       ]
     },
-    "description": {
+    "model": {
       "type": [
         "null",
         "string"
       ]
     },
-    "data_type": {
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
     "options": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "api_writable": {
+      },
       "type": [
         "null",
-        "boolean"
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "ui_writable": {
@@ -71,35 +91,15 @@
         "boolean"
       ]
     },
-    "custom": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "admin_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

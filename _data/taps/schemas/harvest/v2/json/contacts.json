@@ -1,49 +1,18 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "client_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "title": {
+    "created_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone_office": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone_mobile": {
       "type": [
         "null",
         "string"
@@ -55,10 +24,40 @@
         "string"
       ]
     },
-    "created_at": {
+    "first_name": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_mobile": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_office": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -67,5 +66,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

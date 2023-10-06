@@ -1,31 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "archived_at": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "default": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "pricing_scheme": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "component_id": {
@@ -34,54 +12,40 @@
         "integer"
       ]
     },
-    "handle": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "archived_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "updated_at": {
+    "default": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
+      ]
+    },
+    "handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "prices": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
           "component_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "starting_quantity": {
             "type": [
               "null",
               "integer"
@@ -93,14 +57,50 @@
               "integer"
             ]
           },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "starting_quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "unit_price": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pricing_scheme": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

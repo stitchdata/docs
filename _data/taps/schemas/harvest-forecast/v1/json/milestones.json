@@ -1,6 +1,12 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -13,10 +19,10 @@
         "string"
       ]
     },
-    "date": {
+    "project_id": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
     "updated_at": {
@@ -30,13 +36,7 @@
         "null",
         "integer"
       ]
-    },
-    "project_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

@@ -1,11 +1,22 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
+    "activated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
-    "name": {
-      "type": "string"
+    "active_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
     "default_currency": {
       "type": [
@@ -13,31 +24,40 @@
         "string"
       ]
     },
-    "locale": {
+    "email": {
+      "type": "string"
+    },
+    "has_created_company": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "icon_url": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "is_admin": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_you": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "lang": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "email": {
-      "type": "string"
-    },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "activated": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "last_login": {
@@ -56,10 +76,10 @@
         }
       ]
     },
-    "created": {
+    "locale": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "modified": {
@@ -68,22 +88,25 @@
         "date-time"
       ]
     },
-    "signup_flow_variation": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
       "type": [
         "null",
         "string"
       ]
     },
-    "has_created_company": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_admin": {
+    "role_id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "signup_flow_variation": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "timezone_name": {
@@ -97,30 +120,7 @@
         "null",
         "string"
       ]
-    },
-    "active_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "role_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "icon_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_you": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

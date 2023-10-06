@@ -1,11 +1,46 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "item": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "keyname": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "owner": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "section": {
@@ -14,10 +49,22 @@
         "string"
       ]
     },
-    "item": {
+    "udate": {
       "type": [
         "null",
-        "string"
+        "date-time"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "userid": {
@@ -31,54 +78,7 @@
         "null",
         "string"
       ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "udate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "owner": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

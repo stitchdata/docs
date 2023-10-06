@@ -1,20 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "sid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_sid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "parent_sid": {
       "type": [
         "null",
         "string"
@@ -38,11 +25,24 @@
         "date-time"
       ]
     },
+    "parent_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "uri": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

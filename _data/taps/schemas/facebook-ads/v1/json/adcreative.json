@@ -1,29 +1,5 @@
 {
   "properties": {
-    "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object_story_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "image_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_id": {
       "type": [
         "null",
@@ -37,18 +13,13 @@
       ]
     },
     "adlabels": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "created_time": {
             "type": "date-time"
+          },
+          "id": {
+            "type": "string"
           },
           "name": {
             "type": "string"
@@ -56,10 +27,21 @@
           "updated_time": {
             "type": "date-time"
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "applink_treatment": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body": {
       "type": [
         "null",
         "string"
@@ -83,13 +65,7 @@
         "string"
       ]
     },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
+    "id": {
       "type": [
         "null",
         "string"
@@ -223,6 +199,18 @@
         ]
       }
     },
+    "image_hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "instagram_actor_id": {
       "type": [
         "null",
@@ -247,7 +235,25 @@
         "string"
       ]
     },
+    "link_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "object_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_story_id": {
       "type": [
         "null",
         "string"
@@ -255,12 +261,6 @@
     },
     "object_story_spec": {
       "properties": {
-        "page_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "instagram_actor_id": {
           "type": [
             "null",
@@ -276,18 +276,9 @@
               ]
             },
             "app_link_spec": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "android": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -301,16 +292,16 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "ios": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -321,16 +312,16 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "ipad": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -341,16 +332,16 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "iphone": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -361,10 +352,19 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "attachment_style": {
               "type": [
@@ -386,6 +386,12 @@
             },
             "call_to_action": {
               "properties": {
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
                 "value": {
                   "properties": {
                     "app_destination": {
@@ -453,12 +459,6 @@
                     "null",
                     "object"
                   ]
-                },
-                "type": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
                 }
               },
               "type": [
@@ -475,20 +475,14 @@
             "child_attachments": {
               "items": {
                 "properties": {
-                  "image_hash": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "link": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
                   "call_to_action": {
                     "properties": {
+                      "type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
                       "value": {
                         "properties": {
                           "app_destination": {
@@ -556,12 +550,6 @@
                           "null",
                           "object"
                         ]
-                      },
-                      "type": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
                       }
                     },
                     "type": [
@@ -570,12 +558,6 @@
                     ]
                   },
                   "caption": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "picture": {
                     "type": [
                       "null",
                       "string"
@@ -715,7 +697,25 @@
                       ]
                     }
                   },
+                  "image_hash": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "link": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
                   "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "picture": {
                     "type": [
                       "null",
                       "string"
@@ -744,16 +744,22 @@
                 "array"
               ]
             },
-            "multi_share_optimized": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "link": {
+            "description": {
               "type": [
                 "null",
                 "string"
+              ]
+            },
+            "event_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "force_single_link": {
+              "type": [
+                "null",
+                "boolean"
               ]
             },
             "image_crops": {
@@ -884,28 +890,16 @@
                 ]
               }
             },
-            "description": {
+            "image_hash": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "event_id": {
+            "link": {
               "type": [
                 "null",
                 "string"
-              ]
-            },
-            "force_single_link": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "multi_share_end_card": {
-              "type": [
-                "null",
-                "boolean"
               ]
             },
             "message": {
@@ -914,16 +908,16 @@
                 "string"
               ]
             },
-            "image_hash": {
+            "multi_share_end_card": {
               "type": [
                 "null",
-                "string"
+                "boolean"
               ]
             },
-            "picture": {
+            "multi_share_optimized": {
               "type": [
                 "null",
-                "string"
+                "boolean"
               ]
             },
             "name": {
@@ -944,14 +938,20 @@
                 "string"
               ]
             },
+            "picture": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
             "retailer_item_ids": {
+              "items": {
+                "type": "string"
+              },
               "type": [
                 "null",
                 "array"
-              ],
-              "items": {
-                "type": "string"
-              }
+              ]
             },
             "show_multiple_images": {
               "type": [
@@ -965,11 +965,13 @@
             "object"
           ]
         },
-        "photo_data": {
+        "page_id": {
           "type": [
             "null",
-            "object"
-          ],
+            "string"
+          ]
+        },
+        "photo_data": {
           "properties": {
             "branded_content_sponsor_page_id": {
               "type": [
@@ -1004,7 +1006,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "template_data": {
           "properties": {
@@ -1015,18 +1021,9 @@
               ]
             },
             "app_link_spec": {
-              "type": [
-                "null",
-                "object"
-              ],
               "properties": {
                 "android": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -1040,16 +1037,16 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "ios": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -1060,16 +1057,16 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "ipad": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -1080,16 +1077,16 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 },
                 "iphone": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
                   "items": {
-                    "type": "object",
                     "properties": {
                       "app_name": {
                         "type": "string"
@@ -1100,10 +1097,19 @@
                       "url": {
                         "type": "string"
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "attachment_style": {
               "type": [
@@ -1125,6 +1131,12 @@
             },
             "call_to_action": {
               "properties": {
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
                 "value": {
                   "properties": {
                     "app_destination": {
@@ -1192,12 +1204,6 @@
                     "null",
                     "object"
                   ]
-                },
-                "type": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
                 }
               },
               "type": [
@@ -1214,20 +1220,14 @@
             "child_attachments": {
               "items": {
                 "properties": {
-                  "image_hash": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "link": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
                   "call_to_action": {
                     "properties": {
+                      "type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
                       "value": {
                         "properties": {
                           "app_destination": {
@@ -1295,12 +1295,6 @@
                           "null",
                           "object"
                         ]
-                      },
-                      "type": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
                       }
                     },
                     "type": [
@@ -1309,12 +1303,6 @@
                     ]
                   },
                   "caption": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "picture": {
                     "type": [
                       "null",
                       "string"
@@ -1454,7 +1442,25 @@
                       ]
                     }
                   },
+                  "image_hash": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "link": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
                   "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "picture": {
                     "type": [
                       "null",
                       "string"
@@ -1483,16 +1489,22 @@
                 "array"
               ]
             },
-            "multi_share_optimized": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "link": {
+            "description": {
               "type": [
                 "null",
                 "string"
+              ]
+            },
+            "event_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "force_single_link": {
+              "type": [
+                "null",
+                "boolean"
               ]
             },
             "image_crops": {
@@ -1623,28 +1635,16 @@
                 ]
               }
             },
-            "description": {
+            "image_hash": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "event_id": {
+            "link": {
               "type": [
                 "null",
                 "string"
-              ]
-            },
-            "force_single_link": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "multi_share_end_card": {
-              "type": [
-                "null",
-                "boolean"
               ]
             },
             "message": {
@@ -1653,16 +1653,16 @@
                 "string"
               ]
             },
-            "image_hash": {
+            "multi_share_end_card": {
               "type": [
                 "null",
-                "string"
+                "boolean"
               ]
             },
-            "picture": {
+            "multi_share_optimized": {
               "type": [
                 "null",
-                "string"
+                "boolean"
               ]
             },
             "name": {
@@ -1683,14 +1683,20 @@
                 "string"
               ]
             },
+            "picture": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
             "retailer_item_ids": {
+              "items": {
+                "type": "string"
+              },
               "type": [
                 "null",
                 "array"
-              ],
-              "items": {
-                "type": "string"
-              }
+              ]
             },
             "show_multiple_images": {
               "type": [
@@ -1705,21 +1711,17 @@
           ]
         },
         "text_data": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "message": {
               "type": "string"
             }
-          }
-        },
-        "video_data": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "video_data": {
           "properties": {
             "additional_image_index": {
               "type": [
@@ -1741,6 +1743,12 @@
             },
             "call_to_action": {
               "properties": {
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
                 "value": {
                   "properties": {
                     "app_destination": {
@@ -1807,12 +1815,6 @@
                   "type": [
                     "null",
                     "object"
-                  ]
-                },
-                "type": {
-                  "type": [
-                    "null",
-                    "string"
                   ]
                 }
               },
@@ -1858,54 +1860,136 @@
               ]
             },
             "retailer_item_ids": {
+              "items": {
+                "type": "string"
+              },
               "type": [
                 "null",
                 "array"
-              ],
-              "items": {
-                "type": "string"
-              }
+              ]
             },
             "targeting": {
-              "excluded_custom_audiences": {
+              "age_max": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "age_min": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "app_install_state": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "audience_network_positions": {
                 "items": {
                   "type": [
                     "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
+                    "string"
+                  ]
                 },
                 "type": [
                   "null",
                   "array"
                 ]
               },
-              "messenger_positions": {
+              "behaviors": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
                 "type": [
                   "null",
                   "array"
-                ],
+                ]
+              },
+              "connections": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "custom_audiences": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "device_platforms": {
                 "items": {
                   "type": [
                     "null",
                     "string"
                   ]
-                }
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
               },
-              "locales": {
+              "education_statuses": {
                 "items": {
                   "type": [
                     "null",
@@ -1917,26 +2001,2000 @@
                   "array"
                 ]
               },
-              "connections": {
+              "excluded_connections": {
                 "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "id": {
                       "type": [
                         "null",
                         "string"
                       ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
                     }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "excluded_custom_audiences": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "excluded_geo_locations": {
+                "cities": {
+                  "items": {
+                    "properties": {
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "distance_unit": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "radius": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "region": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "region_id": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "countries": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "country_groups": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "custom_locations": {
+                  "items": {
+                    "properties": {
+                      "address_string": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "distance_unit": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "latitude": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "longitude": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "primary_city_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "radius": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "region_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "geo-markets": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "location_types": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "regions": {
+                  "items": {
+                    "properties": {
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "zips": {
+                  "items": {
+                    "properties": {
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "primary_city_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "region_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "excluded_publisher_categories": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "excluded_user_device": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "exclusions": {
+                "properties": {
+                  "behaviors": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "connections": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "custom_audiences": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "education_majors": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "excluded_connections": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "excluded_custom_audiences": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "family_statuses": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "friends_of_connections": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "generation": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "home_ownership": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "home_type": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "household_composition": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "income": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "industries": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "interests": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "life_events": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "moms": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "net_worth": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "politics": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "relationship_statuses": {
+                    "items": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "user_adclusters": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "work_employers": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "work_positions": {
+                    "items": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
                   }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "facebook_positions": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "family_statuses": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "flexible_spec": {
+                "items": {
+                  "properties": {
+                    "behaviors": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "connections": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "custom_audiences": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "education_majors": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "excluded_connections": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "excluded_custom_audiences": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "family_statuses": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "friends_of_connections": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "generation": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "home_ownership": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "home_type": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "household_composition": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "income": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "industries": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "interests": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "life_events": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "moms": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "net_worth": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "politics": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "relationship_statuses": {
+                      "items": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "user_adclusters": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "work_employers": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "work_positions": {
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "null",
+                              "string"
+                            ]
+                          }
+                        },
+                        "type": [
+                          "null",
+                          "object"
+                        ]
+                      },
+                      "type": [
+                        "null",
+                        "array"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "friends_of_connections": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "genders": {
+                "items": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "generation": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "geo_locations": {
+                "cities": {
+                  "items": {
+                    "properties": {
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "distance_unit": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "radius": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "region": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "region_id": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "countries": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "country_groups": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "custom_locations": {
+                  "items": {
+                    "properties": {
+                      "address_string": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "distance_unit": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "latitude": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "longitude": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "primary_city_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "radius": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "region_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "geo-markets": {
+                  "items": {
+                    "properties": {
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "location_types": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "regions": {
+                  "items": {
+                    "properties": {
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "zips": {
+                  "items": {
+                    "properties": {
+                      "country": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "primary_city_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "region_id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "home_ownership": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "home_type": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "income": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "industries": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
                 },
                 "type": [
                   "null",
@@ -1955,7 +4013,57 @@
                   "array"
                 ]
               },
-              "audience_network_positions": {
+              "interested_in": {
+                "items": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "interests": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "locales": {
+                "items": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "messenger_positions": {
                 "items": {
                   "type": [
                     "null",
@@ -1967,1183 +4075,103 @@
                   "array"
                 ]
               },
-              "exclusions": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "household_composition": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "home_type": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "friends_of_connections": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "family_statuses": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "work_positions": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "education_majors": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "life_events": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "moms": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "custom_audiences": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "interests": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "behaviors": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "connections": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "excluded_connections": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "user_adclusters": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "income": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "excluded_custom_audiences": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "work_employers": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "industries": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "net_worth": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "relationship_statuses": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "type": [
-                        "null",
-                        "integer"
-                      ]
-                    }
-                  },
-                  "generation": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "home_ownership": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  },
-                  "politics": {
-                    "items": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "id": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "array"
-                    ]
-                  }
-                }
-              },
-              "interests": {
+              "moms": {
                 "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "id": {
                       "type": [
                         "null",
                         "string"
                       ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
                     }
-                  }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
                 },
                 "type": [
                   "null",
                   "array"
                 ]
               },
-              "geo_locations": {
-                "regions": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    }
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "countries": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "cities": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "distance_unit": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "region": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "region_id": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "radius": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "location_types": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "zips": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "primary_city_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "region_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "custom_locations": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "address_string": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "distance_unit": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "latitude": {
-                        "type": [
-                          "null",
-                          "number"
-                        ]
-                      },
-                      "longitude": {
-                        "type": [
-                          "null",
-                          "number"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "primary_city_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "radius": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "region_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "country_groups": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                "geo-markets": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    }
-                  }
-                }
-              },
-              "excluded_geo_locations": {
-                "regions": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    }
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "countries": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "cities": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "distance_unit": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "region": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "region_id": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "radius": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "location_types": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "zips": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "primary_city_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "region_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "custom_locations": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "address_string": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "country": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "distance_unit": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "latitude": {
-                        "type": [
-                          "null",
-                          "number"
-                        ]
-                      },
-                      "longitude": {
-                        "type": [
-                          "null",
-                          "number"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "primary_city_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "radius": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      },
-                      "region_id": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "country_groups": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                },
-                "geo-markets": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
-                    "properties": {
-                      "key": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "name": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    }
-                  }
-                }
-              },
-              "work_positions": {
+              "net_worth": {
                 "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "id": {
                       "type": [
                         "null",
                         "string"
                       ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
                     }
-                  }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
                 },
                 "type": [
                   "null",
                   "array"
                 ]
               },
-              "education_statuses": {
+              "office_type": {
                 "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
                   "type": [
                     "null",
-                    "integer"
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "politics": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
                   ]
                 },
                 "type": [
@@ -3163,765 +4191,17 @@
                   "array"
                 ]
               },
-              "age_max": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "custom_audiences": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "device_platforms": {
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "age_min": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "facebook_positions": {
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "excluded_connections": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "flexible_spec": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "household_composition": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "home_type": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "friends_of_connections": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "family_statuses": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "work_positions": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "education_majors": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "life_events": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "moms": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "custom_audiences": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "interests": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "behaviors": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "connections": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "excluded_connections": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "user_adclusters": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "income": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "excluded_custom_audiences": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "work_employers": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "industries": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "net_worth": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "relationship_statuses": {
-                      "type": [
-                        "null",
-                        "array"
-                      ],
-                      "items": {
-                        "type": [
-                          "null",
-                          "integer"
-                        ]
-                      }
-                    },
-                    "generation": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "home_ownership": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    },
-                    "politics": {
-                      "items": {
-                        "type": [
-                          "null",
-                          "object"
-                        ],
-                        "properties": {
-                          "name": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          },
-                          "id": {
-                            "type": [
-                              "null",
-                              "string"
-                            ]
-                          }
-                        }
-                      },
-                      "type": [
-                        "null",
-                        "array"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "friends_of_connections": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "user_os": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
-              "user_device": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
-              "excluded_publisher_categories": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
-              "genders": {
-                "type": [
-                  "null",
-                  "array"
-                ],
+              "relationship_statuses": {
                 "items": {
                   "type": [
                     "null",
                     "integer"
                   ]
-                }
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
               },
               "targeting_optimization": {
                 "type": [
@@ -3931,357 +4211,79 @@
               },
               "user_adclusters": {
                 "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
                   "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
                     "id": {
                       "type": [
                         "null",
                         "string"
                       ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "generation": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
+                    },
                     "name": {
                       "type": [
                         "null",
                         "string"
                       ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
                     }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "behaviors": {
-                "items": {
+                  },
                   "type": [
                     "null",
                     "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "moms": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "home_ownership": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "office_type": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "home_type": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "family_statuses": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "relationship_statuses": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "integer"
                   ]
-                }
-              },
-              "industries": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
                 },
                 "type": [
                   "null",
                   "array"
                 ]
               },
-              "income": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "app_install_state": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "net_worth": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "politics": {
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "id": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                },
-                "type": [
-                  "null",
-                  "array"
-                ]
-              },
-              "interested_in": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                }
-              },
-              "excluded_user_device": {
-                "type": [
-                  "null",
-                  "array"
-                ],
+              "user_device": {
                 "items": {
                   "type": [
                     "null",
                     "string"
                   ]
-                }
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "user_os": {
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
+              "work_positions": {
+                "items": {
+                  "properties": {
+                    "id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
               }
             },
             "title": {
@@ -4296,7 +4298,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
       },
       "type": [
@@ -4335,16 +4341,8 @@
       ]
     },
     "template_url_spec": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "android": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "app_name": {
               "type": "string"
@@ -4355,24 +4353,24 @@
             "url": {
               "type": "string"
             }
-          }
-        },
-        "config": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "config": {
           "properties": {
             "app_id": {
               "type": "string"
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "ios": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "app_name": {
               "type": "string"
@@ -4383,13 +4381,13 @@
             "url": {
               "type": "string"
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "ipad": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "app_name": {
               "type": "string"
@@ -4400,13 +4398,13 @@
             "url": {
               "type": "string"
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "iphone": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "app_name": {
               "type": "string"
@@ -4417,13 +4415,13 @@
             "url": {
               "type": "string"
             }
-          }
-        },
-        "web": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "web": {
           "properties": {
             "should_fallback": {
               "type": "string"
@@ -4431,13 +4429,13 @@
             "url": {
               "type": "string"
             }
-          }
-        },
-        "windows_phone": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "windows_phone": {
           "properties": {
             "app_id": {
               "type": "string"
@@ -4448,9 +4446,17 @@
             "url": {
               "type": "string"
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "thumbnail_url": {
       "type": [
@@ -4458,7 +4464,7 @@
         "string"
       ]
     },
-    "image_hash": {
+    "title": {
       "type": [
         "null",
         "string"
@@ -4471,12 +4477,6 @@
       ]
     },
     "video_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "link_url": {
       "type": [
         "null",
         "string"

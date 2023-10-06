@@ -1,16 +1,24 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "html_url": {
+    "body": {
       "type": [
         "null",
         "string"
       ]
     },
-    "url": {
+    "commit_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "html_url": {
       "type": [
         "null",
         "string"
@@ -22,13 +30,13 @@
         "number"
       ]
     },
-    "node_id": {
+    "line": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "body": {
+    "node_id": {
       "type": [
         "null",
         "string"
@@ -46,61 +54,27 @@
         "number"
       ]
     },
-    "line": {
+    "updated_at": {
       "type": [
         "null",
-        "number"
+        "date-time"
       ]
     },
-    "commit_id": {
+    "url": {
       "type": [
         "null",
         "string"
       ]
     },
     "user": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "node_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "avatar_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "gravatar_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "html_url": {
+        "events_url": {
           "type": [
             "null",
             "string"
@@ -124,6 +98,60 @@
             "string"
           ]
         },
+        "gravatar_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "node_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "organizations_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "received_events_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "repos_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "site_admin": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "starred_url": {
           "type": [
             "null",
@@ -136,55 +164,27 @@
             "string"
           ]
         },
-        "organizations_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "repos_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "received_events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "type": {
           "type": [
             "null",
             "string"
           ]
         },
-        "site_admin": {
+        "url": {
           "type": [
             "null",
-            "boolean"
+            "string"
           ]
         }
-      }
-    },
-    "created_at": {
+      },
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
+        "object"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

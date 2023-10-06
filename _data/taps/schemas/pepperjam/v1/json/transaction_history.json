@@ -1,32 +1,30 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "publisher_id": {
-      "type": [
-        "null",
-        "integer"
+    "commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
       ]
     },
-    "transaction_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sale_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "order_id": {
+    "company": {
       "type": [
         "null",
         "string"
       ]
     },
-    "status": {
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "item_id": {
       "type": [
         "null",
         "string"
@@ -38,54 +36,10 @@
         "string"
       ]
     },
-    "transaction_type": {
+    "order_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "commission": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "publisher_commission": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "site_commission": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "sale_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
       ]
     },
     "process_date": {
@@ -94,31 +48,30 @@
         "date-time"
       ]
     },
-    "item_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "publisher": {
       "type": [
         "null",
         "string"
       ]
     },
+    "publisher_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "publisher_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "company": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "website_url": {
       "type": [
         "null",
         "string"
@@ -130,11 +83,58 @@
         "string"
       ]
     },
-    "group_id": {
+    "sale_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "sale_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "site_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_id": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "transaction_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "website_url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

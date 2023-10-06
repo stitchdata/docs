@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "_sdc_repository": {
@@ -10,40 +6,7 @@
         "string"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "user": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
     "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
       "type": [
         "null",
         "string"
@@ -61,7 +24,19 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "pull_request_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
       "type": [
         "null",
         "string"
@@ -72,6 +47,31 @@
         "null",
         "date-time"
       ]
+    },
+    "user": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

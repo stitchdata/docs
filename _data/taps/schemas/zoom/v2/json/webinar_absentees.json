@@ -1,15 +1,61 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "address": {
       "type": [
+        "null",
         "string"
       ]
     },
-    "webinar_uuid": {
+    "city": {
       "type": [
+        "null",
         "string"
+      ]
+    },
+    "comments": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "create_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_questions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "email": {
@@ -24,49 +70,36 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "industry": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "job_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "join_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "last_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "city": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "zip": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "industry": {
+    "no_of_employees": {
       "type": [
         "null",
         "string"
@@ -78,7 +111,7 @@
         "string"
       ]
     },
-    "job_title": {
+    "phone": {
       "type": [
         "null",
         "string"
@@ -96,44 +129,11 @@
         "string"
       ]
     },
-    "no_of_employees": {
+    "state": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "comments": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom_questions": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
     },
     "status": {
       "type": [
@@ -141,17 +141,17 @@
         "string"
       ]
     },
-    "create_time": {
+    "webinar_uuid": {
       "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
-    "join_url": {
+    "zip": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

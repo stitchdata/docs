@@ -1,9 +1,9 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "accountId": {
       "type": [
+        "null",
         "integer"
       ]
     },
@@ -98,25 +98,31 @@
       ]
     },
     "contactHistogram": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "array"
-        ],
         "items": {
           "type": [
             "integer"
           ]
-        }
-      }
+        },
+        "type": [
+          "array"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "createdAt": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "custom1": {
@@ -125,589 +131,7 @@
         "string"
       ]
     },
-    "custom2": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom3": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom4": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom5": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom6": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom7": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom8": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom9": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "custom10": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom11": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom12": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom13": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom14": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom15": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom16": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom17": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom18": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom19": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom20": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom21": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom22": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom23": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom24": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom25": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom26": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom27": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom28": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom29": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom30": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom31": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom32": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom33": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom34": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom35": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom36": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom37": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom38": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom39": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom40": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom41": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom42": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom43": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom44": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom45": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom46": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom47": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom48": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom49": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom50": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom51": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom52": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom53": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom54": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom55": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom56": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom57": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom58": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom59": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom60": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom61": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom62": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom63": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom64": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom65": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom66": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom67": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom68": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom69": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom70": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom71": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom72": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom73": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom74": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom75": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom76": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom77": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom78": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom79": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom80": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom81": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom82": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom83": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom84": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom85": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom86": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom87": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom88": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom89": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom90": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom91": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom92": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom93": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom94": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom95": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom96": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom97": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom98": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "custom99": {
       "type": [
         "null",
         "string"
@@ -773,6 +197,12 @@
         "string"
       ]
     },
+    "custom11": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "custom110": {
       "type": [
         "null",
@@ -828,6 +258,12 @@
       ]
     },
     "custom119": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom12": {
       "type": [
         "null",
         "string"
@@ -893,6 +329,12 @@
         "string"
       ]
     },
+    "custom13": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "custom130": {
       "type": [
         "null",
@@ -948,6 +390,12 @@
       ]
     },
     "custom139": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom14": {
       "type": [
         "null",
         "string"
@@ -1013,7 +461,565 @@
         "string"
       ]
     },
+    "custom15": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "custom150": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom16": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom17": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom18": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom19": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom20": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom21": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom22": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom23": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom24": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom25": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom26": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom27": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom28": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom29": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom3": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom30": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom31": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom32": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom33": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom34": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom35": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom36": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom37": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom38": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom39": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom40": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom41": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom42": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom43": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom44": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom45": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom46": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom47": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom48": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom49": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom50": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom51": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom52": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom53": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom54": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom55": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom56": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom57": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom58": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom59": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom6": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom60": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom61": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom62": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom63": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom64": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom65": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom66": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom67": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom68": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom69": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom7": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom70": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom71": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom72": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom73": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom74": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom75": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom76": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom77": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom78": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom79": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom8": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom80": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom81": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom82": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom83": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom84": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom85": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom86": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom87": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom88": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom89": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom9": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom90": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom91": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom92": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom93": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom94": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom95": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom96": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom97": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom98": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom99": {
       "type": [
         "null",
         "string"
@@ -1038,16 +1044,16 @@
       ]
     },
     "emails": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "emailsOptStatus": {
       "type": [
@@ -1140,16 +1146,21 @@
       ]
     },
     "homePhones": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
     },
     "jobStartDate": {
       "type": [
@@ -1194,16 +1205,16 @@
       ]
     },
     "mobilePhones": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "name": {
       "type": [
@@ -1242,16 +1253,28 @@
       ]
     },
     "otherPhones": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "ownerId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "personaId": {
+      "type": [
+        "null",
+        "integer"
+      ]
     },
     "personalNote1": {
       "type": [
@@ -1331,17 +1354,23 @@
         "string"
       ]
     },
-    "tags": {
+    "stageId": {
       "type": [
         "null",
-        "array"
-      ],
+        "integer"
+      ]
+    },
+    "tags": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "timeZone": {
       "type": [
@@ -1397,17 +1426,23 @@
         "date-time"
       ]
     },
-    "voipPhones": {
+    "updaterId": {
       "type": [
         "null",
-        "array"
-      ],
+        "integer"
+      ]
+    },
+    "voipPhones": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "websiteUrl1": {
       "type": [
@@ -1428,52 +1463,17 @@
       ]
     },
     "workPhones": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "accountId": {
+      },
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ownerId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "personaId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "stageId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updaterId": {
-      "type": [
-        "null",
-        "integer"
+        "array"
       ]
     }
-  }
+  },
+  "type": "object"
 }

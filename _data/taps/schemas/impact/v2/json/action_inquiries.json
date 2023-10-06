@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "action_id": {
@@ -35,9 +34,7 @@
     "comments": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "comment": {
@@ -58,8 +55,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -73,18 +72,18 @@
       ]
     },
     "expected_payout": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "final_payout": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "id": {
       "type": [
@@ -147,11 +146,11 @@
       ]
     },
     "transaction_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "transaction_date": {
       "type": [
@@ -165,5 +164,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

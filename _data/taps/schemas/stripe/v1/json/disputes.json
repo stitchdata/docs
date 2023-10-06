@@ -1,20 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "amount": {
       "type": [
         "null",
@@ -22,23 +7,23 @@
       ]
     },
     "balance_transactions": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "id": {
             "type": [
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "charge": {
       "type": [
@@ -59,145 +44,14 @@
       ]
     },
     "evidence": {
-      "type": [
-        "null",
-        "string",
-        "object"
-      ],
       "properties": {
-        "refund_policy": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "shipping_address": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "duplicate_charge_explanation": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "shipping_tracking_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "customer_signature": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "uncategorized_text": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cancellation_policy_disclosure": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "refund_policy_disclosure": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "receipt": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "customer_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "refund_refusal_explanation": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "cancellation_rebuttal": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "product_description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "shipping_date": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "customer_email_address": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "duplicate_charge_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "shipping_documentation": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "access_activity_log": {
           "type": [
             "null",
             "string"
           ]
         },
-        "customer_purchase_ip": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "service_date": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "shipping_carrier": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "service_documentation": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "duplicate_charge_documentation": {
+        "billing_address": {
           "type": [
             "null",
             "string"
@@ -209,7 +63,133 @@
             "string"
           ]
         },
+        "cancellation_policy_disclosure": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cancellation_rebuttal": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "customer_communication": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_purchase_ip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "duplicate_charge_documentation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "duplicate_charge_explanation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "duplicate_charge_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "receipt": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "refund_policy": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "refund_policy_disclosure": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "refund_refusal_explanation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "service_date": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "service_documentation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shipping_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shipping_carrier": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shipping_date": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shipping_documentation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "shipping_tracking_number": {
           "type": [
             "null",
             "string"
@@ -221,19 +201,20 @@
             "string"
           ]
         },
-        "billing_address": {
+        "uncategorized_text": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "evidence_details": {
+      },
       "type": [
         "null",
+        "string",
         "object"
-      ],
+      ]
+    },
+    "evidence_details": {
       "properties": {
         "due_by": {
           "type": [
@@ -259,7 +240,16 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
     },
     "is_charge_refundable": {
       "type": [
@@ -274,11 +264,17 @@
       ]
     },
     "metadata": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "reason": {
       "type": [
@@ -298,5 +294,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,29 +1,13 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "gid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "resource_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gid": {
       "type": [
         "null",
         "string"
@@ -35,20 +19,16 @@
         "string"
       ]
     },
-    "organization": {
+    "name": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "organization": {
       "additionalProperties": false,
       "properties": {
         "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
           "type": [
             "null",
             "string"
@@ -59,8 +39,18 @@
             "null",
             "string"
           ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "permalink_url": {
       "type": [
@@ -68,25 +58,17 @@
         "string"
       ]
     },
-    "users": {
+    "resource_type": {
       "type": [
         "null",
-        "array"
-      ],
+        "string"
+      ]
+    },
+    "users": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
           "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
             "type": [
               "null",
               "string"
@@ -97,9 +79,23 @@
               "null",
               "string"
             ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "visibility": {
       "type": [
@@ -107,5 +103,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

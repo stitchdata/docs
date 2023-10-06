@@ -1,54 +1,54 @@
 {
-  "type": "object",
   "properties": {
-    "SendID": {
+    "BatchID": {
+      "description": "Ties triggered send sent events to other events (like clicks and opens that occur at a later date and time)",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Contains identifier for a specific send."
+      ]
+    },
+    "CorrelationID": {
+      "description": "Identifies correlation of objects across several requests.",
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "EventDate": {
+      "description": "Date when a tracking event occurred.",
       "type": [
         "null",
         "date-time"
-      ],
-      "description": "Date when a tracking event occurred."
+      ]
     },
     "EventType": {
+      "description": "The type of tracking event",
       "type": [
         "null",
         "string"
-      ],
-      "description": "The type of tracking event"
+      ]
     },
-    "BatchID": {
+    "SendID": {
+      "description": "Contains identifier for a specific send.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Ties triggered send sent events to other events (like clicks and opens that occur at a later date and time)"
-    },
-    "CorrelationID": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "description": "Identifies correlation of objects across several requests."
-    },
-    "URL": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "description": "URL that was clicked."
+      ]
     },
     "SubscriberKey": {
+      "description": "Identification of a specific subscriber.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Identification of a specific subscriber."
+      ]
+    },
+    "URL": {
+      "description": "URL that was clicked.",
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

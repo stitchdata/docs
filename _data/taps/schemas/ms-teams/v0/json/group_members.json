@@ -1,14 +1,17 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
+    "business_phones": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
     "display_name": {
@@ -17,20 +20,13 @@
         "string"
       ]
     },
-    "business_phones": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+    "given_name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
-    "given_name": {
+    "id": {
       "type": [
         "null",
         "string"
@@ -78,5 +74,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

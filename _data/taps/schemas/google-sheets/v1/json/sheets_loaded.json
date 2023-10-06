@@ -1,23 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "spreadsheetId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sheetId": {
+    "lastRowNumber": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "loadDate": {
@@ -26,11 +13,24 @@
         "date-time"
       ]
     },
-    "lastRowNumber": {
+    "sheetId": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "spreadsheetId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

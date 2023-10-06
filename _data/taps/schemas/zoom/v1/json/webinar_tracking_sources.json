@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -7,9 +6,10 @@
         "string"
       ]
     },
-    "webinar_id": {
+    "registration_count": {
       "type": [
-        "string"
+        "null",
+        "integer"
       ]
     },
     "source_name": {
@@ -24,17 +24,17 @@
         "string"
       ]
     },
-    "registration_count": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "visitor_count": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

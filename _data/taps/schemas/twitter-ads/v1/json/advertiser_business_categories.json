@@ -1,10 +1,19 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
+    "iab_categories": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -16,19 +25,10 @@
         "null",
         "string"
       ]
-    },
-    "iab_categories": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

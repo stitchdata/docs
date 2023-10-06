@@ -1,9 +1,9 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "accountId": {
       "type": [
+        "null",
         "integer"
       ]
     },
@@ -17,6 +17,12 @@
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "callId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "compiledSequenceTemplateHtml": {
@@ -37,16 +43,39 @@
         "date-time"
       ]
     },
+    "completerId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "createdAt": {
       "type": [
         "null",
         "date-time"
       ]
     },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "dueAt": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "mailingId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "note": {
@@ -59,66 +88,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "scheduledAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "stateChangedAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "taskType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updatedAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "accountId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "callId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "completerId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "mailingId": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "opportunityId": {
@@ -137,6 +106,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "scheduledAt": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "sequenceId": {
@@ -163,6 +138,18 @@
         "integer"
       ]
     },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "stateChangedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "subjectId": {
       "type": [
         "null",
@@ -181,11 +168,24 @@
         "integer"
       ]
     },
+    "taskType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "templateId": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

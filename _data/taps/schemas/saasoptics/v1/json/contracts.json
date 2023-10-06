@@ -1,12 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "billing_profile": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "account_number": {
@@ -297,7 +292,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "channel": {
       "type": [
@@ -378,18 +377,18 @@
       ]
     },
     "number_field1": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "number_field2": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-10
+      ]
     },
     "qb_job_id": {
       "type": [
@@ -427,5 +426,6 @@
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

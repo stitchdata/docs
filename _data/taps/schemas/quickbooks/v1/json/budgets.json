@@ -1,63 +1,15 @@
 {
   "properties": {
-    "BudgetEntryType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "Active": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "EndDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "StartDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "BudgetType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "BudgetDetail": {
       "items": {
         "properties": {
-          "ClassRef": {
+          "AccountRef": {
             "name": {
               "type": [
                 "null",
@@ -71,7 +23,19 @@
               ]
             }
           },
-          "DepartmentRef": {
+          "Amount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "BudgetDate": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "ClassRef": {
             "name": {
               "type": [
                 "null",
@@ -99,7 +63,7 @@
               ]
             }
           },
-          "AccountRef": {
+          "DepartmentRef": {
             "name": {
               "type": [
                 "null",
@@ -112,18 +76,6 @@
                 "string"
               ]
             }
-          },
-          "BudgetDate": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "Amount": {
-            "type": [
-              "null",
-              "number"
-            ]
           }
         },
         "type": [
@@ -134,6 +86,30 @@
       "type": [
         "null",
         "array"
+      ]
+    },
+    "BudgetEntryType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "BudgetType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EndDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "MetaData": {
@@ -154,6 +130,30 @@
       "type": [
         "null",
         "object"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "StartDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
       ]
     }
   },

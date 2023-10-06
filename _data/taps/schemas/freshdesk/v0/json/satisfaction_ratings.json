@@ -1,22 +1,9 @@
 {
-  "type": "object",
   "properties": {
-    "survey_id": {
+    "agent_id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "feedback": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "created_at": {
@@ -25,16 +12,10 @@
         "date-time"
       ]
     },
-    "updated_at": {
+    "feedback": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "agent_id": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
     "group_id": {
@@ -49,22 +30,8 @@
         "integer"
       ]
     },
-    "ticket_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "ratings": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "question": {
             "type": [
@@ -78,8 +45,41 @@
               "integer"
             ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "survey_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ticket_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

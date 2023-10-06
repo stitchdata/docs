@@ -1,6 +1,5 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
     "created_at": {
       "type": [
@@ -168,13 +167,13 @@
     "role_groups": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -193,5 +192,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

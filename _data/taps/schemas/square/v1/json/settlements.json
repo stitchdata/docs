@@ -1,12 +1,5 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "bank_account_id": {
       "type": [
         "null",
@@ -14,16 +7,14 @@
       ]
     },
     "entries": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "amount_money": {
+        "`type`": {
           "type": [
             "null",
-            "object"
-          ],
+            "string"
+          ]
+        },
+        "amount_money": {
           "properties": {
             "amount": {
               "type": [
@@ -37,13 +28,13 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "fee_money": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "amount": {
               "type": [
@@ -57,21 +48,29 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "payment_id": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "`type`": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "initiated_at": {
       "type": [
@@ -86,10 +85,6 @@
       ]
     },
     "total_money": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "amount": {
           "type": [
@@ -103,7 +98,12 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

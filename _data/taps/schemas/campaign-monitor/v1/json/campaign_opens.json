@@ -1,43 +1,9 @@
 {
-  "type": "object",
   "properties": {
     "CampaignID": {
       "type": "string"
     },
-    "EmailAddress": {
-      "type": "string"
-    },
-    "ListID": {
-      "type": "string"
-    },
-    "Date": {
-      "type": "date-time"
-    },
-    "IPAddress": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Latitude": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "Longitude": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "City": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Region": {
       "type": [
         "null",
         "string"
@@ -54,6 +20,40 @@
         "null",
         "string"
       ]
+    },
+    "Date": {
+      "type": "date-time"
+    },
+    "EmailAddress": {
+      "type": "string"
+    },
+    "IPAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Latitude": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "ListID": {
+      "type": "string"
+    },
+    "Longitude": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "Region": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

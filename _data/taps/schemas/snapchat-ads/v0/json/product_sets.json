@@ -1,14 +1,27 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "catalog_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "catalog_id": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "filter": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -20,25 +33,12 @@
         "string"
       ]
     },
-    "filter": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

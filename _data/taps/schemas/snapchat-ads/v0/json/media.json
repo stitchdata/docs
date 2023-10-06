@@ -1,17 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "ad_account_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "created_at": {
@@ -20,25 +13,7 @@
         "date-time"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ad_account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "media_status": {
+    "download_link": {
       "type": [
         "null",
         "string"
@@ -50,26 +25,28 @@
         "string"
       ]
     },
-    "download_link": {
+    "file_size_in_bytes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
     "image_metadata": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "height_px": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "width_px": {
           "type": [
             "null",
             "integer"
@@ -80,29 +57,17 @@
             "null",
             "string"
           ]
+        },
+        "width_px": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
-    },
-    "video_metadata": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "lens_package_metadata": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "file_size_in_bytes": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "is_demo_media": {
@@ -111,10 +76,44 @@
         "boolean"
       ]
     },
-    "hash": {
+    "lens_package_metadata": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "media_status": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "video_metadata": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
       ]
     },
     "visibility": {
@@ -123,5 +122,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,8 +1,37 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "notification": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "token": {
       "type": [
         "null",
         "string"
@@ -19,36 +48,7 @@
         "null",
         "integer"
       ]
-    },
-    "notification": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "mdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "token": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

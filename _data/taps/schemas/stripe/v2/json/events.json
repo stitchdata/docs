@@ -1,6 +1,11 @@
 {
-  "type": "object",
   "properties": {
+    "api_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "created": {
       "type": [
         "null",
@@ -8,25 +13,13 @@
       ]
     },
     "data": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
     },
     "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "api_version": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object": {
       "type": [
         "null",
         "string"
@@ -36,6 +29,12 @@
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "pending_webhooks": {
@@ -62,5 +61,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,35 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "tstamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "subscriberid": {
+    "id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "reference_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reference_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "reference_action": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "json_data": {
@@ -38,29 +13,13 @@
         "string"
       ]
     },
-    "userid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "permission": {
       "type": [
         "null",
         "string"
       ]
     },
-    "reference_model_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "reference": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -75,12 +34,46 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "id": {
+    "reference_action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "reference_model_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscriberid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tstamp": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "user": {
@@ -88,6 +81,13 @@
         "null",
         "integer"
       ]
+    },
+    "userid": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

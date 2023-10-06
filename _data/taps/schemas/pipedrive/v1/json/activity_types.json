@@ -1,46 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "order_nr": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "key_string": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "icon_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "active_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "color": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_custom_flag": {
       "type": [
         "null",
         "boolean"
@@ -52,11 +12,51 @@
         "date-time"
       ]
     },
+    "color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "icon_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "is_custom_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "key_string": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_nr": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "update_time": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

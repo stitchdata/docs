@@ -1,11 +1,19 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_modified": {
+      "type": "date-time"
+    },
     "id": {
       "type": "string"
     },
-    "title": {
+    "language": {
       "type": [
         "null",
         "string"
@@ -17,14 +25,11 @@
         "string"
       ]
     },
-    "date_created": {
+    "question_count": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
-    },
-    "date_modified": {
-      "type": "date-time"
     },
     "response_count": {
       "type": [
@@ -32,21 +37,16 @@
         "integer"
       ]
     },
-    "language": {
+    "title": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "question_count": {
-      "type": [
-        "null",
-        "integer"
       ]
     }
   },
   "required": [
     "id",
     "date_modified"
-  ]
+  ],
+  "type": "object"
 }

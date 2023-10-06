@@ -1,23 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "allow_deep_link": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "modified": {
@@ -25,6 +12,19 @@
         "null",
         "date-time"
       ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

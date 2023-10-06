@@ -1,11 +1,28 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "reltype": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "descript": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mdate": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "name": {
@@ -14,7 +31,7 @@
         "string"
       ]
     },
-    "descript": {
+    "reltype": {
       "type": [
         "null",
         "string"
@@ -25,24 +42,7 @@
         "null",
         "integer"
       ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "mdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

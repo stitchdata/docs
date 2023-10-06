@@ -1,12 +1,32 @@
 {
   "properties": {
-    "GivenName": {
+    "APAccountRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "AcctNum": {
       "type": [
         "null",
         "string"
       ]
     },
-    "PrimaryPhone": {
+    "Active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "AlternatePhone": {
       "properties": {
         "FreeFormNumber": {
           "type": [
@@ -20,26 +40,20 @@
         "object"
       ]
     },
-    "AcctNum": {
+    "Balance": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "MiddleName": {
-      "type": [
-        "null",
-        "string"
+        "number"
       ]
     },
     "BillAddr": {
-      "Lat": {
+      "City": {
         "type": [
           "null",
           "string"
         ]
       },
-      "Id": {
+      "Country": {
         "type": [
           "null",
           "string"
@@ -51,19 +65,13 @@
           "string"
         ]
       },
-      "City": {
+      "Id": {
         "type": [
           "null",
           "string"
         ]
       },
-      "Long": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "PostalCode": {
+      "Lat": {
         "type": [
           "null",
           "string"
@@ -99,34 +107,26 @@
           "string"
         ]
       },
-      "Country": {
+      "Long": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "PostalCode": {
         "type": [
           "null",
           "string"
         ]
       }
     },
-    "PrimaryEmailAddr": {
-      "properties": {
-        "Address": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "Balance": {
+    "BillRate": {
       "type": [
         "null",
         "number"
       ]
     },
-    "TaxIdentifier": {
+    "BusinessNumber": {
       "type": [
         "null",
         "string"
@@ -138,44 +138,10 @@
         "string"
       ]
     },
-    "FamilyName": {
+    "CostRate": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "PrintOnCheckName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "WebAddr": {
-      "properties": {
-        "URI": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "Mobile": {
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
+        "number"
       ]
     },
     "CurrencyRef": {
@@ -192,37 +158,61 @@
         ]
       }
     },
-    "Vendor1099": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "DisplayName": {
       "type": [
         "null",
         "string"
       ]
     },
-    "TermRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+    "FamilyName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Fax": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "GSTIN": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "GSTRegistrationType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "GivenName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "HasTPAR": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "MetaData": {
       "properties": {
@@ -244,7 +234,13 @@
         "object"
       ]
     },
-    "Fax": {
+    "MiddleName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Mobile": {
       "properties": {
         "FreeFormNumber": {
           "type": [
@@ -258,37 +254,98 @@
         "object"
       ]
     },
+    "OtherContactInfo": {
+      "properties": {
+        "Telephone": {},
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "PrimaryEmailAddr": {
+      "properties": {
+        "Address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "PrimaryPhone": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "PrintOnCheckName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "Suffix": {
       "type": [
         "null",
         "string"
       ]
     },
-    "Id": {
+    "SyncToken": {
       "type": [
         "null",
         "string"
       ]
     },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Active": {
+    "T4AEligible": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "Title": {
+    "T5018Eligible": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "TaxIdentifier": {
       "type": [
         "null",
         "string"
       ]
     },
-    "APAccountRef": {
+    "TaxReportingBasis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TermRef": {
       "name": {
         "type": [
           "null",
@@ -302,69 +359,16 @@
         ]
       }
     },
-    "AlternatePhone": {
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "BillRate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "BusinessNumber": {
+    "Title": {
       "type": [
         "null",
         "string"
       ]
     },
-    "GSTIN": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "GSTRegistrationType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "HasTPAR": {
+    "Vendor1099": {
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "OtherContactInfo": {
-      "properties": {
-        "Type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "Telephone": {}
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "TaxReportingBasis": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "VendorPaymentBankDetail": {
@@ -375,13 +379,13 @@
             "string"
           ]
         },
-        "BankBranchIdentifier": {
+        "BankAccountNumber": {
           "type": [
             "null",
             "string"
           ]
         },
-        "BankAccountNumber": {
+        "BankBranchIdentifier": {
           "type": [
             "null",
             "string"
@@ -399,28 +403,24 @@
         "object"
       ]
     },
-    "CostRate": {
+    "WebAddr": {
+      "properties": {
+        "URI": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
       "type": [
         "null",
-        "number"
+        "object"
       ]
     },
-    "Source": {
+    "domain": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "T4AEligible": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "T5018Eligible": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "patternProperties": {

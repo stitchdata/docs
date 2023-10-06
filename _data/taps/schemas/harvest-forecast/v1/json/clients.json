@@ -1,6 +1,18 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "harvest_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -11,18 +23,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "harvest_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "updated_at": {
@@ -38,5 +38,5 @@
       ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

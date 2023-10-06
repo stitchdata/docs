@@ -1,9 +1,11 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "integer"
@@ -14,21 +16,15 @@
         "integer"
       ]
     },
-    "prospect_id": {
-      "type": [
-        "integer"
-      ]
-    },
     "opted_out": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "created_at": {
+    "prospect_id": {
       "type": [
-        "null",
-        "date-time"
+        "integer"
       ]
     },
     "updated_at": {
@@ -37,5 +33,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

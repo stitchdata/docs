@@ -1,23 +1,31 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
+    "address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "advertiser_account_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "advertiser_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "name": {
+    "balance": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "address": {
+    "cellphone_number": {
       "type": [
         "null",
         "string"
@@ -36,6 +44,12 @@
       ]
     },
     "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "create_time": {
       "type": [
         "null",
         "string"
@@ -83,7 +97,7 @@
         "string"
       ]
     },
-    "cellphone_number": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -136,24 +150,10 @@
         "null",
         "string"
       ]
-    },
-    "balance": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "create_time": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "advertiser_account_type": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

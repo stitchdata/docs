@@ -1,85 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "spreadsheetId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sheetId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "index": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sheetType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sheetUrl": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "gridProperties": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "rowCount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "columnCount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "frozenRowCount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "frozenColumnCount": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
     "columns": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "columnIndex": {
@@ -100,29 +25,16 @@
                   "string"
                 ]
               },
-              "columnType": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "columnSkipped": {
                 "type": [
                   "null",
                   "boolean"
                 ]
               },
-              "type": {
-                "anyOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "type": "null"
-                  }
+              "columnType": {
+                "type": [
+                  "null",
+                  "string"
                 ]
               },
               "format": {
@@ -130,14 +42,102 @@
                   "null",
                   "string"
                 ]
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "gridProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "columnCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "frozenColumnCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "frozenRowCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "rowCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "index": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sheetId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sheetType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sheetUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "spreadsheetId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

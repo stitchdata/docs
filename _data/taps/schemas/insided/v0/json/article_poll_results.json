@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "article_id": {
@@ -14,12 +13,13 @@
       ]
     },
     "votes": {
+      "additionalProperties": true,
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
+      ]
     }
-  }
+  },
+  "type": "object"
 }

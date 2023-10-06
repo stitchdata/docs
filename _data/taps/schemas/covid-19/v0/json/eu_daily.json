@@ -1,62 +1,40 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "git_owner": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_repository": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_html_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_path": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_sha": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_file_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_last_modified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "__sdc_row_number": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "cases": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cases_100k_pop": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cases_lower": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cases_upper": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "date": {
@@ -71,7 +49,73 @@
         "date-time"
       ]
     },
-    "country": {
+    "deaths": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "git_file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_last_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_sha": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hospitalized": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "intensive_care": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lau": {
       "type": [
         "null",
         "string"
@@ -95,28 +139,10 @@
         "string"
       ]
     },
-    "lau": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cases": {
+    "percent": {
       "type": [
         "null",
         "number"
-      ]
-    },
-    "cases_lower": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cases_upper": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "population": {
@@ -125,37 +151,13 @@
         "number"
       ]
     },
-    "cases_100k_pop": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "percent": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "deaths": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "recovered": {
+    "quarantine": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "hospitalized": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "intensive_care": {
+    "recovered": {
       "type": [
         "null",
         "integer"
@@ -166,12 +168,10 @@
         "null",
         "integer"
       ]
-    },
-    "quarantine": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

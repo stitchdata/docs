@@ -1,16 +1,27 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "color": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
       ]
     },
     "name": {
@@ -25,22 +36,10 @@
         "integer"
       ]
     },
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updatedAt": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "updaterId": {
@@ -49,5 +48,6 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

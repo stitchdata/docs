@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -11,37 +7,13 @@
         "string"
       ]
     },
-    "video_poster_height": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
+    "card_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "first_choice": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "video_height": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "video_url": {
+    "card_uri": {
       "type": [
         "null",
         "string"
@@ -53,10 +25,22 @@
         "integer"
       ]
     },
-    "second_choice": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "duration_in_minutes": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "end_time": {
@@ -65,13 +49,43 @@
         "date-time"
       ]
     },
+    "first_choice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "video_width": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "second_choice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "video_height": {
       "type": [
         "null",
         "integer"
@@ -83,28 +97,10 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "duration_in_minutes": {
+    "video_poster_height": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "card_uri": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "video_poster_url": {
@@ -119,17 +115,21 @@
         "integer"
       ]
     },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "card_type": {
+    "video_url": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "video_width": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

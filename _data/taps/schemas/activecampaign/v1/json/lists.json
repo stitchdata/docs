@@ -1,85 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "stringid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "userid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "p_use_tracking": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "p_use_analytics_read": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "p_use_analytics_link": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "p_use_twitter": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "p_use_facebook": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "p_embed_image": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "p_use_captcha": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "send_last_broadcast": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "private": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "analytics_domains": {
       "type": [
         "null",
@@ -98,13 +19,31 @@
         "string"
       ]
     },
-    "twitter_token": {
+    "carboncopy": {
       "type": [
         "null",
         "string"
       ]
     },
-    "twitter_token_secret": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deletestamp": {
       "type": [
         "null",
         "string"
@@ -116,28 +55,10 @@
         "string"
       ]
     },
-    "carboncopy": {
+    "fulladdress": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "subscription_notify": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "unsubscription_notify": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "require_name": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "get_unsubscribe_reason": {
@@ -146,10 +67,22 @@
         "integer"
       ]
     },
-    "to_name": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "optinmessageid": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "optinoptout": {
@@ -158,10 +91,70 @@
         "integer"
       ]
     },
-    "sender_name": {
+    "optoutconf": {
       "type": [
         "null",
-        "string"
+        "integer"
+      ]
+    },
+    "p_embed_image": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "p_use_analytics_link": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "p_use_analytics_read": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "p_use_captcha": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "p_use_facebook": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "p_use_tracking": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "p_use_twitter": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "private": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "require_name": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "send_last_broadcast": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "sender_addr1": {
@@ -182,19 +175,13 @@
         "string"
       ]
     },
-    "sender_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sender_zip": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "sender_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sender_name": {
       "type": [
         "null",
         "string"
@@ -206,37 +193,55 @@
         "string"
       ]
     },
-    "sender_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "sender_reminder": {
       "type": [
         "null",
         "string"
       ]
     },
-    "fulladdress": {
+    "sender_state": {
       "type": [
         "null",
         "string"
       ]
     },
-    "optinmessageid": {
+    "sender_url": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "optoutconf": {
+    "sender_zip": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "deletestamp": {
+    "stringid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscription_notify": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "twitter_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "twitter_token_secret": {
       "type": [
         "null",
         "string"
@@ -248,22 +253,10 @@
         "date-time"
       ]
     },
-    "created_timestamp": {
+    "unsubscription_notify": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "updated_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     },
     "updated_by": {
@@ -272,10 +265,10 @@
         "integer"
       ]
     },
-    "id": {
+    "updated_timestamp": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     },
     "user": {
@@ -283,6 +276,13 @@
         "null",
         "integer"
       ]
+    },
+    "userid": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

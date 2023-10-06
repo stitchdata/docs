@@ -1,17 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "ad_account_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
+    "approximate_number_users": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
     "created_at": {
@@ -20,13 +19,19 @@
         "date-time"
       ]
     },
-    "name": {
+    "description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "ad_account_id": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -38,7 +43,13 @@
         "string"
       ]
     },
-    "description": {
+    "retention_in_days": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "source_type": {
       "type": [
         "null",
         "string"
@@ -56,42 +67,31 @@
         "string"
       ]
     },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "upload_status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "source_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "retention_in_days": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "approximate_number_users": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "visible_to": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     }
-  }
+  },
+  "type": "object"
 }

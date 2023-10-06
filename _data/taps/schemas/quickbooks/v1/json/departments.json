@@ -1,37 +1,9 @@
 {
   "properties": {
-    "ParentRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "MetaData": {
-      "properties": {
-        "LastUpdatedTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "CreateTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      },
+    "Active": {
       "type": [
         "null",
-        "object"
+        "boolean"
       ]
     },
     "FullyQualifiedName": {
@@ -46,10 +18,24 @@
         "string"
       ]
     },
-    "domain": {
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
     "Name": {
@@ -58,11 +44,19 @@
         "string"
       ]
     },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "ParentRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
     },
     "SubDepartment": {
       "type": [
@@ -70,10 +64,16 @@
         "boolean"
       ]
     },
-    "Active": {
+    "SyncToken": {
       "type": [
         "null",
-        "boolean"
+        "string"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
       ]
     }
   },

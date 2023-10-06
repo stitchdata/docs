@@ -1,68 +1,81 @@
 {
-  "title": "Worklog",
-  "type": [
-    "null",
-    "object"
-  ],
-  "properties": {
-    "self": {
+  "definitions": {
+    "user": {
+      "properties": {
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "User",
       "type": [
         "null",
-        "string"
+        "object"
       ]
-    },
+    }
+  },
+  "properties": {
     "author": {
-      "title": "User",
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
           "type": [
             "null",
             "string"
@@ -74,40 +87,21 @@
             "boolean"
           ]
         },
-        "timeZone": {
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
           "type": [
             "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "updateAuthor": {
-      "title": "User",
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
+            "object"
           ]
         },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accountId": {
+        "displayName": {
           "type": [
             "null",
             "string"
@@ -119,30 +113,22 @@
             "string"
           ]
         },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
+        "key": {
           "type": [
             "null",
             "string"
           ]
         },
-        "active": {
+        "name": {
           "type": [
             "null",
-            "boolean"
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
           ]
         },
         "timeZone": {
@@ -151,7 +137,12 @@
             "string"
           ]
         }
-      }
+      },
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "comment": {
       "type": [
@@ -165,36 +156,45 @@
         "date-time"
       ]
     },
-    "updated": {
+    "id": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "visibility": {
-      "title": "Visibility",
+    "issueId": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ],
-          "enum": [
-            "group",
-            "role"
-          ]
+        "string"
+      ]
+    },
+    "properties": {
+      "items": {
+        "properties": {
+          "key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {}
         },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "title": "Entity Property",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "started": {
       "type": [
@@ -214,94 +214,9 @@
         "integer"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "issueId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "properties": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "title": "Entity Property",
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {}
-        }
-      }
-    }
-  },
-  "definitions": {
-    "user": {
-      "title": "User",
-      "type": [
-        "null",
-        "object"
-      ],
+    "updateAuthor": {
       "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
           "type": [
             "null",
             "string"
@@ -313,13 +228,98 @@
             "boolean"
           ]
         },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "timeZone": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "visibility": {
+      "properties": {
+        "type": {
+          "enum": [
+            "group",
+            "role"
+          ],
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "Visibility",
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "title": "Worklog",
+  "type": [
+    "null",
+    "object"
+  ]
 }

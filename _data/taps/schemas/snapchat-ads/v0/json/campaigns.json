@@ -1,17 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "ad_account_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
+    "buy_model": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "created_at": {
@@ -20,25 +19,39 @@
         "date-time"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ad_account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "daily_budget_micro": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "status": {
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lifetime_spend_cap_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "measurement_spec": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -50,45 +63,32 @@
         "string"
       ]
     },
+    "regulations": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "start_time": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "end_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "lifetime_spend_cap_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "buy_model": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "measurement_spec": {
+    "updated_at": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
-    },
-    "regulations": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

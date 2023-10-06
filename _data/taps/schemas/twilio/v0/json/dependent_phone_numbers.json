@@ -1,14 +1,76 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "sid": {
+    "account_sid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "account_sid": {
+    "address_requirements": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "api_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "fax": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "mms": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "sms": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "voice": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "emergency_address_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emergency_status": {
       "type": [
         "null",
         "string"
@@ -26,61 +88,13 @@
         "string"
       ]
     },
-    "voice_url": {
+    "sid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "voice_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "voice_fallback_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "voice_fallback_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "voice_caller_id_lookup": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "date_created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "date_updated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "sms_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sms_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sms_fallback_url": {
+    "sms_application_sid": {
       "type": [
         "null",
         "string"
@@ -92,44 +106,23 @@
         "string"
       ]
     },
-    "address_requirements": {
+    "sms_fallback_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "capabilities": {
+    "sms_method": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "voice": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "sms": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "mms": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "fax": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
+        "string"
+      ]
+    },
+    "sms_url": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "status_callback": {
       "type": [
@@ -143,7 +136,13 @@
         "string"
       ]
     },
-    "api_version": {
+    "trunk_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
       "type": [
         "null",
         "string"
@@ -155,35 +154,36 @@
         "string"
       ]
     },
-    "sms_application_sid": {
+    "voice_caller_id_lookup": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "voice_fallback_method": {
       "type": [
         "null",
         "string"
       ]
     },
-    "trunk_sid": {
+    "voice_fallback_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "emergency_status": {
+    "voice_method": {
       "type": [
         "null",
         "string"
       ]
     },
-    "emergency_address_sid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "uri": {
+    "voice_url": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

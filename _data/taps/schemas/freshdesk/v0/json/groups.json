@@ -1,17 +1,16 @@
 {
-  "type": "object",
   "properties": {
     "agent_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "integer"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "auto_ticket_assign": {
       "type": [
@@ -24,6 +23,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "description": {
@@ -56,17 +61,12 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

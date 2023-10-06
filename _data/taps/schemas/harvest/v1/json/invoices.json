@@ -1,10 +1,9 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
+    "amount": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
     "client_id": {
@@ -13,73 +12,13 @@
         "integer"
       ]
     },
-    "period_start": {
+    "client_key": {
       "type": [
         "null",
         "string"
       ]
     },
-    "period_end": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "issued_at": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "due_at": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "purchase_order": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "due_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "due_at_human_format": {
+    "client_name": {
       "type": [
         "null",
         "string"
@@ -91,60 +30,16 @@
         "date-time"
       ]
     },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "tax": {
-      "type": [
-        "null",
-        "string",
-        "number"
-      ]
-    },
-    "tax_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recurring_invoice_id": {
+    "created_by_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "tax2": {
-      "type": [
-        "null",
-        "string",
-        "number"
-      ]
-    },
-    "tax2_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "client_key": {
+    "currency": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "estimate_id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "discount": {
@@ -160,23 +55,128 @@
         "number"
       ]
     },
+    "due_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "due_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "due_at_human_format": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "estimate_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "issued_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "period_end": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "period_start": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "purchase_order": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recurring_invoice_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "retainer_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "created_by_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "client_name": {
+    "state": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax": {
+      "type": [
+        "null",
+        "string",
+        "number"
+      ]
+    },
+    "tax2": {
+      "type": [
+        "null",
+        "string",
+        "number"
+      ]
+    },
+    "tax2_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

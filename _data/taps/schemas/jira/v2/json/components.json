@@ -1,64 +1,94 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "componentBean": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "assignee": {
       "properties": {
-        "self": {
+        "accountId": {
           "type": [
             "null",
             "string"
           ]
         },
-        "id": {
+        "active": {
           "type": [
             "null",
-            "string"
+            "boolean"
           ]
         },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "description": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "lead": {
-          "type": [
-            "null",
-            "object"
-          ],
+        "avatarUrls": {
           "properties": {
-            "self": {
+            "16x16": {
               "type": [
                 "null",
                 "string"
               ]
             },
+            "24x24": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "32x32": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "48x48": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "assigneeType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "componentBean": {
+      "properties": {
+        "assignee": {
+          "properties": {
             "accountId": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "avatarUrls": {
+            "active": {
               "type": [
                 "null",
-                "object"
-              ],
+                "boolean"
+              ]
+            },
+            "avatarUrls": {
               "properties": {
-                "48x48": {
+                "16x16": {
                   "type": [
                     "null",
                     "string"
@@ -70,21 +100,69 @@
                     "string"
                   ]
                 },
-                "16x16": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "32x32": {
                   "type": [
                     "null",
                     "string"
                   ]
+                },
+                "48x48": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "self": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "assigneeType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "isAssigneeTypeValid": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "lead": {
+          "properties": {
+            "accountId": {
               "type": [
                 "null",
                 "string"
@@ -95,25 +173,61 @@
                 "null",
                 "boolean"
               ]
+            },
+            "avatarUrls": {
+              "properties": {
+                "16x16": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "24x24": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "32x32": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "48x48": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "displayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "self": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "assigneeType": {
+        "name": {
           "type": [
             "null",
             "string"
-          ]
-        },
-        "realAssigneeType": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "isAssigneeTypeValid": {
-          "type": [
-            "null",
-            "boolean"
           ]
         },
         "project": {
@@ -128,95 +242,23 @@
             "integer"
           ]
         },
-        "assignee": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "self": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "accountId": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "avatarUrls": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "48x48": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "24x24": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "16x16": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "32x32": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            },
-            "displayName": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "active": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            }
-          }
-        },
         "realAssignee": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
-            "self": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "accountId": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "avatarUrls": {
+            "active": {
               "type": [
                 "null",
-                "object"
-              ],
+                "boolean"
+              ]
+            },
+            "avatarUrls": {
               "properties": {
-                "48x48": {
+                "16x16": {
                   "type": [
                     "null",
                     "string"
@@ -228,19 +270,23 @@
                     "string"
                   ]
                 },
-                "16x16": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "32x32": {
                   "type": [
                     "null",
                     "string"
                   ]
+                },
+                "48x48": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
                 }
-              }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
             },
             "displayName": {
               "type": [
@@ -248,129 +294,37 @@
                 "string"
               ]
             },
-            "active": {
+            "self": {
               "type": [
                 "null",
-                "boolean"
+                "string"
               ]
             }
-          }
-        }
-      }
-    },
-    "issueCount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "realAssigneeType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "isAssigneeTypeValid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "self": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "projectId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "project": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assigneeType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lead": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "realAssigneeType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "self": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "48x48": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "24x24": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "16x16": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "32x32": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "name": {
+    "description": {
       "type": [
         "null",
         "string"
@@ -382,95 +336,35 @@
         "string"
       ]
     },
-    "realAssignee": {
+    "isAssigneeTypeValid": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "48x48": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "24x24": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "16x16": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "32x32": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
+        "boolean"
+      ]
     },
-    "assignee": {
+    "issueCount": {
       "type": [
         "null",
-        "object"
-      ],
+        "integer"
+      ]
+    },
+    "lead": {
       "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "accountId": {
           "type": [
             "null",
             "string"
           ]
         },
-        "avatarUrls": {
+        "active": {
           "type": [
             "null",
-            "object"
-          ],
+            "boolean"
+          ]
+        },
+        "avatarUrls": {
           "properties": {
-            "48x48": {
+            "16x16": {
               "type": [
                 "null",
                 "string"
@@ -482,21 +376,63 @@
                 "string"
               ]
             },
-            "16x16": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "32x32": {
               "type": [
                 "null",
                 "string"
               ]
+            },
+            "48x48": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "projectId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "realAssignee": {
+      "properties": {
+        "accountId": {
           "type": [
             "null",
             "string"
@@ -507,8 +443,72 @@
             "null",
             "boolean"
           ]
+        },
+        "avatarUrls": {
+          "properties": {
+            "16x16": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "24x24": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "32x32": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "48x48": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "realAssigneeType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

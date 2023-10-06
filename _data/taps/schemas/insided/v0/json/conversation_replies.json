@@ -1,37 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "conversation_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "content": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "author": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
+        "avatar": {
           "type": [
             "null",
             "string"
@@ -43,25 +16,21 @@
             "string"
           ]
         },
-        "signature": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar": {
+        "id": {
           "type": [
             "null",
             "string"
           ]
         },
         "reputation": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
+            "likesReceived": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
             "rank": {
               "type": [
                 "null",
@@ -80,21 +49,74 @@
                 "string"
               ]
             },
-            "likesReceived": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
             "repliesMade": {
               "type": [
                 "null",
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversation_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "highlighted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "likedBy": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pendingApproval": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "repliedAt": {
       "type": [
@@ -107,29 +129,7 @@
         "null",
         "boolean"
       ]
-    },
-    "pendingApproval": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "highlighted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "likedBy": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
     }
-  }
+  },
+  "type": "object"
 }

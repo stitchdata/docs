@@ -1,8 +1,46 @@
 {
-  "type": "object",
   "properties": {
+    "allow_failure": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "author_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "author_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "committer_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "committer_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": "date-time"
+    },
     "id": {
       "type": "string"
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "project_id": {
       "type": "integer"
@@ -15,45 +53,7 @@
         "null",
         "string"
       ]
-    },
-    "author_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "author_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "committer_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "committer_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": "date-time"
-    },
-    "message": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "allow_failure": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

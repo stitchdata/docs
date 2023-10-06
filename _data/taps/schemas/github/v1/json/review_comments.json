@@ -1,123 +1,8 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "_sdc_repository": {
       "type": [
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "user": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "body": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "node_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "pull_request_review_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "diff_hunk": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "path": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "position": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "original_position": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "commit_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "original_commit_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "in_reply_to_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "html_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "pull_request_url": {
-      "type": [
-        "null",
         "string"
       ]
     },
@@ -145,13 +30,37 @@
         "string"
       ]
     },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "comments_url": {
       "type": [
         "null",
         "string"
       ]
     },
+    "commit_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "commits_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "diff_hunk": {
       "type": [
         "null",
         "string"
@@ -167,6 +76,24 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "html_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "in_reply_to_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "issue_url": {
@@ -199,7 +126,49 @@
         "string"
       ]
     },
+    "node_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_commit_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_position": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "patch_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "position": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "pull_request_review_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "pull_request_url": {
       "type": [
         "null",
         "string"
@@ -234,6 +203,37 @@
         "null",
         "string"
       ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

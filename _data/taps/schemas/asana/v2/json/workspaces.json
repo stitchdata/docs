@@ -1,16 +1,19 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "gid": {
-      "type": [
-        "null",
-        "string"
+    "email_domains": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
       ]
     },
-    "name": {
+    "gid": {
       "type": [
         "null",
         "string"
@@ -22,24 +25,21 @@
         "boolean"
       ]
     },
-    "resource_type": {
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "email_domains": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+    "resource_type": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

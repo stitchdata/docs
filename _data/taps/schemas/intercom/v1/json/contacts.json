@@ -1,247 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "workspace_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "external_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "role": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "avatar": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "owner_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "social_profiles": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "data": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "has_hard_bounced": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "marked_email_as_spam": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "unsubscribed_from_emails": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "signed_up_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_seen_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_replied_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_contacted_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_email_opened_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_email_clicked_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "language_override": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "browser": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "browser_version": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "browser_language": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "os": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "location": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "region": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "city": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
     "android_app_name": {
       "type": [
         "null",
@@ -260,6 +19,12 @@
         "string"
       ]
     },
+    "android_last_seen_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "android_os_version": {
       "type": [
         "null",
@@ -272,10 +37,132 @@
         "string"
       ]
     },
-    "android_last_seen_at": {
+    "avatar": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "browser": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "browser_language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "browser_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "companies": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "has_more": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "total_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "custom_attributes": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_hard_bounced": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "ios_app_name": {
@@ -296,6 +183,12 @@
         "string"
       ]
     },
+    "ios_last_seen_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "ios_os_version": {
       "type": [
         "null",
@@ -308,118 +201,101 @@
         "string"
       ]
     },
-    "ios_last_seen_at": {
+    "language_override": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_contacted_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "custom_attributes": {
+    "last_email_clicked_at": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {}
+        "date-time"
+      ]
     },
-    "tags": {
+    "last_email_opened_at": {
       "type": [
         "null",
-        "object"
-      ],
+        "date-time"
+      ]
+    },
+    "last_replied_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_seen_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "location": {
       "additionalProperties": false,
       "properties": {
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "region": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "type": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "data": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "url": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "total_count": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "has_more": {
-          "type": [
-            "null",
-            "boolean"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "marked_email_as_spam": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "notes": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "data": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
-              "type": {
+              "id": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "id": {
+              "type": {
                 "type": [
                   "null",
                   "string"
@@ -431,13 +307,21 @@
                   "string"
                 ]
               }
-            }
-          }
-        },
-        "url": {
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
           "type": [
             "null",
-            "string"
+            "array"
+          ]
+        },
+        "has_more": {
+          "type": [
+            "null",
+            "boolean"
           ]
         },
         "total_count": {
@@ -446,46 +330,68 @@
             "integer"
           ]
         },
-        "has_more": {
+        "type": {
           "type": [
             "null",
-            "boolean"
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "companies": {
+    "os": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "owner_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "role": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "signed_up_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "social_profiles": {
       "additionalProperties": false,
       "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "data": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
-              "type": {
+              "name": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "id": {
+              "type": {
                 "type": [
                   "null",
                   "string"
@@ -497,13 +403,69 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
-        "url": {
+        "type": {
           "type": [
             "null",
             "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "tags": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "has_more": {
+          "type": [
+            "null",
+            "boolean"
           ]
         },
         "total_count": {
@@ -512,13 +474,51 @@
             "integer"
           ]
         },
-        "has_more": {
+        "type": {
           "type": [
             "null",
-            "boolean"
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unsubscribed_from_emails": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "workspace_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

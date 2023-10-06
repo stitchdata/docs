@@ -1,13 +1,423 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "reskin_enabled": {
+    "abm_onboarding_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_country_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_is_autobilled": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "account_is_prepaid": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "account_is_suspended": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "account_suspension_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "admin_page_permission": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "am_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "approval_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attached_users": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "blacklisted_sites": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "business_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_monitor_client_api_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_monitor_client_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "click_through_conversion_window": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cm_networks": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "company_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "constant_contact_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "constant_contact_oauth_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "csm_admin": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "default_homepage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "default_utm": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "eid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "enable_customer_multi_dur_segs": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "fb_offsite_pixels_tos_accepted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "fbx_account_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "fbx_page_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fbx_page_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_approved_consent_solution": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_approved_safari_add_on": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_created_campaign": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_offsite_pixels": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_privacy_policy": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_sales_and_leads_automation": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hide_optins_page": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "homepage_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "iab1_category_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "iab1_category_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "iab2_category_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "iab2_category_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "iab_content_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "instagram_actor_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ip_address_exclusions": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "is_abm_customer": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_b2b": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_campaign_monitor_syncing": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_constant_contact_syncing": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_coop_approved": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_kpi_eligible": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_managed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_marketo_syncing": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_salesforce_system_owned": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_suspended": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_trusted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_twitter_syncing": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "liquidads": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "logo_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "magellan_legacy": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "magellan_query": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "marketo_api_endpoint": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "marketo_client_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "marketo_secret_key": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "name": {
@@ -22,94 +432,34 @@
         "string"
       ]
     },
-    "rollcrawl_enabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "iab2_category_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "account_is_suspended": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "abm_onboarding_status": {
+    "ops": {
       "type": [
         "null",
         "string"
       ]
     },
-    "source": {
+    "optimizer": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_constant_contact_syncing": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "revshare_view_percent": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "iab2_category_name": {
+    "optimizer_email": {
       "type": [
         "null",
         "string"
       ]
     },
-    "zvelo_category_name": {
+    "organization": {
       "type": [
         "null",
         "string"
       ]
     },
-    "has_offsite_pixels": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "constant_contact_code": {
+    "page_access_request_status": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "is_b2b": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "self_serve_prospecting_enabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "show_web_dynamic_ads": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "path_name": {
@@ -118,7 +468,43 @@
         "string"
       ]
     },
-    "enable_customer_multi_dur_segs": {
+    "product_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recent_theme_color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reskin_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "revshare_click_percent": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "revshare_view_percent": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rollcrawl_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "rollworks_self_serve_ads": {
       "type": [
         "null",
         "boolean"
@@ -130,25 +516,67 @@
         "string"
       ]
     },
-    "business_unit": {
+    "saleser": {
       "type": [
         "null",
         "string"
       ]
     },
-    "homepage_enabled": {
+    "self_serve_prospecting_enabled": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "campaign_monitor_client_id": {
+    "show_dpa": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "show_web_dynamic_ads": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "source": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_abm_customer": {
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "twitter_handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uhura_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "updated_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "use_universal_campaigns": {
       "type": [
         "null",
         "boolean"
@@ -166,443 +594,15 @@
         "integer"
       ]
     },
-    "updated_date": {
+    "zvelo_category_name": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "uhura_enabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "default_homepage": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_is_prepaid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "ops": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "company_phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "admin_page_permission": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "approval_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "fbx_page_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "logo_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "optimizer": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_marketo_syncing": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_managed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "twitter_handle": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_suspension_reason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "am_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_trusted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "has_created_campaign": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "marketo_api_endpoint": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "default_utm": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "rollworks_self_serve_ads": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "marketo_secret_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "has_sales_and_leads_automation": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_campaign_monitor_syncing": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "fb_offsite_pixels_tos_accepted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "click_through_conversion_window": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "magellan_legacy": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "revshare_click_percent": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "is_kpi_eligible": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "has_approved_safari_add_on": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "show_dpa": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "iab1_category_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_is_autobilled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "fbx_page_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "instagram_actor_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_coop_approved": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "has_approved_consent_solution": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "csm_admin": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "has_privacy_policy": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "account_country_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "eid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "fbx_account_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "optimizer_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "campaign_monitor_client_api_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "saleser": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "country_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_salesforce_system_owned": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_twitter_syncing": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "attached_users": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
-    },
-    "recent_theme_color": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "magellan_query": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_suspended": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "cm_networks": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "product_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "iab_content_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "is_active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "marketo_client_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "use_universal_campaigns": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "iab1_category_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "constant_contact_oauth_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "liquidads": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "page_access_request_status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "organization": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ip_address_exclusions": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "hide_optins_page": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "blacklisted_sites": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

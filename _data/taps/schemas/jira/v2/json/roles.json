@@ -1,18 +1,52 @@
 {
   "id": "https://docs.atlassian.com/jira/REST/schema/project-role#",
-  "title": "Project Role",
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "self": {
+    "actors": {
+      "items": {
+        "properties": {
+          "avatarUrl": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "displayName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "title": "Role Actor",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
     },
-    "name": {
+    "description": {
       "type": [
         "null",
         "string"
@@ -24,56 +58,22 @@
         "integer"
       ]
     },
-    "description": {
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "actors": {
+    "self": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "title": "Role Actor",
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "displayName": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "avatarUrl": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
+        "string"
+      ]
     }
-  }
+  },
+  "title": "Project Role",
+  "type": [
+    "null",
+    "object"
+  ]
 }

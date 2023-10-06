@@ -1,39 +1,25 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "anonymous": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
       "type": [
         "string"
       ]
     },
-    "webinar_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "status": {
+    "poll_type": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     },
     "questions": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
           "answer_max_character": {
@@ -54,6 +40,17 @@
               "boolean"
             ]
           },
+          "answers": {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
           "case_sensitive": {
             "type": [
               "null",
@@ -64,6 +61,37 @@
             "type": [
               "null",
               "string"
+            ]
+          },
+          "prompts": {
+            "items": {
+              "properties": {
+                "prompt_question": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "prompt_right_answers": {
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
             ]
           },
           "rating_max_label": {
@@ -91,16 +119,16 @@
             ]
           },
           "right_answers": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
               "type": [
                 "null",
                 "string"
               ]
-            }
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           },
           "show_as_dropdown": {
             "type": [
@@ -108,68 +136,40 @@
               "boolean"
             ]
           },
-          "prompts": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "null",
-                "object"
-              ],
-              "properties": {
-                "prompt_question": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "prompt_right_answers": {
-                  "type": [
-                    "null",
-                    "array"
-                  ],
-                  "items": {
-                    "type": [
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          },
           "type": {
             "type": [
               "null",
               "string"
             ]
-          },
-          "answers": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "type": [
-                "string"
-              ]
-            }
           }
-        }
-      }
-    },
-    "anonymous": {
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "boolean"
+        "array"
       ]
     },
-    "poll_type": {
+    "status": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

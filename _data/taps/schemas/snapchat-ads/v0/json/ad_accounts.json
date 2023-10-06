@@ -1,80 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "organization_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "funding_source_ids": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lifetime_spend_cap_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "timezone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "advertiser": {
       "type": [
         "null",
@@ -87,7 +13,70 @@
         "string"
       ]
     },
+    "agency_client_metadata": {
+      "additionalProperties": true,
+      "properties": {
+        "address_line_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "administrative_district_level_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tax_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zipcode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "agency_representing_client": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_type": {
       "type": [
         "null",
         "string"
@@ -105,62 +94,54 @@
         "boolean"
       ]
     },
-    "agency_client_metadata": {
+    "created_at": {
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "funding_source_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "address_line_1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "city": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "administrative_district_level_1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zipcode": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "tax_id": {
-          "type": [
-            "null",
-            "string"
-          ]
+        {
+          "type": "null"
         }
-      }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lifetime_spend_cap_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "paying_advertiser_name": {
       "type": [
@@ -168,17 +149,7 @@
         "string"
       ]
     },
-    "billing_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "regulations": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": true,
       "properties": {
         "restricted_delivery_signals": {
@@ -187,7 +158,36 @@
             "boolean"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,9 +1,86 @@
 {
-  "type": "object",
   "properties": {
+    "actionableAndConsumerLastMessage": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "actionableAndDuringTransfer": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "actionableAndManualSla": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "actionableConversations": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "avgWaitTimeForAgentAssignment_AfterTransfer": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "avgWaitTimeForAgentAssignment_AfterTransferFromAgent": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "avgWaitTimeForAgentAssignment_AfterTransferFromBot": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "avgWaitTimeForAgentAssignment_NewConversation": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
     "id": {
       "type": [
         "string",
+        "null"
+      ]
+    },
+    "maxWaitTimeForAgentAssignment": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "maxWaitTimeForAgentAssignment_AfterTransferFromAgent": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "notActionableAndManualSla": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "notActionableConversations": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "notActionableDuringTransfer": {
+      "type": [
+        "number",
         "null"
       ]
     },
@@ -25,73 +102,7 @@
         "null"
       ]
     },
-    "actionableConversations": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "notActionableConversations": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "actionableAndManualSla": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "actionableAndDuringTransfer": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "actionableAndConsumerLastMessage": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "notActionableDuringTransfer": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "notActionableAndManualSla": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
     "unassignedConversationsAndFirstTimeConsumer": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "avgWaitTimeForAgentAssignment_NewConversation": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "avgWaitTimeForAgentAssignment_AfterTransfer": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "avgWaitTimeForAgentAssignment_AfterTransferFromBot": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "maxWaitTimeForAgentAssignment": {
       "type": [
         "number",
         "null"
@@ -108,18 +119,7 @@
         "number",
         "null"
       ]
-    },
-    "avgWaitTimeForAgentAssignment_AfterTransferFromAgent": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "maxWaitTimeForAgentAssignment_AfterTransferFromAgent": {
-      "type": [
-        "number",
-        "null"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

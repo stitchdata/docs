@@ -1,12 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "created_at": {
       "type": [
-        "integer"
+        "null",
+        "date-time"
       ]
     },
     "email": {
@@ -21,13 +18,18 @@
         "string"
       ]
     },
-    "last_name": {
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "job_title": {
       "type": [
         "null",
         "string"
       ]
     },
-    "job_title": {
+    "last_name": {
       "type": [
         "null",
         "string"
@@ -39,17 +41,15 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

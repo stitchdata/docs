@@ -1,14 +1,43 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "service": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "externalid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "externalid": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_internal": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_sync": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "link_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "logo_url": {
       "type": [
         "null",
         "string"
@@ -20,10 +49,10 @@
         "string"
       ]
     },
-    "is_internal": {
+    "service": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "status": {
@@ -38,41 +67,12 @@
         "integer"
       ]
     },
-    "last_sync": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "logo_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "link_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "udate": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,13 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "bounceCount": {
       "type": [
+        "null",
         "integer"
       ]
     },
-    "bounceCount": {
+    "callPurposeId": {
       "type": [
         "null",
         "integer"
@@ -23,6 +23,12 @@
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "date": {
@@ -46,6 +52,11 @@
     "failureCount": {
       "type": [
         "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
         "integer"
       ]
     },
@@ -103,6 +114,12 @@
         "integer"
       ]
     },
+    "sequenceId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "stepType": {
       "type": [
         "null",
@@ -121,34 +138,16 @@
         "string"
       ]
     },
-    "updatedAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "callPurposeId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "sequenceId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "taskPriorityId": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "updaterId": {
@@ -157,5 +156,6 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

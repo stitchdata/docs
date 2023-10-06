@@ -1,76 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "timezone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "coordinates": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "latitude": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "longitude": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "phone_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "business_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "address_line_1": {
           "type": [
@@ -85,18 +15,6 @@
           ]
         },
         "address_line_3": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "postal_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locality": {
           "type": [
             "null",
             "string"
@@ -138,7 +56,19 @@
             "string"
           ]
         },
+        "locality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "organization": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
           "type": [
             "null",
             "string"
@@ -162,39 +92,59 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
-    "instagram_username": {
+    "business_email": {
       "type": [
         "null",
         "string"
       ]
     },
-    "description": {
+    "business_hours": {
+      "properties": {
+        "periods": {
+          "items": {
+            "properties": {
+              "day_of_week": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "end_local_time": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "start_local_time": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "website_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "twitter_username": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "merchant_id": {
+    "business_name": {
       "type": [
         "null",
         "string"
@@ -212,65 +162,45 @@
         "array"
       ]
     },
-    "business_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "mcc": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "language_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "business_hours": {
+    "coordinates": {
+      "properties": {
+        "latitude": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "longitude": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "periods": {
-          "items": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "start_local_time": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "end_local_time": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "day_of_week": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        }
-      }
+      ]
     },
-    "id": {
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
       "type": [
         "null",
         "string"
@@ -282,11 +212,81 @@
         "string"
       ]
     },
-    "created_at": {
+    "id": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "instagram_username": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "language_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mcc": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "merchant_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "twitter_username": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "website_url": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,12 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "access_grants": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "allowed_values": {
             "items": {
@@ -36,8 +33,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -58,6 +54,7 @@
     },
     "datagroups": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "max_cache_age": {
             "type": [
@@ -81,8 +78,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -91,9 +87,11 @@
     },
     "explores": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "access_filters": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "field": {
                   "type": [
@@ -111,8 +109,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -120,9 +117,11 @@
             ]
           },
           "always_filter": {
+            "additionalProperties": false,
             "properties": {
               "filters": {
                 "items": {
+                  "additionalProperties": false,
                   "properties": {
                     "field": {
                       "type": [
@@ -140,8 +139,7 @@
                   "type": [
                     "null",
                     "object"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "null",
@@ -152,8 +150,7 @@
             "type": [
               "null",
               "object"
-            ],
-            "additionalProperties": false
+            ]
           },
           "always_join": {
             "items": {
@@ -186,9 +183,11 @@
             ]
           },
           "conditionally_filter": {
+            "additionalProperties": false,
             "properties": {
               "filters": {
                 "items": {
+                  "additionalProperties": false,
                   "properties": {
                     "field": {
                       "type": [
@@ -206,8 +205,7 @@
                   "type": [
                     "null",
                     "object"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "null",
@@ -230,8 +228,7 @@
             "type": [
               "null",
               "object"
-            ],
-            "additionalProperties": false
+            ]
           },
           "description": {
             "type": [
@@ -289,6 +286,7 @@
           },
           "joins": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "fields": {
                   "items": {
@@ -396,8 +394,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -480,8 +477,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -494,13 +490,13 @@
         "string"
       ]
     },
-    "git_repository": {
+    "git_owner": {
       "type": [
         "null",
         "string"
       ]
     },
-    "git_owner": {
+    "git_repository": {
       "type": [
         "null",
         "string"
@@ -532,6 +528,7 @@
     },
     "map_layers": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "extents_json_url": {
             "type": [
@@ -609,8 +606,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -619,14 +615,9 @@
     },
     "named_value_formats": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value_format": {
             "type": [
               "null",
               "string"
@@ -637,13 +628,18 @@
               "null",
               "string"
             ]
+          },
+          "value_format": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -680,5 +676,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

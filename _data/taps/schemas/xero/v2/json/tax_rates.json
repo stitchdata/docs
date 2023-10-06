@@ -1,76 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "Name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TaxType": {
-      "type": [
-        "string"
-      ]
-    },
-    "TaxComponents": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "Name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "IsCompound": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "IsNonRecoverable": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "Rate": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "minimum": -1e+33,
-            "maximum": 1e+33,
-            "multipleOf": 1e-05,
-            "exclusiveMinimum": true,
-            "exclusiveMaximum": true
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "Status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ReportTaxType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "CanApplyToAssets": {
       "type": [
         "null",
@@ -102,27 +32,97 @@
       ]
     },
     "DisplayTaxRate": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
       "type": [
         "null",
         "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
+      ]
     },
     "EffectiveRate": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-05,
       "type": [
         "null",
         "number"
-      ],
-      "minimum": -1e+33,
-      "maximum": 1e+33,
-      "multipleOf": 1e-05,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ReportTaxType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxComponents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "IsCompound": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "IsNonRecoverable": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Rate": {
+            "exclusiveMaximum": true,
+            "exclusiveMinimum": true,
+            "maximum": 1e+33,
+            "minimum": -1e+33,
+            "multipleOf": 1e-05,
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "TaxType": {
+      "type": [
+        "string"
+      ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "null",
+    "object"
+  ]
 }

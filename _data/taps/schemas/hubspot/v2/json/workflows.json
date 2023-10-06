@@ -1,10 +1,38 @@
 {
-  "type": "object",
   "properties": {
-    "name": {
+    "contactListIds": {
+      "properties": {
+        "active": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "enrolled": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "steps": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "enabled": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "id": {
@@ -13,22 +41,28 @@
         "integer"
       ]
     },
-    "type": {
+    "insertedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "enabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
+    "personaTagIds": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
     },
-    "insertedAt": {
+    "type": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "updatedAt": {
@@ -36,41 +70,7 @@
         "null",
         "date-time"
       ]
-    },
-    "personaTagIds": {
-      "type": "array",
-      "items": {
-        "type": "integer"
-      }
-    },
-    "contactListIds": {
-      "type": "object",
-      "properties": {
-        "enrolled": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "steps": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
     }
-  }
+  },
+  "type": "object"
 }

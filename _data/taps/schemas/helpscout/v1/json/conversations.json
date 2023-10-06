@@ -1,81 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "number": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "threads": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "folder_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "subject": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "preview": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "mailbox_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "assignee": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
+        "email": {
           "type": [
             "null",
             "string"
@@ -85,6 +14,12 @@
           "type": [
             "null",
             "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
           ]
         },
         "last": {
@@ -99,66 +34,45 @@
             "string"
           ]
         },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "type": {
           "type": [
             "null",
             "string"
           ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "photo_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
-    },
-    "created_at": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "updated_at": {
+    "bcc": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cc": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "closed_at": {
       "type": [
         "null",
         "date-time"
@@ -170,140 +84,16 @@
         "integer"
       ]
     },
-    "closed_at": {
+    "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "user_updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "customer_waiting_since": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "created_by": {
       "additionalProperties": false,
       "properties": {
-        "time": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "friendly": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_reply_from": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "source": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "via": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "tags": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "color": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "tag": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "cc": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "bcc": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "primary_customer": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
+        "email": {
           "type": [
             "null",
             "string"
@@ -313,6 +103,12 @@
           "type": [
             "null",
             "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
           ]
         },
         "last": {
@@ -327,20 +123,22 @@
             "string"
           ]
         },
-        "email": {
+        "type": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -355,25 +153,227 @@
                   "string"
                 ]
               },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "text": {
                 "type": [
                   "null",
                   "string"
                 ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "customer_waiting_since": {
+      "additionalProperties": false,
+      "properties": {
+        "friendly": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_reply_from": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "time": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "folder_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mailbox_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "preview": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "primary_customer": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "via": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "color": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "tag": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "threads": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

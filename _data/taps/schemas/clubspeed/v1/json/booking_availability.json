@@ -1,28 +1,12 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "heatId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "heatDescription": {
       "type": [
         "null",
         "string"
       ]
     },
-    "heatStartsAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "heatSpotsTotalActual": {
+    "heatId": {
       "type": [
         "null",
         "integer"
@@ -40,6 +24,18 @@
         "integer"
       ]
     },
+    "heatSpotsTotalActual": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "heatStartsAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "heatTypeId": {
       "type": [
         "null",
@@ -53,15 +49,7 @@
       ]
     },
     "products": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "onlineBookingsId": {
             "type": [
@@ -81,12 +69,6 @@
               "string"
             ]
           },
-          "productsId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
           "productSpotsAvailableOnline": {
             "type": [
               "null",
@@ -104,9 +86,27 @@
               "null",
               "string"
             ]
+          },
+          "productsId": {
+            "type": [
+              "null",
+              "integer"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

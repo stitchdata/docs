@@ -1,7 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "action_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ad_unit_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "approximate_unique_impressions": {
       "type": [
         "null",
@@ -20,67 +31,13 @@
         "integer"
       ]
     },
-    "comment_likes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_card_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_card_impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "viral_comment_likes": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "creative": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creative_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "start_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "action_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ad_unit_clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "comment_likes": {
       "type": [
         "null",
         "integer"
@@ -116,18 +73,22 @@
         "number"
       ]
     },
-    "date_range": {
+    "creative": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "creative_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "date_range": {
       "additionalProperties": false,
       "properties": {
         "end": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "day": {
@@ -148,13 +109,13 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "start": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "day": {
@@ -175,9 +136,23 @@
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "end_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     },
     "external_website_conversions": {
       "type": [
@@ -278,10 +253,10 @@
     "pivot_values": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -304,6 +279,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "start_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "text_url_clicks": {
@@ -354,7 +335,25 @@
         "integer"
       ]
     },
+    "viral_card_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_card_impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "viral_clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "viral_comment_likes": {
       "type": [
         "null",
         "integer"
@@ -492,5 +491,6 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,8 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "checkout_logo_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "checkout_platform": {
       "type": [
         "null",
         "string"
@@ -20,6 +25,18 @@
         "string"
       ]
     },
+    "customer_portal_base_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "default_api_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "domain": {
       "type": [
         "null",
@@ -27,6 +44,12 @@
       ]
     },
     "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_platform": {
       "type": [
         "null",
         "string"
@@ -44,6 +67,18 @@
         "integer"
       ]
     },
+    "identifier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "merchant_portal_base_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "my_shopify_domain": {
       "type": [
         "null",
@@ -51,6 +86,12 @@
       ]
     },
     "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone": {
       "type": [
         "null",
         "string"
@@ -69,10 +110,6 @@
       ]
     },
     "timezone": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "iana_name": {
           "type": [
@@ -92,7 +129,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "updated_at": {
       "type": [
@@ -100,53 +141,12 @@
         "date-time"
       ]
     },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "checkout_platform": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "customer_portal_base_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "external_platform": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "identifier": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "merchant_portal_base_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "weight_unit": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "default_api_version": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

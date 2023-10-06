@@ -1,36 +1,6 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "login": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "admin": {
       "type": [
         "null",
@@ -43,23 +13,71 @@
         "boolean"
       ]
     },
-    "subscribed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "avatar_url": {
       "type": [
         "null",
         "string"
       ]
     },
+    "color_blind": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "harvest_user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "login": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "personal_feed_token_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "roles": {
-      "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "type": "array"
+    },
+    "subscribed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "updated_at": {
       "type": [
@@ -73,12 +91,6 @@
         "string"
       ]
     },
-    "harvest_user_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "weekly_capacity": {
       "type": [
         "null",
@@ -86,33 +98,15 @@
       ]
     },
     "working_days": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "monday": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "tuesday": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "wednesday": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "thursday": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
         "friday": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "monday": {
           "type": [
             "boolean",
             "null"
@@ -129,22 +123,28 @@
             "boolean",
             "null"
           ]
+        },
+        "thursday": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "tuesday": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "wednesday": {
+          "type": [
+            "boolean",
+            "null"
+          ]
         }
       },
-      "additionalProperties": false
-    },
-    "color_blind": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "personal_feed_token_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
+      "type": "object"
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

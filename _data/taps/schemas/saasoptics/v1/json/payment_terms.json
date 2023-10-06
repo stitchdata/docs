@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -45,11 +44,12 @@
       ]
     },
     "num_days": {
+      "multipleOf": 1.0,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1.0
+      ]
     }
-  }
+  },
+  "type": "object"
 }

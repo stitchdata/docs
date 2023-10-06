@@ -1,8 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "orderid": {
+    "abandoned_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "connection": {
       "type": [
         "null",
         "integer"
@@ -14,90 +19,10 @@
         "integer"
       ]
     },
-    "customerid": {
+    "created_date": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "externalid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "externalcheckoutid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "source": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "order_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "total_price": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "discount_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "shipping_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "tax_amount": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-08
-        }
-      ]
-    },
-    "total_products": {
-      "type": [
-        "null",
-        "integer"
+        "date-time"
       ]
     },
     "currency": {
@@ -106,34 +31,27 @@
         "string"
       ]
     },
-    "shipping_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "store_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "logo_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "order_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
+    "customerid": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "discount_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "external_created_date": {
@@ -148,22 +66,16 @@
         "date-time"
       ]
     },
-    "abandoned_date": {
+    "externalcheckoutid": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "created_date": {
+    "externalid": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "updated_date": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
     "id": {
@@ -172,10 +84,10 @@
         "integer"
       ]
     },
-    "connection": {
+    "logo_url": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "order": {
@@ -183,6 +95,94 @@
         "null",
         "integer"
       ]
+    },
+    "order_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "orderid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shipping_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "shipping_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "store_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "total_price": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "total_products": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

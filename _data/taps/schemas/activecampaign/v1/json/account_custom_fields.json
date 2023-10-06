@@ -1,39 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "display_order": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "field_label": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "field_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "field_options": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
       ]
     },
     "field_default": {
@@ -48,6 +25,46 @@
         "string"
       ]
     },
+    "field_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "field_options": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "field_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hide_field_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "is_form_visible": {
       "type": [
         "null",
@@ -60,7 +77,7 @@
         "boolean"
       ]
     },
-    "display_order": {
+    "known_field_id": {
       "type": [
         "null",
         "integer"
@@ -72,29 +89,12 @@
         "string"
       ]
     },
-    "known_field_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "hide_field_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_timestamp": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

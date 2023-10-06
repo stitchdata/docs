@@ -1,15 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "eventReservationId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "allowOnlineReservation": {
       "type": [
         "null",
@@ -34,7 +24,19 @@
         "date-time"
       ]
     },
+    "eventReservationId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "eventTypeId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "externalSystemId": {
       "type": [
         "null",
         "integer"
@@ -111,12 +113,10 @@
         "null",
         "integer"
       ]
-    },
-    "externalSystemId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

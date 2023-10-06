@@ -1,67 +1,6 @@
 {
-  "title": "User",
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "self": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "accountId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "emailAddress": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "avatarUrls": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "patternProperties": {
-        ".+": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "displayName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "timeZone": {
       "type": [
         "null",
         "string"
@@ -73,11 +12,72 @@
         "string"
       ]
     },
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "avatarUrls": {
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "displayName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emailAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "expand": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timeZone": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "title": "User",
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,11 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
+    "created_at": {
       "type": [
         "null",
-        "integer"
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "first_name": {
@@ -14,13 +19,19 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "last_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "email": {
+    "photo_url": {
       "type": [
         "null",
         "string"
@@ -38,16 +49,10 @@
         "string"
       ]
     },
-    "photo_url": {
+    "type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_at": {
@@ -55,12 +60,7 @@
         "null",
         "date-time"
       ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

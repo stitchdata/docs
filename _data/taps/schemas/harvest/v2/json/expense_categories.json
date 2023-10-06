@@ -1,10 +1,21 @@
 {
-  "type": "object",
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "name": {
@@ -25,23 +36,12 @@
         "number"
       ]
     },
-    "is_active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

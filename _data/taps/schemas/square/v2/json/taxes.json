@@ -1,9 +1,17 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "absent_at_location_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -16,18 +24,6 @@
         "boolean"
       ]
     },
-    "absent_at_location_ids": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
     "present_at_all_locations": {
       "type": [
         "null",
@@ -35,10 +31,6 @@
       ]
     },
     "tax_data": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "applies_to_custom_amounts": {
           "type": [
@@ -88,7 +80,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "type": {
       "type": [
@@ -108,5 +104,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

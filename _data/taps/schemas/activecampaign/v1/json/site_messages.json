@@ -1,48 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "automation": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "template": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "initial": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {}
-        },
-        "detailed": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {}
-        }
-      }
-    },
-    "ldate": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "id": {
@@ -50,6 +12,44 @@
         "null",
         "integer"
       ]
+    },
+    "ldate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "template": {
+      "additionalProperties": false,
+      "properties": {
+        "detailed": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "initial": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

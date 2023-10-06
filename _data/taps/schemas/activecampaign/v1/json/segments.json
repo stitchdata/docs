@@ -1,26 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "logic": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "hidden": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "seriesid": {
+    "created_by": {
       "type": [
         "null",
         "integer"
@@ -32,13 +13,31 @@
         "date-time"
       ]
     },
-    "updated_timestamp": {
+    "hidden": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
-    "created_by": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "logic": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "seriesid": {
       "type": [
         "null",
         "integer"
@@ -50,11 +49,12 @@
         "integer"
       ]
     },
-    "id": {
+    "updated_timestamp": {
       "type": [
         "null",
-        "integer"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

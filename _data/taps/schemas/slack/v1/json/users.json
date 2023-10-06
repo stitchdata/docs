@@ -1,23 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "team_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
+    "color": {
       "type": [
         "null",
         "string"
@@ -29,37 +13,31 @@
         "boolean"
       ]
     },
-    "color": {
+    "has_2fa": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "real_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tz": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tz_label": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tz_offset": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "is_admin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_app_user": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_bot": {
       "type": [
         "null",
         "boolean"
@@ -89,35 +67,13 @@
         "boolean"
       ]
     },
-    "is_bot": {
+    "name": {
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "updated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "is_app_user": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "has_2fa": {
-      "type": [
-        "null",
-        "boolean"
+        "string"
       ]
     },
     "profile": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "email": {
           "type": [
@@ -125,7 +81,51 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "real_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "team_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tz": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tz_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tz_offset": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
     "autoTaggingEnabled": {
       "type": [
@@ -11,10 +7,6 @@
       ]
     },
     "callReportingSetting": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "callConversionAction": {
           "type": [
@@ -34,13 +26,13 @@
             "boolean"
           ]
         }
-      }
-    },
-    "conversionTrackingSetting": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "conversionTrackingSetting": {
       "properties": {
         "conversionTrackingId": {
           "type": [
@@ -54,13 +46,79 @@
             "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "currencyCode": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "definitions": {
+      "CallReportingSetting": {
+        "properties": {
+          "callConversionAction": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "callConversionReportingEnabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "callReportingEnabled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "ConversionTrackingSetting": {
+        "properties": {
+          "conversionTrackingId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "crossAccountConversionTrackingId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "RemarketingSetting": {
+        "properties": {
+          "googleGlobalSiteTag": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
     },
     "descriptiveName": {
       "type": [
@@ -105,22 +163,18 @@
       ]
     },
     "payPerConversionEligibilityFailureReasons": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "remarketingSetting": {
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "remarketingSetting": {
       "properties": {
         "googleGlobalSiteTag": {
           "type": [
@@ -128,7 +182,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "resourceName": {
       "type": [
@@ -153,68 +211,10 @@
         "null",
         "string"
       ]
-    },
-    "definitions": {
-      "CallReportingSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "callConversionAction": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "callConversionReportingEnabled": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "callReportingEnabled": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
-        }
-      },
-      "ConversionTrackingSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "conversionTrackingId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "crossAccountConversionTrackingId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      },
-      "RemarketingSetting": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "googleGlobalSiteTag": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,8 +1,16 @@
 {
-  "type": "object",
   "properties": {
+    "BounceType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "CampaignID": {
       "type": "string"
+    },
+    "Date": {
+      "type": "date-time"
     },
     "EmailAddress": {
       "type": "string"
@@ -10,20 +18,12 @@
     "ListID": {
       "type": "string"
     },
-    "Date": {
-      "type": "date-time"
-    },
-    "BounceType": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "Reason": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

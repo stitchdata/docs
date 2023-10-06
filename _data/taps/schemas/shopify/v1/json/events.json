@@ -1,16 +1,26 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
+    "arguments": {
+      "anyOf": [
+        {
+          "items": {},
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       ]
     },
-    "created_at": {
+    "author": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "body": {
@@ -19,13 +29,31 @@
         "string"
       ]
     },
-    "path": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
       "type": [
         "null",
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "path": {
       "type": [
         "null",
         "string"
@@ -48,35 +76,7 @@
         "null",
         "string"
       ]
-    },
-    "author": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "arguments": {
-      "anyOf": [
-        {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {}
-        },
-        {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      ]
     }
-  }
+  },
+  "type": "object"
 }

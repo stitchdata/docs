@@ -1,38 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "conversion": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "trigger_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "modifier": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "value": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "dynamic": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "retroactive": {
+    "automation_block": {
       "type": [
         "null",
         "integer"
@@ -44,13 +13,13 @@
         "date-time"
       ]
     },
-    "udate": {
+    "conversion": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
-    "automation_block": {
+    "dynamic": {
       "type": [
         "null",
         "integer"
@@ -61,6 +30,37 @@
         "null",
         "integer"
       ]
+    },
+    "modifier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "retroactive": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trigger_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "udate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

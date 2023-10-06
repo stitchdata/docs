@@ -1,11 +1,5 @@
 {
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "channel": {
       "type": [
         "null",
@@ -13,35 +7,12 @@
       ]
     },
     "conversion": {
-      "id": {
-        "type": [
-          "string"
-        ]
-      },
-      "goal_name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "goal_id": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
       "attribution": {
         "properties": {
-          "chat_timestamp": {
+          "agent_id": {
             "type": [
               "null",
-              "date-time"
-            ]
-          },
-          "department_name": {
-            "type": [
-              "null",
-              "string"
+              "integer"
             ]
           },
           "agent_name": {
@@ -50,22 +21,45 @@
               "string"
             ]
           },
+          "chat_timestamp": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
           "department_id": {
             "type": [
               "null",
               "integer"
             ]
           },
-          "agent_id": {
+          "department_name": {
             "type": [
               "null",
-              "integer"
+              "string"
             ]
           }
         },
         "type": [
           "null",
           "object"
+        ]
+      },
+      "goal_id": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "goal_name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "id": {
+        "type": [
+          "string"
         ]
       },
       "timestamp": {
@@ -75,44 +69,7 @@
         ]
       }
     },
-    "timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "msg": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "nick": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "options": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "department_id": {
-      "type": [
-        "null",
-        "integer",
-        "string"
-      ]
-    },
-    "prev_department_id": {
       "type": [
         "null",
         "integer",
@@ -125,6 +82,12 @@
         "string"
       ]
     },
+    "msg": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "msg_id": {
       "type": [
         "null",
@@ -132,15 +95,16 @@
         "integer"
       ]
     },
-    "tags": {
-      "items": {
-        "type": [
-          "string"
-        ]
-      },
+    "name": {
       "type": [
         "null",
-        "array"
+        "string"
+      ]
+    },
+    "new_rating": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "new_tags": {
@@ -154,13 +118,26 @@
         "array"
       ]
     },
-    "rating": {
+    "nick": {
       "type": [
         "null",
         "string"
       ]
     },
-    "new_rating": {
+    "options": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "prev_department_id": {
+      "type": [
+        "null",
+        "integer",
+        "string"
+      ]
+    },
+    "rating": {
       "type": [
         "null",
         "string"
@@ -176,13 +153,36 @@
         "null",
         "array"
       ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   },
+  "tap_schema_dependencies": [
+    "chat_conversion"
+  ],
   "type": [
     "null",
     "object"
-  ],
-  "tap_schema_dependencies": [
-    "chat_conversion"
   ]
 }

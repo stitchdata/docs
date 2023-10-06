@@ -1,39 +1,21 @@
 {
   "properties": {
+    "DisplayName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "Id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "TaxRegistrationNumber": {
+    "LastFileDate": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "TaxTrackedOnPurchases": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "DisplayName": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "MetaData": {
@@ -56,19 +38,37 @@
         "object"
       ]
     },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxAgencyConfig": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxRegistrationNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxTrackedOnPurchases": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "TaxTrackedOnSales": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "LastFileDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "TaxAgencyConfig": {
+    "domain": {
       "type": [
         "null",
         "string"

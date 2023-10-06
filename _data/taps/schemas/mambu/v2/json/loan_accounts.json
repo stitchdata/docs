@@ -1,175 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "account_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "account_arrears_settings": {
       "additionalProperties": false,
       "properties": {
-        "code": {
+        "date_calculation_method": {
           "type": [
             "null",
             "string"
-          ]
-        }
-      }
-    },
-    "prepayment_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "elements_recalculation_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "principal-paid_installment_status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "prepayment_recalculation_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "apply_interest_on_prepayment_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "migration_event_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_set_to_arrears_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "disbursement_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "transaction_details": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "encoded_key": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "internal_transfer": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "transaction_channel_key": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "transaction_channel_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "target_deposit_account_key": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "expected_disbursement_date": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "fees": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "predefined_fee_encoded_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "encoded_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "amount": {
-                    "type": [
-                      "null",
-                      "number"
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "first_repayment_date": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "disbursement_date": {
-          "type": [
-            "null",
-            "date-time"
           ]
         },
         "encoded_key": {
@@ -177,191 +15,59 @@
             "null",
             "string"
           ]
+        },
+        "monthly_tolerance_day": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "non_working_days_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tolerance_calculation_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tolerance_period": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
-    },
-    "days_in_arrears": {
+      },
       "type": [
         "null",
-        "integer"
+        "object"
+      ]
+    },
+    "account_holder_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_holder_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_state": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "account_sub_state": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "loan_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "interest_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "interest_rate_review_unit": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "interest_spread": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "interest_rate": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1000000000000000,
-          "maximum": 1000000000000000
-        },
-        "interest_calculation_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "interest_rate_source": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "interest_rate_review_count": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "interest_application_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "interest_charge_frequency": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "interest_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accrue_interest_after_maturity": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "interest_balance_calculation_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "assets": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "deposit_account_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "asset_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "guarantor_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "guarantor_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "last_interest_review_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assigned_user_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "future_payments_acceptance": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "locked_operations": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
       ]
     },
     "accrued_interest": {
@@ -376,617 +82,7 @@
         "number"
       ]
     },
-    "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "assigned_centre_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tranches": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "disbursement_details": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "expected_disbursement_date": {
-                    "type": [
-                      "null",
-                      "date-time"
-                    ]
-                  },
-                  "disbursement_transaction_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "tranch_number": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "approved_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "tax_rate": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "minimum": -1000000000000000,
-      "maximum": 1000000000000000
-    },
-    "last_tax_rate_review_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "interest_from_arrears_accrued": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "schedule_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "grace_period": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "periodic_payment": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "repayment_schedule_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "payment_plan": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "to_installment": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "encoded_key": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "amount": {
-                    "type": [
-                      "null",
-                      "number"
-                    ]
-                  }
-                }
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "short_month_handling_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "repayment_installments": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "grace_period_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "principal_repayment_interval": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "has_custom_schedule": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "repayment_period_unit": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fixed_days_of_month": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "integer"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "schedule_due_dates_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "repayment_period_count": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "default_first_repayment_due_date_offset": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
-    },
-    "days_late": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "payment_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_holder_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "late_payments_recalculation_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "funding_sources": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "amount": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "interest_commission": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "deposit_account_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "asset_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "encoded_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "id": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "guarantor_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "guarantor_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "share_percentage": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "account_holder_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "arrears_tolerance_period": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "last_interest_applied_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "rescheduled_account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "activation_transaction_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assigned_branch_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "balances": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "interest_from_arrears_paid": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "principal_due": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "interest_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "principal_paid": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "penalty_due": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "fees_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "penalty_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "redraw_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "interest_from_arrears_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "principal_balance": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "interest_due": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "penalty_paid": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "fees_paid": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "interest_from_arrears_due": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "fees_due": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "interest_paid": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "credit_arrangement_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "interest_commission": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_appraisal_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_account_appraisal_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "penalty_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "loan_penalty_calculation_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "penalty_rate": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1000000000000000,
-          "maximum": 1000000000000000
-        }
-      }
-    },
-    "settlement_account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "principal_payment_settings": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "include_interest_in_floor_amount": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "total_due_payment": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "principal_floor_value": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "principal_payment_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "percentage": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1000000000000000,
-          "maximum": 1000000000000000
-        },
-        "include_fees_in_floor_amount": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "encoded_key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "total_due_amount_floor": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "principal_ceiling_value": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      }
-    },
-    "last_locked_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "loan_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "closed_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "product_type_key": {
       "type": [
         "null",
         "string"
@@ -998,12 +94,22 @@
         "boolean"
       ]
     },
-    "guarantors": {
+    "approved_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "arrears_tolerance_period": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "assets": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "amount": {
@@ -1012,13 +118,13 @@
                   "number"
                 ]
               },
-              "deposit_account_key": {
+              "asset_name": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "asset_name": {
+              "deposit_account_key": {
                 "type": [
                   "null",
                   "string"
@@ -1042,65 +148,176 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "account_arrears_settings": {
+    "assigned_branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_centre_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "balances": {
+      "additionalProperties": false,
+      "properties": {
+        "fees_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "fees_due": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "fees_paid": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_due": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_from_arrears_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_from_arrears_due": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_from_arrears_paid": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_paid": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "penalty_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "penalty_due": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "penalty_paid": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_due": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_paid": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "redraw_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "closed_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "credit_arrangement_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
       "additionalProperties": false,
       "properties": {
-        "monthly_tolerance_day": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "non_working_days_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "tolerance_period": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "encoded_key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "tolerance_calculation_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "date_calculation_method": {
+        "code": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "field_set_id": {
@@ -1121,12 +338,452 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
+      ]
+    },
+    "days_in_arrears": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "days_late": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "disbursement_details": {
+      "additionalProperties": false,
+      "properties": {
+        "disbursement_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "encoded_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "expected_disbursement_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "fees": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "amount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "predefined_fee_encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "first_repayment_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "transaction_details": {
+          "additionalProperties": false,
+          "properties": {
+            "encoded_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "internal_transfer": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "target_deposit_account_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transaction_channel_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transaction_channel_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "funding_sources": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "asset_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "deposit_account_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "interest_commission": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "share_percentage": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "future_payments_acceptance": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "guarantors": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "asset_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "deposit_account_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "guarantor_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "interest_commission": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "interest_from_arrears_accrued": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "interest_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "accrue_interest_after_maturity": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "interest_application_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_balance_calculation_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_calculation_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_charge_frequency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_rate": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_rate_review_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "interest_rate_review_unit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_rate_source": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_spread": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "last_account_appraisal_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_appraisal_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_interest_applied_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_interest_review_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_locked_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_set_to_arrears_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_tax_rate_review_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "late_payments_recalculation_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "loan_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "loan_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locked_operations": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "migration_event_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "original_account_key": {
@@ -1134,6 +791,349 @@
         "null",
         "string"
       ]
+    },
+    "payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "penalty_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "loan_penalty_calculation_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "penalty_rate": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "prepayment_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "apply_interest_on_prepayment_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "elements_recalculation_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "prepayment_recalculation_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "principal-paid_installment_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "principal_payment_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "encoded_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "include_fees_in_floor_amount": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "include_interest_in_floor_amount": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "percentage": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_ceiling_value": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_floor_value": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_payment_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "total_due_amount_floor": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "total_due_payment": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "product_type_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rescheduled_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "schedule_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "default_first_repayment_due_date_offset": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "fixed_days_of_month": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "grace_period": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "grace_period_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "has_custom_schedule": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "payment_plan": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "amount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "to_installment": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "periodic_payment": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_repayment_interval": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "repayment_installments": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "repayment_period_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "repayment_period_unit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "repayment_schedule_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "schedule_due_dates_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "short_month_handling_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "settlement_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_rate": {
+      "maximum": 1000000000000000,
+      "minimum": -1000000000000000,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tranches": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "disbursement_details": {
+                "additionalProperties": false,
+                "properties": {
+                  "disbursement_transaction_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "expected_disbursement_date": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tranch_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
     }
-  }
+  },
+  "type": "object"
 }

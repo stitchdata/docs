@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "content": {
@@ -15,6 +14,18 @@
       ]
     },
     "encoding": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
       "type": [
         "null",
         "string"
@@ -50,18 +61,6 @@
         "string"
       ]
     },
-    "git_repository": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_owner": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "sha": {
       "type": [
         "null",
@@ -86,5 +85,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

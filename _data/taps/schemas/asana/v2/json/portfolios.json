@@ -1,28 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "gid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "resource_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "color": {
       "type": [
         "null",
@@ -36,13 +14,42 @@
       ]
     },
     "created_by": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "current_status_update": {
+      "additionalProperties": false,
+      "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource_subtype": {
           "type": [
             "null",
             "string"
@@ -54,54 +61,50 @@
             "string"
           ]
         },
-        "name": {
+        "title": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "custom_field_settings": {
+      },
       "type": [
         "null",
-        "array"
-      ],
+        "object"
+      ]
+    },
+    "custom_field_settings": {
       "items": {
-        "type": [
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "custom_field": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
-              "gid": {
+              "created_by": {
+                "additionalProperties": false,
+                "properties": {
+                  "gid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "resource_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
                 "type": [
                   "null",
-                  "string"
-                ]
-              },
-              "resource_type": {
-                "type": [
-                  "null",
-                  "string"
+                  "object"
                 ]
               },
               "currency_code": {
@@ -122,7 +125,34 @@
                   "string"
                 ]
               },
+              "date_value": {
+                "additionalProperties": false,
+                "properties": {
+                  "date": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "date_time": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "display_value": {
                 "type": [
                   "null",
                   "string"
@@ -135,29 +165,10 @@
                 ]
               },
               "enum_options": {
-                "type": [
-                  "null",
-                  "array"
-                ],
                 "items": {
-                  "type": [
-                    "object"
-                  ],
                   "additionalProperties": false,
                   "properties": {
-                    "gid": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "resource_type": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "name": {
+                    "color": {
                       "type": [
                         "null",
                         "string"
@@ -169,35 +180,38 @@
                         "boolean"
                       ]
                     },
-                    "color": {
+                    "gid": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "resource_type": {
                       "type": [
                         "null",
                         "string"
                       ]
                     }
-                  }
-                }
-              },
-              "enum_value": {
+                  },
+                  "type": [
+                    "object"
+                  ]
+                },
                 "type": [
                   "null",
-                  "object"
-                ],
+                  "array"
+                ]
+              },
+              "enum_value": {
                 "additionalProperties": false,
                 "properties": {
-                  "gid": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "resource_type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "name": {
+                  "color": {
                     "type": [
                       "null",
                       "string"
@@ -209,15 +223,37 @@
                       "boolean"
                     ]
                   },
-                  "color": {
+                  "gid": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "resource_type": {
                     "type": [
                       "null",
                       "string"
                     ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               },
               "format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "gid": {
                 "type": [
                   "null",
                   "string"
@@ -235,6 +271,51 @@
                   "boolean"
                 ]
               },
+              "multi_enum_values": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "color": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "enabled": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "gid": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "resource_type": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
               "name": {
                 "type": [
                   "null",
@@ -247,6 +328,39 @@
                   "number"
                 ]
               },
+              "people_value": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "gid": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "resource_type": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              },
               "precision": {
                 "type": [
                   "null",
@@ -254,6 +368,12 @@
                 ]
               },
               "resource_subtype": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "resource_type": {
                 "type": [
                   "null",
                   "string"
@@ -270,140 +390,18 @@
                   "null",
                   "string"
                 ]
-              },
-              "created_by": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "gid": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "resource_type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "date_value": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "date": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "date_time": {
-                    "type": [
-                      "null",
-                      "date-time"
-                    ]
-                  }
-                }
-              },
-              "display_value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "multi_enum_values": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "gid": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "resource_type": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "color": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "enabled": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                }
-              },
-              "people_value": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "gid": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "resource_type": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
-                  }
-                }
               }
-            }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "is_important": {
             "type": [
@@ -412,19 +410,9 @@
             ]
           },
           "parent": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "gid": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "resource_type": {
                 "type": [
                   "null",
                   "string"
@@ -435,23 +423,23 @@
                   "null",
                   "string"
                 ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
           },
           "project": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "gid": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "resource_type": {
                 "type": [
                   "null",
                   "string"
@@ -462,218 +450,40 @@
                   "null",
                   "string"
                 ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
-        }
-      }
-    },
-    "is_template": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "due_on": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "members": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "owner": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "permalink_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start_on": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "workspace": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "portfolio_items": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "current_status_update": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_subtype": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "title": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "custom_fields": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "date_value": {
+            },
             "type": [
               "null",
               "object"
-            ],
+            ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "date_value": {
             "additionalProperties": false,
             "properties": {
               "date": {
@@ -688,7 +498,11 @@
                   "date-time"
                 ]
               }
-            }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
           },
           "display_value": {
             "type": [
@@ -703,29 +517,9 @@
             ]
           },
           "enum_options": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": [
-                "null",
-                "object"
-              ],
               "additionalProperties": false,
               "properties": {
-                "gid": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "resource_type": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "color": {
                   "type": [
                     "null",
@@ -738,34 +532,38 @@
                     "boolean"
                   ]
                 },
+                "gid": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
                 "name": {
                   "type": [
                     "null",
                     "string"
                   ]
+                },
+                "resource_type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
                 }
-              }
-            }
-          },
-          "enum_value": {
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
             "type": [
               "null",
-              "object"
-            ],
+              "array"
+            ]
+          },
+          "enum_value": {
             "additionalProperties": false,
             "properties": {
-              "gid": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "resource_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "color": {
                 "type": [
                   "null",
@@ -778,38 +576,40 @@
                   "boolean"
                 ]
               },
+              "gid": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
               "name": {
                 "type": [
                   "null",
                   "string"
                 ]
+              },
+              "resource_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          },
-          "multi_enum_values": {
+            },
             "type": [
               "null",
-              "array"
-            ],
+              "object"
+            ]
+          },
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "multi_enum_values": {
             "items": {
-              "type": [
-                "null",
-                "object"
-              ],
               "additionalProperties": false,
               "properties": {
-                "gid": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "resource_type": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "color": {
                   "type": [
                     "null",
@@ -822,14 +622,34 @@
                     "boolean"
                   ]
                 },
+                "gid": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
                 "name": {
                   "type": [
                     "null",
                     "string"
                   ]
+                },
+                "resource_type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
                 }
-              }
-            }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           },
           "name": {
             "type": [
@@ -849,6 +669,12 @@
               "string"
             ]
           },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "text_value": {
             "type": [
               "null",
@@ -861,14 +687,188 @@
               "string"
             ]
           }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "due_on": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_template": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "members": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner": {
+      "additionalProperties": false,
+      "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "permalink_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "portfolio_items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "public": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "resource_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_on": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "workspace": {
+      "additionalProperties": false,
+      "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

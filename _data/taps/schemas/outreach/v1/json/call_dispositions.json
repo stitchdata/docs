@@ -1,7 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "id": {
       "type": [
         "integer"
@@ -25,23 +36,12 @@
         "string"
       ]
     },
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updatedAt": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

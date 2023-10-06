@@ -1,16 +1,37 @@
 {
-  "type": "object",
   "properties": {
-    "custom_fields": {
+    "active": {
       "type": [
         "null",
-        "array"
-      ],
+        "boolean"
+      ]
+    },
+    "address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "avatar": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "company_id": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "name": {
             "type": [
@@ -24,74 +45,10 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "other_companies": {
-      "items": {
+        },
         "type": [
           "null",
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "view_all_tickets": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "other_emails": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "company_id": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "job_title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tags": {
-      "items": {
-        "type": [
-          "null",
-          "string"
+          "object"
         ]
       },
       "type": [
@@ -105,31 +62,25 @@
         "boolean"
       ]
     },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "phone": {
+    "description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "address": {
+    "email": {
       "type": [
         "null",
         "string"
       ]
     },
-    "active": {
+    "id": {
       "type": [
         "null",
-        "boolean"
+        "integer"
       ]
     },
-    "name": {
+    "job_title": {
       "type": [
         "null",
         "string"
@@ -147,16 +98,52 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "twitter_id": {
+    "name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "other_companies": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "other_emails": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "time_zone": {
@@ -165,11 +152,24 @@
         "string"
       ]
     },
-    "avatar": {
+    "twitter_id": {
       "type": [
         "null",
-        "object"
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "view_all_tickets": {
+      "type": [
+        "null",
+        "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

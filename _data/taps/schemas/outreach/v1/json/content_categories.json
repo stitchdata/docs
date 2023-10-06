@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "allowSequences": {
       "type": [
         "null",
@@ -37,6 +31,17 @@
         "date-time"
       ]
     },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
     "name": {
       "type": [
         "null",
@@ -48,12 +53,7 @@
         "null",
         "date-time"
       ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

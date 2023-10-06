@@ -1,7 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "d_id": {
       "type": [
         "null",
@@ -14,10 +25,10 @@
         "integer"
       ]
     },
-    "userid": {
+    "data_action": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "data_id": {
@@ -26,37 +37,19 @@
         "integer"
       ]
     },
-    "data_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "data_action": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "data_oldval": {
       "type": [
         "null",
         "string"
       ]
     },
-    "cdate": {
+    "data_type": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "sortdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "is_addtask": {
+    "deal": {
       "type": [
         "null",
         "integer"
@@ -68,22 +61,28 @@
         "integer"
       ]
     },
-    "seriesid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "deal": {
+    "is_addtask": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "seriesid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sortdate": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "stage": {
@@ -98,11 +97,12 @@
         "integer"
       ]
     },
-    "automation": {
+    "userid": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

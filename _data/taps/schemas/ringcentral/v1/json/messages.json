@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "properties": {
     "_contact_id": {
       "type": [
@@ -7,53 +6,54 @@
         "integer"
       ]
     },
-    "uri": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "to": {},
-    "type": {
-      "type": "string"
-    },
-    "creationTime": {
-      "type": "date-time"
-    },
-    "readStatus": {
-      "type": "string"
-    },
-    "priority": {
+    "attachments": {},
+    "availability": {
       "type": "string"
     },
     "conversation": {},
     "conversationId": {},
-    "from": {},
-    "smsSendingAttemptsCount": {},
-    "subject": {},
-    "vmTranscriptionStatus": {},
-    "attachments": {},
-    "direction": {
-      "type": "string"
+    "coverIndex": {
+      "type": "integer"
+    },
+    "creationTime": {
+      "type": "date-time"
     },
     "deleted": {},
-    "availability": {
-      "type": "string"
-    },
-    "messageStatus": {
-      "type": "string"
-    },
-    "faxResolution": {
+    "direction": {
       "type": "string"
     },
     "faxPageCount": {
       "type": "integer"
     },
+    "faxResolution": {
+      "type": "string"
+    },
+    "from": {},
+    "id": {
+      "type": "string"
+    },
     "lastModifiedTime": {
       "type": "date-time"
     },
-    "coverIndex": {
-      "type": "integer"
-    }
-  }
+    "messageStatus": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "readStatus": {
+      "type": "string"
+    },
+    "smsSendingAttemptsCount": {},
+    "subject": {},
+    "to": {},
+    "type": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    },
+    "vmTranscriptionStatus": {}
+  },
+  "type": "object"
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "advertiser_id": {
@@ -11,19 +7,19 @@
         "string"
       ]
     },
-    "campaign_id": {
+    "app_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "campaign_name": {
+    "app_promotion_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "campaign_type": {
+    "bid_type": {
       "type": [
         "null",
         "string"
@@ -41,16 +37,76 @@
         "string"
       ]
     },
-    "secondary_status": {
+    "budget_optimize_on": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "campaign_app_profile_page_state": {
       "type": [
         "null",
         "string"
       ]
     },
-    "operation_status": {
+    "campaign_id": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_product_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "create_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deep_bid_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_new_structure": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_smart_performance_campaign": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "modify_time": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "objective": {
@@ -65,13 +121,7 @@
         "string"
       ]
     },
-    "budget_optimize_on": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "bid_type": {
+    "operation_status": {
       "type": [
         "null",
         "string"
@@ -83,73 +133,7 @@
         "string"
       ]
     },
-    "is_new_structure": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "create_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modify_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "campaign_app_profile_page_state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "special_industries": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "app_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "rf_campaign_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "campaign_product_source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_smart_performance_campaign": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "app_promotion_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deep_bid_type": {
       "type": [
         "null",
         "string"
@@ -161,11 +145,27 @@
         "number"
       ]
     },
-    "current_status": {
+    "secondary_status": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "special_industries": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

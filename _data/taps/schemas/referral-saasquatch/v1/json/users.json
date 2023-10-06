@@ -1,30 +1,7 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string",
-      "key": true
-    },
     "accountId": {
-      "type": "string",
-      "key": true
-    },
-    "email": {
-      "type": "string"
-    },
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "imageUrl": {
-      "type": "string"
-    },
-    "firstSeenIP": {
-      "type": "string"
-    },
-    "lastSeenIP": {
+      "key": true,
       "type": "string"
     },
     "dateCreated": {
@@ -37,29 +14,52 @@
         }
       ]
     },
+    "email": {
+      "type": "string"
+    },
     "emailHash": {
-      "type": "string"
-    },
-    "referralSource": {
-      "type": "string"
-    },
-    "locale": {
-      "type": "string"
-    },
-    "shareLink": {
-      "type": "string"
-    },
-    "facebookShareLink": {
-      "type": "string"
-    },
-    "twitterShareLink": {
       "type": "string"
     },
     "emailShareLink": {
       "type": "string"
     },
+    "facebookShareLink": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "firstSeenIP": {
+      "type": "string"
+    },
+    "id": {
+      "key": true,
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "lastSeenIP": {
+      "type": "string"
+    },
     "linkedinShareLink": {
       "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "referralSource": {
+      "type": "string"
+    },
+    "shareLink": {
+      "type": "string"
+    },
+    "twitterShareLink": {
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

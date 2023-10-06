@@ -1,32 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "actionDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created": {
       "type": [
         "null",
         "date-time"
@@ -38,10 +13,22 @@
         "boolean"
       ]
     },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "endedAt": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "isPaused": {
@@ -51,21 +38,13 @@
       ]
     },
     "messages": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
-          "object": {
+          "campaignId": {
             "type": [
               "null",
-              "string"
+              "integer"
             ]
           },
           "id": {
@@ -74,19 +53,13 @@
               "integer"
             ]
           },
-          "campaignId": {
+          "isPaused": {
             "type": [
               "null",
-              "integer"
+              "boolean"
             ]
           },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "subject": {
+          "object": {
             "type": [
               "null",
               "string"
@@ -98,32 +71,42 @@
               "integer"
             ]
           },
-          "isPaused": {
+          "subject": {
             "type": [
               "null",
-              "boolean"
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
             ]
           }
-        }
-      }
-    },
-    "sender": {
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sender": {
       "additionalProperties": false,
       "properties": {
-        "object": {
+        "created": {
           "type": [
             "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "string"
+            "date-time"
           ]
         },
         "emailAddress": {
@@ -138,13 +121,29 @@
             "string"
           ]
         },
-        "created": {
+        "id": {
           "type": [
             "null",
-            "date-time"
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "url": {
       "type": [
@@ -152,5 +151,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

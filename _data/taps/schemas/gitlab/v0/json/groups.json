@@ -1,19 +1,6 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "path": {
+    "avatar_url": {
       "type": [
         "null",
         "string"
@@ -23,36 +10,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "visibility_level": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "lfs_enabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "avatar_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "web_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "request_access_enabled": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "full_name": {
@@ -67,23 +24,66 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lfs_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "projects": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "properties": {
               "id": {
                 "type": "integer"
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "request_access_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "visibility_level": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

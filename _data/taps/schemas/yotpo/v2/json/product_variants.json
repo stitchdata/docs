@@ -1,21 +1,19 @@
 {
-  "type": [
-    "object"
-  ],
+  "additionalProperties": false,
   "properties": {
-    "yotpo_id": {
+    "compare_at_price": {
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
-    "external_id": {
+    "created_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "name": {
+    "currency": {
       "type": [
         "null",
         "string"
@@ -27,38 +25,36 @@
         "string"
       ]
     },
-    "url": {
+    "external_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_valid_url_format": {
+    "gtins": {
+      "items": {
+        "properties": {
+          "declared_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "boolean"
-      ],
-      "description": "Actual response shows `is_valid_url_format` whereas documentation mention `is_valid_url`"
+        "array"
+      ]
     },
     "image_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "price": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "compare_at_price": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "currency": {
       "type": [
         "null",
         "string"
@@ -76,42 +72,21 @@
         "boolean"
       ]
     },
-    "sku": {
+    "is_valid_url_format": {
+      "description": "Actual response shows `is_valid_url_format` whereas documentation mention `is_valid_url`",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "gtins": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "object",
-        "properties": {
-          "declared_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
     "options": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": "object",
         "properties": {
           "name": {
             "type": [
@@ -125,13 +100,24 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "created_at": {
+        },
+        "type": "object"
+      },
       "type": [
         "null",
-        "date-time"
+        "array"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -140,13 +126,27 @@
         "date-time"
       ]
     },
-    "yotpo_product_id": {
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "yotpo_id": {
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Actual response shows `yotpo_product_id` whereas documentation does not mention it"
+      ]
+    },
+    "yotpo_product_id": {
+      "description": "Actual response shows `yotpo_product_id` whereas documentation does not mention it",
+      "type": [
+        "null",
+        "integer"
+      ]
     }
   },
-  "additionalProperties": false
+  "type": [
+    "object"
+  ]
 }

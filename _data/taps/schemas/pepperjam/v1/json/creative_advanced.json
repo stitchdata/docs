@@ -1,35 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sub_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "code": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "description": {
@@ -38,19 +19,31 @@
         "string"
       ]
     },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "flash_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "supression_url": {
+    "id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "verified": {
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -68,51 +61,10 @@
         "integer"
       ]
     },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "end_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "view_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "private_affiliates": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "affiliate_id": {
@@ -133,8 +85,13 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -144,12 +101,7 @@
     "promotions": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -164,13 +116,61 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sub_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supression_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "verified": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

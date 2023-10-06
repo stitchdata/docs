@@ -259,7 +259,7 @@ def formatJSON(folder, json_output_folder):
                             
                             content = json.loads(json_content)
                             with open(json_output_folder + '/' + file, 'w') as j:
-                                json.dump(content, j, indent=2)
+                                json.dump(content, j, indent=2, sort_keys=True)
                         
                         except:
                             try:

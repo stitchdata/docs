@@ -1,37 +1,5 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "DepositToAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "CurrencyRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
     "ARAccountRef": {
       "name": {
         "type": [
@@ -46,243 +14,103 @@
         ]
       }
     },
-    "Line": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "LineEx": {
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "any": {
-                "type": [
-                  "null",
-                  "array"
-                ],
-                "items": {
-                  "type": [
-                    "null",
-                    "object"
-                  ],
-                  "properties": {
-                    "typeSubstituted": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "scope": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "nil": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "value": {
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "Name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "Value": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    },
-                    "declaredType": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "globalScope": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "LinkedTxn": {
-            "items": {
-              "properties": {
-                "TxnId": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "TxnType": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "TxnLineId": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              },
+    "CreditCardPayment": {
+      "properties": {
+        "CreditChargeInfo": {
+          "properties": {
+            "Amount": {
               "type": [
                 "null",
-                "object"
+                "number"
               ]
             },
-            "type": [
-              "null",
-              "array"
-            ]
+            "BillAddrStreet": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CcExpiryMonth": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "CcExpiryYear": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "NameOnAcct": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "PostalCode": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ProcessPayment": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "Type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
-          "Amount": {
-            "type": [
-              "null",
-              "number"
-            ]
-          }
-        }
-      }
-    },
-    "ProcessPayment": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PrivateNote": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ExchangeRate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "TotalAmt": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "LinkedTxn": {
-      "items": {
-        "properties": {
-          "TxnId": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TxnType": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "TxnLineId": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "type": [
-          "null",
-          "object"
-        ]
+        "CreditChargeResponse": {
+          "properties": {
+            "AuthCode": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CCTransId": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "Status": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "TxnAuthorizationTime": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
       },
       "type": [
         "null",
-        "array"
-      ]
-    },
-    "UnappliedAmt": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "MetaData": {
-      "type": [
-        "null",
         "object"
-      ],
-      "properties": {
-        "LastUpdatedTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "CreateTime": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      }
-    },
-    "TxnDate": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
-    "Id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "PaymentMethodRef": {
+    "CurrencyRef": {
       "name": {
         "type": [
           "null",
@@ -310,107 +138,251 @@
         ]
       }
     },
+    "DepositToAccountRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "ExchangeRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Line": {
+      "items": {
+        "properties": {
+          "Amount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "LineEx": {
+            "properties": {
+              "any": {
+                "items": {
+                  "properties": {
+                    "declaredType": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "globalScope": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "nil": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "scope": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "typeSubstituted": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "value": {
+                      "properties": {
+                        "Name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "Value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "LinkedTxn": {
+            "items": {
+              "properties": {
+                "TxnId": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TxnLineId": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TxnType": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "LinkedTxn": {
+      "items": {
+        "properties": {
+          "TxnId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TxnLineId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TxnType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "PaymentMethodRef": {
+      "name": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "value": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
     "PaymentRefNum": {
       "type": [
         "null",
         "string"
       ]
     },
-    "CreditCardPayment": {
+    "PrivateNote": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "CreditChargeResponse": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "Status": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "AuthCode": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "CCTransId": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "TxnAuthorizationTime": {
-              "type": [
-                "null",
-                "date-time"
-              ]
-            }
-          }
-        },
-        "CreditChargeInfo": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "CcExpiryMonth": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "ProcessPayment": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "PostalCode": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "Amount": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
-            "NameOnAcct": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "CcExpiryYear": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "BillAddrStreet": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
+        "string"
+      ]
+    },
+    "ProcessPayment": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "TaxExemptionRef": {
       "name": {
@@ -426,10 +398,22 @@
         ]
       }
     },
+    "TotalAmt": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "TransactionLocationType": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "TxnDate": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "TxnSource": {
@@ -437,6 +421,22 @@
         "null",
         "string"
       ]
+    },
+    "UnappliedAmt": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

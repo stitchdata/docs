@@ -1,26 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "created_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
+    "display_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "member_status": {
       "type": [
         "null",
         "string"
@@ -32,17 +37,12 @@
         "string"
       ]
     },
-    "display_name": {
+    "updated_at": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "member_status": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,12 +1,78 @@
 {
   "properties": {
-    "paid_impressions": {
+    "ad": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ad_size": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "adjusted_click_through_ratio": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "adjusted_cpa": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "adjusted_ctc": {
       "type": [
         "null",
         "integer"
       ]
     },
+    "adjusted_total_conversion_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "adjusted_total_conversions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "adjusted_view_through_ratio": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "adjusted_vtc": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "advertiser": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attributed_click_through_rev": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "attributed_rev": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "attributed_view_through_rev": {
       "type": [
         "null",
         "number"
@@ -18,49 +84,49 @@
         "number"
       ]
     },
-    "ad_size": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "view_through_conversions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "prospects": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "adjusted_cpa": {
+    "click_cpa": {
       "type": [
         "null",
         "number"
       ]
     },
-    "advertiser": {
+    "click_through_conversions": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "type": {
+    "click_through_ratio": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "height": {
+    "clicks": {
       "type": [
         "null",
         "integer"
       ]
     },
     "cost": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cpa": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cpc": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cpm": {
       "type": [
         "null",
         "number"
@@ -78,61 +144,37 @@
         "number"
       ]
     },
-    "total_conversion_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "click_through_ratio": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "date": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "cpa": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "width": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "adjusted_view_through_ratio": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "adjusted_ctc": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "adjusted_vtc": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
+    "eid": {
       "type": [
         "null",
         "string"
       ]
     },
-    "click_through_conversions": {
+    "height": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "paid_impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "prospects": {
       "type": [
         "null",
         "integer"
@@ -144,49 +186,13 @@
         "number"
       ]
     },
-    "adjusted_total_conversion_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "click_cpa": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "eid": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "cpc": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "adjusted_total_conversions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "cpm": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "attributed_click_through_rev": {
+    "total_conversion_rate": {
       "type": [
         "null",
         "number"
@@ -198,34 +204,28 @@
         "integer"
       ]
     },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_through_conversions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "view_through_ratio": {
       "type": [
         "null",
         "number"
       ]
     },
-    "adjusted_click_through_ratio": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "attributed_view_through_rev": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "impressions": {
+    "width": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "ad": {
-      "type": [
-        "null",
-        "string"
       ]
     }
   },

@@ -1,23 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "ad_account_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "updated_at": {
+    "country_code": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "created_at": {
@@ -26,13 +19,13 @@
         "date-time"
       ]
     },
-    "name": {
+    "id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "country_code": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -50,11 +43,18 @@
         "string"
       ]
     },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "verification_status": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

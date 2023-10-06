@@ -1,14 +1,159 @@
 {
-  "title": "Comment",
-  "type": [
-    "null",
-    "object"
-  ],
+  "definitions": {
+    "user": {
+      "properties": {
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
   "properties": {
-    "self": {
+    "author": {
+      "properties": {
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "User",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "body": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "id": {
@@ -23,81 +168,32 @@
         "string"
       ]
     },
-    "author": {
-      "title": "User",
+    "jsdPublic": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "timeZone": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "boolean"
+      ]
     },
-    "body": {
+    "properties": {
+      "items": {
+        "properties": {
+          "key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {}
+        },
+        "title": "Entity Property",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
     },
     "renderedBody": {
@@ -106,58 +202,15 @@
         "string"
       ]
     },
-    "updateAuthor": {
-      "title": "User",
+    "self": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "updateAuthor": {
       "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
           "type": [
             "null",
             "string"
@@ -169,18 +222,61 @@
             "boolean"
           ]
         },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "timeZone": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "created": {
+      },
+      "title": "User",
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
     "updated": {
@@ -190,20 +286,15 @@
       ]
     },
     "visibility": {
-      "title": "Visibility",
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "type": {
-          "type": [
-            "null",
-            "string"
-          ],
           "enum": [
             "group",
             "role"
+          ],
+          "type": [
+            "null",
+            "string"
           ]
         },
         "value": {
@@ -212,108 +303,17 @@
             "string"
           ]
         }
-      }
-    },
-    "properties": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "title": "Entity Property",
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "key": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {}
-        }
-      }
-    },
-    "jsdPublic": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    }
-  },
-  "definitions": {
-    "user": {
-      "title": "User",
+      },
+      "title": "Visibility",
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "timeZone": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+      ]
     }
-  }
+  },
+  "title": "Comment",
+  "type": [
+    "null",
+    "object"
+  ]
 }

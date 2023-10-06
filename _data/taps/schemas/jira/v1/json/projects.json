@@ -1,98 +1,56 @@
 {
-  "title": "Project",
-  "type": [
-    "null",
-    "object"
-  ],
-  "properties": {
-    "simplified": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "expand": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "self": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lead": {
-      "title": "User",
+  "definitions": {
+    "simple-list-wrapper": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "title": "Group",
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "max-results": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "size": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "title": "Simple List Wrapper",
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "user": {
       "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
           "type": [
             "null",
             "string"
@@ -104,7 +62,135 @@
             "boolean"
           ]
         },
-        "timeZone": {
+        "applicationRoles": {
+          "properties": {
+            "items": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "title": "Group",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "max-results": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "size": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "title": "Simple List Wrapper",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "expand": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "groups": {
+          "properties": {
+            "items": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "title": "Group",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "max-results": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "size": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "title": "Simple List Wrapper",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "key": {
           "type": [
             "null",
             "string"
@@ -116,135 +202,246 @@
             "string"
           ]
         },
-        "groups": {
-          "title": "Simple List Wrapper",
+        "name": {
           "type": [
             "null",
-            "object"
-          ],
-          "properties": {
-            "size": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "max-results": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "items": {
-              "type": [
-                "null",
-                "array"
-              ],
-              "items": {
-                "title": "Group",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "self": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          }
+            "string"
+          ]
         },
-        "applicationRoles": {
-          "title": "Simple List Wrapper",
+        "self": {
           "type": [
             "null",
-            "object"
-          ],
-          "properties": {
-            "size": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "max-results": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "items": {
-              "type": [
-                "null",
-                "array"
-              ],
-              "items": {
-                "title": "Group",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "self": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          }
+            "string"
+          ]
         },
-        "expand": {
+        "timeZone": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "components": {
+      },
+      "title": "User",
       "type": [
         "null",
-        "array"
+        "object"
+      ]
+    }
+  },
+  "properties": {
+    "assigneeType": {
+      "enum": [
+        "PROJECT_LEAD",
+        "UNASSIGNED"
       ],
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "avatarUrls": {
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "components": {
       "items": {
-        "title": "Component",
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "self": {
+          "assignee": {
+            "properties": {
+              "accountId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "active": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "applicationRoles": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "self": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "title": "Group",
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "max-results": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "size": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "title": "Simple List Wrapper",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "avatarUrls": {
+                "patternProperties": {
+                  ".+": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emailAddress": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "expand": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "groups": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "self": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "title": "Group",
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "max-results": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "size": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "title": "Simple List Wrapper",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "locale": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "timeZone": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "title": "User",
             "type": [
               "null",
-              "string"
+              "object"
             ]
           },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
+          "assigneeType": {
+            "enum": [
+              "PROJECT_DEFAULT",
+              "COMPONENT_LEAD",
+              "PROJECT_LEAD",
+              "UNASSIGNED"
+            ],
             "type": [
               "null",
               "string"
@@ -256,58 +453,21 @@
               "string"
             ]
           },
-          "lead": {
-            "title": "User",
+          "id": {
             "type": [
               "null",
-              "object"
-            ],
+              "string"
+            ]
+          },
+          "isAssigneeTypeValid": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "lead": {
             "properties": {
-              "self": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "accountId": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "emailAddress": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "avatarUrls": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "patternProperties": {
-                  ".+": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "displayName": {
                 "type": [
                   "null",
                   "string"
@@ -319,7 +479,135 @@
                   "boolean"
                 ]
               },
-              "timeZone": {
+              "applicationRoles": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "self": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "title": "Group",
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "max-results": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "size": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "title": "Simple List Wrapper",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "avatarUrls": {
+                "patternProperties": {
+                  ".+": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emailAddress": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "expand": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "groups": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "self": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "title": "Group",
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "max-results": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "size": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "title": "Simple List Wrapper",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "key": {
                 "type": [
                   "null",
                   "string"
@@ -331,109 +619,30 @@
                   "string"
                 ]
               },
-              "groups": {
-                "title": "Simple List Wrapper",
+              "name": {
                 "type": [
                   "null",
-                  "object"
-                ],
-                "properties": {
-                  "size": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "max-results": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "items": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "title": "Group",
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "self": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
+                  "string"
+                ]
               },
-              "applicationRoles": {
-                "title": "Simple List Wrapper",
+              "self": {
                 "type": [
                   "null",
-                  "object"
-                ],
-                "properties": {
-                  "size": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "max-results": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "items": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "title": "Group",
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "self": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
+                  "string"
+                ]
               },
-              "expand": {
+              "timeZone": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
-            }
+            },
+            "title": "User",
+            "type": [
+              "null",
+              "object"
+            ]
           },
           "leadUserName": {
             "type": [
@@ -441,392 +650,10 @@
               "string"
             ]
           },
-          "assigneeType": {
+          "name": {
             "type": [
               "null",
               "string"
-            ],
-            "enum": [
-              "PROJECT_DEFAULT",
-              "COMPONENT_LEAD",
-              "PROJECT_LEAD",
-              "UNASSIGNED"
-            ]
-          },
-          "assignee": {
-            "title": "User",
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "self": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "accountId": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "emailAddress": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "avatarUrls": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "patternProperties": {
-                  ".+": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "displayName": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "active": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "timeZone": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "locale": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "groups": {
-                "title": "Simple List Wrapper",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "size": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "max-results": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "items": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "title": "Group",
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "self": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "applicationRoles": {
-                "title": "Simple List Wrapper",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "size": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "max-results": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "items": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "title": "Group",
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "self": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "expand": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          },
-          "realAssigneeType": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "enum": [
-              "PROJECT_DEFAULT",
-              "COMPONENT_LEAD",
-              "PROJECT_LEAD",
-              "UNASSIGNED"
-            ]
-          },
-          "realAssignee": {
-            "title": "User",
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "self": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "accountId": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "emailAddress": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "avatarUrls": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "patternProperties": {
-                  ".+": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "displayName": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "active": {
-                "type": [
-                  "null",
-                  "boolean"
-                ]
-              },
-              "timeZone": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "locale": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "groups": {
-                "title": "Simple List Wrapper",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "size": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "max-results": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "items": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "title": "Group",
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "self": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "applicationRoles": {
-                "title": "Simple List Wrapper",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "size": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "max-results": {
-                    "type": [
-                      "null",
-                      "integer"
-                    ]
-                  },
-                  "items": {
-                    "type": [
-                      "null",
-                      "array"
-                    ],
-                    "items": {
-                      "title": "Group",
-                      "type": [
-                        "null",
-                        "object"
-                      ],
-                      "properties": {
-                        "name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "self": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "expand": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          },
-          "isAssigneeTypeValid": {
-            "type": [
-              "null",
-              "boolean"
             ]
           },
           "project": {
@@ -840,32 +667,247 @@
               "null",
               "integer"
             ]
-          }
-        }
-      }
-    },
-    "issueTypes": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "title": "Issue Type",
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "self": {
+          },
+          "realAssignee": {
+            "properties": {
+              "accountId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "active": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "applicationRoles": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "self": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "title": "Group",
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "max-results": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "size": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "title": "Simple List Wrapper",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "avatarUrls": {
+                "patternProperties": {
+                  ".+": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "displayName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "emailAddress": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "expand": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "groups": {
+                "properties": {
+                  "items": {
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "self": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "title": "Group",
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "max-results": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "size": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "title": "Simple List Wrapper",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "locale": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "self": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "timeZone": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "title": "User",
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "realAssigneeType": {
+            "enum": [
+              "PROJECT_DEFAULT",
+              "COMPONENT_LEAD",
+              "PROJECT_LEAD",
+              "UNASSIGNED"
+            ],
             "type": [
               "null",
               "string"
             ]
           },
-          "id": {
+          "self": {
             "type": [
               "null",
               "string"
+            ]
+          }
+        },
+        "title": "Component",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "issueTypes": {
+      "items": {
+        "properties": {
+          "avatarId": {
+            "type": [
+              "null",
+              "integer"
             ]
           },
           "description": {
@@ -880,7 +922,19 @@
               "string"
             ]
           },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "self": {
             "type": [
               "null",
               "string"
@@ -891,36 +945,202 @@
               "null",
               "boolean"
             ]
-          },
-          "avatarId": {
-            "type": [
-              "null",
-              "integer"
-            ]
           }
+        },
+        "title": "Issue Type",
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lead": {
+      "properties": {
+        "accountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "applicationRoles": {
+          "properties": {
+            "items": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "title": "Group",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "max-results": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "size": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "title": "Simple List Wrapper",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "avatarUrls": {
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "expand": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "groups": {
+          "properties": {
+            "items": {
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "self": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "title": "Group",
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "max-results": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "size": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "title": "Simple List Wrapper",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locale": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "timeZone": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "url": {
+      },
+      "title": "User",
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assigneeType": {
-      "type": [
-        "null",
-        "string"
-      ],
-      "enum": [
-        "PROJECT_LEAD",
-        "UNASSIGNED"
+        "object"
       ]
     },
     "name": {
@@ -929,54 +1149,9 @@
         "string"
       ]
     },
-    "roles": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "patternProperties": {
-        ".+": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "avatarUrls": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "patternProperties": {
-        ".+": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "projectKeys": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
     "projectCategory": {
-      "title": "Project Category",
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "self": {
+        "description": {
           "type": [
             "null",
             "string"
@@ -994,248 +1169,73 @@
             "string"
           ]
         },
-        "description": {
+        "self": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "title": "Project Category",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "projectKeys": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "projectTypeKey": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "roles": {
+      "patternProperties": {
+        ".+": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "self": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "simplified": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   },
-  "definitions": {
-    "simple-list-wrapper": {
-      "title": "Simple List Wrapper",
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "size": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "max-results": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "items": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "title": "Group",
-            "type": [
-              "null",
-              "object"
-            ],
-            "properties": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "self": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "user": {
-      "title": "User",
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "self": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "accountId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatarUrls": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "patternProperties": {
-            ".+": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "displayName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "active": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "timeZone": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "locale": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "groups": {
-          "title": "Simple List Wrapper",
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "size": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "max-results": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "items": {
-              "type": [
-                "null",
-                "array"
-              ],
-              "items": {
-                "title": "Group",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "self": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "applicationRoles": {
-          "title": "Simple List Wrapper",
-          "type": [
-            "null",
-            "object"
-          ],
-          "properties": {
-            "size": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "max-results": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "items": {
-              "type": [
-                "null",
-                "array"
-              ],
-              "items": {
-                "title": "Group",
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "properties": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "self": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              }
-            }
-          }
-        },
-        "expand": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    }
-  }
+  "title": "Project",
+  "type": [
+    "null",
+    "object"
+  ]
 }

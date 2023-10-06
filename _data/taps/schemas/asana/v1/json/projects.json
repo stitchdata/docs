@@ -1,54 +1,22 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "name": {
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "color": {
       "type": [
         "null",
         "string"
       ]
     },
-    "id": {
+    "created_at": {
       "type": [
         "null",
-        "integer",
-        "string"
+        "date-time"
       ]
-    },
-    "gid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "owner": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer",
-            "string"
-          ]
-        },
-        "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
     },
     "current_status": {
       "type": [
@@ -62,10 +30,83 @@
         "date-time"
       ]
     },
-    "created_at": {
+    "followers": {
+      "items": {
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "date-time"
+        "array"
+      ]
+    },
+    "gid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer",
+        "string"
+      ]
+    },
+    "members": {
+      "items": {
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "modified_at": {
@@ -74,85 +115,7 @@
         "date-time"
       ]
     },
-    "archived": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "public": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "members": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer",
-              "string"
-            ]
-          },
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "followers": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "id": {
-            "type": [
-              "null",
-              "integer",
-              "string"
-            ]
-          },
-          "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "color": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -164,22 +127,18 @@
         "string"
       ]
     },
-    "workspace": {
-      "type": [
-        "null",
-        "object"
-      ],
+    "owner": {
       "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "id": {
           "type": [
             "null",
             "integer",
-            "string"
-          ]
-        },
-        "gid": {
-          "type": [
-            "null",
             "string"
           ]
         },
@@ -189,24 +148,30 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "public": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "team": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "id": {
           "type": [
             "null",
             "integer",
-            "string"
-          ]
-        },
-        "gid": {
-          "type": [
-            "null",
             "string"
           ]
         },
@@ -216,7 +181,42 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "workspace": {
+      "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,95 +1,18 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "headline": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "contact": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "stage": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "stageChanges": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {}
-    },
-    "location": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "phones": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "emails": {
-      "type": [
-        "null",
-        "array"
-      ],
+    "applications": {
       "items": {
         "type": [
           "string",
           "null"
         ]
-      }
-    },
-    "links": {
+      },
       "type": [
         "null",
         "array"
-      ],
-      "items": {
-        "type": [
-          "string",
-          "null"
-        ]
-      }
+      ]
     },
     "archived": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "archivedAt": {
           "type": [
@@ -103,73 +26,71 @@
             "null"
           ]
         }
-      }
-    },
-    "tags": {
-      "type": [
-        "array",
-        "null"
-      ],
-      "items": {
-        "type": [
-          "string",
-          "null"
-        ]
-      }
-    },
-    "sources": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string",
-          "null"
-        ]
-      }
-    },
-    "origin": {
-      "type": "string"
-    },
-    "owner": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "followers": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string",
-          "null"
-        ]
-      }
-    },
-    "applications": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string",
-          "null"
-        ]
-      }
-    },
-    "resume": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
+    },
+    "contact": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "createdAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "dataProtection": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "emails": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "followers": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "headline": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "isAnonymized": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lastAdvancedAt": {
       "type": [
         "date-time",
         "null"
@@ -181,10 +102,64 @@
         "null"
       ]
     },
-    "lastAdvancedAt": {
+    "links": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
       "type": [
-        "date-time",
+        "null",
+        "array"
+      ]
+    },
+    "location": {
+      "type": [
+        "string",
         "null"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "origin": {
+      "type": "string"
+    },
+    "owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phones": {
+      "items": {
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "resume": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
       ]
     },
     "snoozedUntil": {
@@ -193,25 +168,50 @@
         "null"
       ]
     },
+    "sources": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stageChanges": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
     "urls": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
-    },
-    "dataProtection": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {}
-    },
-    "isAnonymized": {
-      "type": [
-        "null",
-        "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

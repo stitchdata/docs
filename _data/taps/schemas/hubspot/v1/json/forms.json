@@ -1,40 +1,33 @@
 {
-  "type": "object",
   "properties": {
-    "deletedAt": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "portalId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "guid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "action": {
       "type": [
         "null",
         "string"
       ]
     },
-    "method": {
+    "campaignGuid": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "captchaEnabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "cloneable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "cssClass": {
@@ -43,16 +36,22 @@
         "string"
       ]
     },
-    "redirect": {
+    "deletable": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
-    "submitText": {
+    "deletedAt": {
       "type": [
         "null",
-        "string"
+        "integer"
+      ]
+    },
+    "editable": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "followUpId": {
@@ -61,47 +60,19 @@
         "string"
       ]
     },
-    "notifyRecipients": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "leadNurturingCampaignId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "formFieldGroups": {
-      "type": "array",
       "items": {
-        "type": "object",
         "properties": {
+          "default": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "fields": {
-            "type": "array",
             "items": {
-              "type": "object",
               "properties": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "label": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "type": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "fieldType": {
+                "defaultValue": {
                   "type": [
                     "null",
                     "string"
@@ -113,66 +84,28 @@
                     "string"
                   ]
                 },
-                "groupName": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "displayOrder": {
                   "type": [
                     "null",
                     "integer"
                   ]
                 },
-                "required": {
+                "enabled": {
                   "type": [
                     "null",
                     "boolean"
                   ]
                 },
-                "validation": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "message": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "data": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    },
-                    "useDefaultBlockList": {
-                      "type": [
-                        "null",
-                        "boolean"
-                      ]
-                    },
-                    "blockedEmailAddresses": {
-                      "type": "array",
-                      "items": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "enabled": {
+                "fieldType": {
                   "type": [
                     "null",
-                    "boolean"
+                    "string"
+                  ]
+                },
+                "groupName": {
+                  "type": [
+                    "null",
+                    "string"
                   ]
                 },
                 "hidden": {
@@ -181,25 +114,13 @@
                     "boolean"
                   ]
                 },
-                "defaultValue": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "isSmartField": {
                   "type": [
                     "null",
                     "boolean"
                   ]
                 },
-                "unselectedLabel": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "placeholder": {
+                "label": {
                   "type": [
                     "null",
                     "string"
@@ -211,10 +132,14 @@
                     "boolean"
                   ]
                 },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
                 "options": {
-                  "type": "array",
                   "items": {
-                    "type": "object",
                     "properties": {
                       "description": {
                         "type": [
@@ -258,26 +183,86 @@
                           "string"
                         ]
                       }
-                    }
-                  }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "placeholder": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "required": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
                 },
                 "selectedOptions": {
-                  "type": "array",
                   "items": {
                     "type": [
                       "null",
                       "string"
                     ]
-                  }
+                  },
+                  "type": "array"
+                },
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "unselectedLabel": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "validation": {
+                  "properties": {
+                    "blockedEmailAddresses": {
+                      "items": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "type": "array"
+                    },
+                    "data": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "message": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "useDefaultBlockList": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    }
+                  },
+                  "type": "object"
                 }
-              }
-            }
-          },
-          "default": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+              },
+              "type": "object"
+            },
+            "type": "array"
           },
           "isSmartGroup": {
             "type": [
@@ -286,7 +271,6 @@
             ]
           },
           "richText": {
-            "type": "object",
             "properties": {
               "content": {
                 "type": [
@@ -294,30 +278,21 @@
                   "string"
                 ]
               }
-            }
+            },
+            "type": "object"
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
-    "createdAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updatedAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "performableHtml": {
+    "formType": {
       "type": [
         "null",
         "string"
       ]
     },
-    "migratedFrom": {
+    "guid": {
       "type": [
         "null",
         "string"
@@ -329,58 +304,20 @@
         "boolean"
       ]
     },
-    "deletable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "inlineMessage": {
       "type": [
         "null",
         "string"
       ]
     },
-    "tmsId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "captchaEnabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "campaignGuid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cloneable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "editable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "formType": {
+    "leadNurturingCampaignId": {
       "type": [
         "null",
         "string"
       ]
     },
     "metaData": {
-      "type": "array",
       "items": {
-        "type": "object",
         "properties": {
           "name": {
             "type": [
@@ -394,8 +331,71 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "migratedFrom": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notifyRecipients": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "performableHtml": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "redirect": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "submitText": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tmsId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

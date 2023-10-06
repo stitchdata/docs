@@ -1,14 +1,7 @@
 {
-  "type": "object",
   "properties": {
     "CampaignID": {
       "type": "string"
-    },
-    "FromName": {
-      "type": [
-        "string",
-        "null"
-      ]
     },
     "FromEmail": {
       "type": [
@@ -16,25 +9,7 @@
         "null"
       ]
     },
-    "ReplyTo": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "WebVersionURL": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "WebVersionTextURL": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "Subject": {
+    "FromName": {
       "type": [
         "string",
         "null"
@@ -46,9 +21,21 @@
         "null"
       ]
     },
+    "ReplyTo": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "SentDate": {
       "type": [
         "date-time",
+        "null"
+      ]
+    },
+    "Subject": {
+      "type": [
+        "string",
         "null"
       ]
     },
@@ -57,6 +44,19 @@
         "number",
         "null"
       ]
+    },
+    "WebVersionTextURL": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "WebVersionURL": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

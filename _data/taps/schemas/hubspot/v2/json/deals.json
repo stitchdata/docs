@@ -1,10 +1,47 @@
 {
-  "type": "object",
   "properties": {
-    "portalId": {
+    "associations": {
+      "properties": {
+        "associatedCompanyIds": {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "associatedDealIds": {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "associatedVids": {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
       "type": [
         "null",
-        "integer"
+        "object"
       ]
     },
     "dealId": {
@@ -19,49 +56,12 @@
         "boolean"
       ]
     },
-    "associations": {
+    "portalId": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "associatedVids": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        },
-        "associatedCompanyIds": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        },
-        "associatedDealIds": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        }
-      }
+        "integer"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

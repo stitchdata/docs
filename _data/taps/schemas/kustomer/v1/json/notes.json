@@ -1,6 +1,5 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
     "body": {
       "type": [
@@ -206,12 +205,7 @@
     "user_mentions": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -226,13 +220,19 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     }
-  }
+  },
+  "type": "object"
 }

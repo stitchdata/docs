@@ -1,58 +1,9 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "client_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_billable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_fixed_fee": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "bill_by": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "hourly_rate": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "budget": {
@@ -73,28 +24,16 @@
         "boolean"
       ]
     },
-    "notify_when_over_budget": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "over_budget_notification_percentage": {
+    "client_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "over_budget_notification_date": {
+    "code": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "show_budget_to_all": {
-      "type": [
-        "null",
-        "boolean"
+        "string"
       ]
     },
     "cost_budget": {
@@ -109,22 +48,10 @@
         "boolean"
       ]
     },
-    "fee": {
+    "created_at": {
       "type": [
         "null",
-        "number"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "starts_on": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "ends_on": {
@@ -133,10 +60,82 @@
         "string"
       ]
     },
-    "created_at": {
+    "fee": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "hourly_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_fixed_fee": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notify_when_over_budget": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "over_budget_notification_date": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "over_budget_notification_percentage": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "show_budget_to_all": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "starts_on": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -145,5 +144,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

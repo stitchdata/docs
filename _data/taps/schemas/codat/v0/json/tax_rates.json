@@ -1,46 +1,23 @@
 {
-  "type": "object",
   "properties": {
-    "companyId": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "effectiveTaxRate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "totalTaxRate": {
-      "type": [
-        "null",
-        "number"
-      ]
+    "companyId": {
+      "type": "string"
     },
     "components": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "object"
-        ],
         "properties": {
+          "isCompound": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
           "name": {
             "type": [
               "null",
@@ -52,17 +29,33 @@
               "null",
               "number"
             ]
-          },
-          "isCompound": {
-            "type": [
-              "null",
-              "boolean"
-            ]
           }
-        }
-      }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "effectiveTaxRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": "string"
     },
     "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -73,6 +66,13 @@
         "null",
         "string"
       ]
+    },
+    "totalTaxRate": {
+      "type": [
+        "null",
+        "number"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

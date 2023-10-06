@@ -1,44 +1,10 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "start_time": {
+    "able_to_fund": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "credit_limit_local_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "end_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "entity_status": {
-      "type": [
-        "null",
-        "string"
+        "boolean"
       ]
     },
     "account_id": {
@@ -47,26 +13,49 @@
         "string"
       ]
     },
-    "reasons_not_able_to_fund": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
-    "io_header": {
+    "credit_limit_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "credit_remaining_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "currency": {
       "type": [
         "null",
         "string"
       ]
     },
-    "currency": {
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entity_status": {
       "type": [
         "null",
         "string"
@@ -78,7 +67,32 @@
         "integer"
       ]
     },
-    "created_at": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "io_header": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reasons_not_able_to_fund": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_time": {
       "type": [
         "null",
         "date-time"
@@ -90,29 +104,15 @@
         "string"
       ]
     },
-    "able_to_fund": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "credit_remaining_local_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

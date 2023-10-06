@@ -1,21 +1,23 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "created_at": {
       "type": [
-        "integer"
+        "null",
+        "date-time"
       ]
     },
-    "name": {
+    "description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "is_public": {
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "is_crm_visible": {
       "type": [
         "null",
         "boolean"
@@ -27,28 +29,22 @@
         "boolean"
       ]
     },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_crm_visible": {
+    "is_public": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "created_at": {
+    "name": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -57,5 +53,9 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,11 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "tstamp": {
+    "bounce": {
       "type": [
         "null",
-        "date-time"
+        "integer"
       ]
     },
     "bounceid": {
@@ -14,7 +13,7 @@
         "integer"
       ]
     },
-    "subscriberid": {
+    "campaign": {
       "type": [
         "null",
         "integer"
@@ -26,7 +25,7 @@
         "integer"
       ]
     },
-    "messageid": {
+    "code": {
       "type": [
         "null",
         "integer"
@@ -36,6 +35,24 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "contact": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "email": {
@@ -50,55 +67,7 @@
         "string"
       ]
     },
-    "source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "bounce": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "contact": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "campaign": {
       "type": [
         "null",
         "integer"
@@ -110,11 +79,42 @@
         "integer"
       ]
     },
-    "code": {
+    "messageid": {
       "type": [
         "null",
         "integer"
       ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscriberid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tstamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

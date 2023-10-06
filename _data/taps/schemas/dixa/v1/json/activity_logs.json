@@ -1,19 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "_type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "conversationId": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "activityTimestamp": {
@@ -28,49 +18,7 @@
         "string"
       ]
     },
-    "_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "author": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "phoneNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
     "attributes": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "_type": {
           "type": [
@@ -79,11 +27,13 @@
           ]
         },
         "agent": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
+            "email": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
             "id": {
               "type": [
                 "null",
@@ -96,31 +46,17 @@
                 "string"
               ]
             },
-            "email": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "phoneNumber": {
               "type": [
                 "null",
                 "string"
               ]
             }
-          }
-        },
-        "agentNames": {
+          },
           "type": [
             "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+            "object"
+          ]
         },
         "agentId": {
           "type": [
@@ -134,43 +70,19 @@
             "string"
           ]
         },
-        "templateName": {
+        "agentNames": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "type": [
             "null",
-            "string"
-          ]
-        },
-        "conversationSubject": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "messageId": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fromEndpoint": {
-          "type": [
-            "null",
-            "string"
+            "array"
           ]
         },
         "avatalUrl": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "tagAdded": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "note": {
           "type": [
             "null",
             "string"
@@ -182,37 +94,7 @@
             "string"
           ]
         },
-        "subject": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "reason": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "tag": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "message": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "queueLabel": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "transferType": {
+        "claimedFromLabel": {
           "type": [
             "null",
             "string"
@@ -224,7 +106,7 @@
             "string"
           ]
         },
-        "claimedFromLabel": {
+        "conversationSubject": {
           "type": [
             "null",
             "string"
@@ -236,19 +118,137 @@
             "string"
           ]
         },
+        "destinationLabel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "destinationType": {
           "type": [
             "null",
             "string"
           ]
         },
-        "destinationLabel": {
+        "fromEndpoint": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "message": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "messageId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "note": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "queueLabel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reason": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tag": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tagAdded": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "templateName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transferType": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "author": {
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "conversationId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

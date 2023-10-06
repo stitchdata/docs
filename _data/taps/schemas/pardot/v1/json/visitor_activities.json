@@ -1,24 +1,9 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
-    "prospect_id": {
+    "campaign": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "visitor_id": {
-      "type": [
-        "null",
-        "integer"
+        "object"
       ]
     },
     "campaign_id": {
@@ -27,16 +12,10 @@
         "integer"
       ]
     },
-    "type": {
+    "created_at": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "type_name": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "details": {
@@ -57,13 +36,7 @@
         "integer"
       ]
     },
-    "list_email_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "form_id": {
+    "file_id": {
       "type": [
         "null",
         "integer"
@@ -75,9 +48,14 @@
         "integer"
       ]
     },
-    "site_search_query_id": {
+    "form_id": {
       "type": [
         "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
         "integer"
       ]
     },
@@ -87,7 +65,7 @@
         "integer"
       ]
     },
-    "paid_search_id_id": {
+    "list_email_id": {
       "type": [
         "null",
         "integer"
@@ -99,28 +77,34 @@
         "integer"
       ]
     },
-    "visitor_page_view_id": {
+    "paid_search_id_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "file_id": {
+    "prospect_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "campaign": {
+    "site_search_query_id": {
       "type": [
         "null",
-        "object"
+        "integer"
       ]
     },
-    "created_at": {
+    "type": {
       "type": [
         "null",
-        "date-time"
+        "integer"
+      ]
+    },
+    "type_name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -128,6 +112,22 @@
         "null",
         "date-time"
       ]
+    },
+    "visitor_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "visitor_page_view_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

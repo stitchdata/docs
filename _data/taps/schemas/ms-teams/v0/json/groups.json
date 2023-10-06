@@ -1,22 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": true,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deleted_date_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "classification": {
       "type": [
         "null",
@@ -32,14 +16,20 @@
     "creation_options": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
+      ]
+    },
+    "deleted_date_time": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "description": {
@@ -63,14 +53,20 @@
     "group_types": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "is_assignable_to_role": {
@@ -127,6 +123,19 @@
         "string"
       ]
     },
+    "on_premises_provisioning_errors": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "on_premises_sam_account_name": {
       "type": [
         "null",
@@ -160,10 +169,10 @@
     "proxy_addresses": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -177,39 +186,39 @@
       ]
     },
     "resource_behavior_options": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "resource_provisioning_options": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
-    },
-    "security_enabled": {
+      },
       "type": [
         "null",
-        "boolean"
+        "array"
       ]
     },
     "security_edentifier": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "security_enabled": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "theme": {
@@ -223,19 +232,10 @@
         "null",
         "string"
       ]
-    },
-    "on_premises_provisioning_errors": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

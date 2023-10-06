@@ -1,44 +1,14 @@
 {
   "properties": {
-    "metric": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "time": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "instance_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "ticket_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
+    "agent_wait_time_in_minutes": {
       "properties": {
-        "calendar": {
+        "business": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "business": {
+        "calendar": {
           "type": [
             "null",
             "integer"
@@ -50,36 +20,22 @@
         "object"
       ]
     },
-    "type": {
+    "assigned_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
-    },
-    "agent_wait_time_in_minutes": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "calendar": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "business": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        }
-      }
     },
     "assignee_stations": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "assignee_updated_at": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "created_at": {
@@ -89,46 +45,64 @@
       ]
     },
     "first_resolution_time_in_minutes": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "calendar": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "business": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "full_resolution_time_in_minutes": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "calendar": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "business": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "group_stations": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "initially_assigned_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "instance_id": {
       "type": [
         "null",
         "integer"
@@ -140,25 +114,31 @@
         "date-time"
       ]
     },
-    "on_hold_time_in_minutes": {
+    "metric": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "on_hold_time_in_minutes": {
       "properties": {
-        "calendar": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "business": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "reopens": {
       "type": [
@@ -173,24 +153,24 @@
       ]
     },
     "reply_time_in_minutes": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "calendar": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "business": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "requester_updated_at": {
       "type": [
@@ -199,29 +179,73 @@
       ]
     },
     "requester_wait_time_in_minutes": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "calendar": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
         "business": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "solved_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "properties": {
+        "business": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "status_updated_at": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "ticket_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -234,30 +258,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "initially_assigned_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "assigned_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "solved_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "assignee_updated_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     }
   },

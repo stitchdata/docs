@@ -1,261 +1,10 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "first_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "company": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "vat_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "auto_collection": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "offline_payment_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "net_term_days": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "locale": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "consolidated_invoicing": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "billing_date": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "is_einvoice_enabled": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "entity_identifier_scheme": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "entity_identifier_standard": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "billing_date_mode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "billing_day_of_week": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "billing_day_of_week_mode": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "primary_payment_source_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "invoice_notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "promotional_credits": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "unbilled_charges": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "refundable_credits": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "excess_payments": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "cf_company_id": {
-      "type": [
-        "null",
-        "integer",
-        "string"
-      ]
-    },
     "allow_direct_debit": {
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "card_status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "pii_cleared": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "preferred_currency_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "taxability": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "vat_number_validated_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "vat_number_status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_location_valid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "created_from_ip": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "entity_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "exempt_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "resource_version": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "auto_close_invoices": {
@@ -264,7 +13,7 @@
         "boolean"
       ]
     },
-    "fraud_flag": {
+    "auto_collection": {
       "type": [
         "null",
         "string"
@@ -276,91 +25,65 @@
         "string"
       ]
     },
-    "registered_for_gst": {
+    "balances": {
+      "items": {
+        "properties": {
+          "balance_currency_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "currency_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "excess_payments": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "promotional_credits": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "refundable_credits": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unbilled_charges": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "boolean"
-      ]
-    },
-    "customer_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "meta_data": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "exemption_details": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "business_customer_without_vat_number": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "client_profile_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "use_default_hierarchy_settings": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "vat_number_prefix": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "channel": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "mrr": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "custom_fields": {
-      "type": [
-        "null",
-        "string"
+        "array"
       ]
     },
     "billing_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "first_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
+        "city": {
           "type": [
             "null",
             "string"
@@ -372,7 +95,25 @@
             "string"
           ]
         },
-        "phone": {
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
           "type": [
             "null",
             "string"
@@ -396,13 +137,13 @@
             "string"
           ]
         },
-        "city": {
+        "object": {
           "type": [
             "null",
             "string"
           ]
         },
-        "state_code": {
+        "phone": {
           "type": [
             "null",
             "string"
@@ -414,13 +155,7 @@
             "string"
           ]
         },
-        "country": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "zip": {
+        "state_code": {
           "type": [
             "null",
             "string"
@@ -432,91 +167,136 @@
             "string"
           ]
         },
-        "object": {
+        "zip": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "referral_urls": {
+      },
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "external_customer_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "referral_sharing_url": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "created_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "updated_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "referral_campaign_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "referral_account_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "referral_external_account_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "referral_system": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+        "object"
+      ]
+    },
+    "billing_date": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "billing_date_mode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_day_of_week": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "billing_day_of_week_mode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "business_customer_without_vat_number": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "card_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cf_company_id": {
+      "type": [
+        "null",
+        "integer",
+        "string"
+      ]
+    },
+    "channel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "child_account_access": {
+      "properties": {
+        "portal_download_invoices": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "portal_edit_subscriptions": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "send_invoice_emails": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "send_payment_emails": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "send_subscription_emails": {
+          "type": [
+            "null",
+            "boolean"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "client_profile_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "consolidated_invoicing": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     },
     "contacts": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
-          "id": {
+          "email": {
             "type": [
               "null",
               "string"
+            ]
+          },
+          "enabled": {
+            "type": [
+              "null",
+              "boolean"
             ]
           },
           "first_name": {
@@ -525,19 +305,7 @@
               "string"
             ]
           },
-          "last_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "email": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "phone": {
+          "id": {
             "type": [
               "null",
               "string"
@@ -549,10 +317,22 @@
               "string"
             ]
           },
-          "enabled": {
+          "last_name": {
             "type": [
               "null",
-              "boolean"
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone": {
+            "type": [
+              "null",
+              "string"
             ]
           },
           "send_account_email": {
@@ -566,242 +346,76 @@
               "null",
               "string"
             ]
-          },
-          "object": {
-            "type": [
-              "null",
-              "string"
-            ]
           }
-        }
-      }
-    },
-    "payment_method": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
         },
-        "gateway": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "gateway_account_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "reference_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "balances": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
         "type": [
           "null",
           "object"
-        ],
-        "properties": {
-          "promotional_credits": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "excess_payments": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "refundable_credits": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "unbilled_charges": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "currency_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "balance_currency_code": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "object": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "relationship": {
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "parent_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "payment_owner_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "invoice_owner_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "root_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "array"
+      ]
     },
-    "parent_account_access": {
+    "created_at": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "portal_edit_child_subscriptions": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "portal_download_child_invoices": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "send_subscription_emails": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "send_invoice_emails": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "send_payment_emails": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
+        "date-time"
+      ]
     },
-    "child_account_access": {
+    "created_from_ip": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "portal_edit_subscriptions": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "portal_download_invoices": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "send_subscription_emails": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "send_invoice_emails": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "send_payment_emails": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
+        "string"
+      ]
+    },
+    "custom_fields": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entity_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entity_identifier_scheme": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entity_identifier_standard": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "entity_identifiers": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
             "type": [
               "null",
               "string"
@@ -818,9 +432,395 @@
               "null",
               "string"
             ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "excess_payments": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "exempt_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "exemption_details": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fraud_flag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice_notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_einvoice_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_location_valid": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locale": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "meta_data": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mrr": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "net_term_days": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "offline_payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_account_access": {
+      "properties": {
+        "portal_download_child_invoices": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "portal_edit_child_subscriptions": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "send_invoice_emails": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "send_payment_emails": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "send_subscription_emails": {
+          "type": [
+            "null",
+            "boolean"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "payment_method": {
+      "properties": {
+        "gateway": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "gateway_account_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reference_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pii_cleared": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preferred_currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "primary_payment_source_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "promotional_credits": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "referral_urls": {
+      "items": {
+        "properties": {
+          "created_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "external_customer_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "referral_account_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "referral_campaign_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "referral_external_account_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "referral_sharing_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "referral_system": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "updated_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "refundable_credits": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "registered_for_gst": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "relationship": {
+      "properties": {
+        "invoice_owner_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "parent_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "payment_owner_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "root_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "taxability": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unbilled_charges": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "use_default_hierarchy_settings": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "vat_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vat_number_prefix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vat_number_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vat_number_validated_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

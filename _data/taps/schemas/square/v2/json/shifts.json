@@ -1,48 +1,20 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "location_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "version": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "end_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "start_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "breaks": {
       "items": {
         "properties": {
+          "break_type_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "end_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
           "expected_duration": {
             "type": [
               "null",
@@ -67,22 +39,10 @@
               "string"
             ]
           },
-          "end_at": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
           "start_at": {
             "type": [
               "null",
               "date-time"
-            ]
-          },
-          "break_type_id": {
-            "type": [
-              "null",
-              "string"
             ]
           }
         },
@@ -96,23 +56,69 @@
         "array"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "end_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "team_member_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "wage": {
+    "version": {
       "type": [
         "null",
-        "object"
-      ],
+        "integer"
+      ]
+    },
+    "wage": {
       "properties": {
         "hourly_rate": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "amount": {
               "type": [
@@ -126,7 +132,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "job_id": {
           "type": [
@@ -140,25 +150,15 @@
             "string"
           ]
         }
-      }
-    },
-    "timezone": {
+      },
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "team_member_id": {
-      "type": [
-        "null",
-        "string"
+        "object"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

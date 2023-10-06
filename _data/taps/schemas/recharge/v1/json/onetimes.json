@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "address_id": {
@@ -33,11 +32,11 @@
       ]
     },
     "price": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "product_title": {
       "type": [
@@ -48,9 +47,7 @@
     "properties": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "name": {
@@ -65,8 +62,10 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -121,5 +120,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

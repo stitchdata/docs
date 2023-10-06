@@ -1,22 +1,22 @@
 {
-  "type": "object",
   "properties": {
-    "userId": {
-      "type": "string",
-      "key": true
-    },
     "accountId": {
-      "type": "string",
-      "key": true
-    },
-    "type": {
+      "key": true,
       "type": "string"
     },
     "amount": {
       "type": "integer"
     },
+    "type": {
+      "type": "string"
+    },
     "unit": {
       "type": "string"
+    },
+    "userId": {
+      "key": true,
+      "type": "string"
     }
-  }
+  },
+  "type": "object"
 }

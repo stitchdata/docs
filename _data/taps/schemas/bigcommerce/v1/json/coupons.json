@@ -1,39 +1,44 @@
 {
-  "type": "object",
-  "name": "coupons",
   "additionalProperties": false,
+  "name": "coupons",
   "properties": {
-    "id": {
-      "type": [
-        "integer",
-        "null"
-      ]
-    },
-    "name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "type": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "amount": {
       "type": [
         "null",
         "number"
       ]
     },
-    "min_purchase": {
+    "applies_to": {
+      "additionalProperties": false,
+      "properties": {
+        "entity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ids": {
+          "items": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "code": {
       "type": [
-        "null",
-        "number"
+        "string",
+        "null"
       ]
     },
-    "expires": {
+    "date_created": {
       "type": [
         "date-time",
         "null"
@@ -45,37 +50,13 @@
         "null"
       ]
     },
-    "code": {
+    "expires": {
       "type": [
-        "string",
+        "date-time",
         "null"
       ]
     },
-    "applies_to": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "entity": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "ids": {
-          "type": [
-            "array",
-            "null"
-          ],
-          "items": {
-            "type": [
-              "integer",
-              "null"
-            ]
-          }
-        }
-      }
-    },
-    "num_uses": {
+    "id": {
       "type": [
         "integer",
         "null"
@@ -93,49 +74,68 @@
         "null"
       ]
     },
-    "restricted_to": {
+    "min_purchase": {
       "type": [
-        "array",
+        "null",
+        "number"
+      ]
+    },
+    "name": {
+      "type": [
+        "string",
         "null"
-      ],
+      ]
+    },
+    "num_uses": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "restricted_to": {
       "items": {
-        "type": [
-          "object",
-          "null"
-        ],
         "properties": {
           "countries": {
-            "type": [
-              "array",
-              "null"
-            ],
             "items": {
               "type": [
                 "string",
                 "null"
               ]
-            }
+            },
+            "type": [
+              "array",
+              "null"
+            ]
           }
-        }
-      }
-    },
-    "shipping_methods": {
+        },
+        "type": [
+          "object",
+          "null"
+        ]
+      },
       "type": [
         "array",
         "null"
-      ],
+      ]
+    },
+    "shipping_methods": {
       "items": {
         "type": [
           "string",
           "null"
         ]
-      }
-    },
-    "date_created": {
+      },
       "type": [
-        "date-time",
+        "array",
+        "null"
+      ]
+    },
+    "type": {
+      "type": [
+        "string",
         "null"
       ]
     }
-  }
+  },
+  "type": "object"
 }

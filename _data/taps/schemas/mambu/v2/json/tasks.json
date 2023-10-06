@@ -1,44 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_by_user_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "due_date": {
-      "type": [
-        "null",
-        "date"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "task_link": {
+    "assigned_user_key": {
       "type": [
         "null",
         "string"
@@ -50,54 +13,22 @@
         "string"
       ]
     },
-    "encoded_key": {
+    "created_by_user_key": {
       "type": [
         "null",
         "string"
       ]
     },
-    "id": {
+    "creation_date": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "assigned_user_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "task_link_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "task_link_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "field_set_id": {
@@ -118,13 +49,82 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "date"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_link": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_link_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_link_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,19 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "change_audit_stamps": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -22,13 +13,13 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "last_modified": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -37,17 +28,19 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "created_time": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "last_modified_time": {
+    "created_time": {
       "type": [
         "null",
         "date-time"
@@ -63,6 +56,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "last_modified_time": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "name": {
@@ -116,10 +115,10 @@
     "serving_statuses": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -133,10 +132,6 @@
       ]
     },
     "total_budget": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "amount": {
@@ -151,7 +146,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "total_budget_ends_at": {
       "type": [
@@ -166,10 +165,6 @@
       ]
     },
     "version": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "version_tag": {
@@ -178,7 +173,12 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

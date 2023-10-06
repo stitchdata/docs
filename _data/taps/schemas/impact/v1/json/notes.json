@@ -1,17 +1,16 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "attachments": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": [
               "null",
               "string"
             ]
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -78,5 +77,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

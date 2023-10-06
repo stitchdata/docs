@@ -1,38 +1,22 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "title": {
+    "answer": {
       "type": [
         "null",
         "string"
       ]
     },
-    "content": {
+    "askedAt": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
     "author": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
+        "avatar": {
           "type": [
             "null",
             "string"
@@ -44,25 +28,21 @@
             "string"
           ]
         },
-        "signature": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar": {
+        "id": {
           "type": [
             "null",
             "string"
           ]
         },
         "reputation": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
+            "likesReceived": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
             "rank": {
               "type": [
                 "null",
@@ -81,69 +61,37 @@
                 "string"
               ]
             },
-            "likesReceived": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
             "repliesMade": {
               "type": [
                 "null",
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "categoryId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "askedAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "lastActivityAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "replyCount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "tags": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "likedBy": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
-    },
-    "answer": {
       "type": [
         "null",
         "string"
@@ -155,16 +103,38 @@
         "boolean"
       ]
     },
-    "sticky": {
+    "containsPoll": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "trashed": {
+    "content": {
       "type": [
         "null",
-        "boolean"
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "lastActivityAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "likedBy": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "pendingApproval": {
@@ -173,11 +143,41 @@
         "boolean"
       ]
     },
-    "containsPoll": {
+    "replyCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sticky": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trashed": {
       "type": [
         "null",
         "boolean"
       ]
     }
-  }
+  },
+  "type": "object"
 }

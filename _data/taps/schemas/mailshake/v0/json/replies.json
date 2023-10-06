@@ -1,113 +1,37 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "actionDate": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "recipient": {
+    "body": {
       "type": [
         "null",
-        "object"
-      ],
+        "string"
+      ]
+    },
+    "campaign": {
       "additionalProperties": false,
       "properties": {
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "emailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "fullName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "first": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "created": {
           "type": [
             "null",
             "date-time"
           ]
         },
-        "action": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "isPaused": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "fields": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {}
-        }
-      }
-    },
-    "campaign": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "id": {
           "type": [
             "null",
             "integer"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
           ]
         },
         "title": {
@@ -115,82 +39,14 @@
             "null",
             "string"
           ]
-        },
-        "created": {
-          "type": [
-            "null",
-            "date-time"
-          ]
         }
-      }
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "parent": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "object": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "message": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "object": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "subject": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
+      ]
     },
-    "subject": {
+    "externalConversationID": {
       "type": [
         "null",
         "string"
@@ -208,7 +64,79 @@
         "string"
       ]
     },
-    "externalConversationID": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "message": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "object": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "subject": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "plainTextBody": {
       "type": [
         "null",
         "string"
@@ -220,17 +148,89 @@
         "string"
       ]
     },
-    "body": {
+    "recipient": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fields": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "isPaused": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "subject": {
       "type": [
         "null",
         "string"
       ]
     },
-    "plainTextBody": {
+    "type": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

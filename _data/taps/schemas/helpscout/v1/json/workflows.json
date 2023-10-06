@@ -1,7 +1,12 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -14,13 +19,13 @@
         "integer"
       ]
     },
-    "type": {
+    "modified_at": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "status": {
+    "name": {
       "type": [
         "null",
         "string"
@@ -32,23 +37,18 @@
         "integer"
       ]
     },
-    "name": {
+    "status": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
+    "type": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "modified_at": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

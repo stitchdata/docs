@@ -1,10 +1,75 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currencies": {
+      "items": {
+        "properties": {
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "unit_amount": {
+            "multipleOf": 1e-08,
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "default_quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "display_quantity": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
       "type": [
         "null",
         "string"
@@ -22,25 +87,7 @@
         "string"
       ]
     },
-    "code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "state": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "accounting_code": {
       "type": [
         "null",
         "string"
@@ -52,62 +99,15 @@
         "string"
       ]
     },
-    "display_quantity": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "default_quantity": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "currencies": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "currency": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "unit_amount": {
-            "type": [
-              "null",
-              "number"
-            ],
-            "multipleOf": 1e-08
-          }
-        }
-      }
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
-    },
-    "deleted_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,11 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "vendor_id": {
+    "email": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "name": {
@@ -14,11 +13,12 @@
         "string"
       ]
     },
-    "email": {
+    "vendor_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -11,49 +7,13 @@
         "string"
       ]
     },
-    "name": {
+    "card_type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "first_cta": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "image_display_height": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "media_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "thank_you_text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "first_cta_tweet": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "media_key": {
+    "card_uri": {
       "type": [
         "null",
         "string"
@@ -65,13 +25,61 @@
         "date-time"
       ]
     },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "first_cta": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_cta_tweet": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "image_display_height": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "image_display_width": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "card_uri": {
+    "media_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "media_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "thank_you_text": {
       "type": [
         "null",
         "string"
@@ -88,18 +96,10 @@
         "null",
         "date-time"
       ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "card_type": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

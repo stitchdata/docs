@@ -1,14 +1,31 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "campaign": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "campaignid": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "messageid": {
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
       "type": [
         "null",
         "integer"
@@ -18,6 +35,24 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "linkclicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "messageid": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "name": {
@@ -44,34 +79,10 @@
         "integer"
       ]
     },
-    "linkclicks": {
+    "updated_by": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "campaign": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "message": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "updated_timestamp": {
@@ -79,18 +90,7 @@
         "null",
         "date-time"
       ]
-    },
-    "created_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updated_by": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

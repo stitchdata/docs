@@ -1,11 +1,8 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "derived_table": {
+      "additionalProperties": false,
       "properties": {
         "cluster_keys": {
           "items": {
@@ -20,6 +17,7 @@
           ]
         },
         "create_process": {
+          "additionalProperties": false,
           "properties": {
             "sql_steps": {
               "items": {
@@ -37,8 +35,7 @@
           "type": [
             "null",
             "object"
-          ],
-          "additionalProperties": false
+          ]
         },
         "datagroup_trigger": {
           "type": [
@@ -59,8 +56,10 @@
           ]
         },
         "explore_source": {
+          "additionalProperties": false,
           "properties": {
             "bind_filters": {
+              "additionalProperties": false,
               "properties": {
                 "from_field": {
                   "type": [
@@ -78,11 +77,11 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "columns": {
               "items": {
+                "additionalProperties": false,
                 "properties": {
                   "field": {
                     "type": [
@@ -100,8 +99,7 @@
                 "type": [
                   "null",
                   "object"
-                ],
-                "additionalProperties": false
+                ]
               },
               "type": [
                 "null",
@@ -110,6 +108,7 @@
             },
             "derived_columns": {
               "items": {
+                "additionalProperties": false,
                 "properties": {
                   "name": {
                     "type": [
@@ -127,8 +126,7 @@
                 "type": [
                   "null",
                   "object"
-                ],
-                "additionalProperties": false
+                ]
               },
               "type": [
                 "null",
@@ -143,6 +141,7 @@
             },
             "filters": {
               "items": {
+                "additionalProperties": false,
                 "properties": {
                   "field": {
                     "type": [
@@ -160,8 +159,7 @@
                 "type": [
                   "null",
                   "object"
-                ],
-                "additionalProperties": false
+                ]
               },
               "type": [
                 "null",
@@ -181,6 +179,7 @@
               ]
             },
             "sort": {
+              "additionalProperties": false,
               "properties": {
                 "desc": {
                   "type": [
@@ -198,8 +197,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "timezone": {
               "type": [
@@ -211,8 +209,7 @@
           "type": [
             "null",
             "object"
-          ],
-          "additionalProperties": false
+          ]
         },
         "indexes": {
           "items": {
@@ -278,11 +275,11 @@
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": false
+      ]
     },
     "dimension_groups": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "alias": {
             "items": {
@@ -504,8 +501,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -514,12 +510,15 @@
     },
     "dimensions": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "actions": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "form_params": {
                   "items": {
+                    "additionalProperties": false,
                     "properties": {
                       "default": {
                         "type": [
@@ -541,6 +540,7 @@
                       },
                       "options": {
                         "items": {
+                          "additionalProperties": false,
                           "properties": {
                             "label": {
                               "type": [
@@ -558,8 +558,7 @@
                           "type": [
                             "null",
                             "object"
-                          ],
-                          "additionalProperties": false
+                          ]
                         },
                         "type": [
                           "null",
@@ -582,8 +581,7 @@
                     "type": [
                       "null",
                       "object"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "type": [
                     "null",
@@ -610,6 +608,7 @@
                 },
                 "params": {
                   "items": {
+                    "additionalProperties": false,
                     "properties": {
                       "name": {
                         "type": [
@@ -627,8 +626,7 @@
                     "type": [
                       "null",
                       "object"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "type": [
                     "null",
@@ -643,6 +641,7 @@
                 },
                 "user_attribute_params": {
                   "items": {
+                    "additionalProperties": false,
                     "properties": {
                       "name": {
                         "type": [
@@ -660,8 +659,7 @@
                     "type": [
                       "null",
                       "object"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "type": [
                     "null",
@@ -672,8 +670,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -711,9 +708,11 @@
             ]
           },
           "case": {
+            "additionalProperties": false,
             "properties": {
               "whens": {
                 "items": {
+                  "additionalProperties": false,
                   "properties": {
                     "label": {
                       "type": [
@@ -731,8 +730,7 @@
                   "type": [
                     "null",
                     "object"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "type": [
                   "null",
@@ -743,8 +741,7 @@
             "type": [
               "null",
               "object"
-            ],
-            "additionalProperties": false
+            ]
           },
           "case_sensitive": {
             "type": [
@@ -832,6 +829,7 @@
           },
           "links": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "icon_url": {
                   "type": [
@@ -855,8 +853,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -1041,8 +1038,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -1069,6 +1065,7 @@
     },
     "filters": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "alias": {
             "items": {
@@ -1248,12 +1245,23 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
         "array"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "last_modified": {
@@ -1264,12 +1272,15 @@
     },
     "measures": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "actions": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "form_params": {
                   "items": {
+                    "additionalProperties": false,
                     "properties": {
                       "default": {
                         "type": [
@@ -1291,6 +1302,7 @@
                       },
                       "options": {
                         "items": {
+                          "additionalProperties": false,
                           "properties": {
                             "label": {
                               "type": [
@@ -1308,8 +1320,7 @@
                           "type": [
                             "null",
                             "object"
-                          ],
-                          "additionalProperties": false
+                          ]
                         },
                         "type": [
                           "null",
@@ -1332,8 +1343,7 @@
                     "type": [
                       "null",
                       "object"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "type": [
                     "null",
@@ -1360,6 +1370,7 @@
                 },
                 "params": {
                   "items": {
+                    "additionalProperties": false,
                     "properties": {
                       "name": {
                         "type": [
@@ -1377,8 +1388,7 @@
                     "type": [
                       "null",
                       "object"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "type": [
                     "null",
@@ -1393,6 +1403,7 @@
                 },
                 "user_attribute_params": {
                   "items": {
+                    "additionalProperties": false,
                     "properties": {
                       "name": {
                         "type": [
@@ -1410,8 +1421,7 @@
                     "type": [
                       "null",
                       "object"
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "type": [
                     "null",
@@ -1422,8 +1432,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -1449,11 +1458,11 @@
             ]
           },
           "approximate_threshold": {
+            "multipleOf": 1e-10,
             "type": [
               "null",
               "number"
-            ],
-            "multipleOf": 1e-10
+            ]
           },
           "can_filter": {
             "type": [
@@ -1505,6 +1514,7 @@
           },
           "filters": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "field": {
                   "type": [
@@ -1522,8 +1532,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -1568,6 +1577,7 @@
           },
           "links": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "icon_url": {
                   "type": [
@@ -1591,8 +1601,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -1612,11 +1621,11 @@
             ]
           },
           "percentile": {
+            "multipleOf": 1e-10,
             "type": [
               "null",
               "number"
-            ],
-            "multipleOf": 1e-10
+            ]
           },
           "precision": {
             "type": [
@@ -1718,8 +1727,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -1732,14 +1740,9 @@
         "string"
       ]
     },
-    "path": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "parameters": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "alias": {
             "items": {
@@ -1755,6 +1758,7 @@
           },
           "allowed_values": {
             "items": {
+              "additionalProperties": false,
               "properties": {
                 "label": {
                   "type": [
@@ -1772,8 +1776,7 @@
               "type": [
                 "null",
                 "object"
-              ],
-              "additionalProperties": false
+              ]
             },
             "type": [
               "null",
@@ -1916,21 +1919,14 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
         "array"
       ]
     },
-    "git_repository": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "git_owner": {
+    "path": {
       "type": [
         "null",
         "string"
@@ -1950,6 +1946,7 @@
     },
     "sets": {
       "items": {
+        "additionalProperties": false,
         "properties": {
           "fields": {
             "items": {
@@ -1973,8 +1970,7 @@
         "type": [
           "null",
           "object"
-        ],
-        "additionalProperties": false
+        ]
       },
       "type": [
         "null",
@@ -2005,5 +2001,9 @@
         "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

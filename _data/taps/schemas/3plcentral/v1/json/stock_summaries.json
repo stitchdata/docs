@@ -1,7 +1,20 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "allocated": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "available": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "facility_id": {
       "type": [
         "null",
@@ -15,25 +28,39 @@
       ]
     },
     "item_identifier": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "sku": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "id": {
           "type": [
             "null",
             "integer"
           ]
+        },
+        "sku": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "on_hand": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "on_hold": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
     },
     "qualifier": {
       "type": [
@@ -42,39 +69,12 @@
       ]
     },
     "total_received": {
+      "multipleOf": 1e-16,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-16
-    },
-    "allocated": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-16
-    },
-    "available": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-16
-    },
-    "on_hold": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-16
-    },
-    "on_hand": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-16
+      ]
     }
-  }
+  },
+  "type": "object"
 }

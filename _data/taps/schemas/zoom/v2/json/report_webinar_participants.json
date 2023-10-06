@@ -1,31 +1,26 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "customer_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "failover": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
       "type": [
-        "string"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "webinar_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_email": {
-      "type": [
-        "null",
         "string"
       ]
     },
@@ -41,22 +36,10 @@
         "date-time"
       ]
     },
-    "duration": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "customer_key": {
+    "name": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "failover": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "registrant_id": {
@@ -70,6 +53,23 @@
         "null",
         "string"
       ]
+    },
+    "user_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

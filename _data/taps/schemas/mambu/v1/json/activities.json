@@ -1,56 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "branch_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "client_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "loan_product_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "loan_account_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "transaction_ID": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "type": {
       "type": [
         "null",
         "string"
@@ -62,13 +13,13 @@
         "string"
       ]
     },
-    "user_key": {
+    "client_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "notes": {
+    "encoded_key": {
       "type": [
         "null",
         "string"
@@ -77,36 +28,10 @@
     "field_changes": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "transaction_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "field_change_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "original_value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "new_value": {
+              "branchKey": {
                 "type": [
                   "null",
                   "string"
@@ -118,7 +43,19 @@
                   "string"
                 ]
               },
-              "branchKey": {
+              "field_change_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "loanAccountKey": {
                 "type": [
                   "null",
                   "string"
@@ -130,19 +67,82 @@
                   "string"
                 ]
               },
-              "loanAccountKey": {
+              "new_value": {
                 "type": [
                   "null",
                   "string"
                 ]
+              },
+              "original_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "loan_account_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "loan_product_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "transaction_ID": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_name": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

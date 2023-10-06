@@ -1,28 +1,18 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
+    "attached_files": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "string"
+        "array"
       ]
     },
-    "csid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "initial_channel": {
+    "author_email": {
       "type": [
         "null",
         "string"
@@ -34,31 +24,61 @@
         "string"
       ]
     },
-    "author_email": {
+    "bcc": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "cc": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "chat_input_answer": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "chat_input_question": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "chat_menu_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "csid": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "direction": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "from_phone_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "to_phone_number": {
       "type": [
         "null",
         "string"
@@ -76,16 +96,28 @@
         "string"
       ]
     },
+    "from_phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "initial_channel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "is_automated_message": {
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "voicemail_url": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "recording_url": {
@@ -94,71 +126,39 @@
         "string"
       ]
     },
-    "chat_input_question": {
+    "text": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "chat_input_answer": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "chat_menu_text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "attached_files": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "bcc": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "cc": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
     },
     "to": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "to_phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "voicemail_url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

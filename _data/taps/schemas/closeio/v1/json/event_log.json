@@ -1,16 +1,25 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
+  "additionalProperties": true,
   "properties": {
-    "date_updated": {
+    "action": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "action": {
+    "changed_fields": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "data": {
       "type": [
         "null",
         "string"
@@ -22,25 +31,13 @@
         "date-time"
       ]
     },
-    "data": {
+    "date_updated": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     },
-    "previous_data": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "object_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_id": {
+    "id": {
       "type": [
         "null",
         "string"
@@ -52,7 +49,28 @@
         "string"
       ]
     },
-    "request_id": {
+    "meta": {
+      "additionalProperties": true,
+      "properties": {
+        "request_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "request_path": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "object_id": {
       "type": [
         "null",
         "string"
@@ -64,51 +82,33 @@
         "string"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "organization_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "changed_fields": {
+    "previous_data": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+        "string"
+      ]
     },
-    "meta": {
+    "request_id": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {
-        "request_path": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "request_method": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "additionalProperties": true
+        "string"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   },
-  "additionalProperties": true
+  "type": [
+    "null",
+    "object"
+  ]
 }

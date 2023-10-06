@@ -1,108 +1,25 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "group_members": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "client_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "roles": {
-                "anyOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "properties": {
-                        "role_name": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "encoded_key": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        },
-                        "group_role_name_key": {
-                          "type": [
-                            "null",
-                            "string"
-                          ]
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "migration_event_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "preferred_language": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "addresses": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
-              "country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "parent_key": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "city": {
                 "type": [
                   "null",
                   "string"
                 ]
               },
-              "latitude": {
+              "country": {
                 "type": [
                   "null",
-                  "number"
+                  "string"
                 ]
               },
-              "postcode": {
+              "encoded_key": {
                 "type": [
                   "null",
                   "string"
@@ -114,13 +31,13 @@
                   "integer"
                 ]
               },
-              "encoded_key": {
+              "latitude": {
                 "type": [
                   "null",
-                  "string"
+                  "number"
                 ]
               },
-              "region": {
+              "line1": {
                 "type": [
                   "null",
                   "string"
@@ -132,57 +49,41 @@
                   "string"
                 ]
               },
-              "line1": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "longitude": {
                 "type": [
                   "null",
                   "number"
                 ]
+              },
+              "parent_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postcode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_modified_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "home_phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "assigned_branch_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "loan_cycle": {
       "type": [
         "null",
         "string"
@@ -194,54 +95,22 @@
         "string"
       ]
     },
-    "group_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "email_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "mobile_phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "group_role_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "assigned_user_key": {
       "type": [
         "null",
         "string"
       ]
     },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "custom_fields": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "field_set_id": {
@@ -262,13 +131,144 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_members": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "client_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "roles": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "encoded_key": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "group_role_name_key": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "role_name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "group_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_role_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "home_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "loan_cycle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "migration_event_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preferred_language": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

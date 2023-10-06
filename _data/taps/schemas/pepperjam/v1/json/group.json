@@ -1,7 +1,12 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "assigned_publishers": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -13,12 +18,7 @@
         "null",
         "string"
       ]
-    },
-    "assigned_publishers": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

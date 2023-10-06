@@ -1,17 +1,13 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "gid": {
+    "email": {
       "type": [
         "null",
         "string"
       ]
     },
-    "resource_type": {
+    "gid": {
       "type": [
         "null",
         "string"
@@ -23,19 +19,21 @@
         "string"
       ]
     },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "photo": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
+        "image_1024x1024": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_128x128": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
         "image_21x21": {
           "type": [
             "null",
@@ -59,40 +57,24 @@
             "null",
             "string"
           ]
-        },
-        "image_128x128": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "image_1024x1024": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
-    },
-    "workspaces": {
+      },
       "type": [
         "null",
-        "array"
-      ],
+        "object"
+      ]
+    },
+    "resource_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "workspaces": {
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
           "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "resource_type": {
             "type": [
               "null",
               "string"
@@ -103,9 +85,27 @@
               "null",
               "string"
             ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

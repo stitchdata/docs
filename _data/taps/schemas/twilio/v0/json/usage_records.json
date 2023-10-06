@@ -1,7 +1,24 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "account_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "api_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "as_of": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "category": {
       "type": [
         "null",
@@ -21,21 +38,51 @@
         }
       ]
     },
+    "count_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "price": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-06,
+          "type": "number"
+        }
+      ]
+    },
     "price_unit": {
       "type": [
         "null",
         "string"
       ]
     },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "subresource_uris": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "subresource": {
@@ -50,26 +97,45 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         },
         {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
-            "yesterday": {
+            "all_time": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "all_time": {
+            "daily": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last_month": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "monthly": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "this_month": {
               "type": [
                 "null",
                 "string"
@@ -87,76 +153,21 @@
                 "string"
               ]
             },
-            "this_month": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "monthly": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "daily": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "last_month": {
+            "yesterday": {
               "type": [
                 "null",
                 "string"
               ]
             }
-          }
-        }
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "end_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "as_of": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "usage_unit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "price": {
-      "anyOf": [
-        {
-          "type": "null"
-        },
-        {
-          "type": "number",
-          "multipleOf": 1e-06
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
       ]
     },
     "uri": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "account_sid": {
       "type": [
         "null",
         "string"
@@ -168,31 +179,20 @@
           "type": "null"
         },
         {
-          "type": "number",
-          "multipleOf": 1e-08
+          "multipleOf": 1e-08,
+          "type": "number"
         },
         {
           "type": "string"
         }
       ]
     },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "count_unit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "api_version": {
+    "usage_unit": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

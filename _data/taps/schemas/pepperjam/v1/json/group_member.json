@@ -1,7 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "default": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -14,23 +25,12 @@
         "string"
       ]
     },
-    "default": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "product_count": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "group_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,68 +1,18 @@
 {
   "properties": {
-    "HiredDate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "PrimaryPhone": {
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "SyncToken": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "BillableTime": {
+    "Active": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "DisplayName": {
+    "BillRate": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "GivenName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "FamilyName": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "domain": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "Active": {
+    "BillableTime": {
       "type": [
         "null",
         "boolean"
@@ -74,7 +24,49 @@
         "date-time"
       ]
     },
-    "PrintOnCheckName": {
+    "CostRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "DisplayName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EmployeeNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "FamilyName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Gender": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "GivenName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "HiredDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Id": {
       "type": [
         "null",
         "string"
@@ -100,14 +92,40 @@
         "object"
       ]
     },
+    "MiddleName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Mobile": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "Organization": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "PrimaryAddr": {
-      "Lat": {
+      "City": {
         "type": [
           "null",
           "string"
         ]
       },
-      "Id": {
+      "Country": {
         "type": [
           "null",
           "string"
@@ -119,19 +137,13 @@
           "string"
         ]
       },
-      "City": {
+      "Id": {
         "type": [
           "null",
           "string"
         ]
       },
-      "Long": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "PostalCode": {
+      "Lat": {
         "type": [
           "null",
           "string"
@@ -167,7 +179,13 @@
           "string"
         ]
       },
-      "Country": {
+      "Long": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "PostalCode": {
         "type": [
           "null",
           "string"
@@ -175,10 +193,6 @@
       }
     },
     "PrimaryEmailAddr": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "Address": {
           "type": [
@@ -186,15 +200,27 @@
             "string"
           ]
         }
-      }
-    },
-    "Title": {
+      },
       "type": [
         "null",
-        "string"
+        "object"
       ]
     },
-    "MiddleName": {
+    "PrimaryPhone": {
+      "properties": {
+        "FreeFormNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "PrintOnCheckName": {
       "type": [
         "null",
         "string"
@@ -206,30 +232,10 @@
         "date-time"
       ]
     },
-    "Mobile": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "FreeFormNumber": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "Gender": {
+    "SSN": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "BillRate": {
-      "type": [
-        "null",
-        "number"
       ]
     },
     "Suffix": {
@@ -238,19 +244,13 @@
         "string"
       ]
     },
-    "EmployeeNumber": {
+    "SyncToken": {
       "type": [
         "null",
         "string"
       ]
     },
-    "Organization": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "SSN": {
+    "Title": {
       "type": [
         "null",
         "string"
@@ -262,10 +262,10 @@
         "string"
       ]
     },
-    "CostRate": {
+    "domain": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     }
   },

@@ -1,10 +1,24 @@
 {
   "additionalProperties": true,
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "first_name": {
       "type": [
         "null",
@@ -12,6 +26,24 @@
       ]
     },
     "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "image": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_used_timezone": {
       "type": [
         "null",
         "string"
@@ -28,42 +60,10 @@
         "null",
         "array"
       ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date_updated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "image": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date_created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_used_timezone": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

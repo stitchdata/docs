@@ -1,94 +1,90 @@
 {
-  "type": "object",
   "additionalProperties": true,
   "properties": {
-    "total_time": {
-      "type": "integer"
+    "analyze_url": {
+      "type": "string"
     },
-    "href": {
+    "collection_mode": {
+      "enum": [
+        "default",
+        "preview",
+        "data_entry",
+        "survey_preview",
+        "edit"
+      ],
+      "title": "CollectionMode",
+      "type": "string"
+    },
+    "collector_id": {
+      "type": "string"
+    },
+    "custom_value": {
       "type": "string"
     },
     "custom_variables": {
-      "type": "object",
       "additionalProperties": true,
-      "properties": {}
+      "properties": {},
+      "type": "object"
     },
-    "first_name": {
-      "type": "string"
+    "date_created": {
+      "type": "date-time"
     },
-    "last_name": {
+    "date_modified": {
+      "type": "date-time"
+    },
+    "edit_url": {
       "type": "string"
     },
     "email_address": {
       "type": "string"
     },
-    "ip_address": {
+    "first_name": {
+      "type": "string"
+    },
+    "href": {
       "type": "string"
     },
     "id": {
       "type": "string"
     },
+    "ip_address": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
     "logic_path": {
-      "type": "object",
       "additionalProperties": true,
-      "properties": {}
+      "properties": {},
+      "type": "object"
     },
-    "date_modified": {
-      "type": "date-time"
+    "metadata": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
     },
-    "response_status": {
-      "type": "string",
-      "enum": [
-        "partial",
-        "completed",
-        "disqualified",
-        "overquota"
-      ],
-      "title": "ResponseStatus"
-    },
-    "custom_value": {
-      "type": "string"
-    },
-    "analyze_url": {
-      "type": "string"
+    "page_path": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "pages": {
-      "type": "array",
       "items": {
-        "type": "object",
         "additionalProperties": true,
         "properties": {
           "id": {
             "type": "string"
           },
           "questions": {
-            "type": "array",
             "items": {
-              "type": "object",
               "additionalProperties": true,
               "properties": {
-                "id": {
-                  "type": "string"
-                },
                 "answers": {
-                  "type": "array",
                   "items": {
-                    "type": "object",
                     "additionalProperties": true,
                     "properties": {
-                      "is_correct": {
-                        "type": "boolean"
-                      },
                       "choice_id": {
-                        "type": "string"
-                      },
-                      "row_id": {
-                        "type": "string"
-                      },
-                      "text": {
-                        "type": "string"
-                      },
-                      "other_id": {
                         "type": "string"
                       },
                       "col_id": {
@@ -97,21 +93,38 @@
                       "image": {
                         "type": "string"
                       },
+                      "is_correct": {
+                        "type": "boolean"
+                      },
+                      "other_id": {
+                        "type": "string"
+                      },
+                      "row_id": {
+                        "type": "string"
+                      },
                       "score": {
                         "type": "integer"
                       },
                       "tag_data": {
-                        "type": "array",
                         "items": {
-                          "type": "object",
                           "additionalProperties": true,
-                          "properties": {}
-                        }
+                          "properties": {},
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "text": {
+                        "type": "string"
                       }
                     },
                     "required": [],
-                    "title": "Answer"
-                  }
+                    "title": "Answer",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "id": {
+                  "type": "string"
                 },
                 "variable_id": {
                   "type": "string"
@@ -121,19 +134,22 @@
                 "answers",
                 "id"
               ],
-              "title": "Question"
-            }
+              "title": "Question",
+              "type": "object"
+            },
+            "type": "array"
           }
         },
         "required": [
           "id",
           "questions"
         ],
-        "title": "Page"
-      }
+        "title": "Page",
+        "type": "object"
+      },
+      "type": "array"
     },
     "quiz_results": {
-      "type": "object",
       "additionalProperties": true,
       "properties": {
         "correct": {
@@ -145,53 +161,36 @@
         "partially_correct": {
           "type": "integer"
         },
-        "total_questions": {
+        "score": {
           "type": "integer"
         },
-        "score": {
+        "total_questions": {
           "type": "integer"
         },
         "total_score": {
           "type": "integer"
         }
-      }
-    },
-    "page_path": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      },
+      "type": "object"
     },
     "recipient_id": {
       "type": "string"
     },
-    "collector_id": {
+    "response_status": {
+      "enum": [
+        "partial",
+        "completed",
+        "disqualified",
+        "overquota"
+      ],
+      "title": "ResponseStatus",
       "type": "string"
-    },
-    "date_created": {
-      "type": "date-time"
     },
     "survey_id": {
       "type": "string"
     },
-    "collection_mode": {
-      "type": "string",
-      "enum": [
-        "default",
-        "preview",
-        "data_entry",
-        "survey_preview",
-        "edit"
-      ],
-      "title": "CollectionMode"
-    },
-    "edit_url": {
-      "type": "string"
-    },
-    "metadata": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {}
+    "total_time": {
+      "type": "integer"
     }
   },
   "required": [
@@ -217,5 +216,6 @@
     "response_status",
     "survey_id",
     "total_time"
-  ]
+  ],
+  "type": "object"
 }

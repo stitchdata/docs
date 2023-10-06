@@ -1,10 +1,6 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "uuid": {
+    "datetime": {
       "type": [
         "null",
         "string"
@@ -16,28 +12,11 @@
         "string"
       ]
     },
-    "timestamp": {
+    "event_properties": {
+      "properties": {},
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "object": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "datetime": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "statistic_id": {
-      "type": [
-        "null",
-        "string"
+        "object"
       ]
     },
     "id": {
@@ -46,19 +25,40 @@
         "string"
       ]
     },
-    "event_properties": {
+    "object": {
       "type": [
         "null",
-        "object"
-      ],
-      "properties": {}
+        "string"
+      ]
     },
     "person": {
+      "properties": {},
       "type": [
         "null",
         "object"
-      ],
-      "properties": {}
+      ]
+    },
+    "statistic_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

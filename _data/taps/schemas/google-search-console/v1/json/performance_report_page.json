@@ -1,17 +1,17 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "site_url": {
+    "clicks": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "search_type": {
+    "ctr": {
+      "multipleOf": 1e-25,
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
     "date": {
@@ -20,37 +20,37 @@
         "date-time"
       ]
     },
-    "page": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "impressions": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "ctr": {
+    "page": {
       "type": [
         "null",
-        "number"
-      ],
-      "multipleOf": 1e-25
+        "string"
+      ]
     },
     "position": {
+      "multipleOf": 1e-25,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-25
+      ]
+    },
+    "search_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "site_url": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

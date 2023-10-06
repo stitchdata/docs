@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "account_sid": {
@@ -12,6 +11,18 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "call_sid_to_coach": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "coaching": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "conference_sid": {
@@ -38,6 +49,12 @@
         "boolean"
       ]
     },
+    "hold": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "label": {
       "type": [
         "null",
@@ -50,7 +67,7 @@
         "boolean"
       ]
     },
-    "hold": {
+    "start_conference_on_enter": {
       "type": [
         "null",
         "boolean"
@@ -62,29 +79,12 @@
         "string"
       ]
     },
-    "start_conference_on_enter": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "coaching": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "call_sid_to_coach": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "uri": {
       "type": [
         "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

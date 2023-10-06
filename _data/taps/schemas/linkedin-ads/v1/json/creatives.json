@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "campaign": {
@@ -15,17 +14,9 @@
       ]
     },
     "change_audit_stamps": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "created": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -34,13 +25,13 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "last_modified": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "time": {
@@ -49,17 +40,19 @@
                 "date-time"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
-    },
-    "created_time": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
     },
-    "last_modified_time": {
+    "created_time": {
       "type": [
         "null",
         "date-time"
@@ -69,6 +62,12 @@
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "last_modified_time": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "reference": {
@@ -84,10 +83,6 @@
       ]
     },
     "review": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "review_status": {
@@ -96,7 +91,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "status": {
       "type": [
@@ -111,10 +110,6 @@
       ]
     },
     "variables": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "click_uri": {
@@ -132,9 +127,7 @@
         "values": {
           "anyOf": [
             {
-              "type": "array",
               "items": {
-                "type": "object",
                 "additionalProperties": false,
                 "properties": {
                   "key": {
@@ -149,21 +142,23 @@
                       "string"
                     ]
                   }
-                }
-              }
+                },
+                "type": "object"
+              },
+              "type": "array"
             },
             {
               "type": "null"
             }
           ]
         }
-      }
-    },
-    "version": {
+      },
       "type": [
         "null",
         "object"
-      ],
+      ]
+    },
+    "version": {
       "additionalProperties": false,
       "properties": {
         "version_tag": {
@@ -172,7 +167,12 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,11 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "country_code": {
+    "beta": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "country": {
@@ -14,27 +13,16 @@
         "string"
       ]
     },
-    "uri": {
+    "country_code": {
       "type": [
         "null",
         "string"
       ]
     },
-    "beta": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "subresource_uris": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "subresource": {
@@ -49,17 +37,18 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         },
         {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "local": {
@@ -80,9 +69,20 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
       ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

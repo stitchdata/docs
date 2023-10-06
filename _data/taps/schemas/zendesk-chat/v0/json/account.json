@@ -1,69 +1,19 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "create_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "account_key": {
       "type": [
         "string"
       ]
     },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "billing": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "address1": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "additional_info": {
           "type": [
             "null",
             "string"
           ]
         },
-        "city": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "state": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "last_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "company": {
+        "address1": {
           "type": [
             "null",
             "string"
@@ -75,7 +25,25 @@
             "string"
           ]
         },
-        "postal_code": {
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
           "type": [
             "null",
             "string"
@@ -87,27 +55,51 @@
             "string"
           ]
         },
-        "country_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "plan": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "properties": {
-        "max_history_search_days": {
+        "last_name": {
           "type": [
             "null",
             "string"
           ]
         },
-        "support": {
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "create_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "plan": {
+      "properties": {
+        "agent_leaderboard": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "agent_reports": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "analytics": {
           "type": [
             "null",
             "boolean"
@@ -119,72 +111,37 @@
             "boolean"
           ]
         },
+        "daily_reports": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "email_reports": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "file_upload": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
         "goals": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "price": {
-          "type": [
-            "null",
-            "number"
-          ],
-          "minimum": -1e+33,
-          "maximum": 1e+33,
-          "multipleOf": 1e-05,
-          "exclusiveMinimum": true,
-          "exclusiveMaximum": true
-        },
-        "rest_api": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "sla": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "max_concurrent_chats": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "agent_leaderboard": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "max_departments": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "agent_reports": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "max_advanced_triggers": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "max_basic_triggers": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "high_load": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "integrations": {
           "type": [
             "null",
             "boolean"
@@ -202,37 +159,7 @@
             "string"
           ]
         },
-        "file_upload": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "integrations": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "daily_reports": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "operating_hours": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "analytics": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "widget_customization": {
+        "max_advanced_triggers": {
           "type": [
             "null",
             "string"
@@ -244,19 +171,25 @@
             "integer"
           ]
         },
-        "short_desc": {
+        "max_basic_triggers": {
           "type": [
             "null",
             "string"
           ]
         },
-        "unbranding": {
+        "max_concurrent_chats": {
           "type": [
             "null",
-            "boolean"
+            "string"
           ]
         },
-        "name": {
+        "max_departments": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "max_history_search_days": {
           "type": [
             "null",
             "string"
@@ -268,13 +201,80 @@
             "boolean"
           ]
         },
-        "email_reports": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "operating_hours": {
           "type": [
             "null",
             "boolean"
           ]
+        },
+        "price": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "rest_api": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "short_desc": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sla": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "support": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "unbranding": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "widget_customization": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

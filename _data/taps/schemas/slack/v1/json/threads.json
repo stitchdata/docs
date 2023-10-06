@@ -1,10 +1,27 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
+    "blocks": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "channel_id": {
       "type": [
         "null",
@@ -17,58 +34,7 @@
         "string"
       ]
     },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ts": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "team": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "blocks": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "additionalProperties": true,
-        "properties": {
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
-    "thread_ts": {
+    "latest_reply": {
       "type": [
         "null",
         "string"
@@ -80,32 +46,66 @@
         "integer"
       ]
     },
+    "reply_users": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "reply_users_count": {
       "type": [
         "null",
         "number"
       ]
     },
-    "latest_reply": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reply_users": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "string"
-      }
-    },
     "subscribed": {
       "type": [
         "null",
         "boolean"
       ]
+    },
+    "team": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "thread_ts": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ts": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

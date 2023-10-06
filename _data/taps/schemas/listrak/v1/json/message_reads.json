@@ -1,12 +1,7 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "MsgID": {
-      "type": [
-        "integer"
-      ]
-    },
-    "ReadDate": {
+    "ContactID": {
       "type": [
         "null",
         "string"
@@ -18,12 +13,17 @@
         "string"
       ]
     },
-    "ContactID": {
+    "MsgID": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ReadDate": {
       "type": [
         "null",
         "string"
       ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

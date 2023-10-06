@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "created_date": {
@@ -23,9 +22,7 @@
     "line_items": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "actions": {
@@ -65,11 +62,11 @@
                 ]
               },
               "net_item_amount": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               },
               "paid_date": {
                 "type": [
@@ -84,21 +81,23 @@
                 ]
               },
               "total_item_amount": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               },
               "vat_item_amount": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -124,18 +123,19 @@
       ]
     },
     "total_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "total_vat_amount": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     }
-  }
+  },
+  "type": "object"
 }

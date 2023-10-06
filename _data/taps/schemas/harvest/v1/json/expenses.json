@@ -1,10 +1,87 @@
 {
-  "type": "object",
   "properties": {
+    "billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "company_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "expense_category_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "has_receipt": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "invoice_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_locked": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "locked_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "receipt_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "spent_at": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "total_cost": {
@@ -19,34 +96,10 @@
         "number"
       ]
     },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "project_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "expense_category_id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "user_id": {
@@ -54,60 +107,7 @@
         "null",
         "integer"
       ]
-    },
-    "spent_at": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_closed": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "invoice_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "billable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "company_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "has_receipt": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "receipt_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_locked": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "locked_reason": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

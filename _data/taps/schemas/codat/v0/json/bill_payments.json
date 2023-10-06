@@ -1,130 +1,7 @@
 {
-  "type": "object",
   "properties": {
     "companyId": {
       "type": "string"
-    },
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "supplierRef": {
-      "companyId": {
-        "type": [
-          "string"
-        ]
-      },
-      "emailAddress": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "status": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "contactName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "registrationNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "supplierName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "string"
-        ]
-      },
-      "phone": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "addresses": {
-        "items": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": true,
-          "properties": {
-            "region": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "postalCode": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "line2": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "line1": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "country": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "city": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "type": [
-          "null",
-          "array"
-        ]
-      },
-      "taxNumber": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "totalAmount": {
-      "type": [
-        "null",
-        "number"
-      ]
     },
     "currency": {
       "type": [
@@ -144,21 +21,13 @@
         "string"
       ]
     },
-    "note": {
+    "id": {
       "type": [
-        "null",
         "string"
       ]
     },
     "lines": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "object"
-        ],
         "properties": {
           "amount": {
             "type": [
@@ -167,32 +36,45 @@
             ]
           },
           "links": {
-            "type": [
-              "null",
-              "array"
-            ],
             "items": {
-              "type": "object",
               "properties": {
-                "type": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
                 "id": {
                   "type": [
                     "null",
                     "string"
                   ]
+                },
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
                 }
-              }
-            }
+              },
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
           }
-        }
-      }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
     "modifiedDate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note": {
       "type": [
         "null",
         "string"
@@ -203,9 +85,127 @@
         "null",
         "string"
       ]
+    },
+    "supplierRef": {
+      "addresses": {
+        "items": {
+          "additionalProperties": true,
+          "properties": {
+            "city": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "country": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "line1": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "line2": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "postalCode": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "region": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      },
+      "companyId": {
+        "type": [
+          "string"
+        ]
+      },
+      "contactName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "emailAddress": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "id": {
+        "type": [
+          "string"
+        ]
+      },
+      "phone": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "registrationNumber": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "status": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "supplierName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "taxNumber": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
     }
   },
   "tap_schema_dependencies": [
     "suppliers"
-  ]
+  ],
+  "type": "object"
 }

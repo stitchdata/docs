@@ -1,23 +1,7 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "agents_count": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "parent_id": {
       "type": [
         "null",
         "integer"
@@ -26,30 +10,25 @@
     "assignees": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
-              "first_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "agent_number": {
                 "type": [
                   "string",
                   "null"
+                ]
+              },
+              "avatar_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
                 ]
               },
               "id": {
@@ -64,21 +43,44 @@
                   "string"
                 ]
               },
-              "avatar_url": {
+              "name": {
                 "type": [
                   "null",
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_id": {
       "type": [
         "null",
         "integer"
@@ -89,12 +91,10 @@
         "null",
         "integer"
       ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

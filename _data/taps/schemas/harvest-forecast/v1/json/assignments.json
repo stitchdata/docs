@@ -1,16 +1,16 @@
 {
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "id": {
+    "active_on_days_off": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "allocation": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "start_date": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "end_date": {
@@ -19,7 +19,7 @@
         "date-time"
       ]
     },
-    "allocation": {
+    "id": {
       "type": [
         "null",
         "integer"
@@ -29,24 +29,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_by_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "project_id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "person_id": {
@@ -61,18 +43,36 @@
         "integer"
       ]
     },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "repeated_assignment_set_id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "active_on_days_off": {
+    "start_date": {
       "type": [
         "null",
-        "boolean"
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_by_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     }
   },
-  "additionalProperties": false
+  "type": "object"
 }

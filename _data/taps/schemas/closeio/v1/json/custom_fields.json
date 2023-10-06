@@ -1,13 +1,16 @@
 {
-  "type": "object",
+  "additionalProperties": true,
   "properties": {
-    "id": {
-      "type": "string"
+    "choices": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     },
-    "name": {
-      "type": "string"
-    },
-    "type": {
+    "created_by": {
       "type": "string"
     },
     "date_created": {
@@ -16,7 +19,31 @@
     "date_updated": {
       "type": "date-time"
     },
-    "created_by": {
+    "editable_with_roles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "organization_id": {
+      "type": "string"
+    },
+    "type": {
       "type": "string"
     },
     "updated_by": {
@@ -24,34 +51,7 @@
         "null",
         "string"
       ]
-    },
-    "organization_id": {
-      "type": "string"
-    },
-    "choices": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": "string"
-      }
-    },
-    "editable_with_roles": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object",
-          "string"
-        ],
-        "properties": {},
-        "additionalProperties": true
-      }
     }
   },
-  "additionalProperties": true
+  "type": "object"
 }

@@ -1,9 +1,17 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
+    "absent_at_location_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "id": {
       "type": [
         "null",
@@ -17,39 +25,9 @@
       ]
     },
     "modifier_list_data": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "ordinal": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "selection_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "modifiers": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
               "id": {
                 "type": [
@@ -64,10 +42,6 @@
                 ]
               },
               "modifier_data": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "properties": {
                   "modifier_list_id": {
                     "type": [
@@ -94,10 +68,6 @@
                     ]
                   },
                   "price_money": {
-                    "type": [
-                      "null",
-                      "object"
-                    ],
                     "properties": {
                       "amount": {
                         "type": [
@@ -111,9 +81,17 @@
                           "string"
                         ]
                       }
-                    }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               },
               "present_at_all_locations": {
                 "type": [
@@ -139,22 +117,40 @@
                   "integer"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ordinal": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "selection_type": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "absent_at_location_ids": {
+      },
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+        "object"
+      ]
     },
     "present_at_all_locations": {
       "type": [
@@ -180,5 +176,9 @@
         "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

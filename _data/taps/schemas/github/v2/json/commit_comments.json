@@ -1,16 +1,30 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "html_url": {
+    "author_association": {
       "type": [
         "null",
         "string"
       ]
     },
-    "url": {
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "commit_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "html_url": {
       "type": [
         "null",
         "string"
@@ -22,13 +36,13 @@
         "number"
       ]
     },
-    "node_id": {
+    "line": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
     },
-    "body": {
+    "node_id": {
       "type": [
         "null",
         "string"
@@ -46,25 +60,83 @@
         "number"
       ]
     },
-    "line": {
+    "reactions": {
+      "+1": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "-1": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "confused": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "eyes": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "heart": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "hooray": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "laugh": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "rocket": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "total_count": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "url": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "updated_at": {
       "type": [
         "null",
-        "number"
+        "date-time"
       ]
     },
-    "commit_id": {
+    "url": {
       "type": [
         "null",
         "string"
       ]
     },
     "user": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "name": {
+        "avatar_url": {
           "type": [
             "null",
             "string"
@@ -76,43 +148,7 @@
             "string"
           ]
         },
-        "login": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "node_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "gravatar_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "html_url": {
+        "events_url": {
           "type": [
             "null",
             "string"
@@ -136,13 +172,37 @@
             "string"
           ]
         },
-        "starred_url": {
+        "gravatar_id": {
           "type": [
             "null",
             "string"
           ]
         },
-        "subscriptions_url": {
+        "html_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "node_id": {
           "type": [
             "null",
             "string"
@@ -154,25 +214,13 @@
             "string"
           ]
         },
-        "repos_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "events_url": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "received_events_url": {
           "type": [
             "null",
             "string"
           ]
         },
-        "type": {
+        "repos_url": {
           "type": [
             "null",
             "string"
@@ -189,88 +237,40 @@
             "null",
             "string"
           ]
+        },
+        "starred_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subscriptions_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "created_at": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
       ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "author_association": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "reactions": {
-      "url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "total_count": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "+1": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "-1": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "laugh": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "confused": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "heart": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "hooray": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "eyes": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "rocket": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

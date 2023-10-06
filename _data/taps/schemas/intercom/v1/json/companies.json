@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "company_id": {
@@ -15,11 +14,11 @@
       ]
     },
     "custom_attributes": {
+      "additionalProperties": true,
       "type": [
         "null",
         "object"
-      ],
-      "additionalProperties": true
+      ]
     },
     "id": {
       "type": [
@@ -34,11 +33,11 @@
       ]
     },
     "monthly_spend": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "name": {
       "type": [
@@ -47,10 +46,6 @@
       ]
     },
     "plan": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -71,7 +66,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "remote_created_at": {
       "type": [
@@ -82,12 +81,7 @@
     "segments": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -96,8 +90,13 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -119,12 +118,7 @@
     "tags": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -133,8 +127,13 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -165,5 +164,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account": {
@@ -30,10 +26,6 @@
       ]
     },
     "content": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "reference": {
@@ -43,19 +35,15 @@
           ]
         },
         "text_ad": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
-            "headline": {
+            "description": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "description": {
+            "headline": {
               "type": [
                 "null",
                 "string"
@@ -67,9 +55,17 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "created_at": {
       "type": [
@@ -78,18 +74,6 @@
       ]
     },
     "created_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "last_modified_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_modified_by": {
       "type": [
         "null",
         "string"
@@ -119,17 +103,33 @@
         "boolean"
       ]
     },
-    "serving_hold_reasons": {
+    "last_modified_at": {
       "type": [
         "null",
-        "array"
-      ],
+        "date-time"
+      ]
+    },
+    "last_modified_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "serving_hold_reasons": {
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

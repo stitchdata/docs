@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "bounceCount": {
       "type": [
         "null",
@@ -23,6 +17,12 @@
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "deliverCount": {
@@ -46,6 +46,11 @@
     "failureCount": {
       "type": [
         "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
         "integer"
       ]
     },
@@ -97,18 +102,6 @@
         "integer"
       ]
     },
-    "updatedAt": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "sequenceStepId": {
       "type": [
         "null",
@@ -121,11 +114,18 @@
         "integer"
       ]
     },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "updaterId": {
       "type": [
         "null",
         "integer"
       ]
     }
-  }
+  },
+  "type": "object"
 }

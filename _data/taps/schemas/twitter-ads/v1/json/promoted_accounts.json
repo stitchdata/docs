@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -11,25 +7,7 @@
         "string"
       ]
     },
-    "line_item_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "entity_status": {
+    "approval_status": {
       "type": [
         "null",
         "string"
@@ -41,23 +19,45 @@
         "date-time"
       ]
     },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "entity_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_item_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "updated_at": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "approval_status": {
+    "user_id": {
       "type": [
         "null",
         "string"
       ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

@@ -1,82 +1,30 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
+  "key_properties": [
+    "form_id",
+    "question_id"
+  ],
   "properties": {
-    "form_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "question_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "title": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ref": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sub_questions": {
-      "type": [
-        "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "object"
-        ],
-        "properties": {
-          "question_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "title": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "ref": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
-    },
     "attachment": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "type": {
+        "href": {
           "type": [
             "null",
             "string"
           ]
         },
-        "href": {
+        "properties": {
+          "properties": {
+            "description": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
           "type": [
             "null",
-            "string"
+            "object"
           ]
         },
         "scale": {
@@ -85,23 +33,25 @@
             "number"
           ]
         },
-        "properties": {
+        "type": {
           "type": [
             "null",
-            "object"
-          ],
-          "properties": {
-            "description": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "field_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "form_id": {
       "type": [
         "null",
         "string"
@@ -114,39 +64,27 @@
       ]
     },
     "layout": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "placement": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "attachment": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
-            "type": {
+            "href": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "href": {
+            "properties": {
+              "properties": {
+                "description": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
               "type": [
                 "null",
-                "string"
+                "object"
               ]
             },
             "scale": {
@@ -155,23 +93,35 @@
                 "number"
               ]
             },
-            "properties": {
+            "type": {
               "type": [
                 "null",
-                "object"
-              ],
-              "properties": {
-                "description": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
+                "string"
+              ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "placement": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "name": {
       "type": [
@@ -180,15 +130,7 @@
       ]
     },
     "options": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "null",
-          "object"
-        ],
         "properties": {
           "label": {
             "type": [
@@ -196,14 +138,18 @@
               "string"
             ]
           }
-        }
-      }
-    },
-    "properties": {
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
+        "array"
+      ]
+    },
+    "properties": {
       "properties": {
         "allow_multiple_selection": {
           "type": [
@@ -230,21 +176,9 @@
           ]
         },
         "choices": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
-            "type": [
-              "null",
-              "object"
-            ],
             "properties": {
               "attachment": {
-                "type": [
-                  "null",
-                  "object"
-                ],
                 "properties": {
                   "href": {
                     "type": [
@@ -258,7 +192,11 @@
                       "string"
                     ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               },
               "label": {
                 "type": [
@@ -272,8 +210,16 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
         "currency": {
           "type": [
@@ -294,16 +240,16 @@
           ]
         },
         "fields": {
-          "type": [
-            "null",
-            "array"
-          ],
           "items": {
             "type": [
               "null",
               "object"
             ]
-          }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
         },
         "hide_marks": {
           "type": [
@@ -312,10 +258,6 @@
           ]
         },
         "labels": {
-          "type": [
-            "null",
-            "object"
-          ],
           "properties": {
             "center": {
               "type": [
@@ -335,13 +277,13 @@
                 "string"
               ]
             }
-          }
-        },
-        "price": {
+          },
           "type": [
             "null",
             "object"
-          ],
+          ]
+        },
+        "price": {
           "properties": {
             "type": {
               "type": [
@@ -355,7 +297,11 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
         },
         "randomize": {
           "type": [
@@ -375,9 +321,63 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "question_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ref": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "required": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sub_questions": {
+      "items": {
+        "properties": {
+          "question_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ref": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "title": {
       "type": [
         "null",
         "string"
@@ -390,10 +390,6 @@
       ]
     },
     "validations": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
         "max_length": {
           "type": [
@@ -431,11 +427,15 @@
             "boolean"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     }
   },
-  "key_properties": [
-    "form_id",
-    "question_id"
+  "type": [
+    "null",
+    "object"
   ]
 }

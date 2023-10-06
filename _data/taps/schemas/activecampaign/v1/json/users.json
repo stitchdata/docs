@@ -1,8 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "username": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
       "type": [
         "null",
         "string"
@@ -14,16 +19,34 @@
         "string"
       ]
     },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "last_name": {
       "type": [
         "null",
         "string"
       ]
     },
-    "email": {
+    "local_zoneid": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "mfa_enabled": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "password_updated_utc_timestamp": {
+      "type": [
+        "null",
+        "date-time"
       ]
     },
     "phone": {
@@ -38,41 +61,18 @@
         "string"
       ]
     },
-    "local_zoneid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "password_updated_utc_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "udate": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "mfa_enabled": {
+    "username": {
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

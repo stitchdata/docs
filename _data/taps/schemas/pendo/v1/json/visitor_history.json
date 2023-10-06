@@ -1,54 +1,11 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additional_properties": false,
   "properties": {
-    "visitor_id": {
+    "app_id": {
       "type": [
         "null",
-        "string"
+        "number"
       ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "ts": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "parsed_user_agent": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additional_properties": false,
-      "properties": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "version": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "os": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
     },
     "duration": {
       "type": [
@@ -56,37 +13,7 @@
         "integer"
       ]
     },
-    "last_ts": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "modified_ts": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "untagged_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "uri": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "feature_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "page_id": {
       "type": [
         "null",
         "string"
@@ -104,11 +31,84 @@
         "string"
       ]
     },
-    "app_id": {
+    "last_ts": {
       "type": [
         "null",
-        "number"
+        "date-time"
+      ]
+    },
+    "modified_ts": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "page_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parsed_user_agent": {
+      "additional_properties": false,
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "os": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "version": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "ts": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "untagged_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "visitor_id": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

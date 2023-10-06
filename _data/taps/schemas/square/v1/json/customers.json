@@ -1,28 +1,8 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "properties": {
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "company_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "properties": {
-        "locality": {
+        "address_line_1": {
           "type": [
             "null",
             "string"
@@ -40,7 +20,7 @@
             "string"
           ]
         },
-        "address_line_1": {
+        "locality": {
           "type": [
             "null",
             "string"
@@ -52,44 +32,10 @@
             "string"
           ]
         }
-      }
-    },
-    "phone_number": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "given_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "preferences": {
+      },
       "type": [
         "null",
         "object"
-      ],
-      "properties": {
-        "email_unsubscribed": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        }
-      }
-    },
-    "nickname": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "birthday": {
@@ -108,19 +54,7 @@
         }
       ]
     },
-    "email_address": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creation_source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "note": {
+    "company_name": {
       "type": [
         "null",
         "string"
@@ -132,11 +66,77 @@
         "date-time"
       ]
     },
+    "creation_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "family_name": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "given_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "nickname": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preferences": {
+      "properties": {
+        "email_unsubscribed": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

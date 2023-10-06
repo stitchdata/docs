@@ -1,16 +1,33 @@
 {
-  "type": "object",
   "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "amount": {
+    "invoice_id": {
       "type": [
         "null",
-        "number"
+        "integer"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "paid_at": {
@@ -25,30 +42,6 @@
         "date-time"
       ]
     },
-    "recorded_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recorded_by_email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "notes": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "transaction_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "payment_gateway_id": {
       "type": [
         "null",
@@ -61,10 +54,22 @@
         "integer"
       ]
     },
-    "created_at": {
+    "recorded_by": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ]
+    },
+    "recorded_by_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated_at": {
@@ -72,12 +77,7 @@
         "null",
         "date-time"
       ]
-    },
-    "invoice_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

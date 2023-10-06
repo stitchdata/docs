@@ -1,38 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "tag_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tag": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "cdate": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "created_timestamp": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "updated_timestamp": {
       "type": [
         "null",
         "date-time"
@@ -44,10 +13,16 @@
         "integer"
       ]
     },
-    "updated_by": {
+    "created_timestamp": {
       "type": [
         "null",
-        "integer"
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "id": {
@@ -55,6 +30,31 @@
         "null",
         "integer"
       ]
+    },
+    "tag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tag_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

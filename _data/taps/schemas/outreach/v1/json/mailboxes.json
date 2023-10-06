@@ -1,12 +1,6 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
     "authId": {
       "type": [
         "null",
@@ -17,6 +11,12 @@
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "creatorId": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "editable": {
@@ -65,6 +65,11 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
       ]
     },
     "imapHost": {
@@ -265,6 +270,12 @@
         "date-time"
       ]
     },
+    "updaterId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "userId": {
       "type": [
         "null",
@@ -276,18 +287,7 @@
         "null",
         "string"
       ]
-    },
-    "creatorId": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "updaterId": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

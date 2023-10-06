@@ -1,23 +1,49 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
-    "git_owner": {
+    "__sdc_row_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "country": {
       "type": [
         "null",
         "string"
       ]
     },
-    "git_repository": {
+    "date": {
       "type": [
         "null",
-        "string"
+        "date"
       ]
     },
-    "git_url": {
+    "date_of_notification": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "datetime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deaths": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discharged_recovered": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "git_file_name": {
       "type": [
         "null",
         "string"
@@ -29,7 +55,25 @@
         "string"
       ]
     },
+    "git_last_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "git_path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
       "type": [
         "null",
         "string"
@@ -41,73 +85,17 @@
         "string"
       ]
     },
-    "git_file_name": {
+    "git_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "git_last_modified": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "__sdc_row_number": {
+    "home_isolation": {
       "type": [
         "null",
         "integer"
       ]
-    },
-    "date": {
-      "type": [
-        "null",
-        "date"
-      ]
-    },
-    "datetime": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "date_of_notification": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "country": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "region_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "region": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lat": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-10
-    },
-    "long": {
-      "type": [
-        "null",
-        "number"
-      ],
-      "multipleOf": 1e-10
     },
     "hospitalized_with_symptoms": {
       "type": [
@@ -121,22 +109,18 @@
         "integer"
       ]
     },
-    "total_hospitalized": {
+    "lat": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
-        "integer"
+        "number"
       ]
     },
-    "home_isolation": {
+    "long": {
+      "multipleOf": 1e-10,
       "type": [
         "null",
-        "integer"
-      ]
-    },
-    "total_currently_positive": {
-      "type": [
-        "null",
-        "integer"
+        "number"
       ]
     },
     "new_currently_positive": {
@@ -145,13 +129,31 @@
         "integer"
       ]
     },
-    "discharged_recovered": {
+    "note_en": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "deaths": {
+    "note_it": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "region": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "region_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tested": {
       "type": [
         "null",
         "integer"
@@ -163,23 +165,21 @@
         "integer"
       ]
     },
-    "tested": {
+    "total_currently_positive": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "note_it": {
+    "total_hospitalized": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "note_en": {
-      "type": [
-        "null",
-        "string"
+        "integer"
       ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

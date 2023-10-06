@@ -1,5 +1,4 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "address_id": {
@@ -15,10 +14,6 @@
       ]
     },
     "billing_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "address1": {
@@ -46,6 +41,12 @@
           ]
         },
         "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_code": {
           "type": [
             "null",
             "string"
@@ -80,14 +81,42 @@
             "null",
             "string"
           ]
-        },
-        "country_code": {
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "charge": {
+      "additionalProperties": false,
+      "properties": {
+        "external_transaction_id": {
+          "additionalProperties": false,
+          "properties": {
+            "payment_processor": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
           "type": [
             "null",
-            "string"
+            "object"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "charge_id": {
       "type": [
@@ -101,10 +130,79 @@
         "string"
       ]
     },
+    "client_details": {
+      "additionalProperties": false,
+      "properties": {
+        "browser_ip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_agent": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
     "created_at": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "external_customer_id": {
+          "additionalProperties": false,
+          "properties": {
+            "ecommerce": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "hash": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "customer_id": {
@@ -116,9 +214,7 @@
     "discount_codes": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "amount": {
@@ -139,8 +235,50 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "discounts": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "value_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -151,6 +289,42 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "external_cart_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_order_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "external_order_number": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
       ]
     },
     "first_name": {
@@ -186,22 +360,52 @@
     "line_items": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
+              "external_product_id": {
+                "additionalProperties": false,
+                "properties": {
+                  "ecommerce": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "external_variant_id": {
+                "additionalProperties": false,
+                "properties": {
+                  "ecommerce": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
               "grams": {
                 "type": [
                   "null",
                   "integer"
                 ]
               },
-              "images": {
+              "handle": {
                 "type": [
                   "null",
-                  "object"
-                ],
+                  "string"
+                ]
+              },
+              "images": {
                 "additionalProperties": false,
                 "properties": {
                   "large": {
@@ -234,21 +438,23 @@
                       "integer"
                     ]
                   }
-                }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
               },
               "price": {
+                "multipleOf": 1e-08,
                 "type": [
                   "null",
                   "number"
-                ],
-                "multipleOf": 1e-08
+                ]
               },
               "properties": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "name": {
@@ -263,12 +469,26 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
                   }
+                ]
+              },
+              "purchase_item_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "purchase_item_type": {
+                "type": [
+                  "null",
+                  "string"
                 ]
               },
               "quantity": {
@@ -295,76 +515,16 @@
                   "string"
                 ]
               },
-              "subscription_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "title": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "variant_title": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "purchase_item_id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "external_product_id": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "ecommerce": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "external_variant_id": {
-                "type": [
-                  "null",
-                  "object"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "ecommerce": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
-              "handle": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "sort_order": {
                 "type": [
                   "null",
                   "integer"
                 ]
               },
-              "purchase_item_type": {
+              "subscription_id": {
                 "type": [
                   "null",
-                  "string"
+                  "integer"
                 ]
               },
               "tax_due": {
@@ -376,9 +536,7 @@
               "tax_lines": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "price": {
@@ -399,8 +557,10 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
@@ -414,6 +574,12 @@
                 ]
               },
               "taxable_amount": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "title": {
                 "type": [
                   "null",
                   "string"
@@ -436,9 +602,17 @@
                   "null",
                   "boolean"
                 ]
+              },
+              "variant_title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -454,9 +628,7 @@
     "note_attributes": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "name": {
@@ -471,8 +643,38 @@
                   "string"
                 ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "order_attributes": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -504,10 +706,6 @@
       ]
     },
     "shipping_address": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "address1": {
@@ -535,6 +733,12 @@
           ]
         },
         "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_code": {
           "type": [
             "null",
             "string"
@@ -569,14 +773,12 @@
             "null",
             "string"
           ]
-        },
-        "country_code": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "shipping_date": {
       "type": [
@@ -587,9 +789,7 @@
     "shipping_lines": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "code": {
@@ -604,19 +804,7 @@
                   "string"
                 ]
               },
-              "title": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "source": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "taxable": {
                 "type": [
                   "null",
                   "string"
@@ -625,9 +813,7 @@
               "tax_lines": {
                 "anyOf": [
                   {
-                    "type": "array",
                     "items": {
-                      "type": "object",
                       "additionalProperties": false,
                       "properties": {
                         "price": {
@@ -648,16 +834,32 @@
                             "string"
                           ]
                         }
-                      }
-                    }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
                   },
                   {
                     "type": "null"
                   }
                 ]
+              },
+              "taxable": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -715,9 +917,7 @@
     "tax_lines": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
-            "type": "object",
             "additionalProperties": false,
             "properties": {
               "code": {
@@ -732,24 +932,32 @@
                   "string"
                 ]
               },
-              "title": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
               "rate": {
                 "type": [
                   "null",
                   "string"
                 ]
+              },
+              "title": {
+                "type": [
+                  "null",
+                  "string"
+                ]
               }
-            }
-          }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
+      ]
+    },
+    "taxable": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "total_discounts": {
@@ -759,11 +967,11 @@
       ]
     },
     "total_line_items_price": {
+      "multipleOf": 1e-08,
       "type": [
         "null",
         "number"
-      ],
-      "multipleOf": 1e-08
+      ]
     },
     "total_price": {
       "type": [
@@ -789,6 +997,12 @@
         "integer"
       ]
     },
+    "total_weight_grams": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "transaction_id": {
       "type": [
         "null",
@@ -806,221 +1020,7 @@
         "null",
         "date-time"
       ]
-    },
-    "charge": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "external_transaction_id": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "payment_processor": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      }
-    },
-    "client_details": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "browser_ip": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "user_agent": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "customer": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "email": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "external_customer_id": {
-          "type": [
-            "null",
-            "object"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "ecommerce": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        },
-        "hash": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "discounts": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": [
-                  "null",
-                  "integer"
-                ]
-              },
-              "code": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "number"
-                ]
-              },
-              "value_type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "external_cart_token": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "external_order_id": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "ecommerce": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "external_order_number": {
-      "type": [
-        "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "ecommerce": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
-    },
-    "order_attributes": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "taxable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "total_weight_grams": {
-      "type": [
-        "null",
-        "integer"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

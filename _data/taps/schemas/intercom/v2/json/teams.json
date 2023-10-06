@@ -1,14 +1,13 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
     "admin_ids": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "integer"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -33,5 +32,6 @@
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,44 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "encoded_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "entry_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creation_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "entry_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "transaction_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "account_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "product_key": {
       "type": [
         "null",
         "string"
@@ -50,79 +13,39 @@
         "number"
       ]
     },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "user_key": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "booking_date": {
       "type": [
         "null",
         "date-time"
       ]
     },
-    "gl_account": {
+    "creation_date": {
       "type": [
         "null",
-        "object"
-      ],
+        "date-time"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entry_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entry_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gl_account": {
       "additionalProperties": false,
       "properties": {
-        "encoded_key": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "entry_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "creation_date": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "last_modified_date": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "gl_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "usage": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "activated": {
           "type": [
             "null",
@@ -135,17 +58,19 @@
             "boolean"
           ]
         },
-        "strip_trailing_zeros": {
+        "balance": {
           "type": [
             "null",
-            "boolean"
+            "number"
+          ]
+        },
+        "creation_date": {
+          "type": [
+            "null",
+            "date-time"
           ]
         },
         "currency": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
             "code": {
@@ -154,13 +79,7 @@
                 "string"
               ]
             },
-            "name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "symbol": {
+            "currency_symbol_position": {
               "type": [
                 "null",
                 "string"
@@ -170,12 +89,6 @@
               "type": [
                 "null",
                 "integer"
-              ]
-            },
-            "currency_symbol_position": {
-              "type": [
-                "null",
-                "string"
               ]
             },
             "is_base_currency": {
@@ -189,16 +102,103 @@
                 "null",
                 "date-time"
               ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
-          }
-        },
-        "balance": {
+          },
           "type": [
             "null",
-            "number"
+            "object"
+          ]
+        },
+        "encoded_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "entry_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "gl_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_modified_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "strip_trailing_zeros": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "usage": {
+          "type": [
+            "null",
+            "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "product_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

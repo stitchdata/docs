@@ -1,19 +1,18 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
     "id": {
       "type": [
         "integer"
       ]
     },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "timezone": {
+    "initials": {
       "type": [
         "null",
         "string"
@@ -25,16 +24,22 @@
         "string"
       ]
     },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "photo_url": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
+    "timezone": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
     "updated_at": {
@@ -42,12 +47,7 @@
         "null",
         "date-time"
       ]
-    },
-    "initials": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  }
+  },
+  "type": "object"
 }

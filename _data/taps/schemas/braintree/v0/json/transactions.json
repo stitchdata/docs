@@ -1,98 +1,30 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "created_at": {
-      "type": "date-time"
-    },
-    "updated_at": {
-      "type": "date-time"
-    },
-    "settlement_batch_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "amount": {
       "type": [
         "null",
         "number"
       ]
     },
-    "payment_instrument_type": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "created_at": {
+      "type": "date-time"
     },
-    "service_fee_amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "order_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "plan_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "gateway_rejection_reason": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "processor_authorization_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "processor_response_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "processor_response_text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "recurring": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "refunded_transaction_id": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "credit_card_details": {
+      "properties": {
+        "card_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
     },
     "currency_iso_code": {
       "type": [
@@ -100,81 +32,26 @@
         "string"
       ]
     },
-    "merchant_account_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "subscription_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "customer_details": {
-      "type": "object",
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
         "email": {
           "type": [
             "null",
             "string"
           ]
-        }
-      }
-    },
-    "credit_card_details": {
-      "type": "object",
-      "properties": {
-        "customer_location": {
-          "type": [
-            "null",
-            "string"
-          ]
         },
-        "card_type": {
+        "id": {
           "type": [
             "null",
             "string"
           ]
         }
-      }
-    },
-    "subscription_details": {
-      "type": "object",
-      "properties": {
-        "billing_period_start_date": {
-          "anyOf": [
-            {
-              "type": "date-time"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "billing_period_end_date": {
-          "anyOf": [
-            {
-              "type": "date-time"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      }
+      },
+      "type": "object"
     },
     "disbursement_details": {
       "anyOf": [
         {
-          "type": "object",
           "properties": {
             "disbursement_date": {
               "anyOf": [
@@ -192,17 +69,44 @@
                 "boolean"
               ]
             }
-          }
+          },
+          "type": "object"
         },
         {
           "type": "null"
         }
       ]
     },
+    "gateway_rejection_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "merchant_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_instrument_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "paypal_details": {
       "anyOf": [
         {
-          "type": "object",
           "properties": {
             "authorization_id": {
               "type": [
@@ -276,12 +180,108 @@
                 "string"
               ]
             }
-          }
+          },
+          "type": "object"
         },
         {
           "type": "null"
         }
       ]
+    },
+    "plan_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_authorization_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_response_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_response_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "refunded_transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "service_fee_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "settlement_batch_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscription_details": {
+      "properties": {
+        "billing_period_end_date": {
+          "anyOf": [
+            {
+              "type": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billing_period_start_date": {
+          "anyOf": [
+            {
+              "type": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": "date-time"
     }
-  }
+  },
+  "type": "object"
 }

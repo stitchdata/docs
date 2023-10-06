@@ -1,6 +1,5 @@
 {
   "additionalProperties": false,
-  "type": "object",
   "properties": {
     "color": {
       "type": [
@@ -48,10 +47,6 @@
       ]
     },
     "links": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "self": {
@@ -60,7 +55,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "modified_at": {
       "type": [
@@ -69,10 +68,6 @@
       ]
     },
     "modified_by": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -87,7 +82,11 @@
             "string"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
     },
     "name": {
       "type": [
@@ -128,5 +127,6 @@
         "date-time"
       ]
     }
-  }
+  },
+  "type": "object"
 }

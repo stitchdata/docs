@@ -1,11 +1,10 @@
 {
-  "type": "object",
-  "name": "customers",
   "additionalProperties": false,
+  "name": "customers",
   "properties": {
-    "id": {
+    "accepts_marketing": {
       "type": [
-        "integer",
+        "boolean",
         "null"
       ]
     },
@@ -15,27 +14,9 @@
         "null"
       ]
     },
-    "first_name": {
+    "customer_group_id": {
       "type": [
-        "string",
-        "null"
-      ]
-    },
-    "last_name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "email": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "phone": {
-      "type": [
-        "string",
+        "integer",
         "null"
       ]
     },
@@ -51,49 +32,20 @@
         "null"
       ]
     },
-    "store_credit": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "registration_ip_address": {
+    "email": {
       "type": [
         "string",
         "null"
       ]
     },
-    "customer_group_id": {
-      "type": [
-        "integer",
-        "null"
-      ]
-    },
-    "notes": {
+    "first_name": {
       "type": [
         "string",
-        "null"
-      ]
-    },
-    "tax_exempt_category": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "accepts_marketing": {
-      "type": [
-        "boolean",
         "null"
       ]
     },
     "form_fields": {
-      "type": [
-        "array",
-        "null"
-      ],
       "items": {
-        "type": "object",
         "additionalProperties": false,
         "properties": {
           "name": {
@@ -108,14 +60,62 @@
               "null"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "registration_ip_address": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "reset_pass_on_login": {
       "type": [
         "boolean",
         "null"
       ]
+    },
+    "store_credit": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_exempt_category": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

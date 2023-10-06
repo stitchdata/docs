@@ -1,41 +1,7 @@
 {
-  "type": "object",
   "properties": {
-    "companyId": {
-      "type": "string"
-    },
     "accountName": {
       "type": [
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "connectionId": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "fromDate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "toDate": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "sortCode": {
-      "type": [
-        "null",
         "string"
       ]
     },
@@ -45,7 +11,22 @@
         "string"
       ]
     },
-    "iban": {
+    "availableBalance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "balance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "companyId": {
+      "type": "string"
+    },
+    "connectionId": {
       "type": [
         "null",
         "string"
@@ -57,16 +38,28 @@
         "string"
       ]
     },
-    "balance": {
+    "fromDate": {
       "type": [
         "null",
-        "number"
+        "string"
       ]
     },
-    "availableBalance": {
+    "iban": {
       "type": [
         "null",
-        "number"
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "overdraftLimit": {
@@ -75,7 +68,7 @@
         "number"
       ]
     },
-    "modifiedDate": {
+    "sortCode": {
       "type": [
         "null",
         "string"
@@ -86,6 +79,13 @@
         "null",
         "string"
       ]
+    },
+    "toDate": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

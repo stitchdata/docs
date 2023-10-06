@@ -1,8 +1,4 @@
 {
-  "type": [
-    "null",
-    "object"
-  ],
   "additionalProperties": false,
   "properties": {
     "account_id": {
@@ -11,13 +7,7 @@
         "string"
       ]
     },
-    "bid_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "bid_strategy": {
+    "advertiser_domain": {
       "type": [
         "null",
         "string"
@@ -29,29 +19,10 @@
         "integer"
       ]
     },
-    "name": {
+    "automatically_select_bid": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "placements": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
+        "boolean"
       ]
     },
     "bid_amount_local_micro": {
@@ -60,46 +31,16 @@
         "integer"
       ]
     },
-    "automatically_select_bid": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "advertiser_domain": {
+    "bid_strategy": {
       "type": [
         "null",
         "string"
       ]
     },
-    "target_cpa_local_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "primary_web_event_tag": {
+    "bid_type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "charge_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "product_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "end_time": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "bid_unit": {
@@ -108,31 +49,7 @@
         "string"
       ]
     },
-    "total_budget_amount_local_micro": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "objective": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "entity_status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "optimization": {
+    "campaign_id": {
       "type": [
         "null",
         "string"
@@ -141,17 +58,17 @@
     "categories": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
         }
       ]
     },
-    "currency": {
+    "charge_by": {
       "type": [
         "null",
         "string"
@@ -163,13 +80,110 @@
         "date-time"
       ]
     },
+    "creative_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entity_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "objective": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "optimization": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placements": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "primary_web_event_tag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "target_cpa_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_budget_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "tracking_tags": {
       "anyOf": [
         {
-          "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "type": "array"
         },
         {
           "type": "null"
@@ -181,24 +195,10 @@
         "null",
         "date-time"
       ]
-    },
-    "campaign_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "creative_source": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deleted": {
-      "type": [
-        "null",
-        "boolean"
-      ]
     }
-  }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
 }

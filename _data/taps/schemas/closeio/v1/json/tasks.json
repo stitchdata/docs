@@ -1,27 +1,22 @@
 {
+  "additionalProperties": true,
   "properties": {
-    "emails": {
+    "_type": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
-    },
-    "date": {
-      "type": [
-        "null",
-        "date-time"
+        "string"
       ]
     },
-    "voicemail_duration": {
+    "assigned_to": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "assigned_to_name": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "body_preview": {
@@ -30,7 +25,144 @@
         "string"
       ]
     },
+    "contact_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "created_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emails": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_complete": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_dateless": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lead_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lead_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "local_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_value": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "opportunity_value_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_value_formatted": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_value_period": {
       "type": [
         "null",
         "string"
@@ -54,157 +186,7 @@
         "string"
       ]
     },
-    "assigned_to": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "is_complete": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "object_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lead_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "view": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date_updated": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "is_dateless": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "updated_by_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "remote_phone_description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "text": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "contact_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "assigned_to_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "opportunity_value_currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "opportunity_value": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "remote_phone_formatted": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "contact_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "lead_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "opportunity_value_formatted": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "phone_number_description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "date_created": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "due_date": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "opportunity_note": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "remote_phone": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "subject": {
       "type": [
         "null",
         "string"
@@ -216,42 +198,61 @@
         "string"
       ]
     },
-    "object_id": {
+    "remote_phone": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_by_name": {
+    "remote_phone_description": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "remote_phone_formatted": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "voicemail_duration": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "voicemail_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "opportunity_value_period": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "email_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "local_phone": {
       "type": [
         "null",
         "string"
@@ -261,6 +262,5 @@
   "type": [
     "null",
     "object"
-  ],
-  "additionalProperties": true
+  ]
 }

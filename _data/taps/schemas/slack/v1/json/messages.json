@@ -1,12 +1,6 @@
 {
   "additionalProperties": false,
   "properties": {
-    "channel_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "blocks": {
       "items": {
         "additionalProperties": true,
@@ -77,6 +71,12 @@
       "type": [
         "null",
         "object"
+      ]
+    },
+    "channel_id": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "client_msg_id": {

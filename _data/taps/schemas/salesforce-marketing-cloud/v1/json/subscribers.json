@@ -1,19 +1,10 @@
 {
-  "type": "object",
   "properties": {
     "Addresses": {
-      "type": "array",
       "description": "Indicates addresses belonging to a subscriber, used to create, retrieve, update or delete an email or SMS Address for a given subscriber.",
       "items": {
-        "type": "object",
         "properties": {
           "Address": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "AddressType": {
             "type": [
               "null",
               "string"
@@ -24,15 +15,21 @@
               "null",
               "string"
             ]
+          },
+          "AddressType": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "Attributes": {
-      "type": "array",
       "description": "Specifies key-value pairs of properties associated with an object.",
       "items": {
-        "type": "object",
         "properties": {
           "Name": {
             "type": [
@@ -46,87 +43,87 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "CreatedDate": {
+      "description": "Read-only date and time of the object's creation.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Read-only date and time of the object's creation."
+      ]
     },
     "CustomerKey": {
+      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface).",
       "type": [
         "null",
         "string"
-      ],
-      "description": "User-supplied unique identifier for an object within an object type (corresponds to the external key assigned to an object in the user interface)."
+      ]
     },
     "EmailAddress": {
+      "description": "Contains the email address for a subscriber. Indicates the data extension field contains email address data.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Contains the email address for a subscriber. Indicates the data extension field contains email address data."
+      ]
     },
     "EmailTypePreference": {
+      "description": "The format in which email should be sent",
       "type": [
         "null",
         "string"
-      ],
-      "description": "The format in which email should be sent"
+      ]
     },
     "ID": {
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID.",
       "type": [
         "null",
         "integer"
-      ],
-      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID."
+      ]
     },
     "ListIDs": {
-      "type": "array",
       "description": "Defines list IDs a subscriber resides on.",
       "items": {
         "type": [
           "null",
           "string"
         ]
-      }
+      },
+      "type": "array"
     },
     "Locale": {
+      "description": "Contains the locale information for an Account. If no location is set, Locale defaults to en-US (English in United States).",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Contains the locale information for an Account. If no location is set, Locale defaults to en-US (English in United States)."
+      ]
     },
     "ModifiedDate": {
+      "description": "Indicates the last time object information was modified.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates the last time object information was modified."
+      ]
     },
     "ObjectID": {
+      "description": "System-controlled, read-only text string identifier for object.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "System-controlled, read-only text string identifier for object."
+      ]
     },
     "PartnerKey": {
+      "description": "Unique identifier provided by partner for an object, accessible only via API.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Unique identifier provided by partner for an object, accessible only via API."
+      ]
     },
     "PartnerProperties": {
-      "type": "array",
       "description": "Specifies key-value pairs of properties associated with an object.",
       "items": {
-        "type": "object",
         "properties": {
           "Name": {
             "type": [
@@ -140,64 +137,67 @@
               "string"
             ]
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
     "PartnerType": {
+      "description": "Defines partner associated with a subscriber.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Defines partner associated with a subscriber."
+      ]
     },
     "PrimaryEmailAddress": {
+      "description": "Indicates primary email address for a subscriber.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates primary email address for a subscriber."
+      ]
     },
     "PrimarySMSAddress": {
+      "description": "Indicates primary SMS address for a subscriber. Used to create and update SMS Address for a given subscriber.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates primary SMS address for a subscriber. Used to create and update SMS Address for a given subscriber."
+      ]
     },
     "PrimarySMSPublicationStatus": {
+      "description": "Indicates the subscriber's modality status.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Indicates the subscriber's modality status."
+      ]
     },
     "Status": {
+      "description": "Defines status of object. Status of an address.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Defines status of object. Status of an address."
+      ]
     },
     "SubscriberKey": {
+      "description": "Identification of a specific subscriber.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Identification of a specific subscriber."
+      ]
     },
     "SubscriberTypeDefinition": {
+      "description": "Specifies if a subscriber resides in an integration, such as Salesforce or Microsoft Dynamics CRM",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Specifies if a subscriber resides in an integration, such as Salesforce or Microsoft Dynamics CRM"
+      ]
     },
     "UnsubscribedDate": {
+      "description": "Represents date subscriber unsubscribed from a list.",
       "type": [
         "null",
         "string"
-      ],
-      "description": "Represents date subscriber unsubscribed from a list."
+      ]
     }
-  }
+  },
+  "type": "object"
 }

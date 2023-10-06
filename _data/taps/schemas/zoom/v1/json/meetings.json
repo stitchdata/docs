@@ -1,59 +1,7 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "integer"
-      ]
-    },
-    "meeting_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "uuid": {
-      "type": [
-        "string"
-      ]
-    },
-    "host_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "topic": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "duration": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "timezone": {
+    "agenda": {
       "type": [
         "null",
         "string"
@@ -65,25 +13,13 @@
         "date-time"
       ]
     },
-    "agenda": {
+    "duration": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
-    "start_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "join_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "password": {
+    "encrypted_Password": {
       "type": [
         "null",
         "string"
@@ -95,55 +31,38 @@
         "string"
       ]
     },
-    "encrypted_Password": {
+    "host_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "pmi": {
+    "id": {
       "type": [
-        "null",
         "integer"
       ]
     },
-    "tracking_fields": {
+    "join_url": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "object"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        }
-      }
+        "string"
+      ]
+    },
+    "meeting_id": {
+      "type": [
+        "string"
+      ]
     },
     "occurences": {
-      "type": [
-        "null",
-        "array"
-      ],
       "items": {
-        "type": [
-          "object"
-        ],
         "additionalProperties": false,
         "properties": {
+          "duration": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
           "occurence_id": {
             "type": [
               "null",
@@ -156,249 +75,44 @@
               "date-time"
             ]
           },
-          "duration": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
           "status": {
             "type": [
               "null",
               "string"
             ]
           }
-        }
-      }
-    },
-    "settings": {
+        },
+        "type": [
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "object"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "host_video": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "participant_video": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "cn_meeting": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "in_meeting": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "join_before_host": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "mute_upon_entry": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "watermark": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "use_pmi": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "approval_type": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "registration_type": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "audio": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "auto_recording": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "enforce_login": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "enforce_login_domains": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "alternative_hosts": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "close_registration": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "waiting_room": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "global_dial_in_countries": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "string"
-            ]
-          }
-        },
-        "global_dial_in_numbers": {
-          "type": [
-            "null",
-            "array"
-          ],
-          "items": {
-            "type": [
-              "object"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "country": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "country_name": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "city": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "number": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        "contact_name": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "contact_email": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "registrants_confirmation_email": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "registrants_email_notification": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "meeting_authentication": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "authentication_option": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "authentication_domains": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      }
+        "array"
+      ]
+    },
+    "password": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pmi": {
+      "type": [
+        "null",
+        "integer"
+      ]
     },
     "recurrence": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "type": {
+        "end_date_time": {
           "type": [
             "null",
-            "integer"
+            "date-time"
           ]
         },
-        "repeat_interval": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "weekly_days": {
+        "end_times": {
           "type": [
             "null",
             "integer"
@@ -422,19 +136,305 @@
             "integer"
           ]
         },
-        "end_times": {
+        "repeat_interval": {
           "type": [
             "null",
             "integer"
           ]
         },
-        "end_date_time": {
+        "type": {
           "type": [
             "null",
-            "date-time"
+            "integer"
+          ]
+        },
+        "weekly_days": {
+          "type": [
+            "null",
+            "integer"
           ]
         }
-      }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "settings": {
+      "additionalProperties": false,
+      "properties": {
+        "alternative_hosts": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "approval_type": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "audio": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "authentication_domains": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "authentication_option": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "auto_recording": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "close_registration": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "cn_meeting": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "contact_email": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "contact_name": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "enforce_login": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "enforce_login_domains": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "global_dial_in_countries": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "global_dial_in_numbers": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "host_video": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "in_meeting": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "join_before_host": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "meeting_authentication": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "mute_upon_entry": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "participant_video": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "registrants_confirmation_email": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "registrants_email_notification": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "registration_type": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "use_pmi": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "waiting_room": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "watermark": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "start_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "topic": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking_fields": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "string"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

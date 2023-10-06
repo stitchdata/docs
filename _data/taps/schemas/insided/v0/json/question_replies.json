@@ -1,37 +1,10 @@
 {
-  "type": "object",
   "additionalProperties": false,
   "properties": {
-    "id": {
-      "type": [
-        "string"
-      ]
-    },
-    "question_id": {
-      "type": [
-        "string"
-      ]
-    },
-    "content": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "author": {
-      "type": [
-        "null",
-        "object"
-      ],
       "additionalProperties": false,
       "properties": {
-        "id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "username": {
+        "avatar": {
           "type": [
             "null",
             "string"
@@ -43,25 +16,21 @@
             "string"
           ]
         },
-        "signature": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "avatar": {
+        "id": {
           "type": [
             "null",
             "string"
           ]
         },
         "reputation": {
-          "type": [
-            "null",
-            "object"
-          ],
           "additionalProperties": false,
           "properties": {
+            "likesReceived": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
             "rank": {
               "type": [
                 "null",
@@ -80,26 +49,40 @@
                 "string"
               ]
             },
-            "likesReceived": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
             "repliesMade": {
               "type": [
                 "null",
                 "integer"
               ]
             }
-          }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "signature": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
         }
-      }
-    },
-    "repliedAt": {
+      },
       "type": [
         "null",
-        "date-time"
+        "object"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "highlighted": {
@@ -108,10 +91,20 @@
         "boolean"
       ]
     },
-    "trashed": {
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "likedBy": {
+      "items": {
+        "type": [
+          "string"
+        ]
+      },
       "type": [
         "null",
-        "boolean"
+        "array"
       ]
     },
     "pendingApproval": {
@@ -120,16 +113,23 @@
         "boolean"
       ]
     },
-    "likedBy": {
+    "question_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "repliedAt": {
       "type": [
         "null",
-        "array"
-      ],
-      "items": {
-        "type": [
-          "string"
-        ]
-      }
+        "date-time"
+      ]
+    },
+    "trashed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
     }
-  }
+  },
+  "type": "object"
 }

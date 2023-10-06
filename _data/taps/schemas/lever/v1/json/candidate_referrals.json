@@ -1,45 +1,50 @@
 {
-  "type": "object",
   "properties": {
-    "id": {
-      "type": "string"
-    },
-    "type": {
+    "baseTemplateId": {
       "type": [
         "null",
         "string"
       ]
     },
-    "text": {
+    "completedAt": {
       "type": [
-        "null",
-        "string"
+        "date-time",
+        "null"
       ]
     },
-    "instructions": {
+    "createdAt": {
       "type": [
-        "null",
-        "string"
+        "date-time",
+        "null"
       ]
     },
     "fields": {
-      "type": "array",
       "items": {
-        "type": "object",
         "properties": {
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "text": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "options": {
+            "items": {
+              "properties": {
+                "text": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "prompt": {
             "type": [
               "null",
               "string"
@@ -51,45 +56,33 @@
               "boolean"
             ]
           },
+          "text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
           "value": {
             "type": [
               "null",
               "string"
             ]
-          },
-          "prompt": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "options": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "type": "object",
-              "properties": {
-                "text": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
-              }
-            }
           }
-        }
-      }
+        },
+        "type": "object"
+      },
+      "type": "array"
     },
-    "baseTemplateId": {
-      "type": [
-        "null",
-        "string"
-      ]
+    "id": {
+      "type": "string"
     },
-    "user": {
+    "instructions": {
       "type": [
         "null",
         "string"
@@ -107,17 +100,24 @@
         "string"
       ]
     },
-    "createdAt": {
+    "text": {
       "type": [
-        "date-time",
-        "null"
+        "null",
+        "string"
       ]
     },
-    "completedAt": {
+    "type": {
       "type": [
-        "date-time",
-        "null"
+        "null",
+        "string"
+      ]
+    },
+    "user": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }
