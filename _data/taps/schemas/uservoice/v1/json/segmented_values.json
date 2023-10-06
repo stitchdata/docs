@@ -1,0 +1,61 @@
+{
+  "properties": {
+    "column_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "key": {
+      "type": [
+        "string"
+      ]
+    },
+    "links": {
+      "properties": {
+        "created_by": {
+          "type": [
+            "integer"
+          ]
+        },
+        "segment": {
+          "type": [
+            "integer"
+          ]
+        },
+        "updated_by": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "object_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

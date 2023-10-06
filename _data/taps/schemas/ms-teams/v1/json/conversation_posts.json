@@ -1,0 +1,114 @@
+{
+  "properties": {
+    "body": {
+      "properties": {
+        "content": {
+          "type": [
+            "string"
+          ]
+        },
+        "content_type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "categories": {
+      "type": [
+        "object"
+      ]
+    },
+    "change_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversation_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_date_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "from": {
+      "properties": {
+        "emailAddress": {
+          "properties": {
+            "address": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "has_attachments": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_modified_date_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "received_date_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "sender": {
+      "properties": {
+        "emailAddress": {
+          "properties": {
+            "address": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "thread_id": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

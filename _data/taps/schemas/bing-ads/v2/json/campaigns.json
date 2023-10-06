@@ -1,0 +1,184 @@
+{
+  "properties": {
+    "AudienceAdsBidAdjustment": {
+      "type": [
+        "integer"
+      ]
+    },
+    "BiddingScheme": {
+      "properties": {
+        "InheritedBidStrategyType": {
+          "type": [
+            "string"
+          ]
+        },
+        "Type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "BudgetId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "BudgetType": {
+      "type": [
+        "string"
+      ]
+    },
+    "CampaignType": {
+      "type": [
+        "string"
+      ]
+    },
+    "DailyBudget": {
+      "type": [
+        "number"
+      ]
+    },
+    "Description": {
+      "type": [
+        "string"
+      ]
+    },
+    "ForwardCompatibilityMap": {
+      "properties": {
+        "keyValuePairOfStringString": {
+          "properties": {
+            "key": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "Id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "Languages": {
+      "type": [
+        "string"
+      ]
+    },
+    "Name": {
+      "type": [
+        "string"
+      ]
+    },
+    "Settings": {
+      "properties": {
+        "BidBoostValue": {
+          "type": [
+            "number"
+          ]
+        },
+        "BidMaxValue": {
+          "type": [
+            "number"
+          ]
+        },
+        "BidOption": {
+          "type": [
+            "string"
+          ]
+        },
+        "DomainName": {
+          "type": [
+            "string"
+          ]
+        },
+        "Language": {
+          "type": [
+            "string"
+          ]
+        },
+        "LocalInventoryAdsEnabled": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "PageFeedIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "Priority": {
+          "type": [
+            "integer"
+          ]
+        },
+        "SalesCountryCode": {
+          "type": [
+            "string"
+          ]
+        },
+        "Source": {
+          "type": [
+            "string"
+          ]
+        },
+        "StoreId": {
+          "type": [
+            "integer"
+          ]
+        },
+        "Type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "Status": {
+      "type": [
+        "string"
+      ]
+    },
+    "TimeZone": {
+      "type": [
+        "string"
+      ]
+    },
+    "TrackingUrlTemplate": {
+      "type": [
+        "string"
+      ]
+    },
+    "UrlCustomParameters": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

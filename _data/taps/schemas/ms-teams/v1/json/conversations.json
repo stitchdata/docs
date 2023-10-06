@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "group_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "has_attachments": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_delivered_date_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "preview": {
+      "type": [
+        "string"
+      ]
+    },
+    "topic": {
+      "type": [
+        "string"
+      ]
+    },
+    "unique_senders": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    }
+  }
+}

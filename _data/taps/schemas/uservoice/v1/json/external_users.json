@@ -1,0 +1,66 @@
+{
+  "properties": {
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "string"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ip": {
+      "type": [
+        "string"
+      ]
+    },
+    "links": {
+      "properties": {
+        "external_account": {
+          "type": [
+            "integer"
+          ]
+        },
+        "external_user": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "seen_days": {
+      "type": [
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}
