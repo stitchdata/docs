@@ -86,13 +86,19 @@ with open(integrations_file, 'r') as f:
                         parse = frontmatter.load(filepath)
                         data = parse.metadata
                         if 'version' in data:
-                            print(filepath)
                             tap_version = data['version']
                             table_name = data['name']
 
                             filename = file.replace('.md', '.json')
 
-                            output_file_path = '../../_data/taps/schemas/{0}/v{1}/json/{2}'.format(integration_id, tap_version, filename)
+                            output_dir = '../../_data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
+
+                            if os.path.exists(output_dir):
+                                pass
+                            else:
+                                os.makedirs(output_dir)
+
+                            output_file_path = '{0}/{1}'.format(output_dir, filename)
 
                             properties = data['attributes']
 
