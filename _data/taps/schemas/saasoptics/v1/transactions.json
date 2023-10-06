@@ -1,0 +1,371 @@
+{
+  "properties": {
+    "always_use_amount_as_normalized_amount": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "auditentry_created": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "auditentry_created_by_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "auditentry_modified": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "auditentry_modified_by_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "automatically_update_revenue": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "autorenewal_profile": {
+      "type": [
+        "integer"
+      ]
+    },
+    "billing_method": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cancelled": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "contract": {
+      "type": [
+        "integer"
+      ]
+    },
+    "conversion": {
+      "type": [
+        "string"
+      ]
+    },
+    "crm_opportunity_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "crm_opportunity_line_item_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "different_invoice_item_permitted": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "do_not_sync_invoices": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "duration": {
+      "type": [
+        "string"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "flagged": {
+      "type": [
+        "string"
+      ]
+    },
+    "foreign_exchange_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "home_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "home_arr_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "home_normalized_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "home_normalized_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "home_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ili_qb_class": {
+      "type": [
+        "string"
+      ]
+    },
+    "invoice_description": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_autorenewal": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "item": {
+      "type": [
+        "integer"
+      ]
+    },
+    "item_class": {
+      "type": [
+        "integer"
+      ]
+    },
+    "local_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "local_arr_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "local_normalized_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "local_normalized_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "local_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "modified": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "monthyear": {
+      "type": [
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string"
+      ]
+    },
+    "number": {
+      "type": [
+        "string"
+      ]
+    },
+    "number_field1": {
+      "type": [
+        "number"
+      ]
+    },
+    "number_field2": {
+      "type": [
+        "number"
+      ]
+    },
+    "order_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "order_number": {
+      "type": [
+        "string"
+      ]
+    },
+    "project": {
+      "type": [
+        "integer"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "number"
+      ]
+    },
+    "recognize": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "reconcile_required": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "renew_using_item": {
+      "type": [
+        "integer"
+      ]
+    },
+    "renewal_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "renewal_amount_percentage": {
+      "type": [
+        "number"
+      ]
+    },
+    "renewal_amount_value": {
+      "type": [
+        "number"
+      ]
+    },
+    "renewal_duration": {
+      "type": [
+        "string"
+      ]
+    },
+    "renewal_factor": {
+      "type": [
+        "integer"
+      ]
+    },
+    "renewal_of_set": {
+      "properties": {
+        "value": {
+          "type": [
+            "anything"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "renewal_probability": {
+      "type": [
+        "number"
+      ]
+    },
+    "renewal_quantity": {
+      "type": [
+        "number"
+      ]
+    },
+    "revenue_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "revenue_notes": {
+      "type": [
+        "string"
+      ]
+    },
+    "sales_manager": {
+      "type": [
+        "string"
+      ]
+    },
+    "sales_rep": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_group_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_opportunity_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_opportunity_line_item_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_renewal_opportunity_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_renewal_opportunity_line_item_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sf_renewal_opportunity_rule": {
+      "type": [
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "term_number": {
+      "type": [
+        "integer"
+      ]
+    },
+    "text_field1": {
+      "type": [
+        "string"
+      ]
+    },
+    "text_field2": {
+      "type": [
+        "string"
+      ]
+    },
+    "unbalanced_revenue_exception": {
+      "type": [
+        "boolean"
+      ]
+    }
+  }
+}

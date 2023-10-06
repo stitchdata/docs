@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "AccountId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "AdGroupId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "CampaignId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "Goal": {
+      "type": [
+        "string"
+      ]
+    },
+    "TimePeriod": {
+      "type": [
+        "date"
+      ]
+    },
+    "{{ system-column.report-date-time }}": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

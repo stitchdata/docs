@@ -1,0 +1,83 @@
+{
+  "properties": {
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "filters": {
+      "properties": {
+        "column": {
+          "type": [
+            "string"
+          ]
+        },
+        "expressions": {
+          "properties": {
+            "column": {
+              "type": [
+                "string"
+              ]
+            },
+            "operand": {
+              "type": [
+                "string"
+              ]
+            },
+            "operator": {
+              "type": [
+                "string"
+              ]
+            },
+            "unit": {
+              "type": [
+                ""
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "operand": {
+          "type": [
+            "string"
+          ]
+        },
+        "operator": {
+          "type": [
+            "string"
+          ]
+        },
+        "unit": {
+          "type": [
+            ""
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "key": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

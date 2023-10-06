@@ -1,0 +1,108 @@
+{
+  "properties": {
+    "blast_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "copy_template": {
+      "type": [
+        "string"
+      ]
+    },
+    "data_feed_url": {
+      "type": [
+        "string"
+      ]
+    },
+    "email_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "list": {
+      "type": [
+        "string"
+      ]
+    },
+    "mode": {
+      "type": [
+        "string"
+      ]
+    },
+    "modify_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "modify_user": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "schedule_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "sent_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "stats": {
+      "properties": {
+        "total": {
+          "properties": {
+            "beacon_noclick": {
+              "type": [
+                "integer"
+              ]
+            },
+            "count": {
+              "type": [
+                "integer"
+              ]
+            },
+            "open_total": {
+              "type": [
+                "integer"
+              ]
+            },
+            "pv": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

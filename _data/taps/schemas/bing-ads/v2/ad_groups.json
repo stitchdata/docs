@@ -1,0 +1,179 @@
+{
+  "properties": {
+    "AdRotation": {
+      "type": [
+        "string"
+      ]
+    },
+    "AudienceAdsBidAdjustment": {
+      "type": [
+        "integer"
+      ]
+    },
+    "BiddingScheme": {
+      "properties": {
+        "InheritedBidStrategyType": {
+          "type": [
+            "string"
+          ]
+        },
+        "Type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "CpcBid": {
+      "type": [
+        "string"
+      ]
+    },
+    "EndDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "ForwardCompatibilityMap": {
+      "properties": {
+        "KeyValuePairOfStringString": {
+          "properties": {
+            "key": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "Language": {
+      "type": [
+        "string"
+      ]
+    },
+    "Name": {
+      "type": [
+        "string"
+      ]
+    },
+    "Network": {
+      "type": [
+        "string"
+      ]
+    },
+    "Settings": {
+      "properties": {
+        "BidBoostValue": {
+          "type": [
+            "number"
+          ]
+        },
+        "BidMaxValue": {
+          "type": [
+            "number"
+          ]
+        },
+        "BidOption": {
+          "type": [
+            "string"
+          ]
+        },
+        "DomainName": {
+          "type": [
+            "string"
+          ]
+        },
+        "Language": {
+          "type": [
+            "string"
+          ]
+        },
+        "LocalInventoryAdsEnabled": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "PageFeedIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "Priority": {
+          "type": [
+            "integer"
+          ]
+        },
+        "SalesCountryCode": {
+          "type": [
+            "string"
+          ]
+        },
+        "Source": {
+          "type": [
+            "string"
+          ]
+        },
+        "StoreId": {
+          "type": [
+            "integer"
+          ]
+        },
+        "Type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "StartDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "Status": {
+      "type": [
+        "string"
+      ]
+    },
+    "TrackingUrlTemplate": {
+      "type": [
+        "string"
+      ]
+    },
+    "UrlCustomParameters": {
+      "type": [
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    }
+  }
+}

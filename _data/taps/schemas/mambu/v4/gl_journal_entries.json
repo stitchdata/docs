@@ -1,0 +1,168 @@
+{
+  "properties": {
+    "account_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "amount": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "booking_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "entry_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "entry_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "gl_account": {
+      "properties": {
+        "activated": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "allow_manual_journal_entries": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "balance": {
+          "type": [
+            "singer.decimal"
+          ]
+        },
+        "creation_date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "currency": {
+          "properties": {
+            "code": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency_symbol_position": {
+              "type": [
+                "string"
+              ]
+            },
+            "digits_after_decimal": {
+              "type": [
+                "integer"
+              ]
+            },
+            "is_base_currency": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "last_modified_date": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "encoded_key": {
+          "type": [
+            "string"
+          ]
+        },
+        "entry_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "gl_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "last_modified_date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "strip_trailing_zeros": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "usage": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "product_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

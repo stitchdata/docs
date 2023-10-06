@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "[DIMENSIONS_YOU_SELECT]": {
+      "type": [
+        "varies"
+      ]
+    },
+    "[METRICS_YOU_SELECT]": {
+      "type": [
+        "varies"
+      ]
+    },
+    "account_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "profile_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "web_property_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "{{ site.data.stitch.sdc-columns.current-columns.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

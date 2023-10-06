@@ -1,0 +1,418 @@
+{
+  "properties": {
+    "account_holder_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "account_holder_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "account_state": {
+      "type": [
+        "string"
+      ]
+    },
+    "account_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "accrued_amounts": {
+      "properties": {
+        "interest_accrued": {
+          "type": [
+            "number"
+          ]
+        },
+        "overdraft_interest_accrued": {
+          "type": [
+            "number"
+          ]
+        },
+        "technical_overdraft_interest_accrued": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "activation_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "approved_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "balances": {
+      "properties": {
+        "available_balance": {
+          "type": [
+            "number"
+          ]
+        },
+        "fees_due": {
+          "type": [
+            "number"
+          ]
+        },
+        "hold_balance": {
+          "type": [
+            "number"
+          ]
+        },
+        "locked_balance": {
+          "type": [
+            "number"
+          ]
+        },
+        "overdraft_amount": {
+          "type": [
+            "number"
+          ]
+        },
+        "overdraft_interest_due": {
+          "type": [
+            "number"
+          ]
+        },
+        "technical_overdraft_amount": {
+          "type": [
+            "number"
+          ]
+        },
+        "technical_overdraft_interest_due": {
+          "type": [
+            "number"
+          ]
+        },
+        "total_balance": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "closed_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "credit_arrangement_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "custom_fields": {
+      "properties": {
+        "field_set_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "interest_settings": {
+      "properties": {
+        "interest_payment_settings": {
+          "properties": {
+            "interest_payment_dates": {
+              "properties": {
+                "day": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "month": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "interest_payment_point": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "interest_rate_settings": {
+          "properties": {
+            "encoded_key": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_charge_frequency": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_charge_frequency_count": {
+              "type": [
+                "integer"
+              ]
+            },
+            "interest_rate": {
+              "type": [
+                "number"
+              ]
+            },
+            "interest_rate_terms": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_rate_tiers": {
+              "type": [
+                "null"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "internal_controls": {
+      "properties": {
+        "max_withdrawal_amount": {
+          "type": [
+            "number"
+          ]
+        },
+        "recommended_deposit_amount": {
+          "type": [
+            "number"
+          ]
+        },
+        "target_amount": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "last_account_appraisal_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_interest_calculation_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_interest_stored_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_overdraft_interest_review_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_sent_to_arrears_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "linked_settlement_account_keys": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "locked_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "maturity_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "migration_event_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string"
+      ]
+    },
+    "overdraft_interest_settings": {
+      "properties": {
+        "interest_rate_settings": {
+          "properties": {
+            "encoded_key": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_charge_frequency": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_charge_frequency_count": {
+              "type": [
+                "integer"
+              ]
+            },
+            "interest_rate": {
+              "type": [
+                "number"
+              ]
+            },
+            "interest_rate_review_count": {
+              "type": [
+                "integer"
+              ]
+            },
+            "interest_rate_review_unit": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_rate_source": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_rate_terms": {
+              "type": [
+                "string"
+              ]
+            },
+            "interest_rate_tiers": {
+              "type": [
+                "null"
+              ]
+            },
+            "interest_spread": {
+              "type": [
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "overdraft_settings": {
+      "properties": {
+        "allowed_overdraft": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "overdraft_expiry_date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "overdraft_limit": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "product_type_key": {
+      "type": [
+        "string"
+      ]
+    },
+    "withholding_tax_source_key": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}
