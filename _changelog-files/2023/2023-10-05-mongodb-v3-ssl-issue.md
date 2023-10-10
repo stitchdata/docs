@@ -2,7 +2,7 @@
 title: "MongoDB (v3) bug fix: SSL issue"
 content-type: "changelog-entry"
 date: 2023-10-05
-entry-type: 
+entry-type: bug-fix
 entry-category: integration
 connection-id: mongodb
 connection-version: 3
