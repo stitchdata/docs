@@ -9,7 +9,7 @@ host = 'https://api.github.com'
 github_headers = {'Authorization': github_token}
 
 # Get repository name
-repos = sys.argv[2].split(',')
+repo = sys.argv[2]
 
 try:
     branch = sys.argv[3]
@@ -188,9 +188,19 @@ def getFiles(repo, branch):
         integration_id = integration_data[0]
         integration_type = integration_data[1]
 
+        folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration_id, tap_version)
+
         if integration_type != 'database':
 
-            json_output_folder = '../../_data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
+            ignore= []
+            
+            ignore_file = '{0}/{1}-v{2}-to-ignore.yml'.format(folder, integration_id, tap_version)
+            if os.path.exists(ignore_file):
+                with open(ignore_file, 'r', encoding='utf-8') as i:
+                    to_ignore = yaml.safe_load(i)
+                    ignore = to_ignore['schemas']
+
+            json_output_folder = '{}/json'.format(folder)
 
             if os.path.exists(json_output_folder):
                 pass
@@ -207,6 +217,12 @@ def getFiles(repo, branch):
                     schema_list = format_results[0]
                     issue_list = format_results[1]
 
+                    for schema in schema_list:
+                        if schema in ignore:
+                            schema_list.remove(schema)
+                            os.remove('{0}/{1}.json'.format(json_output_folder, schema))
+                            issue_list.append('JSON file {}.json ignored'.format(schema))
+                    
                     getTableData(integration_id, tap_version, schema_list)
 
                     table_issues = checkTableData(integration_id, tap_version)
@@ -215,7 +231,7 @@ def getFiles(repo, branch):
                             if issue not in issue_list:
                                 issue_list.append(issue)
 
-                    folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration_id, tap_version)
+                    
                     issues_file = '{0}/{1}-v{2}-issues.txt'.format(folder, integration_id, tap_version)
                     issues_count = len(issue_list)
 
@@ -280,7 +296,7 @@ def getAllTaps(branch):
     print('Issues were found in the following repositories:')
     print(*issues, sep='\n')
 
-if repos[0] == 'all':
+if repo == 'all':
     if branch == '':
         print('Fetching schemas from the main/master branch of all tap repositories listed in _data/taps/integrations.yml')
     elif branch == 'all':
@@ -289,16 +305,15 @@ if repos[0] == 'all':
     getAllTaps(branch)
 
 else:
-    for repo in repos:
-        if branch == 'all':
-            print('Fetching schemas from each major version of the {} repository'.format(repo))
-            tags = getTags(repo)
-            for tag in tags:
-                getFiles(repo, tag)
+    if branch == 'all':
+        print('Fetching schemas from each major version of the {} repository'.format(repo))
+        tags = getTags(repo)
+        for tag in tags:
+            getFiles(repo, tag)
+    else:
+        if branch == '':
+            print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
         else:
-            if branch == '':
-                print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
-            else:
-                print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
+            print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
 
-            getFiles(repo, branch)
+        getFiles(repo, branch)
