@@ -131,8 +131,6 @@ tables:
       foreign-key: plan.goals
     - key: history.conversion.goal_id
       foreign-key: plan.goals
-- table-name: bans
-  join: []
 - table-name: departments
   join:
   - table-name: shortcuts
@@ -177,5 +175,3 @@ tables:
     keys:
     - key: id
       foreign-key: plan.goals
-- table-name: triggers
-  join: []

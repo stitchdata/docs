@@ -10292,8 +10292,6 @@ tables:
       foreign-key: looker_versions.value
     - key: supported_versions.full_version
       foreign-key: looker_versions.value
-- table-name: merge_queries
-  join: []
 - table-name: model_sets
   join:
   - table-name: roles

@@ -1115,8 +1115,6 @@ tables:
       foreign-key: id
     - key: links.updated_by
       foreign-key: id
-- table-name: segments
-  join: []
 - table-name: status_updates
   join:
   - table-name: statuses

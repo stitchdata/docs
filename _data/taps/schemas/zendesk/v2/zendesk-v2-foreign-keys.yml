@@ -530,8 +530,6 @@ tables:
     keys:
     - key: author_id
       foreign-key: id
-- table-name: sla_policies
-  join: []
 - table-name: tags
   join:
   - table-name: organizations

@@ -1714,8 +1714,6 @@ tables:
     keys:
     - key: CurrencyCode
       foreign-key: CurrencyCode
-- table-name: employees
-  join: []
 - table-name: expense_claims
   join:
   - table-name: invoices
@@ -1736,12 +1734,6 @@ tables:
       foreign-key: ReceiptID
     - key: User.UserID
       foreign-key: User.UserID
-- table-name: items
-  join: []
-- table-name: manial_journals
-  join: []
-- table-name: organisations
-  join: []
 - table-name: tax_rates
   join:
   - table-name: journals

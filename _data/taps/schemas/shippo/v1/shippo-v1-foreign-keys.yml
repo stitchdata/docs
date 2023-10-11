@@ -69,8 +69,6 @@ tables:
     keys:
     - key: transaction
       foreign-key: object_id
-- table-name: shipment
-  join: []
 - table-name: transactions
   join:
   - table-name: refunds

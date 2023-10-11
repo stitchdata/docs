@@ -480,10 +480,6 @@ tables:
     keys:
     - key: group_id
       foreign-key: owner.group.id
-- table-name: group_members
-  join: []
-- table-name: channel_messages_replies
-  join: []
 - table-name: users
   join:
   - table-name: channel_members

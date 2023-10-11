@@ -835,8 +835,6 @@ tables:
     keys:
     - key: plan.product
       foreign-key: id
-- table-name: events
-  join: []
 - table-name: invoice_line_items
   join:
   - table-name: charges

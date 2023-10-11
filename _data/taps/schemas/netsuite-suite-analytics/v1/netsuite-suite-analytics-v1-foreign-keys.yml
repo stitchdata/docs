@@ -14382,8 +14382,6 @@ tables:
     keys:
     - key: renewal_term_id
       foreign-key: term_id
-- table-name: bins
-  join: []
 - table-name: bom_revision_components
   join:
   - table-name: bom_revisions

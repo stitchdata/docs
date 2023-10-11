@@ -187,8 +187,6 @@ tables:
     keys:
     - key: last_order_id
       foreign-key: order_id
-- table-name: metafields
-  join: []
 - table-name: order_refunds
   join:
   - table-name: abandoned_checkouts

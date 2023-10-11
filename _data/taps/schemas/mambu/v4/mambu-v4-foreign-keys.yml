@@ -2216,8 +2216,6 @@ tables:
       foreign-key: user_key
     - key: assigned_user_key
       foreign-key: user_key
-- table-name: cards
-  join: []
 - table-name: gl_accounts
   join:
   - table-name: gl_journal_entries
@@ -2270,7 +2268,3 @@ tables:
     keys:
     - key: user_key
       foreign-key: encoded_key
-- table-name: index_rate_sources
-  join: []
-- table-name: installments
-  join: []

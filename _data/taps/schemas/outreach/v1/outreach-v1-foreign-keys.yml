@@ -1726,8 +1726,6 @@ tables:
       foreign-key: completerId
     - key: updaterId
       foreign-key: completerId
-- table-name: event
-  join: []
 - table-name: mailboxes
   join:
   - table-name: mailings
@@ -2416,8 +2414,6 @@ tables:
       foreign-key: updaterId
     - key: updaterId
       foreign-key: updaterId
-- table-name: team
-  join: []
 - table-name: sequence_templates
   join:
   - table-name: accounts
