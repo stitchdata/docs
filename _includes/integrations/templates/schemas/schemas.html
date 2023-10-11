@@ -120,7 +120,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
                 </div>
             
                 <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
-                    {% include integrations/templates/schemas/schemas-table.html jsondata=data table-data=table %}
+                    {% include integrations/templates/schemas/schemas-table.html jsondata=data table-data=table level="main" %}
                 </div>
             </div>
         </div>

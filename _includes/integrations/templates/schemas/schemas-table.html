@@ -19,9 +19,13 @@
 							<strong>
 								{{ name }}
 							</strong>
-
-							{% if data.properties or data.items %}
-								
+							{% if include.level == "main" %}
+								{% if name == table.table-details.primary-key or table.table-details.primary-keys contains name %}
+									{{ ui-icon.primary-key | flatify }}
+								{% endif %}
+								{% if name == table.table-details.replication-key or table.table-details.replication-keys contains name %}
+									{{ ui-icon.replication-key | flatify }}
+								{% endif %}
 							{% endif %}
 						</p>
 						
@@ -77,9 +81,9 @@
 	
 														<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
 															{% if data.properties %}
-																{% include integrations/templates/schemas/schemas-table.html jsondata=item.properties %}
+																{% include integrations/templates/schemas/schemas-table.html jsondata=item.properties level="nested" %}
 															{% else %}
-																	{% include integrations/templates/schemas/schemas-table.html jsondata=item %}
+																	{% include integrations/templates/schemas/schemas-table.html jsondata=item level="nested" %}
 															{% endif %}
 														</div>
 													</div>
@@ -102,9 +106,9 @@
 
 									<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
 										{% if data.properties %}
-											{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties %}
+											{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties level="nested" %}
 										{% else %}
-												{% include integrations/templates/schemas/schemas-table.html jsondata=data %}
+												{% include integrations/templates/schemas/schemas-table.html jsondata=data level="nested"%}
 										{% endif %}
 									</div>
 								</div>
