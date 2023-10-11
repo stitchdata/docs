@@ -39,8 +39,8 @@ def getSchemaData(file):
                     parent = data['dependent-table-key']
                     parents.append(parent)
                 except:
-                    parent = ''
-
+                    pass
+            
             primary_keys = []
             replication_keys = []
 
@@ -85,7 +85,6 @@ def getSchemaData(file):
                 output_data['table-details']['loading-behavior'] = loading
             except:
                 pass
-
 
             if (len(primary_keys)) == 1:
                 output_data['table-details']['primary-key'] = primary_keys[0]
