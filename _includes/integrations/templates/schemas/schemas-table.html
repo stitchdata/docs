@@ -1,5 +1,11 @@
 {% assign integration = page %}
 
+{% capture array-note %}attributes will be denested into a subtable.{% endcapture %}
+
+{% capture object-note %}attributes in this object will be flattened into the table.{% endcapture %}
+
+{% capture nested-data-tooltip-content %}This is a nested data structure. If your destination doesn't natively support nested data, TYPE NOTE <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
+
 <div class="table-responsive">
 	<table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
 	
@@ -13,6 +19,10 @@
 							<strong>
 								{{ name }}
 							</strong>
+
+							{% if data.properties or data.items %}
+								
+							{% endif %}
 						</p>
 						
 						{% assign types = data.type %}
@@ -20,7 +30,16 @@
 						{% assign new_types = types_string | remove: "null" | strip | replace: "  ", " " | split: " " | join: ", " %}
 
 						<p>
-							{{ new_types }}
+							{{ new_types | upcase }}
+
+							{% if new_types contains 'object' or new_types contains 'array' %}
+								{% if new_types contains 'object' %}
+									{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", object-note }}{% endcapture %}
+								{% elsif new_types contains  'array' %}
+									{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", array-note }}{% endcapture %}
+								{% endif %}
+								{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+							{% endif %}
 						</p>
 
 						{% if data.anyOf %}
@@ -32,7 +51,18 @@
 								{% for anyof_type in anyof_types %}
 									{% if anyof_type != "null" %}
 
-										<p>{{ anyof_type }}</p>
+										<p>{{ anyof_type | upcase  }}
+
+										{% if anyof_type contains 'object' or anyof_type contains 'array' %}
+											{% if anyof_type contains 'object' %}
+												{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", object-note }}{% endcapture %}
+											{% elsif anyof_type contains  'array' %}
+												{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", array-note }}{% endcapture %}
+											{% endif %}
+											{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+										{% endif %}
+
+										</p>
 
 										{% if item.properties or item.items %}
 												{% capture attribute-id %}{% increment counter %}{% endcapture %}
