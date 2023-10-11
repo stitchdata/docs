@@ -10,16 +10,15 @@
 {% assign fk-filename = integration.name | append: "-" | append: version | append: "-foreign-keys" %}
 {% assign fk-tables = site.data.taps.schemas.[integration.name].[version].[fk-filename].tables %}
 
-<div>
-    <p>The following tables are available in this integration:</p>
-    <ul>
-        {% for table in tables %}
-            {% if table.status != "not found" %}
-                <li><a href="#{{ table.name | slugify }}">{{ table.name }}</a></li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-</div>
+{% if integration.permalink contains "saas" %}
+{% capture schemas-and-destination-loading %}
+Depending on your destination, table and column names may not appear as they are outlined below.
+
+For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`), while case is maintained in PostgreSQL destinations (`CusTomERs` > `CusTomERs`). Refer to the [Loading Guide]({{ link.destinations.loading.overview | prepend: site.baseurl }}) for your destination for more info.
+{% endcapture %}
+
+{% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
+{% endif %}
 
 <div>
 {% for table in tables %}
@@ -35,6 +34,25 @@
             
             <h3 id="{{ table.name | slugify }}">{{ table.name }}</h3>
             <p>{{ table.description | flatify | markdownify }}</p>
+
+            <!-- Dependent and parent table info -->
+            {% if table.table-details.parent-table or table.table-details.parent-tables %}
+            <!-- If the table is dependent on another table, show this note: -->
+                {% if table.table-details.parent-table %}
+                    <p>
+                        <strong>Note</strong>: In order to replicate this table, you must also set the <a href="#{{ table.table-details.parent-table | slugify }}">{{ table.table-details.parent-table }}</a> table to replicate.
+                    </p>
+                {% elsif table.table-details.parent-tables %}
+                    <p>
+                        <strong>Note</strong>: In order to replicate this table, you must also set the following tables to replicate:
+                        <ul>
+                            {% for parent-table in table.table-details.parent-tables%}
+                                <li><a href="#{{ parent-table | slugify }}">{{ parent-table }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                {% endif %}
+            {% endif %}
             
             <table class="attribute-list table-hover">
 
@@ -87,33 +105,6 @@
             {% endfor %}
             
         </div>
-
-    <!-- Dependent and parent table info -->
-        {% if table.dependent-table-key or table.is-parent-table %}
-        <!-- If the table is dependent on another table, show this note: -->
-            {% if table.dependent-table-key %}
-                <p>
-                    <strong>Note</strong>: In order to replicate this table, you must also set the <a href="#{{ parent-table.name | slugify }}">{{ parent-table.name }}</a> table to replicate.
-                </p>
-            {% endif %}
-
-        <!-- If the table has other tables that depend on it, show this note: -->
-            {% if table.is-parent-table %}
-                {% assign child-tables = schema | where:"dependent-table-key",table.key | sort_natural:"name" %}
-
-                <p>
-                    <strong>Note</strong>: This table must be selected to replicate the following tables:
-
-                    <ul>
-                    {% for child-table in child-tables %}
-                        <li>
-                            <a href="#{{ child-table.name | slugify }}">{{ child-table.name }}</a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                </p>
-            {% endif %}
-        {% endif %}
 
         {% if table.notes %}
             {{ table.notes | flatify | markdownify }}

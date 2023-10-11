@@ -249,9 +249,7 @@ tables:
   status: not_found
 - name: carrier_constant
   description: "The `{{ table.name }}` table contains info about carrier criteria\
-    \ that can be used in campaign targeting.\n\n[This is a **Core Object** table](#replication).\
-    \ \n\nThis table is dependent on the [`{{ table.dependent-on }}`](#{{ table.dependent-on\
-    \ | replace:'_','-'}}) stream.\n"
+    \ that can be used in campaign targeting.\n\n[This is a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/CarrierConstant
   table-details:
@@ -319,8 +317,7 @@ tables:
   status: not_found
 - name: feed
   description: "The `{{ table.name }}` table contains info about feeds.\n\n[This is\
-    \ a **Core Object** table](#replication). \n\nThis table is dependent on the [`{{\
-    \ table.dependent-on }}`](#{{ table.dependent-on }}) stream.\n"
+    \ a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/Feed
   table-details:
@@ -431,8 +428,7 @@ tables:
   status: not_found
 - name: language_constant
   description: "The `{{ table.name }}` table contains info about about languages.\n\
-    \n[This is a **Core Object** table](#replication). \n\nThis table is dependent\
-    \ on the [`{{ table.dependent-on }}`](#{{ table.dependent-on }}) stream.\n"
+    \n[This is a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/LanguageConstant
   table-details:
@@ -442,10 +438,7 @@ tables:
   status: not_found
 - name: mobile_app_category_constant
   description: "The `{{ table.name }}` table contains info about mobile application\
-    \ categories.\n\n[This is a **Core Object** table](#replication). \n\nThis table\
-    \ is dependent on the following streams:\n\n{% assign dependents = table.dependent-on\
-    \ | split: \"|\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{\
-    \ dependent | replace:'_','-'}})\n{% endfor %}\n"
+    \ categories.\n\n[This is a **Core Object** table](#replication). "
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/MobileAppCategoryConstant
   table-details:
@@ -457,8 +450,7 @@ tables:
   status: not_found
 - name: mobile_device_constant
   description: "The `{{ table.name }}` table contains info about mobile devices.\n\
-    \n[This is a **Core Object** table](#replication). \n\nThis table is dependent\
-    \ on the [`{{ table.dependent-on }}`](#{{ table.dependent-on }}) stream.\n"
+    \n[This is a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/MobileDeviceConstant
   table-details:
@@ -468,9 +460,7 @@ tables:
   status: not_found
 - name: operating_system_verison_constant
   description: "The `{{ table.name }}` table contains info about mobile operating\
-    \ system versions.\n\n[This is a **Core Object** table](#replication). \n\nThis\
-    \ table is dependent on the [`{{ table.dependent-on }}`](#{{ table.dependent-on\
-    \ }}) stream.\n"
+    \ system versions.\n\n[This is a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/OperatingSystemVersionConstant
   table-details:
@@ -540,10 +530,7 @@ tables:
   status: not_found
 - name: topic_constant
   description: "The `{{ table.name }}` table contains info about topics.\n\n[This\
-    \ is a **Core Object** table](#replication). \n\nThis table is dependent on the\
-    \ following streams:\n\n{% assign dependents = table.dependent-on | split: \"\
-    |\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{ dependent\
-    \ | replace:'_','-'}})\n{% endfor %}\n"
+    \ is a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/TopicConstant
   table-details:
@@ -555,10 +542,7 @@ tables:
   status: not_found
 - name: user_interest
   description: "The `{{ table.name }}` table contains info about user interests to\
-    \ be targeted.\n\n[This is a **Core Object** table](#replication). \n\nThis table\
-    \ is dependent on the following streams:\n\n{% assign dependents = table.dependent-on\
-    \ | split: \"|\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{\
-    \ dependent | replace:'_','-'}})\n{% endfor %}\n"
+    \ be targeted.\n\n[This is a **Core Object** table](#replication). "
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/UserInterest
   table-details:
@@ -570,10 +554,7 @@ tables:
   status: not_found
 - name: user_list
   description: "The `{{ table.name }}` table contains info about lists of user that\
-    \ can be targeted.\n\n[This is a **Core Object** table](#replication). \n\nThis\
-    \ table is dependent on the following streams:\n\n{% assign dependents = table.dependent-on\
-    \ | split: \"|\" %}\n\n{% for dependent in dependents %}\n- [`{{ dependent }}`](#{{\
-    \ dependent | replace:'_','-'}})\n{% endfor %}\n"
+    \ can be targeted.\n\n[This is a **Core Object** table](#replication)."
   links:
     doc-link: https://developers.google.com/google-ads/api/reference/rpc/v12/UserList
   table-details:
