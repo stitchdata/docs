@@ -1,0 +1,356 @@
+{
+  "properties": {
+    "basic_html_view": {
+      "type": [
+        "string"
+      ]
+    },
+    "closed_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "customer_billing_address": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_billing_address_2": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_billing_city": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_billing_country": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_billing_state": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_billing_zip": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_first_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_last_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_organization": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_shipping_address": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_shipping_address_2": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_shipping_city": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_shipping_country": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_shipping_state": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_shipping_zip": {
+      "type": [
+        "string"
+      ]
+    },
+    "ending_balance_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "events": {
+      "properties": {
+        "event": {
+          "properties": {
+            "created_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "event_specific_data": {
+              "properties": {
+                "account_transaction_id": {
+                  "type": [
+                    "number"
+                  ]
+                },
+                "product_id": {
+                  "type": [
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "id": {
+              "type": [
+                "number"
+              ]
+            },
+            "key": {
+              "type": [
+                "string"
+              ]
+            },
+            "message": {
+              "type": [
+                "string"
+              ]
+            },
+            "subscription_id": {
+              "type": [
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "future_payments": {
+      "properties": {
+        "value": {
+          "type": [
+            "anything"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "html_view": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "number"
+      ]
+    },
+    "memo": {
+      "type": [
+        "string"
+      ]
+    },
+    "opened_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "settled_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "starting_balance_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "text_view": {
+      "type": [
+        "string"
+      ]
+    },
+    "total_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "transactions": {
+      "properties": {
+        "amount_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "component_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "customer_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "discount_amount_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "ending_balance_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "gateway_order_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "gateway_transaction_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "gateway_used": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "item_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "kind": {
+          "type": [
+            "string"
+          ]
+        },
+        "memo": {
+          "type": [
+            "string"
+          ]
+        },
+        "original_amount_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "payment_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "starting_balance_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "statement_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "subscription_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "success": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "tax_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "taxable_amount_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "taxations": {
+          "properties": {
+            "value": {
+              "type": [
+                "anything"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "transaction_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

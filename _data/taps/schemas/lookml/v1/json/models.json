@@ -1,0 +1,538 @@
+{
+  "properties": {
+    "access_grants": {
+      "properties": {
+        "allowed_values": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "user_attribute": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "case_sensitive": {
+      "type": [
+        "string"
+      ]
+    },
+    "connection": {
+      "type": [
+        "string"
+      ]
+    },
+    "datagroups": {
+      "properties": {
+        "max_cache_age": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_trigger": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "explores": {
+      "properties": {
+        "access_filters": {
+          "properties": {
+            "field": {
+              "type": [
+                "string"
+              ]
+            },
+            "user_attribute": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "always_filter": {
+          "properties": {
+            "filters": {
+              "properties": {
+                "field": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "always_join": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "cancel_grouping_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "case_sensitive": {
+          "type": [
+            "string"
+          ]
+        },
+        "conditionally_filter": {
+          "properties": {
+            "filters": {
+              "properties": {
+                "field": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "unless": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "extends": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "extension": {
+          "type": [
+            "string"
+          ]
+        },
+        "fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "from": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "string"
+          ]
+        },
+        "joins": {
+          "properties": {
+            "fields": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "foreign_key": {
+              "type": [
+                "string"
+              ]
+            },
+            "from": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "outer_only": {
+              "type": [
+                "string"
+              ]
+            },
+            "relationship": {
+              "type": [
+                "string"
+              ]
+            },
+            "required_access_grants": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "required_joins": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "sql_foreign_key": {
+              "type": [
+                "string"
+              ]
+            },
+            "sql_on": {
+              "type": [
+                "string"
+              ]
+            },
+            "sql_table_name": {
+              "type": [
+                "string"
+              ]
+            },
+            "sql_where": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            },
+            "view_label": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "persist_for": {
+          "type": [
+            "string"
+          ]
+        },
+        "persist_with": {
+          "type": [
+            "string"
+          ]
+        },
+        "required_access_grants": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "sql_always_having": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_always_where": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_table_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "symmetric_aggregates": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_name": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "fiscal_month_offset": {
+      "type": [
+        "string"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "string"
+      ]
+    },
+    "includes": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "label": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "map_layers": {
+      "properties": {
+        "extents_json_url": {
+          "type": [
+            "string"
+          ]
+        },
+        "feature_key": {
+          "type": [
+            "string"
+          ]
+        },
+        "file": {
+          "type": [
+            "string"
+          ]
+        },
+        "format": {
+          "type": [
+            "string"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "max_zoom_level": {
+          "type": [
+            "integer"
+          ]
+        },
+        "min_zoom_level": {
+          "type": [
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "projection": {
+          "type": [
+            "string"
+          ]
+        },
+        "property_key": {
+          "type": [
+            "string"
+          ]
+        },
+        "property_label_key": {
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "named_value_formats": {
+      "properties": {
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "strict_value_format": {
+          "type": [
+            "string"
+          ]
+        },
+        "value_format": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "path": {
+      "type": [
+        "string"
+      ]
+    },
+    "persist_for": {
+      "type": [
+        "string"
+      ]
+    },
+    "persist_with": {
+      "type": [
+        "string"
+      ]
+    },
+    "sha": {
+      "type": [
+        "string"
+      ]
+    },
+    "week_start_day": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

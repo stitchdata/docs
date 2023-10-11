@@ -1,0 +1,39 @@
+{
+  "properties": {
+    "account_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "accounting_period_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "amount": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_recognized": {
+      "type": [
+        "string"
+      ]
+    },
+    "journal_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "schedule_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

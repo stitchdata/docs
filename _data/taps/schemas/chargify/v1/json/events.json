@@ -1,0 +1,46 @@
+{
+  "properties": {
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "event_specific_data": {
+      "properties": {
+        "account_transaction_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "number"
+      ]
+    },
+    "key": {
+      "type": [
+        "string"
+      ]
+    },
+    "message": {
+      "type": [
+        "string"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "number"
+      ]
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "properties": {
+    "archived": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "default_price_point_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "default_price_point_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "string"
+      ]
+    },
+    "downgrade_credit": {
+      "type": [
+        "string"
+      ]
+    },
+    "handle": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "number"
+      ]
+    },
+    "kind": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "price_per_unit_in_cents": {
+      "type": [
+        "string"
+      ]
+    },
+    "price_point_count": {
+      "type": [
+        "number"
+      ]
+    },
+    "price_points_url": {
+      "type": [
+        "string"
+      ]
+    },
+    "prices": {
+      "properties": {
+        "component_id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "ending_quantity": {
+          "type": [
+            "integer"
+          ]
+        },
+        "formatted_unit_price": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "price_point_id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "starting_quantity": {
+          "type": [
+            "integer"
+          ]
+        },
+        "unit_price": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "pricing_scheme": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_family_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "product_family_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "taxable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "unit_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "unit_price": {
+      "type": [
+        "number"
+      ]
+    },
+    "upgrade_charge": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "properties": {
+    "actionDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "body": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign": {
+      "properties": {
+        "created": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "object": {
+          "type": [
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "externalConversationID": {
+      "type": [
+        "string"
+      ]
+    },
+    "externalID": {
+      "type": [
+        "string"
+      ]
+    },
+    "externalRawMessageID": {
+      "type": [
+        "string"
+      ]
+    },
+    "from": {
+      "properties": {
+        "address": {
+          "type": [
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "message": {
+      "properties": {
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "object": {
+          "type": [
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "object": {
+      "type": [
+        "string"
+      ]
+    },
+    "plainTextBody": {
+      "type": [
+        "string"
+      ]
+    },
+    "rawBody": {
+      "type": [
+        "string"
+      ]
+    },
+    "recipient": {
+      "properties": {
+        "action": {
+          "type": [
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "string"
+          ]
+        },
+        "fields": {
+          "type": [
+            "object"
+          ]
+        },
+        "first": {
+          "type": [
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "isPaused": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "last": {
+          "type": [
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "subject": {
+      "type": [
+        "string"
+      ]
+    },
+    "to": {
+      "properties": {
+        "address": {
+          "type": [
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

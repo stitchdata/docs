@@ -1,0 +1,155 @@
+{
+  "properties": {
+    "active": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "aggregate_usage": {
+      "type": [
+        "string"
+      ]
+    },
+    "amount": {
+      "type": [
+        "integer"
+      ]
+    },
+    "amount_decimal": {
+      "type": [
+        "decimal"
+      ]
+    },
+    "billing_scheme": {
+      "type": [
+        "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "interval": {
+      "type": [
+        "string"
+      ]
+    },
+    "interval_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "livemode": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "metadata": {
+      "properties": {
+        "ANYTHING": {
+          "type": [
+            "ANYTHING"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "nickname": {
+      "type": [
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "string"
+      ]
+    },
+    "product": {
+      "type": [
+        "string"
+      ]
+    },
+    "statement_description": {
+      "type": [
+        "string"
+      ]
+    },
+    "statement_descriptor": {
+      "type": [
+        "string"
+      ]
+    },
+    "tiers": {
+      "properties": {
+        "items": {
+          "properties": {
+            "flat_amount": {
+              "type": [
+                "integer"
+              ]
+            },
+            "unit_amount": {
+              "type": [
+                "integer"
+              ]
+            },
+            "up_to": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "tiers_mode": {
+      "type": [
+        "string"
+      ]
+    },
+    "transform_usage": {
+      "type": [
+        "string"
+      ]
+    },
+    "trial_period_days": {
+      "type": [
+        "integer"
+      ]
+    },
+    "updated": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "usage_type": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

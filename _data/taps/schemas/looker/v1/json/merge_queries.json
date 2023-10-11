@@ -1,0 +1,92 @@
+{
+  "properties": {
+    "column_limit": {
+      "type": [
+        "string"
+      ]
+    },
+    "dynamic_fields": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "pivots": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "result_maker_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "sorts": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "source_queries": {
+      "properties": {
+        "merge_fields": {
+          "properties": {
+            "field_name": {
+              "type": [
+                "string"
+              ]
+            },
+            "source_field_name": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "query_id": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "total": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "vis_config": {
+      "type": [
+        "object"
+      ]
+    }
+  }
+}

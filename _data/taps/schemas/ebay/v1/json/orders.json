@@ -1,0 +1,1272 @@
+{
+  "properties": {
+    "buyer": {
+      "properties": {
+        "username": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "buyerCheckoutNotes": {
+      "type": [
+        "string"
+      ]
+    },
+    "cancelStatus": {
+      "properties": {
+        "cancelRequests": {
+          "properties": {
+            "value": {
+              "properties": {
+                "cancelCompletedDate": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cancelInitiator": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cancelReason": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cancelRequestId": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cancelRequestState": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cancelRequestedDate": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "cancelState": {
+          "type": [
+            "string"
+          ]
+        },
+        "cancelledDate": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "creationDate": {
+      "type": [
+        "string"
+      ]
+    },
+    "ebayCollectAndRemitTax": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "fulfillmentHrefs": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "fulfillmentStartInstructions": {
+      "properties": {
+        "value": {
+          "properties": {
+            "ebaySupportedFulfillment": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "finalDestinationAddress": {
+              "properties": {
+                "addressLine1": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "addressLine2": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "city": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "countryCode": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "county": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "postalCode": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "stateOrProvince": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "fulfillmentInstructionsType": {
+              "type": [
+                "string"
+              ]
+            },
+            "maxEstimatedDeliveryDate": {
+              "type": [
+                "string"
+              ]
+            },
+            "minEstimatedDeliveryDate": {
+              "type": [
+                "string"
+              ]
+            },
+            "pickupStep": {
+              "properties": {
+                "merchantLocationKey": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "shippingStep": {
+              "properties": {
+                "shipTo": {
+                  "properties": {
+                    "companyName": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "contactAddress": {
+                      "properties": {
+                        "addressLine1": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "addressLine2": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "city": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "countryCode": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "county": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "postalCode": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "stateOrProvince": {
+                          "type": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    },
+                    "email": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "fullName": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "primaryPhone": {
+                      "properties": {
+                        "phoneNumber": {
+                          "type": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                },
+                "shipToReferenceId": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "shippingCarrierCode": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "shippingServiceCode": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "lastModifiedDate": {
+      "type": [
+        "string"
+      ]
+    },
+    "legacyOrderId": {
+      "type": [
+        "string"
+      ]
+    },
+    "lineItems": {
+      "properties": {
+        "value": {
+          "properties": {
+            "appliedPromotions": {
+              "properties": {
+                "value": {
+                  "properties": {
+                    "description": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "discountAmount": {
+                      "properties": {
+                        "convertedFromCurrency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "convertedFromValue": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "currency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    },
+                    "promotionId": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "deliveryCost": {
+              "properties": {
+                "importCharges": {
+                  "properties": {
+                    "convertedFromCurrency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "convertedFromValue": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                },
+                "shippingCost": {
+                  "properties": {
+                    "convertedFromCurrency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "convertedFromValue": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                },
+                "shippingIntermediationFee": {
+                  "properties": {
+                    "convertedFromCurrency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "convertedFromValue": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "discountedLineItemCost": {
+              "properties": {
+                "convertedFromCurrency": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "convertedFromValue": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "currency": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "ebayCollectAndRemitTaxes": {
+              "properties": {
+                "value": {
+                  "properties": {
+                    "amount": {
+                      "properties": {
+                        "convertedFromCurrency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "convertedFromValue": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "currency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    },
+                    "taxType": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "giftDetails": {
+              "properties": {
+                "message": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "recipientEmail": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "senderName": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "legacyItemId": {
+              "type": [
+                "string"
+              ]
+            },
+            "legacyVariationId": {
+              "type": [
+                "string"
+              ]
+            },
+            "lineItemCost": {
+              "properties": {
+                "convertedFromCurrency": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "convertedFromValue": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "currency": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "lineItemFulfillmentInstructions": {
+              "properties": {
+                "guaranteedDelivery": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "maxEstimatedDeliveryDate": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "minEstimatedDeliveryDate": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "shipByDate": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "lineItemFulfillmentStatus": {
+              "type": [
+                "string"
+              ]
+            },
+            "lineItemId": {
+              "type": [
+                "string"
+              ]
+            },
+            "listingMarketplaceId": {
+              "type": [
+                "string"
+              ]
+            },
+            "properties": {
+              "properties": {
+                "buyerProtection": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "fromBestOffer": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "soldViaAdCampaign": {
+                  "type": [
+                    "boolean"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "purchaseMarketplaceId": {
+              "type": [
+                "string"
+              ]
+            },
+            "quantity": {
+              "type": [
+                "integer"
+              ]
+            },
+            "refunds": {
+              "properties": {
+                "value": {
+                  "properties": {
+                    "amount": {
+                      "properties": {
+                        "convertedFromCurrency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "convertedFromValue": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "currency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    },
+                    "refundDate": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "refundReferenceId": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "sku": {
+              "type": [
+                "string"
+              ]
+            },
+            "soldFormat": {
+              "type": [
+                "string"
+              ]
+            },
+            "taxes": {
+              "properties": {
+                "value": {
+                  "properties": {
+                    "amount": {
+                      "properties": {
+                        "convertedFromCurrency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "convertedFromValue": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "currency": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "title": {
+              "type": [
+                "string"
+              ]
+            },
+            "total": {
+              "properties": {
+                "convertedFromCurrency": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "convertedFromValue": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "currency": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "orderFulfillmentStatus": {
+      "type": [
+        "string"
+      ]
+    },
+    "orderId": {
+      "type": [
+        "string"
+      ]
+    },
+    "orderPaymentStatus": {
+      "type": [
+        "string"
+      ]
+    },
+    "paymentSummary": {
+      "properties": {
+        "payments": {
+          "properties": {
+            "value": {
+              "properties": {
+                "amount": {
+                  "properties": {
+                    "convertedFromCurrency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "convertedFromValue": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                },
+                "paymentDate": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "paymentHolds": {
+                  "properties": {
+                    "value": {
+                      "properties": {
+                        "expectedReleaseDate": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "holdAmount": {
+                          "properties": {
+                            "convertedFromCurrency": {
+                              "type": [
+                                "string"
+                              ]
+                            },
+                            "convertedFromValue": {
+                              "type": [
+                                "string"
+                              ]
+                            },
+                            "currency": {
+                              "type": [
+                                "string"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "object"
+                          ]
+                        },
+                        "holdReason": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "holdState": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "releaseDate": {
+                          "type": [
+                            "string"
+                          ]
+                        },
+                        "sellerActionsToRelease": {
+                          "properties": {
+                            "value": {
+                              "properties": {
+                                "sellerActionToRelease": {
+                                  "type": [
+                                    "string"
+                                  ]
+                                }
+                              },
+                              "type": [
+                                "object"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "array"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "object"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "array"
+                  ]
+                },
+                "paymentMethod": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "paymentReferenceId": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "paymentStatus": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "refunds": {
+          "properties": {
+            "value": {
+              "properties": {
+                "amount": {
+                  "properties": {
+                    "convertedFromCurrency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "convertedFromValue": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                },
+                "refundDate": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "refundReferenceId": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "refundStatus": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "totalDueSeller": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "pricingSummary": {
+      "properties": {
+        "adjustment": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "deliveryCost": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "deliveryDiscount": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "fee": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "priceDiscountSubtotal": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "priceSubtotal": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "tax": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "total": {
+          "properties": {
+            "convertedFromCurrency": {
+              "type": [
+                "string"
+              ]
+            },
+            "convertedFromValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "salesRecordReference": {
+      "type": [
+        "string"
+      ]
+    },
+    "sellerId": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

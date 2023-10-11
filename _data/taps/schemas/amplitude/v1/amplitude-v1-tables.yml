@@ -17,6 +17,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: uuid
     replication-key: event_time
+  status: not_found
 - name: merge_ids_[project_id]
   description: '`{{ table.name }}` tables contain info about merged users. These are
     users whose records have been merged with other user records to eliminate duplicates.
@@ -46,3 +47,4 @@ tables:
     - merged_amplitude_id
     - merge_event_time
     replication-key: merge_event_time
+  status: not_found

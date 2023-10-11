@@ -1,0 +1,73 @@
+{
+  "properties": {
+    "changes": {
+      "properties": {
+        "causedByEvent": {
+          "properties": {
+            "created": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "change": {
+          "type": [
+            "string"
+          ]
+        },
+        "changeType": {
+          "type": [
+            "string"
+          ]
+        },
+        "portalId": {
+          "type": [
+            "integer"
+          ]
+        },
+        "source": {
+          "type": [
+            "string"
+          ]
+        },
+        "subscriptionId": {
+          "type": [
+            "integer"
+          ]
+        },
+        "timestamp": {
+          "type": [
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "recipient": {
+      "type": [
+        "string"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

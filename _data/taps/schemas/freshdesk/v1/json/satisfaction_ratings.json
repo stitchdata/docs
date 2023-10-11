@@ -1,0 +1,66 @@
+{
+  "properties": {
+    "agent_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "feedback": {
+      "type": [
+        "string"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ratings": {
+      "properties": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "survey_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ticket_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "integer"
+      ]
+    }
+  }
+}

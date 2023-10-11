@@ -1,0 +1,165 @@
+{
+  "properties": {
+    "amountDue": {
+      "type": [
+        "number"
+      ]
+    },
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "string"
+      ]
+    },
+    "customerRef": {
+      "properties": {
+        "companyName": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "dueDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "invoiceNumber": {
+      "type": [
+        "string"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "lineItems": {
+      "properties": {
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "discountAmount": {
+          "type": [
+            "number"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "number"
+          ]
+        },
+        "subTotal": {
+          "type": [
+            "number"
+          ]
+        },
+        "taxAmount": {
+          "type": [
+            "number"
+          ]
+        },
+        "totalAmount": {
+          "type": [
+            "number"
+          ]
+        },
+        "unitAmount": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "paidOnDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "paymentAllocations": {
+      "properties": {
+        "currency": {
+          "type": [
+            "string"
+          ]
+        },
+        "date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "note": {
+          "type": [
+            "string"
+          ]
+        },
+        "totalAmount": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "subTotal": {
+      "type": [
+        "number"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "number"
+      ]
+    },
+    "totalDiscount": {
+      "type": [
+        "number"
+      ]
+    },
+    "totalTaxAmount": {
+      "type": [
+        "number"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1606 @@
+{
+  "properties": {
+    "derived_table": {
+      "properties": {
+        "cluster_keys": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "create_process": {
+          "properties": {
+            "sql_steps": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "datagroup_trigger": {
+          "type": [
+            "string"
+          ]
+        },
+        "distribution": {
+          "type": [
+            "string"
+          ]
+        },
+        "distribution_style": {
+          "type": [
+            "string"
+          ]
+        },
+        "explore_source": {
+          "properties": {
+            "bind_filters": {
+              "properties": {
+                "from_field": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "to_field": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "columns": {
+              "properties": {
+                "field": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "derived_columns": {
+              "properties": {
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "sql": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "expression_custom_filter": {
+              "type": [
+                "string"
+              ]
+            },
+            "filters": {
+              "properties": {
+                "field": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "limit": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "sort": {
+              "properties": {
+                "desc": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "field": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "timezone": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "indexes": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "partition_keys": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "persist_for": {
+          "type": [
+            "string"
+          ]
+        },
+        "sortkeys": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "sql": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_create": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_trigger_value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "dimension_groups": {
+      "properties": {
+        "alias": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "allow_fill": {
+          "type": [
+            "string"
+          ]
+        },
+        "bypass_suggest_restrictions": {
+          "type": [
+            "string"
+          ]
+        },
+        "can_filter": {
+          "type": [
+            "string"
+          ]
+        },
+        "convert_tz": {
+          "type": [
+            "string"
+          ]
+        },
+        "datatype": {
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "drill_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "fanout_on": {
+          "type": [
+            "string"
+          ]
+        },
+        "full_suggestions": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_item_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "string"
+          ]
+        },
+        "html": {
+          "type": [
+            "string"
+          ]
+        },
+        "intervals": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "order_by_field": {
+          "type": [
+            "string"
+          ]
+        },
+        "required_access_grants": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "skip_drill_filter": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_end": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_start": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_dimension": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_explore": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestable": {
+          "type": [
+            "string"
+          ]
+        },
+        "tags": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "timeframes": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_label": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "dimensions": {
+      "properties": {
+        "actions": {
+          "properties": {
+            "form_params": {
+              "properties": {
+                "default": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "options": {
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "array"
+                  ]
+                },
+                "required": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "form_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "icon_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "label": {
+              "type": [
+                "string"
+              ]
+            },
+            "params": {
+              "properties": {
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "url": {
+              "type": [
+                "string"
+              ]
+            },
+            "user_attribute_params": {
+              "properties": {
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "user_attribute": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "alias": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "alpha_sort": {
+          "type": [
+            "string"
+          ]
+        },
+        "bypass_suggest_restrictions": {
+          "type": [
+            "string"
+          ]
+        },
+        "can_filter": {
+          "type": [
+            "string"
+          ]
+        },
+        "case": {
+          "properties": {
+            "whens": {
+              "properties": {
+                "label": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "sql": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "case_sensitive": {
+          "type": [
+            "string"
+          ]
+        },
+        "convert_tz": {
+          "type": [
+            "string"
+          ]
+        },
+        "datatype": {
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "drill_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "fanout_on": {
+          "type": [
+            "string"
+          ]
+        },
+        "full_suggestions": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_item_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "string"
+          ]
+        },
+        "html": {
+          "type": [
+            "string"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "label_from_parameter": {
+          "type": [
+            "string"
+          ]
+        },
+        "links": {
+          "properties": {
+            "icon_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "label": {
+              "type": [
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "map_layer_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "order_by_field": {
+          "type": [
+            "string"
+          ]
+        },
+        "primary_key": {
+          "type": [
+            "string"
+          ]
+        },
+        "required_access_grants": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "required_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "skip_drill_filter": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_end": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_latitude": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_longitude": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_start": {
+          "type": [
+            "string"
+          ]
+        },
+        "style": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_dimension": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_explore": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_persist_for": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestable": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestions": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "tags": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "tiers": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "value_format": {
+          "type": [
+            "string"
+          ]
+        },
+        "value_format_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_label": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "extends": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "extension": {
+      "type": [
+        "string"
+      ]
+    },
+    "filters": {
+      "properties": {
+        "alias": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "bypass_suggest_restrictions": {
+          "type": [
+            "string"
+          ]
+        },
+        "case_sensitive": {
+          "type": [
+            "string"
+          ]
+        },
+        "convert_tz": {
+          "type": [
+            "string"
+          ]
+        },
+        "datatype": {
+          "type": [
+            "string"
+          ]
+        },
+        "default_value": {
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "full_suggestions": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_item_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "string"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "required_access_grants": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "required_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "sql": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_dimension": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_explore": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_persist_for": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestable": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestions": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "tags": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_label": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "measures": {
+      "properties": {
+        "actions": {
+          "properties": {
+            "form_params": {
+              "properties": {
+                "default": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "options": {
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "array"
+                  ]
+                },
+                "required": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "form_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "icon_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "label": {
+              "type": [
+                "string"
+              ]
+            },
+            "params": {
+              "properties": {
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "url": {
+              "type": [
+                "string"
+              ]
+            },
+            "user_attribute_params": {
+              "properties": {
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "user_attribute": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "alias": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "approximate": {
+          "type": [
+            "string"
+          ]
+        },
+        "approximate_threshold": {
+          "type": [
+            "number"
+          ]
+        },
+        "can_filter": {
+          "type": [
+            "string"
+          ]
+        },
+        "convert_tz": {
+          "type": [
+            "string"
+          ]
+        },
+        "datatype": {
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "direction": {
+          "type": [
+            "string"
+          ]
+        },
+        "drill_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "fanout_on": {
+          "type": [
+            "string"
+          ]
+        },
+        "filters": {
+          "properties": {
+            "field": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "group_item_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "group_label": {
+          "type": [
+            "string"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "string"
+          ]
+        },
+        "html": {
+          "type": [
+            "string"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "label_from_parameter": {
+          "type": [
+            "string"
+          ]
+        },
+        "links": {
+          "properties": {
+            "icon_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "label": {
+              "type": [
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "list_field": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "percentile": {
+          "type": [
+            "number"
+          ]
+        },
+        "precision": {
+          "type": [
+            "integer"
+          ]
+        },
+        "required_access_grants": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "required_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "sql": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql_distinct_key": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_dimension": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_explore": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestable": {
+          "type": [
+            "string"
+          ]
+        },
+        "tags": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "value_format": {
+          "type": [
+            "string"
+          ]
+        },
+        "value_format_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_label": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "parameters": {
+      "properties": {
+        "alias": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "allowed_values": {
+          "properties": {
+            "label": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "bypass_suggest_restrictions": {
+          "type": [
+            "string"
+          ]
+        },
+        "convert_tz": {
+          "type": [
+            "string"
+          ]
+        },
+        "default_value": {
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "full_suggestions": {
+          "type": [
+            "string"
+          ]
+        },
+        "hidden": {
+          "type": [
+            "string"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "required_access_grants": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "required_fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "suggest_dimension": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_explore": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggest_persist_for": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestable": {
+          "type": [
+            "string"
+          ]
+        },
+        "suggestions": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "tags": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "view_label": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "path": {
+      "type": [
+        "string"
+      ]
+    },
+    "required_access_grants": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "sets": {
+      "properties": {
+        "fields": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "sha": {
+      "type": [
+        "string"
+      ]
+    },
+    "sql_table_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "suggestions": {
+      "type": [
+        "string"
+      ]
+    },
+    "view_label": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

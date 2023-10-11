@@ -1,0 +1,112 @@
+{
+  "properties": {
+    "create_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "departments": {
+      "properties": {
+        "value": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "display_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "string"
+      ]
+    },
+    "enabled": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "enabled_departments": {
+      "properties": {
+        "value": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "last_login": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "login_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "role_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "roles": {
+      "properties": {
+        "administrator": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "owner": {
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "scope": {
+      "type": [
+        "string"
+      ]
+    },
+    "skills": {
+      "properties": {
+        "value": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "creditNoteNumber": {
+      "type": [
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "string"
+      ]
+    },
+    "customerRef": {
+      "properties": {
+        "companyName": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "paymentAllocations": {
+      "properties": {
+        "currency": {
+          "type": [
+            "string"
+          ]
+        },
+        "date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "note": {
+          "type": [
+            "string"
+          ]
+        },
+        "totalAmount": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "remainingCredit": {
+      "type": [
+        "number"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "number"
+      ]
+    }
+  }
+}

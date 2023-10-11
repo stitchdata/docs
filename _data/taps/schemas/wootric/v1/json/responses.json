@@ -1,0 +1,71 @@
+{
+  "properties": {
+    "completed": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "end_user_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "excluded_from_calculations": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ip_address": {
+      "type": [
+        "string"
+      ]
+    },
+    "origin_url": {
+      "type": [
+        "string"
+      ]
+    },
+    "score": {
+      "type": [
+        "integer"
+      ]
+    },
+    "survey_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "tags": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "text": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

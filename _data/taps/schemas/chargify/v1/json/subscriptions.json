@@ -1,0 +1,564 @@
+{
+  "properties": {
+    "activated_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "balance_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "cancel_at_end_of_period": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "canceled_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "cancellation_message": {
+      "type": [
+        "string"
+      ]
+    },
+    "cancellation_method": {
+      "type": [
+        "string"
+      ]
+    },
+    "coupon_codes": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "credit_card": {
+      "properties": {
+        "billing_address": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_address_2": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_city": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_country": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_state": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_zip": {
+          "type": [
+            "string"
+          ]
+        },
+        "card_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "current_vault": {
+          "type": [
+            "string"
+          ]
+        },
+        "customer_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "customer_vault_token": {
+          "type": [
+            "string"
+          ]
+        },
+        "expiration_month": {
+          "type": [
+            "number"
+          ]
+        },
+        "expiration_year": {
+          "type": [
+            "number"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "masked_card_number": {
+          "type": [
+            "string"
+          ]
+        },
+        "payment_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "vault_token": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "current_period_ends_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "current_period_started_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "customer": {
+      "properties": {
+        "address": {
+          "type": [
+            "string"
+          ]
+        },
+        "address_2": {
+          "type": [
+            "string"
+          ]
+        },
+        "cc_emails": {
+          "type": [
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "email": {
+          "type": [
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "organization": {
+          "type": [
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "string"
+          ]
+        },
+        "portal_customer_created_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "portal_invite_last_accepted_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "portal_invite_last_sent_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "reference": {
+          "type": [
+            "number"
+          ]
+        },
+        "state": {
+          "type": [
+            "string"
+          ]
+        },
+        "tax_exempt": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "vat_number": {
+          "type": [
+            "string"
+          ]
+        },
+        "verified": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "zip": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "delayed_cancel_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "expires_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "number"
+      ]
+    },
+    "net_terms": {
+      "type": [
+        "number"
+      ]
+    },
+    "next_assessment_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "next_product_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "payment_collection_method": {
+      "type": [
+        "string"
+      ]
+    },
+    "payment_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "previous_state": {
+      "type": [
+        "string"
+      ]
+    },
+    "product": {
+      "properties": {
+        "accounting_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "archived_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "expiration_interval": {
+          "type": [
+            "number"
+          ]
+        },
+        "expiration_interval_unit": {
+          "type": [
+            "string"
+          ]
+        },
+        "handle": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "initial_charge_after_trial": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "initial_charge_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "interval": {
+          "type": [
+            "number"
+          ]
+        },
+        "interval_unit": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "price_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "product_family": {
+          "properties": {
+            "accounting_code": {
+              "type": [
+                "number"
+              ]
+            },
+            "description": {
+              "type": [
+                "string"
+              ]
+            },
+            "handle": {
+              "type": [
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "number"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "public_signup_pages": {
+          "properties": {
+            "id": {
+              "type": [
+                "number"
+              ]
+            },
+            "url": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "request_credit_card": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "require_credit_card": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "return_params": {
+          "type": [
+            "string"
+          ]
+        },
+        "taxable": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "trial_interval": {
+          "type": [
+            "number"
+          ]
+        },
+        "trial_interval_unit": {
+          "type": [
+            "string"
+          ]
+        },
+        "trial_price_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "update_return_params": {
+          "type": [
+            "string"
+          ]
+        },
+        "update_return_url": {
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "version_number": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "product_price_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "product_version_number": {
+      "type": [
+        "number"
+      ]
+    },
+    "reason_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "receives_invoice_emails": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "referral_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "signup_payment_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "signup_revenue": {
+      "type": [
+        "number"
+      ]
+    },
+    "snap_day": {
+      "type": [
+        "number"
+      ]
+    },
+    "state": {
+      "type": [
+        "string"
+      ]
+    },
+    "stored_credential_transaction_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "total_revenue_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "trial_ended_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "trial_started_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

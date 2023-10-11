@@ -1,0 +1,319 @@
+{
+  "properties": {
+    "after_connect_statements": {
+      "type": [
+        "string"
+      ]
+    },
+    "certificate": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "string"
+      ]
+    },
+    "database": {
+      "type": [
+        "string"
+      ]
+    },
+    "db_timezone": {
+      "type": [
+        "string"
+      ]
+    },
+    "dialect": {
+      "properties": {
+        "automatically_run_sql_runner_snippets": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "connection_tests": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "persistent_table_distkey": {
+          "type": [
+            "string"
+          ]
+        },
+        "persistent_table_indexes": {
+          "type": [
+            "string"
+          ]
+        },
+        "persistent_table_sortkeys": {
+          "type": [
+            "string"
+          ]
+        },
+        "supports_cost_estimate": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "supports_inducer": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "supports_streaming": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "supports_upload_tables": {
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "dialect_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "example": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "file_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "host": {
+      "type": [
+        "string"
+      ]
+    },
+    "jdbc_additional_params": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_reap_at": {
+      "type": [
+        "integer"
+      ]
+    },
+    "last_regen_at": {
+      "type": [
+        "integer"
+      ]
+    },
+    "maintenance_cron": {
+      "type": [
+        "string"
+      ]
+    },
+    "max_billing_gigabytes": {
+      "type": [
+        "number"
+      ]
+    },
+    "max_connections": {
+      "type": [
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "password": {
+      "type": [
+        "string"
+      ]
+    },
+    "pdt_context_override": {
+      "properties": {
+        "after_connect_statements": {
+          "type": [
+            "string"
+          ]
+        },
+        "certificate": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        },
+        "database": {
+          "type": [
+            "string"
+          ]
+        },
+        "file_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "has_password": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "host": {
+          "type": [
+            "string"
+          ]
+        },
+        "jdbc_additional_params": {
+          "type": [
+            "string"
+          ]
+        },
+        "password": {
+          "type": [
+            "string"
+          ]
+        },
+        "port": {
+          "type": [
+            "string"
+          ]
+        },
+        "schema": {
+          "type": [
+            "string"
+          ]
+        },
+        "username": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "pool_timeout": {
+      "type": [
+        "integer"
+      ]
+    },
+    "port": {
+      "type": [
+        "string"
+      ]
+    },
+    "query_timezone": {
+      "type": [
+        "string"
+      ]
+    },
+    "schema": {
+      "type": [
+        "string"
+      ]
+    },
+    "snippets": {
+      "properties": {
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "sql": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "sql_runner_precache_tables": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "ssl": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "tmp_db_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "user_attribute_fields": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "user_db_credentials": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "string"
+      ]
+    },
+    "uses_oauth": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "verify_ssl": {
+      "type": [
+        "boolean"
+      ]
+    }
+  }
+}

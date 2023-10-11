@@ -1,0 +1,116 @@
+{
+  "properties": {
+    "allow_negative_balance": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "amount_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "archived_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "code": {
+      "type": [
+        "string"
+      ]
+    },
+    "compounding_strategy": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversion_limit": {
+      "type": [
+        "number"
+      ]
+    },
+    "coupon_restrictions": {
+      "properties": {
+        "value": {
+          "type": [
+            "anything"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "string"
+      ]
+    },
+    "duration_interval": {
+      "type": [
+        "integer"
+      ]
+    },
+    "duration_interval_unit": {
+      "type": [
+        "string"
+      ]
+    },
+    "duration_period_count": {
+      "type": [
+        "number"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "percentage": {
+      "type": [
+        "number"
+      ]
+    },
+    "product_family_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "stackable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "properties": {
+    "alias": {
+      "type": [
+        "string"
+      ]
+    },
+    "background": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "channel_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "created": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "device_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "installed": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "ios": {
+      "properties": {
+        "badge": {
+          "type": [
+            "string"
+          ]
+        },
+        "quiettime": {
+          "properties": {
+            "end": {
+              "type": [
+                "string"
+              ]
+            },
+            "start": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "tz": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "last_registration": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "named_user_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "opt_in": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "push_addresses": {
+      "type": [
+        "string"
+      ]
+    },
+    "tag_groups": {
+      "properties": {
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "tags": {
+          "properties": {
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "tags": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    }
+  }
+}

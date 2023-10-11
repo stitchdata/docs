@@ -1,0 +1,178 @@
+{
+  "properties": {
+    "accounting_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "archived_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "string"
+      ]
+    },
+    "expiration_interval": {
+      "type": [
+        "string"
+      ]
+    },
+    "expiration_interval_unit": {
+      "type": [
+        "string"
+      ]
+    },
+    "handle": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "initial_charge_after_trial": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "initial_charge_in_cents": {
+      "type": [
+        "integer"
+      ]
+    },
+    "interval": {
+      "type": [
+        "integer"
+      ]
+    },
+    "interval_unit": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "price_in_cents": {
+      "type": [
+        "integer"
+      ]
+    },
+    "product_family": {
+      "properties": {
+        "accounting_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "handle": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "name": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "public_signup_pages": {
+      "properties": {
+        "value": {
+          "type": [
+            "anything"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "request_credit_card": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "require_credit_card": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "return_params": {
+      "type": [
+        "string"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "taxable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "trial_interval": {
+      "type": [
+        "integer"
+      ]
+    },
+    "trial_interval_unit": {
+      "type": [
+        "string"
+      ]
+    },
+    "trial_price_in_cents": {
+      "type": [
+        "integer"
+      ]
+    },
+    "update_return_params": {
+      "type": [
+        "string"
+      ]
+    },
+    "update_return_url": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "version_number": {
+      "type": [
+        "integer"
+      ]
+    }
+  }
+}

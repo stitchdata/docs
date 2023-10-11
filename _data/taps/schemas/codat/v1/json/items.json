@@ -1,0 +1,131 @@
+{
+  "properties": {
+    "billItem": {
+      "properties": {
+        "accountRef": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "taxRateRef": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "unitPrice": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "code": {
+      "type": [
+        "string"
+      ]
+    },
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "invoiceItem": {
+      "properties": {
+        "accountRef": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "description": {
+          "type": [
+            "string"
+          ]
+        },
+        "taxRateRef": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "unitPrice": {
+          "type": [
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "isBillItem": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "isInvoiceItem": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "itemStatus": {
+      "type": [
+        "string"
+      ]
+    },
+    "modifiedDate": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "sourceModifiedDate": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

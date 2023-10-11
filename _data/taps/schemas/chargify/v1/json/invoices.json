@@ -1,0 +1,268 @@
+{
+  "properties": {
+    "amount_due_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "charges": {
+      "properties": {
+        "amount_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "component_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "customer_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "ending_balance_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "gateway_order_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "gateway_transaction_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "kind": {
+          "type": [
+            "string"
+          ]
+        },
+        "memo": {
+          "type": [
+            "string"
+          ]
+        },
+        "payment_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "starting_balance_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "subscription_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "success": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "tax_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "transaction_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "number"
+      ]
+    },
+    "number": {
+      "type": [
+        "number"
+      ]
+    },
+    "paid_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "payments_and_credits": {
+      "properties": {
+        "amount_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "card_expiration": {
+          "type": [
+            "string"
+          ]
+        },
+        "card_number": {
+          "type": [
+            "string"
+          ]
+        },
+        "card_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "component_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "customer_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "ending_balance_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "gateway_order_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "gateway_transaction_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "number"
+          ]
+        },
+        "kind": {
+          "type": [
+            "string"
+          ]
+        },
+        "memo": {
+          "type": [
+            "string"
+          ]
+        },
+        "payment_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "starting_balance_in_cents": {
+          "type": [
+            "number"
+          ]
+        },
+        "subscription_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "success": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "tax_id": {
+          "type": [
+            "number"
+          ]
+        },
+        "transaction_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "site_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "state": {
+      "type": [
+        "string"
+      ]
+    },
+    "statement_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "number"
+      ]
+    },
+    "total_amount_in_cents": {
+      "type": [
+        "number"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "properties": {
+    "base_schema": {
+      "type": [
+        "string"
+      ]
+    },
+    "base_table": {
+      "type": [
+        "string"
+      ]
+    },
+    "current_version": {
+      "properties": {
+        "first_processed_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "is_active": {
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "filter_expression": {
+      "properties": {
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "filter_parts": {
+      "properties": {
+        "column": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "label": {
+          "type": [
+            "string"
+          ]
+        },
+        "operand": {
+          "type": [
+            "string"
+          ]
+        },
+        "operator": {
+          "type": [
+            "string"
+          ]
+        },
+        "schema": {
+          "type": [
+            "string"
+          ]
+        },
+        "table": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "population_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "source_id": {
+      "type": [
+        "integer"
+      ]
+    }
+  }
+}

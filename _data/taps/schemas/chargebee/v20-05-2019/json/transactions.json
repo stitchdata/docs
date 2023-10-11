@@ -1,0 +1,270 @@
+{
+  "properties": {
+    "amount": {
+      "type": [
+        "integer"
+      ]
+    },
+    "amount_unused": {
+      "type": [
+        "integer"
+      ]
+    },
+    "base_currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "error_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "error_text": {
+      "type": [
+        "string"
+      ]
+    },
+    "exchange_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "fraud_flag": {
+      "type": [
+        "string"
+      ]
+    },
+    "fraud_reason": {
+      "type": [
+        "string"
+      ]
+    },
+    "gateway": {
+      "type": [
+        "string"
+      ]
+    },
+    "gateway_account_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "id_at_gateway": {
+      "type": [
+        "string"
+      ]
+    },
+    "linked_credit_notes": {
+      "properties": {
+        "applied_amount": {
+          "type": [
+            "integer"
+          ]
+        },
+        "applied_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "cn_date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "cn_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "cn_reason_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "cn_reference_invoice_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "cn_status": {
+          "type": [
+            "string"
+          ]
+        },
+        "cn_total": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "linked_invoices": {
+      "properties": {
+        "applied_amount": {
+          "type": [
+            "integer"
+          ]
+        },
+        "applied_at": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "invoice_date": {
+          "type": [
+            "date-times"
+          ]
+        },
+        "invoice_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "invoice_status": {
+          "type": [
+            "string"
+          ]
+        },
+        "invoice_total": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "linked_refunds": {
+      "properties": {
+        "txn_amount": {
+          "type": [
+            "integer"
+          ]
+        },
+        "txn_date": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "txn_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "txn_status": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "masked_card_number": {
+      "type": [
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "string"
+      ]
+    },
+    "payment_method": {
+      "type": [
+        "string"
+      ]
+    },
+    "payment_source_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "reference_number": {
+      "type": [
+        "string"
+      ]
+    },
+    "reference_transaction_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "refunded_txn_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "integer"
+      ]
+    },
+    "reversal_txn_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "settled_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "validated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

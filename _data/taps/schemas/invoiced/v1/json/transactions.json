@@ -1,0 +1,156 @@
+{
+  "properties": {
+    "amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "credit_note": {
+      "type": [
+        "integer"
+      ]
+    },
+    "currency": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer": {
+      "type": [
+        "integer"
+      ]
+    },
+    "date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "failure_reason": {
+      "type": [
+        "string"
+      ]
+    },
+    "gateway": {
+      "type": [
+        "string"
+      ]
+    },
+    "gateway_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "invoice": {
+      "type": [
+        "integer"
+      ]
+    },
+    "metadata": {
+      "type": [
+        "object"
+      ]
+    },
+    "method": {
+      "type": [
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string"
+      ]
+    },
+    "parent_transaction": {
+      "type": [
+        "integer"
+      ]
+    },
+    "payment_source": {
+      "properties": {
+        "bank_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "brand": {
+          "type": [
+            "string"
+          ]
+        },
+        "currency": {
+          "type": [
+            "string"
+          ]
+        },
+        "exp_month": {
+          "type": [
+            "integer"
+          ]
+        },
+        "exp_year": {
+          "type": [
+            "integer"
+          ]
+        },
+        "funding": {
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "last4": {
+          "type": [
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "string"
+          ]
+        },
+        "routing_number": {
+          "type": [
+            "string"
+          ]
+        },
+        "verified": {
+          "type": [
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}
