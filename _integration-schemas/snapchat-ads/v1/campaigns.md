@@ -46,7 +46,6 @@ attributes:
   - name: "measurement_spec"
     type: "object"
     description: "The apps to be tracked for this campaign"
-    subattributes:
 
   - name: "name"
     type: "string"
@@ -59,7 +58,6 @@ attributes:
   - name: "regulations"
     type: "object"
     description: "Required for Campaigns that run Ads for Credit, Housing, Employment (CHE)"
-    subattributes:
 
   - name: "start_time"
     type: "date-time"

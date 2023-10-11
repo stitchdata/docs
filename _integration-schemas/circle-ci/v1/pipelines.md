@@ -85,7 +85,6 @@ attributes:
   - name: "trigger_parameters"
     type: "object"
     description: ""
-    subattributes:
 
 
   - name: "vcs"

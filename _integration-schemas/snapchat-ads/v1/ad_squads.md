@@ -41,7 +41,6 @@ attributes:
   - name: "cap_and_exclusion_config"
     type: "object"
     description: "The frequency cap and exclusion spec"
-    subattributes:
 
   - name: "created_at"
     type: "date-time"

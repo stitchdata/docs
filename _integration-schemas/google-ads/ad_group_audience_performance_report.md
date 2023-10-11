@@ -101,7 +101,6 @@ attributes:
       - name: "target_restrictions"
         type: "object, string"
         description: ""
-        subattributes: *id001
   - name: "ad_group_tracking_url_template"
     type: "string"
     description: ""

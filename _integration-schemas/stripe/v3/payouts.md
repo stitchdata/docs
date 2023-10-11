@@ -56,7 +56,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "routing_number"
       type: "string"
@@ -142,7 +141,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "method"
     type: "string"

@@ -76,7 +76,7 @@ attributes:
     type: "array"
     description: ""
     subattributes:
-      - title: "value"
+      - name: "value"
         type: "string"
         description: ""
 

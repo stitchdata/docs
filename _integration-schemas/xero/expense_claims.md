@@ -30,25 +30,16 @@ attributes:
     type: "array"
     description: |
       Details about the user(s) who submitted the expense claim.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `users` table. Refer to the [`users`](#users) table schema for details.
 
   - name: "Receipts"
     type: "array"
     description: |
       Details about the receipt(s) associated with the expense claim.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `receipts` table. Refer to the [`receipts`](#receipts) table schema for details.
 
   - name: "Payments"
     type: "array"
     description: |
       Details about the payment(s) associated with the expense claim.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `payments` table. Refer to the [`payments`](#payments) table schema for details.
 
   - name: "Status"
     type: "string"

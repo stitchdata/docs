@@ -9,5 +9,4 @@ attributes:
   - name: "items"
     type: "object"
     description: ""
-    subattributes:
 ---

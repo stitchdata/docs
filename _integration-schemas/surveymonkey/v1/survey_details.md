@@ -58,7 +58,6 @@ attributes:
   - name: "custom_variables"
     type: "object"
     description: "The dictionary of survey variables."
-    subattributes:
   
   - name: "date_created"
     type: "date-time"

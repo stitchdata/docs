@@ -161,7 +161,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "A set of key-value pairs that you can attach to an object."
-    subattributes:
 
   - name: "object"
     type: "string"

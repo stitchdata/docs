@@ -1014,7 +1014,6 @@ attributes:
           - name: "targeting"
             type: "array"
             description: "The post gating for the video."
-            subattributes:
 
           - name: "video_id"
             type: "string"

@@ -125,7 +125,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "mrr"
     type: "number"

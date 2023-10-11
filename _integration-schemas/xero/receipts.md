@@ -34,9 +34,6 @@ attributes:
     type: "array"
     description: |
       Details about the contact(s) associated with the receipt.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `contacts` table. Refer to the [`contacts`](#contacts) table schema for details.
 
   - name: "LineItems"
     type: "array"
@@ -86,17 +83,11 @@ attributes:
         type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-        subattributes:
-          - description: |
-              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "User"
     type: "array"
     description: |
       Details about the user(s) associated with the receipt.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `users` table. Refer to the [`users`](#users) table schema for details.
 
   - name: "Reference"
     type: "string"

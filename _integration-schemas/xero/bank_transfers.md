@@ -30,16 +30,11 @@ attributes:
     type: "object"
     description: |
       Details about the source bank account.
-    subattributes:
-      - description: &accounts-table |
-          This will contain the same attributes as the `accounts` table. Refer to the [`accounts`](#accounts) table schema for details.
 
   - name: "ToBankAccount"
     type: "object"
     description: |
       Details about the destination bank account.
-    subattributes:
-      - description: *accounts-table
 
   - name: "Amount"
     type: "number"

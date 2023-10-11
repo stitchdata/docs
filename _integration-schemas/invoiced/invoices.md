@@ -174,15 +174,10 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information about the line item."
-        subattributes: &metadata
-          - name: ""
-            type: 
-            description: ""
 
   - name: "metadata"
     type: "object"
     description: "Additional information about the invoice."
-    subattributes:
 
   - name: "name"
     type: "string"

@@ -140,7 +140,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "next_action"
     type: "object"
@@ -225,7 +224,6 @@ attributes:
     - name: "use_stripe_sdk"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "verify_with_microdeposits"
       type: "object"
@@ -475,7 +473,6 @@ attributes:
     - name: "card_present"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "eps"
       type: "object"
@@ -525,7 +522,6 @@ attributes:
     - name: "interac_present"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "klarna"
       type: "object"
@@ -569,7 +565,6 @@ attributes:
       - name: "mandate_options"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "setup_future_usage"
         type: "string"
@@ -618,7 +613,6 @@ attributes:
   - name: "processing"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "receipt_email"
     type: "string"

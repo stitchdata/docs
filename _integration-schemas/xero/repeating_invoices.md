@@ -122,9 +122,6 @@ attributes:
         type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-        subattributes:
-          - description: |
-              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "LineAmountTypes"
     type: "string"

@@ -59,7 +59,6 @@ attributes:
   - name: "customFields"
     type: "object"
     description: "The custom fields associated with the requisition."
-    subattributes:
 
   - name: "department"
     type: "string"

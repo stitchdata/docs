@@ -47,22 +47,6 @@ attributes:
     type: "object"
     description: "Metadata for the audit, custom, and system data."
     subattributes:
-      # Commenting out these fields - they're not documented by Zendesk.
-      # - name: "custom"
-      #   type: 
-      #   description: ""
-
-      # - name: "trusted"
-      #   type: "boolean"
-      #   description: ""
-
-      # - name: "notifications_suppressed_for"
-      #   type: "array"
-      #   description: "[TODO]"
-      #   subattributes:
-      #     - name: "value"
-      #       type: "integer"
-      #       description: "[TODO]"
 
       - name: "flags"
         type: "array"
@@ -85,7 +69,6 @@ attributes:
       - name: "flags_options"
         type: "object"
         description: "For `Comment` and `VoiceComment` events, additional information about the comment flags."
-        subattributes:
 
   # START METADATA > SYSTEM OBJECT
       - name: "system"

@@ -71,7 +71,6 @@ attributes:
     - name: "tracking_url_metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "expanded_tracking_url"
       type: "string"
@@ -89,7 +88,6 @@ attributes:
     - name: "tracking_url_metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "expanded_tracking_url"
       type: "string"

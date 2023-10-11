@@ -79,7 +79,6 @@ attributes:
   - name: "tracking_history"
     type: "array"
     description: "A list of tracking events for the shipment the transaction is associated with."
-    subattributes:
 
   - name: "tracking_url_provider"
     type: "string"

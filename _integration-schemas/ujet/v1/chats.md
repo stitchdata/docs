@@ -98,7 +98,7 @@ attributes:
   - name: "menu_path"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &menu-path
       - name: "items_count"
         type: "integer"
         description: ""

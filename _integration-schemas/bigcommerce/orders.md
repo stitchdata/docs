@@ -617,7 +617,7 @@ attributes:
 
       - name: "country_iso2"
         type: "string"
-        description: *country-iso2
+        description: ""
 
       - name: "email"
         type: "string"

@@ -218,7 +218,7 @@ attributes:
 
           - name: "type"
             type: "string"
-            description: &type |
+            description: |
               The type of the invoice. Possible values are:
 
               - `charge`
@@ -961,11 +961,11 @@ attributes:
     subattributes:
       - name: "amount"
         type: "number"
-        description: *transaction-amt
+        description: ""
 
       - name: "avs_check"
         type: "string"
-        description: *avs_check
+        description: *avs-check
 
       - name: "account"
         type: "object"
@@ -979,15 +979,15 @@ attributes:
 
       - name: "collected_at"
         type: "date-time"
-        description: *collected_at
+        description: *collected-at
 
       - name: "collection_method"
         type: "string"
-        description: *collection_method
+        description: *collection-method
 
       - name: "created_at"
         type: "date-time"
-        description: *created_at
+        description: *created-at
 
       - name: "currency"
         type: "string"

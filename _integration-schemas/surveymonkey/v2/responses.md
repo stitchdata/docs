@@ -46,7 +46,6 @@ attributes:
   - name: "custom_variables"
     type: "object"
     description: "The values to any available custom variables in the survey."
-    subattributes:
   
   - name: "date_created"
     type: "date-time"
@@ -79,12 +78,10 @@ attributes:
   - name: "logic_path"
     type: "object"
     description: "The logic path taken during the survey."
-    subattributes:
   
   - name: "metadata"
     type: "object"
     description: "Other associated metadata or custom values."
-    subattributes:
   
   - name: "page_path"
     type: "array"

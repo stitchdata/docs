@@ -38,7 +38,6 @@ attributes:
   - name: "data"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "livemode"
     type: "boolean"

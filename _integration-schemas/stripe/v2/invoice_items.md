@@ -68,7 +68,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "object"
     type: "string"
@@ -201,7 +200,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "updated"
       type: "string"

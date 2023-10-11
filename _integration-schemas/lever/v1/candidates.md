@@ -171,7 +171,6 @@ attributes:
   - name: "resume"
     type: "object"
     description: "Details about the candidate's resume."
-    subattributes: 
 
   - name: "snoozedUntil"
     type: "date-time"

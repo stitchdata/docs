@@ -102,7 +102,4 @@ attributes:
         type: "array"
         description: |
           Details about the tracking categories associated with the journal line.
-        subattributes:
-          - description: |
-              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 ---

@@ -75,7 +75,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "fraud_details"
       type: "object"
@@ -196,7 +195,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "type"
         type: "string"
@@ -526,27 +524,22 @@ attributes:
       - name: "alipay"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "bancontact"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "eps"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "ideal"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "multibanco"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "redirect"
         type: "object"
@@ -654,7 +647,6 @@ attributes:
     - name: "shipping"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "calculated_statement_descriptor"
       type: "string"
@@ -707,7 +699,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "exp_month"
         type: "integer"
@@ -1090,12 +1081,10 @@ attributes:
           - name: "amex_express_checkout"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "apple_pay"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "dynamic_last4"
             type: "string"
@@ -1104,7 +1093,6 @@ attributes:
           - name: "google_pay"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "masterpass"
             type: "object"
@@ -1180,7 +1168,6 @@ attributes:
           - name: "samsung_pay"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "type"
             type: "string"
@@ -1398,7 +1385,6 @@ attributes:
         - name: "klarna"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "multibanco"
           type: "object"
@@ -1487,7 +1473,6 @@ attributes:
         - name: "stripe_account"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "type"
           type: "string"
@@ -1496,12 +1481,10 @@ attributes:
         - name: "wechat"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "metadata"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "address_state"
           type: "string"
@@ -1606,7 +1589,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "fraud_details"
       type: "object"
@@ -1727,7 +1709,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "type"
         type: "string"
@@ -2057,27 +2038,22 @@ attributes:
       - name: "alipay"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "bancontact"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "eps"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "ideal"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "multibanco"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "redirect"
         type: "object"
@@ -2185,7 +2161,6 @@ attributes:
     - name: "shipping"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "calculated_statement_descriptor"
       type: "string"
@@ -2238,7 +2213,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "exp_month"
         type: "integer"
@@ -2621,12 +2595,10 @@ attributes:
           - name: "amex_express_checkout"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "apple_pay"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "dynamic_last4"
             type: "string"
@@ -2635,7 +2607,6 @@ attributes:
           - name: "google_pay"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "masterpass"
             type: "object"
@@ -2711,7 +2682,6 @@ attributes:
           - name: "samsung_pay"
             type: "object"
             description: ""
-            subattributes:
 
           - name: "type"
             type: "string"
@@ -2929,7 +2899,6 @@ attributes:
         - name: "klarna"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "multibanco"
           type: "object"
@@ -3018,7 +2987,6 @@ attributes:
         - name: "stripe_account"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "type"
           type: "string"
@@ -3027,12 +2995,10 @@ attributes:
         - name: "wechat"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "metadata"
           type: "object"
           description: ""
-          subattributes:
 
         - name: "address_state"
           type: "string"
@@ -3198,7 +3164,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "next_action"
     type: "object"
@@ -3283,7 +3248,6 @@ attributes:
     - name: "use_stripe_sdk"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "verify_with_microdeposits"
       type: "object"
@@ -3533,7 +3497,6 @@ attributes:
     - name: "card_present"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "eps"
       type: "object"
@@ -3583,7 +3546,6 @@ attributes:
     - name: "interac_present"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "klarna"
       type: "object"
@@ -3627,7 +3589,6 @@ attributes:
       - name: "mandate_options"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "setup_future_usage"
         type: "string"
@@ -3676,7 +3637,6 @@ attributes:
   - name: "processing"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "receipt_email"
     type: "string"

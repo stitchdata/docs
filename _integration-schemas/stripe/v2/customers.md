@@ -71,7 +71,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "object"
       type: "string"
@@ -200,7 +199,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "valid"
         type: "boolean"
@@ -336,7 +334,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "name"
     type: "string"
@@ -411,7 +408,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "type"
       type: "string"
@@ -741,27 +737,22 @@ attributes:
     - name: "alipay"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "bancontact"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "eps"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "ideal"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "multibanco"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "redirect"
       type: "object"
@@ -793,7 +784,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "type"
       type: "string"
@@ -1123,27 +1113,22 @@ attributes:
     - name: "alipay"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "bancontact"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "eps"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "ideal"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "multibanco"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "redirect"
       type: "object"

@@ -305,10 +305,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the charge."
-    subattributes:
-      - name: ""
-        type: 
-        description: ""
 
   - name: "object"
     type: "string"
@@ -737,7 +733,6 @@ attributes:
           - name: "stripe_account"
             type: "object"
             description: ""
-            subattributes: FIXME
           - name: "three_d_secure"
             type: "object"
             description: ""

@@ -512,10 +512,6 @@ attributes:
         type: ""
         description: "If the source is an Alipay source, this will contain the details about the Alipay source."
         doc-link: "https://stripe.com/docs/sources/alipay"
-        subattributes:
-          # - name: "TODO"
-          #   type: ""
-          #   description: ""
 
       - name: "amount"
         type: "integer"
@@ -525,10 +521,6 @@ attributes:
         type: ""
         description: "If the source is a Bancontact source, this will contain the details about the Bancontact source."
         doc-link: "https://stripe.com/docs/sources/bancontact"
-        subattributes:
-          # - name: "TODO"
-          #   type: ""
-          #   description: ""
 
       - name: "brand"
         type: "string"
@@ -544,65 +536,43 @@ attributes:
 
           - name: "address_city"
             type: "string"
-            description: &address-city "The city associated with the card's billing address."
+            description: *address-city
 
           - name: "address_country"
             type: "string"
-            description: &address-country "The billing address country."
+            description: *address-country
 
           - name: "address_line1"
             type: "string"
-            description: &address-line1 "The first line of the billing address."
+            description: *address-line1
 
           - name: "address_line1_check"
             type: "string"
-            description: &address-line1-check |
-              If `address_line1` was provided, the results of the check. Possible values are:
-
-              - `pass`
-              - `fail`
-              - `unavailable`
-              - `unchecked`
+            description: *address-line1-check
 
           - name: "address_line2"
             type: "string"
-            description: &address-line2 "The second line of the billing address."
+            description: *address-line2
 
           - name: "address_state"
             type: "string"
-            description: &address-state "The state/county/province/region of the billing address."
+            description: *address-state
 
           - name: "address_zip"
             type: "string"
-            description: &address-zip "The zip or postal code of the billing address."
+            description: *address-zip
 
           - name: "address_zip_check"
             type: "string"
-            description: &address-zip-check |
-              If `address_zip` was provided, the results of the check. Possible values are:
-
-              - `pass`
-              - `fail`
-              - `unavailable`
-              - `unchecked`
+            description: *address-zip-check
 
           - name: "brand"
             type: "string"
-            description: &brand |
-              The brand of the card. Possible values are:
-
-              - `American Express`
-              - `Diners Club`
-              - `Discover`
-              - `JCB`
-              - `MasterCard`
-              - `UnionPay`
-              - `Visa`
-              - `Unknown`
+            description: *brand
 
           - name: "country"
             type: "string"
-            description: &country "The two-letter ISO code representing the country of the card."
+            description: *country
 
           - name: "customer"
             type: "string"
@@ -611,55 +581,40 @@ attributes:
 
           - name: "cvc_check"
             type: "string"
-            description: &cvc-check |
-              If a CVC was provided, this will be the result of the check. Possible values are:
-
-              - `pass`
-              - `fail`
-              - `unavailable`
-              - `unchecked`
+            description: *cvc-check
 
           - name: "dynamic_last4"
             type: "string"
-            description: &dynamic-last4 "**For tokenized numbers only.** The last four digits of the device account number."
+            description: *dynamic-last4
 
           - name: "exp_month"
             type: "integer"
-            description: &exp-month "The two-digit number representing the card's expiration month."
+            description: *exp-month
 
           - name: "exp_year"
             type: "integer"
-            description: &exp-year "The four-digit number representing the card's expiration year."
+            description: *exp-year
 
           - name: "fingerprint"
             type: "string"
-            description: &fingerprint "A unique ID for the card number."
+            description: *fingerprint
 
           - name: "funding"
             type: "string"
-            description: &funding |
-              The card's funding type. Possible values are:
-
-              - `credit`
-              - `debit`
-              - `prepaid`
-              - `unknown`
+            description: *funding
 
           - name: "last4"
             type: "string"
-            description: &last4 "The last four digits of the card."
+            description: *last4
 
           - name: "metadata"
             type: "object"
             description: "Additional information attached to the card."
-            subattributes: &metadata
-              - name: "ANYTHING"
-                type: "ANYTHING"
-                description: "This info will vary."
+            subattributes: *metadata
 
           - name: "name"
             type: "string"
-            description: &card-name "The name of the cardholder."
+            description: *card-name
 
           - name: "object"
             type: "string"
@@ -667,11 +622,7 @@ attributes:
 
           - name: "tokenization_method"
             type: "string"
-            description: &tokenization-method |
-              If the card number is tokenized, this is the method that was used. Possible values are:
-
-              - `apple_pay`
-              - `android_pay`
+            description: *tokenization-method
 
       - name: "client_secret"
         type: "string"
@@ -706,7 +657,6 @@ attributes:
         type: ""
         description: "If the source is an EPS source, this will contain the details about the EPS source."
         doc-link: "https://stripe.com/docs/sources/eps"
-        subattributes:
 
       - name: "exp_month"
         type: "integer"
@@ -742,7 +692,6 @@ attributes:
         type: "object"
         description: "If the source is an iDEAL source, this will contain the details about the iDEAL source."
         doc-link: "https://stripe.com/docs/sources/ideal"
-        subattributes:
 
       - name: "last4"
         type: "string"
@@ -761,7 +710,6 @@ attributes:
         type: "object"
         description: ""
         doc-link: "https://stripe.com/docs/sources/multibanco"
-        subattributes:
 
       - name: "name"
         type: "string"

@@ -113,7 +113,6 @@ attributes:
       - name: "fields"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "first"
         type: "string"

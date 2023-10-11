@@ -334,9 +334,6 @@ attributes:
     type: "array"
     description: |
       Details about the contact groups the contact is included in.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `contact_groups` table. Refer to the [`contact_groups`](#contact_groups) table schema for details.
 
   - name: "Website"
     type: "string"
@@ -346,9 +343,6 @@ attributes:
     type: "object"
     description: |
       Details about the branding theme applied to documents sent to the contact.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `branding_themes` table. Refer to the [`branding_themes`](#branding_themes) table schema for details.
 
   - name: "BatchPayments"
     type: "object"

@@ -108,7 +108,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "valid"
         type: "boolean"
@@ -241,7 +240,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "next_pending_invoice_item_invoice"
     type: "string"
@@ -288,7 +286,6 @@ attributes:
     - name: "metadata"
       type: "object"
       description: ""
-      subattributes:
 
     - name: "product"
       type: "string"

@@ -38,9 +38,6 @@ attributes:
     type: "array"
     description: |
       Details about the contact(s) associated with the overpayment.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `contacts` table. Refer to the [`contacts`](#contacts) table schema for details.
 
   - name: "Date"
     type: "date-time"
@@ -116,9 +113,6 @@ attributes:
         type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-        subattributes:
-          - description: |
-              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "SubTotal"
     type: "number"
@@ -173,9 +167,6 @@ attributes:
     type: "array"
     description: |
       Details about the payments associated with the overpayment.
-    subattributes:
-      - description: |
-          This will contain the same attributes as the `payments` table. Refer to the [`payments`](#payments) table schema for details.
 
   - name: "Reference"
     type: "string"

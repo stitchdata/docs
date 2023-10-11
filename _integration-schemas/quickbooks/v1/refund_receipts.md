@@ -360,7 +360,7 @@ attributes:
   - name: "ShipAddr"
     type: "object"
     description: ""
-    subattributes: &address-attributes
+    subattributes: *address-attributes
 
   - name: "SyncToken"
     type: "string"

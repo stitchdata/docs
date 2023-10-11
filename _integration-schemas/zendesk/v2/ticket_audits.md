@@ -85,7 +85,6 @@ attributes:
       - name: "flags_options"
         type: "object"
         description: "For `Comment` and `VoiceComment` events, additional information about the comment flags."
-        subattributes:
 
   # START METADATA > SYSTEM OBJECT
       - name: "system"

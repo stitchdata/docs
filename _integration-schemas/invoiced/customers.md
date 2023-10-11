@@ -83,7 +83,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information about the customer."
-    subattributes: 
 
   - name: "name"
     type: "string"

@@ -42,12 +42,10 @@ attributes:
   - name: "categorised_greetings"
     type: "object"
     description: "Greeting category ids and names."
-    subattributes:
 
   - name: "categorised_greetings_with_sub_settings"
     type: "object"
     description: "The id and any settings associated with each greeting category. If the category has no settings, it defaults to the category name."
-    subattributes:
 
   - name: "country_code"
     type: "string"

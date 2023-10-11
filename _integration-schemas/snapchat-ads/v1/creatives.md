@@ -25,17 +25,14 @@ attributes:
   - name: "ad_to_lens_properties"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "ad_to_message_properties"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "app_install_properties"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "brand_name"
     type: "string"
@@ -48,12 +45,10 @@ attributes:
   - name: "collection_properties"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "composite_properties"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "created_at"
     type: "date-time"
@@ -62,12 +57,10 @@ attributes:
   - name: "deep_link_properties"
     type: "object"
     description: "Deep Link properties"
-    subattributes:
 
   - name: "dynamic_render_properties"
     type: "object"
     description: "Dynamic Render Properties"
-    subattributes:
 
   - name: "forced_view_eligibility"
     type: "string"
@@ -85,7 +78,6 @@ attributes:
   - name: "longform_video_properties"
     type: "object"
     description: "specifies the attributes for the Long Form Video Attachment"
-    subattributes:
 
   - name: "name"
     type: "string"
@@ -106,7 +98,6 @@ attributes:
   - name: "preview_properties"
     type: "object"
     description: "Preview properties for the campaign"
-    subattributes:
 
   - name: "render_type"
     type: "string"
@@ -140,5 +131,4 @@ attributes:
   - name: "web_view_properties"
     type: "object"
     description: "Defines the url for `Shop Now` button Required when interaction_type == WEB_VIEW. Only url in web_view_properties can be used"
-    subattributes:
 ---

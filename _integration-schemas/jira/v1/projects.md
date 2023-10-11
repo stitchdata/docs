@@ -335,7 +335,6 @@ attributes:
         type: "object"
         description: |
           Details about the real assignee associated with the component.
-        subattributes: *userDetails
 
       - name: "realAssigneeType"
         type: "string"
@@ -405,7 +404,6 @@ attributes:
   - name: "lead"
     type: "object"
     description: "Details about the lead user associated with the project."
-    subattributes: *userDetails
 
   - name: "name"
     type: "string"

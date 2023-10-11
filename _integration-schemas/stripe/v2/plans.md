@@ -66,7 +66,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "name"
     type: "string"

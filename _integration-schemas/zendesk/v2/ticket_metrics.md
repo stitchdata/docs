@@ -104,7 +104,6 @@ attributes:
   - name: "full_resolution_time_in_minutes"
     type: "object"
     description: "The number of minutes to the full resolution inside and outside of business hours."
-    subattributes:
 
   - name: "group_stations"
     type: "integer"

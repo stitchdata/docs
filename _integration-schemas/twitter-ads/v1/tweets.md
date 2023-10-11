@@ -721,7 +721,6 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
-        subattributes: "user-id"
 
       - name: "id_str"
         type: "string"

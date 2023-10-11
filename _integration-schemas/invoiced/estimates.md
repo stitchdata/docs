@@ -72,7 +72,7 @@ attributes:
   - name: "discounts"
     type: "array"
     description: "The discounts applicable to the estimate."
-    subattributes:
+    subattributes: &discounts
       - name: "id"
         type: "integer"
         primary-key: true
@@ -188,15 +188,10 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information about the line item."
-        subattributes: &metadata
-          - name: ""
-            type: 
-            description: ""
 
   - name: "metadata"
     type: "object"
     description: "Additional information about the estimate."
-    subattributes:
 
   - name: "name"
     type: "string"

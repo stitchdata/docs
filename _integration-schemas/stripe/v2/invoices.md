@@ -323,7 +323,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "valid"
         type: "boolean"
@@ -506,7 +505,6 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "next_payment_attempt"
     type: "string"
@@ -523,7 +521,6 @@ attributes:
   - name: "on_behalf_of"
     type: "string, object"
     description: "The account (if any) for which the funds of the invoice payment are intended. If set, the invoice will be presented with the branding and support information of the specified account."
-    subattributes:
 
   - name: "paid"
     type: "boolean"
@@ -614,7 +611,6 @@ attributes:
   - name: "quote"
     type: "object, string"
     description: "The quote this invoice was generated from."
-    subattributes:
 
   - name: "receipt_number"
     type: "string"

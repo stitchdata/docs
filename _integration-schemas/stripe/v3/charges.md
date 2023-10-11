@@ -118,7 +118,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "exp_month"
         type: "integer"
@@ -647,14 +646,12 @@ attributes:
                   - name: "samsung_pay"
                     type: "object"
                     description: ""
-                    subattributes:
                   - name: "type"
                     type: "string"
                     description: ""
                   - name: "visa_checkout"
                     type: "object"
                     description: ""
-                    subattributes:
                   - name: "billing_address"
                     type: "object"
                     description: ""
@@ -812,7 +809,6 @@ attributes:
               - name: "klarna"
                 type: "object"
                 description: ""
-                subattributes:
               - name: "multibanco"
                 type: "object"
                 description: ""
@@ -880,18 +876,15 @@ attributes:
               - name: "stripe_account"
                 type: "object"
                 description: ""
-                subattributes:
               - name: "type"
                 type: "string"
                 description: ""
               - name: "wechat"
                 type: "object"
                 description: ""
-                subattributes:
               - name: "metadata"
                 type: "object"
                 description: ""
-                subattributes:
               - name: "address_state"
                 type: "string"
                 description: ""
@@ -1006,7 +999,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
 
       - name: "next_action"
         type: "object"
@@ -1073,7 +1065,6 @@ attributes:
   - name: "shipping"
     type: "object"
     description: ""
-    subattributes:
 
   - name: "source"
     type: "object"
@@ -1082,7 +1073,6 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        subattributes:
       - name: "type"
         type: "string"
         description: ""
@@ -1331,23 +1321,18 @@ attributes:
       - name: "alipay"
         type: "object"
         description: ""
-        subattributes:
       - name: "bancontact"
         type: "object"
         description: ""
-        subattributes:
       - name: "eps"
         type: "object"
         description: ""
-        subattributes:
       - name: "ideal"
         type: "object"
         description: ""
-        subattributes:
       - name: "multibanco"
         type: "object"
         description: ""
-        subattributes:
       - name: "redirect"
         type: "object"
         description: ""
