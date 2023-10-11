@@ -470,8 +470,6 @@ keys:
     keys:
     - Module
 tables:
-- table-name: ''
-  join: []
 - table-name: addresses
   join:
   - table-name: companies
@@ -1724,8 +1722,6 @@ tables:
     keys:
     - key: Id
       foreign-key: Timesheet
-- table-name: custom_fields
-  join: []
 - table-name: employees
   join:
   - table-name: custom_app_data

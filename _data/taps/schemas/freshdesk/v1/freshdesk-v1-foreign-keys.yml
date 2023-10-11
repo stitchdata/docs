@@ -230,8 +230,6 @@ tables:
     keys:
     - key: id
       foreign-key: company_id
-- table-name: contacts
-  join: []
 - table-name: conversations
   join:
   - table-name: tickets

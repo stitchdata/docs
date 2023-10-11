@@ -1441,8 +1441,6 @@ tables:
     keys:
     - key: trackId
       foreign-key: trackId
-- table-name: event_statuses
-  join: []
 - table-name: event_task_types
   join:
   - table-name: event_tasks

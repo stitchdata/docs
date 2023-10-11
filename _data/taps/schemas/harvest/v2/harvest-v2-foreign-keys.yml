@@ -687,8 +687,6 @@ tables:
     keys:
     - key: user_id
       foreign-key: user_id
-- table-name: estimate_item_categories
-  join: []
 - table-name: estimate_line_items
   join:
   - table-name: estimate_messages
@@ -751,8 +749,6 @@ tables:
       foreign-key: external_reference_id
     - key: time_entry_id
       foreign-key: id
-- table-name: invoice_item_categories
-  join: []
 - table-name: invoice_line_items
   join:
   - table-name: invoices
@@ -841,8 +837,6 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
-- table-name: invoice_payments
-  join: []
 - table-name: project_tasks
   join:
   - table-name: expenses

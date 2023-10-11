@@ -160,8 +160,6 @@ tables:
     keys:
     - key: author.accountId
       foreign-key: accountId
-- table-name: component
-  join: []
 - table-name: issue_comments
   join:
   - table-name: changelogs
@@ -404,8 +402,6 @@ tables:
       foreign-key: accountId
     - key: updateAuthor.accountId
       foreign-key: accountId
-- table-name: project_types
-  join: []
 - table-name: project_categories
   join:
   - table-name: projects
@@ -710,10 +706,6 @@ tables:
     keys:
     - key: projectId
       foreign-key: id
-- table-name: resolutions
-  join: []
-- table-name: roles
-  join: []
 - table-name: users
   join:
   - table-name: changelogs

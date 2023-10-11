@@ -516,8 +516,6 @@ tables:
     keys:
     - key: adGroupId
       foreign-key: id
-- table-name: ads
-  join: []
 - table-name: ad_groups
   join:
   - table-name: ad_performance_report
@@ -552,5 +550,3 @@ tables:
     keys:
     - key: id
       foreign-key: adGroupId
-- table-name: campaigns
-  join: []

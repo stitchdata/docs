@@ -81,8 +81,9 @@ def getFKByTable(file):
                 if target_table_data not in table_data['join']:
                 
                     table_data['join'].append(target_table_data)
-
-            tables.append(table_data)
+                    
+            if len(table_data['join']) > 0:
+                tables.append(table_data)
 
         
         content['tables'] = tables

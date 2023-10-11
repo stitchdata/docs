@@ -1489,8 +1489,6 @@ tables:
       foreign-key: id
     - key: subscription_items.item_price_id
       foreign-key: id
-- table-name: cards
-  join: []
 - table-name: credit_notes
   join:
   - table-name: coupons

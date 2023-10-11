@@ -372,8 +372,6 @@ tables:
     keys:
     - key: tags.id
       foreign-key: id
-- table-name: company_segments
-  join: []
 - table-name: segment
   join:
   - table-name: companies

@@ -124,8 +124,6 @@ keys:
     keys:
     - id
 tables:
-- table-name: assignees
-  join: []
 - table-name: collaborators
   join:
   - table-name: pull_requests
@@ -196,8 +194,6 @@ tables:
       foreign-key: original_commit_id
     - key: id
       foreign-key: pull_request_review_id
-- table-name: comments
-  join: []
 - table-name: commits
   join:
   - table-name: issue_events
@@ -310,8 +306,6 @@ tables:
       foreign-key: commit_id
     - key: pull_request_review_id
       foreign-key: id
-- table-name: commit_comments
-  join: []
 - table-name: issue_labels
   join:
   - table-name: issue_events
@@ -326,8 +320,6 @@ tables:
     keys:
     - key: id
       foreign-key: labels.id
-- table-name: issue_milestones
-  join: []
 - table-name: issues
   join:
   - table-name: issue_events
@@ -350,8 +342,6 @@ tables:
     keys:
     - key: id
       foreign-key: pr_id
-- table-name: projects
-  join: []
 - table-name: pr_commits
   join:
   - table-name: issues
@@ -380,9 +370,3 @@ tables:
     keys:
     - key: payload.commits.sha
       foreign-key: sha
-- table-name: releases
-  join: []
-- table-name: team_members
-  join: []
-- table-name: teams
-  join: []
