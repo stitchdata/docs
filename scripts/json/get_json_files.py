@@ -2,6 +2,7 @@ import requests, re, base64, json, datetime, os, pandas, sys, zipfile, yaml, shu
 from datetime import datetime as dt
 from format_json import formatJSON
 from check_table_data import checkTableData
+from get_integration_data import getIntegrationData
 
 # GitHub info
 github_token = sys.argv[1]
@@ -131,25 +132,6 @@ def getTapData(setup_file):
     tap_major_version = tap_version[0]
 
     return [tap_name, tap_major_version]
-
-def getIntegrationData(repo):
-    file = '../../_data/taps/integrations.yml'
-
-    with open(file, 'r') as f:
-        data = yaml.safe_load(f)
-        
-        integrations = data['integrations']
-
-        for i in integrations:
-            tap = integrations[i]['tap']
-            id = integrations[i]['id']
-            type = integrations[i]['type']
-            
-            if tap == repo:
-                integration_id = id
-                integration_type = type
-
-    return [integration_id, integration_type]
 
 def getFiles(repo, branch):
 
