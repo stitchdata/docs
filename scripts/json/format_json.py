@@ -1,4 +1,5 @@
 import json, re, os, sys
+from check_json_issues import checkJSONIssues
 
 def getType(format):
     type_formats = ['date-time', 'date', 'time', 'any']
@@ -236,6 +237,7 @@ def formatJSON(folder, json_output_folder):
             if filepath.endswith('.json'):
                 with open(filepath, 'r') as f:
                     json_content = f.read()
+                    output_file = json_output_folder + '/' + file
 
                     if '{0}shared{0}'.format(os.sep) in filepath or '{0}archive{0}'.format(os.sep) in filepath:
                         report = 'JSON file {} ignored'.format(file)
@@ -258,8 +260,11 @@ def formatJSON(folder, json_output_folder):
                                 json_content = replaceFormat(json_content)
                             
                             content = json.loads(json_content)
-                            with open(json_output_folder + '/' + file, 'w') as j:
+                            content = checkJSONIssues(content)
+                            with open(output_file, 'w') as j:
                                 json.dump(content, j, indent=2, sort_keys=True)
+                            
+                            
                         
                         except:
                             try:
@@ -272,9 +277,11 @@ def formatJSON(folder, json_output_folder):
                                     json_content = replaceFormat(json_content)
                                 
                                 content = json.loads(json_content)
-                                with open(json_output_folder + '/' + file, 'w') as j:
-                                    json.dump(content, j, indent=2, sort_keys=True)
+                                content = checkJSONIssues(content)
 
+                                
+                                with open(output_file, 'w') as j:
+                                    json.dump(content, j, indent=2, sort_keys=True)
                             except:
                                 report = 'JSON file {} ignored'.format(file)
                                 ignored.append(report)
