@@ -198,53 +198,48 @@
       ]
     },
     "PaymentTerms": {
-      "properties": {
-        "Bills": {
-          "additionalProperties": false,
-          "properties": {
-            "Day": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+      "Bills": {
+        "additionalProperties": false,
+        "properties": {
+          "Day": {
+            "type": [
+              "null",
+              "integer"
+            ]
           },
-          "type": [
-            "null",
-            "object"
-          ]
+          "Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
         },
-        "Sales": {
-          "additionalProperties": false,
-          "properties": {
-            "Day": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        }
+        "type": [
+          "null",
+          "object"
+        ]
       },
-      "type": [
-        "object"
-      ]
+      "Sales": {
+        "additionalProperties": false,
+        "properties": {
+          "Day": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "Type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      }
     },
     "PaysTax": {
       "type": [

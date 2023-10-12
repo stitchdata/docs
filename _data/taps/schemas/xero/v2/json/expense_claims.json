@@ -2603,73 +2603,68 @@
       ]
     },
     "User": {
-      "properties": {
-        "EmailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "FirstName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "IsSubscriber": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "LastName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "OrganisationRole": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "UpdatedDateUTC": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "UserID": {
-          "type": [
-            "string"
-          ]
-        },
-        "ValidationErrors": {
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "Message": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
+      "EmailAddress": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "FirstName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "IsSubscriber": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "LastName": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "OrganisationRole": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "UpdatedDateUTC": {
+        "type": [
+          "null",
+          "date-time"
+        ]
+      },
+      "UserID": {
+        "type": [
+          "string"
+        ]
+      },
+      "ValidationErrors": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "Message": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
           "type": [
             "null",
-            "array"
+            "object"
           ]
-        }
-      },
-      "type": [
-        "object"
-      ]
+        },
+        "type": [
+          "null",
+          "array"
+        ]
+      }
     }
   },
   "tap_schema_dependencies": [
