@@ -2603,68 +2603,73 @@
       ]
     },
     "User": {
-      "EmailAddress": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "FirstName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "IsSubscriber": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "LastName": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "OrganisationRole": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "UpdatedDateUTC": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "UserID": {
-        "type": [
-          "string"
-        ]
-      },
-      "ValidationErrors": {
-        "items": {
-          "additionalProperties": false,
-          "properties": {
-            "Message": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+      "properties": {
+        "EmailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "FirstName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "IsSubscriber": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "LastName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "OrganisationRole": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UpdatedDateUTC": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "UserID": {
+          "type": [
+            "string"
+          ]
+        },
+        "ValidationErrors": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "Message": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
           },
           "type": [
             "null",
-            "object"
+            "array"
           ]
-        },
-        "type": [
-          "null",
-          "array"
-        ]
-      }
+        }
+      },
+      "type": [
+        "object"
+      ]
     }
   },
   "tap_schema_dependencies": [

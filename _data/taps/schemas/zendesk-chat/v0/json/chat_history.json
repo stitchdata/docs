@@ -7,67 +7,72 @@
       ]
     },
     "conversion": {
-      "attribution": {
-        "properties": {
-          "agent_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
+      "properties": {
+        "attribution": {
+          "properties": {
+            "agent_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "agent_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "chat_timestamp": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "department_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "department_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
-          "agent_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "chat_timestamp": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "department_id": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "department_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "type": [
-          "null",
-          "object"
-        ]
+        "goal_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "goal_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "timestamp": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
       },
-      "goal_id": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "goal_name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "string"
-        ]
-      },
-      "timestamp": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "department_id": {
       "type": [

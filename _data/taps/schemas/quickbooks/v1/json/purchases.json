@@ -1,18 +1,23 @@
 {
   "properties": {
     "AccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "Credit": {
       "type": [
@@ -21,32 +26,42 @@
       ]
     },
     "CurrencyRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "DepartmentRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "DocNumber": {
       "type": [
@@ -495,18 +510,23 @@
       ]
     },
     "PaymentMethodRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "PaymentType": {
       "type": [
@@ -605,92 +625,102 @@
       ]
     },
     "RecurDataRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "RemitToAddr": {
-      "City": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "City": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CountrySubDivisionCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Lat": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Line1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Line2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Line3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Line4": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Line5": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Long": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "PostalCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "Country": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "CountrySubDivisionCode": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Lat": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line1": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line2": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line3": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line4": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Line5": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "Long": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "PostalCode": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "SyncToken": {
       "type": [
@@ -723,104 +753,114 @@
       ]
     },
     "TxnTaxDetail": {
-      "TaxLine": {
-        "items": {
-          "properties": {
-            "Amount": {
-              "type": [
-                "null",
-                "number"
-              ]
+      "properties": {
+        "TaxLine": {
+          "items": {
+            "properties": {
+              "Amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "DetailType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "TaxLineDetail": {
+                "properties": {
+                  "NetAmountTaxable": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "OverrideDeltaAmount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "PercentBased": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "TaxInclusiveAmount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "TaxPercent": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "TaxRateRef": {
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
             },
-            "DetailType": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "TotalTax": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "TxnTaxCodeRef": {
+          "properties": {
+            "name": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "TaxLineDetail": {
-              "properties": {
-                "NetAmountTaxable": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "OverrideDeltaAmount": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "PercentBased": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "TaxInclusiveAmount": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "TaxPercent": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "TaxRateRef": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "value": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
+            "value": {
               "type": [
                 "null",
-                "object"
+                "string"
               ]
             }
           },
           "type": [
-            "null",
             "object"
           ]
-        },
-        "type": [
-          "null",
-          "array"
-        ]
-      },
-      "TotalTax": {
-        "type": [
-          "null",
-          "number"
-        ]
-      },
-      "TxnTaxCodeRef": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": [
+        "object"
+      ]
     },
     "domain": {
       "type": [
@@ -829,7 +869,12 @@
       ]
     },
     "patternProperties": {
-      ".+": {}
+      "properties": {
+        ".+": {}
+      },
+      "type": [
+        "object"
+      ]
     }
   },
   "type": [

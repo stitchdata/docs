@@ -59,66 +59,71 @@
       ]
     },
     "definitions": {
-      "CallReportingSetting": {
-        "properties": {
-          "callConversionAction": {
-            "type": [
-              "null",
-              "string"
-            ]
+      "properties": {
+        "CallReportingSetting": {
+          "properties": {
+            "callConversionAction": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "callConversionReportingEnabled": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "callReportingEnabled": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
           },
-          "callConversionReportingEnabled": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "callReportingEnabled": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "type": [
-          "null",
-          "object"
-        ]
+        "ConversionTrackingSetting": {
+          "properties": {
+            "conversionTrackingId": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "crossAccountConversionTrackingId": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "RemarketingSetting": {
+          "properties": {
+            "googleGlobalSiteTag": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
       },
-      "ConversionTrackingSetting": {
-        "properties": {
-          "conversionTrackingId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "crossAccountConversionTrackingId": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "RemarketingSetting": {
-        "properties": {
-          "googleGlobalSiteTag": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "descriptiveName": {
       "type": [

@@ -233,132 +233,137 @@
       ]
     },
     "author": {
-      "avatar_url": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "avatar_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "events_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "followers_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "following_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "gists_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "gravatar_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "login": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "node_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "organizations_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "received_events_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "repos_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "site_admin": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "starred_at": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "starred_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subscriptions_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "email": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "events_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "followers_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "following_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "gists_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "gravatar_id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "html_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "login": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "node_id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "organizations_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "received_events_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "repos_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "site_admin": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "starred_at": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "starred_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "subscriptions_url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "body": {
       "type": [
@@ -439,66 +444,71 @@
       ]
     },
     "reactions": {
-      "+1": {
-        "type": [
-          "null",
-          "integer"
-        ]
+      "properties": {
+        "+1": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "-1": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "confused": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "eyes": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "heart": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "hooray": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "laugh": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "rocket": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "total_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "-1": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "confused": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "eyes": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "heart": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "hooray": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "laugh": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "rocket": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "total_count": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "url": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "tag_name": {
       "type": [

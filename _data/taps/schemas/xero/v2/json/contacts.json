@@ -198,29 +198,34 @@
       ]
     },
     "BrandingTheme": {
-      "BrandingThemeID": {
-        "type": [
-          "string"
-        ]
+      "properties": {
+        "BrandingThemeID": {
+          "type": [
+            "string"
+          ]
+        },
+        "CreatedDateUTC": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SortOrder": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
       },
-      "CreatedDateUTC": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "Name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "SortOrder": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "ContactGroups": {
       "items": {
@@ -370,48 +375,53 @@
       ]
     },
     "PaymentTerms": {
-      "Bills": {
-        "additionalProperties": false,
-        "properties": {
-          "Day": {
-            "type": [
-              "null",
-              "integer"
-            ]
+      "properties": {
+        "Bills": {
+          "additionalProperties": false,
+          "properties": {
+            "Day": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "Type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
-          "Type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "type": [
-          "null",
-          "object"
-        ]
+        "Sales": {
+          "additionalProperties": false,
+          "properties": {
+            "Day": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "Type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
       },
-      "Sales": {
-        "additionalProperties": false,
-        "properties": {
-          "Day": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "Type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "Phones": {
       "items": {

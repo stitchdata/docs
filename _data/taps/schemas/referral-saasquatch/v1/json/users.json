@@ -1,8 +1,13 @@
 {
   "properties": {
     "accountId": {
-      "key": true,
-      "type": "string"
+      "properties": {
+        "key": true,
+        "type": "string"
+      },
+      "type": [
+        "object"
+      ]
     },
     "dateCreated": {
       "anyOf": [
@@ -33,8 +38,13 @@
       "type": "string"
     },
     "id": {
-      "key": true,
-      "type": "string"
+      "properties": {
+        "key": true,
+        "type": "string"
+      },
+      "type": [
+        "object"
+      ]
     },
     "imageUrl": {
       "type": "string"

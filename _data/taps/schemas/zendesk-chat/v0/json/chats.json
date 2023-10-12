@@ -98,24 +98,29 @@
       ]
     },
     "count": {
-      "agent": {
-        "type": [
-          "null",
-          "integer"
-        ]
+      "properties": {
+        "agent": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "total": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "visitor": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
       },
-      "total": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "visitor": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "department_id": {
       "type": [
@@ -363,25 +368,30 @@
       ]
     },
     "response_time": {
-      "avg": {
-        "type": [
-          "null",
-          "number",
-          "integer"
-        ]
+      "properties": {
+        "avg": {
+          "type": [
+            "null",
+            "number",
+            "integer"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "max": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
       },
-      "first": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "max": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "session": {
       "type": [
@@ -438,35 +448,40 @@
       ]
     },
     "visitor": {
-      "email": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "notes": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "id": {
-        "type": [
-          "string"
-        ]
-      },
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "notes": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "phone": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "webpath": {
       "items": {

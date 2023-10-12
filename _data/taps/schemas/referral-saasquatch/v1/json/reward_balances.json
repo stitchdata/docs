@@ -1,8 +1,13 @@
 {
   "properties": {
     "accountId": {
-      "key": true,
-      "type": "string"
+      "properties": {
+        "key": true,
+        "type": "string"
+      },
+      "type": [
+        "object"
+      ]
     },
     "amount": {
       "type": "integer"
@@ -14,8 +19,13 @@
       "type": "string"
     },
     "userId": {
-      "key": true,
-      "type": "string"
+      "properties": {
+        "key": true,
+        "type": "string"
+      },
+      "type": [
+        "object"
+      ]
     }
   },
   "type": "object"
