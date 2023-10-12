@@ -3,18 +3,23 @@
     "CashBack": {
       "properties": {
         "AccountRef": {
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
-          "value": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
+          "type": [
+            "object"
+          ]
         },
         "Amount": {
           "type": [
@@ -35,46 +40,61 @@
       ]
     },
     "CurrencyRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "DepartmentRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "DepositToAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "ExchangeRate": {
       "type": [
@@ -325,18 +345,23 @@
       ]
     },
     "RecurDataRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "SyncToken": {
       "type": [
@@ -369,104 +394,114 @@
       ]
     },
     "TxnTaxDetail": {
-      "TaxLine": {
-        "items": {
-          "properties": {
-            "Amount": {
-              "type": [
-                "null",
-                "number"
-              ]
+      "properties": {
+        "TaxLine": {
+          "items": {
+            "properties": {
+              "Amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "DetailType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "TaxLineDetail": {
+                "properties": {
+                  "NetAmountTaxable": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "OverrideDeltaAmount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "PercentBased": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "TaxInclusiveAmount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "TaxPercent": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "TaxRateRef": {
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "value": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
             },
-            "DetailType": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "TotalTax": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "TxnTaxCodeRef": {
+          "properties": {
+            "name": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "TaxLineDetail": {
-              "properties": {
-                "NetAmountTaxable": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "OverrideDeltaAmount": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "PercentBased": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "TaxInclusiveAmount": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "TaxPercent": {
-                  "type": [
-                    "null",
-                    "number"
-                  ]
-                },
-                "TaxRateRef": {
-                  "name": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "value": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  }
-                }
-              },
+            "value": {
               "type": [
                 "null",
-                "object"
+                "string"
               ]
             }
           },
           "type": [
-            "null",
             "object"
           ]
-        },
-        "type": [
-          "null",
-          "array"
-        ]
-      },
-      "TotalTax": {
-        "type": [
-          "null",
-          "number"
-        ]
-      },
-      "TxnTaxCodeRef": {
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "null",
-            "string"
-          ]
         }
-      }
+      },
+      "type": [
+        "object"
+      ]
     },
     "domain": {
       "type": [

@@ -100,184 +100,189 @@
       ]
     },
     "plan": {
-      "active": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "aggregate_usage": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "amount": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "amount_decimal": {
-        "type": [
-          "null",
-          "number"
-        ]
-      },
-      "billing_scheme": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "created": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "currency": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "id": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "interval": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "interval_count": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "livemode": {
-        "type": [
-          "null",
-          "boolean"
-        ]
-      },
-      "metadata": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "nickname": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "object": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "product": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "statement_description": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "statement_descriptor": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "tiers": {
-        "items": {
-          "properties": {
-            "flat_amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "unit_amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "up_to": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            }
-          },
+      "properties": {
+        "active": {
           "type": [
             "null",
-            "string",
+            "boolean"
+          ]
+        },
+        "aggregate_usage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "amount_decimal": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "billing_scheme": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "livemode": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "metadata": {
+          "properties": {},
+          "type": [
+            "null",
             "object"
           ]
         },
-        "type": [
-          "null",
-          "array"
-        ]
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statement_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statement_descriptor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tiers": {
+          "items": {
+            "properties": {
+              "flat_amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "unit_amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "up_to": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "tiers_mode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transform_usage": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "trial_period_days": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "updated": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "updated_by_event_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "usage_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "tiers_mode": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "transform_usage": {
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "trial_period_days": {
-        "type": [
-          "null",
-          "integer"
-        ]
-      },
-      "updated": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "updated_by_event_type": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "usage_type": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "proration": {
       "type": [

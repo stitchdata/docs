@@ -13,32 +13,42 @@
       ]
     },
     "AssetAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "ClassRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "Description": {
       "type": [
@@ -47,18 +57,23 @@
       ]
     },
     "ExpenseAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "FullyQualifiedName": {
       "type": [
@@ -73,18 +88,23 @@
       ]
     },
     "IncomeAccountRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "InvStartDate": {
       "type": [
@@ -131,32 +151,42 @@
       ]
     },
     "ParentRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "PrefVendorRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "PurchaseCost": {
       "type": [
@@ -172,18 +202,23 @@
       ]
     },
     "PurchaseTaxCodeRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "PurchaseTaxIncluded": {
       "type": [
@@ -210,18 +245,23 @@
       ]
     },
     "SalesTaxCodeRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "SalesTaxIncluded": {
       "type": [
@@ -260,18 +300,23 @@
       ]
     },
     "TaxClassificationRef": {
-      "name": {
-        "type": [
-          "null",
-          "string"
-        ]
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "value": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "Taxable": {
       "type": [
@@ -316,7 +361,12 @@
       ]
     },
     "patternProperties": {
-      ".+": {}
+      "properties": {
+        ".+": {}
+      },
+      "type": [
+        "object"
+      ]
     }
   },
   "type": [

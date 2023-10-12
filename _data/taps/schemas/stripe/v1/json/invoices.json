@@ -389,141 +389,146 @@
       ]
     },
     "discount": {
-      "coupon": {
-        "properties": {
-          "amount_off": {
-            "type": [
-              "null",
-              "integer"
-            ]
+      "properties": {
+        "coupon": {
+          "properties": {
+            "amount_off": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "created": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "duration": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "duration_in_months": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "livemode": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "max_redemptions": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "metadata": {
+              "properties": {},
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "object": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "percent_off": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "percent_off_precise": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "redeem_by": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "times_redeemed": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "valid": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
           },
-          "created": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "currency": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "duration": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "duration_in_months": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "livemode": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "max_redemptions": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "metadata": {
-            "properties": {},
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "object": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "percent_off": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "percent_off_precise": {
-            "type": [
-              "null",
-              "number"
-            ]
-          },
-          "redeem_by": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "times_redeemed": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "valid": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
+          "type": [
+            "null",
+            "object"
+          ]
         },
-        "type": [
-          "null",
-          "object"
-        ]
+        "customer": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "end": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "start": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "subscription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
       },
-      "customer": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "end": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "object": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "start": {
-        "type": [
-          "null",
-          "date-time"
-        ]
-      },
-      "subscription": {
-        "type": [
-          "null",
-          "string"
-        ]
-      }
+      "type": [
+        "object"
+      ]
     },
     "discounts": {
       "items": {
