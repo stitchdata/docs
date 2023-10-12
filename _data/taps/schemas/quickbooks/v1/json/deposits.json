@@ -130,46 +130,56 @@
             ]
           },
           "CustomField": {
-            "DefinitionId": {
-              "type": [
-                "null",
-                "string"
-              ]
+            "properties": {
+              "DefinitionId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "Name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "StringValue": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "Type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
             },
-            "Name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "StringValue": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "Type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+            "type": [
+              "object"
+            ]
           },
           "DepositLineDetail": {
             "properties": {
               "AccountRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "CheckNum": {
                 "type": [
@@ -178,46 +188,61 @@
                 ]
               },
               "ClassRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "Entity": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "PaymentMethodRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "TaxApplicableOn": {
                 "type": [
@@ -226,18 +251,23 @@
                 ]
               },
               "TaxCodeRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "TxnType": {
                 "type": [
@@ -443,18 +473,23 @@
                     ]
                   },
                   "TaxRateRef": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
                     },
-                    "value": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
+                    "type": [
+                      "object"
+                    ]
                   }
                 },
                 "type": [

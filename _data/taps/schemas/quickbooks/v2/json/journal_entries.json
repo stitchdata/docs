@@ -90,26 +90,31 @@
             ]
           },
           "DescriptionLineDetail": {
-            "ServiceDate": {
-              "type": [
-                "null",
-                "date-time"
-              ]
-            },
-            "TaxCodeRef": {
-              "name": {
+            "properties": {
+              "ServiceDate": {
                 "type": [
                   "null",
-                  "string"
+                  "date-time"
                 ]
               },
-              "value": {
-                "type": [
-                  "null",
-                  "string"
-                ]
+              "TaxCodeRef": {
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
               }
-            }
+            },
+            "type": [
+              "object"
+            ]
           },
           "DetailType": {
             "type": [
@@ -126,18 +131,23 @@
           "JournalEntryLineDetail": {
             "properties": {
               "AccountRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "BillableStatus": {
                 "type": [
@@ -146,48 +156,63 @@
                 ]
               },
               "ClassRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "DepartmentRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "Entity": {
                 "properties": {
                   "EntityRef": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
                     },
-                    "value": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
+                    "type": [
+                      "object"
+                    ]
                   },
                   "Type": {
                     "type": [
@@ -202,18 +227,23 @@
                 ]
               },
               "JournalCodeRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "PostingType": {
                 "type": [
@@ -234,18 +264,23 @@
                 ]
               },
               "TaxCodeRef": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "object"
+                ]
               },
               "TaxInclusiveAmt": {
                 "type": [
@@ -414,18 +449,23 @@
                     ]
                   },
                   "TaxRateRef": {
-                    "name": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
                     },
-                    "value": {
-                      "type": [
-                        "null",
-                        "string"
-                      ]
-                    }
+                    "type": [
+                      "object"
+                    ]
                   }
                 },
                 "type": [
