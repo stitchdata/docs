@@ -39,11 +39,8 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
-    - day
+    - server
     - remote_ip
-    - user_agent
-    - visitor_id
-    replication-key: day
 - name: features
   description: 'The `{{ table.name }}` table contains info about app features listed
     in your {{ integration.display_name }} account.
@@ -73,12 +70,12 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
+    - server
+    - remote_ip
+    - visitor_id
     - day
     - feature_id
-    - remote_ip
     - user_agent
-    - visitor_id
-    replication-key: day
 - name: guides
   description: 'The `{{ table.name }}` table contains info about the guides in your
     {{ integration.display_name }} account.
@@ -108,12 +105,14 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
+    - server
+    - remote_ip
     - browser_time
+    - visitor_id
     - guide_id
     - guide_step_id
     - type
     - url
-    - visitor_id
     replication-key: browser_time
 - name: metadata_accounts
   description: 'The `{{ table.name }}` table contains info about the metadata schema
@@ -166,12 +165,12 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
+    - server
+    - remote_ip
+    - visitor_id
     - day
     - page_id
-    - remote_ip
     - user_agent
-    - visitor_id
-    replication-key: day
 - name: poll_events
   description: 'The `{{ table.name }}` table contains info about poll events recorded
     in your {{ integration.display_name }} account.
@@ -188,9 +187,10 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
+    - remote_ip
+    - visitor_id
     - browser_time
     - poll_id
-    - visitor_id
     replication-key: browser_time
 - name: track_events
   description: 'The `{{ table.name }}` table contains info about the track events
@@ -208,12 +208,12 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
-    - day
     - remote_ip
+    - server
+    - visitor_id
+    - day
     - track_type_id
     - user_agent
-    - visitor_id
-    replication-key: day
 - name: track_types
   description: "The `{{ table.name }}` table contains info about \n"
   links:
@@ -223,7 +223,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: last_updated_at
 - name: visitors
   description: 'The `{{ table.name }}` table contains info about the visitors recorded
     in your {{ integration.display_name }} account.

@@ -2,78 +2,83 @@
   "additional_properties": false,
   "properties": {
     "agent": {
-      "language": {
-        "additionalProperties": false,
-        "properties": {
-          "dirty": {
-            "type": [
-              "null",
-              "boolean"
-            ]
+      "properties": {
+        "language": {
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
           },
-          "display_name": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "element_format": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "element_type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "is_calculated": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "is_deleted": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "is_hidden": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "is_per_app": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "never_index": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "type": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": "object"
-      }
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
     },
     "auto": {
       "additional_properties": false,
       "properties": {
         "accountid": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -136,10 +141,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "accountids": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -202,10 +208,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "firstvisit": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -268,10 +275,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "id": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -334,10 +342,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "lastbrowsername": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -400,10 +409,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "lastbrowserversion": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -466,10 +476,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "lastoperatingsystem": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -532,10 +543,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "lastservername": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -598,85 +610,11 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         },
         "lastvisit": {
-          "additionalProperties": false,
-          "properties": {
-            "dirty": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "display_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "element_format": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "element_type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "is_calculated": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_deleted": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_hidden": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_per_app": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "never_index": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "type": "object"
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "custom": {
-      "additional_properties": "false",
-      "properties": {
-        "testcustomfield": {
-          "additional_properties": "false",
           "properties": {
             "dirty": {
               "type": [
@@ -740,145 +678,6 @@
             }
           },
           "type": [
-            "null",
-            "object"
-          ]
-        },
-        "testcustomfield2": {
-          "additional_properties": "false",
-          "properties": {
-            "dirty": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "display_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "element_format": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "element_type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "is_calculated": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_deleted": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_hidden": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_per_app": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "never_index": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "testcustomfield3": {
-          "additional_properties": "false",
-          "properties": {
-            "dirty": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "display_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "element_format": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "element_type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "is_calculated": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_deleted": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_hidden": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "is_per_app": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "never_index": {
-              "type": [
-                "null",
-                "boolean"
-              ]
-            },
-            "type": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "type": [
-            "null",
             "object"
           ]
         }
@@ -892,7 +691,6 @@
       "additional_properties": false,
       "properties": {
         "designerenabled": {
-          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -955,7 +753,9 @@
               ]
             }
           },
-          "type": "object"
+          "type": [
+            "object"
+          ]
         }
       },
       "type": [
