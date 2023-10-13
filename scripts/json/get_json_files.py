@@ -3,6 +3,7 @@ from datetime import datetime as dt
 from format_json import formatJSON
 from check_table_data import checkTableData
 from get_integration_data import getIntegrationData
+from get_table_data import getTableData
 
 # GitHub info
 github_token = sys.argv[1]
@@ -38,88 +39,6 @@ def getTags(repo):
                 version_tags.append(name)
     
     return version_tags
-
-def getTableData(integration, version, schema_list):
-
-    table_list = []
-    not_found = []
-
-    new = []
-
-    
-    folder = '../../_data/taps/schemas/{0}/v{1}'.format(integration, version)
-    file = '{2}/{0}-v{1}-tables.yml'.format(integration, version, folder)
-
-    if os.path.exists(file):
-        with open(file, 'r') as f:
-            data = yaml.safe_load(f)
-
-            tables = data['tables']
-
-            for table in tables:
-                table_name = table['name']
-                table_list.append(table_name)
-    else:
-        if os.path.exists(folder):
-            pass
-        else:
-            os.makedirs(folder)
-
-        data = {
-            'tap': integration,
-            'version': version,
-            'tables': []
-        }
-
-    for table in schema_list:
-        if table not in table_list:
-
-            new.append(table)
-
-            table_data = {
-                'name': table,
-                'description': '',
-                'links': {
-                    'singer-schema': '',
-                    'doc-link': ''
-                },
-                'table-details': {
-                    'replication-method': '',
-                    'primary-key': '',
-                    'replication-key': ''
-                }
-            }
-
-            data['tables'].append(table_data)
-
-    
-    for table in table_list:
-        if table not in schema_list:
-            status = 'not_found'
-            for t in data['tables']:
-                if t['name'] == table:
-                    t['status'] = status
-                    not_found.append(table)
-        else:
-            for t in data['tables']:
-                if t['name'] == table: 
-                    try:
-                        t.pop('status')
-                    except:
-                        pass
-
-
-    with open (file, 'w', encoding='utf-8') as out:
-        yaml.dump(data, out, default_flow_style=False, sort_keys=False)
-
-
-    if len(new) > 0:
-        print('The following tables have been added to {}:'.format(file.replace('../../', '')))
-        print(*new, sep='\n')
-
-    if len(not_found) > 0:
-        print('The following tables exist in {} but were not found in the repository:'.format(file.replace('../../', '')))
-        print(*not_found, sep='\n')
 
 def getTapData(setup_file):
 
