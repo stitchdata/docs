@@ -23,6 +23,7 @@ jobs:
         with:
           packages: |
             pyyaml
+            pandas
 
       - name: Generate foreign keys
         run: python generate_foreign_keys.py
