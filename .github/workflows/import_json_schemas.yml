@@ -12,7 +12,7 @@ on:
         required: false
 
 jobs:
-  generate-changelog:
+  import-schemas:
     runs-on: ubuntu-latest
     steps:      
       - name: Get current date
@@ -47,6 +47,7 @@ jobs:
         with:
           packages: |
             requests
+            yaml
 
       - name: Get JSON files
         run: python get_json_files.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.inputs.repo }} ${{ github.event.inputs.branch }}
