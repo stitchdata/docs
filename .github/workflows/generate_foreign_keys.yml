@@ -3,8 +3,8 @@ on:
   push:
     paths:
       - '**-foreign-keys.yml'
-    branches:
-      - '!master'
+    branches-ignore:
+      - 'master'
 
 jobs:
   generate-foreign-keys:
