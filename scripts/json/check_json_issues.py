@@ -1,5 +1,3 @@
-import json, os
-
 # Fix issue when the parent element doesn't hae "properties" and the child element doesn't either
 
 def fixProperty(property):
@@ -55,7 +53,3 @@ def checkJSONIssues(json_content):
     props = fixProperty(props)
     
     return json_content
-
-# with open('../../_data/taps/schemas/xero/v1/json/allocations.json', 'r') as f:
-#     json_content = json.load(f)
-#     checkJSONIssues(json_content)

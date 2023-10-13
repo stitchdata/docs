@@ -1,5 +1,4 @@
-import requests, re, base64, json, datetime, os, pandas, sys, zipfile, yaml, shutil
-from datetime import datetime as dt
+import requests, re, json, os, sys, zipfile, yaml, shutil
 from format_json import formatJSON
 from check_table_data import checkTableData
 from get_integration_data import getIntegrationData
