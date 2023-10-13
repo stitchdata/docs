@@ -85,18 +85,18 @@ def convertForeignKeys(file):
 
                 output_data['keys'][id].append(target_table_data)
 
-    with open ('../../_data/taps/schemas/{0}/v{1}/{0}-v{1}-foreign-keys.yml'.format(integration, version), 'w', encoding='utf-8') as out:
+    with open (../../../data/taps/schemas/{0}/v{1}/{0}-v{1}-foreign-keys.yml'.format(integration, version), 'w', encoding='utf-8') as out:
 
         y = yaml.safe_dump(output_data, out, default_flow_style=False, sort_keys=False)
 
 
-for root, dirs, files in os.walk('../../_integration-schemas'):
+for root, dirs, files in os.walk(../../../integration-schemas'):
     for file in files:
         if file == 'foreign-keys.md':
             file = os.path.join(root, file)
             try:
                 convertForeignKeys(file)
             except:
-                issues.append(file.replace('../../_integration-schemas\\', '').replace('\\', '-').replace('-foreign-keys.md', ''))
+                issues.append(file.replace(../../../integration-schemas\\', '').replace('\\', '-').replace('-foreign-keys.md', ''))
 
 print(*issues, sep='\n')

@@ -30,7 +30,7 @@ def getSchemaData(file, type):
 for folder in folders:
     dir = folder[0]
     type = folder[1]
-    for root, dirs, files in os.walk('../../' + dir):
+    for root, dirs, files in os.walk(../../../ + dir):
         for file in files:
             if file.endswith('.md'):
                 file = os.path.join(root, file)
@@ -63,6 +63,6 @@ for index, row in new.iterrows():
 
     integration_data['integrations'][id] = data
 
-with open ('../../_data/taps/integrations.yml', 'w', encoding='utf-8') as out:
+with open (../../../data/taps/integrations.yml', 'w', encoding='utf-8') as out:
     yaml.dump(integration_data, out, default_flow_style=False)
 
