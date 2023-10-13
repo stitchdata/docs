@@ -3,8 +3,6 @@ import yaml
 def getIntegrationData(repo):
     file = '../../_data/taps/integrations.yml'
 
-    print(repo)
-
     with open(file, 'r') as f:
         data = yaml.safe_load(f)
         
@@ -17,7 +15,6 @@ def getIntegrationData(repo):
             
             if tap == repo:
                 integration_id = id
-                print(integration_id)
                 integration_type = type
 
     return [integration_id, integration_type]
