@@ -42,13 +42,13 @@ def getFKByTable(file):
             table_keys = key_df.loc[key_df['table_name'] == table]
 
             for index, row in table_keys.iterrows():
-                id = row[1]
+                id = row['key_id']
                 table_ids.append(id)
             
             targets = key_df.loc[(key_df['table_name'] != table) & (key_df['key_id'].isin(table_ids))]
             
             for index, row in targets.iterrows():
-                target_table = row[0]
+                target_table = row['table_name']
                 target_tables.append(target_table)
 
             for target_table in target_tables:
@@ -61,13 +61,13 @@ def getFKByTable(file):
                 target_keys = key_df.loc[(key_df['table_name'] == target_table) & (key_df['key_id'].isin(table_ids))]
                 
                 for index, row in target_keys.iterrows():
-                    key_id = row[1]
-                    target_key = row[2]
+                    key_id = row['key_id']
+                    target_key = row['table_key']
 
                     matching_keys = table_keys.loc[key_df['key_id'] == key_id]
                     
                     for i, r in matching_keys.iterrows():
-                        source_key = r[2]
+                        source_key = r['table_key']
 
                         key_data = {
                             'key': source_key,
