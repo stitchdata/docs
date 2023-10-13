@@ -1,0 +1,87 @@
+name: Get JSON schemas from catalog JSON file
+on:
+  workflow_dispatch:
+    inputs:
+      tap:
+        type: string
+        description: 'Name of the tap'
+        required: true
+      version:
+        type: number
+        description: 'Tap major version'
+        required: true
+      branch:
+        type: string
+        description: 'Name of your branch on the docs repository'
+        required: true
+      file:
+        type: string
+        description: 'Name of the JSON file added to the scripts/json folder'
+        required: true
+      pr:
+        type: boolean
+        description: 'Create pull request?'
+        required: true
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Get current date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Clone repository
+        uses: actions/checkout@v3
+      
+      - name: Checkout branch
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git fetch
+          git checkout ${{ github.event.inputs.branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Python modules
+        uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            requests
+
+      - name: Get JSON files
+        run: python manual_json_import.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.inputs.tap }} ${{ github.event.inputs.version }} ${{ github.event.inputs.file }}
+        working-directory: ./scripts/json
+
+      - name: Check for changes
+        id: get_changes
+        run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
+      
+      - name: Commit changes
+        if: steps.get_changes.outputs.changed != 0
+        run: |
+          git add -A
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name 'github-actions'
+          git commit -am "Automated commit: Generate JSON schemas"
+      
+      - name: Push changes
+        if: steps.get_changes.outputs.changed != 0
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.event.inputs.branch }}
+
+      - name: Create pull request
+        if: steps.get_changes.outputs.changed != 0 && ${{ github.event.inputs.pr }} == true
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ github.event.inputs.branch }}
+          destination_branch: "master"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_label: "json-schemas-update"
+          pr_title: ${{ github.event.inputs.tap }} JSON schema updates ${{ env.date }}
+          pr_draft: true
+          pr_assignee: ${{ github.actor }}
+          pr_reviewer: "lmilan"

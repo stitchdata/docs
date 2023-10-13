@@ -1,0 +1,86 @@
+name: Import JSON schemas
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        type: string
+        description: 'Name of the Singer repository'
+        required: true
+      branch:
+        type: string
+        description: 'Name of the Singer repository branch'
+        required: false
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Get current date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Generate new branch name
+        run: echo "branch=schemas-${{ github.event.inputs.repo }}-${{ github.actor }}-${{ env.date }}" >> $GITHUB_ENV
+
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Create new branch
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git fetch
+#          git checkout master
+          git checkout TDL-23186-json-schema
+          git branch ${{ env.branch }}
+      
+      - name: Checkout branch
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git fetch
+          git checkout ${{ env.branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Python modules
+        uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            requests
+
+      - name: Get JSON files
+        run: python get_json_files.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.inputs.repo }} ${{ github.event.inputs.branch }}
+        working-directory: ./scripts/json
+
+      - name: Check for changes
+        id: get_changes
+        run: echo "::set-output name=changed::$(git status --porcelain | wc -l)"
+      
+      - name: Commit changes
+        if: steps.get_changes.outputs.changed != 0
+        run: |
+          git add -A
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name 'github-actions'
+          git commit -am "Automated commit: Add JSON schemas"
+      
+      - name: Push changes
+        if: steps.get_changes.outputs.changed != 0
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ env.branch }}
+
+      - name: Create pull request
+        if: steps.get_changes.outputs.changed != 0
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ env.branch }}
+          destination_branch: "master"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_label: "json-schemas-update"
+          pr_title: ${{ github.event.inputs.repo }} JSON schema updates ${{ env.date }}
+          pr_draft: true
+          pr_assignee: ${{ github.actor }}
+          pr_reviewer: "lmilan"
