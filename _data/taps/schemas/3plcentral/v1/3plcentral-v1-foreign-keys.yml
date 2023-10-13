@@ -5,6 +5,10 @@ keys:
   - table: customers
     keys:
     - customer_id
+  - table: sku_items
+    keys:
+    - customer_id
+    - customer_identifier.id
   - table: stock_details
     keys:
     - customer_id
