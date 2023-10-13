@@ -13,7 +13,7 @@ def getSchemaData(file):
         if i not in elements:
             elements.append(i)
 
-for root, dirs, files in os.walk('../../../integration-schemas'):
+for root, dirs, files in os.walk('../../../_integration-schemas'):
     for file in files:
         if file.endswith('.md') and file != 'foreign-keys.md':
             file_count += 1
