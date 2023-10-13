@@ -115,7 +115,7 @@ def getSchemaData(file):
 
     return errors
 
-for root, dirs, files in os.walk('../../../_integration-schemas'):
+for root, dirs, files in os.walk(''../../../_integration-schemas'):
     for file in files:
         if file.endswith('.md') and file != 'foreign-keys.md':
             file_count += 1
@@ -140,7 +140,7 @@ for tap in taps:
     }
 
 
-    path = '../../../_data/taps/schemas/{0}/v{1}'.format(tap_name, tap_version)
+    path = ''../../../_data/taps/schemas/{0}/v{1}'.format(tap_name, tap_version)
     if os.path.exists(path):
         pass
     else:

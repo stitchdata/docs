@@ -1,7 +1,7 @@
 import os, frontmatter, json, yaml
 
-integrations_file = ../../../data/taps/integrations.yml'
-schema_folder = ../../../integration-schemas/'
+integrations_file = '../../../data/taps/integrations.yml'
+schema_folder = '../../../integration-schemas/'
 
 def formatProperties(properties):
     json_out = {}
@@ -45,7 +45,7 @@ with open(integrations_file, 'r') as f:
 
                         filename = file.replace('.md', '.json')
 
-                        output_dir = ../../../data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
+                        output_dir = '../../../data/taps/schemas/{0}/v{1}/json'.format(integration_id, tap_version)
 
                         if os.path.exists(output_dir):
                             pass

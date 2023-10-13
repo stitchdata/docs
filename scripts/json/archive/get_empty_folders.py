@@ -1,6 +1,6 @@
 import os
 
-integrations_folder = ../../../data/taps/schemas'
+integrations_folder = '../../../data/taps/schemas'
 integrations = os.listdir(integrations_folder)
 
 empty = []
