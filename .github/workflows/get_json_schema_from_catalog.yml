@@ -49,7 +49,7 @@ jobs:
         with:
           packages: |
             requests
-            yaml
+            pyyaml
 
       - name: Get JSON files
         run: python manual_json_import.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.inputs.tap }} ${{ github.event.inputs.version }} ${{ github.event.inputs.file }}

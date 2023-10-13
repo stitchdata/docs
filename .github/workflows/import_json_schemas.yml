@@ -47,7 +47,7 @@ jobs:
         with:
           packages: |
             requests
-            yaml
+            pyyaml
 
       - name: Get JSON files
         run: python get_json_files.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.inputs.repo }} ${{ github.event.inputs.branch }}
