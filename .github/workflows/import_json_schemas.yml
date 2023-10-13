@@ -28,7 +28,6 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git fetch
-#          git checkout master
           git checkout TDL-23186-json-schema
           git branch ${{ env.branch }}
       
