@@ -44,7 +44,7 @@ def fixProperty(property):
                         new_content[item] = content[item]
                     for item in new_content:
                         content.pop(item)
-                        content = fixProperty(content)
+                    new_content = fixProperty(new_content)
                     content['properties'] = new_content
                     content['type'] = ['object']
 
