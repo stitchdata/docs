@@ -1,4 +1,4 @@
-import sys, json, re
+import sys, json, re, os
 from format_json import replaceFormat
 from get_integration_data import getIntegrationData
 from get_table_data import getTableData, updateTableData
@@ -91,4 +91,6 @@ if issues_count > 0:
         f.writelines([string + '\n' for string in issue_list])
 
     print('{0} issues found, check {1} for details.'.format(issues_count, issues_file.replace('../../', '')))
+
+os.remove(discovery_file)
 
