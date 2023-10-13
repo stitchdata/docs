@@ -120,6 +120,16 @@ keys:
 tables:
 - table-name: customers
   join:
+  - table-name: sku_items
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: customer_identifier.id
+    - key: facilities.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: primary_facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
   - table-name: stock_details
     keys:
     - key: customer_id
@@ -176,18 +186,98 @@ tables:
       foreign-key: facility_identifier.id
     - key: primary_facility_identifier.id
       foreign-key: facility_identifier.id
-  - table-name: sku_items
-    keys:
-    - key: facilities.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: primary_facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
   - table-name: stock_summaries
     keys:
     - key: facilities.id
       foreign-key: facility_id
     - key: primary_facility_identifier.id
       foreign-key: facility_id
+- table-name: sku_items
+  join:
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: facilities.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: primary_facility_identifier.id
+  - table-name: stock_details
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: location_identifier.name_key.facility_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: pallet_identifier.name_key.facility_identifier.id
+    - key: item_identifier.id
+      foreign-key: item_identifier.id
+    - key: kit.components.item_identifier.id
+      foreign-key: item_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.id
+      foreign-key: location_identifier.id
+  - table-name: inventory
+    keys:
+    - key: customer_id
+      foreign-key: customer_identifier.id
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: facility_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: location_identifier.name_key.facility_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: pallet_identifier.name_key.facility_identifier.id
+    - key: item_identifier.id
+      foreign-key: item_identifier.id
+    - key: kit.components.item_identifier.id
+      foreign-key: item_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.id
+      foreign-key: location_identifier.id
+  - table-name: locations
+    keys:
+    - key: customer_id
+      foreign-key: customer_identifier.id
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: facility_id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: item_traits.pallet_identifier.name_key.facility_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: location_identifier.name_key.facility_identifier.id
+    - key: item_id
+      foreign-key: item_traits.item_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.id
+      foreign-key: location_id
+    - key: options.directed_put_away.preferred_location_identifier.id
+      foreign-key: location_identifier.id
+  - table-name: orders
+    keys:
+    - key: customer_id
+      foreign-key: customer_identifier.id
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: customer_id
+      foreign-key: batch_identifier.name_key.customer_identifier.id
+    - key: customer_identifier.id
+      foreign-key: batch_identifier.name_key.customer_identifier.id
+    - key: customer_id
+      foreign-key: retailer_info.name_key.customer_identifier.id
+    - key: customer_identifier.id
+      foreign-key: retailer_info.name_key.customer_identifier.id
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: facility_identifier.id
+  - table-name: stock_summaries
+    keys:
+    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+      foreign-key: facility_id
+    - key: item_id
+      foreign-key: item_id
 - table-name: stock_details
   join:
   - table-name: customers
@@ -202,6 +292,22 @@ tables:
       foreign-key: primary_facility_identifier.id
     - key: pallet_identifier.name_key.facility_identifier.id
       foreign-key: primary_facility_identifier.id
+  - table-name: sku_items
+    keys:
+    - key: customer_id
+      foreign-key: customer_id
+    - key: customer_id
+      foreign-key: customer_identifier.id
+    - key: location_identifier.name_key.facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: pallet_identifier.name_key.facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: item_identifier.id
+      foreign-key: item_identifier.id
+    - key: item_identifier.id
+      foreign-key: kit.components.item_identifier.id
+    - key: location_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.id
   - table-name: inventory
     keys:
     - key: customer_id
@@ -264,18 +370,6 @@ tables:
       foreign-key: facility_identifier.id
     - key: pallet_identifier.name_key.facility_identifier.id
       foreign-key: facility_identifier.id
-  - table-name: sku_items
-    keys:
-    - key: location_identifier.name_key.facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: pallet_identifier.name_key.facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
-    - key: item_identifier.id
-      foreign-key: kit.components.item_identifier.id
-    - key: location_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.id
   - table-name: stock_summaries
     keys:
     - key: location_identifier.name_key.facility_identifier.id
@@ -300,6 +394,24 @@ tables:
       foreign-key: primary_facility_identifier.id
     - key: pallet_identifier.name_key.facility_identifier.id
       foreign-key: primary_facility_identifier.id
+  - table-name: sku_items
+    keys:
+    - key: customer_identifier.id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: location_identifier.name_key.facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: pallet_identifier.name_key.facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: item_identifier.id
+      foreign-key: item_identifier.id
+    - key: item_identifier.id
+      foreign-key: kit.components.item_identifier.id
+    - key: location_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.id
   - table-name: stock_details
     keys:
     - key: customer_identifier.id
@@ -370,20 +482,6 @@ tables:
       foreign-key: facility_identifier.id
     - key: pallet_identifier.name_key.facility_identifier.id
       foreign-key: facility_identifier.id
-  - table-name: sku_items
-    keys:
-    - key: facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: location_identifier.name_key.facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: pallet_identifier.name_key.facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
-    - key: item_identifier.id
-      foreign-key: kit.components.item_identifier.id
-    - key: location_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.id
   - table-name: stock_summaries
     keys:
     - key: facility_identifier.id
@@ -410,6 +508,24 @@ tables:
       foreign-key: primary_facility_identifier.id
     - key: location_identifier.name_key.facility_identifier.id
       foreign-key: primary_facility_identifier.id
+  - table-name: sku_items
+    keys:
+    - key: customer_identifier.id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: facility_id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: item_traits.pallet_identifier.name_key.facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: location_identifier.name_key.facility_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+    - key: item_traits.item_identifier.id
+      foreign-key: item_id
+    - key: location_id
+      foreign-key: options.directed_put_away.preferred_location_identifier.id
+    - key: location_identifier.id
+      foreign-key: options.directed_put_away.preferred_location_identifier.id
   - table-name: stock_details
     keys:
     - key: customer_identifier.id
@@ -474,20 +590,6 @@ tables:
       foreign-key: facility_identifier.id
     - key: location_identifier.name_key.facility_identifier.id
       foreign-key: facility_identifier.id
-  - table-name: sku_items
-    keys:
-    - key: facility_id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: item_traits.pallet_identifier.name_key.facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: location_identifier.name_key.facility_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-    - key: item_traits.item_identifier.id
-      foreign-key: item_id
-    - key: location_id
-      foreign-key: options.directed_put_away.preferred_location_identifier.id
-    - key: location_identifier.id
-      foreign-key: options.directed_put_away.preferred_location_identifier.id
   - table-name: stock_summaries
     keys:
     - key: facility_id
@@ -512,112 +614,66 @@ tables:
       foreign-key: facilities.id
     - key: facility_identifier.id
       foreign-key: primary_facility_identifier.id
-  - table-name: stock_details
-    keys:
-    - key: customer_identifier.id
-      foreign-key: customer_id
-    - key: batch_identifier.name_key.customer_identifier.id
-      foreign-key: customer_id
-    - key: retailer_info.name_key.customer_identifier.id
-      foreign-key: customer_id
-    - key: facility_identifier.id
-      foreign-key: location_identifier.name_key.facility_identifier.id
-    - key: facility_identifier.id
-      foreign-key: pallet_identifier.name_key.facility_identifier.id
-  - table-name: inventory
-    keys:
-    - key: customer_identifier.id
-      foreign-key: customer_identifier.id
-    - key: batch_identifier.name_key.customer_identifier.id
-      foreign-key: customer_identifier.id
-    - key: retailer_info.name_key.customer_identifier.id
-      foreign-key: customer_identifier.id
-    - key: facility_identifier.id
-      foreign-key: facility_identifier.id
-    - key: facility_identifier.id
-      foreign-key: location_identifier.name_key.facility_identifier.id
-    - key: facility_identifier.id
-      foreign-key: pallet_identifier.name_key.facility_identifier.id
-  - table-name: locations
-    keys:
-    - key: customer_identifier.id
-      foreign-key: customer_identifier.id
-    - key: batch_identifier.name_key.customer_identifier.id
-      foreign-key: customer_identifier.id
-    - key: retailer_info.name_key.customer_identifier.id
-      foreign-key: customer_identifier.id
-    - key: facility_identifier.id
-      foreign-key: facility_id
-    - key: facility_identifier.id
-      foreign-key: item_traits.pallet_identifier.name_key.facility_identifier.id
-    - key: facility_identifier.id
-      foreign-key: location_identifier.name_key.facility_identifier.id
   - table-name: sku_items
     keys:
+    - key: customer_identifier.id
+      foreign-key: customer_id
+    - key: batch_identifier.name_key.customer_identifier.id
+      foreign-key: customer_id
+    - key: retailer_info.name_key.customer_identifier.id
+      foreign-key: customer_id
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: batch_identifier.name_key.customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: retailer_info.name_key.customer_identifier.id
+      foreign-key: customer_identifier.id
     - key: facility_identifier.id
       foreign-key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
+  - table-name: stock_details
+    keys:
+    - key: customer_identifier.id
+      foreign-key: customer_id
+    - key: batch_identifier.name_key.customer_identifier.id
+      foreign-key: customer_id
+    - key: retailer_info.name_key.customer_identifier.id
+      foreign-key: customer_id
+    - key: facility_identifier.id
+      foreign-key: location_identifier.name_key.facility_identifier.id
+    - key: facility_identifier.id
+      foreign-key: pallet_identifier.name_key.facility_identifier.id
+  - table-name: inventory
+    keys:
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: batch_identifier.name_key.customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: retailer_info.name_key.customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: facility_identifier.id
+      foreign-key: facility_identifier.id
+    - key: facility_identifier.id
+      foreign-key: location_identifier.name_key.facility_identifier.id
+    - key: facility_identifier.id
+      foreign-key: pallet_identifier.name_key.facility_identifier.id
+  - table-name: locations
+    keys:
+    - key: customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: batch_identifier.name_key.customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: retailer_info.name_key.customer_identifier.id
+      foreign-key: customer_identifier.id
+    - key: facility_identifier.id
+      foreign-key: facility_id
+    - key: facility_identifier.id
+      foreign-key: item_traits.pallet_identifier.name_key.facility_identifier.id
+    - key: facility_identifier.id
+      foreign-key: location_identifier.name_key.facility_identifier.id
   - table-name: stock_summaries
     keys:
     - key: facility_identifier.id
       foreign-key: facility_id
-- table-name: sku_items
-  join:
-  - table-name: customers
-    keys:
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: facilities.id
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: primary_facility_identifier.id
-  - table-name: inventory
-    keys:
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: facility_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: location_identifier.name_key.facility_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: pallet_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
-    - key: kit.components.item_identifier.id
-      foreign-key: item_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.id
-      foreign-key: location_identifier.id
-  - table-name: locations
-    keys:
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: facility_id
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: item_traits.pallet_identifier.name_key.facility_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: location_identifier.name_key.facility_identifier.id
-    - key: item_id
-      foreign-key: item_traits.item_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.id
-      foreign-key: location_id
-    - key: options.directed_put_away.preferred_location_identifier.id
-      foreign-key: location_identifier.id
-  - table-name: orders
-    keys:
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: facility_identifier.id
-  - table-name: stock_details
-    keys:
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: location_identifier.name_key.facility_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: pallet_identifier.name_key.facility_identifier.id
-    - key: item_identifier.id
-      foreign-key: item_identifier.id
-    - key: kit.components.item_identifier.id
-      foreign-key: item_identifier.id
-    - key: options.directed_put_away.preferred_location_identifier.id
-      foreign-key: location_identifier.id
-  - table-name: stock_summaries
-    keys:
-    - key: options.directed_put_away.preferred_location_identifier.name_key.facility_identifier.id
-      foreign-key: facility_id
-    - key: item_id
-      foreign-key: item_id
 - table-name: stock_summaries
   join:
   - table-name: customers
