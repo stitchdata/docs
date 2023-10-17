@@ -116,7 +116,11 @@ def checkForeignKeys(file, json_folder, issue_list):
                                                 path = path['properties'][steps[step]]
                                             
                                             except:
-                                                path = path['items']['properties'][steps[step]]
+                                                try:
+                                                    path = path['items']['properties'][steps[step]]
+                                                    
+                                                except:
+                                                    path = path['anyOf'][0]['items']['properties'][steps[step]]
                                         step +=1
                             except:
                                 report = 'Key {0} not found in {1}'.format(source_key, json_file.replace('../../', ''))
