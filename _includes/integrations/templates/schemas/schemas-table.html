@@ -83,7 +83,11 @@
 															{% if data.properties %}
 																{% include integrations/templates/schemas/schemas-table.html jsondata=item.properties level="nested" %}
 															{% else %}
-																	{% include integrations/templates/schemas/schemas-table.html jsondata=item level="nested" %}
+																	{% if item.items.properties %}
+																		{% include integrations/templates/schemas/schemas-table.html jsondata=item.items.properties level="nested"%}
+																	{% else %}
+																		{% include integrations/templates/schemas/schemas-table.html jsondata=item level="nested"%}
+																	{% endif %}
 															{% endif %}
 														</div>
 													</div>
@@ -108,7 +112,11 @@
 										{% if data.properties %}
 											{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties level="nested" %}
 										{% else %}
+											{% if data.items.properties %}
+												{% include integrations/templates/schemas/schemas-table.html jsondata=data.items.properties level="nested"%}
+											{% else %}
 												{% include integrations/templates/schemas/schemas-table.html jsondata=data level="nested"%}
+											{% endif %}
 										{% endif %}
 									</div>
 								</div>
