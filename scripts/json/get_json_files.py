@@ -147,8 +147,16 @@ def getFiles(repo, branch):
                     if issues_count > 0:
                         with open(issues_file, 'w', encoding='utf-8') as f:
                             f.writelines([string + '\n' for string in issue_list])
-
+                        
                         print('{0} issues found, check {1} for details.'.format(issues_count, issues_file.replace('../../', '')))
+
+                    # If no issues found but issues file exists, remove issues file
+                    else:
+                        if os.path.exists(issues_file):
+                            os.remove(issues_file)
+                        print('No issues found')
+
+                        
         
         else:
             print('Ignoring database integration {}'.format(integration_id))
