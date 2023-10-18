@@ -51,6 +51,6 @@ The workflows format JSON files to fix some issues that would prevent the correc
 - Object elements that don't have a `properties` child element as a container for the object's properties are updated to add this `properties` container, because it is needed to display the elements in the object. 
 
 ## Foreign keys automation
-The [Generate foreign keys](https://github.com/stitchdata/docs/actions/workflows/generate_foreign_keys.yml) GitHUb Action runs every time a change to a *-foreign-keys.yml file is push on any branch other than `master`.
+The [Generate foreign keys](https://github.com/stitchdata/docs/actions/workflows/generate_foreign_keys.yml) GitHUb Action runs every time a change to a `*-foreign-keys.yml` file is push on any branch other than `master`.
 
 It takes the content of the `keys` element in the file and uses it to create the `tables` element, which contains the same content, but organized by table. Each table has a list of all other tables that can be joined to it, and all elements that can be used to perform the join. This is used to create to foreign keys table displayed in the table reference documentation.
