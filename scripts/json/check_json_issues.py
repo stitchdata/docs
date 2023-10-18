@@ -1,17 +1,25 @@
-# Fix issue when the parent element doesn't hae "properties" and the child element doesn't either
-
 def fixProperty(property):
+    # Adds a `properties` element to that contains the child elements in objects that don't have it
 
+    # List elements that are expected to be present directly in an object
     expected_properties = ['multipleOf','additionalProperties', 'type', 'additional_properties', 'description', 'patternProperties', 'enum', 'title', 'required', 'exclusiveMaximum', 'exclusiveMinimum', 'maximum', 'minimum', 'x-looker-deprecated', 'default', 'format']
+    
+    # List elements that contain child elements
     nested = ['anyOf', 'properties', 'items']
+
+    # Get the content of the current property and check if is an object
     for prop in property:
         issues = 0
         new_content = {}
         content = property[prop]
         if type(content) == dict:
+
+            # If it contains a 'properties' element, repeat the same function on that element
             if 'properties' in content and content['properties'] != None:
                 properties = content['properties']
                 properties = fixProperty(properties)
+
+            # If the element contains 'anyOf', check each the 'properties' in the 'items' element, or just 'items' if there is no 'properties' element
             elif 'anyOf' in content:
                 for item in content['anyOf']:
                     if len(item) == 1 and 'type' in item:
@@ -24,6 +32,8 @@ def fixProperty(property):
                                 p = fixProperty(p)
                             else:
                                 fixProperty(item_list)
+            
+            # If the element contains 'items', check each the 'properties' in the 'items' element, or just 'items' if there is no 'properties' element
             elif 'items' in content:
                 item_list = content['items']
                 if len(item_list) > 0:
@@ -31,7 +41,9 @@ def fixProperty(property):
                         p = item_list['properties']
                         p = fixProperty(p)
                     else:
-                        fixProperty(item_list)          
+                        fixProperty(item_list)    
+
+            # If the current property contains it child elements directly, get all elements and add them in a 'properties' element, and add the 'object' type to the parent      
             else:
                 for item in content:
                     if item not in expected_properties and item not in nested:
@@ -48,7 +60,10 @@ def fixProperty(property):
 
     return property
 
+
 def checkJSONIssues(json_content):
+    # Run the checks on the input JSON content and return the fixed JSON
+    
     props = json_content['properties']
     props = fixProperty(props)
     
