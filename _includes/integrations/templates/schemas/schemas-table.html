@@ -68,7 +68,8 @@
 
 										</p>
 
-										{% if item.properties or item.items %}
+										{% if item.properties or item.items.properties %}
+											{% if item.properties.size > 0 or item.items.properties.size > 0 %}
 												{% capture attribute-id %}{% increment counter %}{% endcapture %}
 	
 												{% assign full-id = name | append: "--" | append: attribute-id %}
@@ -92,35 +93,38 @@
 														</div>
 													</div>
 												</div>
+											{% endif %}
 										{% endif %}
 									{% endif %}
 								{% endfor %}
 							{% endfor %}
 						{% endif %}
 
-						{% if data.properties or data.items %}
-							{% capture attribute-id %}{% increment counter %}{% endcapture %}
-							{% assign full-id = name | append: "--" | append: attribute-id %}
+						{% if data.properties or data.items.properties %}
+								{% if data.properties.size > 0 or data.items.properties.size > 0 %}
+								{% capture attribute-id %}{% increment counter %}{% endcapture %}
+								{% assign full-id = name | append: "--" | append: attribute-id %}
 
-							<div class="panel-group" id="{{ full-id | slugify }}">
-								<div class="panel panel-table-subattributes">
-									<div class="panel-table-subattribute-heading">
-										<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ name }}</a>
-									</div>
+								<div class="panel-group" id="{{ full-id | slugify }}">
+									<div class="panel panel-table-subattributes">
+										<div class="panel-table-subattribute-heading">
+											<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ name }}</a>
+										</div>
 
-									<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
-										{% if data.properties %}
-											{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties level="nested" %}
-										{% else %}
-											{% if data.items.properties %}
-												{% include integrations/templates/schemas/schemas-table.html jsondata=data.items.properties level="nested"%}
+										<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+											{% if data.properties %}
+												{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties level="nested" %}
 											{% else %}
-												{% include integrations/templates/schemas/schemas-table.html jsondata=data level="nested"%}
+												{% if data.items.properties %}
+													{% include integrations/templates/schemas/schemas-table.html jsondata=data.items.properties level="nested"%}
+												{% else %}
+													{% include integrations/templates/schemas/schemas-table.html jsondata=data level="nested"%}
+												{% endif %}
 											{% endif %}
-										{% endif %}
+										</div>
 									</div>
 								</div>
-							</div>
+							{% endif %}
 						{% endif %}
 					</td>
 				</tr>
