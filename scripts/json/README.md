@@ -43,7 +43,14 @@ The workflow runs and performs the following actions:
 
 Once the pull request is created, a member of the documentation team will review the pull request and make any updates needed in the YAML files.
 
-
 ## Formatting details
+The workflows format JSON files to fix some issues that would prevent the correct display of the schema tables in the documentation. Here are the changes made:
+
+- References to other JSON content, using `$ref` are replaced with the actual referenced content.
+- Elements with a `format` element, `"format": "date-time"` for example, are updated so that the format appears as in the `type` element instead.
+- Object elements that don't have a `properties` child element as a container for the object's properties are updated to add this `properties` container, because it is needed to display the elements in the object. 
 
 ## Foreign keys automation
+The [Generate foreign keys](https://github.com/stitchdata/docs/actions/workflows/generate_foreign_keys.yml) GitHUb Action runs every time a change to a *-foreign-keys.yml file is push on any branch other than `master`.
+
+It takes the content of the `keys` element in the file and uses it to create the `tables` element, which contains the same content, but organized by table. Each table has a list of all other tables that can be joined to it, and all elements that can be used to perform the join. This is used to create to foreign keys table displayed in the table reference documentation.
