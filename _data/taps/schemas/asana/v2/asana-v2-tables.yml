@@ -21,7 +21,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: gid
-    replication-key: modified_at
 - name: projects
   description: 'The `{{ table.name }}` table contains info about the projects the
     user who authorized the {{ integration.display_name }} integration in Stitch has
