@@ -79,7 +79,7 @@ tables:
 
     '
   links:
-    doc-link: ''
+    doc-link: https://apidocs.chargebee.com/docs/api/events
     singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/events.json
     api-method: https://apidocs.chargebee.com/docs/api/events#list_events
   table-details:
@@ -302,30 +302,25 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-- name: cards
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
 - name: comments
-  description: ''
+  description: The `{{ table.name }}` table contains info about comments in your {{
+    integration.display_name }} account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://apidocs.chargebee.com/docs/api/comments
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/common/comments.json
+    api-method: https://apidocs.chargebee.com/docs/api/comments#list_comments
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
 - name: quotes
-  description: ''
+  description: The `{{ table.name }}` table contains info about quotes in your {{
+    integration.display_name }} account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://apidocs.chargebee.com/docs/api/quotes
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/common/quotes.json
+    api-method: https://apidocs.chargebee.com/docs/api/quotes#list_quotes
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
