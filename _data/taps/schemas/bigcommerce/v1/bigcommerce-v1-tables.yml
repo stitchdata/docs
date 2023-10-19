@@ -23,7 +23,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/coupons.json
     api-method: https://developer.bigcommerce.com/api-reference/marketing/marketing-api/coupons/getallcoupons
   table-details:
@@ -35,7 +34,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/customers.json
     api-method: https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/getallcustomers
   table-details:
@@ -53,7 +51,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/products.json
     api-method: https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts
   table-details:
@@ -61,11 +58,12 @@ tables:
     primary-key: id
     replication-key: date_modified
 - name: orders
-  description: ''
+  description: The `{{ table.name }}` table contains info about the orders in your
+    {{ integration.display_name }} store.
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/orders.json
+    api-method: https://developer.bigcommerce.com/docs/rest-management/orders#get-all-orders
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified

@@ -7,7 +7,7 @@ keys:
     - id
   - table: orders
     keys:
-    - coupons.
+    - coupons.coupon_id
     - products.applied_discounts.id
   customers_customer_id:
   - table: customers
@@ -21,7 +21,7 @@ keys:
     keys:
     - id
     - images.product_id
-    - related_products.value
+    - related_products.items
     - variants.product_id
   - table: orders
     keys:
@@ -33,14 +33,14 @@ tables:
   - table-name: orders
     keys:
     - key: id
-      foreign-key: coupons.
+      foreign-key: coupons.coupon_id
     - key: id
       foreign-key: products.applied_discounts.id
 - table-name: orders
   join:
   - table-name: coupons
     keys:
-    - key: coupons.
+    - key: coupons.coupon_id
       foreign-key: id
     - key: products.applied_discounts.id
       foreign-key: id
@@ -59,9 +59,9 @@ tables:
     - key: products.parent_order_product_id
       foreign-key: images.product_id
     - key: products.product_id
-      foreign-key: related_products.value
+      foreign-key: related_products.items
     - key: products.parent_order_product_id
-      foreign-key: related_products.value
+      foreign-key: related_products.items
     - key: products.product_id
       foreign-key: variants.product_id
     - key: products.parent_order_product_id
@@ -80,7 +80,7 @@ tables:
       foreign-key: products.product_id
     - key: images.product_id
       foreign-key: products.product_id
-    - key: related_products.value
+    - key: related_products.items
       foreign-key: products.product_id
     - key: variants.product_id
       foreign-key: products.product_id
@@ -88,7 +88,7 @@ tables:
       foreign-key: products.parent_order_product_id
     - key: images.product_id
       foreign-key: products.parent_order_product_id
-    - key: related_products.value
+    - key: related_products.items
       foreign-key: products.parent_order_product_id
     - key: variants.product_id
       foreign-key: products.parent_order_product_id
