@@ -10,7 +10,7 @@ keys:
     - adgroups.id
   - table: campaigns
     keys:
-    - adgroups.value
+    - adgroups.items
   ad_reports_eid:
   - table: ad_reports
     keys:
@@ -61,7 +61,7 @@ tables:
   - table-name: campaigns
     keys:
     - key: eid
-      foreign-key: adgroups.value
+      foreign-key: adgroups.items
   - table-name: ad_reports
     keys:
     - key: ads.id
@@ -83,7 +83,7 @@ tables:
   - table-name: campaigns
     keys:
     - key: adgroups.id
-      foreign-key: adgroups.value
+      foreign-key: adgroups.items
   - table-name: ad_reports
     keys:
     - key: eid
@@ -94,11 +94,11 @@ tables:
   join:
   - table-name: ad_groups
     keys:
-    - key: adgroups.value
+    - key: adgroups.items
       foreign-key: eid
   - table-name: ads
     keys:
-    - key: adgroups.value
+    - key: adgroups.items
       foreign-key: adgroups.id
   - table-name: advertisables
     keys:
