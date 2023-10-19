@@ -183,16 +183,14 @@ tables:
       foreign-key: members.gid
     - key: owner.gid
       foreign-key: members.gid
-    - key: workspace.gid
-      foreign-key: workspace.gid
-  - table-name: portfolios
-    keys:
     - key: followers.gid
       foreign-key: owner.gid
     - key: members.gid
       foreign-key: owner.gid
     - key: owner.gid
       foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
   - table-name: teams
     keys:
     - key: followers.gid
@@ -277,14 +275,12 @@ tables:
       foreign-key: members.gid
     - key: followers.gid
       foreign-key: members.gid
-    - key: workspace.gid
-      foreign-key: workspace.gid
-  - table-name: portfolios
-    keys:
     - key: assignee.gid
       foreign-key: owner.gid
     - key: followers.gid
       foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
   - table-name: teams
     keys:
     - key: assignee.gid
@@ -381,8 +377,6 @@ tables:
       foreign-key: members.gid
     - key: dependency.gid
       foreign-key: members.gid
-  - table-name: portfolios
-    keys:
     - key: assignee.gid
       foreign-key: owner.gid
     - key: created_by.gid
@@ -463,12 +457,10 @@ tables:
       foreign-key: created_by.gid
     - key: followers.gid
       foreign-key: members.gid
-    - key: workspace.gid
-      foreign-key: workspace.gid
-  - table-name: portfolios
-    keys:
     - key: followers.gid
       foreign-key: owner.gid
+    - key: workspace.gid
+      foreign-key: workspace.gid
   - table-name: teams
     keys:
     - key: followers.gid
@@ -519,12 +511,10 @@ tables:
       foreign-key: created_by.gid
     - key: gid
       foreign-key: members.gid
-    - key: workspaces.gid
-      foreign-key: workspace.gid
-  - table-name: portfolios
-    keys:
     - key: gid
       foreign-key: owner.gid
+    - key: workspaces.gid
+      foreign-key: workspace.gid
   - table-name: teams
     keys:
     - key: gid
@@ -543,13 +533,19 @@ tables:
       foreign-key: followers.gid
     - key: members.gid
       foreign-key: followers.gid
+    - key: owner.gid
+      foreign-key: followers.gid
     - key: created_by.gid
       foreign-key: members.gid
     - key: members.gid
+      foreign-key: members.gid
+    - key: owner.gid
       foreign-key: members.gid
     - key: created_by.gid
       foreign-key: owner.gid
     - key: members.gid
+      foreign-key: owner.gid
+    - key: owner.gid
       foreign-key: owner.gid
     - key: workspace.gid
       foreign-key: workspace.gid
@@ -559,6 +555,8 @@ tables:
       foreign-key: followers.gid
     - key: members.gid
       foreign-key: followers.gid
+    - key: owner.gid
+      foreign-key: followers.gid
     - key: workspace.gid
       foreign-key: workspace.gid
   - table-name: tasks
@@ -567,9 +565,13 @@ tables:
       foreign-key: assignee.gid
     - key: members.gid
       foreign-key: assignee.gid
+    - key: owner.gid
+      foreign-key: assignee.gid
     - key: created_by.gid
       foreign-key: followers.gid
     - key: members.gid
+      foreign-key: followers.gid
+    - key: owner.gid
       foreign-key: followers.gid
     - key: workspace.gid
       foreign-key: workspace.gid
@@ -578,6 +580,8 @@ tables:
     - key: created_by.gid
       foreign-key: gid
     - key: members.gid
+      foreign-key: gid
+    - key: owner.gid
       foreign-key: gid
     - key: workspace.gid
       foreign-key: workspaces.gid
@@ -587,25 +591,27 @@ tables:
       foreign-key: assignee.gid
     - key: members.gid
       foreign-key: assignee.gid
+    - key: owner.gid
+      foreign-key: assignee.gid
     - key: created_by.gid
       foreign-key: created_by.gid
     - key: members.gid
+      foreign-key: created_by.gid
+    - key: owner.gid
       foreign-key: created_by.gid
     - key: created_by.gid
       foreign-key: dependency.gid
     - key: members.gid
       foreign-key: dependency.gid
-  - table-name: portfolios
-    keys:
-    - key: created_by.gid
-      foreign-key: owner.gid
-    - key: members.gid
-      foreign-key: owner.gid
+    - key: owner.gid
+      foreign-key: dependency.gid
   - table-name: teams
     keys:
     - key: created_by.gid
       foreign-key: users.gid
     - key: members.gid
+      foreign-key: users.gid
+    - key: owner.gid
       foreign-key: users.gid
     - key: workspace.gid
       foreign-key: organization.gid
@@ -613,48 +619,6 @@ tables:
     keys:
     - key: workspace.gid
       foreign-key: gid
-- table-name: portfolios
-  join:
-  - table-name: projects
-    keys:
-    - key: owner.gid
-      foreign-key: followers.gid
-    - key: owner.gid
-      foreign-key: members.gid
-    - key: owner.gid
-      foreign-key: owner.gid
-  - table-name: tags
-    keys:
-    - key: owner.gid
-      foreign-key: followers.gid
-  - table-name: tasks
-    keys:
-    - key: owner.gid
-      foreign-key: assignee.gid
-    - key: owner.gid
-      foreign-key: followers.gid
-  - table-name: users
-    keys:
-    - key: owner.gid
-      foreign-key: gid
-  - table-name: stories
-    keys:
-    - key: owner.gid
-      foreign-key: assignee.gid
-    - key: owner.gid
-      foreign-key: created_by.gid
-    - key: owner.gid
-      foreign-key: dependency.gid
-  - table-name: portfolios
-    keys:
-    - key: owner.gid
-      foreign-key: created_by.gid
-    - key: owner.gid
-      foreign-key: members.gid
-  - table-name: teams
-    keys:
-    - key: owner.gid
-      foreign-key: users.gid
 - table-name: teams
   join:
   - table-name: projects
@@ -701,12 +665,10 @@ tables:
       foreign-key: created_by.gid
     - key: users.gid
       foreign-key: members.gid
-    - key: organization.gid
-      foreign-key: workspace.gid
-  - table-name: portfolios
-    keys:
     - key: users.gid
       foreign-key: owner.gid
+    - key: organization.gid
+      foreign-key: workspace.gid
   - table-name: workspaces
     keys:
     - key: organization.gid

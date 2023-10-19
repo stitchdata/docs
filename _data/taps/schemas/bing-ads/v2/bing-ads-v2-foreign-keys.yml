@@ -42,20 +42,17 @@ keys:
   ad_groups_AdGroupId:
   - table: ad_groups
     keys:
-    - Id
+    - id
   - table: ad_performance_report
     keys:
     - AdGroupId
   - table: ad_group_performance_report
     keys:
-    - AdGroupId
+    - adGroupId
   - table: age_gender_audience_report
     keys:
     - AdGroupId
   - table: audience_performance_report
-    keys:
-    - AdGroupId
-  - table: campaign_performance_report
     keys:
     - AdGroupId
   - table: geographic_performance_report
@@ -79,7 +76,7 @@ keys:
     - CampaignId
   - table: ad_group_performance_report
     keys:
-    - CampaignId
+    - campaignId
   - table: age_gender_audience_report
     keys:
     - CampaignId
@@ -151,9 +148,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
@@ -174,8 +171,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
@@ -217,7 +212,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -232,73 +227,71 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: audience_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: campaign_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: goals_and_funnels_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: keyword_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: search_query_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
+    - key: adGroupId
       foreign-key: AdGroupId
-    - key: CampaignId
+    - key: campaignId
       foreign-key: CampaignId
   - table-name: ad_groups
     keys:
-    - key: AdGroupId
-      foreign-key: Id
+    - key: adGroupId
+      foreign-key: id
   - table-name: campaigns
     keys:
-    - key: CampaignId
+    - key: campaignId
       foreign-key: Id
 - table-name: age_gender_audience_report
   join:
@@ -319,9 +312,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: audience_performance_report
     keys:
     - key: AccountId
@@ -334,8 +327,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
@@ -373,7 +364,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -397,9 +388,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
@@ -412,8 +403,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
@@ -451,7 +440,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -466,70 +455,50 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: ad_group_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: audience_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: goals_and_funnels_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: keyword_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: search_query_performance_report
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
-  - table-name: ad_groups
-    keys:
-    - key: AdGroupId
-      foreign-key: Id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -553,9 +522,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
@@ -576,8 +545,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: goals_and_funnels_report
@@ -607,7 +574,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -631,9 +598,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
@@ -654,8 +621,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
@@ -685,7 +650,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -709,9 +674,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
@@ -732,8 +697,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
@@ -763,7 +726,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -787,9 +750,9 @@ tables:
     - key: AccountId
       foreign-key: AccountId
     - key: AdGroupId
-      foreign-key: AdGroupId
+      foreign-key: adGroupId
     - key: CampaignId
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: AccountId
@@ -810,8 +773,6 @@ tables:
     keys:
     - key: AccountId
       foreign-key: AccountId
-    - key: AdGroupId
-      foreign-key: AdGroupId
     - key: CampaignId
       foreign-key: CampaignId
   - table-name: geographic_performance_report
@@ -841,7 +802,7 @@ tables:
   - table-name: ad_groups
     keys:
     - key: AdGroupId
-      foreign-key: Id
+      foreign-key: id
   - table-name: campaigns
     keys:
     - key: CampaignId
@@ -856,39 +817,35 @@ tables:
   join:
   - table-name: ad_performance_report
     keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
   - table-name: ad_group_performance_report
     keys:
-    - key: Id
-      foreign-key: AdGroupId
+    - key: id
+      foreign-key: adGroupId
   - table-name: age_gender_audience_report
     keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
   - table-name: audience_performance_report
     keys:
-    - key: Id
-      foreign-key: AdGroupId
-  - table-name: campaign_performance_report
-    keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
   - table-name: geographic_performance_report
     keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
   - table-name: goals_and_funnels_report
     keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
   - table-name: keyword_performance_report
     keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
   - table-name: search_query_performance_report
     keys:
-    - key: Id
+    - key: id
       foreign-key: AdGroupId
 - table-name: campaigns
   join:
@@ -899,7 +856,7 @@ tables:
   - table-name: ad_group_performance_report
     keys:
     - key: Id
-      foreign-key: CampaignId
+      foreign-key: campaignId
   - table-name: age_gender_audience_report
     keys:
     - key: Id
