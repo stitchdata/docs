@@ -1,5 +1,5 @@
 tap: chargify
-version: '1'
+version: '0'
 keys:
   components_component_id:
   - table: components
@@ -69,7 +69,7 @@ keys:
   - table: coupons
     keys:
     - product_family_id
-  - table: product_family
+  - table: product_families
     keys:
     - id
   - table: products
@@ -194,7 +194,7 @@ tables:
     keys:
     - key: product_family_id
       foreign-key: product_family_id
-  - table-name: product_family
+  - table-name: product_families
     keys:
     - key: product_family_id
       foreign-key: id
@@ -670,7 +670,7 @@ tables:
     keys:
     - key: product_family_id
       foreign-key: product_family_id
-  - table-name: product_family
+  - table-name: product_families
     keys:
     - key: product_family_id
       foreign-key: id
@@ -816,7 +816,7 @@ tables:
     keys:
     - key: product.product_family.id
       foreign-key: product_family_id
-  - table-name: product_family
+  - table-name: product_families
     keys:
     - key: product.product_family.id
       foreign-key: id
@@ -902,7 +902,7 @@ tables:
       foreign-key: parent_id
     - key: event_specific_data.account_transaction_id
       foreign-key: payment_id
-- table-name: product_family
+- table-name: product_families
   join:
   - table-name: components
     keys:
@@ -930,7 +930,7 @@ tables:
     keys:
     - key: product_family.id
       foreign-key: product_family_id
-  - table-name: product_family
+  - table-name: product_families
     keys:
     - key: product_family.id
       foreign-key: id
