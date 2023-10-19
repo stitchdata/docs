@@ -258,7 +258,7 @@ keys:
     - id
   - table: tasks
     keys:
-    - deal_task_type
+    - deal_tasktype
   lists_id:
   - table: lists
     keys:
@@ -348,7 +348,7 @@ keys:
     keys:
     - segmentid
   forms_id:
-  - table: form
+  - table: forms
     keys:
     - id
   - table: contact_lists
@@ -1001,7 +1001,7 @@ tables:
     keys:
     - key: message
       foreign-key: id
-  - table-name: form
+  - table-name: forms
     keys:
     - key: form
       foreign-key: id
@@ -2773,7 +2773,7 @@ tables:
       foreign-key: userid
   - table-name: task_types
     keys:
-    - key: deal_task_type
+    - key: deal_tasktype
       foreign-key: id
 - table-name: templates
   join:
@@ -3244,7 +3244,7 @@ tables:
   - table-name: tasks
     keys:
     - key: id
-      foreign-key: deal_task_type
+      foreign-key: deal_tasktype
 - table-name: webhooks
   join:
   - table-name: lists
@@ -3383,7 +3383,7 @@ tables:
     keys:
     - key: id
       foreign-key: segmentid
-- table-name: form
+- table-name: forms
   join:
   - table-name: contact_lists
     keys:
