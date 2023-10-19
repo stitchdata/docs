@@ -1,11 +1,11 @@
 tap: autopilot
-version: '1'
+version: '0'
 keys:
   contacts_contact_id:
   - table: contacts
     keys:
-    - id
-  - table: list_contacts
+    - contact_id
+  - table: lists_contacts
     keys:
     - contact_id
   - table: smart_segments_contacts
@@ -21,38 +21,38 @@ keys:
   lists_list_id:
   - table: contacts
     keys:
-    - lists.value
+    - lists
   - table: lists
     keys:
-    - id
-  - table: list_contacts
+    - list_id
+  - table: lists_contacts
     keys:
     - list_id
 tables:
 - table-name: contacts
   join:
-  - table-name: list_contacts
+  - table-name: lists_contacts
     keys:
-    - key: id
+    - key: contact_id
       foreign-key: contact_id
-    - key: lists.value
+    - key: lists
       foreign-key: list_id
   - table-name: smart_segments_contacts
     keys:
-    - key: id
+    - key: contact_id
       foreign-key: contact_id
   - table-name: lists
     keys:
-    - key: lists.value
-      foreign-key: id
-- table-name: list_contacts
+    - key: lists
+      foreign-key: list_id
+- table-name: lists_contacts
   join:
   - table-name: contacts
     keys:
     - key: contact_id
-      foreign-key: id
+      foreign-key: contact_id
     - key: list_id
-      foreign-key: lists.value
+      foreign-key: lists
   - table-name: smart_segments_contacts
     keys:
     - key: contact_id
@@ -60,14 +60,14 @@ tables:
   - table-name: lists
     keys:
     - key: list_id
-      foreign-key: id
+      foreign-key: list_id
 - table-name: smart_segments_contacts
   join:
   - table-name: contacts
     keys:
     - key: contact_id
-      foreign-key: id
-  - table-name: list_contacts
+      foreign-key: contact_id
+  - table-name: lists_contacts
     keys:
     - key: contact_id
       foreign-key: contact_id
@@ -85,9 +85,9 @@ tables:
   join:
   - table-name: contacts
     keys:
-    - key: id
-      foreign-key: lists.value
-  - table-name: list_contacts
+    - key: list_id
+      foreign-key: lists
+  - table-name: lists_contacts
     keys:
-    - key: id
+    - key: list_id
       foreign-key: list_id
