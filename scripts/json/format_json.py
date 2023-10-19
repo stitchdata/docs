@@ -282,7 +282,6 @@ def formatJSON(folder, json_output_folder):
     # Format JSON files to fit the format supported by the HTML template
 
     table_list = []
-    ignored = []
 
     # Get JSON files in the tap folder
     for root, dirs, files in os.walk(folder, topdown=False):
@@ -295,8 +294,7 @@ def formatJSON(folder, json_output_folder):
                     
                     # Ignore files in 'shared' and 'archive' folders, they are either old schemas or files containing content referenced in schemas
                     if '{0}shared{0}'.format(os.sep) in filepath or '{0}archive{0}'.format(os.sep) in filepath:
-                        report = 'JSON file {} ignored'.format(file)
-                        ignored.append(report)
+                        print('JSON file {} ignored'.format(file))
 
                     else:
 
@@ -349,8 +347,7 @@ def formatJSON(folder, json_output_folder):
                             except:
                                 
                                 # Ignore files that don't have 'properties' or 'schema'
-                                report = 'JSON file {} ignored'.format(file)
-                                ignored.append(report)
+                                print('JSON file {} ignored'.format(file))
                         
 
-    return [table_list, ignored]
+    return table_list

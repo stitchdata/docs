@@ -118,17 +118,15 @@ def getFiles(repo, branch):
 
                 if item.startswith('tap'):
                     schemas = item_path + '/schemas'
-                    format_results = formatJSON(schemas, json_output_folder)
-
-                    schema_list = format_results[0]
-                    issue_list = format_results[1]
+                    schema_list = formatJSON(schemas, json_output_folder)
+                    issue_list = []
                     
                     # Remove files for schemas to ignore
                     for schema in schema_list:
                         if schema in ignore:
                             schema_list.remove(schema)
                             os.remove('{0}/{1}.json'.format(json_output_folder, schema))
-                            issue_list.append('JSON file {}.json ignored'.format(schema))
+                            print('JSON file {}.json ignored'.format(schema))
 
                     # Use function from 'get_table_data.py' to get and update the yaml file with table details
                     getTableData(integration_id, tap_version, schema_list)
