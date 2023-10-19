@@ -27,7 +27,7 @@ keys:
     - followers.id
   - table: tasks
     keys:
-    - assignees.id
+    - assignee.id
     - followers.id
   - table: users
     keys:
@@ -44,8 +44,8 @@ keys:
     - workspace.id
   - table: users
     keys:
-    - workspace.id
-  - table: workspace
+    - workspaces.id
+  - table: workspaces
     keys:
     - id
 tables:
@@ -56,11 +56,11 @@ tables:
     - key: id
       foreign-key: projects.id
     - key: followers.id
-      foreign-key: assignees.id
+      foreign-key: assignee.id
     - key: members.id
-      foreign-key: assignees.id
+      foreign-key: assignee.id
     - key: owner.id
-      foreign-key: assignees.id
+      foreign-key: assignee.id
     - key: followers.id
       foreign-key: followers.id
     - key: members.id
@@ -88,8 +88,8 @@ tables:
     - key: owner.id
       foreign-key: id
     - key: workspace.id
-      foreign-key: workspace.id
-  - table-name: workspace
+      foreign-key: workspaces.id
+  - table-name: workspaces
     keys:
     - key: workspace.id
       foreign-key: id
@@ -99,15 +99,15 @@ tables:
     keys:
     - key: projects.id
       foreign-key: id
-    - key: assignees.id
+    - key: assignee.id
       foreign-key: followers.id
     - key: followers.id
       foreign-key: followers.id
-    - key: assignees.id
+    - key: assignee.id
       foreign-key: members.id
     - key: followers.id
       foreign-key: members.id
-    - key: assignees.id
+    - key: assignee.id
       foreign-key: owner.id
     - key: followers.id
       foreign-key: owner.id
@@ -115,7 +115,7 @@ tables:
       foreign-key: workspace.id
   - table-name: tags
     keys:
-    - key: assignees.id
+    - key: assignee.id
       foreign-key: followers.id
     - key: followers.id
       foreign-key: followers.id
@@ -123,13 +123,13 @@ tables:
       foreign-key: workspace.id
   - table-name: users
     keys:
-    - key: assignees.id
+    - key: assignee.id
       foreign-key: id
     - key: followers.id
       foreign-key: id
     - key: workspace.id
-      foreign-key: workspace.id
-  - table-name: workspace
+      foreign-key: workspaces.id
+  - table-name: workspaces
     keys:
     - key: workspace.id
       foreign-key: id
@@ -148,7 +148,7 @@ tables:
   - table-name: tasks
     keys:
     - key: followers.id
-      foreign-key: assignees.id
+      foreign-key: assignee.id
     - key: followers.id
       foreign-key: followers.id
     - key: workspace.id
@@ -158,8 +158,8 @@ tables:
     - key: followers.id
       foreign-key: id
     - key: workspace.id
-      foreign-key: workspace.id
-  - table-name: workspace
+      foreign-key: workspaces.id
+  - table-name: workspaces
     keys:
     - key: workspace.id
       foreign-key: id
@@ -173,27 +173,27 @@ tables:
       foreign-key: members.id
     - key: id
       foreign-key: owner.id
-    - key: workspace.id
+    - key: workspaces.id
       foreign-key: workspace.id
   - table-name: tags
     keys:
     - key: id
       foreign-key: followers.id
-    - key: workspace.id
+    - key: workspaces.id
       foreign-key: workspace.id
   - table-name: tasks
     keys:
     - key: id
-      foreign-key: assignees.id
+      foreign-key: assignee.id
     - key: id
       foreign-key: followers.id
-    - key: workspace.id
+    - key: workspaces.id
       foreign-key: workspace.id
-  - table-name: workspace
+  - table-name: workspaces
     keys:
-    - key: workspace.id
+    - key: workspaces.id
       foreign-key: id
-- table-name: workspace
+- table-name: workspaces
   join:
   - table-name: projects
     keys:
@@ -210,4 +210,4 @@ tables:
   - table-name: users
     keys:
     - key: id
-      foreign-key: workspace.id
+      foreign-key: workspaces.id

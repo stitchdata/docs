@@ -583,6 +583,8 @@ tables:
     keys:
     - key: contacts
       foreign-key: contact
+    - key: id
+      foreign-key: form
   - table-name: contact_tags
     keys:
     - key: contacts
@@ -951,6 +953,8 @@ tables:
     keys:
     - key: contact
       foreign-key: contacts
+    - key: form
+      foreign-key: id
   - table-name: contact_data
     keys:
     - key: contact
@@ -1000,10 +1004,6 @@ tables:
   - table-name: messages
     keys:
     - key: message
-      foreign-key: id
-  - table-name: forms
-    keys:
-    - key: form
       foreign-key: id
 - table-name: deal_custom_fields
   join:
@@ -3383,9 +3383,3 @@ tables:
     keys:
     - key: id
       foreign-key: segmentid
-- table-name: forms
-  join:
-  - table-name: contact_lists
-    keys:
-    - key: id
-      foreign-key: form
