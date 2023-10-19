@@ -127,8 +127,8 @@ def getTableData(integration, version, schema_list):
                 'name': table,
                 'description': '',
                 'links': {
-                    'singer-schema': '',
                     'doc-link': '',
+                    'singer-schema': '',
                     'api-method': ''
                 },
                 'table-details': {
