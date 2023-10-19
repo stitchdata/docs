@@ -15,7 +15,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: modified
-  status: not_found
 - name: inbound_activity
   description: 'The `inbound_activity` object contains activity info regarding contacts,
     messages, and deliveries.
@@ -29,7 +28,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: createdDate
-  status: not_found
 - name: list
   description: "The `lists` table contains info about the contact lists in your Bronto\
     \ account. \n"
@@ -40,7 +38,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: outbound_activity
   description: 'The `outbound_activity` table contains activity info regarding contacts,
     messages, and deliveries.
@@ -53,7 +50,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: createdDate
-  status: not_found
 - name: unsubscribe
   description: 'The `unsubscribe` table contains info about unsubscribe events. Contacts
     may be unsubscribed by you, or they can unsubscribe themselves via an Unsubscribe
@@ -71,4 +67,3 @@ tables:
     - deliveryId
     - created
     replication-key: created
-  status: not_found
