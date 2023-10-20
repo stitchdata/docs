@@ -1,5 +1,5 @@
 tap: codat
-version: '1'
+version: '0'
 keys:
   accounts_name:
   - table: accounts
@@ -115,7 +115,7 @@ keys:
   - table: tax_rates
     keys:
     - companyId
-  - table: bill_payment
+  - table: bill_payments
     keys:
     - companyId
   - table: bank_account_transactions
@@ -334,7 +334,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -466,7 +466,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -626,7 +626,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -742,7 +742,7 @@ tables:
       foreign-key: companyId
     - key: lineItems.taxRateRef.id
       foreign-key: id
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -876,7 +876,7 @@ tables:
       foreign-key: id
     - key: invoiceItem.taxRateRef.id
       foreign-key: id
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -980,7 +980,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1068,7 +1068,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1152,7 +1152,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1222,7 +1222,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1302,7 +1302,7 @@ tables:
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
@@ -1380,7 +1380,7 @@ tables:
     keys:
     - key: id
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: id
       foreign-key: companyId
@@ -1458,7 +1458,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1538,7 +1538,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1622,7 +1622,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1704,7 +1704,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1790,7 +1790,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1868,7 +1868,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1948,7 +1948,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -2032,7 +2032,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payment
+  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -2044,7 +2044,7 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-- table-name: bill_payment
+- table-name: bill_payments
   join:
   - table-name: companies
     keys:
