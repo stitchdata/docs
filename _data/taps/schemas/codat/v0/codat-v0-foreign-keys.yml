@@ -284,6 +284,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -331,10 +333,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -434,6 +432,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: company_info
     keys:
     - key: companyId
@@ -463,10 +463,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -594,6 +590,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: company_info
     keys:
     - key: companyId
@@ -623,10 +621,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -704,6 +698,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
     - key: supplierRef
       foreign-key: supplierRef.id
   - table-name: company_info
@@ -742,10 +738,6 @@ tables:
       foreign-key: companyId
     - key: lineItems.taxRateRef.id
       foreign-key: id
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -840,6 +832,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: company_info
     keys:
     - key: companyId
@@ -876,10 +870,6 @@ tables:
       foreign-key: id
     - key: invoiceItem.taxRateRef.id
       foreign-key: id
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -948,6 +938,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: company_info
     keys:
     - key: companyId
@@ -977,10 +969,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1020,6 +1008,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1065,10 +1055,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1104,6 +1090,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1149,10 +1137,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1174,6 +1158,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1219,10 +1205,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1240,21 +1222,31 @@ tables:
     keys:
     - key: supplierRef.companyId
       foreign-key: id
+    - key: companyId
+      foreign-key: id
   - table-name: balance_sheets
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: bank_statements
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bank_statement_lines
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
     - key: supplierRef.id
       foreign-key: supplierRef
@@ -1262,57 +1254,79 @@ tables:
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: customers
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: invoices
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: payments
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: profit_and_loss
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: suppliers
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: connections
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: events
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: items
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: journal_entries
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: supplierRef.companyId
+    - key: companyId
       foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: supplierRef.companyId
       foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bank_accounts
     keys:
     - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
       foreign-key: companyId
 - table-name: companies
   join:
@@ -1332,6 +1346,8 @@ tables:
     keys:
     - key: id
       foreign-key: supplierRef.companyId
+    - key: id
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: id
@@ -1377,10 +1393,6 @@ tables:
     - key: id
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: id
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: id
       foreign-key: companyId
@@ -1414,6 +1426,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1458,10 +1472,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -1492,6 +1502,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1535,10 +1547,6 @@ tables:
     - key: companyId
       foreign-key: companyId
   - table-name: tax_rates
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
     keys:
     - key: companyId
       foreign-key: companyId
@@ -1576,6 +1584,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1622,10 +1632,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -1656,6 +1662,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1704,10 +1712,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -1744,6 +1748,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1790,10 +1796,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -1824,6 +1826,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1868,10 +1872,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -1904,6 +1904,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -1948,10 +1950,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
   - table-name: bank_account_transactions
     keys:
     - key: companyId
@@ -1982,6 +1980,8 @@ tables:
     keys:
     - key: companyId
       foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
   - table-name: bills
     keys:
     - key: companyId
@@ -2029,88 +2029,6 @@ tables:
     - key: id
       foreign-key: invoiceItem.taxRateRef.id
   - table-name: journal_entries
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bank_account_transactions
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bank_accounts
-    keys:
-    - key: companyId
-      foreign-key: companyId
-- table-name: bill_payments
-  join:
-  - table-name: companies
-    keys:
-    - key: companyId
-      foreign-key: id
-  - table-name: balance_sheets
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bank_statements
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bank_statement_lines
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: bill_payments
-    keys:
-    - key: companyId
-      foreign-key: supplierRef.companyId
-  - table-name: bills
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: company_info
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: customers
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: invoices
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: payments
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: profit_and_loss
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: suppliers
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: connections
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: events
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: items
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: journal_entries
-    keys:
-    - key: companyId
-      foreign-key: companyId
-  - table-name: tax_rates
     keys:
     - key: companyId
       foreign-key: companyId
