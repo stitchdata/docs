@@ -1,10 +1,18 @@
-import os, frontmatter, pandas, yaml
+import os, frontmatter, pandas, yaml, sys
 
 errors = []
 file_count = 0
 
 taps = []
 tables = []
+
+folder = '../../../_integration-schemas'
+
+try:
+    integration = sys.argv[1]
+    folder = folder + '/' + integration
+except:
+    pass
 
 def getSchemaData(file):
     try:
@@ -116,7 +124,7 @@ def getSchemaData(file):
 
     return errors
 
-for root, dirs, files in os.walk('../../../_integration-schemas'):
+for root, dirs, files in os.walk(folder):
     for file in files:
         if file.endswith('.md') and file != 'foreign-keys.md':
             file_count += 1
