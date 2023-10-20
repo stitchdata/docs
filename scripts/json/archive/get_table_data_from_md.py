@@ -21,7 +21,6 @@ def getSchemaData(file):
                 taps.append(tap_version)
 
             name = data['name']
-            doc = data['doc-link']
             
             description = data['description']
             replication = data['replication-method']
@@ -59,14 +58,17 @@ def getSchemaData(file):
                 'name': name,
                 'description': description,
                 'links': {
-                    'doc-link': doc
                 },
                 'table-details': {
                     'replication-method': replication
                 }
             }
 
-            
+            try:
+                doc = data['doc-link']
+                output_data['links']['doc-link'] = doc
+            except:
+                pass
             try:
                 singer = data['singer-schema']
                 output_data['links']['singer-schema'] = singer
@@ -101,7 +103,6 @@ def getSchemaData(file):
             elif (len(parents)) > 1:
                 output_data['table-details']['parent-tables'] = sorted(parents)
             
-
             tables.append(output_data)
 
 
