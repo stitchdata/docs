@@ -12,7 +12,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 attributes:
-  - name: "Modified"
+  - name: "Id"
     type: "integer"
     primary-key: true
     description: "The webhook ID."
