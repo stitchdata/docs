@@ -1,5 +1,5 @@
 tap: freshdesk
-version: '1'
+version: '0'
 keys:
   agents_agent_id:
   - table: agents
@@ -7,7 +7,7 @@ keys:
     - id
   - table: groups
     keys:
-    - agent_ids.value
+    - agent_ids
   - table: satisfaction_ratings
     keys:
     - agent_id
@@ -45,9 +45,6 @@ keys:
   - table: tickets
     keys:
     - group_id
-  - table: time_entries
-    keys:
-    - group_id
   roles_role_id:
   - table: agents
     keys:
@@ -79,7 +76,7 @@ tables:
   - table-name: groups
     keys:
     - key: id
-      foreign-key: agent_ids.value
+      foreign-key: agent_ids
     - key: group_ids.type
       foreign-key: id
   - table-name: satisfaction_ratings
@@ -98,8 +95,6 @@ tables:
     keys:
     - key: id
       foreign-key: agent_id
-    - key: group_ids.type
-      foreign-key: group_id
   - table-name: roles
     keys:
     - key: role_ids.type
@@ -108,28 +103,26 @@ tables:
   join:
   - table-name: agents
     keys:
-    - key: agent_ids.value
+    - key: agent_ids
       foreign-key: id
     - key: id
       foreign-key: group_ids.type
   - table-name: satisfaction_ratings
     keys:
-    - key: agent_ids.value
+    - key: agent_ids
       foreign-key: agent_id
     - key: id
       foreign-key: group_id
   - table-name: tickets
     keys:
-    - key: agent_ids.value
+    - key: agent_ids
       foreign-key: responder_id
     - key: id
       foreign-key: group_id
   - table-name: time_entries
     keys:
-    - key: agent_ids.value
+    - key: agent_ids
       foreign-key: agent_id
-    - key: id
-      foreign-key: group_id
 - table-name: satisfaction_ratings
   join:
   - table-name: agents
@@ -141,7 +134,7 @@ tables:
   - table-name: groups
     keys:
     - key: agent_id
-      foreign-key: agent_ids.value
+      foreign-key: agent_ids
     - key: group_id
       foreign-key: id
   - table-name: tickets
@@ -156,8 +149,6 @@ tables:
     keys:
     - key: agent_id
       foreign-key: agent_id
-    - key: group_id
-      foreign-key: group_id
   - table-name: conversations
     keys:
     - key: ticket_id
@@ -173,7 +164,7 @@ tables:
   - table-name: groups
     keys:
     - key: responder_id
-      foreign-key: agent_ids.value
+      foreign-key: agent_ids
     - key: group_id
       foreign-key: id
   - table-name: satisfaction_ratings
@@ -188,8 +179,6 @@ tables:
     keys:
     - key: responder_id
       foreign-key: agent_id
-    - key: group_id
-      foreign-key: group_id
   - table-name: companies
     keys:
     - key: company_id
@@ -204,26 +193,18 @@ tables:
     keys:
     - key: agent_id
       foreign-key: id
-    - key: group_id
-      foreign-key: group_ids.type
   - table-name: groups
     keys:
     - key: agent_id
-      foreign-key: agent_ids.value
-    - key: group_id
-      foreign-key: id
+      foreign-key: agent_ids
   - table-name: satisfaction_ratings
     keys:
     - key: agent_id
       foreign-key: agent_id
-    - key: group_id
-      foreign-key: group_id
   - table-name: tickets
     keys:
     - key: agent_id
       foreign-key: responder_id
-    - key: group_id
-      foreign-key: group_id
 - table-name: companies
   join:
   - table-name: tickets
