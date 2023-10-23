@@ -70,7 +70,7 @@ keys:
   contacts_ContactId:
   - table: contacts
     keys:
-    - id
+    - Id
   - table: activity_bounceback
     keys:
     - ContactId
@@ -106,14 +106,14 @@ keys:
     keys:
     - processingSteps.emailId
   _emailFooterId:
-  - table: email_groups
+  - table: emailGroups
     keys:
     - emailFooterId
   - table: emails
     keys:
     - emailFooterId
   _emailHeaderId:
-  - table: email_groups
+  - table: emailGroups
     keys:
     - emailHeaderId
   - table: emails
@@ -138,9 +138,6 @@ keys:
   - table: forms
     keys:
     - id
-  - table: emails
-    keys:
-    - forms.id
   _:
   - table: assets
     keys:
@@ -158,10 +155,6 @@ keys:
     - dynamicContents.updatedBy
     - fieldMerges.createdBy
     - fieldMerges.updatedBy
-    - forms.createdBy
-    - forms.updatedBy
-    - forms.elements.createdBy
-    - forms.elements.updatedBy
     - hyperlinks.createdBy
     - hyperlinks.updatedBy
     - images.createdBy
@@ -267,22 +260,6 @@ tables:
     - key: updatedBy
       foreign-key: fieldMerges.updatedBy
     - key: createdBy
-      foreign-key: forms.createdBy
-    - key: updatedBy
-      foreign-key: forms.createdBy
-    - key: createdBy
-      foreign-key: forms.updatedBy
-    - key: updatedBy
-      foreign-key: forms.updatedBy
-    - key: createdBy
-      foreign-key: forms.elements.createdBy
-    - key: updatedBy
-      foreign-key: forms.elements.createdBy
-    - key: createdBy
-      foreign-key: forms.elements.updatedBy
-    - key: updatedBy
-      foreign-key: forms.elements.updatedBy
-    - key: createdBy
       foreign-key: hyperlinks.createdBy
     - key: updatedBy
       foreign-key: hyperlinks.createdBy
@@ -383,7 +360,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -471,7 +448,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -561,7 +538,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -645,7 +622,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -733,7 +710,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -823,7 +800,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -907,7 +884,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -989,7 +966,7 @@ tables:
   - table-name: contacts
     keys:
     - key: ContactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: visitors
     keys:
     - key: ContactId
@@ -1127,30 +1104,6 @@ tables:
     - key: runAsUserId
       foreign-key: fieldMerges.updatedBy
     - key: createdBy
-      foreign-key: forms.createdBy
-    - key: updatedBy
-      foreign-key: forms.createdBy
-    - key: runAsUserId
-      foreign-key: forms.createdBy
-    - key: createdBy
-      foreign-key: forms.updatedBy
-    - key: updatedBy
-      foreign-key: forms.updatedBy
-    - key: runAsUserId
-      foreign-key: forms.updatedBy
-    - key: createdBy
-      foreign-key: forms.elements.createdBy
-    - key: updatedBy
-      foreign-key: forms.elements.createdBy
-    - key: runAsUserId
-      foreign-key: forms.elements.createdBy
-    - key: createdBy
-      foreign-key: forms.elements.updatedBy
-    - key: updatedBy
-      foreign-key: forms.elements.updatedBy
-    - key: runAsUserId
-      foreign-key: forms.elements.updatedBy
-    - key: createdBy
       foreign-key: hyperlinks.createdBy
     - key: updatedBy
       foreign-key: hyperlinks.createdBy
@@ -1230,8 +1183,6 @@ tables:
       foreign-key: hyperlinks.folderId
     - key: folderId
       foreign-key: images.folderId
-    - key: id
-      foreign-key: forms.id
   - table-name: assets
     keys:
     - key: folderId
@@ -1240,46 +1191,46 @@ tables:
   join:
   - table-name: activity_bounceback
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_email_clickthrough
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_email_open
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_email_send
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_form_submit
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_page_view
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_subscribe
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: activity_unsubscribe
     keys:
-    - key: id
+    - key: Id
       foreign-key: ContactId
   - table-name: visitors
     keys:
-    - key: id
+    - key: Id
       foreign-key: contactId
 - table-name: visitors
   join:
   - table-name: contacts
     keys:
     - key: contactId
-      foreign-key: id
+      foreign-key: Id
   - table-name: activity_bounceback
     keys:
     - key: contactId
@@ -1332,9 +1283,7 @@ tables:
       foreign-key: folderId
     - key: images.folderId
       foreign-key: folderId
-    - key: forms.id
-      foreign-key: id
-  - table-name: email_groups
+  - table-name: emailGroups
     keys:
     - key: emailFooterId
       foreign-key: emailFooterId
@@ -1358,14 +1307,6 @@ tables:
       foreign-key: createdBy
     - key: fieldMerges.updatedBy
       foreign-key: createdBy
-    - key: forms.createdBy
-      foreign-key: createdBy
-    - key: forms.updatedBy
-      foreign-key: createdBy
-    - key: forms.elements.createdBy
-      foreign-key: createdBy
-    - key: forms.elements.updatedBy
-      foreign-key: createdBy
     - key: hyperlinks.createdBy
       foreign-key: createdBy
     - key: hyperlinks.updatedBy
@@ -1385,14 +1326,6 @@ tables:
     - key: fieldMerges.createdBy
       foreign-key: updatedBy
     - key: fieldMerges.updatedBy
-      foreign-key: updatedBy
-    - key: forms.createdBy
-      foreign-key: updatedBy
-    - key: forms.updatedBy
-      foreign-key: updatedBy
-    - key: forms.elements.createdBy
-      foreign-key: updatedBy
-    - key: forms.elements.updatedBy
       foreign-key: updatedBy
     - key: hyperlinks.createdBy
       foreign-key: updatedBy
@@ -1422,14 +1355,6 @@ tables:
       foreign-key: createdBy
     - key: fieldMerges.updatedBy
       foreign-key: createdBy
-    - key: forms.createdBy
-      foreign-key: createdBy
-    - key: forms.updatedBy
-      foreign-key: createdBy
-    - key: forms.elements.createdBy
-      foreign-key: createdBy
-    - key: forms.elements.updatedBy
-      foreign-key: createdBy
     - key: hyperlinks.createdBy
       foreign-key: createdBy
     - key: hyperlinks.updatedBy
@@ -1449,14 +1374,6 @@ tables:
     - key: fieldMerges.createdBy
       foreign-key: updatedBy
     - key: fieldMerges.updatedBy
-      foreign-key: updatedBy
-    - key: forms.createdBy
-      foreign-key: updatedBy
-    - key: forms.updatedBy
-      foreign-key: updatedBy
-    - key: forms.elements.createdBy
-      foreign-key: updatedBy
-    - key: forms.elements.updatedBy
       foreign-key: updatedBy
     - key: hyperlinks.createdBy
       foreign-key: updatedBy
@@ -1478,14 +1395,6 @@ tables:
       foreign-key: runAsUserId
     - key: fieldMerges.updatedBy
       foreign-key: runAsUserId
-    - key: forms.createdBy
-      foreign-key: runAsUserId
-    - key: forms.updatedBy
-      foreign-key: runAsUserId
-    - key: forms.elements.createdBy
-      foreign-key: runAsUserId
-    - key: forms.elements.updatedBy
-      foreign-key: runAsUserId
     - key: hyperlinks.createdBy
       foreign-key: runAsUserId
     - key: hyperlinks.updatedBy
@@ -1496,7 +1405,7 @@ tables:
       foreign-key: runAsUserId
     - key: updatedBy
       foreign-key: runAsUserId
-- table-name: email_groups
+- table-name: emailGroups
   join:
   - table-name: emails
     keys:
