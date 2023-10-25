@@ -74,7 +74,7 @@ jobs:
           branch: ${{ github.event.inputs.branch }}
 
       - name: Create pull request
-        if: steps.get_changes.outputs.changed != 0 && github.event.inputs.pr == true
+        if: steps.get_changes.outputs.changed != 0 && github.event.inputs.pr == 'true'
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ github.event.inputs.branch }}
