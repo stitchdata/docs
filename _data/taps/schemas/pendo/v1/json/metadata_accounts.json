@@ -5,6 +5,7 @@
       "additional_properties": false,
       "properties": {
         "firstvisit": {
+          "additionalProperties": false,
           "properties": {
             "dirty": {
               "type": [
@@ -67,11 +68,151 @@
               ]
             }
           },
-          "type": [
-            "object"
-          ]
+          "type": "object"
         },
         "id": {
+          "additionalProperties": false,
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "lastvisit": {
+          "additionalProperties": false,
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "custom": {
+      "additional_properties": "false",
+      "properties": {
+        "test_field": {
+          "additional_properties": "false",
           "properties": {
             "dirty": {
               "type": [
@@ -135,10 +276,12 @@
             }
           },
           "type": [
+            "null",
             "object"
           ]
         },
-        "lastvisit": {
+        "test_field__123": {
+          "additional_properties": "false",
           "properties": {
             "dirty": {
               "type": [
@@ -202,6 +345,283 @@
             }
           },
           "type": [
+            "null",
+            "object"
+          ]
+        },
+        "testaccountcfield1": {
+          "additional_properties": "false",
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "testaccountcustomfield": {
+          "additional_properties": "false",
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "testfloatfield": {
+          "additional_properties": "false",
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "testintfield": {
+          "additional_properties": "false",
+          "properties": {
+            "dirty": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_format": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "element_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_calculated": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_deleted": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "is_per_app": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "never_index": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
             "object"
           ]
         }
