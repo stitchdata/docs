@@ -105,14 +105,13 @@ tables:
     replication-method: Key-based Incremental
     primary-keys:
     - account_id
-    - server
-    - remote_ip
     - browser_time
-    - visitor_id
     - guide_id
     - guide_step_id
+    - remote_ip
     - type
     - url
+    - visitor_id
     replication-key: browser_time
 - name: metadata_accounts
   description: 'The `{{ table.name }}` table contains info about the metadata schema

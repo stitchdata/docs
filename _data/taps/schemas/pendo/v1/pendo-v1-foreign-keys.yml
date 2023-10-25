@@ -4,7 +4,7 @@ keys:
   accounts_account_id:
   - table: accounts
     keys:
-    - id
+    - account_id
   - table: events
     keys:
     - account_id
@@ -14,21 +14,21 @@ keys:
   - table: guide_events
     keys:
     - account_id
-    - account_ids.value
+    - account_ids
   - table: page_events
     keys:
     - account_id
   - table: poll_events
     keys:
     - account_id
-    - account_ids.value
+    - account_ids
   - table: track_events
     keys:
     - account_id
   - table: visitors
     keys:
-    - metadata_auto.accountid.account_id
-    - metadata_auto.accountids.value
+    - metadata_auto.accountid
+    - metadata_auto.accountids
   _app_id:
   - table: events
     keys:
@@ -94,12 +94,9 @@ keys:
     - steps.id
   - table: visitor_history
     keys:
-    - id
+    - guide_id
   _page_id:
   - table: events
-    keys:
-    - page_id
-  - table: feature_events
     keys:
     - page_id
   - table: features
@@ -113,7 +110,7 @@ keys:
     - page_id
   - table: pages
     keys:
-    - page_id
+    - id
   - table: visitor_history
     keys:
     - page_id
@@ -141,7 +138,7 @@ keys:
   - table: guides
     keys:
     - created_by_user.id
-    - lastUpdated_by_user.id
+    - last_updated_by_user.id
   - table: pages
     keys:
     - created_by_user.id
@@ -185,44 +182,44 @@ tables:
   join:
   - table-name: events
     keys:
-    - key: id
+    - key: account_id
       foreign-key: account_id
   - table-name: feature_events
     keys:
-    - key: id
+    - key: account_id
       foreign-key: account_id
   - table-name: guide_events
     keys:
-    - key: id
+    - key: account_id
       foreign-key: account_id
-    - key: id
-      foreign-key: account_ids.value
+    - key: account_id
+      foreign-key: account_ids
   - table-name: page_events
     keys:
-    - key: id
+    - key: account_id
       foreign-key: account_id
   - table-name: poll_events
     keys:
-    - key: id
+    - key: account_id
       foreign-key: account_id
-    - key: id
-      foreign-key: account_ids.value
+    - key: account_id
+      foreign-key: account_ids
   - table-name: track_events
     keys:
-    - key: id
+    - key: account_id
       foreign-key: account_id
   - table-name: visitors
     keys:
-    - key: id
-      foreign-key: metadata_auto.accountid.account_id
-    - key: id
-      foreign-key: metadata_auto.accountids.value
+    - key: account_id
+      foreign-key: metadata_auto.accountid
+    - key: account_id
+      foreign-key: metadata_auto.accountids
 - table-name: events
   join:
   - table-name: accounts
     keys:
     - key: account_id
-      foreign-key: id
+      foreign-key: account_id
   - table-name: feature_events
     keys:
     - key: account_id
@@ -231,8 +228,6 @@ tables:
       foreign-key: app_id
     - key: feature_id
       foreign-key: feature_id
-    - key: page_id
-      foreign-key: page_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: guide_events
@@ -240,7 +235,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: app_id
       foreign-key: app_id
     - key: visitor_id
@@ -260,7 +255,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: track_events
@@ -274,9 +269,9 @@ tables:
   - table-name: visitors
     keys:
     - key: account_id
-      foreign-key: metadata_auto.accountid.account_id
+      foreign-key: metadata_auto.accountid
     - key: account_id
-      foreign-key: metadata_auto.accountids.value
+      foreign-key: metadata_auto.accountids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: features
@@ -306,13 +301,13 @@ tables:
   - table-name: pages
     keys:
     - key: page_id
-      foreign-key: page_id
+      foreign-key: id
 - table-name: feature_events
   join:
   - table-name: accounts
     keys:
     - key: account_id
-      foreign-key: id
+      foreign-key: account_id
   - table-name: events
     keys:
     - key: account_id
@@ -321,8 +316,6 @@ tables:
       foreign-key: app_id
     - key: feature_id
       foreign-key: feature_id
-    - key: page_id
-      foreign-key: page_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: guide_events
@@ -330,7 +323,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: app_id
       foreign-key: app_id
     - key: visitor_id
@@ -341,8 +334,6 @@ tables:
       foreign-key: account_id
     - key: app_id
       foreign-key: app_id
-    - key: page_id
-      foreign-key: page_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: poll_events
@@ -350,7 +341,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: track_events
@@ -364,9 +355,9 @@ tables:
   - table-name: visitors
     keys:
     - key: account_id
-      foreign-key: metadata_auto.accountid.account_id
+      foreign-key: metadata_auto.accountid
     - key: account_id
-      foreign-key: metadata_auto.accountids.value
+      foreign-key: metadata_auto.accountids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: features
@@ -375,41 +366,31 @@ tables:
       foreign-key: created_by_user.app_id
     - key: feature_id
       foreign-key: id
-    - key: page_id
-      foreign-key: page_id
   - table-name: visitor_history
     keys:
     - key: app_id
       foreign-key: app_id
     - key: feature_id
       foreign-key: feature_id
-    - key: page_id
-      foreign-key: page_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: guides
     keys:
-    - key: page_id
-      foreign-key: steps.page_id
     - key: visitor_id
       foreign-key: audience.select.visitor_id
-  - table-name: pages
-    keys:
-    - key: page_id
-      foreign-key: page_id
 - table-name: guide_events
   join:
   - table-name: accounts
     keys:
     - key: account_id
-      foreign-key: id
-    - key: account_ids.value
-      foreign-key: id
+      foreign-key: account_id
+    - key: account_ids
+      foreign-key: account_id
   - table-name: events
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: app_id
       foreign-key: app_id
@@ -419,7 +400,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: app_id
       foreign-key: app_id
@@ -429,7 +410,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: app_id
       foreign-key: app_id
@@ -439,12 +420,12 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
-    - key: account_ids.value
-      foreign-key: account_ids.value
+      foreign-key: account_ids
+    - key: account_ids
+      foreign-key: account_ids
     - key: guide_id
       foreign-key: guide_id
     - key: poll_id
@@ -455,7 +436,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: app_id
       foreign-key: app_id
@@ -464,13 +445,13 @@ tables:
   - table-name: visitors
     keys:
     - key: account_id
-      foreign-key: metadata_auto.accountid.account_id
-    - key: account_ids.value
-      foreign-key: metadata_auto.accountid.account_id
+      foreign-key: metadata_auto.accountid
+    - key: account_ids
+      foreign-key: metadata_auto.accountid
     - key: account_id
-      foreign-key: metadata_auto.accountids.value
-    - key: account_ids.value
-      foreign-key: metadata_auto.accountids.value
+      foreign-key: metadata_auto.accountids
+    - key: account_ids
+      foreign-key: metadata_auto.accountids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: features
@@ -498,7 +479,7 @@ tables:
   - table-name: accounts
     keys:
     - key: account_id
-      foreign-key: id
+      foreign-key: account_id
   - table-name: events
     keys:
     - key: account_id
@@ -515,8 +496,6 @@ tables:
       foreign-key: account_id
     - key: app_id
       foreign-key: app_id
-    - key: page_id
-      foreign-key: page_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: guide_events
@@ -524,7 +503,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: app_id
       foreign-key: app_id
     - key: visitor_id
@@ -534,7 +513,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: track_events
@@ -548,9 +527,9 @@ tables:
   - table-name: visitors
     keys:
     - key: account_id
-      foreign-key: metadata_auto.accountid.account_id
+      foreign-key: metadata_auto.accountid
     - key: account_id
-      foreign-key: metadata_auto.accountids.value
+      foreign-key: metadata_auto.accountids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: features
@@ -576,20 +555,20 @@ tables:
   - table-name: pages
     keys:
     - key: page_id
-      foreign-key: page_id
+      foreign-key: id
 - table-name: poll_events
   join:
   - table-name: accounts
     keys:
     - key: account_id
-      foreign-key: id
-    - key: account_ids.value
-      foreign-key: id
+      foreign-key: account_id
+    - key: account_ids
+      foreign-key: account_id
   - table-name: events
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
@@ -597,7 +576,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
@@ -605,12 +584,12 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
-    - key: account_ids.value
-      foreign-key: account_ids.value
+      foreign-key: account_ids
+    - key: account_ids
+      foreign-key: account_ids
     - key: guide_id
       foreign-key: guide_id
     - key: poll_id
@@ -621,7 +600,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
@@ -629,20 +608,20 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: account_ids.value
+    - key: account_ids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: visitors
     keys:
     - key: account_id
-      foreign-key: metadata_auto.accountid.account_id
-    - key: account_ids.value
-      foreign-key: metadata_auto.accountid.account_id
+      foreign-key: metadata_auto.accountid
+    - key: account_ids
+      foreign-key: metadata_auto.accountid
     - key: account_id
-      foreign-key: metadata_auto.accountids.value
-    - key: account_ids.value
-      foreign-key: metadata_auto.accountids.value
+      foreign-key: metadata_auto.accountids
+    - key: account_ids
+      foreign-key: metadata_auto.accountids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: guides
@@ -664,7 +643,7 @@ tables:
   - table-name: accounts
     keys:
     - key: account_id
-      foreign-key: id
+      foreign-key: account_id
   - table-name: events
     keys:
     - key: account_id
@@ -686,7 +665,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: app_id
       foreign-key: app_id
     - key: visitor_id
@@ -704,15 +683,15 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: account_id
-      foreign-key: account_ids.value
+      foreign-key: account_ids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: visitors
     keys:
     - key: account_id
-      foreign-key: metadata_auto.accountid.account_id
+      foreign-key: metadata_auto.accountid
     - key: account_id
-      foreign-key: metadata_auto.accountids.value
+      foreign-key: metadata_auto.accountids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: features
@@ -737,63 +716,63 @@ tables:
   join:
   - table-name: accounts
     keys:
-    - key: metadata_auto.accountid.account_id
-      foreign-key: id
-    - key: metadata_auto.accountids.value
-      foreign-key: id
+    - key: metadata_auto.accountid
+      foreign-key: account_id
+    - key: metadata_auto.accountids
+      foreign-key: account_id
   - table-name: events
     keys:
-    - key: metadata_auto.accountid.account_id
+    - key: metadata_auto.accountid
       foreign-key: account_id
-    - key: metadata_auto.accountids.value
+    - key: metadata_auto.accountids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: feature_events
     keys:
-    - key: metadata_auto.accountid.account_id
+    - key: metadata_auto.accountid
       foreign-key: account_id
-    - key: metadata_auto.accountids.value
+    - key: metadata_auto.accountids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: guide_events
     keys:
-    - key: metadata_auto.accountid.account_id
+    - key: metadata_auto.accountid
       foreign-key: account_id
-    - key: metadata_auto.accountids.value
+    - key: metadata_auto.accountids
       foreign-key: account_id
-    - key: metadata_auto.accountid.account_id
-      foreign-key: account_ids.value
-    - key: metadata_auto.accountids.value
-      foreign-key: account_ids.value
+    - key: metadata_auto.accountid
+      foreign-key: account_ids
+    - key: metadata_auto.accountids
+      foreign-key: account_ids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: page_events
     keys:
-    - key: metadata_auto.accountid.account_id
+    - key: metadata_auto.accountid
       foreign-key: account_id
-    - key: metadata_auto.accountids.value
+    - key: metadata_auto.accountids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: poll_events
     keys:
-    - key: metadata_auto.accountid.account_id
+    - key: metadata_auto.accountid
       foreign-key: account_id
-    - key: metadata_auto.accountids.value
+    - key: metadata_auto.accountids
       foreign-key: account_id
-    - key: metadata_auto.accountid.account_id
-      foreign-key: account_ids.value
-    - key: metadata_auto.accountids.value
-      foreign-key: account_ids.value
+    - key: metadata_auto.accountid
+      foreign-key: account_ids
+    - key: metadata_auto.accountids
+      foreign-key: account_ids
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: track_events
     keys:
-    - key: metadata_auto.accountid.account_id
+    - key: metadata_auto.accountid
       foreign-key: account_id
-    - key: metadata_auto.accountids.value
+    - key: metadata_auto.accountids
       foreign-key: account_id
     - key: visitor_id
       foreign-key: visitor_id
@@ -821,8 +800,6 @@ tables:
       foreign-key: app_id
     - key: id
       foreign-key: feature_id
-    - key: page_id
-      foreign-key: page_id
   - table-name: guide_events
     keys:
     - key: created_by_user.app_id
@@ -850,7 +827,7 @@ tables:
     - key: group.id
       foreign-key: group.id
     - key: page_id
-      foreign-key: page_id
+      foreign-key: id
     - key: created_by_user.id
       foreign-key: created_by_user.id
     - key: group.created_by_user.id
@@ -916,13 +893,13 @@ tables:
     - key: last_updated_by_user.id
       foreign-key: created_by_user.id
     - key: created_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: group.created_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: group.last_updated_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: last_updated_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
 - table-name: visitor_history
   join:
   - table-name: events
@@ -941,8 +918,6 @@ tables:
       foreign-key: app_id
     - key: feature_id
       foreign-key: feature_id
-    - key: page_id
-      foreign-key: page_id
     - key: visitor_id
       foreign-key: visitor_id
   - table-name: features
@@ -981,7 +956,7 @@ tables:
       foreign-key: id
     - key: guide_id
       foreign-key: steps.guide_id
-    - key: id
+    - key: guide_id
       foreign-key: steps.id
     - key: page_id
       foreign-key: steps.page_id
@@ -996,7 +971,7 @@ tables:
   - table-name: pages
     keys:
     - key: page_id
-      foreign-key: page_id
+      foreign-key: id
   - table-name: visitors
     keys:
     - key: visitor_id
@@ -1007,7 +982,7 @@ tables:
     keys:
     - key: group.id
       foreign-key: group.id
-    - key: page_id
+    - key: id
       foreign-key: page_id
     - key: created_by_user.id
       foreign-key: created_by_user.id
@@ -1063,15 +1038,11 @@ tables:
       foreign-key: last_updated_by_user.id
   - table-name: events
     keys:
-    - key: page_id
-      foreign-key: page_id
-  - table-name: feature_events
-    keys:
-    - key: page_id
+    - key: id
       foreign-key: page_id
   - table-name: guides
     keys:
-    - key: page_id
+    - key: id
       foreign-key: steps.page_id
     - key: created_by_user.id
       foreign-key: created_by_user.id
@@ -1082,20 +1053,20 @@ tables:
     - key: last_updated_by_user.id
       foreign-key: created_by_user.id
     - key: created_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: group.created_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: group.last_updated_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: last_updated_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
   - table-name: page_events
     keys:
-    - key: page_id
+    - key: id
       foreign-key: page_id
   - table-name: visitor_history
     keys:
-    - key: page_id
+    - key: id
       foreign-key: page_id
 - table-name: track_types
   join:
@@ -1150,9 +1121,9 @@ tables:
     - key: last_updated_by_user.id
       foreign-key: created_by_user.id
     - key: created_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
     - key: last_updated_by_user.id
-      foreign-key: lastUpdated_by_user.id
+      foreign-key: last_updated_by_user.id
 - table-name: guides
   join:
   - table-name: guide_events
@@ -1178,18 +1149,12 @@ tables:
     - key: steps.guide_id
       foreign-key: guide_id
     - key: steps.id
-      foreign-key: id
+      foreign-key: guide_id
     - key: steps.page_id
       foreign-key: page_id
     - key: audience.select.visitor_id
       foreign-key: visitor_id
   - table-name: events
-    keys:
-    - key: steps.page_id
-      foreign-key: page_id
-    - key: audience.select.visitor_id
-      foreign-key: visitor_id
-  - table-name: feature_events
     keys:
     - key: steps.page_id
       foreign-key: page_id
@@ -1201,19 +1166,19 @@ tables:
       foreign-key: page_id
     - key: created_by_user.id
       foreign-key: created_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: created_by_user.id
     - key: created_by_user.id
       foreign-key: group.created_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: group.created_by_user.id
     - key: created_by_user.id
       foreign-key: group.last_updated_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: group.last_updated_by_user.id
     - key: created_by_user.id
       foreign-key: last_updated_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: last_updated_by_user.id
   - table-name: page_events
     keys:
@@ -1224,33 +1189,37 @@ tables:
   - table-name: pages
     keys:
     - key: steps.page_id
-      foreign-key: page_id
+      foreign-key: id
     - key: created_by_user.id
       foreign-key: created_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: created_by_user.id
     - key: created_by_user.id
       foreign-key: group.created_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: group.created_by_user.id
     - key: created_by_user.id
       foreign-key: group.last_updated_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: group.last_updated_by_user.id
     - key: created_by_user.id
       foreign-key: last_updated_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: last_updated_by_user.id
   - table-name: track_types
     keys:
     - key: created_by_user.id
       foreign-key: created_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: created_by_user.id
     - key: created_by_user.id
       foreign-key: last_updated_by_user.id
-    - key: lastUpdated_by_user.id
+    - key: last_updated_by_user.id
       foreign-key: last_updated_by_user.id
+  - table-name: feature_events
+    keys:
+    - key: audience.select.visitor_id
+      foreign-key: visitor_id
   - table-name: track_events
     keys:
     - key: audience.select.visitor_id
