@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Contact
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Contact.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Contact
 description: |
   The `{{ table.name }}` table contains info about contacts.
 

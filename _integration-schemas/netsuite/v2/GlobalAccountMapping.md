@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: GlobalAccountMapping
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/GlobalAccountMapping.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/GlobalAccountMapping
 description: |
   The `{{ table.name }}` table contains the global account mapping record details in your {{ integration.display_name }} account. 
 

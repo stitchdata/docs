@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: ItemDemandPlan
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemDemandPlan.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemDemandPlan
 description: |
   The `{{ table.name }}` table contains info about item demand plans in your {{ integration.display_name }} account. An item demand plan transaction stores the quantity expected to be needed, during specified time periods, for an item.
 

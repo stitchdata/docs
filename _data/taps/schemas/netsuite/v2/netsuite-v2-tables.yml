@@ -11,7 +11,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Account.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Account
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -25,7 +24,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/AccountingPeriod.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/AccountingPeriod
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -46,7 +44,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Address.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Address
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -63,7 +60,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/BillingAccount.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/BillingAccount
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -81,7 +77,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/BillingSchedule.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/BillingSchedule
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -95,7 +90,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Bin.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Bin
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -110,7 +104,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Bom.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Bom
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -124,7 +117,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/BomRevision.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/BomRevision
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -136,7 +128,6 @@ tables:
     \ criteria. \n\n{{ integration.permission-for-table | flatify }}\n"
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Budget.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Budget
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -150,7 +141,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CalendarEvent.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CalendarEvent
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -166,7 +156,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Campaign.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Campaign
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -181,7 +170,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Charge.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Charge
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -200,7 +188,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Classification.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Classification
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -215,7 +202,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ConsolidatedExchangeRate.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ConsolidatedExchangeRate
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -228,7 +214,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Contact.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Contact
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -243,7 +228,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ContactCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ContactCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -257,7 +241,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ContactRole.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ContactRole
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -271,7 +254,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CostCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CostCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -285,7 +267,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CouponCode.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CouponCode
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -300,7 +281,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CurrencyRate.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CurrencyRate
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -313,7 +293,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Customer.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Customer
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -328,7 +307,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomerCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -342,7 +320,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerMessage.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomerMessage
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -356,7 +333,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerStatus.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomerStatus
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -370,7 +346,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerSubsidiaryRelationship.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomerSubsidiaryRelationship
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -378,7 +353,6 @@ tables:
   description: "The `{{ table.name }}` table contains info about \n"
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomList.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomList
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -403,7 +377,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Deleted.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Deleted
     api-method: https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html
   table-details:
     replication-method: Key-based Incremental
@@ -421,7 +394,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Department.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Department
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -435,7 +407,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Employee.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Employee
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -450,7 +421,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/EntityGroup.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/EntityGroup
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -460,7 +430,6 @@ tables:
     \ | flatify }}\n"
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ExpenseCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ExpenseCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -474,7 +443,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/FairValuePrice.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/FairValuePrice
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -488,7 +456,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/File.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/File
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -502,7 +469,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Folder.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Folder
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -516,7 +482,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/GiftCertificate.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/GiftCertificate
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -530,7 +495,6 @@ tables:
     \ | flatify }}\n"
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/GlobalAccountMapping.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/GlobalAccountMapping
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -540,7 +504,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/HcmJob.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/HcmJob
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -554,7 +517,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/InboundShipment.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/InboundShipment
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -568,7 +530,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/InventoryNumber.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/InventoryNumber
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -582,7 +543,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Issue.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Issue
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -596,7 +556,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Item.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Item
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -618,7 +577,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemAccountMapping.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemAccountMapping
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -634,7 +592,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemDemandPlan.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemDemandPlan
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -648,7 +605,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemRevision.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemRevision
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -664,7 +620,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ItemSupplyPlan.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ItemSupplyPlan
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -678,7 +633,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Job.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Job
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -693,7 +647,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/JobStatus.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/JobStatus
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -707,7 +660,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/JobType.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/JobType
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -720,7 +672,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Location.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Location
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -739,7 +690,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ManufacturingCostTemplate.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ManufacturingCostTemplate
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -758,7 +708,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ManufacturingOperationTask.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ManufacturingOperationTask
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -780,7 +729,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ManufacturingRouting.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ManufacturingRouting
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -794,7 +742,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/MerchandiseHierarchyNode.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/MerchandiseHierarchyNode
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -808,7 +755,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Message.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Message
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -819,7 +765,6 @@ tables:
     \ | flatify }}\n"
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Nexus.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Nexus
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -833,7 +778,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Note.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Note
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -847,7 +791,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/NoteType.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/NoteType
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -861,7 +804,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Opportunity.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Opportunity
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -879,7 +821,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/OtherNameCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/OtherNameCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -893,7 +834,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Partner.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Partner
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -908,7 +848,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PartnerCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PartnerCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -922,7 +861,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Paycheck.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Paycheck
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -936,7 +874,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PaymentMethod.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PaymentMethod
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -950,7 +887,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PayrollItem.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PayrollItem
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -964,7 +900,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PhoneCall.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PhoneCall
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -981,7 +916,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PriceLevel.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PriceLevel
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -995,7 +929,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PricingGroup.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PricingGroup
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1009,7 +942,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ProjectTask.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ProjectTask
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1023,7 +955,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/PromotionCode.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/PromotionCode
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1037,7 +968,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ResourceAllocation.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ResourceAllocation
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1053,7 +983,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/RevRecSchedule.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/RevRecSchedule
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1068,7 +997,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/RevRecTemplate.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/RevRecTemplate
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1082,7 +1010,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/SalesRole.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/SalesRole
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1096,7 +1023,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/SalesTaxItem.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/SalesTaxItem
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1110,7 +1036,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/SiteCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/SiteCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1124,7 +1049,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Solution.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Solution
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1140,7 +1064,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Subsidiary.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Subsidiary
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1154,7 +1077,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/SupportCase.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/SupportCase
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1169,7 +1091,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Task.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Task
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1184,7 +1105,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/TaxGroup.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/TaxGroup
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1201,7 +1121,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/TaxType.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/TaxType
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1216,7 +1135,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Term.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Term
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1232,7 +1150,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/TimeBill.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/TimeBill
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1247,7 +1164,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/TimeEntry.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/TimeEntry
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1262,7 +1178,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/TimeSheet.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/TimeSheet
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1276,7 +1191,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Topic.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Topic
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1297,7 +1211,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Transaction.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Transaction
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1312,7 +1225,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/UnitsType.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/UnitsType
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1327,7 +1239,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Usage.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Usage
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1341,7 +1252,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Vendor.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Vendor
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1356,7 +1266,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/VendorCategory.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/VendorCategory
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1370,7 +1279,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/VendorSubsidiaryRelationship.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/VendorSubsidiaryRelationship
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -1384,7 +1292,6 @@ tables:
     '
   links:
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/WinLossReason.html
-    singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/WinLossReason
   table-details:
     replication-method: Full Table
     primary-key: internalId

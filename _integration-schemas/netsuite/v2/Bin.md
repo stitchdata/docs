@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Bin
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Bin.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Bin
 description: |
   The `{{ table.name }}` table contains info about bins, or places in your warehouse where you store inventory items.
 

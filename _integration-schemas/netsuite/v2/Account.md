@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Account
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Account.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Account
 replication-method: "Full Table"
 description: |
   The `{{ table.name }}` table contains info about the accounts in the Chart of Accounts in your {{ integration.display_name }} account.
