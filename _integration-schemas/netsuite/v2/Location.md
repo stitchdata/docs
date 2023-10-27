@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Location
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Location.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Location
 description: |
   The `{{ table.name }}` table contains info about locations.
 

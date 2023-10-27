@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Bom
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Bom.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Bom
 description:  |
   The `{{ table.name }}` table contains info about bills of materials (BOM): the quantities of raw materials, assemblies, sub-components, and parts needed to manufacture a product.
 

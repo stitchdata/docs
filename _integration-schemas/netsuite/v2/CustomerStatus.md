@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: CustomerStatus
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/CustomerStatus.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/CustomerStatus
 description: |
   The `{{ table.name }}` table contains info about the stages for leads, prospects, and customers in your {{ integration.display_name }} sales cycle.
 

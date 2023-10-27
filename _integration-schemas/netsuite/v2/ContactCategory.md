@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: ContactCategory
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/ContactCategory.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/ContactCategory
 description: |
   The `{{ table.name }}` table contains info about the types of contacts in your {{ integration.display_name }} account.
 
