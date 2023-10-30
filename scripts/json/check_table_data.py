@@ -56,14 +56,11 @@ def checkPrimaryReplicationKeys(file, json_folder, issue_list):
                     # Look for all primary keys in the JSON file, if some are not found, append the list of issues
                     if len(primary_keys) > 0:
                         for primary_key in primary_keys:
-                            if primary_key == '{{ system-column.primary-key }}':
-                                pass
-                            else:
-                                try:
-                                    element = properties[primary_key]
-                                except:
-                                    report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
-                                    issue_list.append(report)
+                            try:
+                                element = properties[primary_key]
+                            except:
+                                report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
+                                issue_list.append(report)
 
                     # Look for all replication keys in the JSON file, if some are not found, append the list of issues
                     if len(replication_keys) > 0:
