@@ -14,7 +14,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: accounts
   description: "The `{{ table.name }}` table contains high-level info about the Google\
     \ Ads account(s) you\u2019ve connected to Stitch.\n\n[This is a **Core Object**\
@@ -40,7 +39,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: ads
   description: 'The `{{ table.name }}` table contains comprehensive info about ads
     in ad groups in your Google Ads account.
@@ -83,7 +81,6 @@ tables:
     primary-keys:
     - criterion_id
     - ad_group_id
-  status: not_found
 - name: ad_group_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated at
     the ad group level.
@@ -99,7 +96,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: ad_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated at
     the ad level.
@@ -115,7 +111,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: age_range_performance_report
   description: 'The `{{ table.name }}` table contains all Display Network and YouTube
     Network statistics aggregated by age range.
@@ -131,7 +126,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: bidding_strategies
   description: 'The `{{ table.name }}` table contains info about bidding strategies
     in your Google Ads account.
@@ -145,7 +139,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: call_details
   description: 'The `{{ table.name }}` table contains info about call tracking of
     call-only ads or call extensions.
@@ -159,7 +152,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: resource_name
-  status: not_found
 - name: campaigns
   description: 'The `{{ table.name }}` table contains detailed info about your Google
     Ads campaigns.
@@ -189,7 +181,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: campaign_budgets
   description: 'The `{{ table.name }}` table contains info about campaign budgets
     in your Google Ads account.
@@ -203,7 +194,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: campaign_criterion
   description: 'The `{{ table.name }}` table contains info about campaign criteria.
 
@@ -216,7 +206,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: criterion_id
-  status: not_found
 - name: campaign_labels
   description: 'The `{{ table.name }}` table contains info about the relationship
     between campaigns and labels.
@@ -230,7 +219,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: resource_name
-  status: not_found
 - name: campaign_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated by
     default at the campaign level.
@@ -246,7 +234,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: carrier_constant
   description: "The `{{ table.name }}` table contains info about carrier criteria\
     \ that can be used in campaign targeting.\n\n[This is a **Core Object** table](#replication)."
@@ -255,7 +242,6 @@ tables:
   table-details:
     replication-method: Full Table
     parent-table: campaign_criterion
-  status: not_found
 - name: click_performance_report
   description: 'The `{{ table.name }}` table contains statistics aggregated at each
     click level, and includes both valid and invalid clicks.
@@ -271,7 +257,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: display_keyword_performance_report
   description: 'The `{{ table.name }}` table contains all Display Network and YouTube
     Network statistics aggregated at the keyword level.
@@ -287,7 +272,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: display_topics_performance_report
   description: 'The `{{ table.name }}` table contains all Display Network and YouTube
     Network statistics aggregated at the topic level.
@@ -303,7 +287,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: expanded_landing_page_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -314,7 +297,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: feed
   description: "The `{{ table.name }}` table contains info about feeds.\n\n[This is\
     \ a **Core Object** table](#replication)."
@@ -324,7 +306,6 @@ tables:
     replication-method: Full Table
     primary-key: id
     parent-table: campaign_criterion
-  status: not_found
 - name: feed_item
   description: 'The `{{ table.name }}` table contains infor about a feed item.
 
@@ -337,7 +318,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: gender_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated by
     gender.
@@ -353,7 +333,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: geo_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated at
     the country/territory level.
@@ -369,7 +348,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: keywordless_query_report
   description: 'The `{{ table.name }}` includes keywordless ads (dynamic search ads)
     statistics based on search terms.
@@ -385,7 +363,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: keywords_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated at
     the keyword level.
@@ -401,7 +378,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: labels
   description: 'The `{{ table.name }}` table contains info about labels.
 
@@ -414,7 +390,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: landing_page_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -425,7 +400,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: language_constant
   description: "The `{{ table.name }}` table contains info about about languages.\n\
     \n[This is a **Core Object** table](#replication)."
@@ -435,7 +409,6 @@ tables:
     replication-method: Full Table
     primary-key: id
     parent-table: campaign_criterion
-  status: not_found
 - name: mobile_app_category_constant
   description: "The `{{ table.name }}` table contains info about mobile application\
     \ categories.\n\n[This is a **Core Object** table](#replication). "
@@ -447,7 +420,6 @@ tables:
     parent-tables:
     - campaign_criterion
     - ad_group_criterion
-  status: not_found
 - name: mobile_device_constant
   description: "The `{{ table.name }}` table contains info about mobile devices.\n\
     \n[This is a **Core Object** table](#replication)."
@@ -457,7 +429,6 @@ tables:
     replication-method: Full Table
     primary-key: id
     parent-table: campaign_criterion
-  status: not_found
 - name: operating_system_verison_constant
   description: "The `{{ table.name }}` table contains info about mobile operating\
     \ system versions.\n\n[This is a **Core Object** table](#replication)."
@@ -467,7 +438,6 @@ tables:
     replication-method: Full Table
     primary-key: id
     parent-table: campaign_criterion
-  status: not_found
 - name: placeholder_feed_item_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -478,7 +448,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: placeholder_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -489,7 +458,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: placement_performance_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -500,7 +468,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: search_query_performance_report
   description: 'The `{{ table.name }}` table contains all statistics aggregated at
     the search term level.
@@ -516,7 +483,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: shopping_performance_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -527,7 +493,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: topic_constant
   description: "The `{{ table.name }}` table contains info about topics.\n\n[This\
     \ is a **Core Object** table](#replication)."
@@ -539,7 +504,6 @@ tables:
     parent-tables:
     - campaign_criterion
     - ad_group_criterion
-  status: not_found
 - name: user_interest
   description: "The `{{ table.name }}` table contains info about user interests to\
     \ be targeted.\n\n[This is a **Core Object** table](#replication). "
@@ -551,7 +515,6 @@ tables:
     parent-tables:
     - campaign_criterion
     - ad_group_criterion
-  status: not_found
 - name: user_list
   description: "The `{{ table.name }}` table contains info about lists of user that\
     \ can be targeted.\n\n[This is a **Core Object** table](#replication)."
@@ -563,7 +526,6 @@ tables:
     parent-tables:
     - campaign_criterion
     - ad_group_criterion
-  status: not_found
 - name: user_location_performance_report
   description: "The `{{ table.name }}` table contains \n\n[This is a **Report** table](#replication).\
     \ See the **Replication** section for information on how data is replicated and\
@@ -574,7 +536,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
 - name: video_performance_report
   description: 'The `{{ table.name }}` table contains statistics for your account''s
     videos.
@@ -590,4 +551,3 @@ tables:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
     replication-key: date
-  status: not_found
