@@ -35,7 +35,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -97,7 +97,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -116,7 +116,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -150,7 +150,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -170,7 +170,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -191,7 +191,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -210,7 +210,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found
@@ -234,7 +234,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - gregorianDate
     replication-key: gregorianDate
   status: not_found

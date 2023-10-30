@@ -169,7 +169,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -205,7 +205,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -225,7 +225,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -246,7 +246,7 @@ tables:
     primary-keys:
     - AccountId
     - AudienceId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -324,7 +324,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -345,7 +345,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -367,7 +367,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -413,7 +413,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found
@@ -438,7 +438,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '{{ system-column.report-date-time }}'
+    - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
   status: not_found

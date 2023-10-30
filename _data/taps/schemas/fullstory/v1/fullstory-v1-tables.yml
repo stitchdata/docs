@@ -17,5 +17,5 @@ tables:
     singer-schema: https://github.com/singer-io/tap-fullstory/blob/master/tap_fullstory/schemas/events.json
   table-details:
     replication-method: Key-based Incremental
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: '__sdc_primary_key'
     replication-key: EventStart
