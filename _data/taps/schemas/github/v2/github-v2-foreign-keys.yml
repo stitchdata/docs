@@ -26,9 +26,6 @@ keys:
   - table: issue_events
     keys:
     - commit_id
-  - table: pull_request_reviews
-    keys:
-    - commit_id
   - table: reviews
     keys:
     - commit_id
@@ -54,14 +51,11 @@ keys:
     - id
   - table: issue_events
     keys:
-    - issue_id
+    - id
   - table: pull_requests
     keys:
     - id
   labels_labels.id:
-  - table: issue_events
-    keys:
-    - labels.id
   - table: issue_labels
     keys:
     - id
@@ -153,9 +147,7 @@ tables:
   - table-name: issue_events
     keys:
     - key: id
-      foreign-key: issue_id
-    - key: labels.id
-      foreign-key: labels.id
+      foreign-key: id
   - table-name: issue_labels
     keys:
     - key: labels.id
@@ -182,10 +174,6 @@ tables:
     keys:
     - key: commit_id
       foreign-key: commit_id
-  - table-name: pull_request_reviews
-    keys:
-    - key: commit_id
-      foreign-key: commit_id
   - table-name: review_comments
     keys:
     - key: commit_id
@@ -197,10 +185,6 @@ tables:
 - table-name: commits
   join:
   - table-name: issue_events
-    keys:
-    - key: id
-      foreign-key: commit_id
-  - table-name: pull_request_reviews
     keys:
     - key: id
       foreign-key: commit_id
@@ -228,10 +212,6 @@ tables:
     keys:
     - key: commit_id
       foreign-key: id
-  - table-name: pull_request_reviews
-    keys:
-    - key: commit_id
-      foreign-key: commit_id
   - table-name: reviews
     keys:
     - key: commit_id
@@ -244,40 +224,12 @@ tables:
       foreign-key: original_commit_id
   - table-name: issues
     keys:
-    - key: issue_id
+    - key: id
       foreign-key: id
-    - key: labels.id
-      foreign-key: labels.id
   - table-name: pull_requests
     keys:
-    - key: issue_id
+    - key: id
       foreign-key: id
-    - key: labels.id
-      foreign-key: labels.id
-  - table-name: issue_labels
-    keys:
-    - key: labels.id
-      foreign-key: id
-- table-name: pull_request_reviews
-  join:
-  - table-name: commits
-    keys:
-    - key: commit_id
-      foreign-key: id
-  - table-name: issue_events
-    keys:
-    - key: commit_id
-      foreign-key: commit_id
-  - table-name: reviews
-    keys:
-    - key: commit_id
-      foreign-key: commit_id
-  - table-name: review_comments
-    keys:
-    - key: commit_id
-      foreign-key: commit_id
-    - key: commit_id
-      foreign-key: original_commit_id
 - table-name: review_comments
   join:
   - table-name: commits
@@ -287,12 +239,6 @@ tables:
     - key: original_commit_id
       foreign-key: id
   - table-name: issue_events
-    keys:
-    - key: commit_id
-      foreign-key: commit_id
-    - key: original_commit_id
-      foreign-key: commit_id
-  - table-name: pull_request_reviews
     keys:
     - key: commit_id
       foreign-key: commit_id
@@ -308,10 +254,6 @@ tables:
       foreign-key: id
 - table-name: issue_labels
   join:
-  - table-name: issue_events
-    keys:
-    - key: id
-      foreign-key: labels.id
   - table-name: issues
     keys:
     - key: id
@@ -325,9 +267,7 @@ tables:
   - table-name: issue_events
     keys:
     - key: id
-      foreign-key: issue_id
-    - key: labels.id
-      foreign-key: labels.id
+      foreign-key: id
   - table-name: pull_requests
     keys:
     - key: id
