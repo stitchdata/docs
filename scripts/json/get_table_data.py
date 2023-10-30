@@ -147,8 +147,11 @@ def getTableData(integration, version, schema_list):
             status = 'not_found'
             for t in data['tables']:
                 if t['name'] == table:
-                    t['status'] = status
-                    not_found.append(table)
+                    if t['report']:
+                        pass
+                    else:
+                        t['status'] = status
+                        not_found.append(table)
         else:
 
             # If the schema exists and the table has the 'not found' status, remove it the status 
