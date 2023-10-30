@@ -25,9 +25,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: adgroup_performance_report
   description: 'The `ad_performance_report` table contains all statistics aggregated
     at the ad group level.
@@ -42,9 +42,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: ads
   description: 'The `{{ table.name }}` table contains comprehensive info about ads
     in ad groups in your Google AdWords account.
@@ -87,9 +87,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: age_range_performance_report
   description: 'The `age_range_performance_report` table contains all Display Network
     and YouTube Network statistics aggregated by age range.
@@ -104,9 +104,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: audience_performance_report
   description: 'The `audience_performance_report` table contains performance data
     from interests and remarketing lists for Display Network and YouTube Network ads,
@@ -122,9 +122,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: call_metrics_call_details_report
   description: 'The `{{ table.name }}` table contains data for call tracking of call-only
     ads or call extensions.
@@ -139,9 +139,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: campaigns
   description: 'The `{{ table.name }}` table contains detailed info about your Google
     AdWords campaigns.
@@ -170,9 +170,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: click_performance_report
   description: 'The `click_performance_report` table contains statistics aggregated
     at each click level, and includes both valid and invalid clicks.
@@ -187,9 +187,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: criteria_performance_report
   description: 'The `criteria_performance_report` table contains statistics aggregated
     at the ad group criteria level.
@@ -204,9 +204,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: display_keyword_performance_report
   description: 'The `{{ table.name }}` table contains all Display Network and YouTube
     Network statistics aggregated at the keyword level.
@@ -221,9 +221,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: display_topics_performance_report
   description: 'The `{{ table.name }}` table contains all Display Network and YouTube
     Network statistics aggregated at the topic level.
@@ -238,9 +238,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: final_url_report
   description: 'The `final_url_report` table contains all statistics aggregated at
     the final URL level.
@@ -255,9 +255,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: gender_performance_report
   description: 'The `gender_performance_report` table contains all statistics aggregated
     by gender.
@@ -272,9 +272,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: geo_performance_report
   description: 'The `geo_performance_report` table contains all statistics aggregated
     at the country/territory level.
@@ -289,9 +289,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: keywordless_query_report
   description: 'The `keywordless_query_report` includes keywordless ads (dynamic search
     ads) statistics based on search terms.
@@ -306,9 +306,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: keywords_performance_report
   description: 'The `keywords_performance_report` table contains all statistics aggregated
     at the keyword level.
@@ -323,9 +323,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: search_query_performance_report
   description: 'The `search_query_performance_report` table contains all statistics
     aggregated at the search term level.
@@ -340,9 +340,9 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
 - name: video_performance_report
   description: 'The `video_performance_report` table contains statistics for your
     account''s upgraded [AdWords for Video campaigns](https://adwords.googleblog.com/2015/09/trueview-campaigns-now-in-adwords.html){:target="new"}.
@@ -357,6 +357,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     loading-behavior: Append-Only
-    primary-key: '{{ system-column.primary-key }}'
+    primary-key: __sdc_primary_key
     replication-key: day
-  status: not_found
+  report: true
