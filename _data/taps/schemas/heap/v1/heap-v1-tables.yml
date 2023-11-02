@@ -1,7 +1,8 @@
 tap: heap
 version: '1'
+tap-repo-schemas: false
 tables:
-- name: '[event_type]'
+- name: event_tables
   description: 'For every event type defined in {{ integration.display_name }}, a
     table will display in the Stitch app. The name of the table will be the event
     name, which {{ integration.display_name }} will first strip the non-alphanumeric
@@ -19,7 +20,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
-  status: not_found
 - name: pageviews
   description: 'The `{{ table.name }}` table contains info about pageviews.
 
@@ -34,7 +34,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
-  status: not_found
 - name: sessions
   description: 'The `{{ table.name }}` table contains info about sessions. In {{ integration.display_name
     }}, a web session ends after 30 minutes of user inactivity, while in iOS, a session
@@ -51,7 +50,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: event_id
-  status: not_found
 - name: users
   description: 'The `{{ table.name }}` table contains info about users.
 
@@ -66,7 +64,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: user_id
-  status: not_found
 - name: user_migrations
   description: 'The `{{ table.name }}` table contains info about user migrations.
 
@@ -81,4 +78,3 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: from_user_id
-  status: not_found

@@ -2,7 +2,7 @@ tap: heap
 version: '1'
 keys:
   events_event_id:
-  - table: '[event_type]'
+  - table: event_tables
     keys:
     - event_id
   - table: pageviews
@@ -12,7 +12,7 @@ keys:
     keys:
     - event_id
   sessions_session_id:
-  - table: '[event_type]'
+  - table: event_tables
     keys:
     - session_id
   - table: pageviews
@@ -22,7 +22,7 @@ keys:
     keys:
     - session_id
   users_user_id:
-  - table: '[event_type]'
+  - table: event_tables
     keys:
     - user_id
   - table: pageviews
@@ -38,7 +38,7 @@ keys:
     keys:
     - user_id
 tables:
-- table-name: '[event_type]'
+- table-name: event_tables
   join:
   - table-name: pageviews
     keys:
@@ -66,7 +66,7 @@ tables:
       foreign-key: user_id
 - table-name: pageviews
   join:
-  - table-name: '[event_type]'
+  - table-name: event_tables
     keys:
     - key: event_id
       foreign-key: event_id
@@ -92,7 +92,7 @@ tables:
       foreign-key: user_id
 - table-name: sessions
   join:
-  - table-name: '[event_type]'
+  - table-name: event_tables
     keys:
     - key: event_id
       foreign-key: event_id
@@ -118,7 +118,7 @@ tables:
       foreign-key: user_id
 - table-name: user_migrations
   join:
-  - table-name: '[event_type]'
+  - table-name: event_tables
     keys:
     - key: to_user_id
       foreign-key: user_id
@@ -136,7 +136,7 @@ tables:
       foreign-key: user_id
 - table-name: users
   join:
-  - table-name: '[event_type]'
+  - table-name: event_tables
     keys:
     - key: user_id
       foreign-key: user_id
