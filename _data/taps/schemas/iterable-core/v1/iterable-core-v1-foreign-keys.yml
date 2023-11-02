@@ -57,7 +57,7 @@ keys:
   - table: users
     keys:
     - email
-  - table: email_ _bounce
+  - table: email_bounce
     keys:
     - email
   - table: email_click
@@ -314,7 +314,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -394,7 +394,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -474,7 +474,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -570,7 +570,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -666,7 +666,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -762,7 +762,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -866,7 +866,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -988,7 +988,7 @@ tables:
       foreign-key: messageTypeId
 - table-name: users
   join:
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -1024,7 +1024,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-- table-name: email_ _bounce
+- table-name: email_bounce
   join:
   - table-name: users
     keys:
@@ -1068,7 +1068,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_ _bounce
+  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
