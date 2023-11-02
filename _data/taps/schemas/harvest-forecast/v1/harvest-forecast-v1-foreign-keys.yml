@@ -59,14 +59,14 @@ keys:
     - id
   - table: roles
     keys:
-    - placeholder_ids.value
+    - placeholder_ids
   roles_value:
   - table: people
     keys:
-    - roles.value
+    - roles
   - table: placeholders
     keys:
-    - roles.value
+    - roles
   - table: roles
     keys:
     - id
@@ -120,7 +120,7 @@ tables:
     - key: updated_by_id
       foreign-key: updated_by_id
     - key: placeholder_id
-      foreign-key: placeholder_ids.value
+      foreign-key: placeholder_ids
 - table-name: clients
   join:
   - table-name: projects
@@ -259,15 +259,15 @@ tables:
       foreign-key: updated_by_id
     - key: updated_by_id
       foreign-key: updated_by_id
-    - key: roles.value
-      foreign-key: roles.value
+    - key: roles
+      foreign-key: roles
   - table-name: roles
     keys:
     - key: id
       foreign-key: updated_by_id
     - key: updated_by_id
       foreign-key: updated_by_id
-    - key: roles.value
+    - key: roles
       foreign-key: id
 - table-name: placeholders
   join:
@@ -293,8 +293,8 @@ tables:
       foreign-key: id
     - key: updated_by_id
       foreign-key: updated_by_id
-    - key: roles.value
-      foreign-key: roles.value
+    - key: roles
+      foreign-key: roles
   - table-name: projects
     keys:
     - key: updated_by_id
@@ -304,8 +304,8 @@ tables:
     - key: updated_by_id
       foreign-key: updated_by_id
     - key: id
-      foreign-key: placeholder_ids.value
-    - key: roles.value
+      foreign-key: placeholder_ids
+    - key: roles
       foreign-key: id
 - table-name: roles
   join:
@@ -315,7 +315,7 @@ tables:
       foreign-key: person_id
     - key: updated_by_id
       foreign-key: updated_by_id
-    - key: placeholder_ids.value
+    - key: placeholder_ids
       foreign-key: placeholder_id
   - table-name: clients
     keys:
@@ -332,7 +332,7 @@ tables:
     - key: updated_by_id
       foreign-key: updated_by_id
     - key: id
-      foreign-key: roles.value
+      foreign-key: roles
   - table-name: projects
     keys:
     - key: updated_by_id
@@ -341,7 +341,7 @@ tables:
     keys:
     - key: updated_by_id
       foreign-key: updated_by_id
-    - key: placeholder_ids.value
+    - key: placeholder_ids
       foreign-key: id
     - key: id
-      foreign-key: roles.value
+      foreign-key: roles
