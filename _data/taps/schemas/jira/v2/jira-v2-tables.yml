@@ -242,11 +242,12 @@ tables:
     primary-key: id
     replication-key: updated
 - name: projects
-  description: ''
+  description: The `{{ table.name }}` table contains info about projects in your {{
+    integration.display_name }} account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/projects.json
+    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-projects/#api-rest-api-2-project-get
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
+tap-repo-schemas: true

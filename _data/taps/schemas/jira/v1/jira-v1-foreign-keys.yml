@@ -65,12 +65,12 @@ keys:
     - updateAuthor.key
   - table: issues
     keys:
-    - attachment.key
+    - fields.attachment.author.key
   - table: projects
     keys:
-    - components__assignee.key
-    - components__lead.key
-    - components__realAssignee.key
+    - components.assignee.key
+    - components.lead.key
+    - components.realAssignee.key
     - lead.key
   - table: users
     keys:
@@ -107,7 +107,7 @@ tables:
     - key: issueId
       foreign-key: id
     - key: author.key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
   - table-name: worklogs
     keys:
     - key: issueId
@@ -119,11 +119,11 @@ tables:
   - table-name: projects
     keys:
     - key: author.key
-      foreign-key: components__assignee.key
+      foreign-key: components.assignee.key
     - key: author.key
-      foreign-key: components__lead.key
+      foreign-key: components.lead.key
     - key: author.key
-      foreign-key: components__realAssignee.key
+      foreign-key: components.realAssignee.key
     - key: author.key
       foreign-key: lead.key
   - table-name: users
@@ -149,9 +149,9 @@ tables:
     - key: issueId
       foreign-key: id
     - key: author.key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
     - key: updateAuthor.key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
   - table-name: worklogs
     keys:
     - key: issueId
@@ -167,17 +167,17 @@ tables:
   - table-name: projects
     keys:
     - key: author.key
-      foreign-key: components__assignee.key
+      foreign-key: components.assignee.key
     - key: updateAuthor.key
-      foreign-key: components__assignee.key
+      foreign-key: components.assignee.key
     - key: author.key
-      foreign-key: components__lead.key
+      foreign-key: components.lead.key
     - key: updateAuthor.key
-      foreign-key: components__lead.key
+      foreign-key: components.lead.key
     - key: author.key
-      foreign-key: components__realAssignee.key
+      foreign-key: components.realAssignee.key
     - key: updateAuthor.key
-      foreign-key: components__realAssignee.key
+      foreign-key: components.realAssignee.key
     - key: author.key
       foreign-key: lead.key
     - key: updateAuthor.key
@@ -212,15 +212,15 @@ tables:
     keys:
     - key: id
       foreign-key: issueId
-    - key: attachment.key
+    - key: fields.attachment.author.key
       foreign-key: author.key
   - table-name: issue_comments
     keys:
     - key: id
       foreign-key: issueId
-    - key: attachment.key
+    - key: fields.attachment.author.key
       foreign-key: author.key
-    - key: attachment.key
+    - key: fields.attachment.author.key
       foreign-key: updateAuthor.key
   - table-name: issue_transitions
     keys:
@@ -230,23 +230,23 @@ tables:
     keys:
     - key: id
       foreign-key: issueId
-    - key: attachment.key
+    - key: fields.attachment.author.key
       foreign-key: author.key
-    - key: attachment.key
+    - key: fields.attachment.author.key
       foreign-key: updateAuthor.key
   - table-name: projects
     keys:
-    - key: attachment.key
-      foreign-key: components__assignee.key
-    - key: attachment.key
-      foreign-key: components__lead.key
-    - key: attachment.key
-      foreign-key: components__realAssignee.key
-    - key: attachment.key
+    - key: fields.attachment.author.key
+      foreign-key: components.assignee.key
+    - key: fields.attachment.author.key
+      foreign-key: components.lead.key
+    - key: fields.attachment.author.key
+      foreign-key: components.realAssignee.key
+    - key: fields.attachment.author.key
       foreign-key: lead.key
   - table-name: users
     keys:
-    - key: attachment.key
+    - key: fields.attachment.author.key
       foreign-key: key
 - table-name: worklogs
   join:
@@ -279,23 +279,23 @@ tables:
     - key: issueId
       foreign-key: id
     - key: author.key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
     - key: updateAuthor.key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
   - table-name: projects
     keys:
     - key: author.key
-      foreign-key: components__assignee.key
+      foreign-key: components.assignee.key
     - key: updateAuthor.key
-      foreign-key: components__assignee.key
+      foreign-key: components.assignee.key
     - key: author.key
-      foreign-key: components__lead.key
+      foreign-key: components.lead.key
     - key: updateAuthor.key
-      foreign-key: components__lead.key
+      foreign-key: components.lead.key
     - key: author.key
-      foreign-key: components__realAssignee.key
+      foreign-key: components.realAssignee.key
     - key: updateAuthor.key
-      foreign-key: components__realAssignee.key
+      foreign-key: components.realAssignee.key
     - key: author.key
       foreign-key: lead.key
     - key: updateAuthor.key
@@ -324,67 +324,67 @@ tables:
       foreign-key: projectId
   - table-name: changelogs
     keys:
-    - key: components__assignee.key
+    - key: components.assignee.key
       foreign-key: author.key
-    - key: components__lead.key
+    - key: components.lead.key
       foreign-key: author.key
-    - key: components__realAssignee.key
+    - key: components.realAssignee.key
       foreign-key: author.key
     - key: lead.key
       foreign-key: author.key
   - table-name: issue_comments
     keys:
-    - key: components__assignee.key
+    - key: components.assignee.key
       foreign-key: author.key
-    - key: components__lead.key
+    - key: components.lead.key
       foreign-key: author.key
-    - key: components__realAssignee.key
+    - key: components.realAssignee.key
       foreign-key: author.key
     - key: lead.key
       foreign-key: author.key
-    - key: components__assignee.key
+    - key: components.assignee.key
       foreign-key: updateAuthor.key
-    - key: components__lead.key
+    - key: components.lead.key
       foreign-key: updateAuthor.key
-    - key: components__realAssignee.key
+    - key: components.realAssignee.key
       foreign-key: updateAuthor.key
     - key: lead.key
       foreign-key: updateAuthor.key
   - table-name: issues
     keys:
-    - key: components__assignee.key
-      foreign-key: attachment.key
-    - key: components__lead.key
-      foreign-key: attachment.key
-    - key: components__realAssignee.key
-      foreign-key: attachment.key
+    - key: components.assignee.key
+      foreign-key: fields.attachment.author.key
+    - key: components.lead.key
+      foreign-key: fields.attachment.author.key
+    - key: components.realAssignee.key
+      foreign-key: fields.attachment.author.key
     - key: lead.key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
   - table-name: users
     keys:
-    - key: components__assignee.key
+    - key: components.assignee.key
       foreign-key: key
-    - key: components__lead.key
+    - key: components.lead.key
       foreign-key: key
-    - key: components__realAssignee.key
+    - key: components.realAssignee.key
       foreign-key: key
     - key: lead.key
       foreign-key: key
   - table-name: worklogs
     keys:
-    - key: components__assignee.key
+    - key: components.assignee.key
       foreign-key: author.key
-    - key: components__lead.key
+    - key: components.lead.key
       foreign-key: author.key
-    - key: components__realAssignee.key
+    - key: components.realAssignee.key
       foreign-key: author.key
     - key: lead.key
       foreign-key: author.key
-    - key: components__assignee.key
+    - key: components.assignee.key
       foreign-key: updateAuthor.key
-    - key: components__lead.key
+    - key: components.lead.key
       foreign-key: updateAuthor.key
-    - key: components__realAssignee.key
+    - key: components.realAssignee.key
       foreign-key: updateAuthor.key
     - key: lead.key
       foreign-key: updateAuthor.key
@@ -409,15 +409,15 @@ tables:
   - table-name: issues
     keys:
     - key: key
-      foreign-key: attachment.key
+      foreign-key: fields.attachment.author.key
   - table-name: projects
     keys:
     - key: key
-      foreign-key: components__assignee.key
+      foreign-key: components.assignee.key
     - key: key
-      foreign-key: components__lead.key
+      foreign-key: components.lead.key
     - key: key
-      foreign-key: components__realAssignee.key
+      foreign-key: components.realAssignee.key
     - key: key
       foreign-key: lead.key
   - table-name: worklogs

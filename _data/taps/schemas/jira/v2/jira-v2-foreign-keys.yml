@@ -81,7 +81,7 @@ keys:
     - updateAuthor.accountId
   - table: issues
     keys:
-    - accountId
+    - fields.attachment.author.accountId
   - table: projects
     keys:
     - components.assignee.accountId
@@ -123,7 +123,7 @@ tables:
     - key: issueId
       foreign-key: id
     - key: author.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
   - table-name: worklogs
     keys:
     - key: issueId
@@ -179,9 +179,9 @@ tables:
     - key: issueId
       foreign-key: id
     - key: author.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: updateAuthor.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
   - table-name: worklogs
     keys:
     - key: issueId
@@ -268,15 +268,15 @@ tables:
     keys:
     - key: id
       foreign-key: issueId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: author.accountId
   - table-name: issue_comments
     keys:
     - key: id
       foreign-key: issueId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: author.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: updateAuthor.accountId
   - table-name: issue_transitions
     keys:
@@ -286,37 +286,37 @@ tables:
     keys:
     - key: id
       foreign-key: issueId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: author.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: updateAuthor.accountId
   - table-name: components
     keys:
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: assignee.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: componentBean.assignee.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: componentBean.lead.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: componentBean.realAssignee.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: lead.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: realAssignee.accountId
   - table-name: projects
     keys:
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: components.assignee.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: components.lead.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: components.realAssignee.accountId
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: lead.accountId
   - table-name: users
     keys:
-    - key: accountId
+    - key: fields.attachment.author.accountId
       foreign-key: accountId
 - table-name: worklogs
   join:
@@ -349,9 +349,9 @@ tables:
     - key: issueId
       foreign-key: id
     - key: author.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: updateAuthor.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
   - table-name: components
     keys:
     - key: author.accountId
@@ -503,13 +503,13 @@ tables:
   - table-name: issues
     keys:
     - key: components.assignee.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: components.lead.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: components.realAssignee.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: lead.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
   - table-name: users
     keys:
     - key: components.assignee.accountId
@@ -643,17 +643,17 @@ tables:
   - table-name: issues
     keys:
     - key: assignee.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: componentBean.assignee.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: componentBean.lead.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: componentBean.realAssignee.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: lead.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
     - key: realAssignee.accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
   - table-name: users
     keys:
     - key: assignee.accountId
@@ -735,7 +735,7 @@ tables:
   - table-name: issues
     keys:
     - key: accountId
-      foreign-key: accountId
+      foreign-key: fields.attachment.author.accountId
   - table-name: projects
     keys:
     - key: accountId
