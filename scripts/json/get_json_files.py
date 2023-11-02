@@ -116,7 +116,7 @@ def getFiles(repo, branch):
             for item in os.listdir(tap_folder):
                 item_path = tap_folder + '/' + item
 
-                if item.startswith('tap'):
+                if item.startswith('tap') and os.path.isdir(item_path):
                     schemas = item_path + '/schemas'
                     schema_list = formatJSON(schemas, json_output_folder)
                     issue_list = []
