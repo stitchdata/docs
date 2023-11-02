@@ -55,10 +55,10 @@ keys:
     - scenario.id
   - table: periodic_data_calculated
     keys:
-    - id
+    - scenario_id
   - table: periodic_data_standardized
     keys:
-    - id
+    - scenario_id
   - table: scenarios
     keys:
     - id
@@ -229,15 +229,15 @@ tables:
     keys:
     - key: data_item_id
       foreign-key: data_item_id
-    - key: id
-      foreign-key: id
+    - key: scenario_id
+      foreign-key: scenario_id
   - table-name: investment_transactions
     keys:
-    - key: id
+    - key: scenario_id
       foreign-key: scenario.id
   - table-name: scenarios
     keys:
-    - key: id
+    - key: scenario_id
       foreign-key: id
 - table-name: periodic_data_standardized
   join:
@@ -249,15 +249,15 @@ tables:
     keys:
     - key: data_item_id
       foreign-key: data_item_id
-    - key: id
-      foreign-key: id
+    - key: scenario_id
+      foreign-key: scenario_id
   - table-name: investment_transactions
     keys:
-    - key: id
+    - key: scenario_id
       foreign-key: scenario.id
   - table-name: scenarios
     keys:
-    - key: id
+    - key: scenario_id
       foreign-key: id
 - table-name: fund_to_fund_relations
   join:
@@ -306,11 +306,11 @@ tables:
   - table-name: periodic_data_calculated
     keys:
     - key: scenario.id
-      foreign-key: id
+      foreign-key: scenario_id
   - table-name: periodic_data_standardized
     keys:
     - key: scenario.id
-      foreign-key: id
+      foreign-key: scenario_id
   - table-name: scenarios
     keys:
     - key: scenario.id
@@ -340,8 +340,8 @@ tables:
   - table-name: periodic_data_calculated
     keys:
     - key: id
-      foreign-key: id
+      foreign-key: scenario_id
   - table-name: periodic_data_standardized
     keys:
     - key: id
-      foreign-key: id
+      foreign-key: scenario_id
