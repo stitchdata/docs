@@ -129,7 +129,7 @@ def getFiles(repo, branch):
                             print('JSON file {}.json ignored'.format(schema))
 
                     # Use function from 'get_table_data.py' to get and update the yaml file with table details
-                    getTableData(integration_id, tap_version, schema_list)
+                    getTableData(integration_id, tap_version, schema_list, 'tap')
 
                     # Use function from 'check_table_data.py' to check that the primary keys, replication keys and foreign keys listed are found in the schemas
                     table_issues = checkTableData(integration_id, tap_version)

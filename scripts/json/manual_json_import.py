@@ -82,7 +82,7 @@ with open(discovery_file, 'r', encoding='utf-8') as f:
             json.dump(json_output, j, indent=2, sort_keys=True)
 
 # Use function in 'get_table_data.py' to add entry for new tables
-getTableData(integration_id, tap_version, schema_list)
+getTableData(integration_id, tap_version, schema_list, 'catalog')
 
 # Use function from 'check_table_data.py' to check that the primary keys, replication keys and foreign keys listed are found in the schemas
 table_issues = checkTableData(integration_id, tap_version)

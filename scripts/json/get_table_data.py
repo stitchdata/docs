@@ -83,7 +83,7 @@ def updateTableData(integration, version, name, data):
         yaml.dump(existing_data, out, default_flow_style=False, sort_keys=False)    
 
                 
-def getTableData(integration, version, schema_list):
+def getTableData(integration, version, schema_list, import_type):
     # Get table data for JSON schemas
 
     table_list = []
@@ -97,6 +97,8 @@ def getTableData(integration, version, schema_list):
     if os.path.exists(file):
         with open(file, 'r') as f:
             data = yaml.safe_load(f)
+
+            tap_schemas = data['tap-repo-schemas']
 
             tables = data['tables']
 
@@ -114,6 +116,7 @@ def getTableData(integration, version, schema_list):
         data = {
             'tap': integration,
             'version': version,
+            'tap-repo-schemas': True,
             'tables': []
         }
 
@@ -143,7 +146,7 @@ def getTableData(integration, version, schema_list):
     for table in table_list:
 
         # If the schema doesn't exist, mark the table as 'not found', it will hide it from the docs but the table data will still exist in the YAML file
-        if table not in schema_list:
+        if table not in schema_list and tap_schemas != False and import_type == 'tap':
             status = 'not_found'
             for t in data['tables']:
                 if t['name'] == table:

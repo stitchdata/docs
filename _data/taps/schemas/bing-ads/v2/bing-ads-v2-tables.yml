@@ -1,5 +1,6 @@
 tap: bing-ads
 version: '2'
+tap-repo-schemas: false
 tables:
 - name: accounts
   description: 'The `{{ table.name }}` table contains high-level information about
@@ -39,7 +40,6 @@ tables:
     - Id
     - LastModifiedTime
     replication-key: LastModifiedTime
-  status: not_found
 - name: ads
   description: 'The `{{ table.name }}` table contains info about the following ad
     types:
@@ -82,7 +82,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: Id
-  status: not_found
 - name: ad_groups
   description: 'The `{{ table.name }}` table contains info about the ad groups associated
     with the campaigns in your Bing Ads account.
@@ -124,7 +123,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: ad_group_performance_report
   description: 'The `{{ table.name }}` table contains performance data for ad groups,
     aggregated by day.
@@ -172,7 +170,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: ad_performance_report
   description: 'The `{{ table.name }}` table contains performance info about ads,
     including clicks and conversions. This data can be used to identify and improve
@@ -208,7 +205,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: age_gender_audience_report
   description: 'The `{{ table.name }}` table contains info about the age and gender
     demographics of people interacting with your campaigns and ad groups.
@@ -228,7 +224,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: audience_performance_report
   description: 'The `{{ table.name }}` table contains info about performance statistics
     for various audiences.
@@ -249,7 +244,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: campaigns
   description: 'The `{{ table.name }}` table contains info about the campaigns in
     your Bing Ads account.
@@ -279,7 +273,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: Id
-  status: not_found
 - name: campaign_performance_report
   description: 'The `{{ table.name }}` table contains performance data for campaigns,
     aggregated by day..
@@ -327,7 +320,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: geographic_performance_report
   description: 'The `{{ table.name }}` table contains info about the physical locations
     of people searching for an ad or the locations people are searching for. This
@@ -348,7 +340,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: goals_and_funnels_report
   description: 'The `{{ table.name }}` table contains information about your audience''s
     progression through your conversion funnel. Use this report to determine the point
@@ -370,7 +361,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: keyword_performance_report
   description: 'The `{{ table.name }}` table contains performance data about keywords.
 
@@ -416,7 +406,6 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
 - name: search_query_performance_report
   description: 'The `{{ table.name }} ` table contains performance data for search
     terms that resulted in a significant number of clicks in the last 30 days. As
@@ -441,4 +430,3 @@ tables:
     - '_sdc_report_datetime'
     - TimePeriod
     replication-key: TimePeriod
-  status: not_found
