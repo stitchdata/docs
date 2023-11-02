@@ -38,7 +38,7 @@ keys:
   - table: mailboxes
     keys:
     - id
-  - table: wofkflows
+  - table: workflows
     keys:
     - mailbox_id
   users_id:
@@ -123,7 +123,7 @@ tables:
     keys:
     - key: mailbox_id
       foreign-key: id
-  - table-name: wofkflows
+  - table-name: workflows
     keys:
     - key: mailbox_id
       foreign-key: mailbox_id
@@ -161,7 +161,7 @@ tables:
     keys:
     - key: mailbox_id
       foreign-key: id
-  - table-name: wofkflows
+  - table-name: workflows
     keys:
     - key: mailbox_id
       foreign-key: mailbox_id
@@ -179,7 +179,7 @@ tables:
     keys:
     - key: mailbox_id
       foreign-key: id
-  - table-name: wofkflows
+  - table-name: workflows
     keys:
     - key: mailbox_id
       foreign-key: mailbox_id
@@ -197,11 +197,11 @@ tables:
     keys:
     - key: id
       foreign-key: mailbox_id
-  - table-name: wofkflows
+  - table-name: workflows
     keys:
     - key: id
       foreign-key: mailbox_id
-- table-name: wofkflows
+- table-name: workflows
   join:
   - table-name: conversations
     keys:
