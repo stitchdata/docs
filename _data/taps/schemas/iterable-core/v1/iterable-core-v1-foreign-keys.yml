@@ -198,62 +198,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_complaint
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_open
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_send
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_send_skip
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_subscribe
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_unsubscribe
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-  - table-name: templates
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
-    - key: templateId
-      foreign-key: templateId
-- table-name: email_click
-  join:
-  - table-name: campaigns
-    keys:
-    - key: campaignId
-      foreign-key: id
-    - key: templateId
-      foreign-key: templateId
-  - table-name: email_bounce
-    keys:
-    - key: campaignId
-      foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_complaint
@@ -314,7 +260,81 @@ tables:
     keys:
     - key: email
       foreign-key: email
+  - table-name: list_users
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: email_click
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaignId
+      foreign-key: id
+    - key: templateId
+      foreign-key: templateId
   - table-name: email_bounce
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: email_complaint
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: email_open
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: email_send
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: email_send_skip
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: email_subscribe
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: email_unsubscribe
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: email
+      foreign-key: email
+    - key: templateId
+      foreign-key: templateId
+  - table-name: templates
+    keys:
+    - key: campaignId
+      foreign-key: campaignId
+    - key: templateId
+      foreign-key: templateId
+  - table-name: users
     keys:
     - key: email
       foreign-key: email
@@ -334,6 +354,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_click
@@ -391,10 +413,6 @@ tables:
     - key: templateId
       foreign-key: templateId
   - table-name: users
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -414,6 +432,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_click
@@ -471,10 +491,6 @@ tables:
     - key: templateId
       foreign-key: templateId
   - table-name: users
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -494,6 +510,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_click
@@ -567,10 +585,6 @@ tables:
     - key: channelId
       foreign-key: channelId
   - table-name: users
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -590,6 +604,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_click
@@ -663,10 +679,6 @@ tables:
     - key: channelId
       foreign-key: channelId
   - table-name: users
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -686,6 +698,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_click
@@ -762,10 +776,6 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: email_bounce
-    keys:
-    - key: email
-      foreign-key: email
   - table-name: list_users
     keys:
     - key: email
@@ -782,6 +792,8 @@ tables:
     keys:
     - key: campaignId
       foreign-key: campaignId
+    - key: email
+      foreign-key: email
     - key: templateId
       foreign-key: templateId
   - table-name: email_click
@@ -863,10 +875,6 @@ tables:
     - key: channelId
       foreign-key: channelId
   - table-name: users
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_bounce
     keys:
     - key: email
       foreign-key: email
@@ -989,44 +997,6 @@ tables:
 - table-name: users
   join:
   - table-name: email_bounce
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_click
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_complaint
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_open
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_send
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_send_skip
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_subscribe
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: email_unsubscribe
-    keys:
-    - key: email
-      foreign-key: email
-  - table-name: list_users
-    keys:
-    - key: email
-      foreign-key: email
-- table-name: email_bounce
-  join:
-  - table-name: users
     keys:
     - key: email
       foreign-key: email
