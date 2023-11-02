@@ -24,7 +24,7 @@ keys:
     - teammates.admins.id
   - table: teams
     keys:
-    - admin_ids.id
+    - admin_ids
   companies_id:
   - table: companies
     keys:
@@ -56,7 +56,7 @@ keys:
   - table: companies
     keys:
     - segments.id
-  - table: segment
+  - table: segments
     keys:
     - id
   tags_id:
@@ -75,7 +75,7 @@ keys:
   teams_id:
   - table: admins
     keys:
-    - team_ids.value
+    - team_ids
   - table: teams
     keys:
     - id
@@ -109,8 +109,8 @@ tables:
   - table-name: teams
     keys:
     - key: id
-      foreign-key: admin_ids.id
-    - key: team_ids.value
+      foreign-key: admin_ids
+    - key: team_ids
       foreign-key: id
 - table-name: company_attributes
   join:
@@ -141,7 +141,7 @@ tables:
   - table-name: teams
     keys:
     - key: admin_id
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
 - table-name: contact_attributes
   join:
   - table-name: admins
@@ -171,7 +171,7 @@ tables:
   - table-name: teams
     keys:
     - key: admin_id
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
 - table-name: contacts
   join:
   - table-name: admins
@@ -209,7 +209,7 @@ tables:
   - table-name: teams
     keys:
     - key: owner_id
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
   - table-name: companies
     keys:
     - key: companies.data.id
@@ -251,7 +251,7 @@ tables:
   - table-name: teams
     keys:
     - key: assigned_to
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
 - table-name: conversations
   join:
   - table-name: admins
@@ -307,11 +307,11 @@ tables:
   - table-name: teams
     keys:
     - key: conversation_rating.teammate.id
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
     - key: tags.applied_by.id
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
     - key: teammates.admins.id
-      foreign-key: admin_ids.id
+      foreign-key: admin_ids
   - table-name: companies
     keys:
     - key: tags.id
@@ -324,33 +324,33 @@ tables:
   join:
   - table-name: admins
     keys:
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: id
     - key: id
-      foreign-key: team_ids.value
+      foreign-key: team_ids
   - table-name: company_attributes
     keys:
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: admin_id
   - table-name: contact_attributes
     keys:
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: admin_id
   - table-name: contacts
     keys:
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: owner_id
   - table-name: conversation_parts
     keys:
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: assigned_to
   - table-name: conversations
     keys:
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: conversation_rating.teammate.id
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: tags.applied_by.id
-    - key: admin_ids.id
+    - key: admin_ids
       foreign-key: teammates.admins.id
 - table-name: companies
   join:
@@ -360,7 +360,7 @@ tables:
       foreign-key: companies.data.id
     - key: tags.id
       foreign-key: tags.data.id
-  - table-name: segment
+  - table-name: segments
     keys:
     - key: segments.id
       foreign-key: id
@@ -372,7 +372,7 @@ tables:
     keys:
     - key: tags.id
       foreign-key: id
-- table-name: segment
+- table-name: segments
   join:
   - table-name: companies
     keys:
