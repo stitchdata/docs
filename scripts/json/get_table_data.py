@@ -98,6 +98,12 @@ def getTableData(integration, version, schema_list, import_type):
         with open(file, 'r') as f:
             data = yaml.safe_load(f)
 
+            # Check if the integration has a tap-repo-schema value, otherwise set it to true by default
+            if 'tap-repo-schemas' in data:
+                pass
+            else:
+                data['tap-repo-schemas'] = True
+            
             tap_schemas = data['tap-repo-schemas']
 
             tables = data['tables']
