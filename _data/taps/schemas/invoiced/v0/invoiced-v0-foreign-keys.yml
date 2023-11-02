@@ -1,21 +1,6 @@
 tap: invoiced
-version: '1'
+version: '0'
 keys:
-  credit_notes_id:
-  - table: credit_notes
-    keys:
-    - items.taxes.id
-    - taxes.id
-  - table: customers
-    keys:
-    - taxes.id
-  - table: estimates
-    keys:
-    - taxes.id
-    - items.taxes.id
-  - table: subscriptions
-    keys:
-    - taxes.id
   customers_customer:
   - table: credit_notes
     keys:
@@ -74,40 +59,24 @@ tables:
   join:
   - table-name: customers
     keys:
-    - key: items.taxes.id
-      foreign-key: taxes.id
-    - key: taxes.id
-      foreign-key: taxes.id
     - key: customer
       foreign-key: id
   - table-name: estimates
     keys:
-    - key: items.taxes.id
-      foreign-key: taxes.id
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: items.taxes.id
-      foreign-key: items.taxes.id
-    - key: taxes.id
-      foreign-key: items.taxes.id
     - key: customer
       foreign-key: customer
     - key: id
       foreign-key: id
-  - table-name: subscriptions
-    keys:
-    - key: items.taxes.id
-      foreign-key: taxes.id
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: customer
-      foreign-key: customer
   - table-name: invoices
     keys:
     - key: customer
       foreign-key: customer
     - key: id
       foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer
   - table-name: transactions
     keys:
     - key: customer
@@ -118,27 +87,17 @@ tables:
   join:
   - table-name: credit_notes
     keys:
-    - key: taxes.id
-      foreign-key: items.taxes.id
-    - key: taxes.id
-      foreign-key: taxes.id
     - key: id
       foreign-key: customer
   - table-name: estimates
     keys:
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: taxes.id
-      foreign-key: items.taxes.id
-    - key: id
-      foreign-key: customer
-  - table-name: subscriptions
-    keys:
-    - key: taxes.id
-      foreign-key: taxes.id
     - key: id
       foreign-key: customer
   - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: customer
+  - table-name: subscriptions
     keys:
     - key: id
       foreign-key: customer
@@ -150,80 +109,30 @@ tables:
   join:
   - table-name: credit_notes
     keys:
-    - key: taxes.id
-      foreign-key: items.taxes.id
-    - key: items.taxes.id
-      foreign-key: items.taxes.id
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: items.taxes.id
-      foreign-key: taxes.id
     - key: customer
       foreign-key: customer
     - key: id
       foreign-key: id
   - table-name: customers
     keys:
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: items.taxes.id
-      foreign-key: taxes.id
     - key: customer
+      foreign-key: id
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
       foreign-key: id
   - table-name: subscriptions
     keys:
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: items.taxes.id
-      foreign-key: taxes.id
     - key: customer
       foreign-key: customer
-  - table-name: invoices
-    keys:
-    - key: customer
-      foreign-key: customer
-    - key: id
-      foreign-key: id
   - table-name: transactions
     keys:
     - key: customer
       foreign-key: customer
     - key: id
       foreign-key: id
-- table-name: subscriptions
-  join:
-  - table-name: credit_notes
-    keys:
-    - key: taxes.id
-      foreign-key: items.taxes.id
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: customer
-      foreign-key: customer
-  - table-name: customers
-    keys:
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: customer
-      foreign-key: id
-  - table-name: estimates
-    keys:
-    - key: taxes.id
-      foreign-key: taxes.id
-    - key: taxes.id
-      foreign-key: items.taxes.id
-    - key: customer
-      foreign-key: customer
-  - table-name: invoices
-    keys:
-    - key: customer
-      foreign-key: customer
-    - key: id
-      foreign-key: subscription
-  - table-name: transactions
-    keys:
-    - key: customer
-      foreign-key: customer
 - table-name: invoices
   join:
   - table-name: credit_notes
@@ -254,6 +163,30 @@ tables:
       foreign-key: customer
     - key: id
       foreign-key: id
+- table-name: subscriptions
+  join:
+  - table-name: credit_notes
+    keys:
+    - key: customer
+      foreign-key: customer
+  - table-name: customers
+    keys:
+    - key: customer
+      foreign-key: id
+  - table-name: estimates
+    keys:
+    - key: customer
+      foreign-key: customer
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: id
+      foreign-key: subscription
+  - table-name: transactions
+    keys:
+    - key: customer
+      foreign-key: customer
 - table-name: transactions
   join:
   - table-name: credit_notes
