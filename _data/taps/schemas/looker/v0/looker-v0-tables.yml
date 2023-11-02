@@ -2,380 +2,531 @@ tap: looker
 version: '0'
 tables:
 - name: color_collections
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about color collections
+    in your {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/color-collection#get_all_color_collections
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/color_collections.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/color-collection#get_all_color_collections
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: connections
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about connections
+    in your {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/connection#get_all_connections
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/connections.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/connection#get_all_connections
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: name
 - name: content_favorites
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about users'' favorite
+    content in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/content_favorites.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/content#search_favorite_contents
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: content_metadata
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about content metadata
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/content#get_all_content_metadatas
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/content_metadata.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/content#get_all_content_metadatas
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: content_metadata_access
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about content metadata
+    access records in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/content#get_all_content_metadata_accesses
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/content_metadata_access.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/content#get_all_content_metadata_accesses
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: content_views
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about user content views
+    recorded in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/content_views.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/user#search_users
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: dashboards
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all active
+    dashboards in your {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/dashboards.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: dashboard_elements
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all dashboard
+    elements in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboardelements
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/dashboard_elements.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboardelements
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: dashboard_filters
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all dashboard
+    filters in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboard_filters
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/dashboard_filters.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboard_filters
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: dashboard_layouts
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all dashboard
+    layouts in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboardlayouts
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/dashboard_layouts.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboardlayouts
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: datagroups
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all datagroups
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/datagroup#get_all_datagroups
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/datagroups.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/datagroup#get_all_datagroups
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: explores
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about LookML model
+    explores in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model_explore
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/explores.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model_explore
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: folders
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all folders
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/folder#get_all_folders
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/folders.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/folder#get_all_folders
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: git_branches
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the git branches
+    associated with projects in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/git_branches.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/project#get_all_git_branches
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-keys:
+    - name
+    - project_id
 - name: groups
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all groups
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/group#get_all_groups
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/groups.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/group#get_all_groups
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: groups_in_group
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the groups contained
+    within groups in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/groups_in_group.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/group#get_all_groups_in_group
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: integrations
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all integrations
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/integration#get_all_integrations
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/integrations.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/integration#get_all_integrations
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: integration_hubs
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about Integration
+    Hubs in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/integration#get_all_integration_hubs
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/integration_hubs.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/integration#get_all_integration_hubs
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: lookml_dashboards
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about LookML dashboards
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/lookml_dashboards.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/dashboard#get_all_dashboards
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: lookml_models
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all LookML
+    models in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_all_lookml_models
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/lookml_models.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_all_lookml_models
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-keys:
+    - name
+    - project_name
 - name: looks
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about all active
+    looks in your {{ integration.display_name }} account. **Note**: Based on [{{ integration.display_name
+    }}''s documentation]({{ table.api-method.doc-link }}){:target="new"}, this table
+    doesn''t include soft-deleted looks.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/looks.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/look#get_all_looks
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: merge_queries
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the merge queries
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/merge_queries.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/query#get_merge_query
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: models
-  description: ''
+  description: 'The `{{ table.name }}` table contains information about individual
+    models in your {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/models.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/lookml-model#get_lookml_model
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-keys:
+    - name
+    - project_name
 - name: model_sets
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the role model sets
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/model_sets.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/role#get_all_model_sets
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: permissions
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the permissions listed
+    in your {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/permissions.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/role#get_all_permissions
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: permission
 - name: permission_sets
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the role permission
+    sets in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/permission_sets.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/role#get_all_permission_sets
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: projects
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the projects in your
+    {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/projects.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/project#get_all_projects
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: project_files
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the files associated
+    with projects in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/project_files.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/project#get_all_project_files
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: queries
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the queries that
+    exist in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/queries.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/query#get_query
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: query_history
-  description: ''
+  description: 'The `{{ table.name }}` table contains query history data pulled from
+    {{ integration.display_name }}''s [History Explore](https://docs.looker.com/admin-options/tutorials/i__looker){:target="new"},
+    or `i__looker` database, for queries run in the past seven days.
+
+
+    To extract this data, Sttich will submit a query with [the properties in this
+    file](https://github.com/singer-io/tap-looker/blob/master/tap_looker/streams.py#L363){:target="new"}
+    to the {{ integration.display_name }} API. The results of Stitch''s query are
+    then extracted and replicated to your destination.
+
+
+    **Note**: Stitch''s {{ integration.display_name }} integration only replicates
+    the **past seven days** of query history at any given time.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/query_history.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/query#run_inline_query
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-keys:
+    - dims_hash_key
+    - history_created_date
+    - query_id
 - name: roles
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the user roles in
+    your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/roles.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/role#get_all_roles
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: role_groups
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the role groups in
+    your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/role_groups.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/role#get_role_groups
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: scheduled_plans
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about all scheduled plans
+    in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/scheduled_plans.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/scheduled-plan#get_all_scheduled_plans
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: themes
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the themes in your
+    {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/themes.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/theme#get_all_themes
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: users
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about users associated
+    with your {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/users.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/user#get_all_users
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: user_attributes
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about user attributes in
+    your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_attributes.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/user-attribute#get_all_user_attributes
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: user_attribute_group_values
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the values of user
+    attributes defined by user groups in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_attribute_group_values.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/user-attribute#get_user_attribute_group_values
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: user_attribute_values
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the values for user
+    attributes defined in your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_attribute_values.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/user#get_user_attribute_values
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-keys:
+    - user_attribute_id
+    - user_id
 - name: user_login_lockouts
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about lockouts for user
+    logins associated with your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_login_lockouts.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/auth#get_all_user_login_lockouts
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: key
 - name: user_sessions
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about user web login sessions
+    associated with your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/user_sessions.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/user#get_all_web_login_sessions
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: versions
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the API versions
+    supported by your {{ integration.display_name }} instance.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/versions.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/config#get_apiversion
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: looker_release_version
 - name: workspaces
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the workspaces available
+    to the user who authorized the {{ integration.display_name }} integration in Stitch.
+
+    '
   links:
-    singer-schema: ''
     doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-looker/blob/master/tap_looker/schemas/workspaces.json
+    api-method: https://docs.looker.com/reference/api-and-integration/api-reference/v3.1/workspace#get_all_workspaces
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
+tap-repo-schemas: true
