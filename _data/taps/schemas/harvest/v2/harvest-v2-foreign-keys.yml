@@ -66,10 +66,6 @@ keys:
   - table: expenses
     keys:
     - id
-  external_references_external_reference_id:
-  - table: external_references
-    keys:
-    - id
   - table: time_entries
     keys:
     - external_reference_id
@@ -148,9 +144,6 @@ keys:
     keys:
     - role_id
   tasks_task_id:
-  - table: external_references
-    keys:
-    - task_id
   - table: tasks
     keys:
     - id
@@ -171,9 +164,6 @@ keys:
   - table: invoices
     keys:
     - creator_id
-  - table: project_tasks
-    keys:
-    - user_id
   - table: time_entries
     keys:
     - user_id
@@ -304,10 +294,6 @@ tables:
     keys:
     - key: id
       foreign-key: estimate_id
-  - table-name: project_tasks
-    keys:
-    - key: creator_id
-      foreign-key: user_id
   - table-name: users
     keys:
     - key: creator_id
@@ -350,6 +336,8 @@ tables:
     keys:
     - key: client_id
       foreign-key: client_id
+    - key: id
+      foreign-key: external_reference_id
     - key: invoice_id
       foreign-key: invoice_id
     - key: project_id
@@ -364,6 +352,10 @@ tables:
     keys:
     - key: expense_category_id
       foreign-key: id
+  - table-name: time_entry_external_reference
+    keys:
+    - key: id
+      foreign-key: external_reference_id
   - table-name: invoice_line_items
     keys:
     - key: invoice_id
@@ -436,6 +428,10 @@ tables:
     keys:
     - key: estimate_id
       foreign-key: estimate_id
+  - table-name: invoice_line_items
+    keys:
+    - key: id
+      foreign-key: invoice_id
   - table-name: invoice_messages
     keys:
     - key: id
@@ -444,10 +440,6 @@ tables:
     keys:
     - key: id
       foreign-key: invoice_id
-  - table-name: project_tasks
-    keys:
-    - key: creator_id
-      foreign-key: user_id
   - table-name: users
     keys:
     - key: creator_id
@@ -528,6 +520,8 @@ tables:
     keys:
     - key: client_id
       foreign-key: client_id
+    - key: external_reference_id
+      foreign-key: id
     - key: invoice_id
       foreign-key: invoice_id
     - key: project_id
@@ -554,12 +548,6 @@ tables:
       foreign-key: project_id
     - key: user_id
       foreign-key: user_id
-  - table-name: external_references
-    keys:
-    - key: external_reference_id
-      foreign-key: id
-    - key: task_id
-      foreign-key: task_id
   - table-name: time_entry_external_reference
     keys:
     - key: external_reference_id
@@ -584,8 +572,6 @@ tables:
     keys:
     - key: project_id
       foreign-key: project_id
-    - key: user_id
-      foreign-key: user_id
   - table-name: project_users
     keys:
     - key: project_id
@@ -656,8 +642,6 @@ tables:
     keys:
     - key: project_id
       foreign-key: project_id
-    - key: user_id
-      foreign-key: user_id
   - table-name: project_users
     keys:
     - key: project_id
@@ -708,25 +692,9 @@ tables:
     keys:
     - key: id
       foreign-key: expense_category_id
-- table-name: external_references
-  join:
-  - table-name: time_entries
-    keys:
-    - key: id
-      foreign-key: external_reference_id
-    - key: task_id
-      foreign-key: task_id
-  - table-name: time_entry_external_reference
-    keys:
-    - key: id
-      foreign-key: external_reference_id
-  - table-name: tasks
-    keys:
-    - key: task_id
-      foreign-key: id
 - table-name: time_entry_external_reference
   join:
-  - table-name: external_references
+  - table-name: expenses
     keys:
     - key: external_reference_id
       foreign-key: id
@@ -736,44 +704,6 @@ tables:
       foreign-key: external_reference_id
     - key: time_entry_id
       foreign-key: id
-- table-name: invoice_line_items
-  join:
-  - table-name: expenses
-    keys:
-    - key: invoice_id
-      foreign-key: invoice_id
-    - key: project_id
-      foreign-key: project_id
-  - table-name: invoice_messages
-    keys:
-    - key: invoice_id
-      foreign-key: invoice_id
-  - table-name: invoice_payments
-    keys:
-    - key: invoice_id
-      foreign-key: invoice_id
-  - table-name: time_entries
-    keys:
-    - key: invoice_id
-      foreign-key: invoice_id
-    - key: project_id
-      foreign-key: project_id
-  - table-name: project_tasks
-    keys:
-    - key: project_id
-      foreign-key: project_id
-  - table-name: project_users
-    keys:
-    - key: project_id
-      foreign-key: project_id
-  - table-name: projects
-    keys:
-    - key: project_id
-      foreign-key: id
-  - table-name: user_projects
-    keys:
-    - key: project_id
-      foreign-key: project_id
 - table-name: invoice_messages
   join:
   - table-name: expenses
@@ -796,6 +726,48 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
+- table-name: invoice_line_items
+  join:
+  - table-name: expenses
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: invoice_messages
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoice_payments
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+  - table-name: invoices
+    keys:
+    - key: invoice_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: invoice_id
+      foreign-key: invoice_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_tasks
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: project_users
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: id
+  - table-name: user_projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
 - table-name: invoice_payments
   join:
   - table-name: expenses
@@ -840,36 +812,14 @@ tables:
     keys:
     - key: project_id
       foreign-key: project_id
-    - key: user_id
-      foreign-key: user_id
   - table-name: user_projects
     keys:
     - key: project_id
       foreign-key: project_id
-    - key: user_id
-      foreign-key: user_id
   - table-name: user_project_tasks
     keys:
     - key: id
       foreign-key: project_task_id
-    - key: user_id
-      foreign-key: user_id
-  - table-name: estimates
-    keys:
-    - key: user_id
-      foreign-key: creator_id
-  - table-name: invoices
-    keys:
-    - key: user_id
-      foreign-key: creator_id
-  - table-name: users
-    keys:
-    - key: user_id
-      foreign-key: id
-  - table-name: user_roles
-    keys:
-    - key: user_id
-      foreign-key: user_id
 - table-name: project_users
   join:
   - table-name: expenses
@@ -902,8 +852,6 @@ tables:
     keys:
     - key: project_task_id
       foreign-key: id
-    - key: user_id
-      foreign-key: user_id
   - table-name: estimates
     keys:
     - key: user_id
@@ -948,10 +896,6 @@ tables:
     keys:
     - key: user_id
       foreign-key: creator_id
-  - table-name: project_tasks
-    keys:
-    - key: user_id
-      foreign-key: user_id
   - table-name: time_entries
     keys:
     - key: user_id
@@ -970,10 +914,6 @@ tables:
       foreign-key: user_id
 - table-name: tasks
   join:
-  - table-name: external_references
-    keys:
-    - key: id
-      foreign-key: task_id
   - table-name: time_entries
     keys:
     - key: id
@@ -988,10 +928,6 @@ tables:
     keys:
     - key: id
       foreign-key: creator_id
-  - table-name: project_tasks
-    keys:
-    - key: id
-      foreign-key: user_id
   - table-name: time_entries
     keys:
     - key: id
