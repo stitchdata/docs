@@ -80,13 +80,6 @@ keys:
   - table: invoice_item_categories
     keys:
     - id
-  invoice_line_items_invoice_line_item_id:
-  - table: invoice_line_items
-    keys:
-    - invoice_line_item_id
-  - table: invoices
-    keys:
-    - id
   invoice_messages_invoice_message_id:
   - table: invoice_messages
     keys:
@@ -101,7 +94,7 @@ keys:
   - table: invoice_messages
     keys:
     - invoice_id
-  - table: invoice-payments
+  - table: invoice_payments
     keys:
     - invoice_id
   - table: invoices
@@ -381,7 +374,7 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
-  - table-name: invoice-payments
+  - table-name: invoice_payments
     keys:
     - key: invoice_id
       foreign-key: invoice_id
@@ -443,17 +436,11 @@ tables:
     keys:
     - key: estimate_id
       foreign-key: estimate_id
-  - table-name: invoice_line_items
-    keys:
-    - key: id
-      foreign-key: invoice_line_item_id
-    - key: id
-      foreign-key: invoice_id
   - table-name: invoice_messages
     keys:
     - key: id
       foreign-key: invoice_id
-  - table-name: invoice-payments
+  - table-name: invoice_payments
     keys:
     - key: id
       foreign-key: invoice_id
@@ -589,7 +576,7 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
-  - table-name: invoice-payments
+  - table-name: invoice_payments
     keys:
     - key: invoice_id
       foreign-key: invoice_id
@@ -751,12 +738,6 @@ tables:
       foreign-key: id
 - table-name: invoice_line_items
   join:
-  - table-name: invoices
-    keys:
-    - key: invoice_line_item_id
-      foreign-key: id
-    - key: invoice_id
-      foreign-key: id
   - table-name: expenses
     keys:
     - key: invoice_id
@@ -767,7 +748,7 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
-  - table-name: invoice-payments
+  - table-name: invoice_payments
     keys:
     - key: invoice_id
       foreign-key: invoice_id
@@ -803,7 +784,7 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
-  - table-name: invoice-payments
+  - table-name: invoice_payments
     keys:
     - key: invoice_id
       foreign-key: invoice_id
@@ -815,7 +796,7 @@ tables:
     keys:
     - key: invoice_id
       foreign-key: invoice_id
-- table-name: invoice-payments
+- table-name: invoice_payments
   join:
   - table-name: expenses
     keys:
