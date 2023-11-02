@@ -1,5 +1,5 @@
 tap: mailshake
-version: '1'
+version: '0'
 keys:
   campaigns_id:
   - table: campaigns
@@ -29,9 +29,6 @@ keys:
     keys:
     - messages.id
   - table: clicks
-    keys:
-    - parent.message.id
-  - table: leads
     keys:
     - parent.message.id
   - table: opens
@@ -93,8 +90,6 @@ tables:
       foreign-key: campaign.id
     - key: messages.id
       foreign-key: campaign.id
-    - key: messages.id
-      foreign-key: parent.message.id
   - table-name: opens
     keys:
     - key: id
@@ -143,8 +138,6 @@ tables:
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: parent.message.id
-      foreign-key: parent.message.id
     - key: recipient.id
       foreign-key: recipient.id
   - table-name: opens
@@ -185,22 +178,16 @@ tables:
       foreign-key: id
     - key: campaign.id
       foreign-key: messages.id
-    - key: parent.message.id
-      foreign-key: messages.id
   - table-name: clicks
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: parent.message.id
-      foreign-key: parent.message.id
     - key: recipient.id
       foreign-key: recipient.id
   - table-name: opens
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: parent.message.id
-      foreign-key: parent.message.id
     - key: recipient.id
       foreign-key: recipient.id
   - table-name: recipients
@@ -213,16 +200,12 @@ tables:
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: parent.message.id
-      foreign-key: parent.message.id
     - key: recipient.id
       foreign-key: parent.message.id
   - table-name: sent_messages
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: parent.message.id
-      foreign-key: message.id
     - key: recipient.id
       foreign-key: recipient.id
   - table-name: team_members
@@ -251,8 +234,6 @@ tables:
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: parent.message.id
-      foreign-key: parent.message.id
     - key: recipient.id
       foreign-key: recipient.id
   - table-name: recipients
@@ -338,8 +319,6 @@ tables:
     - key: campaign.id
       foreign-key: campaign.id
     - key: parent.message.id
-      foreign-key: parent.message.id
-    - key: parent.message.id
       foreign-key: recipient.id
   - table-name: opens
     keys:
@@ -385,8 +364,6 @@ tables:
     keys:
     - key: campaign.id
       foreign-key: campaign.id
-    - key: message.id
-      foreign-key: parent.message.id
     - key: recipient.id
       foreign-key: recipient.id
   - table-name: opens
