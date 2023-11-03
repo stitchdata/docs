@@ -1,12 +1,12 @@
 tap: marketo
 version: '2'
 keys:
-  activities_[activity_type]_marketoGuid:
-  - table: activities_[activity_type]
+  activities_marketoGuid:
+  - table: activities
     keys:
     - marketoGuid
   activity_types_activityTypeId:
-  - table: activities_[activity_type]
+  - table: activities
     keys:
     - activityTypeId
   - table: activity_types
@@ -35,7 +35,7 @@ keys:
     keys:
     - id
 tables:
-- table-name: activities_[activity_type]
+- table-name: activities
   join:
   - table-name: activity_types
     keys:
@@ -43,7 +43,7 @@ tables:
       foreign-key: id
 - table-name: activity_types
   join:
-  - table-name: activities_[activity_type]
+  - table-name: activities
     keys:
     - key: id
       foreign-key: activityTypeId

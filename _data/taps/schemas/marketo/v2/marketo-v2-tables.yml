@@ -1,7 +1,7 @@
 tap: marketo
 version: '2'
 tables:
-- name: activities_[activity_type]
+- name: activities
   description: 'In [version 1 of Stitch''s Marketo integration]({{ site.baseurl }}/integrations/saas/{{
     integration.name }}/v1), the `activities` table contained all data pertaining
     to lead activities.
@@ -26,7 +26,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: marketoGuid
     replication-key: activityDate
-  status: not_found
 - name: activity_types
   description: 'The `{{ table.name }}` table contains metadata about the activity
     types - form fill, web page visit, lead creation, and so on - available in {{
@@ -96,11 +95,12 @@ tables:
     primary-key: id
     replication-key: updatedAt
 - name: campaigns
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about your {{ integration.display_name}} campaigns'
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/campaigns.json
+    doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Campaigns/getCampaignsUsingGET
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+tap-repo-schemas: true
