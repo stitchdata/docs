@@ -7,7 +7,7 @@ keys:
     - cohort_id
   - table: cohorts
     keys:
-    - cohort_id
+    - id
   _project_id:
   - table: annotations
     keys:
@@ -21,12 +21,12 @@ tables:
   - table-name: cohorts
     keys:
     - key: cohort_id
-      foreign-key: cohort_id
+      foreign-key: id
 - table-name: cohorts
   join:
   - table-name: cohort_members
     keys:
-    - key: cohort_id
+    - key: id
       foreign-key: cohort_id
   - table-name: annotations
     keys:

@@ -41,6 +41,10 @@ tables:
     keys:
     - key: activityTypeId
       foreign-key: id
+  - table-name: leads
+    keys:
+    - key: leadId
+      foreign-key: id
 - table-name: activity_types
   join:
   - table-name: activities
@@ -52,12 +56,6 @@ tables:
   - table-name: programs
     keys:
     - key: programId
-      foreign-key: id
-- table-name: activities
-  join:
-  - table-name: leads
-    keys:
-    - key: leadId
       foreign-key: id
 - table-name: leads
   join:
