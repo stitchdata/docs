@@ -14,7 +14,7 @@ keys:
   - table: bills
     keys:
     - APAccountRef.value
-    - Line.AccountBasedExpenseLineDetail.value
+    - Line.AccountBasedExpenseLineDetail.AccountRef.value
   - table: budgets
     keys:
     - BudgetDetail.AccountRef.value
@@ -34,7 +34,6 @@ keys:
     - IncomeAccountRef.value
   - table: journal_entries
     keys:
-    - ARAccountRef.value
     - Line.JournalEntryLineDetail.AccountRef.value
   - table: payments
     keys:
@@ -190,7 +189,6 @@ keys:
   - table: customers
     keys:
     - Id
-    - ParentRef.CustomerRef.value
   - table: estimates
     keys:
     - CustomerRef.value
@@ -206,11 +204,10 @@ keys:
   - table: purchases
     keys:
     - Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - EntityRef.CustomerRef.value
-  - table: refund_receipt
+  - table: refund_receipts
     keys:
     - CustomerRef.value
-  - table: sales_receipt
+  - table: sales_receipts
     keys:
     - CustomerRef.value
   - table: vendor_credits
@@ -271,16 +268,6 @@ keys:
   - table: time_activities
     keys:
     - EmployeeRef.value
-  purchases_value:
-  - table: customers
-    keys:
-    - value
-  - table: employees
-    keys:
-    - value
-  - table: vendors
-    keys:
-    - value
   estimates_value:
   - table: estimates
     keys:
@@ -424,15 +411,15 @@ keys:
   - table: estimates
     keys:
     - Line.SalesItemLineDetail.TaxCodeRef.value
-    - TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - TxnTaxDetail.TxnTaxCodeRef.value
   - table: invoices
     keys:
     - Line.SalesItemLineDetail.TaxCodeRef.value
-    - TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - TxnTaxDetail.TxnTaxCodeRef.value
   - table: items
     keys:
-    - PurchaseTaxCodeRef.value.TaxCodeRef.value
-    - SalesTaxCodeRef.value.TaxCodeRef.value
+    - PurchaseTaxCodeRef.value
+    - SalesTaxCodeRef.value
   - table: journal_entries
     keys:
     - TxnTaxDetail.TxnTaxCodeRef.value
@@ -455,7 +442,7 @@ keys:
   tax_rates_TaxRateRef.value:
   - table: estimates
     keys:
-    - TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+    - TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table: invoices
     keys:
     - TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
@@ -465,8 +452,8 @@ keys:
     - TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table: tax_codes
     keys:
-    - PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
-    - SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
+    - SalesTaxRateList.TaxRateDetail.TaxRateRef.value
   - table: tax_rates
     keys:
     - Id
@@ -492,9 +479,6 @@ keys:
   - table: terms
     keys:
     - Id
-  - table: vendors
-    keys:
-    - TermRef.SalesTermRef.value
   time_activities_value:
   - table: invoices
     keys:
@@ -513,7 +497,7 @@ keys:
     keys:
     - Id
   bills_Id:
-  - table: bill_payment
+  - table: bill_payments
     keys:
     - Id
   - table: purchase_orders
@@ -585,9 +569,6 @@ keys:
   - table: purchase_orders
     keys:
     - VendorRef.value
-  - table: purchases
-    keys:
-    - EntityRef.VendorRef.value
   - table: time_activities
     keys:
     - VendorRef.value
@@ -623,9 +604,9 @@ tables:
     - key: ParentRef.value
       foreign-key: APAccountRef.value
     - key: Id
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: ParentRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
   - table-name: budgets
@@ -678,10 +659,6 @@ tables:
       foreign-key: IncomeAccountRef.value
   - table-name: journal_entries
     keys:
-    - key: Id
-      foreign-key: ARAccountRef.value
-    - key: ParentRef.value
-      foreign-key: ARAccountRef.value
     - key: Id
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: ParentRef.value
@@ -803,11 +780,11 @@ tables:
     - key: CreditCardPayment.CCAccountRef.value
       foreign-key: APAccountRef.value
     - key: APAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CheckPayment.BankAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CreditCardPayment.CCAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Id
       foreign-key: LinkedTxn.TxnId
     - key: Line.LinkedTxn.TxnId
@@ -897,12 +874,6 @@ tables:
   - table-name: journal_entries
     keys:
     - key: APAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: CheckPayment.BankAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: CreditCardPayment.CCAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: APAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: CheckPayment.BankAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
@@ -936,6 +907,8 @@ tables:
       foreign-key: CurrencyRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
+    - key: Id
+      foreign-key: Id
     - key: VendorRef.value
       foreign-key: VendorRef.value
   - table-name: purchases
@@ -956,8 +929,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
-    - key: VendorRef.value
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: APAccountRef.value
@@ -1064,11 +1035,11 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: Id
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Id
     - key: APAccountRef.value
       foreign-key: ParentRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: ParentRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1076,15 +1047,15 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: APAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: APAccountRef.value
       foreign-key: CheckPayment.BankAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: CheckPayment.BankAccountRef.value
     - key: APAccountRef.value
       foreign-key: CreditCardPayment.CCAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: CreditCardPayment.CCAccountRef.value
     - key: LinkedTxn.TxnId
       foreign-key: Id
@@ -1100,7 +1071,7 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: BudgetDetail.AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: BudgetDetail.AccountRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: BudgetDetail.CustomerRef.value
@@ -1110,15 +1081,15 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: CashBack.AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: CashBack.AccountRef.value
     - key: APAccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.DepositLineDetail.AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Line.DepositLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1128,11 +1099,11 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1147,48 +1118,44 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: items
     keys:
     - key: APAccountRef.value
       foreign-key: AssetAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: AssetAccountRef.value
     - key: APAccountRef.value
       foreign-key: ExpenseAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: ExpenseAccountRef.value
     - key: APAccountRef.value
       foreign-key: IncomeAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: IncomeAccountRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
       foreign-key: Id
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
     - key: VendorRef.value
       foreign-key: PrefVendorRef.value
   - table-name: journal_entries
     keys:
     - key: APAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
-      foreign-key: ARAccountRef.value
-    - key: APAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1202,7 +1169,7 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1212,7 +1179,7 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: APAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: Id
       foreign-key: LinkedTxn.TxnId
@@ -1238,18 +1205,16 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: AccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -1262,16 +1227,16 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: VendorRef.value
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: APAccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -1284,14 +1249,16 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -1304,11 +1271,11 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: FromAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: FromAccountRef.value
     - key: APAccountRef.value
       foreign-key: ToAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: ToAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1316,11 +1283,11 @@ tables:
     keys:
     - key: APAccountRef.value
       foreign-key: APAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.value
+    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -1356,8 +1323,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Id
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
@@ -1379,27 +1344,17 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: vendors
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: SalesTermRef.value
-      foreign-key: TermRef.SalesTermRef.value
     - key: VendorRef.value
       foreign-key: Id
-  - table-name: refund_receipt
-    keys:
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: DepartmentRef.value
@@ -1441,7 +1396,7 @@ tables:
     - key: BudgetDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: BudgetDetail.AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: BudgetDetail.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: BudgetDetail.DepartmentRef.value
@@ -1483,8 +1438,6 @@ tables:
   - table-name: journal_entries
     keys:
     - key: BudgetDetail.AccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: BudgetDetail.AccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
   - table-name: payments
     keys:
@@ -1514,8 +1467,6 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.ClassRef.value
     - key: BudgetDetail.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: BudgetDetail.CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: BudgetDetail.DepartmentRef.value
       foreign-key: DepartmentRef.value
   - table-name: refund_receipts
@@ -1524,6 +1475,8 @@ tables:
       foreign-key: DepositToAccountRef.value
     - key: BudgetDetail.ClassRef.value
       foreign-key: ClassRef.value
+    - key: BudgetDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: BudgetDetail.DepartmentRef.value
       foreign-key: DepartmentRef.value
   - table-name: sales_receipts
@@ -1534,6 +1487,8 @@ tables:
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: BudgetDetail.ClassRef.value
       foreign-key: ClassRef.value
+    - key: BudgetDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: BudgetDetail.DepartmentRef.value
       foreign-key: DepartmentRef.value
   - table-name: transfers
@@ -1584,16 +1539,6 @@ tables:
     keys:
     - key: BudgetDetail.CustomerRef.value
       foreign-key: Id
-    - key: BudgetDetail.CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: BudgetDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: BudgetDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: BudgetDetail.DepartmentRef.value
@@ -1653,11 +1598,11 @@ tables:
     - key: Line.DepositLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: CashBack.AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: DepositToAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.DepositLineDetail.AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: DepartmentRef.value
@@ -1714,12 +1659,6 @@ tables:
       foreign-key: IncomeAccountRef.value
   - table-name: journal_entries
     keys:
-    - key: CashBack.AccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: DepositToAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: Line.DepositLineDetail.AccountRef.value
-      foreign-key: ARAccountRef.value
     - key: CashBack.AccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: DepositToAccountRef.value
@@ -1923,9 +1862,9 @@ tables:
     - key: Line.DiscountLineDetail.DiscountAccountRef.value
       foreign-key: APAccountRef.value
     - key: DepositToAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.DiscountLineDetail.DiscountAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
@@ -1936,11 +1875,11 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -2001,19 +1940,15 @@ tables:
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: journal_entries
     keys:
-    - key: DepositToAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: Line.DiscountLineDetail.DiscountAccountRef.value
-      foreign-key: ARAccountRef.value
     - key: DepositToAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: Line.DiscountLineDetail.DiscountAccountRef.value
@@ -2022,7 +1957,7 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
       foreign-key: TaxRateRef.value
@@ -2068,7 +2003,7 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -2090,8 +2025,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -2100,11 +2033,11 @@ tables:
       foreign-key: Id
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: Id
       foreign-key: Id
@@ -2120,13 +2053,15 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: sales_receipts
     keys:
@@ -2144,13 +2079,15 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: transfers
     keys:
@@ -2186,7 +2123,7 @@ tables:
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
   - table-name: classes
     keys:
@@ -2212,7 +2149,7 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -2238,14 +2175,14 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: time_activities
@@ -2266,11 +2203,9 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Id
-    - key: CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -2278,16 +2213,6 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: SalesTermRef.value
-      foreign-key: TermRef.SalesTermRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: DepartmentRef.value
@@ -2297,9 +2222,9 @@ tables:
   - table-name: tax_codes
     keys:
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
   - table-name: tax_rates
     keys:
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
@@ -2355,22 +2280,22 @@ tables:
     - key: IncomeAccountRef.value
       foreign-key: APAccountRef.value
     - key: AssetAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: ExpenseAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: IncomeAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Id
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: PrefVendorRef.value
       foreign-key: VendorRef.value
@@ -2426,31 +2351,25 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
+    - key: SalesTaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: journal_entries
     keys:
     - key: AssetAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: ExpenseAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: IncomeAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: AssetAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: ExpenseAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: IncomeAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: payments
     keys:
@@ -2476,9 +2395,9 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: PrefVendorRef.value
       foreign-key: VendorRef.value
@@ -2502,16 +2421,14 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: PrefVendorRef.value
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: AssetAccountRef.value
@@ -2526,9 +2443,9 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: sales_receipts
     keys:
@@ -2550,9 +2467,9 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: transfers
     keys:
@@ -2584,9 +2501,9 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: ClassRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.ClassRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: PrefVendorRef.value
       foreign-key: VendorRef.value
@@ -2604,9 +2521,9 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: estimates
     keys:
@@ -2616,14 +2533,14 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: ParentRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
+    - key: SalesTaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: time_activities
     keys:
     - key: ClassRef.value
@@ -2636,9 +2553,9 @@ tables:
       foreign-key: VendorRef.value
   - table-name: customers
     keys:
-    - key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+    - key: PurchaseTaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
-    - key: SalesTaxCodeRef.value.TaxCodeRef.value
+    - key: SalesTaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
   - table-name: vendors
     keys:
@@ -2648,28 +2565,18 @@ tables:
   join:
   - table-name: accounts
     keys:
-    - key: ARAccountRef.value
-      foreign-key: Id
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: Id
-    - key: ARAccountRef.value
-      foreign-key: ParentRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: ParentRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
   - table-name: bill_payments
     keys:
-    - key: ARAccountRef.value
-      foreign-key: APAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: CheckPayment.BankAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: CheckPayment.BankAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: CreditCardPayment.CCAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: CreditCardPayment.CCAccountRef.value
     - key: CurrencyRef.value
@@ -2678,14 +2585,10 @@ tables:
       foreign-key: Line.LinkedTxn.TxnId
   - table-name: bills
     keys:
-    - key: ARAccountRef.value
-      foreign-key: APAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: TxnTaxDetail.TxnTaxCodeRef.value
@@ -2696,22 +2599,14 @@ tables:
       foreign-key: Id
   - table-name: budgets
     keys:
-    - key: ARAccountRef.value
-      foreign-key: BudgetDetail.AccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: BudgetDetail.AccountRef.value
   - table-name: deposits
     keys:
-    - key: ARAccountRef.value
-      foreign-key: CashBack.AccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: CashBack.AccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: DepositToAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: Line.DepositLineDetail.AccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: Line.DepositLineDetail.AccountRef.value
     - key: CurrencyRef.value
@@ -2720,12 +2615,8 @@ tables:
       foreign-key: Line.LinkedTxn.TxnId
   - table-name: invoices
     keys:
-    - key: ARAccountRef.value
-      foreign-key: DepositToAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: CurrencyRef.value
@@ -2733,33 +2624,25 @@ tables:
     - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: TxnTaxDetail.TxnTaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: items
     keys:
-    - key: ARAccountRef.value
-      foreign-key: AssetAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: AssetAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: ExpenseAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: ExpenseAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: IncomeAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: IncomeAccountRef.value
     - key: TxnTaxDetail.TxnTaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: TxnTaxDetail.TxnTaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: payments
     keys:
-    - key: ARAccountRef.value
-      foreign-key: DepositToAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
@@ -2768,8 +2651,6 @@ tables:
       foreign-key: Id
   - table-name: purchase_orders
     keys:
-    - key: ARAccountRef.value
-      foreign-key: APAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: CurrencyRef.value
@@ -2778,12 +2659,8 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
   - table-name: purchases
     keys:
-    - key: ARAccountRef.value
-      foreign-key: AccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: AccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
@@ -2794,8 +2671,6 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
   - table-name: refund_receipts
     keys:
-    - key: ARAccountRef.value
-      foreign-key: DepositToAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
@@ -2806,12 +2681,8 @@ tables:
       foreign-key: Id
   - table-name: sales_receipts
     keys:
-    - key: ARAccountRef.value
-      foreign-key: DepositToAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: DepositToAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: CurrencyRef.value
@@ -2822,12 +2693,8 @@ tables:
       foreign-key: Id
   - table-name: transfers
     keys:
-    - key: ARAccountRef.value
-      foreign-key: FromAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: FromAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: ToAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: ToAccountRef.value
     - key: CurrencyRef.value
@@ -2836,12 +2703,8 @@ tables:
       foreign-key: Id
   - table-name: vendor_credits
     keys:
-    - key: ARAccountRef.value
-      foreign-key: APAccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
-    - key: ARAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.JournalEntryLineDetail.AccountRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
@@ -2869,11 +2732,11 @@ tables:
     - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: TxnTaxDetail.TxnTaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: TaxRateRef.value
-      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: vendors
     keys:
     - key: CurrencyRef.value
@@ -2881,13 +2744,13 @@ tables:
   - table-name: tax_codes
     keys:
     - key: TaxRateRef.value
-      foreign-key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
     - key: TaxRateRef.value
-      foreign-key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
     - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
   - table-name: tax_rates
     keys:
     - key: TaxRateRef.value
@@ -2919,7 +2782,7 @@ tables:
     - key: DepositToAccountRef.value
       foreign-key: APAccountRef.value
     - key: DepositToAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
@@ -2971,8 +2834,6 @@ tables:
   - table-name: journal_entries
     keys:
     - key: DepositToAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: DepositToAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
@@ -2996,8 +2857,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Line.LinkedTxn.TxnId
@@ -3010,6 +2869,8 @@ tables:
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Id
@@ -3022,6 +2883,8 @@ tables:
       foreign-key: Line.DiscountLineDetail.DiscountAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Id
@@ -3060,8 +2923,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Id
-    - key: CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
   - table-name: estimates
@@ -3078,14 +2939,6 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: payment_methods
     keys:
     - key: PaymentMethodRef.value
@@ -3118,6 +2971,8 @@ tables:
       foreign-key: CurrencyRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
+    - key: Id
+      foreign-key: Id
     - key: VendorRef.value
       foreign-key: VendorRef.value
   - table-name: bills
@@ -3125,7 +2980,7 @@ tables:
     - key: APAccountRef.value
       foreign-key: APAccountRef.value
     - key: APAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: LinkedTxn.TxnId
       foreign-key: Id
     - key: CurrencyRef.value
@@ -3195,7 +3050,7 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: items
@@ -3215,15 +3070,13 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
     - key: VendorRef.value
       foreign-key: PrefVendorRef.value
   - table-name: journal_entries
     keys:
-    - key: APAccountRef.value
-      foreign-key: ARAccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: CurrencyRef.value
@@ -3252,8 +3105,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3262,8 +3113,6 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: VendorRef.value
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: APAccountRef.value
@@ -3274,6 +3123,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3292,6 +3143,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3369,7 +3222,7 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: time_activities
@@ -3390,8 +3243,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Id
-    - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
     - key: SalesTermRef.value
@@ -3400,18 +3251,8 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: SalesTermRef.value
-      foreign-key: TermRef.SalesTermRef.value
     - key: VendorRef.value
       foreign-key: Id
-  - table-name: refund_receipt
-    keys:
-    - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: DepartmentRef.value
@@ -3421,10 +3262,6 @@ tables:
   - table-name: terms
     keys:
     - key: SalesTermRef.value
-      foreign-key: Id
-  - table-name: bill_payment
-    keys:
-    - key: Id
       foreign-key: Id
 - table-name: purchases
   join:
@@ -3458,8 +3295,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
-    - key: EntityRef.VendorRef.value
-      foreign-key: VendorRef.value
   - table-name: bills
     keys:
     - key: AccountRef.value
@@ -3467,14 +3302,12 @@ tables:
     - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: EntityRef.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
@@ -3488,8 +3321,6 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: EntityRef.VendorRef.value
-      foreign-key: VendorRef.value
   - table-name: budgets
     keys:
     - key: AccountRef.value
@@ -3499,8 +3330,6 @@ tables:
     - key: Line.AccountBasedExpenseLineDetail.ClassRef.value
       foreign-key: BudgetDetail.ClassRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: BudgetDetail.CustomerRef.value
-    - key: EntityRef.CustomerRef.value
       foreign-key: BudgetDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: BudgetDetail.DepartmentRef.value
@@ -3542,8 +3371,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3555,9 +3382,9 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: Id
       foreign-key: Id
   - table-name: items
@@ -3581,21 +3408,15 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
-    - key: EntityRef.VendorRef.value
-      foreign-key: PrefVendorRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: journal_entries
     keys:
-    - key: AccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
-      foreign-key: ARAccountRef.value
     - key: AccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
@@ -3615,8 +3436,6 @@ tables:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-    - key: EntityRef.CustomerRef.value
       foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
@@ -3638,8 +3457,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3648,8 +3465,6 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: EntityRef.VendorRef.value
-      foreign-key: VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: AccountRef.value
@@ -3660,6 +3475,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3684,6 +3501,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3722,16 +3541,12 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: EntityRef.VendorRef.value
-      foreign-key: VendorRef.value
   - table-name: classes
     keys:
     - key: Line.AccountBasedExpenseLineDetail.ClassRef.value
@@ -3745,8 +3560,6 @@ tables:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-    - key: EntityRef.CustomerRef.value
       foreign-key: CustomerRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
@@ -3764,8 +3577,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.ItemBasedExpenseLineDetail.ItemRef.value
@@ -3775,9 +3586,9 @@ tables:
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: Id
       foreign-key: Id
   - table-name: time_activities
@@ -3792,20 +3603,12 @@ tables:
       foreign-key: ItemRef.value
     - key: Id
       foreign-key: Id
-    - key: EntityRef.VendorRef.value
-      foreign-key: VendorRef.value
   - table-name: customers
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Id
-    - key: EntityRef.CustomerRef.value
-      foreign-key: Id
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
@@ -3816,20 +3619,6 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: EntityRef.VendorRef.value
-      foreign-key: Id
-  - table-name: refund_receipt
-    keys:
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-    - key: EntityRef.CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: DepartmentRef.value
@@ -3871,9 +3660,11 @@ tables:
     - key: DepositToAccountRef.value
       foreign-key: APAccountRef.value
     - key: DepositToAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -3888,6 +3679,8 @@ tables:
       foreign-key: BudgetDetail.AccountRef.value
     - key: ClassRef.value
       foreign-key: BudgetDetail.ClassRef.value
+    - key: CustomerRef.value
+      foreign-key: BudgetDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: BudgetDetail.DepartmentRef.value
   - table-name: deposits
@@ -3918,6 +3711,8 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -3925,7 +3720,7 @@ tables:
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: items
     keys:
     - key: DepositToAccountRef.value
@@ -3941,13 +3736,11 @@ tables:
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: journal_entries
     keys:
-    - key: DepositToAccountRef.value
-      foreign-key: ARAccountRef.value
     - key: DepositToAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: CurrencyRef.value
@@ -3962,6 +3755,8 @@ tables:
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Id
@@ -3976,6 +3771,8 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -3992,6 +3789,8 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4012,6 +3811,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4042,6 +3843,8 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -4058,6 +3861,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -4068,6 +3873,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4075,7 +3882,7 @@ tables:
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: time_activities
     keys:
     - key: ClassRef.value
@@ -4088,6 +3895,8 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Id
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -4145,11 +3954,13 @@ tables:
     - key: Line.DiscountLineDetail.DiscountAccountRef.value
       foreign-key: APAccountRef.value
     - key: DepositToAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.DiscountLineDetail.DiscountAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4166,6 +3977,8 @@ tables:
       foreign-key: BudgetDetail.AccountRef.value
     - key: ClassRef.value
       foreign-key: BudgetDetail.ClassRef.value
+    - key: CustomerRef.value
+      foreign-key: BudgetDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: BudgetDetail.DepartmentRef.value
   - table-name: deposits
@@ -4206,6 +4019,8 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4213,7 +4028,7 @@ tables:
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: items
     keys:
     - key: DepositToAccountRef.value
@@ -4235,15 +4050,11 @@ tables:
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: journal_entries
     keys:
-    - key: DepositToAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: Line.DiscountLineDetail.DiscountAccountRef.value
-      foreign-key: ARAccountRef.value
     - key: DepositToAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: Line.DiscountLineDetail.DiscountAccountRef.value
@@ -4262,6 +4073,8 @@ tables:
       foreign-key: DepositToAccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Id
@@ -4278,6 +4091,8 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4298,6 +4113,8 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4318,6 +4135,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4356,6 +4175,8 @@ tables:
       foreign-key: Line.AccountBasedExpenseLineDetail.ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -4372,6 +4193,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -4382,6 +4205,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
@@ -4389,7 +4214,7 @@ tables:
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: time_activities
     keys:
     - key: ClassRef.value
@@ -4402,6 +4227,8 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: Id
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -4457,9 +4284,9 @@ tables:
     - key: ToAccountRef.value
       foreign-key: APAccountRef.value
     - key: FromAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: ToAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
   - table-name: budgets
@@ -4514,10 +4341,6 @@ tables:
       foreign-key: IncomeAccountRef.value
   - table-name: journal_entries
     keys:
-    - key: FromAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: ToAccountRef.value
-      foreign-key: ARAccountRef.value
     - key: FromAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: ToAccountRef.value
@@ -4651,9 +4474,9 @@ tables:
     - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
       foreign-key: APAccountRef.value
     - key: APAccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.value
+      foreign-key: Line.AccountBasedExpenseLineDetail.AccountRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
@@ -4721,7 +4544,7 @@ tables:
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: items
     keys:
     - key: APAccountRef.value
@@ -4739,17 +4562,13 @@ tables:
     - key: Line.AccountBasedExpenseLineDetail.ClassRef.value
       foreign-key: ClassRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
     - key: VendorRef.value
       foreign-key: PrefVendorRef.value
   - table-name: journal_entries
     keys:
-    - key: APAccountRef.value
-      foreign-key: ARAccountRef.value
-    - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
-      foreign-key: ARAccountRef.value
     - key: APAccountRef.value
       foreign-key: Line.JournalEntryLineDetail.AccountRef.value
     - key: Line.AccountBasedExpenseLineDetail.AccountRef.value
@@ -4806,16 +4625,12 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: VendorRef.value
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: APAccountRef.value
@@ -4826,6 +4641,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
@@ -4844,6 +4661,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
@@ -4889,7 +4708,7 @@ tables:
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
   - table-name: time_activities
     keys:
     - key: Line.AccountBasedExpenseLineDetail.ClassRef.value
@@ -4904,8 +4723,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
       foreign-key: Id
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
   - table-name: vendors
@@ -4914,14 +4731,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: VendorRef.value
       foreign-key: Id
-  - table-name: refund_receipt
-    keys:
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: DepartmentRef.value
@@ -5031,7 +4840,7 @@ tables:
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: invoices
@@ -5049,7 +4858,7 @@ tables:
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
     - key: Id
@@ -5063,9 +4872,9 @@ tables:
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: purchase_orders
     keys:
     - key: ClassRef.value
@@ -5090,8 +4899,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -5106,6 +4913,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -5116,6 +4925,8 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -5172,8 +4983,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Id
-    - key: CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
     - key: SalesTermRef.value
@@ -5196,16 +5005,6 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: SalesTermRef.value
-      foreign-key: TermRef.SalesTermRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: terms
     keys:
     - key: SalesTermRef.value
@@ -5238,7 +5037,7 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -5262,13 +5061,13 @@ tables:
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
+    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -5281,13 +5080,13 @@ tables:
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: ParentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: purchase_orders
     keys:
     - key: ClassRef.value
@@ -5304,7 +5103,7 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -5316,19 +5115,17 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: Id
       foreign-key: Id
@@ -5338,13 +5135,15 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: sales_receipts
     keys:
@@ -5352,13 +5151,15 @@ tables:
       foreign-key: ClassRef.value
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: CustomerRef.value
+      foreign-key: CustomerRef.value
     - key: DepartmentRef.value
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.ItemRef.value
       foreign-key: Line.SalesItemLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
   - table-name: time_activities
     keys:
@@ -5382,7 +5183,7 @@ tables:
       foreign-key: DepartmentRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
   - table-name: accounts
     keys:
@@ -5406,11 +5207,11 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -5420,11 +5221,9 @@ tables:
       foreign-key: CurrencyRef.value
     - key: CustomerRef.value
       foreign-key: Id
-    - key: CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: DefaultTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
@@ -5440,11 +5239,11 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Line.SalesItemLineDetail.TaxCodeRef.value
       foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
-    - key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+    - key: TxnTaxDetail.TxnTaxCodeRef.value
       foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
-    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
       foreign-key: TaxRateRef.value
-    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: payments
     keys:
@@ -5464,16 +5263,6 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: SalesTermRef.value
-      foreign-key: TermRef.SalesTermRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
   - table-name: departments
     keys:
     - key: DepartmentRef.value
@@ -5482,13 +5271,13 @@ tables:
       foreign-key: Id
   - table-name: tax_codes
     keys:
-    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
-    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-      foreign-key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
+    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
   - table-name: tax_rates
     keys:
-    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+    - key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
       foreign-key: Id
   - table-name: terms
     keys:
@@ -5570,8 +5359,6 @@ tables:
       foreign-key: Line.ItemBasedExpenseLineDetail.ItemRef.value
     - key: Id
       foreign-key: Id
-    - key: VendorRef.value
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: ClassRef.value
@@ -5648,8 +5435,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DefaultTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
     - key: DefaultTaxCodeRef.value
@@ -5661,8 +5446,6 @@ tables:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Id
-      foreign-key: CustomerRef.value
-    - key: ParentRef.CustomerRef.value
       foreign-key: CustomerRef.value
     - key: DefaultTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
@@ -5680,12 +5463,10 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: CustomerRef.value
     - key: DefaultTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: DefaultTaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: invoices
@@ -5694,12 +5475,10 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: CustomerRef.value
     - key: DefaultTaxCodeRef.value
       foreign-key: Line.SalesItemLineDetail.TaxCodeRef.value
     - key: DefaultTaxCodeRef.value
-      foreign-key: TxnTaxDetail.TxnTaxCodeRef.TaxCodeRef.value
+      foreign-key: TxnTaxDetail.TxnTaxCodeRef.value
     - key: SalesTermRef.value
       foreign-key: SalesTermRef.value
   - table-name: journal_entries
@@ -5714,8 +5493,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
   - table-name: purchase_orders
@@ -5723,8 +5500,6 @@ tables:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
     - key: Id
-      foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-    - key: ParentRef.CustomerRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
     - key: DefaultTaxCodeRef.value
       foreign-key: Line.ItemBasedExpenseLineDetail.TaxCodeRef.value
@@ -5736,12 +5511,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: Id
-      foreign-key: EntityRef.CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: DefaultTaxCodeRef.value
@@ -5752,6 +5521,8 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Id
+      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: DefaultTaxCodeRef.value
@@ -5760,6 +5531,8 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
+    - key: Id
+      foreign-key: CustomerRef.value
     - key: PaymentMethodRef.value
       foreign-key: PaymentMethodRef.value
     - key: DefaultTaxCodeRef.value
@@ -5774,40 +5547,16 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
     - key: DefaultTaxCodeRef.value
       foreign-key: Line.AccountBasedExpenseLineDetail.TaxCodeRef.value
   - table-name: vendors
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: value
-      foreign-key: value
-    - key: SalesTermRef.value
-      foreign-key: TermRef.SalesTermRef.value
   - table-name: budgets
     keys:
     - key: Id
       foreign-key: BudgetDetail.CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: BudgetDetail.CustomerRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: Id
-      foreign-key: CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: Id
-      foreign-key: CustomerRef.value
-    - key: ParentRef.CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: employees
-    keys:
-    - key: value
-      foreign-key: value
   - table-name: payment_methods
     keys:
     - key: PaymentMethodRef.value
@@ -5815,9 +5564,9 @@ tables:
   - table-name: items
     keys:
     - key: DefaultTaxCodeRef.value
-      foreign-key: PurchaseTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: PurchaseTaxCodeRef.value
     - key: DefaultTaxCodeRef.value
-      foreign-key: SalesTaxCodeRef.value.TaxCodeRef.value
+      foreign-key: SalesTaxCodeRef.value
   - table-name: terms
     keys:
     - key: SalesTermRef.value
@@ -5838,24 +5587,16 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: TermRef.SalesTermRef.value
-      foreign-key: SalesTermRef.value
     - key: Id
       foreign-key: VendorRef.value
   - table-name: credit_memos
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: TermRef.SalesTermRef.value
-      foreign-key: SalesTermRef.value
   - table-name: customers
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: value
-      foreign-key: value
-    - key: TermRef.SalesTermRef.value
-      foreign-key: SalesTermRef.value
   - table-name: deposits
     keys:
     - key: CurrencyRef.value
@@ -5864,14 +5605,10 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: TermRef.SalesTermRef.value
-      foreign-key: SalesTermRef.value
   - table-name: invoices
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: TermRef.SalesTermRef.value
-      foreign-key: SalesTermRef.value
   - table-name: journal_entries
     keys:
     - key: CurrencyRef.value
@@ -5884,16 +5621,12 @@ tables:
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: TermRef.SalesTermRef.value
-      foreign-key: SalesTermRef.value
     - key: Id
       foreign-key: VendorRef.value
   - table-name: purchases
     keys:
     - key: CurrencyRef.value
       foreign-key: CurrencyRef.value
-    - key: Id
-      foreign-key: EntityRef.VendorRef.value
   - table-name: refund_receipts
     keys:
     - key: CurrencyRef.value
@@ -5912,14 +5645,6 @@ tables:
       foreign-key: CurrencyRef.value
     - key: Id
       foreign-key: VendorRef.value
-  - table-name: employees
-    keys:
-    - key: value
-      foreign-key: value
-  - table-name: terms
-    keys:
-    - key: TermRef.SalesTermRef.value
-      foreign-key: Id
   - table-name: items
     keys:
     - key: Id
@@ -5928,106 +5653,6 @@ tables:
     keys:
     - key: Id
       foreign-key: VendorRef.value
-- table-name: refund_receipt
-  join:
-  - table-name: bills
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-  - table-name: budgets
-    keys:
-    - key: CustomerRef.value
-      foreign-key: BudgetDetail.CustomerRef.value
-  - table-name: credit_memos
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: customers
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Id
-    - key: CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
-  - table-name: estimates
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: invoices
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: payments
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: purchase_orders
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-  - table-name: purchases
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
-  - table-name: sales_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: vendor_credits
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-- table-name: sales_receipt
-  join:
-  - table-name: bills
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-  - table-name: budgets
-    keys:
-    - key: CustomerRef.value
-      foreign-key: BudgetDetail.CustomerRef.value
-  - table-name: credit_memos
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: customers
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Id
-    - key: CustomerRef.value
-      foreign-key: ParentRef.CustomerRef.value
-  - table-name: estimates
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: invoices
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: payments
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: purchase_orders
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.ItemBasedExpenseLineDetail.CustomerRef.value
-  - table-name: purchases
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
-    - key: CustomerRef.value
-      foreign-key: EntityRef.CustomerRef.value
-  - table-name: refund_receipt
-    keys:
-    - key: CustomerRef.value
-      foreign-key: CustomerRef.value
-  - table-name: vendor_credits
-    keys:
-    - key: CustomerRef.value
-      foreign-key: Line.AccountBasedExpenseLineDetail.CustomerRef.value
 - table-name: departments
   join:
   - table-name: bills
@@ -6112,14 +5737,6 @@ tables:
     keys:
     - key: Id
       foreign-key: EmployeeRef.value
-  - table-name: customers
-    keys:
-    - key: value
-      foreign-key: value
-  - table-name: vendors
-    keys:
-    - key: value
-      foreign-key: value
 - table-name: payment_methods
   join:
   - table-name: customers
@@ -6161,7 +5778,7 @@ tables:
   - table-name: estimates
     keys:
     - key: Id
-      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: invoices
     keys:
     - key: Id
@@ -6175,38 +5792,38 @@ tables:
   - table-name: tax_codes
     keys:
     - key: Id
-      foreign-key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
     - key: Id
-      foreign-key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+      foreign-key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
 - table-name: tax_codes
   join:
   - table-name: estimates
     keys:
-    - key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
-      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-    - key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
-      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+    - key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
+    - key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
+      foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: invoices
     keys:
-    - key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-    - key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: journal_entries
     keys:
-    - key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: TaxRateRef.value
-    - key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: TaxRateRef.value
-    - key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
-    - key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: TxnTaxDetail.TaxLine.TaxLineDetail.TaxRateRef.value
   - table-name: tax_rates
     keys:
-    - key: PurchaseTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: PurchaseTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: Id
-    - key: SalesTaxRateList.TaxLine.TaxRateDetail.TaxRateRef.value
+    - key: SalesTaxRateList.TaxRateDetail.TaxRateRef.value
       foreign-key: Id
 - table-name: terms
   join:
@@ -6234,13 +5851,3 @@ tables:
     keys:
     - key: Id
       foreign-key: SalesTermRef.value
-  - table-name: vendors
-    keys:
-    - key: Id
-      foreign-key: TermRef.SalesTermRef.value
-- table-name: bill_payment
-  join:
-  - table-name: purchase_orders
-    keys:
-    - key: Id
-      foreign-key: Id

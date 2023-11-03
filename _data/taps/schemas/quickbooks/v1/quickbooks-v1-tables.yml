@@ -368,20 +368,27 @@ tables:
     replication-method: Key-based Incremental
     primary-key: Id
 - name: deleted_objects
-  description: ''
+  description: The `{{ table.name }}` table contains info about deleted objects in
+    your {{ integration.display_name }} instance.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/deleted_objects.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/changedatacapture#get-a-list-of-changed-entities
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-keys:
+    - Id
+    - Type
+    replication-key: MetaData
 - name: refund_receipts
-  description: ''
+  description: The `{{ table.name }}` table contains info about refunds in your {{
+    integration.display_name }} instance.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/refundreceipt
+    singer-schema: https://github.com/singer-io/tap-quickbooks/blob/master/tap_quickbooks/schemas/refund_receipts.json
+    api-method: https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/refundreceipt#query-a-refund-receipt
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: Id
+    replication-key: MetaData
+tap-repo-schemas: true
