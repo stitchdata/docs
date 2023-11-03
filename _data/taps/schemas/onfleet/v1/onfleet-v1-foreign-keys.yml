@@ -10,7 +10,7 @@ keys:
     - creator
   - table: teams
     keys:
-    - managers.value
+    - managers
   hubs_hub:
   - table: hubs
     keys:
@@ -25,7 +25,7 @@ keys:
   - table: organizations
     keys:
     - id
-    - delegatees.value
+    - delegatees
   - table: tasks
     keys:
     - organization
@@ -33,33 +33,33 @@ keys:
     keys:
     - organization
   tasks_:
-  - table: task
+  - table: tasks
     keys:
     - id
   - table: teams
     keys:
-    - tasks.value
+    - tasks
   - table: workers
     keys:
     - activeTask
-    - tasks.value
+    - tasks
   teams_team:
   - table: hubs
     keys:
-    - teams.value
+    - teams
   - table: teams
     keys:
     - id
   - table: workers
     keys:
-    - teams.value
+    - teams
   workers_worker:
   - table: tasks
     keys:
     - worker
   - table: teams
     keys:
-    - workers.value
+    - workers
   - table: workers
     keys:
     - id
@@ -75,13 +75,13 @@ tables:
   - table-name: teams
     keys:
     - key: id
-      foreign-key: managers.value
+      foreign-key: managers
   - table-name: organizations
     keys:
     - key: organization
       foreign-key: id
     - key: organization
-      foreign-key: delegatees.value
+      foreign-key: delegatees
   - table-name: workers
     keys:
     - key: organization
@@ -97,15 +97,15 @@ tables:
   - table-name: teams
     keys:
     - key: creator
-      foreign-key: managers.value
+      foreign-key: managers
     - key: worker
-      foreign-key: workers.value
+      foreign-key: workers
   - table-name: organizations
     keys:
     - key: organization
       foreign-key: id
     - key: organization
-      foreign-key: delegatees.value
+      foreign-key: delegatees
   - table-name: workers
     keys:
     - key: organization
@@ -116,33 +116,33 @@ tables:
   join:
   - table-name: administrators
     keys:
-    - key: managers.value
+    - key: managers
       foreign-key: id
   - table-name: tasks
     keys:
-    - key: managers.value
+    - key: managers
       foreign-key: creator
-    - key: workers.value
+    - key: workers
       foreign-key: worker
   - table-name: hubs
     keys:
     - key: hub
       foreign-key: id
     - key: id
-      foreign-key: teams.value
-  - table-name: task
+      foreign-key: teams
+  - table-name: tasks
     keys:
-    - key: tasks.value
+    - key: tasks
       foreign-key: id
   - table-name: workers
     keys:
-    - key: tasks.value
+    - key: tasks
       foreign-key: activeTask
-    - key: tasks.value
-      foreign-key: tasks.value
+    - key: tasks
+      foreign-key: tasks
     - key: id
-      foreign-key: teams.value
-    - key: workers.value
+      foreign-key: teams
+    - key: workers
       foreign-key: id
 - table-name: hubs
   join:
@@ -150,31 +150,31 @@ tables:
     keys:
     - key: id
       foreign-key: hub
-    - key: teams.value
+    - key: teams
       foreign-key: id
   - table-name: workers
     keys:
-    - key: teams.value
-      foreign-key: teams.value
+    - key: teams
+      foreign-key: teams
 - table-name: organizations
   join:
   - table-name: administrators
     keys:
     - key: id
       foreign-key: organization
-    - key: delegatees.value
+    - key: delegatees
       foreign-key: organization
   - table-name: tasks
     keys:
     - key: id
       foreign-key: organization
-    - key: delegatees.value
+    - key: delegatees
       foreign-key: organization
   - table-name: workers
     keys:
     - key: id
       foreign-key: organization
-    - key: delegatees.value
+    - key: delegatees
       foreign-key: organization
 - table-name: workers
   join:
@@ -187,42 +187,42 @@ tables:
     - key: organization
       foreign-key: id
     - key: organization
-      foreign-key: delegatees.value
+      foreign-key: delegatees
   - table-name: tasks
     keys:
     - key: organization
       foreign-key: organization
     - key: id
       foreign-key: worker
-  - table-name: task
+  - table-name: tasks
     keys:
     - key: activeTask
       foreign-key: id
-    - key: tasks.value
+    - key: tasks
       foreign-key: id
   - table-name: teams
     keys:
     - key: activeTask
-      foreign-key: tasks.value
-    - key: tasks.value
-      foreign-key: tasks.value
-    - key: teams.value
+      foreign-key: tasks
+    - key: tasks
+      foreign-key: tasks
+    - key: teams
       foreign-key: id
     - key: id
-      foreign-key: workers.value
+      foreign-key: workers
   - table-name: hubs
     keys:
-    - key: teams.value
-      foreign-key: teams.value
-- table-name: task
+    - key: teams
+      foreign-key: teams
+- table-name: tasks
   join:
   - table-name: teams
     keys:
     - key: id
-      foreign-key: tasks.value
+      foreign-key: tasks
   - table-name: workers
     keys:
     - key: id
       foreign-key: activeTask
     - key: id
-      foreign-key: tasks.value
+      foreign-key: tasks
