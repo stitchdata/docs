@@ -1,133 +1,156 @@
 {
+  "additionalProperties": false,
   "properties": {
     "addresses": {
-      "properties": {
-        "city": {
-          "type": [
-            "string"
-          ]
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "index_in_list": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "parent_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postcode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
-        "country": {
-          "type": [
-            "string"
-          ]
-        },
-        "encoded_key": {
-          "type": [
-            "string"
-          ]
-        },
-        "index_in_list": {
-          "type": [
-            "integer"
-          ]
-        },
-        "latitude": {
-          "type": [
-            "number"
-          ]
-        },
-        "line1": {
-          "type": [
-            "string"
-          ]
-        },
-        "line2": {
-          "type": [
-            "string"
-          ]
-        },
-        "longitude": {
-          "type": [
-            "number"
-          ]
-        },
-        "parent_key": {
-          "type": [
-            "string"
-          ]
-        },
-        "postcode": {
-          "type": [
-            "string"
-          ]
-        },
-        "region": {
-          "type": [
-            "string"
-          ]
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array"
       ]
     },
     "assigned_branch_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "creation_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "custom_fields": {
-      "properties": {
-        "field_set_id": {
-          "type": [
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "string"
-          ]
-        }
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
+        "null",
         "array"
       ]
     },
     "encoded_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "id": {
       "type": [
+        "null",
         "string"
       ]
     },
     "last_modified_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "meeting_day": {
       "type": [
+        "null",
         "string"
       ]
     },
     "name": {
       "type": [
+        "null",
         "string"
       ]
     },
     "notes": {
       "type": [
+        "null",
         "string"
       ]
     },
     "state": {
       "type": [
+        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

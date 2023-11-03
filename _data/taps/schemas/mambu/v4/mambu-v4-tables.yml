@@ -1,5 +1,6 @@
 tap: mambu
 version: '4'
+tap-repo-schemas: true
 tables:
 - name: activities
   description: 'This table contains information about activities.
@@ -13,7 +14,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: encoded_key
     replication-key: timestamp
-  status: not_found
 - name: audit_trail
   description: 'This table contains information about activities that have been performed
     in the Mambu Core Banking system.
@@ -26,7 +26,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     replication-key: occurred_at
-  status: not_found
 - name: branches
   description: 'This table contains information about branches.
 
@@ -39,7 +38,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: cards
   description: 'This table contains information about cards.
 
@@ -54,7 +52,6 @@ tables:
     - deposit_id
     - reference_token
     parent-table: deposit-account
-  status: not_found
 - name: centres
   description: 'This table contains information about centres.
 
@@ -67,7 +64,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: clients
   description: 'This table contains information about clients.
 
@@ -80,7 +76,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: communications
   description: 'This table contains information about communications.
 
@@ -93,7 +88,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: encoded_key
     replication-key: creation_date
-  status: not_found
 - name: credit_arrangements
   description: 'This table contains information about credit arrangements.
 
@@ -106,7 +100,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: custom_field_sets
   description: 'This table contains information about custom field sets.
 
@@ -118,7 +111,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
-  status: not_found
 - name: deposit_accounts
   description: 'This table contains information about deposit accounts.
 
@@ -131,7 +123,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: deposit_products
   description: 'This table contains information about deposit (savings) products.
 
@@ -144,7 +135,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: deposit_transactions
   description: 'This table contains information about deposit transactions.
 
@@ -157,7 +147,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: encoded_key
     replication-key: creation_date
-  status: not_found
 - name: gl_accounts
   description: 'This table contains information about general ledger accounts.
 
@@ -170,7 +159,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: gl_code
     replication-key: last_modified_date
-  status: not_found
 - name: gl_journal_entries
   description: 'This table contains information about general ledger entries.
 
@@ -183,7 +171,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: entry_id
     replication-key: booking_date
-  status: not_found
 - name: groups
   description: 'This table contains information about groups.
 
@@ -196,7 +183,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: index_rate_sources
   description: 'This table contains information about index rate sources.
 
@@ -208,7 +194,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: encoded_key
-  status: not_found
 - name: installments
   description: 'This table contains information about installments for a loan.
 
@@ -221,7 +206,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: encoded_key
     replication-key: last_paid_date
-  status: not_found
 - name: loan_accounts
   description: This table contains information about Loan Accounts.
   links:
@@ -232,7 +216,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: loan_repayments
   description: 'This is a child table of `loan_accounts`, containing information exclusively
     about loan repayments.
@@ -246,7 +229,6 @@ tables:
     replication-method: Full Table
     primary-key: encoded_key
     parent-table: loan-account
-  status: not_found
 - name: loan_transactions
   description: 'This table contains information about loan transactions.
 
@@ -259,7 +241,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: encoded_key
     replication-key: creation_date
-  status: not_found
 - name: tasks
   description: 'This table contains information about tasks.
 
@@ -272,7 +253,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
 - name: users
   description: 'This table contains information about users.
 
@@ -285,4 +265,20 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: last_modified_date
-  status: not_found
+- name: interest_accrual_breakdown
+  description: This table contains information about interest accruals.
+  links:
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/interest_accrual_breakdown.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: entry_id
+    replication-key: creation_date
+- name: loan_products
+  description: This table contains information about loan products.
+  links:
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/loan_products.json
+    api-method: https://api.mambu.com/?shell#loan-products-getall
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date

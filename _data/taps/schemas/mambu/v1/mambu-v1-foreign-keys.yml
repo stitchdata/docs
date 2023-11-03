@@ -48,7 +48,7 @@ keys:
     - client_key
   - table: groups
     keys:
-    - group_members.clientKey
+    - group_members.client_key
   communications_encoded_key:
   - table: communications
     keys:
@@ -571,7 +571,7 @@ tables:
       foreign-key: assigned_user_key
   - table-name: communications
     keys:
-    - key: group_members.clientKey
+    - key: group_members.client_key
       foreign-key: client_key
     - key: custom_field_sets.custom_field_set_id
       foreign-key: custom_field_sets.custom_field_set_id
@@ -1022,7 +1022,7 @@ tables:
   - table-name: groups
     keys:
     - key: client_key
-      foreign-key: group_members.clientKey
+      foreign-key: group_members.client_key
     - key: custom_field_sets.custom_field_set_id
       foreign-key: custom_field_sets.custom_field_set_id
     - key: custom_field_sets.custom_field_values.custom_field_id

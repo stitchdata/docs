@@ -1,24 +1,50 @@
 {
+  "additionalProperties": false,
   "properties": {
+    "custom_fields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "encoded_key": {
       "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
         "string"
       ]
     },
     "name": {
       "type": [
+        "null",
         "string"
       ]
     },
     "notes": {
       "type": [
+        "null",
         "string"
       ]
     },
     "type": {
       "type": [
+        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

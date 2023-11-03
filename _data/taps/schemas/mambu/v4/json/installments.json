@@ -1,221 +1,399 @@
 {
+  "additionalProperties": false,
   "properties": {
+    "custom_fields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "due_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "encoded_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "fee": {
+      "additionalProperties": false,
       "properties": {
         "amount": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected_unapplied": {
+              "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         },
         "tax": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         }
       },
       "type": [
+        "null",
         "object"
       ]
     },
+    "fee_details": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "additionalProperties": false,
+                "properties": {
+                  "due": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "expected": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "paid": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "reduced": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tax": {
+                "additionalProperties": false,
+                "properties": {
+                  "due": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "expected": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "paid": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "reduced": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "interest": {
+      "additionalProperties": false,
       "properties": {
         "amount": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         },
         "tax": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         }
       },
       "type": [
+        "null",
         "object"
+      ]
+    },
+    "is_payment_holiday": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "last_paid_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "number": {
       "type": [
+        "null",
         "string"
       ]
     },
     "parent_account_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "penalty": {
+      "additionalProperties": false,
       "properties": {
         "amount": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         },
         "tax": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         }
       },
       "type": [
+        "null",
         "object"
       ]
     },
     "principal": {
+      "additionalProperties": false,
       "properties": {
         "amount": {
+          "additionalProperties": false,
           "properties": {
             "due": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "expected": {
               "type": [
+                "null",
                 "number"
               ]
             },
             "paid": {
               "type": [
+                "null",
                 "number"
               ]
             }
           },
           "type": [
+            "null",
             "object"
           ]
         }
       },
       "type": [
+        "null",
         "object"
       ]
     },
     "repaid_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "state": {
       "type": [
+        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

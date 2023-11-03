@@ -117,7 +117,11 @@ def getFiles(repo, branch):
                 item_path = tap_folder + '/' + item
 
                 if item.startswith('tap') and os.path.isdir(item_path):
-                    schemas = item_path + '/schemas'
+                    if tap_name == 'tap-mambu':
+                        schemas = item_path + '/helpers/schemas'
+                    else:
+                        schemas = item_path + '/schemas'
+                        
                     schema_list = formatJSON(schemas, json_output_folder)
                     issue_list = []
                     

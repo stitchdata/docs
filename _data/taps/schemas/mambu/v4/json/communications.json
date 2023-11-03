@@ -1,131 +1,146 @@
 {
+  "additionalProperties": false,
   "properties": {
     "body": {
       "type": [
+        "null",
         "string"
       ]
     },
     "client_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "creation_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "custom_fields": {
-      "properties": {
-        "field_set_id": {
-          "type": [
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "string"
-          ]
-        }
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
+        "null",
         "array"
       ]
     },
     "deposit_account_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "destination": {
       "type": [
+        "null",
         "string"
       ]
     },
     "encoded_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "event": {
       "type": [
+        "null",
         "string"
       ]
     },
     "failure_cause": {
       "type": [
+        "null",
         "string"
       ]
     },
     "failure_reason": {
       "type": [
+        "null",
         "string"
       ]
     },
     "group_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "loan_account_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "num_retries": {
       "type": [
+        "null",
         "integer"
       ]
     },
     "reference_id": {
       "type": [
+        "null",
         "string"
       ]
     },
     "repayment_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "send_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "sender_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "state": {
       "type": [
+        "null",
         "string"
       ]
     },
     "subject": {
       "type": [
+        "null",
         "string"
       ]
     },
     "template_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "type": {
       "type": [
+        "null",
         "string"
       ]
     },
     "user_key": {
       "type": [
+        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

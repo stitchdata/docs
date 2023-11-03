@@ -1,165 +1,208 @@
 {
+  "additionalProperties": false,
   "properties": {
     "addresses": {
-      "properties": {
-        "city": {
-          "type": [
-            "string"
-          ]
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "index_in_list": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "parent_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postcode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
-        "country": {
-          "type": [
-            "string"
-          ]
-        },
-        "encoded_key": {
-          "type": [
-            "string"
-          ]
-        },
-        "index_in_list": {
-          "type": [
-            "integer"
-          ]
-        },
-        "latitude": {
-          "type": [
-            "number"
-          ]
-        },
-        "line1": {
-          "type": [
-            "string"
-          ]
-        },
-        "line2": {
-          "type": [
-            "string"
-          ]
-        },
-        "longitude": {
-          "type": [
-            "number"
-          ]
-        },
-        "parent_key": {
-          "type": [
-            "string"
-          ]
-        },
-        "postcode": {
-          "type": [
-            "string"
-          ]
-        },
-        "region": {
-          "type": [
-            "string"
-          ]
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array"
       ]
     },
     "branch_holidays": {
-      "properties": {
-        "creation_date": {
-          "type": [
-            "string"
-          ]
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "creation_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "date": {
+                "type": [
+                  "null",
+                  "date"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "is_annually_recurring": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
         },
-        "date": {
-          "type": [
-            "string"
-          ]
-        },
-        "encoded_key": {
-          "type": [
-            "string"
-          ]
-        },
-        "is_anually_recurring": {
-          "type": [
-            "boolean"
-          ]
-        },
-        "name": {
-          "type": [
-            "string"
-          ]
+        {
+          "type": "null"
         }
-      },
-      "type": [
-        "array"
       ]
     },
     "creation_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "custom_fields": {
-      "properties": {
-        "field_set_id": {
-          "type": [
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "string"
-          ]
-        }
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
+        "null",
         "array"
       ]
     },
     "email_address": {
       "type": [
+        "null",
         "string"
       ]
     },
     "encoded_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "id": {
       "type": [
+        "null",
         "string"
       ]
     },
     "last_modified_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "name": {
       "type": [
+        "null",
         "string"
       ]
     },
     "notes": {
       "type": [
+        "null",
         "string"
       ]
     },
     "phone_number": {
       "type": [
+        "null",
         "string"
       ]
     },
     "state": {
       "type": [
+        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }

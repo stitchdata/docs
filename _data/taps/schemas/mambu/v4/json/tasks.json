@@ -1,91 +1,104 @@
 {
+  "additionalProperties": false,
   "properties": {
     "assigned_user_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "created_by_full_name": {
       "type": [
+        "null",
         "string"
       ]
     },
     "created_by_user_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "creation_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
     "custom_fields": {
-      "properties": {
-        "field_set_id": {
-          "type": [
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "value": {
-          "type": [
-            "string"
-          ]
-        }
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
       },
       "type": [
+        "null",
         "array"
       ]
     },
     "description": {
       "type": [
+        "null",
         "string"
       ]
     },
     "due_date": {
       "type": [
+        "null",
         "date"
       ]
     },
     "encoded_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "id": {
       "type": [
-        "string"
+        "null",
+        "integer"
       ]
     },
     "last_modified_date": {
       "type": [
+        "null",
         "date-time"
       ]
     },
-    "state": {
+    "status": {
       "type": [
+        "null",
         "string"
       ]
     },
-    "task_link": {
+    "task_link_key": {
       "type": [
+        "null",
         "string"
       ]
     },
     "task_link_type": {
       "type": [
+        "null",
+        "string"
+      ]
+    },
+    "template_key": {
+      "type": [
+        "null",
         "string"
       ]
     },
     "title": {
       "type": [
+        "null",
         "string"
       ]
     }
-  }
+  },
+  "type": "object"
 }
