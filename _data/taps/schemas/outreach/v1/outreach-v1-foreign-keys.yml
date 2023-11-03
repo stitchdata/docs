@@ -50,7 +50,7 @@ keys:
     keys:
     - duties.id
   events_id:
-  - table: event
+  - table: events
     keys:
     - id
   mailboxes_mailboxId:
@@ -137,7 +137,7 @@ keys:
     - sequenceStateId
   - table: sequence_states
     keys:
-    - sequenceStateId
+    - id
   - table: tasks
     keys:
     - sequenceStateId
@@ -150,7 +150,7 @@ keys:
     - sequenceStepId
   - table: sequence_steps
     keys:
-    - sequenceStepId
+    - id
   - table: tasks
     keys:
     - sequenceStepId
@@ -175,7 +175,7 @@ keys:
     keys:
     - id
   teams_id:
-  - table: team
+  - table: teams
     keys:
     - id
   users_creatorId:
@@ -194,9 +194,6 @@ keys:
     keys:
     - userId
   - table: content_categories
-    keys:
-    - creatorId
-  - table: events
     keys:
     - creatorId
   - table: mailboxes
@@ -327,14 +324,6 @@ tables:
     - key: updaterId
       foreign-key: userId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: ownerId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId
@@ -540,12 +529,6 @@ tables:
       foreign-key: creatorId
     - key: ownerId
       foreign-key: creatorId
-  - table-name: events
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: ownerId
-      foreign-key: creatorId
   - table-name: mailboxes
     keys:
     - key: creatorId
@@ -680,10 +663,6 @@ tables:
     keys:
     - key: id
       foreign-key: prospectId
-    - key: creatorId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
   - table-name: mailings
     keys:
     - key: id
@@ -818,7 +797,7 @@ tables:
       foreign-key: prospectId
     - key: sequenceId
       foreign-key: sequenceId
-    - key: sequenceStateId
+    - key: id
       foreign-key: sequenceStateId
     - key: creatorId
       foreign-key: creatorId
@@ -830,7 +809,7 @@ tables:
       foreign-key: prospectId
     - key: sequenceId
       foreign-key: sequenceId
-    - key: sequenceStateId
+    - key: id
       foreign-key: sequenceStateId
     - key: creatorId
       foreign-key: userId
@@ -838,15 +817,13 @@ tables:
     keys:
     - key: prospectId
       foreign-key: prospectId
-    - key: creatorId
-      foreign-key: creatorId
   - table-name: mailings
     keys:
     - key: prospectId
       foreign-key: prospectId
     - key: sequenceId
       foreign-key: sequenceId
-    - key: sequenceStateId
+    - key: id
       foreign-key: sequenceStateId
   - table-name: sequence_steps
     keys:
@@ -959,7 +936,7 @@ tables:
     - key: sequenceId
       foreign-key: sequenceId
     - key: sequenceStateId
-      foreign-key: sequenceStateId
+      foreign-key: id
     - key: creatorId
       foreign-key: creatorId
     - key: completerId
@@ -990,10 +967,6 @@ tables:
       foreign-key: mailingId
     - key: prospectId
       foreign-key: prospectId
-    - key: creatorId
-      foreign-key: creatorId
-    - key: completerId
-      foreign-key: creatorId
   - table-name: mailings
     keys:
     - key: mailingId
@@ -1015,7 +988,7 @@ tables:
     - key: sequenceId
       foreign-key: sequenceId
     - key: sequenceStepId
-      foreign-key: sequenceStepId
+      foreign-key: id
     - key: creatorId
       foreign-key: creatorId
     - key: completerId
@@ -1125,10 +1098,6 @@ tables:
     - key: creatorId
       foreign-key: creatorId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId
@@ -1256,8 +1225,6 @@ tables:
     keys:
     - key: prospectId
       foreign-key: prospectId
-    - key: userId
-      foreign-key: creatorId
   - table-name: prospects
     keys:
     - key: prospectId
@@ -1273,7 +1240,7 @@ tables:
     - key: sequenceId
       foreign-key: sequenceId
     - key: sequenceStateId
-      foreign-key: sequenceStateId
+      foreign-key: id
     - key: userId
       foreign-key: creatorId
   - table-name: sequence_steps
@@ -1281,7 +1248,7 @@ tables:
     - key: sequenceId
       foreign-key: sequenceId
     - key: sequenceStepId
-      foreign-key: sequenceStepId
+      foreign-key: id
     - key: userId
       foreign-key: creatorId
     - key: userId
@@ -1355,10 +1322,6 @@ tables:
     - key: creatorId
       foreign-key: creatorId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId
@@ -1448,10 +1411,6 @@ tables:
     keys:
     - key: creatorId
       foreign-key: userId
-  - table-name: events
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
   - table-name: mailboxes
     keys:
     - key: creatorId
@@ -1606,14 +1565,6 @@ tables:
       foreign-key: creatorId
     - key: updaterId
       foreign-key: creatorId
-  - table-name: events
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: id
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
   - table-name: opportunities
     keys:
     - key: creatorId
@@ -1726,6 +1677,32 @@ tables:
       foreign-key: completerId
     - key: updaterId
       foreign-key: completerId
+- table-name: events
+  join:
+  - table-name: mailings
+    keys:
+    - key: mailingId
+      foreign-key: id
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: tasks
+    keys:
+    - key: mailingId
+      foreign-key: mailingId
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: calls
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: prospects
+    keys:
+    - key: prospectId
+      foreign-key: id
+  - table-name: sequence_states
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
 - table-name: mailboxes
   join:
   - table-name: mailings
@@ -1799,14 +1776,6 @@ tables:
     - key: userId
       foreign-key: userId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
-    - key: userId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId
@@ -1987,119 +1956,13 @@ tables:
     - key: sequenceId
       foreign-key: sequenceId
     - key: sequenceStateId
-      foreign-key: sequenceStateId
+      foreign-key: id
   - table-name: sequence_steps
     keys:
     - key: sequenceId
       foreign-key: sequenceId
     - key: sequenceStepId
-      foreign-key: sequenceStepId
-- table-name: events
-  join:
-  - table-name: mailings
-    keys:
-    - key: mailingId
       foreign-key: id
-    - key: prospectId
-      foreign-key: prospectId
-  - table-name: tasks
-    keys:
-    - key: mailingId
-      foreign-key: mailingId
-    - key: prospectId
-      foreign-key: prospectId
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: completerId
-  - table-name: calls
-    keys:
-    - key: prospectId
-      foreign-key: prospectId
-    - key: creatorId
-      foreign-key: userId
-  - table-name: prospects
-    keys:
-    - key: prospectId
-      foreign-key: id
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: updaterId
-  - table-name: sequence_states
-    keys:
-    - key: prospectId
-      foreign-key: prospectId
-    - key: creatorId
-      foreign-key: creatorId
-  - table-name: accounts
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: ownerId
-    - key: creatorId
-      foreign-key: updaterId
-  - table-name: call_dispositions
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-  - table-name: call_purposes
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-  - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-  - table-name: mailboxes
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: updaterId
-    - key: creatorId
-      foreign-key: userId
-  - table-name: opportunities
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: ownerId
-  - table-name: sequence_steps
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: updaterId
-  - table-name: sequence_templates
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: updaterId
-  - table-name: sequences
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: ownerId
-    - key: creatorId
-      foreign-key: updaterId
-  - table-name: stages
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: updaterId
-  - table-name: users
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: creatorId
-      foreign-key: id
-    - key: creatorId
-      foreign-key: updaterId
 - table-name: personas
   join:
   - table-name: prospects
@@ -2112,7 +1975,7 @@ tables:
     keys:
     - key: sequenceId
       foreign-key: sequenceId
-    - key: sequenceStepId
+    - key: id
       foreign-key: sequenceStepId
     - key: creatorId
       foreign-key: userId
@@ -2122,7 +1985,7 @@ tables:
     keys:
     - key: sequenceId
       foreign-key: sequenceId
-    - key: sequenceStepId
+    - key: id
       foreign-key: sequenceStepId
   - table-name: sequence_states
     keys:
@@ -2136,7 +1999,7 @@ tables:
     keys:
     - key: sequenceId
       foreign-key: sequenceId
-    - key: sequenceStepId
+    - key: id
       foreign-key: sequenceStepId
     - key: creatorId
       foreign-key: creatorId
@@ -2173,12 +2036,6 @@ tables:
     - key: updaterId
       foreign-key: creatorId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId
@@ -2330,12 +2187,6 @@ tables:
       foreign-key: creatorId
     - key: updaterId
       foreign-key: creatorId
-  - table-name: events
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
   - table-name: mailboxes
     keys:
     - key: creatorId
@@ -2449,12 +2300,6 @@ tables:
     - key: updaterId
       foreign-key: userId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId
@@ -2605,14 +2450,6 @@ tables:
     - key: updaterId
       foreign-key: userId
   - table-name: content_categories
-    keys:
-    - key: creatorId
-      foreign-key: creatorId
-    - key: ownerId
-      foreign-key: creatorId
-    - key: updaterId
-      foreign-key: creatorId
-  - table-name: events
     keys:
     - key: creatorId
       foreign-key: creatorId

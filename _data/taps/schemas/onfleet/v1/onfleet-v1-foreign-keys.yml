@@ -98,6 +98,8 @@ tables:
     keys:
     - key: creator
       foreign-key: managers
+    - key: id
+      foreign-key: tasks
     - key: worker
       foreign-key: workers
   - table-name: organizations
@@ -110,6 +112,10 @@ tables:
     keys:
     - key: organization
       foreign-key: organization
+    - key: id
+      foreign-key: activeTask
+    - key: id
+      foreign-key: tasks
     - key: worker
       foreign-key: id
 - table-name: teams
@@ -122,6 +128,8 @@ tables:
     keys:
     - key: managers
       foreign-key: creator
+    - key: tasks
+      foreign-key: id
     - key: workers
       foreign-key: worker
   - table-name: hubs
@@ -130,10 +138,6 @@ tables:
       foreign-key: id
     - key: id
       foreign-key: teams
-  - table-name: tasks
-    keys:
-    - key: tasks
-      foreign-key: id
   - table-name: workers
     keys:
     - key: tasks
@@ -192,14 +196,12 @@ tables:
     keys:
     - key: organization
       foreign-key: organization
-    - key: id
-      foreign-key: worker
-  - table-name: tasks
-    keys:
     - key: activeTask
       foreign-key: id
     - key: tasks
       foreign-key: id
+    - key: id
+      foreign-key: worker
   - table-name: teams
     keys:
     - key: activeTask
@@ -214,15 +216,3 @@ tables:
     keys:
     - key: teams
       foreign-key: teams
-- table-name: tasks
-  join:
-  - table-name: teams
-    keys:
-    - key: id
-      foreign-key: tasks
-  - table-name: workers
-    keys:
-    - key: id
-      foreign-key: activeTask
-    - key: id
-      foreign-key: tasks
