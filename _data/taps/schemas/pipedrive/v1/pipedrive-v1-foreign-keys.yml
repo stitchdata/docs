@@ -9,9 +9,6 @@ keys:
     keys:
     - last_activity_id
     - next_activity_id
-  - table: delete_log
-    keys:
-    - id
   - table: files
     keys:
     - activity_id
@@ -41,9 +38,6 @@ keys:
   - table: deal_products
     keys:
     - deal_id
-  - table: delete_log
-    keys:
-    - id
   - table: files
     keys:
     - deal_id
@@ -62,9 +56,6 @@ keys:
   - table: deals
     keys:
     - pipeline_id
-  - table: delete_log
-    keys:
-    - id
   - table: pipelines
     keys:
     - id
@@ -85,9 +76,6 @@ keys:
   - table: deals
     keys:
     - org_id
-  - table: delete_log
-    keys:
-    - id
   - table: files
     keys:
     - org_id
@@ -102,9 +90,6 @@ keys:
     keys:
     - participants.person_id
     - person_id
-  - table: delete_log
-    keys:
-    - id
   - table: files
     keys:
     - person_id
@@ -114,16 +99,10 @@ keys:
   - table: persons
     keys:
     - id
-  - table: ''
-    keys:
-    - person_id
   products_product_id:
   - table: deal_products
     keys:
     - product_id
-  - table: delete_log
-    keys:
-    - id
   - table: files
     keys:
     - product_id
@@ -134,9 +113,6 @@ keys:
   - table: deals
     keys:
     - stage_id
-  - table: delete_log
-    keys:
-    - id
   - table: stages
     keys:
     - id
@@ -153,9 +129,6 @@ keys:
     keys:
     - creator_user_id
     - user_id
-  - table: delete_log
-    keys:
-    - id
   - table: files
     keys:
     - user_id
@@ -194,24 +167,6 @@ tables:
       foreign-key: user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: delete_log
-    keys:
-    - key: id
-      foreign-key: id
-    - key: deal_id
-      foreign-key: id
-    - key: org_id
-      foreign-key: id
-    - key: participants.person_id
-      foreign-key: id
-    - key: person_id
-      foreign-key: id
-    - key: assigned_to_user_id
-      foreign-key: id
-    - key: created_by_user_id
-      foreign-key: id
-    - key: user_id
-      foreign-key: id
   - table-name: files
     keys:
     - key: id
@@ -274,12 +229,6 @@ tables:
       foreign-key: user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: ''
-    keys:
-    - key: participants.person_id
-      foreign-key: person_id
-    - key: person_id
-      foreign-key: person_id
   - table-name: dealflow
     keys:
     - key: assigned_to_user_id
@@ -328,24 +277,6 @@ tables:
       foreign-key: user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: delete_log
-    keys:
-    - key: last_activity_id
-      foreign-key: id
-    - key: next_activity_id
-      foreign-key: id
-    - key: id
-      foreign-key: id
-    - key: pipeline_id
-      foreign-key: id
-    - key: org_id
-      foreign-key: id
-    - key: stage_id
-      foreign-key: id
-    - key: creator_user_id
-      foreign-key: id
-    - key: user_id
-      foreign-key: id
   - table-name: files
     keys:
     - key: last_activity_id
@@ -427,122 +358,6 @@ tables:
     - key: creator_user_id
       foreign-key: id
     - key: user_id
-      foreign-key: id
-- table-name: delete_log
-  join:
-  - table-name: activities
-    keys:
-    - key: id
-      foreign-key: id
-    - key: id
-      foreign-key: deal_id
-    - key: id
-      foreign-key: org_id
-    - key: id
-      foreign-key: participants.person_id
-    - key: id
-      foreign-key: person_id
-    - key: id
-      foreign-key: assigned_to_user_id
-    - key: id
-      foreign-key: created_by_user_id
-    - key: id
-      foreign-key: user_id
-  - table-name: deals
-    keys:
-    - key: id
-      foreign-key: last_activity_id
-    - key: id
-      foreign-key: next_activity_id
-    - key: id
-      foreign-key: id
-    - key: id
-      foreign-key: pipeline_id
-    - key: id
-      foreign-key: org_id
-    - key: id
-      foreign-key: stage_id
-    - key: id
-      foreign-key: creator_user_id
-    - key: id
-      foreign-key: user_id
-  - table-name: files
-    keys:
-    - key: id
-      foreign-key: activity_id
-    - key: id
-      foreign-key: deal_id
-    - key: id
-      foreign-key: org_id
-    - key: id
-      foreign-key: person_id
-    - key: id
-      foreign-key: product_id
-    - key: id
-      foreign-key: user_id
-  - table-name: organizations
-    keys:
-    - key: id
-      foreign-key: last_activity_id
-    - key: id
-      foreign-key: next_activity_id
-    - key: id
-      foreign-key: id
-  - table-name: persons
-    keys:
-    - key: id
-      foreign-key: last_activity_id
-    - key: id
-      foreign-key: next_activity_id
-    - key: id
-      foreign-key: id
-  - table-name: deal_products
-    keys:
-    - key: id
-      foreign-key: deal_id
-    - key: id
-      foreign-key: product_id
-  - table-name: notes
-    keys:
-    - key: id
-      foreign-key: deal_id
-    - key: id
-      foreign-key: org_id
-    - key: id
-      foreign-key: person_id
-    - key: id
-      foreign-key: last_update_user_id
-    - key: id
-      foreign-key: user_id
-  - table-name: pipelines
-    keys:
-    - key: id
-      foreign-key: id
-  - table-name: stages
-    keys:
-    - key: id
-      foreign-key: pipeline_id
-    - key: id
-      foreign-key: id
-  - table-name: ''
-    keys:
-    - key: id
-      foreign-key: person_id
-  - table-name: products
-    keys:
-    - key: id
-      foreign-key: id
-  - table-name: dealflow
-    keys:
-    - key: id
-      foreign-key: user_id
-  - table-name: filters
-    keys:
-    - key: id
-      foreign-key: user_id
-  - table-name: users
-    keys:
-    - key: id
       foreign-key: id
 - table-name: files
   join:
@@ -578,20 +393,6 @@ tables:
       foreign-key: creator_user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: delete_log
-    keys:
-    - key: activity_id
-      foreign-key: id
-    - key: deal_id
-      foreign-key: id
-    - key: org_id
-      foreign-key: id
-    - key: person_id
-      foreign-key: id
-    - key: product_id
-      foreign-key: id
-    - key: user_id
-      foreign-key: id
   - table-name: organizations
     keys:
     - key: activity_id
@@ -628,10 +429,6 @@ tables:
       foreign-key: last_update_user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: ''
-    keys:
-    - key: person_id
-      foreign-key: person_id
   - table-name: products
     keys:
     - key: product_id
@@ -670,14 +467,6 @@ tables:
       foreign-key: next_activity_id
     - key: id
       foreign-key: org_id
-  - table-name: delete_log
-    keys:
-    - key: last_activity_id
-      foreign-key: id
-    - key: next_activity_id
-      foreign-key: id
-    - key: id
-      foreign-key: id
   - table-name: files
     keys:
     - key: last_activity_id
@@ -722,14 +511,6 @@ tables:
       foreign-key: next_activity_id
     - key: next_activity_id
       foreign-key: next_activity_id
-  - table-name: delete_log
-    keys:
-    - key: last_activity_id
-      foreign-key: id
-    - key: next_activity_id
-      foreign-key: id
-    - key: id
-      foreign-key: id
   - table-name: files
     keys:
     - key: last_activity_id
@@ -752,10 +533,6 @@ tables:
     keys:
     - key: id
       foreign-key: person_id
-  - table-name: ''
-    keys:
-    - key: id
-      foreign-key: person_id
 - table-name: deal_products
   join:
   - table-name: activities
@@ -765,12 +542,6 @@ tables:
   - table-name: deals
     keys:
     - key: deal_id
-      foreign-key: id
-  - table-name: delete_log
-    keys:
-    - key: deal_id
-      foreign-key: id
-    - key: product_id
       foreign-key: id
   - table-name: files
     keys:
@@ -828,18 +599,6 @@ tables:
     keys:
     - key: deal_id
       foreign-key: deal_id
-  - table-name: delete_log
-    keys:
-    - key: deal_id
-      foreign-key: id
-    - key: org_id
-      foreign-key: id
-    - key: person_id
-      foreign-key: id
-    - key: last_update_user_id
-      foreign-key: id
-    - key: user_id
-      foreign-key: id
   - table-name: files
     keys:
     - key: deal_id
@@ -862,10 +621,6 @@ tables:
     keys:
     - key: person_id
       foreign-key: id
-  - table-name: ''
-    keys:
-    - key: person_id
-      foreign-key: person_id
   - table-name: dealflow
     keys:
     - key: last_update_user_id
@@ -904,10 +659,6 @@ tables:
       foreign-key: creator_user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: delete_log
-    keys:
-    - key: user_id
-      foreign-key: id
   - table-name: files
     keys:
     - key: user_id
@@ -928,10 +679,6 @@ tables:
     keys:
     - key: id
       foreign-key: pipeline_id
-  - table-name: delete_log
-    keys:
-    - key: id
-      foreign-key: id
   - table-name: stages
     keys:
     - key: id
@@ -944,39 +691,9 @@ tables:
       foreign-key: pipeline_id
     - key: id
       foreign-key: stage_id
-  - table-name: delete_log
-    keys:
-    - key: pipeline_id
-      foreign-key: id
-    - key: id
-      foreign-key: id
   - table-name: pipelines
     keys:
     - key: pipeline_id
-      foreign-key: id
-- table-name: ''
-  join:
-  - table-name: activities
-    keys:
-    - key: person_id
-      foreign-key: participants.person_id
-    - key: person_id
-      foreign-key: person_id
-  - table-name: delete_log
-    keys:
-    - key: person_id
-      foreign-key: id
-  - table-name: files
-    keys:
-    - key: person_id
-      foreign-key: person_id
-  - table-name: notes
-    keys:
-    - key: person_id
-      foreign-key: person_id
-  - table-name: persons
-    keys:
-    - key: person_id
       foreign-key: id
 - table-name: products
   join:
@@ -984,10 +701,6 @@ tables:
     keys:
     - key: id
       foreign-key: product_id
-  - table-name: delete_log
-    keys:
-    - key: id
-      foreign-key: id
   - table-name: files
     keys:
     - key: id
@@ -1008,10 +721,6 @@ tables:
       foreign-key: creator_user_id
     - key: user_id
       foreign-key: user_id
-  - table-name: delete_log
-    keys:
-    - key: user_id
-      foreign-key: id
   - table-name: files
     keys:
     - key: user_id
@@ -1050,10 +759,6 @@ tables:
       foreign-key: creator_user_id
     - key: id
       foreign-key: user_id
-  - table-name: delete_log
-    keys:
-    - key: id
-      foreign-key: id
   - table-name: files
     keys:
     - key: id
