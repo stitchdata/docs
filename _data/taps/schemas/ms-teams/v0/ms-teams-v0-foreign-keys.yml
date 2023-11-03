@@ -1,11 +1,8 @@
 tap: ms-teams
-version: '1'
+version: '0'
 keys:
   channels_id:
   - table: channels
-    keys:
-    - id
-  - table: channel
     keys:
     - id
   - table: channel_members
@@ -25,7 +22,7 @@ keys:
     keys:
     - id
   conversations_id:
-  - table: conversation
+  - table: conversations
     keys:
     - id
   - table: conversation_threads
@@ -108,32 +105,6 @@ keys:
 tables:
 - table-name: channels
   join:
-  - table-name: channel
-    keys:
-    - key: id
-      foreign-key: id
-  - table-name: channel_members
-    keys:
-    - key: id
-      foreign-key: channel_id
-  - table-name: channel_tabs
-    keys:
-    - key: id
-      foreign-key: channel_id
-  - table-name: channel_messages
-    keys:
-    - key: id
-      foreign-key: channel_identity.channel_id
-  - table-name: channel_message_replies
-    keys:
-    - key: id
-      foreign-key: channel_identity.channel_id
-- table-name: channel
-  join:
-  - table-name: channels
-    keys:
-    - key: id
-      foreign-key: id
   - table-name: channel_members
     keys:
     - key: id
@@ -153,10 +124,6 @@ tables:
 - table-name: channel_members
   join:
   - table-name: channels
-    keys:
-    - key: channel_id
-      foreign-key: id
-  - table-name: channel
     keys:
     - key: channel_id
       foreign-key: id
@@ -191,10 +158,6 @@ tables:
 - table-name: channel_tabs
   join:
   - table-name: channels
-    keys:
-    - key: channel_id
-      foreign-key: id
-  - table-name: channel
     keys:
     - key: channel_id
       foreign-key: id
@@ -233,10 +196,6 @@ tables:
 - table-name: channel_messages
   join:
   - table-name: channels
-    keys:
-    - key: channel_identity.channel_id
-      foreign-key: id
-  - table-name: channel
     keys:
     - key: channel_identity.channel_id
       foreign-key: id
@@ -290,10 +249,6 @@ tables:
     keys:
     - key: channel_identity.channel_id
       foreign-key: id
-  - table-name: channel
-    keys:
-    - key: channel_identity.channel_id
-      foreign-key: id
   - table-name: channel_members
     keys:
     - key: channel_identity.channel_id
@@ -338,22 +293,42 @@ tables:
       foreign-key: id
     - key: reactions.user.user.id
       foreign-key: id
-- table-name: conversation
+- table-name: conversations
   join:
   - table-name: conversation_threads
     keys:
     - key: id
       foreign-key: conversation_id
+    - key: group_id
+      foreign-key: group_id
   - table-name: conversation_posts
     keys:
     - key: id
       foreign-key: conversation_id
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_owners
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: channel_tabs
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: team_drives
+    keys:
+    - key: group_id
+      foreign-key: owner.group.id
 - table-name: conversation_threads
   join:
-  - table-name: conversation
+  - table-name: conversations
     keys:
     - key: conversation_id
       foreign-key: id
+    - key: group_id
+      foreign-key: group_id
   - table-name: conversation_posts
     keys:
     - key: conversation_id
@@ -372,17 +347,13 @@ tables:
     keys:
     - key: group_id
       foreign-key: group_id
-  - table-name: conversations
-    keys:
-    - key: group_id
-      foreign-key: group_id
   - table-name: team_drives
     keys:
     - key: group_id
       foreign-key: owner.group.id
 - table-name: conversation_posts
   join:
-  - table-name: conversation
+  - table-name: conversations
     keys:
     - key: conversation_id
       foreign-key: id
@@ -447,28 +418,6 @@ tables:
     - key: group_id
       foreign-key: group_id
   - table-name: conversations
-    keys:
-    - key: group_id
-      foreign-key: group_id
-  - table-name: conversation_threads
-    keys:
-    - key: group_id
-      foreign-key: group_id
-  - table-name: team_drives
-    keys:
-    - key: group_id
-      foreign-key: owner.group.id
-- table-name: conversations
-  join:
-  - table-name: groups
-    keys:
-    - key: group_id
-      foreign-key: id
-  - table-name: group_owners
-    keys:
-    - key: group_id
-      foreign-key: group_id
-  - table-name: channel_tabs
     keys:
     - key: group_id
       foreign-key: group_id
