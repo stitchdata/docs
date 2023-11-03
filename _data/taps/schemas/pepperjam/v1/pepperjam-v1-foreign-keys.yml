@@ -8,16 +8,16 @@ keys:
   _affiliate_id:
   - table: creative_advanced
     keys:
-    - private_affiliates.id
+    - private_affiliates.affiliate_id
   - table: creative_banner
     keys:
-    - private_affiliates.id
+    - private_affiliates.affiliate_id
   - table: creative_coupon
     keys:
-    - private_affiliates.id
+    - private_affiliates.affiliate_id
   - table: creative_text
     keys:
-    - private_affiliates.id
+    - private_affiliates.affiliate_id
   creative_banner_id:
   - table: creative_banner
     keys:
@@ -77,9 +77,6 @@ keys:
     keys:
     - id
   publisher_performance_order_id:
-  - table: publisher_performance
-    keys:
-    - order_id
   - table: transaction_details
     keys:
     - order_id
@@ -155,20 +152,20 @@ tables:
   join:
   - table-name: creative_banner
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_coupon
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_text
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_promotion
@@ -179,20 +176,20 @@ tables:
   join:
   - table-name: creative_advanced
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_coupon
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_text
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_promotion
@@ -203,20 +200,20 @@ tables:
   join:
   - table-name: creative_advanced
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_banner
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_text
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_promotion
@@ -227,20 +224,20 @@ tables:
   join:
   - table-name: creative_advanced
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_banner
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_coupon
     keys:
-    - key: private_affiliates.id
-      foreign-key: private_affiliates.id
+    - key: private_affiliates.affiliate_id
+      foreign-key: private_affiliates.affiliate_id
     - key: promotions.id
       foreign-key: promotions.id
   - table-name: creative_promotion
@@ -369,8 +366,6 @@ tables:
     keys:
     - key: group_id
       foreign-key: group_id
-    - key: order_id
-      foreign-key: order_id
     - key: publisher_id
       foreign-key: publisher_id
   - table-name: transaction_history
@@ -515,16 +510,12 @@ tables:
     keys:
     - key: group_id
       foreign-key: group_id
-    - key: order_id
-      foreign-key: order_id
     - key: publisher_id
       foreign-key: publisher_id
   - table-name: transaction_history
     keys:
     - key: group_id
       foreign-key: group_id
-    - key: order_id
-      foreign-key: order_id
     - key: publisher_id
       foreign-key: publisher_id
 - table-name: transaction_history
@@ -557,8 +548,6 @@ tables:
     keys:
     - key: group_id
       foreign-key: group_id
-    - key: order_id
-      foreign-key: order_id
     - key: publisher_id
       foreign-key: publisher_id
   - table-name: transaction_details

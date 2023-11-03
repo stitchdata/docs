@@ -213,8 +213,10 @@ tables:
     api-method: https://support.pepperjam.com/s/advertiser-api-documentation#PublisherPerformance
   table-details:
     replication-method: Key-based Incremental
-    primary-key: sale_date
-    replication-key: sale_date
+    primary-keys:
+    - date
+    - publisher_id
+    replication-key: datetime
 - name: term
   description: 'The `{{ table.name }}` table contains information about the terms
     for your program in your {{ integration.display_name }} account.
@@ -267,3 +269,4 @@ tables:
     - process_date
     - sale_date
     replication-key: sale_date
+tap-repo-schemas: true
