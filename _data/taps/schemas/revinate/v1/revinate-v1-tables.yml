@@ -1,5 +1,6 @@
 tap: revinate
 version: '1'
+tap-repo-schemas: false
 tables:
 - name: hotels
   description: 'The  `{{ table.name }}` table contains info about the hotels in your
@@ -19,7 +20,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: hotel_id
-  status: not_found
 - name: hotel_reviews_snapshot
   description: 'The `{{ table.name }}` table contains snapshot summary stats of reviews
     for the last completed week, segmented by hotel.
@@ -49,7 +49,6 @@ tables:
     - hotel_id
     - snapshot_start_date
     replication-key: snapshot_start_date
-  status: not_found
 - name: hotel_reviews_snapshot_by_site
   description: 'The `{{ table.name }}` table contains snapshot summary stats of reviews
     for the last completed week, segmented by hotel and review site.
@@ -80,7 +79,6 @@ tables:
     - review_site_id
     - snapshot_start_date
     replication-key: snapshot_start_date
-  status: not_found
 - name: hotel_reviews_snapshot_by_time
   description: 'The `{{ table.name }}` table contains snapshot summary stats of reviews
     for the last completed week, segmented by hotel and time.
@@ -109,7 +107,6 @@ tables:
     primary-keys:
     - hotel_id
     - unix_time
-  status: not_found
 - name: reviews
   description: "The `table_name` table contains a subset of the latest reviews for\
     \ the hotels in your {{ integration.display_name }} account.\n\n **Note**: Stitch\
@@ -124,4 +121,3 @@ tables:
     replication-method: Key-based Incremental
     primary-key: review_id
     replication-key: updated_at
-  status: not_found
