@@ -1,0 +1,155 @@
+tap: selligent
+version: '0'
+keys:
+  campaign_asset_id:
+  - table: campaign
+    keys:
+    - asset_id
+  - table: internal_datasource
+    keys:
+    - id
+  - table: owner
+    keys:
+    - asset_id
+  - table: source
+    keys:
+    - asset_id
+  - table: transactional_mailing
+    keys:
+    - id
+  - table: program
+    keys:
+    - id
+tables:
+- table-name: campaign
+  join:
+  - table-name: internal_datasource
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: owner
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: source
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: transactional_mailing
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: program
+    keys:
+    - key: asset_id
+      foreign-key: id
+- table-name: internal_datasource
+  join:
+  - table-name: campaign
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: owner
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: source
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: transactional_mailing
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: program
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: owner
+  join:
+  - table-name: campaign
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: internal_datasource
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: source
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: transactional_mailing
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: program
+    keys:
+    - key: asset_id
+      foreign-key: id
+- table-name: source
+  join:
+  - table-name: campaign
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: internal_datasource
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: owner
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: transactional_mailing
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: program
+    keys:
+    - key: asset_id
+      foreign-key: id
+- table-name: transactional_mailing
+  join:
+  - table-name: campaign
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: internal_datasource
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: owner
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: source
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: program
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: program
+  join:
+  - table-name: campaign
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: internal_datasource
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: owner
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: source
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: transactional_mailing
+    keys:
+    - key: id
+      foreign-key: id
