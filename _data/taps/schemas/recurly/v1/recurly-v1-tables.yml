@@ -52,7 +52,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/billing_info.json
     api-method: https://partner-docs.recurly.com/v2018-08-09#operation/get_billing_info
   table-details:
@@ -65,7 +64,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/coupons.json
     api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons
   table-details:
@@ -79,7 +77,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans.json
     api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_plans
   table-details:
@@ -97,7 +94,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans_add_ons.json
     api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_plan_add_ons
   table-details:
@@ -119,7 +115,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/subscriptions.json
     api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_subscriptions
   table-details:
@@ -132,7 +127,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/transactions.json
     api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_transactions
   table-details:
@@ -140,20 +134,29 @@ tables:
     primary-key: id
     replication-key: collected_at
 - name: coupon_redemptions
-  description: ''
+  description: The `{{ table.name }}` table contains info about the coupons redeemed
+    in your {{ integration.display_name }} account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/coupon_redemptions.json
+    api-method: https://recurly.com/developers/api/v2018-08-09/index.html#operation/list_account_coupon_redemptions
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+    parent-tables:
+    - accounts
+    - subscription
+    - invoices
 - name: invoices
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/invoices.json
+    api-method: https://recurly.com/developers/api/v2018-08-09/index.html#operation/list_account_invoices
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true

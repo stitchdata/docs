@@ -22,10 +22,10 @@ keys:
     - account.id
     - account.parent_account_id
     - credit_payments.refund_transaction.account.id
-    - line_items.shipping_addresses.account_id
+    - line_items.data.shipping_addresses.account_id
   - table: subscriptions
     keys:
-    - shipping_addresses.account_id
+    - shipping_address.account_id
   - table: transactions
     keys:
     - account.id
@@ -62,8 +62,8 @@ keys:
     - credit_payments.original_invoice.id
     - credit_payments.refund_transaction.invoice.id
     - credit_payments.refund_transaction.voided_by_invoice.id
-    - line_items.invoice_id
-    - subscription_ids.value
+    - line_items.data.invoice_id
+    - subscription_ids
   - table: transactions
     keys:
     - invoice.id
@@ -74,34 +74,34 @@ keys:
     - plan_id
   - table: invoices
     keys:
-    - line_items.plan_id
+    - line_items.data.plan_id
   - table: plans
     keys:
     - id
-  - table: plan_add_ons
+  - table: plans_add_ons
     keys:
     - plan_id
   - table: subscriptions
     keys:
     - pending_change.plan.id
-  plan_add_ons_add_on_id:
+  plans_add_ons_add_on_id:
   - table: adjustments
     keys:
     - add_on_id
   - table: invoices
     keys:
-    - line_items.add_on_id
-  - table: plan_add_ons
+    - line_items.data.add_on_id
+  - table: plans_add_ons
     keys:
     - id
   - table: subscriptions
     keys:
-    - add_ons.ad_on.id
+    - add_ons.add_on.id
   subscriptions_subscription_id:
   - table: invoices
     keys:
-    - credit_payments.refund_transaction.subscription_ids.subscription_id
-    - line_items.subscription_id
+    - credit_payments.refund_transaction.subscription_ids
+    - line_items.data.subscription_id
   - table: subscriptions
     keys:
     - id
@@ -110,7 +110,7 @@ keys:
     - pending_change.subscription_id
   - table: transactions
     keys:
-    - subscription_ids.value
+    - subscription_ids
   transactions_:
   - table: invoices
     keys:
@@ -175,19 +175,19 @@ tables:
     - key: shipping_addresses.account_id
       foreign-key: credit_payments.refund_transaction.account.id
     - key: id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: parent_account_id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: shipping_addresses.account_id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
   - table-name: subscriptions
     keys:
     - key: id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: parent_account_id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: shipping_addresses.account_id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
   - table-name: transactions
     keys:
     - key: id
@@ -245,9 +245,9 @@ tables:
     - key: account.parent_account_id
       foreign-key: credit_payments.refund_transaction.account.id
     - key: account.id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: account.parent_account_id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: invoice_id
       foreign-key: id
     - key: invoice_id
@@ -259,23 +259,23 @@ tables:
     - key: invoice_id
       foreign-key: credit_payments.refund_transaction.voided_by_invoice.id
     - key: invoice_id
-      foreign-key: line_items.invoice_id
+      foreign-key: line_items.data.invoice_id
     - key: invoice_id
-      foreign-key: subscription_ids.value
+      foreign-key: subscription_ids
     - key: plan_id
-      foreign-key: line_items.plan_id
+      foreign-key: line_items.data.plan_id
     - key: add_on_id
-      foreign-key: line_items.add_on_id
+      foreign-key: line_items.data.add_on_id
   - table-name: subscriptions
     keys:
     - key: account.id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: account.parent_account_id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: plan_id
       foreign-key: pending_change.plan.id
     - key: add_on_id
-      foreign-key: add_ons.ad_on.id
+      foreign-key: add_ons.add_on.id
   - table-name: transactions
     keys:
     - key: account.id
@@ -294,7 +294,7 @@ tables:
     keys:
     - key: plan_id
       foreign-key: id
-  - table-name: plan_add_ons
+  - table-name: plans_add_ons
     keys:
     - key: plan_id
       foreign-key: plan_id
@@ -329,11 +329,11 @@ tables:
     - key: account_id
       foreign-key: credit_payments.refund_transaction.account.id
     - key: account_id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
   - table-name: subscriptions
     keys:
     - key: account_id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
   - table-name: transactions
     keys:
     - key: account_id
@@ -369,11 +369,11 @@ tables:
     - key: account_id
       foreign-key: credit_payments.refund_transaction.account.id
     - key: account_id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
   - table-name: subscriptions
     keys:
     - key: account_id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: coupon.id
       foreign-key: coupon_redemptions.coupon.id
     - key: id
@@ -398,7 +398,7 @@ tables:
       foreign-key: id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: id
     - key: account.id
       foreign-key: parent_account_id
@@ -406,7 +406,7 @@ tables:
       foreign-key: parent_account_id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: parent_account_id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: parent_account_id
     - key: account.id
       foreign-key: shipping_addresses.account_id
@@ -414,7 +414,7 @@ tables:
       foreign-key: shipping_addresses.account_id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: shipping_addresses.account_id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: shipping_addresses.account_id
   - table-name: adjustments
     keys:
@@ -424,7 +424,7 @@ tables:
       foreign-key: account.id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: account.id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: account.id
     - key: account.id
       foreign-key: account.parent_account_id
@@ -432,7 +432,7 @@ tables:
       foreign-key: account.parent_account_id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: account.parent_account_id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: account.parent_account_id
     - key: id
       foreign-key: invoice_id
@@ -444,13 +444,13 @@ tables:
       foreign-key: invoice_id
     - key: credit_payments.refund_transaction.voided_by_invoice.id
       foreign-key: invoice_id
-    - key: line_items.invoice_id
+    - key: line_items.data.invoice_id
       foreign-key: invoice_id
-    - key: subscription_ids.value
+    - key: subscription_ids
       foreign-key: invoice_id
-    - key: line_items.plan_id
+    - key: line_items.data.plan_id
       foreign-key: plan_id
-    - key: line_items.add_on_id
+    - key: line_items.data.add_on_id
       foreign-key: add_on_id
   - table-name: billing_info
     keys:
@@ -460,7 +460,7 @@ tables:
       foreign-key: account_id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: account_id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: account_id
   - table-name: coupon_redemptions
     keys:
@@ -470,37 +470,37 @@ tables:
       foreign-key: account_id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: account_id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: account_id
   - table-name: subscriptions
     keys:
     - key: account.id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: account.parent_account_id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: credit_payments.refund_transaction.account.id
-      foreign-key: shipping_addresses.account_id
-    - key: line_items.shipping_addresses.account_id
-      foreign-key: shipping_addresses.account_id
-    - key: line_items.plan_id
+      foreign-key: shipping_address.account_id
+    - key: line_items.data.shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
+    - key: line_items.data.plan_id
       foreign-key: pending_change.plan.id
-    - key: line_items.add_on_id
-      foreign-key: add_ons.ad_on.id
-    - key: credit_payments.refund_transaction.subscription_ids.subscription_id
+    - key: line_items.data.add_on_id
+      foreign-key: add_ons.add_on.id
+    - key: credit_payments.refund_transaction.subscription_ids
       foreign-key: id
-    - key: line_items.subscription_id
+    - key: line_items.data.subscription_id
       foreign-key: id
-    - key: credit_payments.refund_transaction.subscription_ids.subscription_id
+    - key: credit_payments.refund_transaction.subscription_ids
       foreign-key: add_ons.subscription_id
-    - key: line_items.subscription_id
+    - key: line_items.data.subscription_id
       foreign-key: add_ons.subscription_id
-    - key: credit_payments.refund_transaction.subscription_ids.subscription_id
+    - key: credit_payments.refund_transaction.subscription_ids
       foreign-key: pending_change.add_ons.subscription_id
-    - key: line_items.subscription_id
+    - key: line_items.data.subscription_id
       foreign-key: pending_change.add_ons.subscription_id
-    - key: credit_payments.refund_transaction.subscription_ids.subscription_id
+    - key: credit_payments.refund_transaction.subscription_ids
       foreign-key: pending_change.subscription_id
-    - key: line_items.subscription_id
+    - key: line_items.data.subscription_id
       foreign-key: pending_change.subscription_id
   - table-name: transactions
     keys:
@@ -510,7 +510,7 @@ tables:
       foreign-key: account.id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: account.id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: account.id
     - key: account.id
       foreign-key: account.parent_account_id
@@ -518,7 +518,7 @@ tables:
       foreign-key: account.parent_account_id
     - key: credit_payments.refund_transaction.account.id
       foreign-key: account.parent_account_id
-    - key: line_items.shipping_addresses.account_id
+    - key: line_items.data.shipping_addresses.account_id
       foreign-key: account.parent_account_id
     - key: id
       foreign-key: invoice.id
@@ -530,9 +530,9 @@ tables:
       foreign-key: invoice.id
     - key: credit_payments.refund_transaction.voided_by_invoice.id
       foreign-key: invoice.id
-    - key: line_items.invoice_id
+    - key: line_items.data.invoice_id
       foreign-key: invoice.id
-    - key: subscription_ids.value
+    - key: subscription_ids
       foreign-key: invoice.id
     - key: id
       foreign-key: voided_by_invoice.id
@@ -544,14 +544,14 @@ tables:
       foreign-key: voided_by_invoice.id
     - key: credit_payments.refund_transaction.voided_by_invoice.id
       foreign-key: voided_by_invoice.id
-    - key: line_items.invoice_id
+    - key: line_items.data.invoice_id
       foreign-key: voided_by_invoice.id
-    - key: subscription_ids.value
+    - key: subscription_ids
       foreign-key: voided_by_invoice.id
-    - key: credit_payments.refund_transaction.subscription_ids.subscription_id
-      foreign-key: subscription_ids.value
-    - key: line_items.subscription_id
-      foreign-key: subscription_ids.value
+    - key: credit_payments.refund_transaction.subscription_ids
+      foreign-key: subscription_ids
+    - key: line_items.data.subscription_id
+      foreign-key: subscription_ids
     - key: credit_payments.refund_transaction.id
       foreign-key: id
     - key: credit_payments.refund_transaction.original_transaction_id
@@ -566,41 +566,41 @@ tables:
       foreign-key: original_transaction_id
   - table-name: plans
     keys:
-    - key: line_items.plan_id
+    - key: line_items.data.plan_id
       foreign-key: id
-  - table-name: plan_add_ons
+  - table-name: plans_add_ons
     keys:
-    - key: line_items.plan_id
+    - key: line_items.data.plan_id
       foreign-key: plan_id
-    - key: line_items.add_on_id
+    - key: line_items.data.add_on_id
       foreign-key: id
 - table-name: subscriptions
   join:
   - table-name: accounts
     keys:
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: id
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: parent_account_id
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: shipping_addresses.account_id
   - table-name: adjustments
     keys:
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account.id
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account.parent_account_id
     - key: pending_change.plan.id
       foreign-key: plan_id
-    - key: add_ons.ad_on.id
+    - key: add_ons.add_on.id
       foreign-key: add_on_id
   - table-name: billing_info
     keys:
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account_id
   - table-name: coupon_redemptions
     keys:
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account_id
     - key: coupon_redemptions.coupon.id
       foreign-key: coupon.id
@@ -608,48 +608,48 @@ tables:
       foreign-key: id
   - table-name: invoices
     keys:
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account.id
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account.parent_account_id
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: credit_payments.refund_transaction.account.id
-    - key: shipping_addresses.account_id
-      foreign-key: line_items.shipping_addresses.account_id
+    - key: shipping_address.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: pending_change.plan.id
-      foreign-key: line_items.plan_id
-    - key: add_ons.ad_on.id
-      foreign-key: line_items.add_on_id
+      foreign-key: line_items.data.plan_id
+    - key: add_ons.add_on.id
+      foreign-key: line_items.data.add_on_id
     - key: id
-      foreign-key: credit_payments.refund_transaction.subscription_ids.subscription_id
+      foreign-key: credit_payments.refund_transaction.subscription_ids
     - key: add_ons.subscription_id
-      foreign-key: credit_payments.refund_transaction.subscription_ids.subscription_id
+      foreign-key: credit_payments.refund_transaction.subscription_ids
     - key: pending_change.add_ons.subscription_id
-      foreign-key: credit_payments.refund_transaction.subscription_ids.subscription_id
+      foreign-key: credit_payments.refund_transaction.subscription_ids
     - key: pending_change.subscription_id
-      foreign-key: credit_payments.refund_transaction.subscription_ids.subscription_id
+      foreign-key: credit_payments.refund_transaction.subscription_ids
     - key: id
-      foreign-key: line_items.subscription_id
+      foreign-key: line_items.data.subscription_id
     - key: add_ons.subscription_id
-      foreign-key: line_items.subscription_id
+      foreign-key: line_items.data.subscription_id
     - key: pending_change.add_ons.subscription_id
-      foreign-key: line_items.subscription_id
+      foreign-key: line_items.data.subscription_id
     - key: pending_change.subscription_id
-      foreign-key: line_items.subscription_id
+      foreign-key: line_items.data.subscription_id
   - table-name: transactions
     keys:
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account.id
-    - key: shipping_addresses.account_id
+    - key: shipping_address.account_id
       foreign-key: account.parent_account_id
     - key: id
-      foreign-key: subscription_ids.value
+      foreign-key: subscription_ids
     - key: add_ons.subscription_id
-      foreign-key: subscription_ids.value
+      foreign-key: subscription_ids
     - key: pending_change.add_ons.subscription_id
-      foreign-key: subscription_ids.value
+      foreign-key: subscription_ids
     - key: pending_change.subscription_id
-      foreign-key: subscription_ids.value
+      foreign-key: subscription_ids
   - table-name: coupons
     keys:
     - key: coupon_redemptions.coupon.id
@@ -658,11 +658,11 @@ tables:
     keys:
     - key: pending_change.plan.id
       foreign-key: id
-  - table-name: plan_add_ons
+  - table-name: plans_add_ons
     keys:
     - key: pending_change.plan.id
       foreign-key: plan_id
-    - key: add_ons.ad_on.id
+    - key: add_ons.add_on.id
       foreign-key: id
 - table-name: transactions
   join:
@@ -721,9 +721,9 @@ tables:
     - key: account.parent_account_id
       foreign-key: credit_payments.refund_transaction.account.id
     - key: account.id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: account.parent_account_id
-      foreign-key: line_items.shipping_addresses.account_id
+      foreign-key: line_items.data.shipping_addresses.account_id
     - key: invoice.id
       foreign-key: id
     - key: voided_by_invoice.id
@@ -745,17 +745,17 @@ tables:
     - key: voided_by_invoice.id
       foreign-key: credit_payments.refund_transaction.voided_by_invoice.id
     - key: invoice.id
-      foreign-key: line_items.invoice_id
+      foreign-key: line_items.data.invoice_id
     - key: voided_by_invoice.id
-      foreign-key: line_items.invoice_id
+      foreign-key: line_items.data.invoice_id
     - key: invoice.id
-      foreign-key: subscription_ids.value
+      foreign-key: subscription_ids
     - key: voided_by_invoice.id
-      foreign-key: subscription_ids.value
-    - key: subscription_ids.value
-      foreign-key: credit_payments.refund_transaction.subscription_ids.subscription_id
-    - key: subscription_ids.value
-      foreign-key: line_items.subscription_id
+      foreign-key: subscription_ids
+    - key: subscription_ids
+      foreign-key: credit_payments.refund_transaction.subscription_ids
+    - key: subscription_ids
+      foreign-key: line_items.data.subscription_id
     - key: id
       foreign-key: credit_payments.refund_transaction.id
     - key: original_transaction_id
@@ -771,16 +771,16 @@ tables:
   - table-name: subscriptions
     keys:
     - key: account.id
-      foreign-key: shipping_addresses.account_id
+      foreign-key: shipping_address.account_id
     - key: account.parent_account_id
-      foreign-key: shipping_addresses.account_id
-    - key: subscription_ids.value
+      foreign-key: shipping_address.account_id
+    - key: subscription_ids
       foreign-key: id
-    - key: subscription_ids.value
+    - key: subscription_ids
       foreign-key: add_ons.subscription_id
-    - key: subscription_ids.value
+    - key: subscription_ids
       foreign-key: pending_change.add_ons.subscription_id
-    - key: subscription_ids.value
+    - key: subscription_ids
       foreign-key: pending_change.subscription_id
 - table-name: coupons
   join:
@@ -801,8 +801,8 @@ tables:
   - table-name: invoices
     keys:
     - key: id
-      foreign-key: line_items.plan_id
-  - table-name: plan_add_ons
+      foreign-key: line_items.data.plan_id
+  - table-name: plans_add_ons
     keys:
     - key: id
       foreign-key: plan_id
@@ -810,7 +810,7 @@ tables:
     keys:
     - key: id
       foreign-key: pending_change.plan.id
-- table-name: plan_add_ons
+- table-name: plans_add_ons
   join:
   - table-name: adjustments
     keys:
@@ -821,9 +821,9 @@ tables:
   - table-name: invoices
     keys:
     - key: plan_id
-      foreign-key: line_items.plan_id
+      foreign-key: line_items.data.plan_id
     - key: id
-      foreign-key: line_items.add_on_id
+      foreign-key: line_items.data.add_on_id
   - table-name: plans
     keys:
     - key: plan_id
@@ -833,4 +833,4 @@ tables:
     - key: plan_id
       foreign-key: pending_change.plan.id
     - key: id
-      foreign-key: add_ons.ad_on.id
+      foreign-key: add_ons.add_on.id
