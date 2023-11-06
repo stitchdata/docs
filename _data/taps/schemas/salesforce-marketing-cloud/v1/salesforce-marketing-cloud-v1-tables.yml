@@ -1,7 +1,8 @@
 tap: salesforce-marketing-cloud
 version: '1'
+tap-repo-schemas: true
 tables:
-- name: campaign
+- name: campaigns
   description: 'The `{{ table.name }}` table contains info about the campaigns in
     your {{ integration.display_name }} account.
 
@@ -14,8 +15,7 @@ tables:
     replication-method: Full Table
     primary-key: id
     replication-key: modifiedDate
-  status: not_found
-- name: content_area
+- name: content_areas
   description: 'The `{{ table.name }}` table contains info about the reusable content
     sections in your {{ integration.display_name }} account.
 
@@ -28,8 +28,8 @@ tables:
     replication-method: Key-based Incremental
     primary-key: ID
     replication-key: ModifiedDate
-  status: not_found
 - name: data_extension
+  report: true
   description: 'The `{{ table.name }}` table contains info about the data extensions
     in your {{ integration.display_name }} account. A table will be created for each
     [data extension](https://help.salesforce.com/articleView?id=mc_cab_data_extensions.htm&type=5){:target="new"}
@@ -52,8 +52,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: _CustomObjectKey
-  status: not_found
-- name: email
+- name: emails
   description: 'The `{{ table.name }}` table contains info about the emails in your
     {{ integration.display_name }} account.
 
@@ -66,8 +65,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: ID
     replication-key: ModifiedDate
-  status: not_found
-- name: folder
+- name: folders
   description: 'The `{{ table.name }}` table contains info about the folders in your
     {{ integration.display_name }} account.
 
@@ -80,8 +78,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: ID
     replication-key: ModifiedDate
-  status: not_found
-- name: list
+- name: lists
   description: 'The `{{ table.name }}` table contains info about the lists in your
     {{ integration.display_name }} account.
 
@@ -94,8 +91,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: ID
     replication-key: ModifiedDate
-  status: not_found
-- name: list_send
+- name: list_sends
   description: 'The `{{ table.name }}` table contains info about the completed sends
     for lists in your {{ integration.display_name }} account.
 
@@ -110,8 +106,7 @@ tables:
     - ListID
     - SendID
     replication-key: ModifiedDate
-  status: not_found
-- name: list_subscriber
+- name: list_subscribers
   description: 'The `{{ table.name }}` table contains info about the lists associated
     with a specific subscriber in your {{ integration.display_name }} account.
 
@@ -126,8 +121,7 @@ tables:
     - ListID
     - SubscriberKey
     replication-key: ModifiedDate
-  status: not_found
-- name: send
+- name: sends
   description: 'The `{{ table.name }}` table contains info about the email sends in
     your {{ integration.display_name }} account.
 
@@ -140,8 +134,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: ID
     replication-key: ModifiedDate
-  status: not_found
-- name: subscriber
+- name: subscribers
   description: 'The `{{ table.name }}` table contains info about the subscribers (people
     subscribed to receive email and/or SMS communication) in your {{ integration.display_name
     }} account.
@@ -155,94 +148,18 @@ tables:
     replication-method: Key-based Incremental
     primary-key: ID
     replication-key: ModifiedDate
-  status: not_found
-- name: campaigns
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: content_areas
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: emails
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
 - name: events
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the events in your
+    {{ integration.display_name }} account.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/schemas/events.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: folders
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: lists
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: list_sends
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: list_subscribers
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: sends
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: subscribers
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-keys:
+    - EventType
+    - EventDate
+    - SendID
+    - SubscriberKey
+    replication-key: EventDate
