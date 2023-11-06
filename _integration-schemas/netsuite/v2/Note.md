@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Note
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Note.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Note
 replication-method: "Full Table"
 description: |
   The `{{ table.name }}` table contains info about the notes in your {{ integration.display_name }} account.

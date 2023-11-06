@@ -61,7 +61,9 @@ sections:
       - title: "Advanced connectivity options"
         anchor: "advanced-connectivity-options"
         content: |
-          Additional connection options can be included as part of a Stitch {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. These options include reverse SSH tunnels, VPNs, and AWS Private Link. Reach out to [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+          Additional connection options can be included as part of a Stitch {{ site.data.stitch.subscription-plans.premium.name }} plan. These options include reverse SSH tunnels, VPNs, and AWS Private Link. 
+          
+          If you are already on a {{ site.data.stitch.subscription-plans.premium.name }} plan, reach out to [Stitch Support](mailto:{{ site.support }}) to get started on the setup. Otherwise, reach out to [Stitch Sales]({{ site.sales }}){:target="new"} for more info about the {{ site.data.stitch.subscription-plans.premium.name }} plan.
 
   - title: "All database integrations"
     anchor: "all-database-integrations"

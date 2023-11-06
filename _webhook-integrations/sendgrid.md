@@ -34,7 +34,7 @@ primary-key:
 tier: "Standard"
 status-url: "http://status.sendgrid.com/"
 icon: /images/integrations/icons/sendgrid.svg
-doc-link: "https://sendgrid.com/docs/API_Reference/Webhooks/event.html"
+doc-link: "https://docs.sendgrid.com/for-developers/tracking-events/twilio-sendgrid-event-webhook-overview#maincontent"
 
 table-selection: false
 column-selection: false
@@ -49,7 +49,7 @@ loading-reports: false
 tables:
 ## Events
   - name: "events"
-    doc-link: https://sendgrid.com/docs/API_Reference/Webhooks/event.html#-Event-Types
+    doc-link: https://docs.sendgrid.com/for-developers/tracking-events/twilio-sendgrid-event-webhook-overview#event-types
     description: "details about events."
     notes: "The attributes listed below may not be applicable to every single event type - because of this, you may see some rows that have <code>NULL</code> values."
     replication-method: "Append-Only (Incremental)"
@@ -79,7 +79,7 @@ tables:
 
 ## Events - Category
   - name: "events__category"
-    doc-link: https://sendgrid.com/docs/API_Reference/Webhooks/event.html#-Event-Types
+    doc-link: https://docs.sendgrid.com/for-developers/tracking-events/twilio-sendgrid-event-webhook-overview#event-types
     description: "info about an event category. This is a subtable of <code>events</code>."
     notes: 
     replication-method: "Append-Only (Incremental)"
@@ -153,7 +153,7 @@ This record, however, would:
 }
 ```
 
-[Read more about SendGrid dropped events here](https://sendgrid.com/docs/Classroom/Deliver/Undeliverable_Email/my_emails_are_being_dropped.html).
+[Read more about SendGrid dropped events here](https://docs.sendgrid.com/glossary/drops).
 {% endcontentfor %}
 
 

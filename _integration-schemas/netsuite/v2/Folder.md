@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: Folder
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/Folder.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/Folder
 description: |
   The `{{ table.name }}` table contains info about the folders in your {{ integration.display_name }} File Cabinet.
 

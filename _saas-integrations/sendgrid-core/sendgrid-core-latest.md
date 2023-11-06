@@ -24,7 +24,7 @@ repo-url: https://github.com/singer-io/tap-sendgrid
 this-version: "1"
 
 api: |
-  [SendGrid v3 API](https://sendgrid.com/docs/API_Reference/api_v3.html){:target="new"}
+  [SendGrid v3 API](https://docs.sendgrid.com/api-reference/how-to-use-the-sendgrid-v3-api){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #

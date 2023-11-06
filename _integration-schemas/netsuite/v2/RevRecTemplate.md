@@ -3,7 +3,6 @@ tap: "netsuite"
 version: "2"
 name: RevRecTemplate
 doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2023_1/schema/record/RevRecTemplate.html
-singer-schema: https://github.com/stitchdata/tap-netsuite/tree/master/tap_v2/schemas/RevRecTemplate
 description: |
   The `{{ table.name }}` table contains info about the revenue recognition templates in your {{ integration.display_name }} account. A revenue recognition template indicates how revenue from associated items should be posted.
 
