@@ -60,8 +60,20 @@ release and deprecation dates -->
                     {% if is-latest == true %} (latest){% endif %}
                 </td>
 
-                <td >
-                    {{ version-status.display-name }}
+                <td>
+                    {% if version.status %}
+                        {{ version-status.display-name }}
+                    {% else %}
+                        {% if is-latest == true %}
+                            {% assign status = site.data.stitch.version-statuses.released.display-name %}
+                        {% else %}
+                            {% assign status = site.data.stitch.version-statuses.deprecated.display-name %}
+                        {% endif %}
+                        {{ status }}
+                    {% endif %}
+
+                    
+                    
                 </td>
 
                 <td>
@@ -70,8 +82,17 @@ release and deprecation dates -->
 
                 <td>
                     {% if doc.override-version-status %}
-                    {% else %}
+                    {% elsif version.deprecation-date %}
                         {{ version.deprecation-date }}
+                    {% elsif status == "Deprecated" %}
+                        {% assign next-version = version.number | plus: 1 | append: "" %}
+                        {% for v in released-versions %}
+                            {% if v.number == next-version %}
+                                {% if v.date-released %}
+                                    {{ v.date-released }}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
                 </td>
                 <td>
