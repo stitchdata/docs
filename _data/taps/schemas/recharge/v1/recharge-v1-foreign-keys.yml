@@ -75,7 +75,7 @@ keys:
   - table: metafields_subscription
     keys:
     - owner_id
-  products_product_id:
+  products_shopify_product_id:
   - table: charges
     keys:
     - line_items.shopify_product_id
@@ -90,7 +90,7 @@ keys:
     - id
   - table: subscriptions
     keys:
-    - product_id
+    - shopify_product_id
   _shopify_customer_id:
   - table: customers
     keys:
@@ -122,9 +122,6 @@ keys:
   - table: orders
     keys:
     - transaction_id
-  - table: transactions
-    keys:
-    - id
   _shopify_variant_id:
   - table: charges
     keys:
@@ -216,7 +213,7 @@ tables:
     - key: customer_id
       foreign-key: customer_id
     - key: line_items.shopify_product_id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
     - key: line_items.subscription_id
       foreign-key: id
     - key: line_items.shopify_variant_id
@@ -228,10 +225,6 @@ tables:
   - table-name: products
     keys:
     - key: line_items.shopify_product_id
-      foreign-key: id
-  - table-name: transactions
-    keys:
-    - key: transaction_id
       foreign-key: id
 - table-name: onetimes
   join:
@@ -268,7 +261,7 @@ tables:
     - key: customer_id
       foreign-key: customer_id
     - key: shopify_product_id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
     - key: shopify_variant_id
       foreign-key: shopify_variant_id
   - table-name: customers
@@ -322,7 +315,7 @@ tables:
     - key: customer_id
       foreign-key: customer_id
     - key: line_items.shopify_product_id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
     - key: line_items.subscription_id
       foreign-key: id
     - key: line_items.shopify_variant_id
@@ -336,10 +329,6 @@ tables:
   - table-name: products
     keys:
     - key: line_items.shopify_product_id
-      foreign-key: id
-  - table-name: transactions
-    keys:
-    - key: transaction_id
       foreign-key: id
 - table-name: subscriptions
   join:
@@ -355,7 +344,7 @@ tables:
       foreign-key: address_id
     - key: customer_id
       foreign-key: customer_id
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: line_items.shopify_product_id
     - key: id
       foreign-key: line_items.subscription_id
@@ -367,7 +356,7 @@ tables:
       foreign-key: address_id
     - key: customer_id
       foreign-key: customer_id
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: shopify_product_id
     - key: shopify_variant_id
       foreign-key: shopify_variant_id
@@ -377,7 +366,7 @@ tables:
       foreign-key: address_id
     - key: customer_id
       foreign-key: customer_id
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: line_items.shopify_product_id
     - key: id
       foreign-key: line_items.subscription_id
@@ -389,7 +378,7 @@ tables:
       foreign-key: id
   - table-name: products
     keys:
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: id
 - table-name: collections
   join:
@@ -418,7 +407,7 @@ tables:
   - table-name: subscriptions
     keys:
     - key: id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
 - table-name: customers
   join:
   - table-name: addresses
@@ -479,13 +468,3 @@ tables:
     keys:
     - key: owner_id
       foreign-key: owner_id
-- table-name: transactions
-  join:
-  - table-name: charges
-    keys:
-    - key: id
-      foreign-key: transaction_id
-  - table-name: orders
-    keys:
-    - key: id
-      foreign-key: transaction_id

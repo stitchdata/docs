@@ -65,7 +65,7 @@ keys:
   - table: orders
     keys:
     - id
-  products_product_id:
+  products_shopify_product_id:
   - table: charges
     keys:
     - line_items.shopify_product_id
@@ -80,7 +80,7 @@ keys:
     - id
   - table: subscriptions
     keys:
-    - product_id
+    - shopify_product_id
   subscriptions_subscription_id:
   - table: charges
     keys:
@@ -161,7 +161,7 @@ tables:
     - key: customer_id
       foreign-key: customer_id
     - key: line_items.shopify_product_id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
     - key: line_items.subscription_id
       foreign-key: id
   - table-name: customers
@@ -203,7 +203,7 @@ tables:
     - key: customer_id
       foreign-key: customer_id
     - key: shopify_product_id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
   - table-name: customers
     keys:
     - key: customer_id
@@ -247,7 +247,7 @@ tables:
     - key: customer_id
       foreign-key: customer_id
     - key: line_items.shopify_product_id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
     - key: line_items.subscription_id
       foreign-key: id
   - table-name: customers
@@ -272,7 +272,7 @@ tables:
       foreign-key: address_id
     - key: customer_id
       foreign-key: customer_id
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: line_items.shopify_product_id
     - key: id
       foreign-key: line_items.subscription_id
@@ -282,7 +282,7 @@ tables:
       foreign-key: address_id
     - key: customer_id
       foreign-key: customer_id
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: shopify_product_id
   - table-name: orders
     keys:
@@ -290,7 +290,7 @@ tables:
       foreign-key: address_id
     - key: customer_id
       foreign-key: customer_id
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: line_items.shopify_product_id
     - key: id
       foreign-key: line_items.subscription_id
@@ -300,7 +300,7 @@ tables:
       foreign-key: id
   - table-name: products
     keys:
-    - key: product_id
+    - key: shopify_product_id
       foreign-key: id
 - table-name: collections
   join:
@@ -329,7 +329,7 @@ tables:
   - table-name: subscriptions
     keys:
     - key: id
-      foreign-key: product_id
+      foreign-key: shopify_product_id
 - table-name: customers
   join:
   - table-name: addresses
