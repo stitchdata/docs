@@ -13,7 +13,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-- name: reward_balance
+- name: reward_balances
   description: 'The `{{ table.name }}` table contains info about the balances for
     all rewards.
 
@@ -27,7 +27,6 @@ tables:
     primary-keys:
     - userId
     - accountId
-  status: not_found
 - name: users
   description: 'The `{{ table.name }}` table contains info about the users in your
     {{ integration.display_name }} tenant.
@@ -42,12 +41,4 @@ tables:
     primary-keys:
     - id
     - accountId
-- name: reward_balances
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+tap-repo-schemas: true

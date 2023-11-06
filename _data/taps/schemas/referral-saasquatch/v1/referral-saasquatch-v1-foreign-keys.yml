@@ -6,7 +6,7 @@ keys:
     keys:
     - referredUser
     - referrerUser
-  - table: reward_balance
+  - table: reward_balances
     keys:
     - userId
   - table: users
@@ -17,7 +17,7 @@ keys:
     keys:
     - referredAccount
     - referrerAccount
-  - table: reward_balance
+  - table: reward_balances
     keys:
     - accountId
   - table: users
@@ -26,7 +26,7 @@ keys:
 tables:
 - table-name: referrals
   join:
-  - table-name: reward_balance
+  - table-name: reward_balances
     keys:
     - key: referredUser
       foreign-key: userId
@@ -46,7 +46,7 @@ tables:
       foreign-key: accountId
     - key: referrerAccount
       foreign-key: accountId
-- table-name: reward_balance
+- table-name: reward_balances
   join:
   - table-name: referrals
     keys:
@@ -76,7 +76,7 @@ tables:
       foreign-key: referredAccount
     - key: accountId
       foreign-key: referrerAccount
-  - table-name: reward_balance
+  - table-name: reward_balances
     keys:
     - key: id
       foreign-key: userId
