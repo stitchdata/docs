@@ -13,13 +13,13 @@ keys:
     - lists
   - table: users
     keys:
-    - users.lists.value
+    - lists
   - table: blasts
     keys:
     - list
   - table: blast_repeats
     keys:
-    - list_id
+    - list
   blasts_blast_id:
   - table: blasts
     keys:
@@ -27,10 +27,6 @@ keys:
   - table: blast_query
     keys:
     - blast_id
-  _:
-  - table: ''
-    keys:
-    - ''
 tables:
 - table-name: lists
   join:
@@ -45,7 +41,7 @@ tables:
   - table-name: users
     keys:
     - key: list_id
-      foreign-key: users.lists.value
+      foreign-key: lists
   - table-name: blasts
     keys:
     - key: list_id
@@ -53,7 +49,7 @@ tables:
   - table-name: blast_repeats
     keys:
     - key: list_id
-      foreign-key: list_id
+      foreign-key: list
 - table-name: ad_targeter_plans
   join:
   - table-name: lists
@@ -67,7 +63,7 @@ tables:
   - table-name: users
     keys:
     - key: list
-      foreign-key: users.lists.value
+      foreign-key: lists
   - table-name: blasts
     keys:
     - key: list
@@ -75,7 +71,7 @@ tables:
   - table-name: blast_repeats
     keys:
     - key: list
-      foreign-key: list_id
+      foreign-key: list
 - table-name: blast_save_list
   join:
   - table-name: lists
@@ -89,7 +85,7 @@ tables:
   - table-name: users
     keys:
     - key: lists
-      foreign-key: users.lists.value
+      foreign-key: lists
   - table-name: blasts
     keys:
     - key: lists
@@ -97,29 +93,29 @@ tables:
   - table-name: blast_repeats
     keys:
     - key: lists
-      foreign-key: list_id
+      foreign-key: list
 - table-name: users
   join:
   - table-name: lists
     keys:
-    - key: users.lists.value
+    - key: lists
       foreign-key: list_id
   - table-name: ad_targeter_plans
     keys:
-    - key: users.lists.value
+    - key: lists
       foreign-key: list
   - table-name: blast_save_list
     keys:
-    - key: users.lists.value
+    - key: lists
       foreign-key: lists
   - table-name: blasts
     keys:
-    - key: users.lists.value
+    - key: lists
       foreign-key: list
   - table-name: blast_repeats
     keys:
-    - key: users.lists.value
-      foreign-key: list_id
+    - key: lists
+      foreign-key: list
 - table-name: blasts
   join:
   - table-name: lists
@@ -137,11 +133,11 @@ tables:
   - table-name: users
     keys:
     - key: list
-      foreign-key: users.lists.value
+      foreign-key: lists
   - table-name: blast_repeats
     keys:
     - key: list
-      foreign-key: list_id
+      foreign-key: list
   - table-name: blast_query
     keys:
     - key: blast_id
@@ -150,23 +146,23 @@ tables:
   join:
   - table-name: lists
     keys:
-    - key: list_id
+    - key: list
       foreign-key: list_id
   - table-name: ad_targeter_plans
     keys:
-    - key: list_id
+    - key: list
       foreign-key: list
   - table-name: blast_save_list
     keys:
-    - key: list_id
+    - key: list
       foreign-key: lists
   - table-name: users
     keys:
-    - key: list_id
-      foreign-key: users.lists.value
+    - key: list
+      foreign-key: lists
   - table-name: blasts
     keys:
-    - key: list_id
+    - key: list
       foreign-key: list
 - table-name: blast_query
   join:
