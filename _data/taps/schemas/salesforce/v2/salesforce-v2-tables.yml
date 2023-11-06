@@ -1,5 +1,6 @@
 tap: salesforce
 version: '2'
+tap-repo-schemas: false
 tables:
 - name: account
   description: 'The `{{ table.name }}` table contains info about the individual accounts
@@ -14,7 +15,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: systemModStamp
-  status: not_found
 - name: contact
   description: 'The `{{ table.name }}` table contains info about your contacts, who
     are individuals associated with accounts in your {{ integration.display_name }}
@@ -28,7 +28,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: systemModStamp
-  status: not_found
 - name: lead
   description: 'The `{{ table.name }}` table contains info about your leads, who are
     prospects or potential Opportunities.
@@ -41,7 +40,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: systemModStamp
-  status: not_found
 - name: opportunity
   description: 'The `{{ table.name }}` table contains info about your opportunities,
     which are sales or pending deals.
@@ -54,7 +52,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: systemModStamp
-  status: not_found
 - name: user
   description: 'The `user` table contains info about the users in your organization.
 
@@ -66,4 +63,3 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: systemModStamp
-  status: not_found
