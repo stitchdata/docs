@@ -10,26 +10,26 @@ keys:
     - channel_id
   - table: files
     keys:
-    - channels.value
-    - pinned_to.value
+    - channels
+    - pinned_to
   - table: messages
     keys:
     - channel_id
-    - pinned_to.value
+    - pinned_to
   - table: remote_files
     keys:
-    - channels.value
-    - pinned_to.value
+    - channels
+    - pinned_to
   - table: threads
     keys:
-    - id
+    - channel_id
   user_groups_id:
   - table: files
     keys:
-    - groups.value
+    - groups
   - table: remote_files
     keys:
-    - groups.value
+    - groups
   - table: user_groups
     keys:
     - id
@@ -40,12 +40,11 @@ keys:
     - id
   - table: messages
     keys:
-    - file_ids.value
+    - file_ids
   teams_id:
   - table: channels
     keys:
-    - pending_connected_team_ids.value
-    - value
+    - pending_connected_team_ids
   - table: files
     keys:
     - source_team
@@ -76,14 +75,14 @@ keys:
   - table: channels
     keys:
     - creator
-    - members.value
+    - members
   - table: files
     keys:
     - user
   - table: messages
     keys:
-    - reply_users.value
-    - reactions.users.value
+    - reply_users
+    - reactions.users
     - user
   - table: remote_files
     keys:
@@ -91,10 +90,10 @@ keys:
   - table: threads
     keys:
     - user
-    - reply_users.value
+    - reply_users
   - table: user_groups
     keys:
-    - members.value
+    - members
     - purpose.creator
     - topic.creator
   - table: users
@@ -109,123 +108,101 @@ tables:
       foreign-key: channel_id
     - key: creator
       foreign-key: user_id
-    - key: members.value
+    - key: members
       foreign-key: user_id
   - table-name: files
     keys:
     - key: id
-      foreign-key: channels.value
+      foreign-key: channels
     - key: id
-      foreign-key: pinned_to.value
-    - key: pending_connected_team_ids.value
+      foreign-key: pinned_to
+    - key: pending_connected_team_ids
       foreign-key: source_team
-    - key: value
-      foreign-key: source_team
-    - key: pending_connected_team_ids.value
-      foreign-key: user_team
-    - key: value
+    - key: pending_connected_team_ids
       foreign-key: user_team
     - key: creator
       foreign-key: user
-    - key: members.value
+    - key: members
       foreign-key: user
   - table-name: messages
     keys:
     - key: id
       foreign-key: channel_id
     - key: id
-      foreign-key: pinned_to.value
-    - key: pending_connected_team_ids.value
+      foreign-key: pinned_to
+    - key: pending_connected_team_ids
       foreign-key: bot_profile.team_id
-    - key: value
-      foreign-key: bot_profile.team_id
-    - key: pending_connected_team_ids.value
+    - key: pending_connected_team_ids
       foreign-key: team
-    - key: value
-      foreign-key: team
-    - key: pending_connected_team_ids.value
+    - key: pending_connected_team_ids
       foreign-key: source_team
-    - key: value
-      foreign-key: source_team
-    - key: pending_connected_team_ids.value
-      foreign-key: user_team
-    - key: value
+    - key: pending_connected_team_ids
       foreign-key: user_team
     - key: creator
-      foreign-key: reply_users.value
-    - key: members.value
-      foreign-key: reply_users.value
+      foreign-key: reply_users
+    - key: members
+      foreign-key: reply_users
     - key: creator
-      foreign-key: reactions.users.value
-    - key: members.value
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
+    - key: members
+      foreign-key: reactions.users
     - key: creator
       foreign-key: user
-    - key: members.value
+    - key: members
       foreign-key: user
   - table-name: remote_files
     keys:
     - key: id
-      foreign-key: channels.value
+      foreign-key: channels
     - key: id
-      foreign-key: pinned_to.value
-    - key: pending_connected_team_ids.value
+      foreign-key: pinned_to
+    - key: pending_connected_team_ids
       foreign-key: source_team
-    - key: value
-      foreign-key: source_team
-    - key: pending_connected_team_ids.value
-      foreign-key: user_team
-    - key: value
+    - key: pending_connected_team_ids
       foreign-key: user_team
     - key: creator
       foreign-key: user
-    - key: members.value
+    - key: members
       foreign-key: user
   - table-name: threads
     keys:
     - key: id
-      foreign-key: id
-    - key: pending_connected_team_ids.value
-      foreign-key: team
-    - key: value
+      foreign-key: channel_id
+    - key: pending_connected_team_ids
       foreign-key: team
     - key: creator
       foreign-key: user
-    - key: members.value
+    - key: members
       foreign-key: user
     - key: creator
-      foreign-key: reply_users.value
-    - key: members.value
-      foreign-key: reply_users.value
+      foreign-key: reply_users
+    - key: members
+      foreign-key: reply_users
   - table-name: teams
     keys:
-    - key: pending_connected_team_ids.value
-      foreign-key: id
-    - key: value
+    - key: pending_connected_team_ids
       foreign-key: id
   - table-name: users
     keys:
-    - key: pending_connected_team_ids.value
-      foreign-key: team_id
-    - key: value
+    - key: pending_connected_team_ids
       foreign-key: team_id
     - key: creator
       foreign-key: id
-    - key: members.value
+    - key: members
       foreign-key: id
   - table-name: user_groups
     keys:
     - key: creator
-      foreign-key: members.value
-    - key: members.value
-      foreign-key: members.value
+      foreign-key: members
+    - key: members
+      foreign-key: members
     - key: creator
       foreign-key: purpose.creator
-    - key: members.value
+    - key: members
       foreign-key: purpose.creator
     - key: creator
       foreign-key: topic.creator
-    - key: members.value
+    - key: members
       foreign-key: topic.creator
 - table-name: channel_members
   join:
@@ -236,13 +213,13 @@ tables:
     - key: user_id
       foreign-key: creator
     - key: user_id
-      foreign-key: members.value
+      foreign-key: members
   - table-name: files
     keys:
     - key: channel_id
-      foreign-key: channels.value
+      foreign-key: channels
     - key: channel_id
-      foreign-key: pinned_to.value
+      foreign-key: pinned_to
     - key: user_id
       foreign-key: user
   - table-name: messages
@@ -250,33 +227,33 @@ tables:
     - key: channel_id
       foreign-key: channel_id
     - key: channel_id
-      foreign-key: pinned_to.value
+      foreign-key: pinned_to
     - key: user_id
-      foreign-key: reply_users.value
+      foreign-key: reply_users
     - key: user_id
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
     - key: user_id
       foreign-key: user
   - table-name: remote_files
     keys:
     - key: channel_id
-      foreign-key: channels.value
+      foreign-key: channels
     - key: channel_id
-      foreign-key: pinned_to.value
+      foreign-key: pinned_to
     - key: user_id
       foreign-key: user
   - table-name: threads
     keys:
     - key: channel_id
-      foreign-key: id
+      foreign-key: channel_id
     - key: user_id
       foreign-key: user
     - key: user_id
-      foreign-key: reply_users.value
+      foreign-key: reply_users
   - table-name: user_groups
     keys:
     - key: user_id
-      foreign-key: members.value
+      foreign-key: members
     - key: user_id
       foreign-key: purpose.creator
     - key: user_id
@@ -289,42 +266,38 @@ tables:
   join:
   - table-name: channels
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: id
     - key: source_team
-      foreign-key: pending_connected_team_ids.value
+      foreign-key: pending_connected_team_ids
     - key: user_team
-      foreign-key: pending_connected_team_ids.value
-    - key: source_team
-      foreign-key: value
-    - key: user_team
-      foreign-key: value
+      foreign-key: pending_connected_team_ids
     - key: user
       foreign-key: creator
     - key: user
-      foreign-key: members.value
+      foreign-key: members
   - table-name: channel_members
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: channel_id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: channel_id
     - key: user
       foreign-key: user_id
   - table-name: messages
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: channel_id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: channel_id
-    - key: channels.value
-      foreign-key: pinned_to.value
-    - key: pinned_to.value
-      foreign-key: pinned_to.value
+    - key: channels
+      foreign-key: pinned_to
+    - key: pinned_to
+      foreign-key: pinned_to
     - key: id
-      foreign-key: file_ids.value
+      foreign-key: file_ids
     - key: source_team
       foreign-key: bot_profile.team_id
     - key: user_team
@@ -342,23 +315,23 @@ tables:
     - key: user_team
       foreign-key: user_team
     - key: user
-      foreign-key: reply_users.value
+      foreign-key: reply_users
     - key: user
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
     - key: user
       foreign-key: user
   - table-name: remote_files
     keys:
-    - key: channels.value
-      foreign-key: channels.value
-    - key: pinned_to.value
-      foreign-key: channels.value
-    - key: channels.value
-      foreign-key: pinned_to.value
-    - key: pinned_to.value
-      foreign-key: pinned_to.value
-    - key: groups.value
-      foreign-key: groups.value
+    - key: channels
+      foreign-key: channels
+    - key: pinned_to
+      foreign-key: channels
+    - key: channels
+      foreign-key: pinned_to
+    - key: pinned_to
+      foreign-key: pinned_to
+    - key: groups
+      foreign-key: groups
     - key: source_team
       foreign-key: source_team
     - key: user_team
@@ -371,10 +344,10 @@ tables:
       foreign-key: user
   - table-name: threads
     keys:
-    - key: channels.value
-      foreign-key: id
-    - key: pinned_to.value
-      foreign-key: id
+    - key: channels
+      foreign-key: channel_id
+    - key: pinned_to
+      foreign-key: channel_id
     - key: source_team
       foreign-key: team
     - key: user_team
@@ -382,15 +355,15 @@ tables:
     - key: user
       foreign-key: user
     - key: user
-      foreign-key: reply_users.value
+      foreign-key: reply_users
   - table-name: user_groups
     keys:
-    - key: groups.value
+    - key: groups
       foreign-key: id
-    - key: groups.value
+    - key: groups
       foreign-key: parent_group
     - key: user
-      foreign-key: members.value
+      foreign-key: members
     - key: user
       foreign-key: purpose.creator
     - key: user
@@ -415,59 +388,51 @@ tables:
     keys:
     - key: channel_id
       foreign-key: id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: id
     - key: bot_profile.team_id
-      foreign-key: pending_connected_team_ids.value
+      foreign-key: pending_connected_team_ids
     - key: team
-      foreign-key: pending_connected_team_ids.value
+      foreign-key: pending_connected_team_ids
     - key: source_team
-      foreign-key: pending_connected_team_ids.value
+      foreign-key: pending_connected_team_ids
     - key: user_team
-      foreign-key: pending_connected_team_ids.value
-    - key: bot_profile.team_id
-      foreign-key: value
-    - key: team
-      foreign-key: value
-    - key: source_team
-      foreign-key: value
-    - key: user_team
-      foreign-key: value
-    - key: reply_users.value
+      foreign-key: pending_connected_team_ids
+    - key: reply_users
       foreign-key: creator
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: creator
     - key: user
       foreign-key: creator
-    - key: reply_users.value
-      foreign-key: members.value
-    - key: reactions.users.value
-      foreign-key: members.value
+    - key: reply_users
+      foreign-key: members
+    - key: reactions.users
+      foreign-key: members
     - key: user
-      foreign-key: members.value
+      foreign-key: members
   - table-name: channel_members
     keys:
     - key: channel_id
       foreign-key: channel_id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: channel_id
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user_id
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: user_id
     - key: user
       foreign-key: user_id
   - table-name: files
     keys:
     - key: channel_id
-      foreign-key: channels.value
-    - key: pinned_to.value
-      foreign-key: channels.value
+      foreign-key: channels
+    - key: pinned_to
+      foreign-key: channels
     - key: channel_id
-      foreign-key: pinned_to.value
-    - key: pinned_to.value
-      foreign-key: pinned_to.value
-    - key: file_ids.value
+      foreign-key: pinned_to
+    - key: pinned_to
+      foreign-key: pinned_to
+    - key: file_ids
       foreign-key: id
     - key: bot_profile.team_id
       foreign-key: source_team
@@ -485,22 +450,22 @@ tables:
       foreign-key: user_team
     - key: user_team
       foreign-key: user_team
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: user
     - key: user
       foreign-key: user
   - table-name: remote_files
     keys:
     - key: channel_id
-      foreign-key: channels.value
-    - key: pinned_to.value
-      foreign-key: channels.value
+      foreign-key: channels
+    - key: pinned_to
+      foreign-key: channels
     - key: channel_id
-      foreign-key: pinned_to.value
-    - key: pinned_to.value
-      foreign-key: pinned_to.value
+      foreign-key: pinned_to
+    - key: pinned_to
+      foreign-key: pinned_to
     - key: bot_profile.team_id
       foreign-key: source_team
     - key: team
@@ -517,18 +482,18 @@ tables:
       foreign-key: user_team
     - key: user_team
       foreign-key: user_team
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: user
     - key: user
       foreign-key: user
   - table-name: threads
     keys:
     - key: channel_id
-      foreign-key: id
-    - key: pinned_to.value
-      foreign-key: id
+      foreign-key: channel_id
+    - key: pinned_to
+      foreign-key: channel_id
     - key: bot_profile.team_id
       foreign-key: team
     - key: team
@@ -537,18 +502,18 @@ tables:
       foreign-key: team
     - key: user_team
       foreign-key: team
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: user
     - key: user
       foreign-key: user
-    - key: reply_users.value
-      foreign-key: reply_users.value
-    - key: reactions.users.value
-      foreign-key: reply_users.value
+    - key: reply_users
+      foreign-key: reply_users
+    - key: reactions.users
+      foreign-key: reply_users
     - key: user
-      foreign-key: reply_users.value
+      foreign-key: reply_users
   - table-name: teams
     keys:
     - key: bot_profile.team_id
@@ -569,29 +534,29 @@ tables:
       foreign-key: team_id
     - key: user_team
       foreign-key: team_id
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: id
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: id
     - key: user
       foreign-key: id
   - table-name: user_groups
     keys:
-    - key: reply_users.value
-      foreign-key: members.value
-    - key: reactions.users.value
-      foreign-key: members.value
+    - key: reply_users
+      foreign-key: members
+    - key: reactions.users
+      foreign-key: members
     - key: user
-      foreign-key: members.value
-    - key: reply_users.value
+      foreign-key: members
+    - key: reply_users
       foreign-key: purpose.creator
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: purpose.creator
     - key: user
       foreign-key: purpose.creator
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: topic.creator
-    - key: reactions.users.value
+    - key: reactions.users
       foreign-key: topic.creator
     - key: user
       foreign-key: topic.creator
@@ -599,42 +564,38 @@ tables:
   join:
   - table-name: channels
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: id
     - key: source_team
-      foreign-key: pending_connected_team_ids.value
+      foreign-key: pending_connected_team_ids
     - key: user_team
-      foreign-key: pending_connected_team_ids.value
-    - key: source_team
-      foreign-key: value
-    - key: user_team
-      foreign-key: value
+      foreign-key: pending_connected_team_ids
     - key: user
       foreign-key: creator
     - key: user
-      foreign-key: members.value
+      foreign-key: members
   - table-name: channel_members
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: channel_id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: channel_id
     - key: user
       foreign-key: user_id
   - table-name: files
     keys:
-    - key: channels.value
-      foreign-key: channels.value
-    - key: pinned_to.value
-      foreign-key: channels.value
-    - key: channels.value
-      foreign-key: pinned_to.value
-    - key: pinned_to.value
-      foreign-key: pinned_to.value
-    - key: groups.value
-      foreign-key: groups.value
+    - key: channels
+      foreign-key: channels
+    - key: pinned_to
+      foreign-key: channels
+    - key: channels
+      foreign-key: pinned_to
+    - key: pinned_to
+      foreign-key: pinned_to
+    - key: groups
+      foreign-key: groups
     - key: source_team
       foreign-key: source_team
     - key: user_team
@@ -647,14 +608,14 @@ tables:
       foreign-key: user
   - table-name: messages
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: channel_id
-    - key: pinned_to.value
+    - key: pinned_to
       foreign-key: channel_id
-    - key: channels.value
-      foreign-key: pinned_to.value
-    - key: pinned_to.value
-      foreign-key: pinned_to.value
+    - key: channels
+      foreign-key: pinned_to
+    - key: pinned_to
+      foreign-key: pinned_to
     - key: source_team
       foreign-key: bot_profile.team_id
     - key: user_team
@@ -672,17 +633,17 @@ tables:
     - key: user_team
       foreign-key: user_team
     - key: user
-      foreign-key: reply_users.value
+      foreign-key: reply_users
     - key: user
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
     - key: user
       foreign-key: user
   - table-name: threads
     keys:
-    - key: channels.value
-      foreign-key: id
-    - key: pinned_to.value
-      foreign-key: id
+    - key: channels
+      foreign-key: channel_id
+    - key: pinned_to
+      foreign-key: channel_id
     - key: source_team
       foreign-key: team
     - key: user_team
@@ -690,15 +651,15 @@ tables:
     - key: user
       foreign-key: user
     - key: user
-      foreign-key: reply_users.value
+      foreign-key: reply_users
   - table-name: user_groups
     keys:
-    - key: groups.value
+    - key: groups
       foreign-key: id
-    - key: groups.value
+    - key: groups
       foreign-key: parent_group
     - key: user
-      foreign-key: members.value
+      foreign-key: members
     - key: user
       foreign-key: purpose.creator
     - key: user
@@ -721,48 +682,46 @@ tables:
   join:
   - table-name: channels
     keys:
-    - key: id
+    - key: channel_id
       foreign-key: id
     - key: team
-      foreign-key: pending_connected_team_ids.value
-    - key: team
-      foreign-key: value
+      foreign-key: pending_connected_team_ids
     - key: user
       foreign-key: creator
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: creator
     - key: user
-      foreign-key: members.value
-    - key: reply_users.value
-      foreign-key: members.value
+      foreign-key: members
+    - key: reply_users
+      foreign-key: members
   - table-name: channel_members
     keys:
-    - key: id
+    - key: channel_id
       foreign-key: channel_id
     - key: user
       foreign-key: user_id
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user_id
   - table-name: files
     keys:
-    - key: id
-      foreign-key: channels.value
-    - key: id
-      foreign-key: pinned_to.value
+    - key: channel_id
+      foreign-key: channels
+    - key: channel_id
+      foreign-key: pinned_to
     - key: team
       foreign-key: source_team
     - key: team
       foreign-key: user_team
     - key: user
       foreign-key: user
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user
   - table-name: messages
     keys:
-    - key: id
+    - key: channel_id
       foreign-key: channel_id
-    - key: id
-      foreign-key: pinned_to.value
+    - key: channel_id
+      foreign-key: pinned_to
     - key: team
       foreign-key: bot_profile.team_id
     - key: team
@@ -772,30 +731,30 @@ tables:
     - key: team
       foreign-key: user_team
     - key: user
-      foreign-key: reply_users.value
-    - key: reply_users.value
-      foreign-key: reply_users.value
+      foreign-key: reply_users
+    - key: reply_users
+      foreign-key: reply_users
     - key: user
-      foreign-key: reactions.users.value
-    - key: reply_users.value
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
+    - key: reply_users
+      foreign-key: reactions.users
     - key: user
       foreign-key: user
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user
   - table-name: remote_files
     keys:
-    - key: id
-      foreign-key: channels.value
-    - key: id
-      foreign-key: pinned_to.value
+    - key: channel_id
+      foreign-key: channels
+    - key: channel_id
+      foreign-key: pinned_to
     - key: team
       foreign-key: source_team
     - key: team
       foreign-key: user_team
     - key: user
       foreign-key: user
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: user
   - table-name: teams
     keys:
@@ -807,31 +766,31 @@ tables:
       foreign-key: team_id
     - key: user
       foreign-key: id
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: id
   - table-name: user_groups
     keys:
     - key: user
-      foreign-key: members.value
-    - key: reply_users.value
-      foreign-key: members.value
+      foreign-key: members
+    - key: reply_users
+      foreign-key: members
     - key: user
       foreign-key: purpose.creator
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: purpose.creator
     - key: user
       foreign-key: topic.creator
-    - key: reply_users.value
+    - key: reply_users
       foreign-key: topic.creator
 - table-name: user_groups
   join:
   - table-name: files
     keys:
     - key: id
-      foreign-key: groups.value
+      foreign-key: groups
     - key: parent_group
-      foreign-key: groups.value
-    - key: members.value
+      foreign-key: groups
+    - key: members
       foreign-key: user
     - key: purpose.creator
       foreign-key: user
@@ -840,10 +799,10 @@ tables:
   - table-name: remote_files
     keys:
     - key: id
-      foreign-key: groups.value
+      foreign-key: groups
     - key: parent_group
-      foreign-key: groups.value
-    - key: members.value
+      foreign-key: groups
+    - key: members
       foreign-key: user
     - key: purpose.creator
       foreign-key: user
@@ -851,7 +810,7 @@ tables:
       foreign-key: user
   - table-name: channel_members
     keys:
-    - key: members.value
+    - key: members
       foreign-key: user_id
     - key: purpose.creator
       foreign-key: user_id
@@ -859,33 +818,33 @@ tables:
       foreign-key: user_id
   - table-name: channels
     keys:
-    - key: members.value
+    - key: members
       foreign-key: creator
     - key: purpose.creator
       foreign-key: creator
     - key: topic.creator
       foreign-key: creator
-    - key: members.value
-      foreign-key: members.value
+    - key: members
+      foreign-key: members
     - key: purpose.creator
-      foreign-key: members.value
+      foreign-key: members
     - key: topic.creator
-      foreign-key: members.value
+      foreign-key: members
   - table-name: messages
     keys:
-    - key: members.value
-      foreign-key: reply_users.value
+    - key: members
+      foreign-key: reply_users
     - key: purpose.creator
-      foreign-key: reply_users.value
+      foreign-key: reply_users
     - key: topic.creator
-      foreign-key: reply_users.value
-    - key: members.value
-      foreign-key: reactions.users.value
+      foreign-key: reply_users
+    - key: members
+      foreign-key: reactions.users
     - key: purpose.creator
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
     - key: topic.creator
-      foreign-key: reactions.users.value
-    - key: members.value
+      foreign-key: reactions.users
+    - key: members
       foreign-key: user
     - key: purpose.creator
       foreign-key: user
@@ -893,21 +852,21 @@ tables:
       foreign-key: user
   - table-name: threads
     keys:
-    - key: members.value
+    - key: members
       foreign-key: user
     - key: purpose.creator
       foreign-key: user
     - key: topic.creator
       foreign-key: user
-    - key: members.value
-      foreign-key: reply_users.value
+    - key: members
+      foreign-key: reply_users
     - key: purpose.creator
-      foreign-key: reply_users.value
+      foreign-key: reply_users
     - key: topic.creator
-      foreign-key: reply_users.value
+      foreign-key: reply_users
   - table-name: users
     keys:
-    - key: members.value
+    - key: members
       foreign-key: id
     - key: purpose.creator
       foreign-key: id
@@ -918,9 +877,7 @@ tables:
   - table-name: channels
     keys:
     - key: id
-      foreign-key: pending_connected_team_ids.value
-    - key: id
-      foreign-key: value
+      foreign-key: pending_connected_team_ids
   - table-name: files
     keys:
     - key: id
@@ -956,13 +913,11 @@ tables:
   - table-name: channels
     keys:
     - key: team_id
-      foreign-key: pending_connected_team_ids.value
-    - key: team_id
-      foreign-key: value
+      foreign-key: pending_connected_team_ids
     - key: id
       foreign-key: creator
     - key: id
-      foreign-key: members.value
+      foreign-key: members
   - table-name: files
     keys:
     - key: team_id
@@ -982,9 +937,9 @@ tables:
     - key: team_id
       foreign-key: user_team
     - key: id
-      foreign-key: reply_users.value
+      foreign-key: reply_users
     - key: id
-      foreign-key: reactions.users.value
+      foreign-key: reactions.users
     - key: id
       foreign-key: user
   - table-name: remote_files
@@ -1006,7 +961,7 @@ tables:
     - key: id
       foreign-key: user
     - key: id
-      foreign-key: reply_users.value
+      foreign-key: reply_users
   - table-name: channel_members
     keys:
     - key: id
@@ -1014,7 +969,7 @@ tables:
   - table-name: user_groups
     keys:
     - key: id
-      foreign-key: members.value
+      foreign-key: members
     - key: id
       foreign-key: purpose.creator
     - key: id
