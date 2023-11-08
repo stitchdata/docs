@@ -102,7 +102,7 @@ tables:
     primary-keys:
     - inventory_item_id
     - location_id
-    replication-key: created_at
+    replication-key: updated_at
 - name: locations
   description: 'The `{{ table.name }}` table contains info about .
 
@@ -208,3 +208,4 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: created_at
+tap-repo-schemas: true
