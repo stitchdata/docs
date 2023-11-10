@@ -1,6 +1,6 @@
 ---
 tap: "frontapp"
-version: "V1"
+version: "1"
 key: ""
 
 name: "channels_table"
