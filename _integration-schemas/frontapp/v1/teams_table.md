@@ -1,35 +1,27 @@
 ---
 tap: "frontapp"
-version: "1"
+version: "V1"
 key: ""
 
-name: "tags_table"
-doc-link: "https://dev.frontapp.com/#analytics"
-singer-schema: "https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/tags_table.json"
-description: |
-  The `{{ table.name }}` table contains a list of tag statistics since the last completed replication job through the most recent iteration of the defined [**Incremental Range**](#add-stitch-data-source) (day or hour).
-
-  This table will include tags in your {{ integration.display_name }} account.
-
-  **Note**: During the historical replication job, all increments (defined using the **Incremental Range** setting) since the **Start Date** will be replicated. This will result in the first record for this table being an aggregated record across all tags.
+name: "teams_table"
+doc-link: 
+singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/teams_table.json
+description: ""
 
 replication-method: "Key-based Incremental"
 
-api-method:
-    name: "getAnalytics"
-    doc-link: "https://dev.frontapp.com/#analytics"
+table-key-properties: "report_id"
+valid-replication-keys: "analytics_date", "analytics_range"
 
 attributes:
   - name: "analytics_date"
     type: "string"
     description: ""
     replication-key: true
-
   - name: "analytics_range"
     type: "string"
     description: ""
     replication-key: true
-
   - name: "avg_first_response_time"
     type: "number"
     description: ""
@@ -118,4 +110,4 @@ attributes:
     type: "string"
     description: ""
     primary-key: true
----
+
