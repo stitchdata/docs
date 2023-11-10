@@ -4,7 +4,7 @@ version: "V1"
 key: ""
 
 name: "accounts_table"
-doc-link: 
+doc-link: ""
 singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/accounts_table.json
 description: ""
 

@@ -4,7 +4,7 @@ version: "V1"
 key: ""
 
 name: "teams_table"
-doc-link: 
+doc-link: ""
 singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/teams_table.json
 description: ""
 
@@ -111,3 +111,4 @@ attributes:
     description: ""
     primary-key: true
 
+---
