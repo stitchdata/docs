@@ -10,8 +10,7 @@ description: ""
 
 replication-method: "Key-based Incremental"
 
-table-key-properties: "report_id"
-valid-replication-keys: "analytics_date", "analytics_range"
+
 
 attributes:
   - name: "analytics_date"
