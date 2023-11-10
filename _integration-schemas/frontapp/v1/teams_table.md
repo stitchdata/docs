@@ -4,9 +4,9 @@ version: "1"
 key: ""
 
 name: "teams_table"
-doc-link: ""
+doc-link: "https://dev.frontapp.com/reference/analytics"
 singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/teams_table.json
-description: ""
+description: "The `{{ table.name }}` table contains data about teams in your {{ integration.display_name }} account."
 
 replication-method: "Key-based Incremental"
 
