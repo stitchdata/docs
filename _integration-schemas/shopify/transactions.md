@@ -126,14 +126,34 @@ attributes:
         type: "string"
         description: "The name of the company that issued the customer's credit card."
 
+      - name: "credit_card_expiration_month"
+        type: "string"
+        description: ""
+
+      - name: "credit_card_expiration_year"
+        type: "string"
+        description: ""
+
+      - name: "credit_card_name"
+        type: "string"
+        description: ""
+
       - name: "credit_card_number"
         type: "string"
         description: "The customer's credit card number, **with most of the leading digits redacted**."
 
+      - name: "credit_card_wallet"
+        type: "string"
+        description: ""
+
       - name: "cvv_result_code"
         type: "string"
         description: |
-          The response code from the credit card company indicating whether the customer entered the card security code or card verification value (CVV) correctly. Refer to [Electronic Merchant System's documentation](http://www.emsecommerce.net/avs_cvv2_response_codes.htm){:target="new"} for a list of possible codes and defintions.
+          The response code from the credit card company indicating whether the customer entered the card security code or card verification value (CVV) correctly. Refer to [Electronic Merchant System's documentation](http://www.emsecommerce.net/avs_cvv2_response_codes.htm){:target="new"} for a list of possible codes and definitions.
+
+  - name: "payment_id"
+    type: "string"
+    description: ""
 
   - name: "payments_refund_attributes"
     type: "object"
@@ -181,6 +201,27 @@ attributes:
       - `failure`
       - `success`
       - `error`
+
+  - name: "total_unsettled_set"
+    type: "objects"
+    description: ""
+    subattributes:
+      - name: "presentment_money"
+        description: ""
+        type: "object"
+        subattributes: &money-attributes
+          - name: "amount"
+            description: ""
+            type: "number"
+            
+          - name: "currency"
+            description: ""
+            type: "string"
+        
+      - name: "shop_money"
+        description: ""
+        type: "object"
+        subattributes: *money-attributes
 
   - name: "test"
     type: "boolean"
