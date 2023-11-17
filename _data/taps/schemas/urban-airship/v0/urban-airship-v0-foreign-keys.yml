@@ -1,5 +1,5 @@
 tap: urban-airship
-version: '1'
+version: '0'
 keys:
   channels_channel_id:
   - table: channels
@@ -7,7 +7,7 @@ keys:
     - channel_id
   - table: named_users
     keys:
-    - channels.value
+    - channels
   lists_name:
   - table: lists
     keys:
@@ -29,14 +29,14 @@ tables:
   - table-name: named_users
     keys:
     - key: channel_id
-      foreign-key: channels.value
+      foreign-key: channels
     - key: named_user_id
       foreign-key: named_user_id
 - table-name: named_users
   join:
   - table-name: channels
     keys:
-    - key: channels.value
+    - key: channels
       foreign-key: channel_id
     - key: named_user_id
       foreign-key: named_user_id
