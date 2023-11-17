@@ -8,58 +8,63 @@
     },
     "entries": {
       "items": {
-        "`type`": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "amount_money": {
-          "properties": {
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "currency_code": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+        "properties": {
+          "`type`": {
+            "type": [
+              "null",
+              "string"
+            ]
           },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "fee_money": {
-          "properties": {
-            "amount": {
-              "type": [
-                "null",
-                "integer"
-              ]
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
             },
-            "currency_code": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+            "type": [
+              "null",
+              "object"
+            ]
           },
-          "type": [
-            "null",
-            "object"
-          ]
+          "fee_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "payment_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
         },
-        "payment_id": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
+        "type": [
+          "object"
+        ]
       },
       "type": [
         "null",

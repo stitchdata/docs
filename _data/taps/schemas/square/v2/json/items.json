@@ -64,12 +64,17 @@
         },
         "item_options": {
           "items": {
-            "item_option_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+            "properties": {
+              "item_option_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
           },
           "type": [
             "null",
@@ -96,18 +101,23 @@
         },
         "modifier_list_info": {
           "items": {
-            "enabled": {
-              "type": [
-                "null",
-                "boolean"
-              ]
+            "properties": {
+              "enabled": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "modifier_list_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
             },
-            "modifier_list_id": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+            "type": [
+              "object"
+            ]
           },
           "type": [
             "null",
