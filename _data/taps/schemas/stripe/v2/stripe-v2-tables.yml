@@ -144,7 +144,6 @@ tables:
     primary-keys:
     - id
     - invoice
-    replication-key: created
 - name: payment_intents
   description: 'This table contains information about payments, from creation through
     checkout, in your {{ integration.display_name }} account.
@@ -237,20 +236,29 @@ tables:
     primary-key: id
     replication-key: created
 - name: invoice_items
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about items contained in
+    customer invoices.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/invoice_items.json
+    api-method: https://stripe.com/docs/api/invoiceitems/list
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date
 - name: transfers
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about transfers sent to
+    connected accounts.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/transfers.json
+    api-method: https://stripe.com/docs/api/transfers/list
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+tap-repo-schemas: true

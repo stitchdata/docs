@@ -36,23 +36,20 @@ keys:
     - charge
   - table: disputes
     keys:
-    - charge-id
+    - charge
   coupons_coupon:
-  - table: coupon
+  - table: coupons
     keys:
     - id
   - table: customers
     keys:
-    - discount__coupon.id
+    - discount.coupon.id
   - table: invoices
     keys:
-    - discount__coupon.id
-  - table: subscription_items
-    keys:
-    - discount__coupon.id
+    - discount.coupon.id
   - table: subscriptions
     keys:
-    - discount__coupon.id
+    - discount.coupon.id
   customers_customer:
   - table: charges
     keys:
@@ -62,7 +59,7 @@ keys:
     keys:
     - id
     - cards.customer
-    - discount__coupon.customer
+    - discount.customer
   - table: invoice_items
     keys:
     - customer
@@ -106,7 +103,7 @@ keys:
     - id
   - table: invoices
     keys:
-    - lines.value
+    - lines
   plans_plan:
   - table: invoice_items
     keys:
@@ -155,12 +152,12 @@ keys:
     - id
   - table: subscriptions
     keys:
-    - items.value
+    - items
   subscriptions_subscription:
   - table: customers
     keys:
-    - subscriptions.id
-    - discount__coupon.subscription
+    - subscriptions
+    - discount.subscription
   - table: invoice_items
     keys:
     - subscription
@@ -240,7 +237,7 @@ tables:
     - key: balance_transaction
       foreign-key: balance_transactions.id
     - key: id
-      foreign-key: charge-id
+      foreign-key: charge
   - table-name: customers
     keys:
     - key: card.id
@@ -256,9 +253,9 @@ tables:
     - key: card.customer
       foreign-key: cards.customer
     - key: customer
-      foreign-key: discount__coupon.customer
+      foreign-key: discount.customer
     - key: card.customer
-      foreign-key: discount__coupon.customer
+      foreign-key: discount.customer
   - table-name: invoices
     keys:
     - key: id
@@ -373,7 +370,7 @@ tables:
     keys:
     - key: balance_transactions.id
       foreign-key: balance_transaction
-    - key: charge-id
+    - key: charge
       foreign-key: id
   - table-name: payouts
     keys:
@@ -389,7 +386,7 @@ tables:
       foreign-key: failure_balance_transaction
   - table-name: invoices
     keys:
-    - key: charge-id
+    - key: charge
       foreign-key: charge
 - table-name: customers
   join:
@@ -403,69 +400,55 @@ tables:
       foreign-key: customer
     - key: cards.customer
       foreign-key: customer
-    - key: discount__coupon.customer
+    - key: discount.customer
       foreign-key: customer
     - key: id
       foreign-key: card.customer
     - key: cards.customer
       foreign-key: card.customer
-    - key: discount__coupon.customer
+    - key: discount.customer
       foreign-key: card.customer
-  - table-name: coupon
+  - table-name: coupons
     keys:
-    - key: discount__coupon.id
+    - key: discount.coupon.id
       foreign-key: id
   - table-name: invoices
     keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
     - key: id
       foreign-key: customer
     - key: cards.customer
       foreign-key: customer
-    - key: discount__coupon.customer
+    - key: discount.customer
       foreign-key: customer
     - key: id
       foreign-key: discount.customer
     - key: cards.customer
       foreign-key: discount.customer
-    - key: discount__coupon.customer
+    - key: discount.customer
       foreign-key: discount.customer
-    - key: subscriptions.id
+    - key: subscriptions
       foreign-key: subscription
-    - key: discount__coupon.subscription
+    - key: discount.subscription
       foreign-key: subscription
-    - key: subscriptions.id
+    - key: subscriptions
       foreign-key: discount.subscription
-    - key: discount__coupon.subscription
+    - key: discount.subscription
       foreign-key: discount.subscription
-  - table-name: subscription_items
-    keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
-    - key: id
-      foreign-key: customer
-    - key: cards.customer
-      foreign-key: customer
-    - key: discount__coupon.customer
-      foreign-key: customer
-    - key: subscriptions.id
-      foreign-key: subscription
-    - key: discount__coupon.subscription
-      foreign-key: subscription
   - table-name: subscriptions
     keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
     - key: id
       foreign-key: customer
     - key: cards.customer
       foreign-key: customer
-    - key: discount__coupon.customer
+    - key: discount.customer
       foreign-key: customer
-    - key: subscriptions.id
+    - key: subscriptions
       foreign-key: id
-    - key: discount__coupon.subscription
+    - key: discount.subscription
       foreign-key: id
   - table-name: invoice_items
     keys:
@@ -473,17 +456,29 @@ tables:
       foreign-key: customer
     - key: cards.customer
       foreign-key: customer
-    - key: discount__coupon.customer
+    - key: discount.customer
       foreign-key: customer
-    - key: subscriptions.id
+    - key: subscriptions
       foreign-key: subscription
-    - key: discount__coupon.subscription
+    - key: discount.subscription
+      foreign-key: subscription
+  - table-name: subscription_items
+    keys:
+    - key: id
+      foreign-key: customer
+    - key: cards.customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscriptions
+      foreign-key: subscription
+    - key: discount.subscription
       foreign-key: subscription
   - table-name: invoice_line_items
     keys:
-    - key: subscriptions.id
+    - key: subscriptions
       foreign-key: subscription
-    - key: discount__coupon.subscription
+    - key: discount.subscription
       foreign-key: subscription
 - table-name: invoices
   join:
@@ -504,15 +499,15 @@ tables:
   - table-name: disputes
     keys:
     - key: charge
-      foreign-key: charge-id
-  - table-name: coupon
+      foreign-key: charge
+  - table-name: coupons
     keys:
-    - key: discount__coupon.id
+    - key: discount.coupon.id
       foreign-key: id
   - table-name: customers
     keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
     - key: customer
       foreign-key: id
     - key: discount.customer
@@ -521,186 +516,100 @@ tables:
       foreign-key: cards.customer
     - key: discount.customer
       foreign-key: cards.customer
-    - key: customer
-      foreign-key: discount__coupon.customer
-    - key: discount.customer
-      foreign-key: discount__coupon.customer
-    - key: subscription
-      foreign-key: subscriptions.id
-    - key: discount.subscription
-      foreign-key: subscriptions.id
-    - key: subscription
-      foreign-key: discount__coupon.subscription
-    - key: discount.subscription
-      foreign-key: discount__coupon.subscription
-  - table-name: subscription_items
-    keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
-    - key: customer
-      foreign-key: customer
-    - key: discount.customer
-      foreign-key: customer
-    - key: subscription
-      foreign-key: subscription
-    - key: discount.subscription
-      foreign-key: subscription
-  - table-name: subscriptions
-    keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
-    - key: customer
-      foreign-key: customer
-    - key: discount.customer
-      foreign-key: customer
-    - key: subscription
-      foreign-key: id
-    - key: discount.subscription
-      foreign-key: id
-  - table-name: invoice_items
-    keys:
-    - key: customer
-      foreign-key: customer
-    - key: discount.customer
-      foreign-key: customer
-    - key: id
-      foreign-key: invoice
-    - key: subscription
-      foreign-key: subscription
-    - key: discount.subscription
-      foreign-key: subscription
-  - table-name: invoice_line_items
-    keys:
-    - key: id
-      foreign-key: invoice
-    - key: lines.value
-      foreign-key: id
-    - key: subscription
-      foreign-key: subscription
-    - key: discount.subscription
-      foreign-key: subscription
-- table-name: coupon
-  join:
-  - table-name: customers
-    keys:
-    - key: id
-      foreign-key: discount__coupon.id
-  - table-name: invoices
-    keys:
-    - key: id
-      foreign-key: discount__coupon.id
-  - table-name: subscription_items
-    keys:
-    - key: id
-      foreign-key: discount__coupon.id
-  - table-name: subscriptions
-    keys:
-    - key: id
-      foreign-key: discount__coupon.id
-- table-name: subscription_items
-  join:
-  - table-name: coupon
-    keys:
-    - key: discount__coupon.id
-      foreign-key: id
-  - table-name: customers
-    keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
-    - key: customer
-      foreign-key: id
-    - key: customer
-      foreign-key: cards.customer
-    - key: customer
-      foreign-key: discount__coupon.customer
-    - key: subscription
-      foreign-key: subscriptions.id
-    - key: subscription
-      foreign-key: discount__coupon.subscription
-  - table-name: invoices
-    keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
-    - key: customer
-      foreign-key: customer
     - key: customer
       foreign-key: discount.customer
+    - key: discount.customer
+      foreign-key: discount.customer
     - key: subscription
-      foreign-key: subscription
+      foreign-key: subscriptions
+    - key: discount.subscription
+      foreign-key: subscriptions
     - key: subscription
+      foreign-key: discount.subscription
+    - key: discount.subscription
       foreign-key: discount.subscription
   - table-name: subscriptions
     keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
     - key: customer
       foreign-key: customer
-    - key: plan.id
-      foreign-key: plan.id
-    - key: plan.product
-      foreign-key: plan.product
-    - key: id
-      foreign-key: items.value
+    - key: discount.customer
+      foreign-key: customer
     - key: subscription
       foreign-key: id
-  - table-name: charges
-    keys:
-    - key: customer
-      foreign-key: customer
-    - key: customer
-      foreign-key: card.customer
+    - key: discount.subscription
+      foreign-key: id
   - table-name: invoice_items
     keys:
     - key: customer
       foreign-key: customer
-    - key: plan.id
-      foreign-key: plan.id
-    - key: plan.product
-      foreign-key: plan.product
+    - key: discount.customer
+      foreign-key: customer
     - key: id
-      foreign-key: subscription_item
+      foreign-key: invoice
     - key: subscription
       foreign-key: subscription
-  - table-name: plans
+    - key: discount.subscription
+      foreign-key: subscription
+  - table-name: subscription_items
     keys:
-    - key: plan.id
-      foreign-key: id
-    - key: plan.product
-      foreign-key: product
+    - key: customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscription
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
   - table-name: invoice_line_items
     keys:
-    - key: plan.product
-      foreign-key: plan.product
+    - key: id
+      foreign-key: invoice
+    - key: lines
+      foreign-key: id
     - key: subscription
       foreign-key: subscription
-  - table-name: products
+    - key: discount.subscription
+      foreign-key: subscription
+- table-name: coupons
+  join:
+  - table-name: customers
     keys:
-    - key: plan.product
-      foreign-key: id
+    - key: id
+      foreign-key: discount.coupon.id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: discount.coupon.id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: discount.coupon.id
 - table-name: subscriptions
   join:
-  - table-name: coupon
+  - table-name: coupons
     keys:
-    - key: discount__coupon.id
+    - key: discount.coupon.id
       foreign-key: id
   - table-name: customers
     keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
     - key: customer
       foreign-key: id
     - key: customer
       foreign-key: cards.customer
     - key: customer
-      foreign-key: discount__coupon.customer
+      foreign-key: discount.customer
     - key: id
-      foreign-key: subscriptions.id
+      foreign-key: subscriptions
     - key: id
-      foreign-key: discount__coupon.subscription
+      foreign-key: discount.subscription
   - table-name: invoices
     keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
     - key: customer
       foreign-key: customer
     - key: customer
@@ -709,20 +618,6 @@ tables:
       foreign-key: subscription
     - key: id
       foreign-key: discount.subscription
-  - table-name: subscription_items
-    keys:
-    - key: discount__coupon.id
-      foreign-key: discount__coupon.id
-    - key: customer
-      foreign-key: customer
-    - key: plan.id
-      foreign-key: plan.id
-    - key: plan.product
-      foreign-key: plan.product
-    - key: items.value
-      foreign-key: id
-    - key: id
-      foreign-key: subscription
   - table-name: charges
     keys:
     - key: customer
@@ -737,8 +632,20 @@ tables:
       foreign-key: plan.id
     - key: plan.product
       foreign-key: plan.product
-    - key: items.value
+    - key: items
       foreign-key: subscription_item
+    - key: id
+      foreign-key: subscription
+  - table-name: subscription_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: items
+      foreign-key: id
     - key: id
       foreign-key: subscription
   - table-name: plans
@@ -774,11 +681,11 @@ tables:
     - key: customer
       foreign-key: cards.customer
     - key: customer
-      foreign-key: discount__coupon.customer
+      foreign-key: discount.customer
     - key: subscription
-      foreign-key: subscriptions.id
+      foreign-key: subscriptions
     - key: subscription
-      foreign-key: discount__coupon.subscription
+      foreign-key: discount.subscription
   - table-name: invoices
     keys:
     - key: customer
@@ -812,7 +719,7 @@ tables:
     - key: plan.product
       foreign-key: plan.product
     - key: subscription_item
-      foreign-key: items.value
+      foreign-key: items
     - key: subscription
       foreign-key: id
   - table-name: invoice_line_items
@@ -831,6 +738,76 @@ tables:
       foreign-key: id
     - key: plan.product
       foreign-key: product
+  - table-name: products
+    keys:
+    - key: plan.product
+      foreign-key: id
+- table-name: subscription_items
+  join:
+  - table-name: charges
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: card.customer
+  - table-name: customers
+    keys:
+    - key: customer
+      foreign-key: id
+    - key: customer
+      foreign-key: cards.customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: subscription
+      foreign-key: subscriptions
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: invoice_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: id
+      foreign-key: subscription_item
+    - key: subscription
+      foreign-key: subscription
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: subscription
+      foreign-key: subscription
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: id
+      foreign-key: items
+    - key: subscription
+      foreign-key: id
+  - table-name: plans
+    keys:
+    - key: plan.id
+      foreign-key: id
+    - key: plan.product
+      foreign-key: product
+  - table-name: invoice_line_items
+    keys:
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription
+      foreign-key: subscription
   - table-name: products
     keys:
     - key: plan.product
@@ -856,7 +833,7 @@ tables:
     - key: invoice
       foreign-key: id
     - key: id
-      foreign-key: lines.value
+      foreign-key: lines
     - key: subscription
       foreign-key: subscription
     - key: subscription
@@ -884,9 +861,9 @@ tables:
   - table-name: customers
     keys:
     - key: subscription
-      foreign-key: subscriptions.id
+      foreign-key: subscriptions
     - key: subscription
-      foreign-key: discount__coupon.subscription
+      foreign-key: discount.subscription
 - table-name: plans
   join:
   - table-name: invoice_items

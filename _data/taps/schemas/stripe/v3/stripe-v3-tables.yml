@@ -157,7 +157,6 @@ tables:
     primary-keys:
     - id
     - invoice
-    replication-key: created
 - name: payment_intents
   description: 'This table contains information about payments, from creation through
     checkout, in your {{ integration.display_name }} account.
@@ -262,3 +261,4 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: created
+tap-repo-schemas: true
