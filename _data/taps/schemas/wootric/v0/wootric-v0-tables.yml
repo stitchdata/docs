@@ -2,29 +2,38 @@ tap: wootric
 version: '0'
 tables:
 - name: declines
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about declines, or the
+    instances where a user is presented with a survey opportunity and opts out.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/declines.json
+    api-method: http://docs.wootric.com/api/#get-all-declines
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
-- name: end_users
-  description: ''
-  links:
-    singer-schema: ''
-    doc-link: ''
-  table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: responses
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about end user responses
+    to surveys.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/responses.json
+    api-method: http://docs.wootric.com/api/#get-all-responses
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: end_users
+  description: 'The `{{ table.name }}` table contains info about end users.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/end_users.json
+    api-method: https://docs.wootric.com/api/#get-all-end-users
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true
