@@ -2,155 +2,457 @@ tap: snapchat-ads
 version: '0'
 tables:
 - name: ads
-  description: ''
+  description: This stream retrieves all Ads under a specified Ad account
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-ads-under-an-ad-account
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/ads.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: ad_accounts
-  description: ''
+  description: This stream retrieves all ad accounts for the specified Organization.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-ad-accounts
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/ad_accounts.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: ad_account_stats_daily
+  description: This endpoint retrieves the spend metric for the specified Ad Account
+    at DAY granularity, the spend metric is the only metric available for the ad account
+    entity
+  tap-repo-schema: false
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-ad-account-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/ad_account_stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+- name: ad_account_stats_hourly
+  description: This endpoint retrieves the spend metric for the specified Ad Account
+    at HOUR granularity, the spend metric is the only metric available for the ad
+    account entity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-ad-account-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/ad_account_stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
 - name: ad_squads
-  description: ''
+  description: This stream retrieves all ad squads within a specified ad account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-ad-squads-under-an-ad-account
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/ad_squads.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: ad_squad_stats_daily
+  description: This stream retrieves stats for the specified Ad Squad at DAY granularity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-ad-squad-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
+- name: ad_squad_stats_hourly
+  description: This stream retrieves stats for the specified Ad Squad at HOUR granularity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-ad-squad-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
+- name: ad_stats_daily
+  description: This stream retrieves stats for the specified Ad at DAY granularity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-ad-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
+- name: ad_stats_hourly
+  description: This stream retrieves stats for the specified Ad at HOUR granularity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-ad-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
 - name: audience_segments
-  description: ''
+  description: This stream retrieves all Customer List segments within a specified
+    ad account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://marketingapi.snapchat.com/docs/#get-all-audience-segments
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/audience_segments.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: billing_centers
-  description: ''
+  description: Billing Centers allow Businesses to have multiple invoicing locations
+    to choose from. A Billing Center is the contact that will be receiving invoices.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://marketingapi.snapchat.com/docs/#billing-centers
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/billing_centers.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: campaigns
-  description: ''
+  description: This stream retrieves all campaigns within a specified ad account
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-campaigns
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/campaigns.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: campaign_stats_daily
+  description: This stream retrieves stats for the specified Campaign at DAY granularity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-campaign-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
+- name: campaign_stats_hourly
+  description: This stream retrieves stats for the specified Campaign at HOUR granularity
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-campaign-stats
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/stats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - start_time
+    replication-key: end_time
+  tap-repo-schema: false
 - name: creatives
-  description: ''
+  description: This endpoint retrieves all creatives associated with an ad account
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-creatives
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/creatives.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: funding_sources
-  description: ''
+  description: An Funding Source is owned by an Organization and defines the financial
+    instrument/terms responsible for the ad spend. Funding sources are assigned to
+    an Ad Account in order to pay for the activity within that Ad Account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://marketingapi.snapchat.com/docs/#funding-sources
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/funding_sources.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: media
-  description: ''
+  description: This stream retrieves all media entities associated with an ad account
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-media
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/media.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: members
-  description: ''
+  description: This stream retrieves the information of all Members of an Organization
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/?python#get-all-members-of-an-organization
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/members.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: organizations
-  description: ''
+  description: This stream retrieves all organizations.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-organizations
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/organizations.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: phone_numbers
-  description: ''
+  description: This stream retrieves all verified phone numbers for an Ad Account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#swipe-to-call-text-phone-number-verification
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/phone_numbers.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: pixels
-  description: ''
+  description: This stream retrieves the pixel associated with the specified Ad Account.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-the-pixel-associated-with-an-ad-account
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/pixels.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: pixel_domain_stats
-  description: ''
+  description: This stream retrieves the domains that have fired the pixel in the
+    past 7 days.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-pixel-domains
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/pixel_domain_stats.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: product_catalogs
-  description: ''
+  description: This stream will retrieve a list of all the catalogs within an organization
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-catalogs
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/product_catalogs.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
 - name: product_sets
-  description: ''
+  description: This stream will get all the Product Sets within the Catalog.
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/#get-all-product-sets
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/product_sets.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: roles
-  description: ''
+  description: This stream retrieves all Roles assigned within an Organization
   links:
-    singer-schema: ''
-    doc-link: ''
+    doc-link: https://developers.snapchat.com/api/docs/?python#get-all-roles-in-organization
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/roles.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
+- name: targeting_advanced_demographics
+  description: This stream retrieves the list of Advanced Demographics targeting options
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#demographics-advanced-demographics
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_age_groups
+  description: This stream retrieves the list of age group targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#demographics-age-groups
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_android_versions
+  description: This stream retrieves the list of device OS version targeting options.
+    These OS versions can then be used in targeting as os_version_min and os_version_max.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#device-os-version
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_carriers
+  description: This stream retrieves the list of device carrier targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#device-carrier
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_connection_types
+  description: This stream retrieves the list of device connection type targeting
+    options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#device-connection-type
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_countries
+  description: This stream retrieves the list of country targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#geolocation-country
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting_geo.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_device_makes
+  description: This stream retrieves the list of device make targeting options. Please
+    note that specifying a parent level make option like `Apple/` in the targeting
+    spec will include all devices of the kind `Apple/*` like `Apple/iPad (3rd Gen)/`,
+    `Apple/iPhone 4/`, `Apple/iPhone 7 Plus/` etc.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#device-make
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_genders
+  description: This stream retrieves the list of gender targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#demographics-gender
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_interests_dlxc
+  description: This stream retrieves the list of Oracle Datalogix DLXC targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-oracle-datalogix-dlxc-interest-targeting-options
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_interests_dlxp
+  description: This stream retrieves the list of Oracle Datalogix DLXP targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-oracle-datalogix-dlxp-interest-targeting-options
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_interests_dlxs
+  description: This stream retrieves the list of Oracle Datalogix DLXS Interests targeting
+    options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-oracle-datalogix-dlxs-interest-targeting-options
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_interests_nln
+  description: This stream retrieves the list of Nielsen interest targeting options
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#get-nielsen-interest-targeting-options
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_interests_plc
+  description: This stream retrieves the list of placed visitation segments targeting
+    options by the specified country code
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#interests-placed-visitation-segments
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_interests_scls
+  description: This stream retrieves the list of Snap Lifestyle Categories targeting
+    options by the specified country code
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#interests-snap-lifestyle-categories
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_ios_versions
+  description: This stream retrieves the list of device OS version targeting options.
+    These OS versions can then be used in targeting as os_version_min and os_version_max.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#device-os-version
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_languages
+  description: This stream retrieves the list of language targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#demographics-language
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_location_categories
+  description: Location targeting allows an advertiser to target users based on their
+    location.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#location
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_metros
+  description: This stream retrieves the list of metro/dma targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#geolocation-metro-dma
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting_geo.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_os_types
+  description: This stream retrieves the list of device OS type targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#device-os-type
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_postal_codes
+  description: This stream retrieves the list of zipcode targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#zipcode
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting_geo.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+- name: targeting_regions
+  description: This stream retrieves the list of region/state targeting options.
+  links:
+    doc-link: https://developers.snapchat.com/api/docs/#geolocation-region-state
+    singer-schema: https://github.com/singer-io/tap-snapchat-ads/tree/master/tap_snapchat_ads/schemas/shared/targeting_geo.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+  tap-repo-schema: false
+tap-repo-schemas: true
