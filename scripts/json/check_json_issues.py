@@ -2,7 +2,7 @@ def fixProperty(property):
     # Adds a `properties` element to that contains the child elements in objects that don't have it
 
     # List elements that are expected to be present directly in an object
-    expected_properties = ['multipleOf','additionalProperties', 'type', 'additional_properties', 'description', 'patternProperties', 'enum', 'title', 'required', 'exclusiveMaximum', 'exclusiveMinimum', 'maximum', 'minimum', 'x-looker-deprecated', 'default', 'format']
+    expected_properties = ['multipleOf','additionalProperties', 'type', 'additional_properties', 'description', 'patternProperties', 'enum', 'title', 'required', 'exclusiveMaximum', 'exclusiveMinimum', 'maximum', 'minimum', 'x-looker-deprecated', 'default', 'format', 'selected']
     
     # List elements that contain child elements
     nested = ['anyOf', 'properties', 'items']
@@ -31,7 +31,7 @@ def fixProperty(property):
                                 p = item_list['properties']
                                 p = fixProperty(p)
                             else:
-                                fixProperty(item_list)
+                                fixProperty(item)
             
             # If the element contains 'items', check each the 'properties' in the 'items' element, or just 'items' if there is no 'properties' element
             elif 'items' in content:
@@ -41,7 +41,7 @@ def fixProperty(property):
                         p = item_list['properties']
                         p = fixProperty(p)
                     else:
-                        fixProperty(item_list)    
+                        fixProperty(content)    
 
             # If the current property contains it child elements directly, get all elements and add them in a 'properties' element, and add the 'object' type to the parent      
             else:
