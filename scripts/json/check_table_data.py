@@ -26,55 +26,59 @@ def checkPrimaryReplicationKeys(file, json_folder, issue_list):
         tables = data['tables']
         for table in tables:
             table_name = table['name']
-
-            # Get the corresponding JSON schema
-            json_file = '{0}/{1}.json'.format(json_folder, table_name)
-
-            # Get the primary key(s) and replication key(s) if they exist
-            details = table['table-details']
             try:
-                primary_keys = [details['primary-key']]
+                r = table['report']
+                print('Table data for {} not checked'.format(table_name))
             except:
+
+                # Get the corresponding JSON schema
+                json_file = '{0}/{1}.json'.format(json_folder, table_name)
+
+                # Get the primary key(s) and replication key(s) if they exist
+                details = table['table-details']
                 try:
-                    primary_keys = details['primary-keys']
+                    primary_keys = [details['primary-key']]
                 except:
-                    primary_keys = []
-            try:
-                replication_keys = [details['replication-key']]
-            except:
+                    try:
+                        primary_keys = details['primary-keys']
+                    except:
+                        primary_keys = []
                 try:
-                    replication_keys = details['replication-keys']
+                    replication_keys = [details['replication-key']]
                 except:
-                    replication_keys = []
+                    try:
+                        replication_keys = details['replication-keys']
+                    except:
+                        replication_keys = []
 
-            # Find properties in the JSON file
-            if os.path.exists(json_file):            
-                with open(json_file, 'r', encoding='utf-8') as j:
-                    json_content = json.load(j)
-                    properties = json_content['properties']
+                # Find properties in the JSON file
+                if os.path.exists(json_file):            
+                    with open(json_file, 'r', encoding='utf-8') as j:
+                        json_content = json.load(j)
+                        properties = json_content['properties']
 
-                    # Look for all primary keys in the JSON file, if some are not found, append the list of issues
-                    if len(primary_keys) > 0:
-                        for primary_key in primary_keys:
-                            try:
-                                element = properties[primary_key]
-                            except:
-                                report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
-                                issue_list.append(report)
+                        # Look for all primary keys in the JSON file, if some are not found, append the list of issues
+                        if len(primary_keys) > 0:
+                            for primary_key in primary_keys:
+                                try:
+                                    element = properties[primary_key]
+                                except:
+                                    report = 'Primary Key {0} not found in {1}'.format(primary_key, json_file.replace('../../', ''))
+                                    issue_list.append(report)
 
-                    # Look for all replication keys in the JSON file, if some are not found, append the list of issues
-                    if len(replication_keys) > 0:
-                        for replication_key in replication_keys:
+                        # Look for all replication keys in the JSON file, if some are not found, append the list of issues
+                        if len(replication_keys) > 0:
+                            for replication_key in replication_keys:
 
-                            try:
-                                element = properties[replication_key]
-                            except:
-                                report = 'Replication Key {0} not found in {1}'.format(replication_key, json_file.replace('../../', ''))
-                                issue_list.append(report)
-            else:
-                report = 'JSON file {} not found'.format(json_file.replace('../../', ''))
-                if report not in issue_list:
-                    issue_list.append(report)
+                                try:
+                                    element = properties[replication_key]
+                                except:
+                                    report = 'Replication Key {0} not found in {1}'.format(replication_key, json_file.replace('../../', ''))
+                                    issue_list.append(report)
+                else:
+                    report = 'JSON file {} not found'.format(json_file.replace('../../', ''))
+                    if report not in issue_list:
+                        issue_list.append(report)
 
     return issue_list
 
