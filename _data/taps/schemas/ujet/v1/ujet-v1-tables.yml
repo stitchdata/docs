@@ -6,9 +6,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/agents.json
-    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -18,9 +16,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/agent_activity_logs.json
-    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -30,9 +26,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/calls.json
-    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -42,9 +36,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/menus.json
-    api-method: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -53,9 +45,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/menu_tree.json
-    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -64,9 +54,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/teams.json
-    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -75,9 +63,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/team_tree.json
-    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -86,18 +72,18 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/user_statuses.json
-    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: id
 - name: chats
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about chats.
+
+    '
   links:
-    singer-schema: ''
-    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/chats.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true
