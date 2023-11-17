@@ -4,7 +4,7 @@ keys:
   forms_form_id:
   - table: forms
     keys:
-    - form_id
+    - id
   - table: questions
     keys:
     - form_id
@@ -27,14 +27,14 @@ tables:
   join:
   - table-name: questions
     keys:
-    - key: form_id
+    - key: id
       foreign-key: form_id
 - table-name: questions
   join:
   - table-name: forms
     keys:
     - key: form_id
-      foreign-key: form_id
+      foreign-key: id
   - table-name: answers
     keys:
     - key: question_id
