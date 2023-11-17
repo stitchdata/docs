@@ -16,9 +16,6 @@ keys:
   - table: external_accounts
     keys:
     - id
-  - table: external_users
-    keys:
-    - links.external_accounts
   external_users_external_user:
   - table: external_users
     keys:
@@ -58,7 +55,7 @@ keys:
   product_areas_product_area:
   - table: features
     keys:
-    - product_area
+    - links.product_area
   - table: product_areas
     keys:
     - id
@@ -84,7 +81,7 @@ keys:
     - id
   - table: suggestions
     keys:
-    - links.
+    - links.status
   status_updates_:
   - table: status_updates
     keys:
@@ -106,7 +103,7 @@ keys:
     keys:
     - id
     - links.parent_suggestion
-  - table: supporter-id
+  - table: supporters
     keys:
     - links.suggestion
   supporters_supporter:
@@ -203,9 +200,9 @@ tables:
       foreign-key: links.parent
   - table-name: status_updates
     keys:
-    - key: links.
+    - key: links.status
       foreign-key: links.new_status
-    - key: links.
+    - key: links.status
       foreign-key: links.old_status
     - key: links.last_status_update
       foreign-key: id
@@ -217,7 +214,7 @@ tables:
       foreign-key: links.user
   - table-name: statuses
     keys:
-    - key: links.
+    - key: links.status
       foreign-key: id
   - table-name: comments
     keys:
@@ -239,12 +236,18 @@ tables:
       foreign-key: links.created_by
     - key: links.created_by
       foreign-key: links.updated_by
-  - table-name: supporter-id
+  - table-name: supporters
     keys:
     - key: id
       foreign-key: links.suggestion
     - key: links.parent_suggestion
       foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.user
   - table-name: features
     keys:
     - key: links.created_by
@@ -273,14 +276,6 @@ tables:
       foreign-key: links.created_by
     - key: links.created_by
       foreign-key: links.updated_by
-  - table-name: supporters
-    keys:
-    - key: links.created_by
-      foreign-key: links.created_by
-    - key: links.created_by
-      foreign-key: links.updated_by
-    - key: links.created_by
-      foreign-key: links.user
   - table-name: users
     keys:
     - key: links.created_by
@@ -311,10 +306,16 @@ tables:
       foreign-key: links.parent_suggestion
     - key: links.created_by
       foreign-key: links.created_by
-  - table-name: supporter-id
+  - table-name: supporters
     keys:
     - key: links.suggestion
       foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.user
   - table-name: features
     keys:
     - key: links.created_by
@@ -347,30 +348,12 @@ tables:
       foreign-key: links.created_by
     - key: links.created_by
       foreign-key: links.updated_by
-  - table-name: supporters
-    keys:
-    - key: links.created_by
-      foreign-key: links.created_by
-    - key: links.created_by
-      foreign-key: links.updated_by
-    - key: links.created_by
-      foreign-key: links.user
   - table-name: users
     keys:
     - key: links.created_by
       foreign-key: id
-- table-name: external_accounts
-  join:
-  - table-name: external_users
-    keys:
-    - key: id
-      foreign-key: links.external_accounts
 - table-name: external_users
   join:
-  - table-name: external_accounts
-    keys:
-    - key: links.external_accounts
-      foreign-key: id
   - table-name: users
     keys:
     - key: id
@@ -461,7 +444,7 @@ tables:
       foreign-key: links.created_by
   - table-name: product_areas
     keys:
-    - key: product_area
+    - key: links.product_area
       foreign-key: id
     - key: links.updated_by
       foreign-key: links.updated_by
@@ -786,7 +769,7 @@ tables:
   - table-name: features
     keys:
     - key: id
-      foreign-key: product_area
+      foreign-key: links.product_area
     - key: links.updated_by
       foreign-key: links.updated_by
     - key: links.created_by
@@ -913,12 +896,10 @@ tables:
       foreign-key: links.created_by
     - key: links.updated_by
       foreign-key: links.created_by
-  - table-name: supporter-id
+  - table-name: supporters
     keys:
     - key: links.suggestion
       foreign-key: links.suggestion
-  - table-name: supporters
-    keys:
     - key: links.supporter
       foreign-key: id
     - key: links.user
@@ -1126,9 +1107,9 @@ tables:
   - table-name: suggestions
     keys:
     - key: links.new_status
-      foreign-key: links.
+      foreign-key: links.status
     - key: links.old_status
-      foreign-key: links.
+      foreign-key: links.status
     - key: id
       foreign-key: links.last_status_update
     - key: links.suggestion
@@ -1153,10 +1134,16 @@ tables:
       foreign-key: links.created_by
     - key: links.user
       foreign-key: links.updated_by
-  - table-name: supporter-id
+  - table-name: supporters
     keys:
     - key: links.suggestion
       foreign-key: links.suggestion
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.user
   - table-name: features
     keys:
     - key: links.user
@@ -1189,14 +1176,6 @@ tables:
       foreign-key: links.created_by
     - key: links.user
       foreign-key: links.updated_by
-  - table-name: supporters
-    keys:
-    - key: links.user
-      foreign-key: links.created_by
-    - key: links.user
-      foreign-key: links.updated_by
-    - key: links.user
-      foreign-key: links.user
   - table-name: users
     keys:
     - key: links.user
@@ -1212,31 +1191,23 @@ tables:
   - table-name: suggestions
     keys:
     - key: id
-      foreign-key: links.
-- table-name: supporter-id
+      foreign-key: links.status
+- table-name: supporters
   join:
   - table-name: comments
     keys:
     - key: links.suggestion
       foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
   - table-name: requests
     keys:
     - key: links.suggestion
       foreign-key: links.suggestion
-  - table-name: status_updates
-    keys:
-    - key: links.suggestion
-      foreign-key: links.suggestion
-  - table-name: suggestions
-    keys:
-    - key: links.suggestion
-      foreign-key: id
-    - key: links.suggestion
-      foreign-key: links.parent_suggestion
-- table-name: supporters
-  join:
-  - table-name: requests
-    keys:
     - key: id
       foreign-key: links.supporter
     - key: links.created_by
@@ -1257,8 +1228,22 @@ tables:
       foreign-key: links.updated_by
     - key: links.user
       foreign-key: links.updated_by
-  - table-name: comments
+  - table-name: status_updates
     keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.user
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.suggestion
+      foreign-key: id
+    - key: links.suggestion
+      foreign-key: links.parent_suggestion
     - key: links.created_by
       foreign-key: links.created_by
     - key: links.updated_by
@@ -1337,22 +1322,6 @@ tables:
       foreign-key: links.updated_by
     - key: links.user
       foreign-key: links.updated_by
-  - table-name: status_updates
-    keys:
-    - key: links.created_by
-      foreign-key: links.user
-    - key: links.updated_by
-      foreign-key: links.user
-    - key: links.user
-      foreign-key: links.user
-  - table-name: suggestions
-    keys:
-    - key: links.created_by
-      foreign-key: links.created_by
-    - key: links.updated_by
-      foreign-key: links.created_by
-    - key: links.user
-      foreign-key: links.created_by
   - table-name: users
     keys:
     - key: links.created_by
