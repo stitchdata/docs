@@ -11,31 +11,13 @@ keys:
   - table: campaigns
     keys:
     - account_id
-  - table: cards_image_app_download
-    keys:
-    - account_id
   - table: cards_image_conversation
-    keys:
-    - account_id
-  - table: cards_image_direct_message
     keys:
     - account_id
   - table: cards_poll
     keys:
     - account_id
-  - table: cards_video_app_download
-    keys:
-    - account_id
   - table: cards_video_conversation
-    keys:
-    - account_id
-  - table: cards_video_direct_message
-    keys:
-    - account_id
-  - table: cards_video_website
-    keys:
-    - account_id
-  - table: cards_website
     keys:
     - account_id
   - table: funding_instruments
@@ -120,10 +102,10 @@ keys:
   iab_categories_value:
   - table: advertiser_business_categories
     keys:
-    - iab_categories.value
+    - iab_categories
   - table: content_categories
     keys:
-    - iab_categories.value
+    - iab_categories
   - table: iab_categories
     keys:
     - id
@@ -140,14 +122,8 @@ keys:
     - tweet_id
   - table: tweets
     keys:
-    - tweet_id
+    - id
   _user_id:
-  - table: cards_image_direct_message
-    keys:
-    - recipient_user_id
-  - table: cards_video_direct_message
-    keys:
-    - recipient_user_id
   - table: promotable_users
     keys:
     - user_id
@@ -158,18 +134,9 @@ keys:
     keys:
     - entities.user_mentions.id
     - in_reply_to_user_id
-    - users.id
+    - user.id
   _video_owner_id:
-  - table: cards_video_app_download
-    keys:
-    - video_owner_id
   - table: cards_video_conversation
-    keys:
-    - video_owner_id
-  - table: cards_video_direct_message
-    keys:
-    - video_owner_id
-  - table: cards_video_website
     keys:
     - video_owner_id
 tables:
@@ -185,15 +152,7 @@ tables:
       foreign-key: account_id
     - key: funding_instrument_id
       foreign-key: funding_instrument_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -201,23 +160,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -279,15 +222,7 @@ tables:
     keys:
     - key: id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: id
       foreign-key: account_id
@@ -295,23 +230,7 @@ tables:
     keys:
     - key: id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: id
       foreign-key: account_id
@@ -371,15 +290,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -387,23 +298,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -455,96 +350,6 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-- table-name: cards_image_app_download
-  join:
-  - table-name: account_media
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: accounts
-    keys:
-    - key: account_id
-      foreign-key: id
-  - table-name: campaigns
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: funding_instruments
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_item_apps
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_items
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: media_creatives
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: preroll_call_to_actions
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_accounts
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: scheduled_promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tailored_audiences
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: targeting_criteria
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
 - table-name: cards_image_conversation
   join:
   - table-name: account_media
@@ -559,35 +364,11 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_poll
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -635,110 +416,6 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-- table-name: cards_image_direct_message
-  join:
-  - table-name: account_media
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: accounts
-    keys:
-    - key: account_id
-      foreign-key: id
-  - table-name: campaigns
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: recipient_user_id
-      foreign-key: recipient_user_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: funding_instruments
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_item_apps
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_items
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: media_creatives
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: preroll_call_to_actions
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_accounts
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: recipient_user_id
-      foreign-key: user_id
-  - table-name: promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: scheduled_promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tailored_audiences
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: targeting_criteria
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: recipient_user_id
-      foreign-key: entities.user_mentions.id
-    - key: recipient_user_id
-      foreign-key: in_reply_to_user_id
-    - key: recipient_user_id
-      foreign-key: users.id
-  - table-name: promotable_users
-    keys:
-    - key: recipient_user_id
-      foreign-key: user_id
 - table-name: cards_poll
   join:
   - table-name: account_media
@@ -753,131 +430,11 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: funding_instruments
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_item_apps
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_items
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: media_creatives
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: preroll_call_to_actions
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_accounts
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: scheduled_promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tailored_audiences
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: targeting_criteria
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-- table-name: cards_video_app_download
-  join:
-  - table-name: account_media
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: accounts
-    keys:
-    - key: account_id
-      foreign-key: id
-  - table-name: campaigns
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -939,337 +496,11 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: funding_instruments
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_item_apps
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_items
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: media_creatives
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: preroll_call_to_actions
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_accounts
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: scheduled_promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tailored_audiences
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: targeting_criteria
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-- table-name: cards_video_direct_message
-  join:
-  - table-name: account_media
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: accounts
-    keys:
-    - key: account_id
-      foreign-key: id
-  - table-name: campaigns
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: recipient_user_id
-      foreign-key: recipient_user_id
-  - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: funding_instruments
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_item_apps
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_items
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: media_creatives
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: preroll_call_to_actions
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_accounts
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: recipient_user_id
-      foreign-key: user_id
-  - table-name: promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: scheduled_promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tailored_audiences
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: targeting_criteria
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: recipient_user_id
-      foreign-key: entities.user_mentions.id
-    - key: recipient_user_id
-      foreign-key: in_reply_to_user_id
-    - key: recipient_user_id
-      foreign-key: users.id
-  - table-name: promotable_users
-    keys:
-    - key: recipient_user_id
-      foreign-key: user_id
-- table-name: cards_video_website
-  join:
-  - table-name: account_media
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: accounts
-    keys:
-    - key: account_id
-      foreign-key: id
-  - table-name: campaigns
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: video_owner_id
-      foreign-key: video_owner_id
-  - table-name: cards_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: funding_instruments
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_item_apps
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: line_items
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: media_creatives
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: preroll_call_to_actions
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_accounts
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: scheduled_promoted_tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tailored_audiences
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: targeting_criteria
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: tweets
-    keys:
-    - key: account_id
-      foreign-key: account_id
-- table-name: cards_website
-  join:
-  - table-name: account_media
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: accounts
-    keys:
-    - key: account_id
-      foreign-key: id
-  - table-name: campaigns
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_poll
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1335,15 +566,7 @@ tables:
       foreign-key: account_id
     - key: id
       foreign-key: funding_instrument_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1351,23 +574,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1425,15 +632,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1441,23 +640,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1529,15 +712,7 @@ tables:
       foreign-key: account_id
     - key: campaign_id
       foreign-key: id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1545,23 +720,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1621,15 +780,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1637,23 +788,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1723,15 +858,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1739,23 +866,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1825,43 +936,15 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: user_id
-      foreign-key: recipient_user_id
   - table-name: cards_poll
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: user_id
-      foreign-key: recipient_user_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1922,7 +1005,7 @@ tables:
     - key: user_id
       foreign-key: in_reply_to_user_id
     - key: user_id
-      foreign-key: users.id
+      foreign-key: user.id
   - table-name: promotable_users
     keys:
     - key: user_id
@@ -1941,15 +1024,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -1957,23 +1032,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2032,7 +1091,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: tweet_id
-      foreign-key: tweet_id
+      foreign-key: id
 - table-name: scheduled_promoted_tweets
   join:
   - table-name: account_media
@@ -2047,15 +1106,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2063,23 +1114,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2138,7 +1173,7 @@ tables:
     - key: account_id
       foreign-key: account_id
     - key: tweet_id
-      foreign-key: tweet_id
+      foreign-key: id
 - table-name: tailored_audiences
   join:
   - table-name: account_media
@@ -2153,15 +1188,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2169,23 +1196,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2243,15 +1254,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_image_direct_message
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2259,23 +1262,7 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2345,51 +1332,15 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_image_conversation
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_image_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: entities.user_mentions.id
-      foreign-key: recipient_user_id
-    - key: in_reply_to_user_id
-      foreign-key: recipient_user_id
-    - key: users.id
-      foreign-key: recipient_user_id
   - table-name: cards_poll
     keys:
     - key: account_id
       foreign-key: account_id
-  - table-name: cards_video_app_download
-    keys:
-    - key: account_id
-      foreign-key: account_id
   - table-name: cards_video_conversation
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: account_id
-      foreign-key: account_id
-    - key: entities.user_mentions.id
-      foreign-key: recipient_user_id
-    - key: in_reply_to_user_id
-      foreign-key: recipient_user_id
-    - key: users.id
-      foreign-key: recipient_user_id
-  - table-name: cards_video_website
-    keys:
-    - key: account_id
-      foreign-key: account_id
-  - table-name: cards_website
     keys:
     - key: account_id
       foreign-key: account_id
@@ -2421,19 +1372,19 @@ tables:
       foreign-key: user_id
     - key: in_reply_to_user_id
       foreign-key: user_id
-    - key: users.id
+    - key: user.id
       foreign-key: user_id
   - table-name: promoted_tweets
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: tweet_id
+    - key: id
       foreign-key: tweet_id
   - table-name: scheduled_promoted_tweets
     keys:
     - key: account_id
       foreign-key: account_id
-    - key: tweet_id
+    - key: id
       foreign-key: tweet_id
   - table-name: tailored_audiences
     keys:
@@ -2449,48 +1400,40 @@ tables:
       foreign-key: user_id
     - key: in_reply_to_user_id
       foreign-key: user_id
-    - key: users.id
+    - key: user.id
       foreign-key: user_id
 - table-name: advertiser_business_categories
   join:
   - table-name: content_categories
     keys:
-    - key: iab_categories.value
-      foreign-key: iab_categories.value
+    - key: iab_categories
+      foreign-key: iab_categories
   - table-name: iab_categories
     keys:
-    - key: iab_categories.value
+    - key: iab_categories
       foreign-key: id
 - table-name: content_categories
   join:
   - table-name: advertiser_business_categories
     keys:
-    - key: iab_categories.value
-      foreign-key: iab_categories.value
+    - key: iab_categories
+      foreign-key: iab_categories
   - table-name: iab_categories
     keys:
-    - key: iab_categories.value
+    - key: iab_categories
       foreign-key: id
 - table-name: iab_categories
   join:
   - table-name: advertiser_business_categories
     keys:
     - key: id
-      foreign-key: iab_categories.value
+      foreign-key: iab_categories
   - table-name: content_categories
     keys:
     - key: id
-      foreign-key: iab_categories.value
+      foreign-key: iab_categories
 - table-name: promotable_users
   join:
-  - table-name: cards_image_direct_message
-    keys:
-    - key: user_id
-      foreign-key: recipient_user_id
-  - table-name: cards_video_direct_message
-    keys:
-    - key: user_id
-      foreign-key: recipient_user_id
   - table-name: promoted_accounts
     keys:
     - key: user_id
@@ -2502,4 +1445,4 @@ tables:
     - key: user_id
       foreign-key: in_reply_to_user_id
     - key: user_id
-      foreign-key: users.id
+      foreign-key: user.id
