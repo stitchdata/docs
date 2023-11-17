@@ -41,12 +41,6 @@ keys:
   - table: projects
     keys:
     - id
-  - table: tasks
-    keys:
-    - ''
-  - table: time_entries
-    keys:
-    - ''
   tags_:
   - table: tags
     keys:
@@ -185,8 +179,6 @@ tables:
     keys:
     - key: wid
       foreign-key: wid
-    - key: id
-      foreign-key: ''
   - table-name: users
     keys:
     - key: wid
@@ -195,10 +187,6 @@ tables:
     keys:
     - key: wid
       foreign-key: wid
-  - table-name: time_entries
-    keys:
-    - key: id
-      foreign-key: ''
 - table-name: tags
   join:
   - table-name: workspaces
@@ -247,8 +235,6 @@ tables:
     keys:
     - key: wid
       foreign-key: wid
-    - key: ''
-      foreign-key: id
   - table-name: tags
     keys:
     - key: wid
@@ -265,8 +251,6 @@ tables:
       foreign-key: wid
   - table-name: time_entries
     keys:
-    - key: ''
-      foreign-key: ''
     - key: id
       foreign-key: tid
     - key: uid
@@ -339,14 +323,8 @@ tables:
       foreign-key: default_wid
 - table-name: time_entries
   join:
-  - table-name: projects
-    keys:
-    - key: ''
-      foreign-key: id
   - table-name: tasks
     keys:
-    - key: ''
-      foreign-key: ''
     - key: tid
       foreign-key: id
     - key: uid
