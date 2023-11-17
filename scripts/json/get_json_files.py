@@ -124,16 +124,18 @@ def getFiles(repo, branch):
                         
                     schema_list = formatJSON(schemas, json_output_folder)
                     issue_list = []
+                    updated_schema_list = []
                     
                     # Remove files for schemas to ignore
                     for schema in schema_list:
                         if schema in ignore:
-                            schema_list.remove(schema)
                             os.remove('{0}/{1}.json'.format(json_output_folder, schema))
                             print('JSON file {}.json ignored'.format(schema))
+                        else:
+                            updated_schema_list.append(schema)
 
                     # Use function from 'get_table_data.py' to get and update the yaml file with table details
-                    getTableData(integration_id, tap_version, schema_list, 'tap')
+                    getTableData(integration_id, tap_version, updated_schema_list, 'tap')
 
                     # Use function from 'check_table_data.py' to check that the primary keys, replication keys and foreign keys listed are found in the schemas
                     table_issues = checkTableData(integration_id, tap_version)
