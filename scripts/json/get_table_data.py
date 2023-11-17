@@ -159,8 +159,11 @@ def getTableData(integration, version, schema_list, import_type):
                     try:
                         r = t['report']
                     except:
-                        t['status'] = status
-                        not_found.append(table)
+                        try:
+                            s = t['tap-repo-schema']
+                        except:
+                            t['status'] = status
+                            not_found.append(table)
         else:
 
             # If the schema exists and the table has the 'not found' status, remove it the status 
