@@ -106,9 +106,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the {{ integration.display_name }} API token you generated in [Step 1](#generate-front-api-token).
-      5. From the **Incremental Range** dropdown, select one of the following options:
-         - **Daily** - Data will be aggregated on a daily basis.
-         - **Hourly** - Data will be aggregated on an hourly basis.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
