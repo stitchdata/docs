@@ -5,9 +5,6 @@ keys:
   - table: meeting_poll_results
     keys:
     - meeting_uuid
-  - table: meeting_files
-    keys:
-    - uuid
   - table: meetings
     keys:
     - uuid
@@ -70,9 +67,6 @@ keys:
   - table: webinar_absentees
     keys:
     - webinar_uuid
-  - table: webinar_files
-    keys:
-    - webinar_uuid
   - table: webinar_poll_results
     keys:
     - webinar_uuid
@@ -85,23 +79,9 @@ keys:
 tables:
 - table-name: meeting_poll_results
   join:
-  - table-name: meeting_files
-    keys:
-    - key: meeting_uuid
-      foreign-key: uuid
   - table-name: meetings
     keys:
     - key: meeting_uuid
-      foreign-key: uuid
-- table-name: meeting_files
-  join:
-  - table-name: meeting_poll_results
-    keys:
-    - key: uuid
-      foreign-key: meeting_uuid
-  - table-name: meetings
-    keys:
-    - key: uuid
       foreign-key: uuid
 - table-name: meetings
   join:
@@ -109,10 +89,6 @@ tables:
     keys:
     - key: uuid
       foreign-key: meeting_uuid
-  - table-name: meeting_files
-    keys:
-    - key: uuid
-      foreign-key: uuid
   - table-name: meeting_polls
     keys:
     - key: meeting_id
@@ -325,10 +301,6 @@ tables:
     keys:
     - key: uuid
       foreign-key: webinar_uuid
-  - table-name: webinar_files
-    keys:
-    - key: uuid
-      foreign-key: webinar_uuid
   - table-name: webinar_poll_results
     keys:
     - key: uuid
@@ -477,32 +449,6 @@ tables:
     keys:
     - key: webinar_uuid
       foreign-key: uuid
-  - table-name: webinar_files
-    keys:
-    - key: webinar_uuid
-      foreign-key: webinar_uuid
-  - table-name: webinar_poll_results
-    keys:
-    - key: webinar_uuid
-      foreign-key: webinar_uuid
-  - table-name: webinar_qna_results
-    keys:
-    - key: webinar_uuid
-      foreign-key: webinar_uuid
-  - table-name: webinars
-    keys:
-    - key: webinar_uuid
-      foreign-key: uuid
-- table-name: webinar_files
-  join:
-  - table-name: report_webinars
-    keys:
-    - key: webinar_uuid
-      foreign-key: uuid
-  - table-name: webinar_absentees
-    keys:
-    - key: webinar_uuid
-      foreign-key: webinar_uuid
   - table-name: webinar_poll_results
     keys:
     - key: webinar_uuid
@@ -525,10 +471,6 @@ tables:
     keys:
     - key: webinar_uuid
       foreign-key: webinar_uuid
-  - table-name: webinar_files
-    keys:
-    - key: webinar_uuid
-      foreign-key: webinar_uuid
   - table-name: webinar_qna_results
     keys:
     - key: webinar_uuid
@@ -547,10 +489,6 @@ tables:
     keys:
     - key: webinar_uuid
       foreign-key: webinar_uuid
-  - table-name: webinar_files
-    keys:
-    - key: webinar_uuid
-      foreign-key: webinar_uuid
   - table-name: webinar_poll_results
     keys:
     - key: webinar_uuid
@@ -566,10 +504,6 @@ tables:
     - key: uuid
       foreign-key: uuid
   - table-name: webinar_absentees
-    keys:
-    - key: uuid
-      foreign-key: webinar_uuid
-  - table-name: webinar_files
     keys:
     - key: uuid
       foreign-key: webinar_uuid
