@@ -24,9 +24,6 @@ keys:
   - table: group_memberships
     keys:
     - id
-  - table: ''
-    keys:
-    - group_membership_id
   macros_macro_id:
   - table: macros
     keys:
@@ -64,13 +61,13 @@ keys:
     - name
   - table: organizations
     keys:
-    - tags.value
+    - tags
   - table: tickets
     keys:
-    - tags.value
+    - tags
   - table: users
     keys:
-    - tags.value
+    - tags
   ticket_audits_audit_id:
   - table: ticket_audits
     keys:
@@ -85,7 +82,7 @@ keys:
     - id
   - table: ticket_forms
     keys:
-    - ticket_field_ids.value
+    - ticket_field_ids
   - table: tickets
     keys:
     - custom_fields.id
@@ -130,9 +127,9 @@ keys:
   - table: tickets
     keys:
     - requester_id
-    - follower_ids.value
+    - follower_ids
     - submitter_id
-    - collaborator_ids.value
+    - collaborator_ids
     - assignee_id
   - table: users
     keys:
@@ -188,10 +185,6 @@ tables:
     keys:
     - key: group_id
       foreign-key: default_group_id
-  - table-name: ''
-    keys:
-    - key: id
-      foreign-key: group_membership_id
 - table-name: organizations
   join:
   - table-name: groups
@@ -212,19 +205,19 @@ tables:
       foreign-key: group_id
     - key: id
       foreign-key: organization_id
-    - key: tags.value
-      foreign-key: tags.value
+    - key: tags
+      foreign-key: tags
   - table-name: users
     keys:
     - key: group_id
       foreign-key: default_group_id
     - key: id
       foreign-key: organization_id
-    - key: tags.value
-      foreign-key: tags.value
+    - key: tags
+      foreign-key: tags
   - table-name: tags
     keys:
-    - key: tags.value
+    - key: tags
       foreign-key: name
 - table-name: satisfaction_ratings
   join:
@@ -251,17 +244,17 @@ tables:
     - key: requester_id
       foreign-key: requester_id
     - key: assignee_id
-      foreign-key: follower_ids.value
+      foreign-key: follower_ids
     - key: requester_id
-      foreign-key: follower_ids.value
+      foreign-key: follower_ids
     - key: assignee_id
       foreign-key: submitter_id
     - key: requester_id
       foreign-key: submitter_id
     - key: assignee_id
-      foreign-key: collaborator_ids.value
+      foreign-key: collaborator_ids
     - key: requester_id
-      foreign-key: collaborator_ids.value
+      foreign-key: collaborator_ids
     - key: assignee_id
       foreign-key: assignee_id
     - key: requester_id
@@ -310,8 +303,8 @@ tables:
       foreign-key: group_id
     - key: organization_id
       foreign-key: id
-    - key: tags.value
-      foreign-key: tags.value
+    - key: tags
+      foreign-key: tags
   - table-name: satisfaction_ratings
     keys:
     - key: group_id
@@ -320,21 +313,21 @@ tables:
       foreign-key: ticket_id
     - key: requester_id
       foreign-key: assignee_id
-    - key: follower_ids.value
+    - key: follower_ids
       foreign-key: assignee_id
     - key: submitter_id
       foreign-key: assignee_id
-    - key: collaborator_ids.value
+    - key: collaborator_ids
       foreign-key: assignee_id
     - key: assignee_id
       foreign-key: assignee_id
     - key: requester_id
       foreign-key: requester_id
-    - key: follower_ids.value
+    - key: follower_ids
       foreign-key: requester_id
     - key: submitter_id
       foreign-key: requester_id
-    - key: collaborator_ids.value
+    - key: collaborator_ids
       foreign-key: requester_id
     - key: assignee_id
       foreign-key: requester_id
@@ -344,21 +337,21 @@ tables:
       foreign-key: default_group_id
     - key: organization_id
       foreign-key: organization_id
-    - key: tags.value
-      foreign-key: tags.value
+    - key: tags
+      foreign-key: tags
     - key: requester_id
       foreign-key: id
-    - key: follower_ids.value
+    - key: follower_ids
       foreign-key: id
     - key: submitter_id
       foreign-key: id
-    - key: collaborator_ids.value
+    - key: collaborator_ids
       foreign-key: id
     - key: assignee_id
       foreign-key: id
   - table-name: tags
     keys:
-    - key: tags.value
+    - key: tags
       foreign-key: name
   - table-name: ticket_fields
     keys:
@@ -367,7 +360,7 @@ tables:
   - table-name: ticket_forms
     keys:
     - key: custom_fields.id
-      foreign-key: ticket_field_ids.value
+      foreign-key: ticket_field_ids
     - key: ticket_form_id
       foreign-key: id
   - table-name: ticket_audits
@@ -376,11 +369,11 @@ tables:
       foreign-key: ticket_id
     - key: requester_id
       foreign-key: author_id
-    - key: follower_ids.value
+    - key: follower_ids
       foreign-key: author_id
     - key: submitter_id
       foreign-key: author_id
-    - key: collaborator_ids.value
+    - key: collaborator_ids
       foreign-key: author_id
     - key: assignee_id
       foreign-key: author_id
@@ -390,11 +383,11 @@ tables:
       foreign-key: ticket_id
     - key: requester_id
       foreign-key: author_id
-    - key: follower_ids.value
+    - key: follower_ids
       foreign-key: author_id
     - key: submitter_id
       foreign-key: author_id
-    - key: collaborator_ids.value
+    - key: collaborator_ids
       foreign-key: author_id
     - key: assignee_id
       foreign-key: author_id
@@ -420,8 +413,8 @@ tables:
       foreign-key: group_id
     - key: organization_id
       foreign-key: id
-    - key: tags.value
-      foreign-key: tags.value
+    - key: tags
+      foreign-key: tags
   - table-name: satisfaction_ratings
     keys:
     - key: default_group_id
@@ -436,16 +429,16 @@ tables:
       foreign-key: group_id
     - key: organization_id
       foreign-key: organization_id
-    - key: tags.value
-      foreign-key: tags.value
+    - key: tags
+      foreign-key: tags
     - key: id
       foreign-key: requester_id
     - key: id
-      foreign-key: follower_ids.value
+      foreign-key: follower_ids
     - key: id
       foreign-key: submitter_id
     - key: id
-      foreign-key: collaborator_ids.value
+      foreign-key: collaborator_ids
     - key: id
       foreign-key: assignee_id
   - table-name: macros
@@ -454,7 +447,7 @@ tables:
       foreign-key: restriction.id
   - table-name: tags
     keys:
-    - key: tags.value
+    - key: tags
       foreign-key: name
   - table-name: ticket_audits
     keys:
@@ -464,12 +457,6 @@ tables:
     keys:
     - key: id
       foreign-key: author_id
-- table-name: ''
-  join:
-  - table-name: group_memberships
-    keys:
-    - key: group_membership_id
-      foreign-key: id
 - table-name: macros
   join:
   - table-name: ticket_audits
@@ -515,11 +502,11 @@ tables:
     - key: author_id
       foreign-key: requester_id
     - key: author_id
-      foreign-key: follower_ids.value
+      foreign-key: follower_ids
     - key: author_id
       foreign-key: submitter_id
     - key: author_id
-      foreign-key: collaborator_ids.value
+      foreign-key: collaborator_ids
     - key: author_id
       foreign-key: assignee_id
   - table-name: ticket_metrics
@@ -535,15 +522,15 @@ tables:
   - table-name: organizations
     keys:
     - key: name
-      foreign-key: tags.value
+      foreign-key: tags
   - table-name: tickets
     keys:
     - key: name
-      foreign-key: tags.value
+      foreign-key: tags
   - table-name: users
     keys:
     - key: name
-      foreign-key: tags.value
+      foreign-key: tags
 - table-name: ticket_comments
   join:
   - table-name: ticket_audits
@@ -571,11 +558,11 @@ tables:
     - key: author_id
       foreign-key: requester_id
     - key: author_id
-      foreign-key: follower_ids.value
+      foreign-key: follower_ids
     - key: author_id
       foreign-key: submitter_id
     - key: author_id
-      foreign-key: collaborator_ids.value
+      foreign-key: collaborator_ids
     - key: author_id
       foreign-key: assignee_id
   - table-name: ticket_metrics
@@ -591,7 +578,7 @@ tables:
   - table-name: ticket_forms
     keys:
     - key: id
-      foreign-key: ticket_field_ids.value
+      foreign-key: ticket_field_ids
   - table-name: tickets
     keys:
     - key: id
@@ -600,11 +587,11 @@ tables:
   join:
   - table-name: ticket_fields
     keys:
-    - key: ticket_field_ids.value
+    - key: ticket_field_ids
       foreign-key: id
   - table-name: tickets
     keys:
-    - key: ticket_field_ids.value
+    - key: ticket_field_ids
       foreign-key: custom_fields.id
     - key: id
       foreign-key: ticket_form_id
