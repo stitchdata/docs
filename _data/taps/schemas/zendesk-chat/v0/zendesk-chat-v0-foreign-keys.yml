@@ -1,5 +1,5 @@
 tap: zendesk-chat
-version: '1'
+version: '0'
 keys:
   account_account-key:
   - table: account
@@ -11,10 +11,7 @@ keys:
     - id
   - table: chats
     keys:
-    - agent_ids.value
-    - agent_id
-    - agent
-    - agent_id
+    - agent_ids
   bans_id:
   - table: bans
     keys:
@@ -29,16 +26,14 @@ keys:
     - id
   - table: shortcuts
     keys:
-    - departments.id
+    - departments
   - table: chats
     keys:
     - department_id
-    - department_id
-    - department_id
-    - prev_department_id
+    - history.prev_department_id
   - table: agents
     keys:
-    - value
+    - departments
   goals_id:
   - table: goals
     keys:
@@ -76,49 +71,41 @@ tables:
   - table-name: chats
     keys:
     - key: id
-      foreign-key: agent_ids.value
-    - key: id
-      foreign-key: agent_id
-    - key: id
-      foreign-key: agent
-    - key: value
+      foreign-key: agent_ids
+    - key: departments
       foreign-key: department_id
-    - key: value
-      foreign-key: prev_department_id
+    - key: departments
+      foreign-key: history.prev_department_id
   - table-name: departments
     keys:
-    - key: value
+    - key: departments
       foreign-key: id
   - table-name: shortcuts
     keys:
-    - key: value
-      foreign-key: departments.id
+    - key: departments
+      foreign-key: departments
 - table-name: chats
   join:
   - table-name: agents
     keys:
-    - key: agent_ids.value
-      foreign-key: id
-    - key: agent_id
-      foreign-key: id
-    - key: agent
+    - key: agent_ids
       foreign-key: id
     - key: department_id
-      foreign-key: value
-    - key: prev_department_id
-      foreign-key: value
+      foreign-key: departments
+    - key: history.prev_department_id
+      foreign-key: departments
   - table-name: departments
     keys:
     - key: department_id
       foreign-key: id
-    - key: prev_department_id
+    - key: history.prev_department_id
       foreign-key: id
   - table-name: shortcuts
     keys:
     - key: department_id
-      foreign-key: departments.id
-    - key: prev_department_id
-      foreign-key: departments.id
+      foreign-key: departments
+    - key: history.prev_department_id
+      foreign-key: departments
   - table-name: goals
     keys:
     - key: conversions.goal_id
@@ -136,33 +123,33 @@ tables:
   - table-name: shortcuts
     keys:
     - key: id
-      foreign-key: departments.id
+      foreign-key: departments
   - table-name: chats
     keys:
     - key: id
       foreign-key: department_id
     - key: id
-      foreign-key: prev_department_id
+      foreign-key: history.prev_department_id
   - table-name: agents
     keys:
     - key: id
-      foreign-key: value
+      foreign-key: departments
 - table-name: shortcuts
   join:
   - table-name: departments
     keys:
-    - key: departments.id
+    - key: departments
       foreign-key: id
   - table-name: chats
     keys:
-    - key: departments.id
+    - key: departments
       foreign-key: department_id
-    - key: departments.id
-      foreign-key: prev_department_id
+    - key: departments
+      foreign-key: history.prev_department_id
   - table-name: agents
     keys:
-    - key: departments.id
-      foreign-key: value
+    - key: departments
+      foreign-key: departments
 - table-name: goals
   join:
   - table-name: chats

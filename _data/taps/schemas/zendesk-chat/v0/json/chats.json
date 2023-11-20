@@ -30,67 +30,72 @@
     },
     "conversions": {
       "items": {
-        "attribution": {
-          "properties": {
-            "agent_id": {
-              "type": [
-                "null",
-                "integer"
-              ]
+        "properties": {
+          "attribution": {
+            "properties": {
+              "agent_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "agent_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "chat_timestamp": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "department_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "department_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
             },
-            "agent_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "chat_timestamp": {
-              "type": [
-                "null",
-                "date-time"
-              ]
-            },
-            "department_id": {
-              "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "department_name": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
+            "type": [
+              "null",
+              "object"
+            ]
           },
-          "type": [
-            "null",
-            "object"
-          ]
+          "goal_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "goal_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "string"
+            ]
+          },
+          "timestamp": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
         },
-        "goal_id": {
-          "type": [
-            "null",
-            "integer"
-          ]
-        },
-        "goal_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "id": {
-          "type": [
-            "string"
-          ]
-        },
-        "timestamp": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
+        "type": [
+          "object"
+        ]
       },
       "type": [
         "null",
@@ -148,188 +153,193 @@
     },
     "history": {
       "items": {
-        "channel": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "conversion": {
-          "properties": {
-            "attribution": {
-              "properties": {
-                "agent_id": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
+        "properties": {
+          "channel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "conversion": {
+            "properties": {
+              "attribution": {
+                "properties": {
+                  "agent_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "agent_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "chat_timestamp": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  },
+                  "department_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "department_name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
                 },
-                "agent_name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "chat_timestamp": {
-                  "type": [
-                    "null",
-                    "date-time"
-                  ]
-                },
-                "department_id": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "department_name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                }
+                "type": [
+                  "null",
+                  "object"
+                ]
               },
-              "type": [
-                "null",
-                "object"
-              ]
+              "goal_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "goal_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "string"
+                ]
+              },
+              "timestamp": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
             },
-            "goal_id": {
+            "type": [
+              "object"
+            ]
+          },
+          "department_id": {
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ]
+          },
+          "department_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "msg": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "msg_id": {
+            "type": [
+              "null",
+              "string",
+              "integer"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "new_rating": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "new_tags": {
+            "items": {
               "type": [
-                "null",
-                "integer"
-              ]
-            },
-            "goal_name": {
-              "type": [
-                "null",
                 "string"
               ]
             },
-            "id": {
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "nick": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "options": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prev_department_id": {
+            "type": [
+              "null",
+              "integer",
+              "string"
+            ]
+          },
+          "rating": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "skills_name": {
+            "items": {
               "type": [
                 "string"
               ]
             },
-            "timestamp": {
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "tags": {
+            "items": {
               "type": [
-                "null",
-                "date-time"
+                "string"
               ]
-            }
-          },
-          "type": [
-            "object"
-          ]
-        },
-        "department_id": {
-          "type": [
-            "null",
-            "integer",
-            "string"
-          ]
-        },
-        "department_name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "msg": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "msg_id": {
-          "type": [
-            "null",
-            "string",
-            "integer"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "new_rating": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "new_tags": {
-          "items": {
+            },
             "type": [
-              "string"
+              "null",
+              "array"
             ]
           },
-          "type": [
-            "null",
-            "array"
-          ]
-        },
-        "nick": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "options": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "prev_department_id": {
-          "type": [
-            "null",
-            "integer",
-            "string"
-          ]
-        },
-        "rating": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "skills_name": {
-          "items": {
+          "timestamp": {
             "type": [
-              "string"
+              "null",
+              "date-time"
             ]
           },
-          "type": [
-            "null",
-            "array"
-          ]
-        },
-        "tags": {
-          "items": {
+          "type": {
             "type": [
+              "null",
               "string"
             ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
+          }
         },
-        "timestamp": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
+        "type": [
+          "object"
+        ]
       },
       "type": [
         "null",
