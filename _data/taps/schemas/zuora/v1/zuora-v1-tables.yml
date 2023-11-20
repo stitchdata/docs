@@ -1,7 +1,8 @@
 tap: zuora
 version: '1'
+tap-repo-schemas: false
 tables:
-- name: account
+- name: Account
   description: 'The `{{ table.name }}` table contains information about the customer
     accounts in your {{ integration.display_name }} instance.
 
@@ -12,8 +13,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: accountingCode
+- name: AccountingCode
   description: 'The `{{ table.name }}` table contains information about the accounting
     codes in your {{ integration.display_name }} instance. Accounting codes are used
     to categorize transactions for accounting purposes.
@@ -29,8 +29,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: accountingPeriod
+- name: AccountingPeriod
   description: 'The `{{ table.name }}` table contains information about the [accounting
     periods](https://knowledgecenter.zuora.com/CC_Finance/E_Accounting_Periods){:target="new"}
     in your {{ integration.display_name }} account.
@@ -46,8 +45,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: amendment
+- name: Amendment
   description: 'The `{{ table.name }}` table contains information about subscription
     amendments, which are changes to customer subscriptions. For example: Changing
     the terms of a contract, adding/removing a product, canceling a subscription,
@@ -60,8 +58,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: billingRun
+- name: BillingRun
   description: 'The `{{ table.name }}` table contains information about billing runs.
 
     '
@@ -71,8 +68,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: communicationProfile
+- name: CommunicationProfile
   description: 'The `{{ table.name }}` table contains information about communication
     profiles, which are sets of policies that determine how to communicate with the
     contacts associated with a specific customer account.
@@ -84,8 +80,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: contact
+- name: Contact
   description: 'The `{{ table.name }}` table contains info about an account''s point-of-contact.
 
     '
@@ -95,8 +90,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: contactSnapshot
+- name: ContactSnapshot
   description: 'The `{{ table.name }}` table contains ''snapshot'' records of Bill-To
     or Sold-To contacts on customer accounts. Snapshots are record preservations at
     specific points in time. When invoices are posted, {{ integration.display_name
@@ -110,8 +104,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: creditBalanceAdjustment
+- name: CreditBalanceAdjustment
   description: 'The `{{ table.name }}` table contains information about [credit balance
     adjustments](https://knowledgecenter.zuora.com/CB_Billing/G_Credit_Balances){:target="new"},
     or the application of credit balances to invoices, payments, and refunds.
@@ -124,8 +117,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: discountAppliedMetrics
+- name: DiscountAppliedMetrics
   description: 'The `{{ table.name }}` table contains information about rate plan
     charges that use either a discount-fixed amount or discount-percentage charge
     model.
@@ -137,8 +129,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: export
+- name: Export
   description: 'The `{{ table.name }}` table contains information about export jobs
     and files.
 
@@ -149,8 +140,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: import
+- name: Import
   description: 'The `{{ table.name }}` table contains information about content uploads.
 
     '
@@ -160,8 +150,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: invoice
+- name: Invoice
   description: 'The `{{ table.name }}` table contains info about invoices, which are
     bills to customers.
 
@@ -172,8 +161,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: invoiceItem
+- name: InvoiceItem
   description: 'The `{{ table.name }}` table contains info about the line items in
     invoices.
 
@@ -184,8 +172,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: invoiceItemAdjustment
+- name: InvoiceItemAdjustment
   description: 'The `{{ table.name }}` table contains info about adjustments applied
     to invoice line items.
 
@@ -196,8 +183,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: journalEntry
+- name: JournalEntry
   description: "The `{{ table.name }}` table contains information about \n"
   links:
     doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
@@ -205,8 +191,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: journalEntryItem
+- name: JournalEntryItem
   description: 'The `{{ table.name }}` table contains information about journal entry
     items.
 
@@ -217,8 +202,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: journalRun
+- name: JournalRun
   description: 'The `{{ table.name }}` table contains information about journal runs.
 
     '
@@ -228,8 +212,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: payment
+- name: Payment
   description: 'The `payment` table contains info about customer payments.
 
     '
@@ -239,8 +222,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: paymentRun
+- name: PaymentRun
   description: 'The `{{ table.name }}` table contains information about payment runs.
 
     '
@@ -250,8 +232,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: processedUsage
+- name: ProcessedUsage
   description: 'The `{{ table.name }}` table contains information about usage.
 
     '
@@ -261,8 +242,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: product
+- name: Product
   description: 'The `{{ table.name }}` table contains info about your company''s product
     offerings.
 
@@ -273,8 +253,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: productRatePlan
+- name: ProductRatePlan
   description: 'The `{{ table.name }}` table contains info about product rate plans,
     or the part of a product that customers can subscribe to.
 
@@ -285,8 +264,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: productRatePlanCharge
+- name: ProductRatePlanCharge
   description: 'The `{{ table.name }}` table contains info about product rate plan
     charges, which are a charge model or set of fees associated with a product rate
     plan.
@@ -298,8 +276,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: productRatePlanChargeTier
+- name: ProductRatePlanChargeTier
   description: 'The `{{ table.name }}` table contains pricing info for product rate
     plan charges.
 
@@ -310,8 +287,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: ratePlan
+- name: RatePlan
   description: 'The `{{ table.name }}` table contains info about rate plans, which
     is a price or collection of prices for services.
 
@@ -329,8 +305,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: ratePlanChargeTier
+- name: RatePlanChargeTier
   description: 'The `{{ table.name }}` table contains pricing info for rate plan charges.
 
     '
@@ -340,8 +315,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: refund
+- name: Refund
   description: 'The `{{ table.name }}` table contains info about refunds, or transactions
     where money is returned to a customer.
 
@@ -352,8 +326,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueChargeSummaryItem
+- name: RevenueChargeSummaryItem
   description: 'The `{{ table.name }}` table contains information about [charge revenue
     summaries](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules/M_Charge_Revenue_Summary){:target="new"},
     which are summaries of all revenue distributions associated with a subscription
@@ -366,8 +339,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueEventItem
+- name: RevenueEventItem
   description: 'The `{{ table.name }}` table contains information about revenue events.
     A revenue event is a change to a revenue schedule, such as creating the initial
     schedule, canceling an invoice, or recognizing an undistributed amount.
@@ -379,8 +351,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueEventItemInvoiceItem
+- name: RevenueEventItemInvoiceItem
   description: 'The `{{ table.name }}` table contains information about revenue event
     items that are associated with invoice items.
 
@@ -391,8 +362,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueEventItemInvoiceItemAdjustment
+- name: RevenueEventItemInvoiceItemAdjustment
   description: 'The `{{ table.name }}` table contains information about revenue event
     items that are associated with invoice item adjustments.
 
@@ -403,8 +373,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueScheduleItem
+- name: RevenueScheduleItem
   description: 'The `{{ table.name }}` table contains information about revenue schedules.
     A [revenue schedule](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules){:target="new"}
     represents how revenue amounts from single charges are distributed over time and
@@ -417,8 +386,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueScheduleItemInvoiceItem
+- name: RevenueScheduleItemInvoiceItem
   description: 'The `{{ table.name }}` table contains information about revenue schedule
     item - invoice items.
 
@@ -429,8 +397,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: revenueScheduleItemInvoiceItemAdjustment
+- name: RevenueScheduleItemInvoiceItemAdjustment
   description: 'The `{{ table.name }}` table contains information about revenue schedule
     item - invoice items.
 
@@ -441,8 +408,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
-- name: subscription
+- name: Subscription
   description: 'The `{{ table.name }}` table contains info about your products and/or
     services with recurring charges.
 
@@ -460,4 +426,3 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updatedDate
-  status: not_found
