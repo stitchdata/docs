@@ -232,11 +232,11 @@ attributes:
   - name: "id"
     type: "string"
     description: ""
-	  primary-key: true
+    primary-key: true
 
   - name: "updatedAt"
     type: "string"
     format: "date-time"
     description: ""
-	  replication-key: true
+    replication-key: true
 ---
