@@ -55,6 +55,24 @@ def getTapData(setup_file):
 
     return [tap_name, tap_major_version]
 
+def getTapExceptions(tap, version):
+    keep = []
+    ignore = []
+    
+    file = 'file_exceptions.json'
+    with open(file, 'r') as f:
+        data = json.load(f)
+        if tap in data:
+            if version in data[tap]:
+                exceptions = data[tap][version]
+                if 'keep' in exceptions:
+                    keep = exceptions['keep']
+                
+                if 'ignore' in exceptions:
+                    ignore = exceptions['ignore']
+    
+    return keep, ignore
+
 def getFiles(repo, branch):
     # Get all files from the selected tap
 
@@ -98,13 +116,10 @@ def getFiles(repo, branch):
         # Ignore integrations with type 'database' since they don't have pre-defined schemas
         if integration_type != 'database':
 
-            # Get list of files to ignore (if any)
-            ignore= []
-            ignore_file = '{0}/{1}-v{2}-to-ignore.yml'.format(folder, integration_id, tap_version)
-            if os.path.exists(ignore_file):
-                with open(ignore_file, 'r', encoding='utf-8') as i:
-                    to_ignore = yaml.safe_load(i)
-                    ignore = to_ignore['schemas']
+            # Get list of files with exceptions (if any)
+            exceptions = getTapExceptions(tap_name, tap_version)
+            keep = exceptions[0]
+            ignore = exceptions[1]
             
             # Create JSON folder if it doesn't exist
             if os.path.exists(json_output_folder):
@@ -122,15 +137,16 @@ def getFiles(repo, branch):
                     else:
                         schemas = item_path + '/schemas'
                         
-                    schema_list = formatJSON(schemas, json_output_folder)
+                    schema_list = formatJSON(schemas, json_output_folder, keep)
                     issue_list = []
                     updated_schema_list = []
                     
                     # Remove files for schemas to ignore
                     for schema in schema_list:
-                        if schema in ignore:
-                            os.remove('{0}/{1}.json'.format(json_output_folder, schema))
-                            print('JSON file {}.json ignored'.format(schema))
+                        schema_file = schema + '.json'
+                        if schema_file in ignore:
+                            os.remove('{0}/{1}'.format(json_output_folder, schema_file))
+                            print('JSON file {} ignored'.format(schema_file))
                         else:
                             updated_schema_list.append(schema)
 

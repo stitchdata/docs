@@ -278,7 +278,7 @@ def replaceRefs(json_content, folder, filepath):
     j = json.loads(json_content)
     return j
 
-def formatJSON(folder, json_output_folder):
+def formatJSON(folder, json_output_folder, keep):
     # Format JSON files to fit the format supported by the HTML template
 
     table_list = []
@@ -293,7 +293,7 @@ def formatJSON(folder, json_output_folder):
                     output_file = json_output_folder + '/' + file
                     
                     # Ignore files in 'shared' and 'archive' folders, they are either old schemas or files containing content referenced in schemas
-                    if '{0}shared{0}'.format(os.sep) in filepath or '{0}archive{0}'.format(os.sep) in filepath:
+                    if file not in keep and ('{0}shared{0}'.format(os.sep) in filepath or '{0}archive{0}'.format(os.sep) in filepath):
                         print('JSON file {} ignored'.format(file))
 
                     else:
