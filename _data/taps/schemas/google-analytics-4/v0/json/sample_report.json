@@ -1,15 +1,5 @@
 {
   "properties": {
-    "[DIMENSIONS_YOU_SELECT]": {
-      "type": [
-        "varies"
-      ]
-    },
-    "[METRICS_YOU_SELECT]": {
-      "type": [
-        "varies"
-      ]
-    },
     "account_id": {
       "type": [
         "integer"
@@ -35,7 +25,7 @@
         "string"
       ]
     },
-    "{{ site.data.stitch.sdc-columns.current-columns.record-hash }}": {
+    "_sdc_record_hash": {
       "type": [
         "string"
       ]
