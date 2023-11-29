@@ -17,12 +17,12 @@ attributes:
   - name: "analytics_date"
     type: "string"
     description: ""
-    replication-key: true
+	  replication-key: true
 
   - name: "analytics_range"
     type: "string"
     description: ""
-    replication-key: true
+	  replication-key: true
 
   - name: "avg_first_response_time"
     type: "number"
@@ -111,5 +111,5 @@ attributes:
   - name: "report_id"
     type: "string"
     description: ""
-    primary-key: true
+	  primary-key: true
 ---
