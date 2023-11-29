@@ -13,7 +13,7 @@
 # -------------------------- #
 
 title: LinkedIn Ads (v2)
-permalink: /integrations/saas/linkedin-ads
+permalink: /integrations/saas/linkedin-ads/v2
 keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl, linkedin ads schema, linkedin, 
 layout: singer
 input: false
