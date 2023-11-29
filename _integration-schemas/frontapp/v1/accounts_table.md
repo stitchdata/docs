@@ -4,9 +4,9 @@ version: "1"
 key: ""
 
 name: "accounts_table"
-doc-link: "https://dev.frontapp.com/reference/analytics"
+doc-link: ""
 singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/accounts_table.json
-description: "The `{{ table.name }}` table contains data about accounts in your {{ integration.display_name }} account."
+description: ""
 
 replication-method: "Key-based Incremental"
 

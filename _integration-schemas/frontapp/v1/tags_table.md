@@ -4,7 +4,7 @@ version: "1"
 key: ""
 
 name: "tags_table"
-doc-link: "https://dev.frontapp.com/reference/analytics"
+doc-link: "https://dev.frontapp.com/#analytics"
 singer-schema: "https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/tags_table.json"
 description: |
   The `{{ table.name }}` table contains a list of tag statistics since the last completed replication job through the most recent iteration of the defined [**Incremental Range**](#add-stitch-data-source) (day or hour).
@@ -14,6 +14,10 @@ description: |
   **Note**: During the historical replication job, all increments (defined using the **Incremental Range** setting) since the **Start Date** will be replicated. This will result in the first record for this table being an aggregated record across all tags.
 
 replication-method: "Key-based Incremental"
+
+api-method:
+    name: "getAnalytics"
+    doc-link: "https://dev.frontapp.com/#analytics"
 
 attributes:
   - name: "analytics_date"
