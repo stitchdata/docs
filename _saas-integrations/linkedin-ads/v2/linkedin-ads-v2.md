@@ -16,7 +16,7 @@ title: LinkedIn Ads (v2)
 permalink: /integrations/saas/linkedin-ads
 keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl, linkedin ads schema, linkedin, 
 layout: singer
-input: true
+input: false
 
 key: "linkedin-ads-setup"
 
