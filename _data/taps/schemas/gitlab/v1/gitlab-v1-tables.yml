@@ -1,0 +1,98 @@
+tap: gitlab
+version: '1'
+tables:
+- name: branches
+  description: 'The `{{ table.name }}` table contains high-level info about repository
+    branches in your projects.
+
+
+    **Note**: To replicate branch data, you must set this table and the [`projects`](#projects)
+    table to replicate. Data for this table will only be replicated when the associated
+    project (in the [`projects`](#projects) table) is also updated.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/branches.json
+    api-method: https://gitlab.com/help/api/branches.html#list-repository-branches
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - project_id
+    - name
+- name: commits
+  description: 'The `{{ table.name }}` table contains info about repository commits
+    in a project.
+
+
+    **Note**: To replicate commit data, you must set this table and the [`projects`](#projects)
+    table to replicate. Data for this table will only be replicated when the associated
+    project (in the [`projects`](#projects) table) is also updated.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/commits.json
+    api-method: https://gitlab.com/help/api/commits.md#list-repository-commits
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issues
+  description: 'The `{{ table.name }}` table contains info about issues contained
+    within projects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/issues.json
+    api-method: https://gitlab.com/help/api/issues.md#list-project-issues
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: milestones
+  description: 'The `{{ table.name }}` table contains info about project milestones.
+
+
+    **Note**: To replicate milestone data, you must set this table and the [`projects`](#projects)
+    table to replicate. Data for this table will only be replicated when the associated
+    project (in the [`projects`](#projects) table) is also updated.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/milestones.json
+    api-method: https://gitlab.com/help/api/milestones.md#list-project-milestones
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: projects
+  description: 'The `{{ table.name }}` table contains info about specific projects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/projects.json
+    api-method: https://gitlab.com/help/api/projects.md#list-all-projects
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_activity_at
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/users.json
+    api-method: https://gitlab.com/help/api/users.md#list-users
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: groups
+  description: 'The `{{ table.name }}` table contains info about the groups in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/users.json
+    api-method: https://docs.gitlab.com/ee/api/groups.html#list-groups
+  table-details:
+    replication-method: Full Table
+    primary-key: id

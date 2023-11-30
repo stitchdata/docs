@@ -1,29 +1,23 @@
 {
   "properties": {
     "created_at": {
-      "type": [
-        "date-time"
-      ]
+      "type": "date-time"
     },
     "end_user_id": {
-      "type": [
-        "integer"
-      ]
+      "type": "integer"
     },
     "id": {
-      "type": [
-        "integer"
-      ]
+      "type": "integer"
     },
     "survey_id": {
-      "type": [
-        "integer"
-      ]
+      "type": "integer"
     },
     "updated_at": {
-      "type": [
-        "date-time"
-      ]
+      "type": "date-time"
     }
-  }
+  },
+  "required": [
+    "id"
+  ],
+  "type": "object"
 }

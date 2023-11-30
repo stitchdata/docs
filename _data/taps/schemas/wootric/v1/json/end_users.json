@@ -1,39 +1,39 @@
 {
   "properties": {
     "created_at": {
-      "type": [
-        "date-time"
-      ]
+      "type": "date-time"
     },
     "email": {
-      "type": [
-        "string"
-      ]
+      "type": "string"
     },
     "external_created_at": {
       "type": [
-        "date-time"
+        "integer",
+        "null"
       ]
     },
     "id": {
-      "type": [
-        "integer"
-      ]
+      "type": "integer"
     },
     "last_surveyed": {
-      "type": [
-        "date-time"
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "date-time"
+        }
       ]
     },
     "page_views_count": {
-      "type": [
-        "integer"
-      ]
+      "type": "integer"
     },
     "updated_at": {
-      "type": [
-        "date-time"
-      ]
+      "type": "date-time"
     }
-  }
+  },
+  "required": [
+    "id"
+  ],
+  "type": "object"
 }

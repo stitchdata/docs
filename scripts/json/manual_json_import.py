@@ -7,6 +7,8 @@ from check_table_data import checkTableData
 # Get tap name, tap version, and discovery file path
 tap = sys.argv[1]
 tap_version = str(sys.argv[2])
+if tap_version == '0':
+    tap_version = '1'
 discovery_file = sys.argv[3]
 
 # Get integration ID and type from '_data/taps/integrations.yml'

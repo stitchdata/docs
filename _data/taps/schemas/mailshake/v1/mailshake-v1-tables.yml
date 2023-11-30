@@ -1,0 +1,116 @@
+tap: mailshake
+version: '1'
+tables:
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about your team''s campaigns.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/campaigns.json
+    api-method: https://api-docs.mailshake.com/?shell#List
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: clicks
+  description: 'The `{{ table.name }}` table contains info about recent click activity.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/clicks.json
+    api-method: https://api-docs.mailshake.com/?shell#Clicks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: actionDate
+- name: leads
+  description: 'The `{{ table.name }}` table contains info about the leads in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/leads.json
+    api-method: https://api-docs.mailshake.com/?shell#List59
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: opens
+  description: 'The `{{ table.name }}` table contains info about recently opened emails.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/opens.json
+    api-method: https://api-docs.mailshake.com/?shell#Opens
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: actionDate
+- name: recipients
+  description: 'The `{{ table.name }}` table contains info about the recipients in
+    a campaign.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/recipients.json
+    api-method: https://api-docs.mailshake.com/?shell#List33
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: replies
+  description: 'The `{{ table.name }}` table contains info about recent replies to
+    your emails.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/replies.json
+    api-method: https://api-docs.mailshake.com/?shell#Replies
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: actionDate
+- name: senders
+  description: 'The `{{ table.name }}` table contains info about your team''s senders.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/senders.json
+    api-method: https://api-docs.mailshake.com/?shell#List75
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: sent_messages
+  description: 'The `{{ table.name }}` table contains info about recently sent emails.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/sent_messages.json
+    api-method: https://api-docs.mailshake.com/?shell#Sent
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: actionDate
+- name: team_members
+  description: 'The `{{ table.name }}` table contains info about the individual members
+    of your team.
+
+    '
+  links:
+    doc-link: ''
+    singer-schema: https://github.com/singer-io/tap-mailshake/blob/master/tap_mailshake/schemas/team_members.json
+    api-method: https://api-docs.mailshake.com/?shell#List-Members
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: teamID
+tap-repo-schemas: true

@@ -52,6 +52,8 @@ def getTapData(setup_file):
 
     # Extract the major version
     tap_major_version = tap_version[0]
+    if tap_major_version == '0':
+        tap_major_version = '1'
 
     return [tap_name, tap_major_version]
 

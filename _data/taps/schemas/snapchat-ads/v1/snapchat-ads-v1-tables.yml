@@ -23,6 +23,7 @@ tables:
   description: This endpoint retrieves the spend metric for the specified Ad Account
     at DAY granularity, the spend metric is the only metric available for the ad account
     entity
+  tap-repo-schema: false
   links:
     doc-link: https://developers.snapchat.com/api/docs/#get-ad-account-stats
     singer-schema: https://github.com/singer-io/tap-snapchat-ads/blob/master/tap_snapchat_ads/schemas/shared/ad_account_stats.json
@@ -45,6 +46,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: ad_squads
   description: This stream retrieves all ad squads within a specified ad account.
   links:
@@ -65,6 +67,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: ad_squad_stats_hourly
   description: This stream retrieves stats for the specified Ad Squad at HOUR granularity
   links:
@@ -76,6 +79,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: ad_stats_daily
   description: This stream retrieves stats for the specified Ad at DAY granularity
   links:
@@ -87,6 +91,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: ad_stats_hourly
   description: This stream retrieves stats for the specified Ad at HOUR granularity
   links:
@@ -98,6 +103,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: audience_segments
   description: This stream retrieves all Customer List segments within a specified
     ad account.
@@ -138,6 +144,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: campaign_stats_hourly
   description: This stream retrieves stats for the specified Campaign at HOUR granularity
   links:
@@ -149,6 +156,7 @@ tables:
     - id
     - start_time
     replication-key: end_time
+  tap-repo-schema: false
 - name: creatives
   description: This endpoint retrieves all creatives associated with an ad account
   links:
@@ -256,6 +264,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_age_groups
   description: This stream retrieves the list of age group targeting options.
   links:
@@ -264,6 +273,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_android_versions
   description: This stream retrieves the list of device OS version targeting options.
     These OS versions can then be used in targeting as os_version_min and os_version_max.
@@ -273,6 +283,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_carriers
   description: This stream retrieves the list of device carrier targeting options.
   links:
@@ -281,6 +292,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_connection_types
   description: This stream retrieves the list of device connection type targeting
     options.
@@ -290,6 +302,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_countries
   description: This stream retrieves the list of country targeting options.
   links:
@@ -298,6 +311,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_device_makes
   description: This stream retrieves the list of device make targeting options. Please
     note that specifying a parent level make option like `Apple/` in the targeting
@@ -309,6 +323,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_genders
   description: This stream retrieves the list of gender targeting options.
   links:
@@ -317,6 +332,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_interests_dlxc
   description: This stream retrieves the list of Oracle Datalogix DLXC targeting options.
   links:
@@ -325,6 +341,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_interests_dlxp
   description: This stream retrieves the list of Oracle Datalogix DLXP targeting options.
   links:
@@ -333,6 +350,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_interests_dlxs
   description: This stream retrieves the list of Oracle Datalogix DLXS Interests targeting
     options.
@@ -342,6 +360,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_interests_nln
   description: This stream retrieves the list of Nielsen interest targeting options
   links:
@@ -350,6 +369,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_interests_plc
   description: This stream retrieves the list of placed visitation segments targeting
     options by the specified country code
@@ -359,6 +379,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_interests_scls
   description: This stream retrieves the list of Snap Lifestyle Categories targeting
     options by the specified country code
@@ -368,6 +389,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_ios_versions
   description: This stream retrieves the list of device OS version targeting options.
     These OS versions can then be used in targeting as os_version_min and os_version_max.
@@ -377,6 +399,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_languages
   description: This stream retrieves the list of language targeting options.
   links:
@@ -385,6 +408,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_location_categories
   description: Location targeting allows an advertiser to target users based on their
     location.
@@ -394,6 +418,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_metros
   description: This stream retrieves the list of metro/dma targeting options.
   links:
@@ -402,6 +427,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_os_types
   description: This stream retrieves the list of device OS type targeting options.
   links:
@@ -410,6 +436,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_postal_codes
   description: This stream retrieves the list of zipcode targeting options.
   links:
@@ -418,6 +445,7 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
 - name: targeting_regions
   description: This stream retrieves the list of region/state targeting options.
   links:
@@ -426,3 +454,5 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: id
+  tap-repo-schema: false
+tap-repo-schemas: true
