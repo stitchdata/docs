@@ -107,9 +107,6 @@ keys:
   - table: candidates
     keys:
     - sources
-  - table: sources
-    keys:
-    - id
   stages_stage:
   - table: candidates
     keys:
@@ -545,10 +542,6 @@ tables:
       foreign-key: creator
     - key: stageChanges.userId
       foreign-key: creator
-  - table-name: sources
-    keys:
-    - key: sources
-      foreign-key: id
   - table-name: stages
     keys:
     - key: stage
@@ -1897,12 +1890,6 @@ tables:
     keys:
     - key: id
       foreign-key: id
-- table-name: sources
-  join:
-  - table-name: candidates
-    keys:
-    - key: id
-      foreign-key: sources
 - table-name: stages
   join:
   - table-name: candidates

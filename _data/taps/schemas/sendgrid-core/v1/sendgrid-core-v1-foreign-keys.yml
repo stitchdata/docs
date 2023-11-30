@@ -37,10 +37,10 @@ keys:
   lists_all_list_id:
   - table: lists_all
     keys:
-    - list_id
+    - id
   - table: campaigns
     keys:
-    - list_ids.list_id
+    - list_ids
   lists_members_id:
   - table: lists_members
     keys:
@@ -51,7 +51,7 @@ keys:
     - id
   - table: campaigns
     keys:
-    - segment_ids.segment_id
+    - segment_ids
   - table: segments_members
     keys:
     - segment_id
@@ -63,9 +63,6 @@ keys:
   - table: campaigns
     keys:
     - suppression_group_id
-  - table: global_suppressions
-    keys:
-    - id
   - table: groups_members
     keys:
     - group_id
@@ -78,20 +75,16 @@ tables:
   join:
   - table-name: lists_all
     keys:
-    - key: list_ids.list_id
-      foreign-key: list_id
+    - key: list_ids
+      foreign-key: id
   - table-name: segments_all
     keys:
-    - key: segment_ids.segment_id
+    - key: segment_ids
       foreign-key: id
   - table-name: segments_members
     keys:
-    - key: segment_ids.segment_id
+    - key: segment_ids
       foreign-key: segment_id
-  - table-name: global_suppressions
-    keys:
-    - key: suppression_group_id
-      foreign-key: id
   - table-name: groups_members
     keys:
     - key: suppression_group_id
@@ -220,10 +213,6 @@ tables:
     keys:
     - key: group_id
       foreign-key: suppression_group_id
-  - table-name: global_suppressions
-    keys:
-    - key: group_id
-      foreign-key: id
 - table-name: invalids
   join:
   - table-name: blocks
@@ -321,7 +310,7 @@ tables:
   - table-name: campaigns
     keys:
     - key: segment_id
-      foreign-key: segment_ids.segment_id
+      foreign-key: segment_ids
 - table-name: spam_reports
   join:
   - table-name: blocks
@@ -356,25 +345,15 @@ tables:
   join:
   - table-name: campaigns
     keys:
-    - key: list_id
-      foreign-key: list_ids.list_id
+    - key: id
+      foreign-key: list_ids
 - table-name: segments_all
   join:
   - table-name: campaigns
     keys:
     - key: id
-      foreign-key: segment_ids.segment_id
+      foreign-key: segment_ids
   - table-name: segments_members
     keys:
     - key: id
       foreign-key: segment_id
-- table-name: global_suppressions
-  join:
-  - table-name: campaigns
-    keys:
-    - key: id
-      foreign-key: suppression_group_id
-  - table-name: groups_members
-    keys:
-    - key: id
-      foreign-key: group_id

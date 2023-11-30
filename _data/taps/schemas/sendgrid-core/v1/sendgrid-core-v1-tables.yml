@@ -83,65 +83,57 @@ tables:
 - name: campaigns
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/campaigns.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: invalids
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/invalids.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: email
 - name: lists_all
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_all.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: lists_members
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_members.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: segments_all
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_all.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 - name: segments_members
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_members.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: id
 - name: spam_reports
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/spam_reports.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: email
 - name: templates_all
   description: ''
   links:
-    singer-schema: ''
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/templates_all.json
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Full Table
+    primary-key: id
 tap-repo-schemas: true
