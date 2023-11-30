@@ -19,9 +19,7 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/account_balance.json
-    api-method: ''
   table-details:
     replication-method: Full Table
     primary-key: account_sid
@@ -72,7 +70,6 @@ tables:
 
     '
   links:
-    doc-link: https://www.twilio.com/docs/phone-numbers/api/availablephonenumberlocal-resource#read-multiple-availablephonenumberlocal-resources
     singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/available_phone_numbers_local.json
     api-method: https://www.twilio.com/docs/phone-numbers/api/availablephonenumberlocal-resource#read-multiple-availablephonenumberlocal-resources
   table-details:
@@ -165,7 +162,6 @@ tables:
 
     '
   links:
-    doc-link: https://www.twilio.com/docs/usage/api/address?code-sample=code-list-dependent-pns-subresources&code-language=curl&code-sdk-version=json#instance-subresources
     singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/dependent_phone_numbers.json
     api-method: https://www.twilio.com/docs/usage/api/address?code-sample=code-list-dependent-pns-subresources&code-language=curl&code-sdk-version=json#instance-subresources
   table-details:
@@ -190,7 +186,6 @@ tables:
 
     '
   links:
-    doc-link: https://www.twilio.com/docs/usage/api/keys?code-sample=code-read-a-key-resource&code-language=curl&code-sdk-version=json
     singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/keys.json
     api-method: https://www.twilio.com/docs/usage/api/keys?code-sample=code-read-a-key-resource&code-language=curl&code-sdk-version=json
   table-details:
@@ -229,7 +224,6 @@ tables:
 
     '
   links:
-    doc-link: https://www.twilio.com/docs/voice/api/outgoing-caller-ids?code-sample=code-list-an-accounts-outgoing-caller-ids&code-language=curl&code-sdk-version=json
     singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/outgoing_caller_ids.json
     api-method: https://www.twilio.com/docs/voice/api/outgoing-caller-ids?code-sample=code-list-an-accounts-outgoing-caller-ids&code-language=curl&code-sdk-version=json
   table-details:

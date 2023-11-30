@@ -24,7 +24,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/collaborators.json
     api-method: https://docs.github.com/en/rest/reference/repos#list-repository-collaborators
   table-details:
@@ -60,7 +59,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commit_comments.json
     api-method: https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository
   table-details:
@@ -104,7 +102,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_events.json
     api-method: https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository
   table-details:
@@ -116,7 +113,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_labels.json
     api-method: https://docs.github.com/en/rest/reference/issues#list-labels-for-a-repository
   table-details:
@@ -128,7 +124,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_milestones.json
     api-method: https://docs.github.com/en/rest/reference/issues#list-milestones
   table-details:
@@ -138,7 +133,6 @@ tables:
   description: "The `{{ table.name }}` table contains info about projects in the repositories\
     \ specified for the integration. \n"
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/projects.json
     api-method: https://docs.github.com/en/rest/reference/projects#list-repository-projects
   table-details:
@@ -162,7 +156,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_columns.json
     api-method: https://docs.github.com/en/rest/reference/projects#list-project-columns
   table-details:
@@ -175,7 +168,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: ''
     api-method: https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request
   table-details:
@@ -203,7 +195,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/releases.json
     api-method: https://docs.github.com/en/rest/reference/repos#list-releases
   table-details:
@@ -228,7 +219,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/review_comments.json
     api-method: https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request
   table-details:
@@ -240,7 +230,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/stargazers.json
     api-method: https://docs.github.com/en/rest/reference/activity#list-stargazers
   table-details:
@@ -253,7 +242,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/teams.json
     api-method: https://docs.github.com/en/rest/reference/teams#list-teams
   table-details:
@@ -265,7 +253,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/team_members.json
     api-method: https://docs.github.com/en/rest/reference/teams#list-team-members
   table-details:
@@ -277,7 +264,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/team_memberships.json
     api-method: https://docs.github.com/en/rest/reference/teams#get-team-membership-for-a-user
   table-details:

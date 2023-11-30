@@ -8,7 +8,6 @@ tables:
 
     '
   links:
-    doc-link: https://developers.liveperson.com/data-access-api-methods-agent-activity.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_activity.json
     api-method: https://developers.liveperson.com/data-access-api-methods-agent-activity.html
   table-details:
@@ -33,7 +32,6 @@ tables:
   description: The `{{ table.name }}` table contains info about the agent state distribution
     in your {{ integration.display_name }} account.
   links:
-    doc-link: https://developers.liveperson.com/operational-realtime-api-methods-agent-activity.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_state_distribution.json
     api-method: https://developers.liveperson.com/operational-realtime-api-methods-agent-activity.html
   table-details:
@@ -83,7 +81,6 @@ tables:
 
     '
   links:
-    doc-link: https://developers.liveperson.com/messaging-operations-api-methods-messaging-queue-health.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/messaging_queue_health.json
     api-method: https://developers.liveperson.com/messaging-operations-api-methods-messaging-queue-health.html
   table-details:
@@ -94,7 +91,6 @@ tables:
 
     '
   links:
-    doc-link: https://developers.liveperson.com/operational-realtime-api-methods-queue-health.html
     singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/queue_health.json
     api-method: https://developers.liveperson.com/operational-realtime-api-methods-queue-health.html
   table-details:

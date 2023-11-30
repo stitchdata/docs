@@ -14,7 +14,6 @@ tables:
 
     '
   links:
-    doc-link: https://porter.revinate.com/documentation#hotels
     singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L1
     api-method: https://porter.revinate.com/documentation#hotels
   table-details:
@@ -40,7 +39,6 @@ tables:
 
     '
   links:
-    doc-link: https://porter.revinate.com/documentation#hotels
     singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L26
     api-method: https://porter.revinate.com/documentation#hotels
   table-details:
@@ -115,7 +113,6 @@ tables:
     \ If you're missing records, verify that the authenticating user has access to\
     \ those hotels in {{ integration.display_name }}.\n"
   links:
-    doc-link: https://porter.revinate.com/documentation#reviews
     api-method: https://porter.revinate.com/documentation#reviews
   table-details:
     replication-method: Key-based Incremental

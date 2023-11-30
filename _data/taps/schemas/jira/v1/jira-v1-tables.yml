@@ -23,7 +23,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-changelog-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/changelogs.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-changelog-get
   table-details:
@@ -84,7 +83,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-comment-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_comments.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-comment-get
   table-details:
@@ -100,7 +98,6 @@ tables:
     \ required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link\
     \ }}){:target=\"new\"} for more info.\n"
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get
   table-details:
@@ -111,7 +108,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/project_categories.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-get
   table-details:
@@ -122,7 +118,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-type-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/project_types.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-type-get
   table-details:
@@ -139,7 +134,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-post
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/resolutions.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-post
   table-details:
@@ -157,7 +151,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-role-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/roles.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-role-get
   table-details:
@@ -175,7 +168,6 @@ tables:
 
     '
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/users.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-user-search-get
   table-details:
@@ -190,7 +182,6 @@ tables:
     \ required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link\
     \ }}){:target=\"new\"} for more info.\n"
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-projectIdOrKey-versions-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/versions.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-projectIdOrKey-versions-get
   table-details:
@@ -212,7 +203,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-worklog-updated-get
     singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/worklogs.json
     api-method: https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-worklog-updated-get
   table-details:

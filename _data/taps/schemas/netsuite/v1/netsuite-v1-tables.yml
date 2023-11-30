@@ -42,8 +42,6 @@ tables:
     permission for accessing location data.
 
     '
-  links:
-    doc-link: ''
   table-details:
     replication-method: Full Table
     primary-key: internalId
@@ -366,7 +364,6 @@ tables:
 
     '
   links:
-    doc-link: https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html
     api-method: https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html
   table-details:
     replication-method: Key-based Incremental
@@ -546,8 +543,6 @@ tables:
     {{ integration.permission-for-table | flatify }}
 
     '
-  links:
-    doc-link: ''
   table-details:
     replication-method: Key-based Incremental
     primary-key: internalId
@@ -1114,8 +1109,6 @@ tables:
     {{ integration.permission-for-table | flatify }}
 
     '
-  links:
-    doc-link: ''
   table-details:
     replication-method: Full Table
     primary-key: internalId

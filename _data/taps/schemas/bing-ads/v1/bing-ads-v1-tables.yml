@@ -12,7 +12,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/account
     api-method: https://docs.microsoft.com/en-us/bingads/customer-management-service/account
   table-details:
     replication-method: Key-based Incremental
@@ -35,7 +34,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: ads
@@ -94,7 +93,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: age_gender_performance_report
@@ -112,7 +111,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: campaigns
@@ -144,7 +143,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: geographic_performance_report
@@ -163,7 +162,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: goals_and_funnels_report
@@ -183,7 +182,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: keyword_performance_report
@@ -201,7 +200,7 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate
 - name: search_query_performance_report
@@ -224,6 +223,6 @@ tables:
     replication-method: Append-Only (Incremental)
     primary-keys:
     - accountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - gregorianDate
     replication-key: gregorianDate

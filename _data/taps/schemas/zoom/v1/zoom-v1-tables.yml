@@ -7,7 +7,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetings
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meetings.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetings
   table-details:
@@ -20,7 +19,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingfiles
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_files.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingfiles
   table-details:
@@ -34,7 +32,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_polls.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingpolls
   table-details:
@@ -48,7 +45,6 @@ tables:
     \ data is available only if the host user's role is **Pro** and the meeting was\
     \ scheduled.\n"
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingpolls
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_poll_results.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/listpastmeetingpolls
   table-details:
@@ -62,7 +58,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantsquestionsget
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_questions.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrantsquestionsget
   table-details:
@@ -74,7 +69,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrants
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/meeting_registrants.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meetingregistrants
   table-details:
@@ -88,7 +82,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingdetails
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meetings.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingdetails
   table-details:
@@ -100,7 +93,6 @@ tables:
     \ docs]({{ table.api-method.doc-link }}){:target=\"new\"}, a {{ integration.display_name\
     \ }} Pro plan or higher is required to retrieve this data.\n"
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingparticipants
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_meeting_participants.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportmeetingparticipants
   table-details:
@@ -114,7 +106,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinardetails
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_webinars.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinardetails
   table-details:
@@ -126,7 +117,6 @@ tables:
     \ docs]({{ table.api-method.doc-link }}){:target=\"new\"}, a Pro plan or higher\
     \ with with the webinar add-on enabled is required to retrieve this data.\n"
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinarparticipants
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/report_webinar_participants.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/reports/reportwebinarparticipants
   table-details:
@@ -140,7 +130,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/users.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/users/users
   table-details:
@@ -161,7 +150,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinars.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinars
   table-details:
@@ -173,7 +161,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarabsentees
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_absentees.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarabsentees
   table-details:
@@ -187,7 +174,6 @@ tables:
     \ integration.display_name }} deletes these files 24 hours after completion of\
     \ the webinar.\n"
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_files.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarfiles
   table-details:
@@ -201,7 +187,6 @@ tables:
     \ table.api-method.doc-link }}){:target=\"new\"}, a Pro plan or higher with with\
     \ the webinar add-on enabled is required to retrieve this data.\n"
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpanelists
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_panelists.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpanelists
   table-details:
@@ -215,7 +200,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_polls.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarpolls
   table-details:
@@ -231,7 +215,6 @@ tables:
     \ integration.display_name }} webinar license\n- A Pro plan or higher\n- An authentication\
     \ app with the `webinar:read:admin` and `webinar:read` scopes\n"
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarpollresults
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_poll_results.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarpollresults
   table-details:
@@ -245,7 +228,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_qna_results.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/listpastwebinarqa
   table-details:
@@ -268,7 +250,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantsquestionsget
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_questions.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrantsquestionsget
   table-details:
@@ -290,7 +271,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrants
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_registrants.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarregistrants
   table-details:
@@ -314,7 +294,6 @@ tables:
 
     '
   links:
-    doc-link: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/gettrackingsources
     singer-schema: https://github.com/singer-io/tap-zoom/blob/master/tap_zoom/schemas/webinar_tracking_sources.json
     api-method: https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/gettrackingsources
   table-details:

@@ -52,7 +52,6 @@ tables:
   description: The `{{ table.name }}` table contains info about the placeholders in
     your {{ integration.display_name }} account.
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/placeholders.json
   table-details:
     replication-method: Key-based Incremental
@@ -74,7 +73,6 @@ tables:
   description: The `{{ table.name }}` table contains info about the roles in your
     {{ integration.display_name }} account.
   links:
-    doc-link: ''
     singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/roles.json
   table-details:
     replication-method: Full Table

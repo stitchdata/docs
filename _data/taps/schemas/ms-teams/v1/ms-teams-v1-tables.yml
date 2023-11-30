@@ -8,7 +8,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/channel-list?view=graph-rest-1.0&tabs=http
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channels.json
     api-method: https://docs.microsoft.com/en-us/graph/api/channel-list?view=graph-rest-1.0&tabs=http
   table-details:
@@ -20,7 +19,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/conversationmember-list?view=graph-rest-beta&tabs=http
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_members.json
     api-method: https://docs.microsoft.com/en-us/graph/api/conversationmember-list?view=graph-rest-beta&tabs=http
   table-details:
@@ -32,7 +30,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/chatmessage-delta?view=graph-rest-beta&tabs=http
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_messages.json
     api-method: https://docs.microsoft.com/en-us/graph/api/chatmessage-delta?view=graph-rest-beta&tabs=http
   table-details:
@@ -45,7 +42,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/channel-list-messagereplies?view=graph-rest-beta&tabs=http
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/channel_message_replies.json
     api-method: https://docs.microsoft.com/en-us/graph/api/channel-list-messagereplies?view=graph-rest-beta&tabs=http
   table-details:
@@ -111,7 +107,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/teams-list-all-teams?context=graph%2Fapi%2Fbeta&view=graph-rest-beta
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/groups.json
     api-method: https://docs.microsoft.com/en-us/graph/teams-list-all-teams?context=graph%2Fapi%2Fbeta&view=graph-rest-beta
   table-details:
@@ -124,7 +119,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-1.0&tabs=http
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/group_members.json
     api-method: https://docs.microsoft.com/en-us/graph/api/group-list-members?view=graph-rest-1.0&tabs=http
   table-details:
@@ -136,7 +130,6 @@ tables:
     \ that have modifying priviliges. \n\n**Note**: Groups created in Microsoft Exchange\
     \ will not be available in this table.\n"
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/group-list-owners?view=graph-rest-1.0&tabs=http
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/group_owners.json
     api-method: https://docs.microsoft.com/en-us/graph/api/group-list-owners?view=graph-rest-1.0&tabs=http
   table-details:
@@ -148,7 +141,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/team_device_usage_report.json
     api-method: https://docs.microsoft.com/en-us/graph/api/reportroot-getteamsdeviceusageuserdetail?view=graph-rest-beta
   table-details:
@@ -163,7 +155,6 @@ tables:
 
     '
   links:
-    doc-link: https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group
     singer-schema: https://github.com/singer-io/tap-ms-teams/blob/master/tap_ms_teams/schemas/team_drives.json
     api-method: https://docs.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-beta&tabs=http#get-the-document-library-associated-with-a-group
   table-details:

@@ -7,7 +7,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/accounts
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/accounts.json
     api-method: https://developer.xero.com/documentation/api/accounts
   table-details:
@@ -20,7 +19,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/banktransactions
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transactions.json
     api-method: https://developer.xero.com/documentation/api/banktransactions
   table-details:
@@ -30,7 +28,6 @@ tables:
 - name: bank_transfers
   description: "The `{{ table.name }}` table contains info about bank transfers. \n"
   links:
-    doc-link: https://developer.xero.com/documentation/api/bank-transfers
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transfers.json
     api-method: https://developer.xero.com/documentation/api/bank-transfers
   table-details:
@@ -44,7 +41,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/branding-themes
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/branding_themes.json
     api-method: https://developer.xero.com/documentation/api/branding-themes
   table-details:
@@ -56,7 +52,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/contacts
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contacts.json
     api-method: https://developer.xero.com/documentation/api/contacts
   table-details:
@@ -73,7 +68,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/contactgroups
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contact_groups.json
     api-method: https://developer.xero.com/documentation/api/contactgroups
   table-details:
@@ -86,7 +80,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/credit-notes
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/credit_notes.json
     api-method: https://developer.xero.com/documentation/api/credit-notes
   table-details:
@@ -99,7 +92,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/currencies
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/currencies.json
     api-method: https://developer.xero.com/documentation/api/currencies
   table-details:
@@ -123,7 +115,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/employees
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/employees.json
     api-method: https://developer.xero.com/documentation/api/employees
   table-details:
@@ -135,7 +126,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/expense-claims
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/expense_claims.json
     api-method: https://developer.xero.com/documentation/api/expense-claims
   table-details:
@@ -148,7 +138,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/invoices
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/invoices.json
     api-method: https://developer.xero.com/documentation/api/invoices
   table-details:
@@ -161,7 +150,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/items
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/items.json
     api-method: https://developer.xero.com/documentation/api/items
   table-details:
@@ -173,7 +161,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/journals
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/journals.json
     api-method: https://developer.xero.com/documentation/api/journals
   table-details:
@@ -187,7 +174,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/linked-transactions
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/linked_transactions.json
     api-method: https://developer.xero.com/documentation/api/linked-transactions
   table-details:
@@ -201,7 +187,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/manual-journals
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/manual_journals.json
     api-method: https://developer.xero.com/documentation/api/manual-journals
   table-details:
@@ -214,7 +199,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/organisation
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/organisations.json
     api-method: https://developer.xero.com/documentation/api/organisation
   table-details:
@@ -226,7 +210,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/overpayments
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/overpayments.json
     api-method: https://developer.xero.com/documentation/api/overpayments
   table-details:
@@ -237,7 +220,6 @@ tables:
   description: "The `{{ table.name }}` table contains info about the payments recorded\
     \ in your {{ integration.display_name }} account. \n"
   links:
-    doc-link: https://developer.xero.com/documentation/api/payments
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payments.json
     api-method: https://developer.xero.com/documentation/api/payments
   table-details:
@@ -251,7 +233,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/prepayments
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/prepayments.json
     api-method: https://developer.xero.com/documentation/api/prepayments
   table-details:
@@ -264,7 +245,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/purchase-orders
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/purchase_orders.json
     api-method: https://developer.xero.com/documentation/api/purchase-orders
   table-details:
@@ -277,7 +257,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/quotes
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/quotes.json
     api-method: https://developer.xero.com/documentation/api/quotes
   table-details:
@@ -290,7 +269,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/receipts
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/receipts.json
     api-method: https://developer.xero.com/documentation/api/receipts
   table-details:
@@ -304,7 +282,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/repeating-invoices
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/repeating_invoices.json
     api-method: https://developer.xero.com/documentation/api/repeating-invoices
   table-details:
@@ -316,7 +293,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/tax-rates
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tax_rates.json
     api-method: https://developer.xero.com/documentation/api/tax-rates
   table-details:
@@ -329,7 +305,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/tracking-categories
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tracking_categories.json
     api-method: https://developer.xero.com/documentation/api/tracking-categories
   table-details:
@@ -340,7 +315,6 @@ tables:
 
     '
   links:
-    doc-link: https://developer.xero.com/documentation/api/users
     singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/users.json
     api-method: https://developer.xero.com/documentation/api/users
   table-details:
