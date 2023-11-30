@@ -176,6 +176,8 @@ def fullFileRef(path, folder, type):
                             content = new_content
                         elif type == 'object':
                             content = json.dumps(props)
+                        elif type == 'empty file':
+                            content = content
                     except:
                         pass
 
@@ -220,7 +222,7 @@ def replaceRefs(json_content, folder, filepath):
     try:
 
         # Find $ref elements
-        pattern = re.compile('(\{\s*\"\$ref\"\:\s*\"([^\"]+)\"\s*\})')
+        pattern = re.compile('(\{\s*\"\$ref\"\:\s*\"([^\"]+)\"\s*\})', re.MULTILINE)
         refs = re.findall(pattern, json_content)
         refs_count = len(refs)
         type = 'object'
@@ -234,7 +236,7 @@ def replaceRefs(json_content, folder, filepath):
                 element = ref[0]
                 path = ref[1]
 
-                if json_content == element:
+                if json_content.strip() == element:
                     type = 'empty file'
 
                 # Use the function matching the reference type
@@ -251,7 +253,7 @@ def replaceRefs(json_content, folder, filepath):
         try:
 
             # Find inline $ref elements, get the path and type, and use the corresponding function
-            pattern = re.compile('(\"\$ref\"\:\s*\"([^\"]+)\"\s*,)')
+            pattern = re.compile('(\"\$ref\"\:\s*\"([^\"]+)\"\s*,)', re.MULTILINE)
             refs = re.findall(pattern, json_content)
             refs_count = len(refs)
             type = 'inline'
