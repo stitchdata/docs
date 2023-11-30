@@ -19,7 +19,7 @@ keys:
   - table: contacts
     keys:
     - email
-  - table: group_members
+  - table: groups_members
     keys:
     - email
   - table: invalids
@@ -66,7 +66,7 @@ keys:
   - table: global_suppressions
     keys:
     - id
-  - table: group_members
+  - table: groups_members
     keys:
     - group_id
   templates_all_id:
@@ -92,7 +92,7 @@ tables:
     keys:
     - key: suppression_group_id
       foreign-key: id
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: suppression_group_id
       foreign-key: group_id
@@ -106,7 +106,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -136,7 +136,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -166,7 +166,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -186,7 +186,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-- table-name: group_members
+- table-name: groups_members
   join:
   - table-name: blocks
     keys:
@@ -238,7 +238,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -268,7 +268,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -298,7 +298,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -336,7 +336,7 @@ tables:
     keys:
     - key: email
       foreign-key: email
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: email
       foreign-key: email
@@ -374,7 +374,7 @@ tables:
     keys:
     - key: id
       foreign-key: suppression_group_id
-  - table-name: group_members
+  - table-name: groups_members
     keys:
     - key: id
       foreign-key: group_id
