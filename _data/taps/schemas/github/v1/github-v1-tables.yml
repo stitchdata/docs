@@ -170,21 +170,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     parent-table: project
-- name: pr_commits
-  description: 'The `{{ table.name }}` table contains info about pull request commits
-    and is a slight variation of the [`commits`](#commits) table. This allows you
-    to associate commits to pull requests that are squash merged.
-
-    '
-  links:
-    doc-link: ''
-    singer-schema: ''
-    api-method: https://docs.github.com/en/rest/reference/pulls#list-commits-on-a-pull-request
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: id
-    parent-table: pull_request
-  status: not_found
 - name: pull_requests
   description: 'The `{{ table.name }}` table contains info about pull requests made
     against the repositories specified for the integration.
