@@ -37,6 +37,9 @@ def fixProperty(property):
             elif 'items' in content:
                 item_list = content['items']
                 if len(item_list) > 0:
+                    if 'items' in item_list and 'type' in item_list and len(item_list) == 2:
+                        content['items'] = content['items']['items']
+                        item_list = content['items']
                     if 'properties' in item_list:
                         p = item_list['properties']
                         p = fixProperty(p)
