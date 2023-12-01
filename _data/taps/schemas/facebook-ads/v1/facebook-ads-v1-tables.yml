@@ -1,5 +1,6 @@
 tap: facebook-ads
 version: '1'
+tap-repo-schemas: true
 tables:
 - name: adcreative
   description: 'The `adcreative` table contains info about the creatives used in ads,
@@ -96,18 +97,18 @@ tables:
     to segment the data:
 
 
-    - [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) - Data segmented
+    - [`ads_insights_age_and_gender`](#ads-insights-age-and-gender) - Data segmented
     by age and gender
 
-    - [`ads_insights_country`](#ads_insights_country) - Data segmented by country
+    - [`ads_insights_country`](#ads-insights-country) - Data segmented by country
 
-    - [`ads_insights_dma`](#ads_insights_dma) - Data segmented by DMA (Designated
+    - [`ads_insights_dma`](#ads-insights-dma) - Data segmented by DMA (Designated
     Market Area)
 
-    - [`ads_insights_platform_and_device`](#ads_insights_platform_and_device) - Data
+    - [`ads_insights_platform_and_device`](#ads-insights-platform-and-device) - Data
     segmented by platform and device
 
-    - [`ads_insights_region`](#ads_insights_region) - Data segmented by region
+    - [`ads_insights_region`](#ads-insights-region) - Data segmented by region
 
     '
   links:
