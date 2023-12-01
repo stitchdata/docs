@@ -58,9 +58,11 @@
                         {% include shared/versioning/version-status-logic.html %}
 
                         {% if is-latest == true %}
-                            {% assign status-display = "latest" %}
-                        {% else %}
+                            {% assign status-display = "Latest" %}
+                        {% elsif version.status %}
                             {% assign status-display = version-status.display-name %}
+                        {% else %}
+                            {% assign status-display = site.data.stitch.version-statuses.deprecated.display-name %}
                         {% endif %}
 
                         {% if doc.url == page.url %}

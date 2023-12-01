@@ -56,6 +56,12 @@ release-status: &release-status
   field-value: |
     {% assign version-statuses = site.data.stitch.version-statuses %}
 
+    {% if integration.db-type %}
+      {% assign integration-latest = site.data.taps.versions.[integration.db-type].latest-version %}
+    {% else %}
+      {% assign integration-latest = site.data.taps.versions.[integration.name].latest-version %}
+    {% endif %}
+
     {% if include.feature-type == "webhooks" %}
       {{ integration.status }}
 
@@ -71,15 +77,42 @@ release-status: &release-status
       {% if integration.override-version-status %}
         {% assign version-status = version-statuses[integration.override-version-status] %}
 
-      {% else %}
+      {% elsif version-variable.status %}
         {% assign version-status = version-statuses[version-variable.status] %}
+
+      {% else %}
+        {% if version-variable.number == integration-latest %}
+          {% assign version-status = version-statuses.released %}
+        {% else %}
+          {% assign version-status = version-statuses.deprecated %}
+        {% endif %}
+
       {% endif %}
 
-      {% if version-status.date %}
-        {% assign version-info = version-variable[version-status.date] | prepend: " on " %}
+      {% if version-status.date and version-variable[version-status.date] %}
+        {% assign version-info = version-status.display-name | append: " on "| append: version-variable[version-status.date] %}
+      {% elsif version-status.date and version-variable.number != integration-latest %}
+        {% assign next-version = version-variable.number | plus: 1 | append: "" %}
+        {% if integration.db-type %}
+          {% assign versions = site.data.taps.versions.[integration.db-type].released-versions %}
+        {% else %}
+          {% assign versions = site.data.taps.versions.[integration.name].released-versions %}
+        {% endif %}
+        {% for version in versions %}
+            {% if version.number == next-version %}
+              {% if version.date-released %}
+                {% assign version-info = version-status.display-name | append: " on "| append: version.date-released %}
+              {% else %}
+                {% assign version-info = version-status.display-name %}
+              {% endif %}
+            {% endif %}
+        {% endfor %}
+
+      {% else %}
+        {% assign version-info = version-status.display-name %}
       {% endif %}
 
-      {{ version-status.display-name | flatify }} {{ version-info | flatify }}
+      {{ version-info | flatify }}
     {% endif %}
 
 support-level: &support-level
