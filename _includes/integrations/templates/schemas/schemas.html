@@ -86,7 +86,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
                             {% for link in table.links %}
                                 {% assign key = link[0] %}
                                 {% assign url = link[1] %}
-                                {% assign text = site.data.taps.snapshot-attributes.field-names.[key] | flatify | markdownify | strip %}
+                                {% assign text = site.data.taps.snapshot-attributes.field-names.[key] | flatify | strip %}
                                     <p>
                                         <a href="{{ url }}" title="Opens in new tab: {{ text }}" target="new">
                                             {{ text }}
