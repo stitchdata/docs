@@ -1,0 +1,2009 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "derived_table": {
+      "additionalProperties": false,
+      "properties": {
+        "cluster_keys": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "create_process": {
+          "additionalProperties": false,
+          "properties": {
+            "sql_steps": {
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "datagroup_trigger": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "distribution": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "distribution_style": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "explore_source": {
+          "additionalProperties": false,
+          "properties": {
+            "bind_filters": {
+              "additionalProperties": false,
+              "properties": {
+                "from_field": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "to_field": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "columns": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "field": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "derived_columns": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "sql": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "expression_custom_filter": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "filters": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "field": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "limit": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "sort": {
+              "additionalProperties": false,
+              "properties": {
+                "desc": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "field": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "timezone": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "indexes": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "partition_keys": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "persist_for": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sortkeys": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "sql": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sql_create": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sql_trigger_value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "dimension_groups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alias": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "allow_fill": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "bypass_suggest_restrictions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "can_filter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "convert_tz": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "datatype": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "drill_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "fanout_on": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "full_suggestions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_item_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hidden": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "html": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "intervals": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "order_by_field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required_access_grants": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "skip_drill_filter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_end": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_start": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_dimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_explore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tags": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "timeframes": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "dimensions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "form_params": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "default": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "label": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "options": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "label": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
+                        },
+                        "type": [
+                          "null",
+                          "array"
+                        ]
+                      },
+                      "required": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "form_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "icon_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "params": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "user_attribute_params": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "user_attribute": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "alias": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "alpha_sort": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "bypass_suggest_restrictions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "can_filter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "case": {
+            "additionalProperties": false,
+            "properties": {
+              "whens": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "label": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sql": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "type": [
+                  "null",
+                  "array"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "case_sensitive": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "convert_tz": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "datatype": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "drill_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "fanout_on": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "full_suggestions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_item_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hidden": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "html": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label_from_parameter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "links": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "icon_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "map_layer_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "order_by_field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "primary_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required_access_grants": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "required_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "skip_drill_filter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_end": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_latitude": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_longitude": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_start": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "style": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_dimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_explore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_persist_for": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestions": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "tags": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "tiers": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_format": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_format_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "extends": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "extension": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "filters": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alias": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "bypass_suggest_restrictions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "case_sensitive": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "convert_tz": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "datatype": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "default_value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "full_suggestions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_item_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hidden": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required_access_grants": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "required_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "sql": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_dimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_explore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_persist_for": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestions": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "tags": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "git_owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "git_repository": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "measures": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "form_params": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "default": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "label": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "options": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "label": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "name": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": [
+                            "null",
+                            "object"
+                          ]
+                        },
+                        "type": [
+                          "null",
+                          "array"
+                        ]
+                      },
+                      "required": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "form_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "icon_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "params": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "user_attribute_params": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "user_attribute": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "alias": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "approximate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "approximate_threshold": {
+            "multipleOf": 1e-10,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "can_filter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "convert_tz": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "datatype": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "direction": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "drill_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "fanout_on": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "filters": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "group_item_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "group_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hidden": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "html": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label_from_parameter": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "links": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "icon_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "list_field": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "percentile": {
+            "multipleOf": 1e-10,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "precision": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "required_access_grants": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "required_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "sql": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sql_distinct_key": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_dimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_explore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tags": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_format": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value_format_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parameters": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alias": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "allowed_values": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "bypass_suggest_restrictions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "convert_tz": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "default_value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "full_suggestions": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "hidden": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required_access_grants": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "required_fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "suggest_dimension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_explore": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggest_persist_for": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestable": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "suggestions": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "tags": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "view_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "required_access_grants": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "sets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fields": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "sha": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sql_table_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "suggestions": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

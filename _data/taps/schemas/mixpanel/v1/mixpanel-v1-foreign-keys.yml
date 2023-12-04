@@ -1,0 +1,40 @@
+tap: mixpanel
+version: '1'
+keys:
+  cohorts_cohort_id:
+  - table: cohort_members
+    keys:
+    - cohort_id
+  - table: cohorts
+    keys:
+    - id
+  _project_id:
+  - table: annotations
+    keys:
+    - project_id
+  - table: cohorts
+    keys:
+    - project_id
+tables:
+- table-name: cohort_members
+  join:
+  - table-name: cohorts
+    keys:
+    - key: cohort_id
+      foreign-key: id
+- table-name: cohorts
+  join:
+  - table-name: cohort_members
+    keys:
+    - key: id
+      foreign-key: cohort_id
+  - table-name: annotations
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: annotations
+  join:
+  - table-name: cohorts
+    keys:
+    - key: project_id
+      foreign-key: project_id

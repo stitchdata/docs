@@ -1,0 +1,190 @@
+{
+  "properties": {
+    "categories": {
+      "properties": {
+        "commitment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "department": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "level": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "team": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "content": {
+      "properties": {
+        "closing": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "customQuestions": {
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": "array"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lists": {
+          "items": {
+            "properties": {
+              "content": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "text": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "distributionChannels": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "followers": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "hiringManager": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reqCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "urls": {
+      "properties": {
+        "apply": {
+          "type": "string"
+        },
+        "list": {
+          "type": "string"
+        },
+        "show": {
+          "type": "string"
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "user": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object"
+}

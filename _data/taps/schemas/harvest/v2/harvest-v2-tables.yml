@@ -1,0 +1,333 @@
+tap: harvest
+version: '2'
+tables:
+- name: clients
+  description: 'The `{{ table.name }}` table contains info about the clients in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/clients-api/clients/clients/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/clients.json
+    api-method: https://help.getharvest.com/api-v2/clients-api/clients/clients/#list-all-clients
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about the client contacts
+    in your Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/clients-api/clients/contacts/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/contacts.json
+    api-method: https://help.getharvest.com/api-v2/clients-api/clients/contacts/#list-all-contacts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: estimates
+  description: 'The `{{ table.name }}` table contains info about the estimates in  your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimates.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/#list-all-messages-for-an-estimate
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: estimate_item_categories
+  description: 'The `estimate_item_categories` table contains info about the estimate
+    item categories in your Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimate_item_categories.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/#list-all-estimate-item-categories
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: estimate_line_items
+  description: 'The `{{ table.name }}` table contains info about the line items contained
+    in estimates.
+
+
+    **Note**: This table is updated based on new and updated `estimates`. This means
+    that when an estimate is updated, this table will also be updated.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/#the-estimate-line-item-object
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimate_line_items.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/#get-all-estimates
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: estimate_messages
+  description: 'The `{{ table.name }}` table contains info about the messages associated
+    with estimates.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/estimate_messages.json
+    api-method: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/#list-all-messages-for-an-estimate
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: expenses
+  description: 'The `expenses` table contains info about the expenses recorded in
+    your Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/expenses.json
+    api-method: https://help.getharvest.com/api-v2/expenses-api/expenses/expenses#list-all-expenses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: expense_categories
+  description: 'The `expense_categories` table contains info about the expense categories
+    in your Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/expense_categories.json
+    api-method: https://help.getharvest.com/api-v2/expenses-api/expenses/expense-categories/#list-all-expense-categories
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoices.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#list-all-invoices
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoice_item_categories
+  description: 'The `{{ table.name }}` table contains info about the various categories
+    that can be applied to invoice line items.
+
+
+    **Note**: Harvest includes two non-removable categories by default for the hours
+    and expenses you bill.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-item-categories/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_item_categories.json
+    api-method: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-all-categories
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoice_line_items
+  description: 'The `{{ table.name }}` table contains info about the line items contained
+    in invoices.
+
+
+    **Note**: This table is updated based on new and updated `invoices`. This means
+    that when an invoice is updated, this table will also be updated.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#the-invoice-line-item-object
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_line_items.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#list-all-invoices
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: invoice_messages
+  description: 'The `{{ table.name }}` table contains info about invoice messages,
+    or emails sent to clients about invoices.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_messages.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-messages/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoice_payments
+  description: 'The `{{ table.name }}` table contains info about the payments applied
+    to invoices in your Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-payments/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_payments.json
+    api-method: https://help.getharvest.com/api-v2/invoices-api/invoices/invoice-payments#list-all-payments-for-an-invoice
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: projects
+  description: 'The `{{ table.name }}` table contains info about the projects in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/projects-api/projects/projects/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/projects.json
+    api-method: https://help.getharvest.com/api-v2/projects-api/projects/projects#list-all-projects
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: project_tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks assigned
+    to projects.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/projects-api/projects/task-assignments/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/project_tasks.json
+    api-method: https://help.getharvest.com/api-v2/projects-api/projects/task-assignments#list-all-task-assignments
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: project_users
+  description: 'The `{{ table.name }}` table contains info about the users assigned
+    to projects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/project_users.json
+    api-method: https://help.getharvest.com/api-v2/projects-api/projects/user-assignments/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: roles
+  description: 'The `{{ table.name }}` table contains info about the roles in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/roles-api/roles/roles/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/roles.json
+    api-method: https://help.getharvest.com/api-v2/roles-api/roles/roles#list-all-roles
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/tasks-api/tasks/tasks/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/tasks.json
+    api-method: https://help.getharvest.com/api-v2/tasks-api/tasks/tasks#list-all-tasks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: time_entries
+  description: 'The `{{ table.name }}` table contains info about the time entries
+    in your Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/time_entries.json
+    api-method: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries#list-all-time-entries
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: time_entry_external_reference
+  description: 'The `{{ table.name }}` table contains pairs of time entry IDs and
+    external reference IDs. This data can be used to tie time entries tracked in external
+    services (such as Trello) to your other Harvest data.
+
+
+    **Note**: This table is updated based on new and updated `time_entries`. This
+    means that when a time entry is updated, this table will also be updated.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/time_entry_external_reference.json
+    api-method: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries#list-all-time-entries
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - time_entry_id
+    - external_reference_id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/users-api/users/users/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/users.json
+    api-method: https://help.getharvest.com/api-v2/users-api/users/users#list-all-users
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: user_projects
+  description: 'The `{{ table.name }}` table contains info about the project assignments
+    users are assigned to.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/user_projects.json
+    api-method: https://help.getharvest.com/api-v2/users-api/users/project-assignments/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: user_project_tasks
+  description: "The `{{ table.name }}` table contains pairs of user IDs and project\
+    \ task IDs.\n\n This data can be used to see lists of all the project tasks associated\
+    \ with a user, and join tables together to get a comprehensive look at the user's\
+    \ projects.\n\n**Note**: This table is updated based on new and updated `users`.\
+    \ This means that when a user is updated, this table will also be updated.\n"
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/user_project_tasks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - user_id
+    - project_task_id
+- name: user_roles
+  description: 'The `{{ table.name }}` table contains a list of user ID and role ID
+    pairs, enabling you to see the roles users are associated with.
+
+
+    **Note**: This table is updated based on new and updated `users`. This means that
+    when a user is updated, this table will also be updated.
+
+    '
+  links:
+    doc-link: https://help.getharvest.com/api-v2/users-api/users/users/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/user_roles.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - user_id
+    - role_id

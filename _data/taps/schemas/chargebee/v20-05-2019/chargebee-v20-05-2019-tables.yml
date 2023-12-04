@@ -1,0 +1,175 @@
+tap: chargebee
+version: 20-05-2019
+tables:
+- name: addons
+  description: 'The `{{ table.name }}` table contains info about the addons in your
+    {{ integration.display_name }} account. Addons are additional charges applied
+    to subscriptions apart from base charges.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/addons
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/addons.json
+    api-method: https://apidocs.chargebee.com/docs/api/addons#list_addons
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about the coupons in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/coupons
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/coupons.json
+    api-method: https://apidocs.chargebee.com/docs/api/coupons#list_coupons
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: credit_notes
+  description: 'The `{{ table.name }}` table contains info about the credit notes
+    in your {{ integration.display_name }} account. A credit note is a document that
+    specifies the money owed by a business to a customer.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/credit_notes
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/credit_notes.json
+    api-method: https://apidocs.chargebee.com/docs/api/credit_notes#list_credit_notes
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/customers
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/customers.json
+    api-method: https://apidocs.chargebee.com/docs/api/customers#list_customers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: events
+  description: 'The `{{ table.name }}` table contains info about the events that have
+    occurred on your {{ integration.display_name }} site. Event records contain data
+    about affected resources and additional details, such as when the change occurred.
+    This can be used to create a log of events for a record and analyze how it has
+    changed over time.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/events
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/events.json
+    api-method: https://apidocs.chargebee.com/docs/api/events#list_events
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: occurred_at
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} account. Invoices are statements containing charges,
+    adjustments, and any discounts for a subscription specific to a term.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/invoices
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/invoices.json
+    api-method: https://apidocs.chargebee.com/docs/api/invoices#list_invoices
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: payment_sources
+  description: 'The `{{ table.name }}` table contains info about customer payment
+    sources.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/payment_sources
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/payment_sources.json
+    api-method: https://apidocs.chargebee.com/docs/api/payment_sources#list_payment_sources
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: plans
+  description: 'The `{{ table.name }}` table contains info about the plans in your
+    {{ integration.display_name }} account. Plans are used to specify prices and billing
+    frequencies for [`subscriptions`](#subscriptions).
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/plans
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/plans.json
+    api-method: https://apidocs.chargebee.com/docs/api/plans#list_plans
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about the subscriptions
+    your customers have subscribed to. A subscription is a recurring item that customers
+    are billed for, such as a plan or addon. It may also contain discount items.
+
+
+    **Note**: {{ integration.display_name }} [does not update the `updated_at`](https://apidocs.chargebee.com/docs/api/subscriptions#subscription_updated_at){:target="new"}
+    value when the following attributes on a subscription are modified:
+
+
+    - `due_invoices_count`
+
+    - `due_since`
+
+    - `total_dues`
+
+
+    Because of this functionality and Stitch''s use of this value as a [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}), updates made to
+    subscriptions where only these attributes are modified may not be detected. You
+    should ensure that another attribute on the subscription is also modified to ensure
+    that the `updated_at` value is updated, which will allow Stitch to detect and
+    replicate the record.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/subscriptions
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/subscriptions.json
+    api-method: https://apidocs.chargebee.com/docs/api/subscriptions#list_subscriptions
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about the transactions
+    that have occurred in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/transactions
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/transactions.json
+    api-method: https://apidocs.chargebee.com/docs/api/transactions#list_transactions
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: virtual_bank_accounts
+  description: 'The `{{ table.name }}` table contains info about the virtual bank
+    accounts in your {{ integration.display_name }} account. A virtual bank account
+    is a unique account number that can be shared with your users while still protecting
+    your sensitive bank account details.
+
+    '
+  links:
+    doc-link: https://apidocs.chargebee.com/docs/api/virtual_bank_accounts
+    singer-schema: https://github.com/singer-io/tap-chargebee/blob/master/tap_chargebee/schemas/virtual_bank_accounts.json
+    api-method: https://apidocs.chargebee.com/docs/api/virtual_bank_accounts#list_virtual_bank_accounts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

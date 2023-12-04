@@ -1,0 +1,190 @@
+{
+  "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "event_specific_data": {
+      "properties": {
+        "account_transaction_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "current_step": {
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "day_threshold": {
+              "type": "integer"
+            },
+            "email_body": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "email_subject": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "send_bcc_email": {
+              "type": "boolean"
+            },
+            "send_email": {
+              "type": "boolean"
+            },
+            "send_sms": {
+              "type": "boolean"
+            },
+            "sms_body": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "dunner": {
+          "properties": {
+            "attempts": {
+              "type": "integer"
+            },
+            "created_at": {
+              "type": "string"
+            },
+            "last_attempted_at": {
+              "type": "string"
+            },
+            "revenue_at_risk_in_cents": {
+              "type": "integer"
+            },
+            "state": {
+              "type": "string"
+            },
+            "subscription_id": {
+              "type": "integer"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "new_product_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "new_subscription_state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "next_step": {
+          "properties": {
+            "action": {
+              "type": "string"
+            },
+            "day_threshold": {
+              "type": "integer"
+            },
+            "email_body": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "email_subject": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "send_bcc_email": {
+              "type": "boolean"
+            },
+            "send_email": {
+              "type": "boolean"
+            },
+            "send_sms": {
+              "type": "boolean"
+            },
+            "sms_body": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "previous_product_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "previous_subscription_state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

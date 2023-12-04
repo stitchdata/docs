@@ -1,0 +1,359 @@
+tap: sendgrid-core
+version: '1'
+keys:
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  _email:
+  - table: blocks
+    keys:
+    - email
+  - table: bounces
+    keys:
+    - email
+  - table: contacts
+    keys:
+    - email
+  - table: groups_members
+    keys:
+    - email
+  - table: invalids
+    keys:
+    - email
+  - table: lists_members
+    keys:
+    - email
+  - table: segments_members
+    keys:
+    - email
+  - table: spam_reports
+    keys:
+    - email
+  lists_all_list_id:
+  - table: lists_all
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - list_ids
+  lists_members_id:
+  - table: lists_members
+    keys:
+    - id
+  segments_segment_id:
+  - table: segments_all
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - segment_ids
+  - table: segments_members
+    keys:
+    - segment_id
+  segments_members_id:
+  - table: segments_members
+    keys:
+    - id
+  groups_all_suppression_group_id:
+  - table: campaigns
+    keys:
+    - suppression_group_id
+  - table: groups_members
+    keys:
+    - group_id
+  templates_all_id:
+  - table: templates_all
+    keys:
+    - id
+tables:
+- table-name: campaigns
+  join:
+  - table-name: lists_all
+    keys:
+    - key: list_ids
+      foreign-key: id
+  - table-name: segments_all
+    keys:
+    - key: segment_ids
+      foreign-key: id
+  - table-name: segments_members
+    keys:
+    - key: segment_ids
+      foreign-key: segment_id
+  - table-name: groups_members
+    keys:
+    - key: suppression_group_id
+      foreign-key: group_id
+- table-name: contacts
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: blocks
+  join:
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: bounces
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: groups_members
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: campaigns
+    keys:
+    - key: group_id
+      foreign-key: suppression_group_id
+- table-name: invalids
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: lists_members
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: segments_members
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: spam_reports
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_all
+    keys:
+    - key: segment_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: segment_id
+      foreign-key: segment_ids
+- table-name: spam_reports
+  join:
+  - table-name: blocks
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: bounces
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: contacts
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: groups_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: invalids
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: lists_members
+    keys:
+    - key: email
+      foreign-key: email
+  - table-name: segments_members
+    keys:
+    - key: email
+      foreign-key: email
+- table-name: lists_all
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: list_ids
+- table-name: segments_all
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: segment_ids
+  - table-name: segments_members
+    keys:
+    - key: id
+      foreign-key: segment_id

@@ -1,0 +1,76 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mailbox_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "options": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "order": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "order": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "required": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

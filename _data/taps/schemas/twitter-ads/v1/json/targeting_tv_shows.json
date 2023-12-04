@@ -1,0 +1,58 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "genre": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locales": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "language": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targeting_value": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

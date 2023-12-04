@@ -1,0 +1,1492 @@
+tap: xero
+version: '1'
+keys:
+  accounts_AccountID:
+  - table: accounts
+    keys:
+    - AccountID
+  - table: bank_transactions
+    keys:
+    - BankAccount.AccountID
+  - table: bank_transfers
+    keys:
+    - FromBankAccount.AccountID
+    - ToBankAccount.AccountID
+  - table: journals
+    keys:
+    - JournalLines.AccountID
+  - table: payments
+    keys:
+    - Account.AccountID
+  bank_transfers_BankTransferID:
+  - table: bank_transfers
+    keys:
+    - BankTransferID
+  bank_transactions_BankTransactionID:
+  - table: bank_transactions
+    keys:
+    - BankTransactionID
+  - table: linked_transactions
+    keys:
+    - SourceTransactionID
+  branding_themes_BrandingThemeID:
+  - table: branding_themes
+    keys:
+    - BrandingThemeID
+  - table: contacts
+    keys:
+    - BrandingTheme.BrandingThemeID
+  - table: credit_notes
+    keys:
+    - BrandingThemeID
+  - table: invoices
+    keys:
+    - BrandingThemeID
+  - table: purchase_orders
+    keys:
+    - BrandingThemeID
+  - table: repeating_invoices
+    keys:
+    - BrandingThemeID
+  contact_groups_ContactGroupID:
+  - table: contact_groups
+    keys:
+    - ContactGroupID
+  - table: contacts
+    keys:
+    - ContactGroups.ContactGroupID
+  contacts_ContactID:
+  - table: contacts
+    keys:
+    - ContactID
+  - table: credit_notes
+    keys:
+    - Contact.ContactID
+  - table: invoices
+    keys:
+    - Contact.ContactID
+  - table: linked_transactions
+    keys:
+    - ContactID
+  - table: overpayments
+    keys:
+    - Contact.ContactID
+  - table: prepayments
+    keys:
+    - Contact.ContactID
+  - table: receipts
+    keys:
+    - Contact.ContactID
+  - table: repeating_invoices
+    keys:
+    - Contact.ContactID
+  credit_notes_CreditNoteID:
+  - table: credit_notes
+    keys:
+    - CreditNoteID
+  - table: invoices
+    keys:
+    - CreditNotes.CreditNoteID
+  currencies_CurrencyCode:
+  - table: accounts
+    keys:
+    - CurrencyCode
+  - table: bank_transactions
+    keys:
+    - CurrencyCode
+  - table: credit_notes
+    keys:
+    - CurrencyCode
+  - table: currencies
+    keys:
+    - Code
+  - table: invoices
+    keys:
+    - CurrencyCode
+  - table: prepayments
+    keys:
+    - CurrencyCode
+  - table: purchase_orders
+    keys:
+    - CurrencyCode
+  - table: repeating_invoices
+    keys:
+    - CurrencyCode
+  employees_EmployeeID:
+  - table: employees
+    keys:
+    - EmployeeID
+  expense_claims_ExpenseClaimID:
+  - table: expense_claims
+    keys:
+    - ExpenseClaimID
+  invoices_InvoiceID:
+  - table: invoices
+    keys:
+    - InvoiceID
+  - table: linked_transactions
+    keys:
+    - SourceTransactionID
+    - TargetTransactionID
+  - table: overpayments
+    keys:
+    - Allocations.Invoice.InvoiceID
+  - table: payments
+    keys:
+    - Invoice.InvoiceID
+  - table: prepayments
+    keys:
+    - Allocations.Invoice.InvoiceID
+  items_ItemID:
+  - table: items
+    keys:
+    - ItemID
+  journals_JournalID:
+  - table: journals
+    keys:
+    - JournalID
+  linked_transactions_LinkedTransactionID:
+  - table: linked_transactions
+    keys:
+    - LinkedTransactionID
+  manual_journals_ManualJournalID:
+  - table: manial_journals
+    keys:
+    - ManualJournalID
+  organisations_OrganisationID:
+  - table: organisations
+    keys:
+    - OrganisationID
+  overpayments_OverpaymentID:
+  - table: bank_transactions
+    keys:
+    - OverpaymentID
+  - table: invoices
+    keys:
+    - Overpayments.Overpayment.OverpaymentID
+  - table: overpayments
+    keys:
+    - OverpaymentID
+  - table: payments
+    keys:
+    - Overpayment.OverpaymentID
+  payments_PaymentID:
+  - table: expense_claims
+    keys:
+    - Payments.PaymentID
+  - table: invoices
+    keys:
+    - Payments.PaymentID
+  - table: overpayments
+    keys:
+    - Payments.PaymentID
+  - table: payments
+    keys:
+    - PaymentID
+  prepayments_PrepaymentID:
+  - table: bank_transactions
+    keys:
+    - PrepaymentID
+  - table: invoices
+    keys:
+    - Prepayments.PrepaymentID
+  - table: payments
+    keys:
+    - Prepayments.PrepaymentID
+  - table: prepayments
+    keys:
+    - PrepaymentID
+  purchase_orders_PurchaseOrderID:
+  - table: purchase_orders
+    keys:
+    - PurchaseOrderID
+  receipts_ReceiptID:
+  - table: expense_claims
+    keys:
+    - Receipts.ReceiptID
+  - table: receipts
+    keys:
+    - ReceiptID
+  repeating_invoices_RepeatingInvoiceID:
+  - table: repeating_invoices
+    keys:
+    - RepeatingInvoiceID
+  linked_transactions_SourceTransactionID:
+  - table: bank_transactions
+    keys:
+    - BankTransactionID
+  - table: invoices
+    keys:
+    - InvoiceID
+  tax_rates_TaxName:
+  - table: tax_rates
+    keys:
+    - Name
+  - table: journals
+    keys:
+    - JournalLines.TaxName
+  tracking_categories_TrackingCategoryID:
+  - table: contacts
+    keys:
+    - SalesTrackingCategories.TrackingCategoryID
+    - PurchasesTrackingCategories.TrackingCategoryID
+  - table: credit_notes
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: invoices
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: journals
+    keys:
+    - JournalLines.TrackingCategories.TrackingCategoryID
+  - table: manual_journals
+    keys:
+    - JournalLines.Tracking.TrackingCategoryID
+  - table: overpayments
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: prepayments
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: purchase_orders
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: receipts
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: repeating_invoices
+    keys:
+    - LineItems.Tracking.TrackingCategoryID
+  - table: tracking_categories
+    keys:
+    - TrackingCategoryID
+  users_UserID:
+  - table: expense_claims
+    keys:
+    - User.UserID
+  - table: receipts
+    keys:
+    - User.UserID
+tables:
+- table-name: accounts
+  join:
+  - table-name: bank_transactions
+    keys:
+    - key: AccountID
+      foreign-key: BankAccount.AccountID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transfers
+    keys:
+    - key: AccountID
+      foreign-key: FromBankAccount.AccountID
+    - key: AccountID
+      foreign-key: ToBankAccount.AccountID
+  - table-name: journals
+    keys:
+    - key: AccountID
+      foreign-key: JournalLines.AccountID
+  - table-name: payments
+    keys:
+    - key: AccountID
+      foreign-key: Account.AccountID
+  - table-name: credit_notes
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: invoices
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: prepayments
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: purchase_orders
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: repeating_invoices
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+- table-name: bank_transactions
+  join:
+  - table-name: accounts
+    keys:
+    - key: BankAccount.AccountID
+      foreign-key: AccountID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transfers
+    keys:
+    - key: BankAccount.AccountID
+      foreign-key: FromBankAccount.AccountID
+    - key: BankAccount.AccountID
+      foreign-key: ToBankAccount.AccountID
+  - table-name: journals
+    keys:
+    - key: BankAccount.AccountID
+      foreign-key: JournalLines.AccountID
+  - table-name: payments
+    keys:
+    - key: BankAccount.AccountID
+      foreign-key: Account.AccountID
+    - key: OverpaymentID
+      foreign-key: Overpayment.OverpaymentID
+    - key: PrepaymentID
+      foreign-key: Prepayments.PrepaymentID
+  - table-name: linked_transactions
+    keys:
+    - key: BankTransactionID
+      foreign-key: SourceTransactionID
+  - table-name: credit_notes
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: invoices
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: OverpaymentID
+      foreign-key: Overpayments.Overpayment.OverpaymentID
+    - key: PrepaymentID
+      foreign-key: Prepayments.PrepaymentID
+    - key: BankTransactionID
+      foreign-key: InvoiceID
+  - table-name: prepayments
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: PrepaymentID
+      foreign-key: PrepaymentID
+  - table-name: purchase_orders
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: repeating_invoices
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: overpayments
+    keys:
+    - key: OverpaymentID
+      foreign-key: OverpaymentID
+- table-name: bank_transfers
+  join:
+  - table-name: accounts
+    keys:
+    - key: FromBankAccount.AccountID
+      foreign-key: AccountID
+    - key: ToBankAccount.AccountID
+      foreign-key: AccountID
+  - table-name: bank_transactions
+    keys:
+    - key: FromBankAccount.AccountID
+      foreign-key: BankAccount.AccountID
+    - key: ToBankAccount.AccountID
+      foreign-key: BankAccount.AccountID
+  - table-name: journals
+    keys:
+    - key: FromBankAccount.AccountID
+      foreign-key: JournalLines.AccountID
+    - key: ToBankAccount.AccountID
+      foreign-key: JournalLines.AccountID
+  - table-name: payments
+    keys:
+    - key: FromBankAccount.AccountID
+      foreign-key: Account.AccountID
+    - key: ToBankAccount.AccountID
+      foreign-key: Account.AccountID
+- table-name: journals
+  join:
+  - table-name: accounts
+    keys:
+    - key: JournalLines.AccountID
+      foreign-key: AccountID
+  - table-name: bank_transactions
+    keys:
+    - key: JournalLines.AccountID
+      foreign-key: BankAccount.AccountID
+  - table-name: bank_transfers
+    keys:
+    - key: JournalLines.AccountID
+      foreign-key: FromBankAccount.AccountID
+    - key: JournalLines.AccountID
+      foreign-key: ToBankAccount.AccountID
+  - table-name: payments
+    keys:
+    - key: JournalLines.AccountID
+      foreign-key: Account.AccountID
+  - table-name: tax_rates
+    keys:
+    - key: JournalLines.TaxName
+      foreign-key: Name
+  - table-name: contacts
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: overpayments
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: JournalLines.TrackingCategories.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: payments
+  join:
+  - table-name: accounts
+    keys:
+    - key: Account.AccountID
+      foreign-key: AccountID
+  - table-name: bank_transactions
+    keys:
+    - key: Account.AccountID
+      foreign-key: BankAccount.AccountID
+    - key: Overpayment.OverpaymentID
+      foreign-key: OverpaymentID
+    - key: Prepayments.PrepaymentID
+      foreign-key: PrepaymentID
+  - table-name: bank_transfers
+    keys:
+    - key: Account.AccountID
+      foreign-key: FromBankAccount.AccountID
+    - key: Account.AccountID
+      foreign-key: ToBankAccount.AccountID
+  - table-name: journals
+    keys:
+    - key: Account.AccountID
+      foreign-key: JournalLines.AccountID
+  - table-name: invoices
+    keys:
+    - key: Invoice.InvoiceID
+      foreign-key: InvoiceID
+    - key: Overpayment.OverpaymentID
+      foreign-key: Overpayments.Overpayment.OverpaymentID
+    - key: PaymentID
+      foreign-key: Payments.PaymentID
+    - key: Prepayments.PrepaymentID
+      foreign-key: Prepayments.PrepaymentID
+  - table-name: linked_transactions
+    keys:
+    - key: Invoice.InvoiceID
+      foreign-key: SourceTransactionID
+    - key: Invoice.InvoiceID
+      foreign-key: TargetTransactionID
+  - table-name: overpayments
+    keys:
+    - key: Invoice.InvoiceID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: Overpayment.OverpaymentID
+      foreign-key: OverpaymentID
+    - key: PaymentID
+      foreign-key: Payments.PaymentID
+  - table-name: prepayments
+    keys:
+    - key: Invoice.InvoiceID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: Prepayments.PrepaymentID
+      foreign-key: PrepaymentID
+  - table-name: expense_claims
+    keys:
+    - key: PaymentID
+      foreign-key: Payments.PaymentID
+- table-name: linked_transactions
+  join:
+  - table-name: bank_transactions
+    keys:
+    - key: SourceTransactionID
+      foreign-key: BankTransactionID
+  - table-name: contacts
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: credit_notes
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+  - table-name: invoices
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SourceTransactionID
+      foreign-key: InvoiceID
+    - key: TargetTransactionID
+      foreign-key: InvoiceID
+  - table-name: overpayments
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SourceTransactionID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: TargetTransactionID
+      foreign-key: Allocations.Invoice.InvoiceID
+  - table-name: prepayments
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SourceTransactionID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: TargetTransactionID
+      foreign-key: Allocations.Invoice.InvoiceID
+  - table-name: receipts
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+  - table-name: repeating_invoices
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+  - table-name: payments
+    keys:
+    - key: SourceTransactionID
+      foreign-key: Invoice.InvoiceID
+    - key: TargetTransactionID
+      foreign-key: Invoice.InvoiceID
+- table-name: branding_themes
+  join:
+  - table-name: contacts
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingTheme.BrandingThemeID
+  - table-name: credit_notes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: purchase_orders
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: repeating_invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+- table-name: contacts
+  join:
+  - table-name: branding_themes
+    keys:
+    - key: BrandingTheme.BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: credit_notes
+    keys:
+    - key: BrandingTheme.BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: BrandingTheme.BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: BrandingTheme.BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: BrandingTheme.BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: contact_groups
+    keys:
+    - key: ContactGroups.ContactGroupID
+      foreign-key: ContactGroupID
+  - table-name: linked_transactions
+    keys:
+    - key: ContactID
+      foreign-key: ContactID
+  - table-name: overpayments
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: ContactID
+      foreign-key: Contact.ContactID
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: journals
+    keys:
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: SalesTrackingCategories.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+    - key: PurchasesTrackingCategories.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: credit_notes
+  join:
+  - table-name: branding_themes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: contacts
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingTheme.BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CreditNoteID
+      foreign-key: CreditNotes.CreditNoteID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: linked_transactions
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+  - table-name: overpayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: accounts
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transactions
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: invoices
+  join:
+  - table-name: branding_themes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: contacts
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingTheme.BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CreditNotes.CreditNoteID
+      foreign-key: CreditNoteID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: linked_transactions
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: InvoiceID
+      foreign-key: SourceTransactionID
+    - key: InvoiceID
+      foreign-key: TargetTransactionID
+  - table-name: overpayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: InvoiceID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: Overpayments.Overpayment.OverpaymentID
+      foreign-key: OverpaymentID
+    - key: Payments.PaymentID
+      foreign-key: Payments.PaymentID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: InvoiceID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: Prepayments.PrepaymentID
+      foreign-key: PrepaymentID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: accounts
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transactions
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: Overpayments.Overpayment.OverpaymentID
+      foreign-key: OverpaymentID
+    - key: Prepayments.PrepaymentID
+      foreign-key: PrepaymentID
+    - key: InvoiceID
+      foreign-key: BankTransactionID
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: payments
+    keys:
+    - key: InvoiceID
+      foreign-key: Invoice.InvoiceID
+    - key: Overpayments.Overpayment.OverpaymentID
+      foreign-key: Overpayment.OverpaymentID
+    - key: Payments.PaymentID
+      foreign-key: PaymentID
+    - key: Prepayments.PrepaymentID
+      foreign-key: Prepayments.PrepaymentID
+  - table-name: expense_claims
+    keys:
+    - key: Payments.PaymentID
+      foreign-key: Payments.PaymentID
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: purchase_orders
+  join:
+  - table-name: branding_themes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: contacts
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingTheme.BrandingThemeID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: accounts
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transactions
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: prepayments
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: overpayments
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: repeating_invoices
+  join:
+  - table-name: branding_themes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+  - table-name: contacts
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingTheme.BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: BrandingThemeID
+      foreign-key: BrandingThemeID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: linked_transactions
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+  - table-name: overpayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: accounts
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transactions
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: contact_groups
+  join:
+  - table-name: contacts
+    keys:
+    - key: ContactGroupID
+      foreign-key: ContactGroups.ContactGroupID
+- table-name: overpayments
+  join:
+  - table-name: contacts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: InvoiceID
+    - key: OverpaymentID
+      foreign-key: Overpayments.Overpayment.OverpaymentID
+    - key: Payments.PaymentID
+      foreign-key: Payments.PaymentID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: linked_transactions
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: SourceTransactionID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: TargetTransactionID
+  - table-name: prepayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: payments
+    keys:
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: Invoice.InvoiceID
+    - key: OverpaymentID
+      foreign-key: Overpayment.OverpaymentID
+    - key: Payments.PaymentID
+      foreign-key: PaymentID
+  - table-name: bank_transactions
+    keys:
+    - key: OverpaymentID
+      foreign-key: OverpaymentID
+  - table-name: expense_claims
+    keys:
+    - key: Payments.PaymentID
+      foreign-key: Payments.PaymentID
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: prepayments
+  join:
+  - table-name: contacts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: InvoiceID
+    - key: PrepaymentID
+      foreign-key: Prepayments.PrepaymentID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: linked_transactions
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: SourceTransactionID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: TargetTransactionID
+  - table-name: overpayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: Allocations.Invoice.InvoiceID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: accounts
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+  - table-name: bank_transactions
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: PrepaymentID
+      foreign-key: PrepaymentID
+  - table-name: currencies
+    keys:
+    - key: CurrencyCode
+      foreign-key: Code
+  - table-name: purchase_orders
+    keys:
+    - key: CurrencyCode
+      foreign-key: CurrencyCode
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: payments
+    keys:
+    - key: Allocations.Invoice.InvoiceID
+      foreign-key: Invoice.InvoiceID
+    - key: PrepaymentID
+      foreign-key: Prepayments.PrepaymentID
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: receipts
+  join:
+  - table-name: contacts
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: linked_transactions
+    keys:
+    - key: Contact.ContactID
+      foreign-key: ContactID
+  - table-name: overpayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: Contact.ContactID
+      foreign-key: Contact.ContactID
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: expense_claims
+    keys:
+    - key: ReceiptID
+      foreign-key: Receipts.ReceiptID
+    - key: User.UserID
+      foreign-key: User.UserID
+  - table-name: journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: LineItems.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: currencies
+  join:
+  - table-name: accounts
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+  - table-name: bank_transactions
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+  - table-name: credit_notes
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+  - table-name: invoices
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+  - table-name: prepayments
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+  - table-name: purchase_orders
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+  - table-name: repeating_invoices
+    keys:
+    - key: Code
+      foreign-key: CurrencyCode
+- table-name: expense_claims
+  join:
+  - table-name: invoices
+    keys:
+    - key: Payments.PaymentID
+      foreign-key: Payments.PaymentID
+  - table-name: overpayments
+    keys:
+    - key: Payments.PaymentID
+      foreign-key: Payments.PaymentID
+  - table-name: payments
+    keys:
+    - key: Payments.PaymentID
+      foreign-key: PaymentID
+  - table-name: receipts
+    keys:
+    - key: Receipts.ReceiptID
+      foreign-key: ReceiptID
+    - key: User.UserID
+      foreign-key: User.UserID
+- table-name: tax_rates
+  join:
+  - table-name: journals
+    keys:
+    - key: Name
+      foreign-key: JournalLines.TaxName
+- table-name: manual_journals
+  join:
+  - table-name: contacts
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: journals
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: overpayments
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: tracking_categories
+    keys:
+    - key: JournalLines.Tracking.TrackingCategoryID
+      foreign-key: TrackingCategoryID
+- table-name: tracking_categories
+  join:
+  - table-name: contacts
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: SalesTrackingCategories.TrackingCategoryID
+    - key: TrackingCategoryID
+      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
+  - table-name: credit_notes
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: invoices
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: journals
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
+  - table-name: manual_journals
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: JournalLines.Tracking.TrackingCategoryID
+  - table-name: overpayments
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: prepayments
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: purchase_orders
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: receipts
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID
+  - table-name: repeating_invoices
+    keys:
+    - key: TrackingCategoryID
+      foreign-key: LineItems.Tracking.TrackingCategoryID

@@ -1,0 +1,259 @@
+{
+  "properties": {
+    "avatar": {
+      "properties": {
+        "image_url": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "companies": {
+      "properties": {
+        "companies": {
+          "properties": {
+            "company_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_request_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "last_seen_ip": {
+      "type": [
+        "string"
+      ]
+    },
+    "location_data": {
+      "properties": {
+        "city_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "continent_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "country_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "latitude": {
+          "type": [
+            "integer"
+          ]
+        },
+        "longitude": {
+          "type": [
+            "integer"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "region_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "timezone": {
+          "type": [
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "phone": {
+      "type": [
+        "string"
+      ]
+    },
+    "segments": {
+      "properties": {
+        "segments": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "social_profiles": {
+      "properties": {
+        "social_profiles": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "string"
+              ]
+            },
+            "username": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "tags": {
+      "properties": {
+        "tags": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "unsubscribed_from_emails": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "user_agent_data": {
+      "type": [
+        "string"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+tap: surveymonkey
+version: '1'
+tables:
+- name: responses
+  description: This table contains information about your survey responses.
+  links:
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/blob/master/tap_surveymonkey/schemas/responses.json
+    api-method: https://developer.surveymonkey.com/api/v3/#collectors-id-responses-id-details
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
+- name: simplified_responses
+  description: This table contains a simplified version of information about your
+    survey responses.
+  links:
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/blob/master/tap_surveymonkey/schemas/simplified_responses.json
+    api-method: https://developer.surveymonkey.com/api/v3/#collectors-id-responses-id-details
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
+- name: survey_details
+  description: This table contains information about your survey details.
+  links:
+    doc-link: https://developer.surveymonkey.com/api/v3/
+    singer-schema: https://github.com/singer-io/tap-surveymonkey/blob/master/tap_surveymonkey/schemas/survey_details.json
+    api-method: https://developer.surveymonkey.com/api/v3/#surveys
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified

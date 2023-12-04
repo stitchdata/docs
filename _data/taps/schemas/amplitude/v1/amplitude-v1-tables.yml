@@ -1,0 +1,49 @@
+tap: amplitude
+version: '1'
+tables:
+- name: events
+  description: '`{{ table.name }}_[project_id]` tables contain info about the events
+    logged in your {{ integration.display_name }} projects.
+
+
+    **Note**: Each event table will have the project ID appended. For example: If
+    a project has an ID of `168342`, the events table for the project will be named
+    `events_168432`.
+
+    '
+  links:
+    doc-link: https://amplitude.zendesk.com/hc/en-us/articles/115001902492-Query-Snowflake#column-schema
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: uuid
+    replication-key: event_time
+- name: merge_ids
+  description: '`{{ table.name }}_[project_id]` tables contain info about merged users.
+    These are users whose records have been merged with other user records to eliminate
+    duplicates.
+
+
+    For example: If an anonymous user logs events anonymously before signing in, they
+    will go from being anonymous to a recognized user. Without merging the user''s
+    records, it''ll look like two users with two sets of events, rather than one user
+    completing a series of events.
+
+
+    For more info on how {{ integration.display_name }} handles merging users, [refer
+    to their documentation](https://amplitude.zendesk.com/hc/en-us/articles/115003135607){:target="new"}.
+
+
+    **Note**: Each table will have the project ID appended. For example: If a project
+    has an ID of `168342`, the merged ID table for the project will be named `merge_ids_168432`.
+
+    '
+  links:
+    doc-link: https://amplitude.zendesk.com/hc/en-us/articles/115001902492-Query-Snowflake#column-schema
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - amplitude_id
+    - merge_server_time
+    - merged_amplitude_id
+    - merge_event_time
+    replication-key: merge_event_time

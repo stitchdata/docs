@@ -1,0 +1,1552 @@
+tap: google-ads-adwords
+version: '1'
+keys:
+  accounts_customerId:
+  - table: account_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: accounts
+    keys:
+    - customerId
+  - table: ad_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: adgroup_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: age_range_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: audience_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: call_metrics_call_details_report
+    keys:
+    - _sdc_customer_id
+  - table: campaign_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: click_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: criteria_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: display_keyword_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: display_topics_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: final_url_report
+    keys:
+    - _sdc_customer_id
+  - table: gender_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: geo_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: keywordless_query_report
+    keys:
+    - _sdc_customer_id
+  - table: keywords_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: search_query_performance_report
+    keys:
+    - _sdc_customer_id
+  - table: video_performance_report
+    keys:
+    - _sdc_customer_id
+  ad_groups_adGroupId:
+  - table: ad_groups
+    keys:
+    - id
+  - table: ads
+    keys:
+    - adGroupId
+  ad_groups_baseAdGroupId:
+  - table: ads
+    keys:
+    - baseAdGroupId
+  - table: ad_groups
+    keys:
+    - baseAdGroupId
+  campaigns_baseCampaignId:
+  - table: ads
+    keys:
+    - baseCampaignId
+  - table: ad_groups
+    keys:
+    - baseCampaignId
+  - table: campaigns
+    keys:
+    - baseCampaignId
+  campaigns_campaignId:
+  - table: ad_groups
+    keys:
+    - campaignId
+  - table: campaigns
+    keys:
+    - id
+  _id:
+  - table: ad_groups
+    keys:
+    - labels.id
+  - table: campaigns
+    keys:
+    - labels.id
+tables:
+- table-name: account_performance_report
+  join:
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: accounts
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: ad_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: customerId
+      foreign-key: _sdc_customer_id
+- table-name: ad_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: adgroup_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: age_range_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: audience_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: call_metrics_call_details_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: campaign_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: click_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: criteria_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: display_keyword_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: display_topics_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: final_url_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: gender_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: geo_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: keywordless_query_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: keywords_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: search_query_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: video_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: video_performance_report
+  join:
+  - table-name: account_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: accounts
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: customerId
+  - table-name: ad_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: adgroup_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: age_range_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: audience_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: call_metrics_call_details_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: campaign_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: click_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: criteria_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_keyword_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: display_topics_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: final_url_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: gender_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: geo_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywordless_query_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: keywords_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+  - table-name: search_query_performance_report
+    keys:
+    - key: _sdc_customer_id
+      foreign-key: _sdc_customer_id
+- table-name: ad_groups
+  join:
+  - table-name: ads
+    keys:
+    - key: id
+      foreign-key: adGroupId
+    - key: baseAdGroupId
+      foreign-key: baseAdGroupId
+    - key: baseCampaignId
+      foreign-key: baseCampaignId
+  - table-name: campaigns
+    keys:
+    - key: baseCampaignId
+      foreign-key: baseCampaignId
+    - key: campaignId
+      foreign-key: id
+    - key: labels.id
+      foreign-key: labels.id
+- table-name: ads
+  join:
+  - table-name: ad_groups
+    keys:
+    - key: adGroupId
+      foreign-key: id
+    - key: baseAdGroupId
+      foreign-key: baseAdGroupId
+    - key: baseCampaignId
+      foreign-key: baseCampaignId
+  - table-name: campaigns
+    keys:
+    - key: baseCampaignId
+      foreign-key: baseCampaignId
+- table-name: campaigns
+  join:
+  - table-name: ads
+    keys:
+    - key: baseCampaignId
+      foreign-key: baseCampaignId
+  - table-name: ad_groups
+    keys:
+    - key: baseCampaignId
+      foreign-key: baseCampaignId
+    - key: id
+      foreign-key: campaignId
+    - key: labels.id
+      foreign-key: labels.id

@@ -1,0 +1,127 @@
+{
+  "properties": {
+    "activeUserId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "firstName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hasContactsAccess": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isActive": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lastName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ownerId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "remoteList": {
+      "items": {
+        "properties": {
+          "active": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ownerId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "portalId": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "remoteId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "remoteType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "signature": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "userIdIncludingInactive": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,765 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "allocations": {
+      "items": {
+        "properties": {
+          "allocated_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "allocated_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "invoice_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "invoice_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "invoice_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "amount_allocated": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount_available": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount_refunded": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "base_currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "channel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "create_reason_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "discounts": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entity_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entity_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "einvoice": {
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "message": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "exchange_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "fractional_correction": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_item_discounts": {
+      "items": {
+        "properties": {
+          "coupon_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discount_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "discount_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entity_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line_item_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "line_item_taxes": {
+      "items": {
+        "properties": {
+          "is_non_compliance_tax": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "is_partial_tax_applied": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "line_item_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "local_currency_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "tax_amount_in_local_currency": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "tax_juris_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_juris_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_juris_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_rate": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "taxable_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "line_item_tiers": {
+      "items": {
+        "properties": {
+          "ending_unit": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ending_unit_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line_item_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity_used": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "quantity_used_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "starting_unit": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "starting_unit_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "unit_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unit_amount_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "line_items": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "date_from": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "date_to": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discount_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "entity_description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entity_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entity_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_taxed": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "item_level_discount_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pricing_model": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "quantity_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "subscription_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "tax_exempt_reason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_rate": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "unit_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unit_amount_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "linked_refunds": {
+      "items": {
+        "properties": {
+          "applied_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "applied_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "refund_reason_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "txn_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "txn_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "txn_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "txn_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "local_currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reason_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_invoice_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "refunded_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "round_off_amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sub_total": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sub_total_in_local_currency": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxes": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "total": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_in_local_currency": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "vat_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vat_number_prefix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "voided_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "createdAt": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "string"
+      ]
+    },
+    "firstName": {
+      "type": [
+        "string"
+      ]
+    },
+    "lastName": {
+      "type": [
+        "string"
+      ]
+    },
+    "ownerId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "remoteList": {
+      "properties": {
+        "active": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "ownerId": {
+          "type": [
+            "integer"
+          ]
+        },
+        "portalId": {
+          "type": [
+            "integer"
+          ]
+        },
+        "remoteId": {
+          "type": [
+            "string"
+          ]
+        },
+        "remoteType": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

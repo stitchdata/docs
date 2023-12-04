@@ -1,0 +1,55 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "intacct_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "intacct_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "intacct_recordno": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "netsuite_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "num_days": {
+      "multipleOf": 1.0,
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  },
+  "type": "object"
+}

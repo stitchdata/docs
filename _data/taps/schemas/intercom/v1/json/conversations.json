@@ -1,0 +1,779 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assignee": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "contacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "conversation_message": {
+      "additionalProperties": false,
+      "properties": {
+        "attachments": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "content_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "filesize": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "height": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "url": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "width": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "author": {
+          "additionalProperties": false,
+          "properties": {
+            "email": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "body": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "delivered_as": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "conversation_rating": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "customer": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "rating": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "remark": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "teammate": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_first_reply": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "customers": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "first_contact_reply": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "open": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "priority": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "read": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "sent_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "sla_applied": {
+      "properties": {
+        "sla_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sla_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "snoozed_until": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "attachments": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "author": {
+          "additionalProperties": false,
+          "properties": {
+            "email": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "body": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "delivered_as": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statistics": {
+      "properties": {
+        "count_assignments": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "count_conversation_parts": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "count_reopens": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "first_admin_reply_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "first_assignment_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "first_close_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "first_contact_reply_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_admin_reply_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_assignment_admin_reply_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_assignment_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_close_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "last_closed_by_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last_contact_reply_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "median_time_to_reply": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "time_to_admin_reply": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "time_to_assignment": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "time_to_first_close": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "time_to_last_close": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "tags": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "applied_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "applied_by": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "teammates": {
+      "additionalProperties": false,
+      "properties": {
+        "admins": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "waiting_since": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

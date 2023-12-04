@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "email": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "question_details": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "answer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "question": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "webinar_uuid": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

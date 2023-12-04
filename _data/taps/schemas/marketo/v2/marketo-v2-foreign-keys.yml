@@ -1,0 +1,71 @@
+tap: marketo
+version: '2'
+keys:
+  activities_marketoGuid:
+  - table: activities
+    keys:
+    - marketoGuid
+  activity_types_activityTypeId:
+  - table: activities
+    keys:
+    - activityTypeId
+  - table: activity_types
+    keys:
+    - id
+  campaigns_campaignId:
+  - table: campaigns
+    keys:
+    - id
+  leads_leadId:
+  - table: activities
+    keys:
+    - leadId
+  - table: leads
+    keys:
+    - id
+  lists_listId:
+  - table: lists
+    keys:
+    - id
+  programs_programId:
+  - table: campaigns
+    keys:
+    - programId
+  - table: programs
+    keys:
+    - id
+tables:
+- table-name: activities
+  join:
+  - table-name: activity_types
+    keys:
+    - key: activityTypeId
+      foreign-key: id
+  - table-name: leads
+    keys:
+    - key: leadId
+      foreign-key: id
+- table-name: activity_types
+  join:
+  - table-name: activities
+    keys:
+    - key: id
+      foreign-key: activityTypeId
+- table-name: campaigns
+  join:
+  - table-name: programs
+    keys:
+    - key: programId
+      foreign-key: id
+- table-name: leads
+  join:
+  - table-name: activities
+    keys:
+    - key: id
+      foreign-key: leadId
+- table-name: programs
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: programId

@@ -1,0 +1,175 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "anonymous": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "meeting_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "poll_type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "questions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "answer_max_character": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "answer_min_character": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "answer_required": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "answers": {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "case_sensitive": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "prompts": {
+            "items": {
+              "properties": {
+                "prompt_question": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "prompt_right_answers": {
+                  "items": {
+                    "type": [
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "rating_max_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_max_value": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_min_label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_min_value": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "right_answers": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "show_as_dropdown": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

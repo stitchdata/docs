@@ -3,8 +3,8 @@ on:
   push:
     paths:
       - '**-foreign-keys.yml'
-    branches:
-      - '!master'
+    branches-ignore:
+      - 'master'
 
 jobs:
   generate-foreign-keys:
@@ -23,6 +23,7 @@ jobs:
         with:
           packages: |
             pyyaml
+            pandas
 
       - name: Generate foreign keys
         run: python generate_foreign_keys.py
@@ -38,5 +39,5 @@ jobs:
           git add -A
           git config --global user.email "github-actions@github.com"
           git config --global user.name 'github-actions'
-          git commit -am "Automated commit: Generate JSON schemas"
+          git commit -am "Automated commit: Generate foreign keys"
           git push

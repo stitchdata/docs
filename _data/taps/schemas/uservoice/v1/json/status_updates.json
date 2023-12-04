@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "body": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "links": {
+      "properties": {
+        "new_status": {
+          "type": [
+            "integer"
+          ]
+        },
+        "old_status": {
+          "type": [
+            "integer"
+          ]
+        },
+        "suggestion": {
+          "type": [
+            "integer"
+          ]
+        },
+        "user": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "mail_clicked_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "mail_opened_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "mail_sent_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "notification_email_address": {
+      "type": [
+        "string"
+      ]
+    },
+    "supporters_notified": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

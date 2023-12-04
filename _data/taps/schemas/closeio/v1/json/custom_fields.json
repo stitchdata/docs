@@ -1,0 +1,57 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "choices": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "date_created": {
+      "type": "date-time"
+    },
+    "date_updated": {
+      "type": "date-time"
+    },
+    "editable_with_roles": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "organization_id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

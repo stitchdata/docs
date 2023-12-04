@@ -1,0 +1,60 @@
+tap: salesforce
+version: '1'
+tap-repo-schemas: false
+tables:
+- name: account
+  description: 'The `{{ table.name }}` table contains info about the individual accounts
+    (organizations and persons) involved with your business. This could be a customer,
+    a competitor, a partner, and so on.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm#!
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+- name: contact
+  description: 'The `{{ table.name }}` table contains info about your contacts, who
+    are individuals associated with accounts in your {{ integration.display_name }}
+    instance.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+- name: lead
+  description: 'The `{{ table.name }}` table contains info about your leads, who are
+    prospects or potential Opportunities.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+- name: opportunity
+  description: 'The `{{ table.name }}` table contains info about your opportunities,
+    which are sales or pending deals.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_opportunity.htm
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp
+- name: user
+  description: 'The `user` table contains info about the users in your organization.
+
+    '
+  links:
+    doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_user.htm
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: systemModStamp

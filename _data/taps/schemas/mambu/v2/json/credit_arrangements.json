@@ -1,0 +1,130 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "approved_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "available_credit_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "consumed_credit_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expire_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "holder_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "holder_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sub_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

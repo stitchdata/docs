@@ -1,0 +1,262 @@
+tap: lever
+version: '1'
+tables:
+- name: archive_reasons
+  description: 'The `{{ table.name }}` table contains info about the reasons candidates
+    have exited your active hiring pipeline. Refer to [{{ integration.display_name
+    }}''s documentation](https://help.lever.co/hc/articles/204502125){:target="new"}
+    for more info.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#archive-reasons
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/archive_reasons.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-archive-reasons
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: candidates
+  description: 'The `{{ table.name }}` table contains info about candidates, or individuals
+    who''ve been added to your {{ integration.display_name }} account as potential
+    fits for job opportunities.
+
+
+    **Note**: This table must be set to replicate in order to replicate the `candidate_applications`,
+    `candidate_offers`, `candidate_referrals`, and `candidate_resumes` tables.
+
+
+    During Extraction, this table will be replicated before any other selected `candidate_*`
+    tables. Then, for every candidate, Stitch will query for every candidate''s applications,
+    offers, referrals, and resumes.
+
+
+    For example: During Extraction, Stitch replicates a candidate with `id: 12345`
+    from {{ integration.display_name }}''s `/candidates` endpoint.
+
+
+    Using `id: 12345`, Stitch will then query for the rest of the candidate''s data:
+
+
+    - `/candidates/12345/applications`
+
+    - `/candidates/12345/offers`
+
+    - `/candidates/12345/referrals`
+
+    - `/candidates/12345/resumes`
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#candidates
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidates.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-candidates
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: candidate_applications
+  description: 'The `{{ table.name }}` table contains info about candidate applications
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#applications
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_applications.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-applications
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: candidate_offers
+  description: 'The `{{ table.name }}` table contains data sent to candidates about
+    [`opportunities`](#opportunities) via {{ integration.display_name }}''s Offers
+    feature.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#offers
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_offers.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-offers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: candidate_referrals
+  description: 'The `{{ table.name }}` table contains info about the referrals in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#referrals
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_referrals.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-referrals
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: candidate_resumes
+  description: 'The `{{ table.name }}` table contains info about candidate resumes.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#resumes
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/candidate_resumes.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-resumes
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: opportunities
+  description: 'The `{{ table.name }}` table contains info about opportunities. In
+    {{ integration.display_name }}, an opportunity represents each of an individual
+    candidate''s unique candidacies or journeys through your hiring pipeline for a
+    position. A candidate can be associated with multiple opportunities.
+
+
+    **Note**: This table must be set to replicate in order to replicate the `opportunity_applications`,
+    `opportunity_offers`, `opportunity_referrals`, and `opportunity_resumes` tables.
+
+
+    During Extraction, this table will be replicated before any other selected `opportunity_*`
+    tables. Then, for every opportunity, Stitch will query for every opportunity''s
+    applications, offers, referrals, and resumes.
+
+
+    For example: During Extraction, Stitch replicates an opportunity with `id: 12345`
+    from {{ integration.display_name }}''s `/opportunities` endpoint.
+
+
+    Using `id: 12345`, Stitch will then query for the rest of the opportunity''s data:
+
+
+    - `/opportunities/12345/applications`
+
+    - `/opportunities/12345/offers`
+
+    - `/opportunities/12345/referrals`
+
+    - `/opportunities/12345/resumes`
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#opportunities
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunities.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: opportunity_applications
+  description: 'The `{{ table.name }}` table contains info about candidate applications
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: To replicate this table, the [`opportunities`](#opportunities) table
+    must be set to replicate.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_applications.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: opportunity_offers
+  description: "The `{{ table.name }}` table contains info about \n\n**Note**: To\
+    \ replicate this table, the [`opportunities`](#opportunities) table must be set\
+    \ to replicate.\n"
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#opportunities
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_offers.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
+  table-details:
+    replication-method: Key-based Incremental
+- name: opportunity_referrals
+  description: 'The `{{ table.name }}` table contains info about the referrals in
+    your {{ integration.display_name }} account.
+
+
+    **Note**: To replicate this table, the [`opportunities`](#opportunities) table
+    must be set to replicate.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#opportunities
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_referrals.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: opportunity_resumes
+  description: 'The `{{ table.name }}` table contains info about candidate resumes.
+
+
+    **Note**: To replicate this table, the [`opportunities`](#opportunities) table
+    must be set to replicate.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#opportunities
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/opportunity_resumes.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-opportunities
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: postings
+  description: 'The `{{ table.name }}` table contains info about job postings in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#postings
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/postings.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-postings
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: requisitions
+  description: 'The `{{ table.name }}` table contains info about requisitions in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#requisitions
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/requisitions.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-requisitions
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: createdAt
+- name: sources
+  description: 'The `{{ table.name }}` table contains info about sources, or the ways
+    that candidates enter into your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#sources
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/sources.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-sources
+  table-details:
+    replication-method: Full Table
+    primary-key: text
+- name: stages
+  description: 'The `{{ table.name }}` table contains info about stages, or the steps
+    in the recruiting workflow in your hiring pipeline.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#stages
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/stages.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-stages
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account. A user includes anyone who has been invited
+    to {{ integration.display_name }} to collaborate on recruiting efforts.
+
+    '
+  links:
+    doc-link: https://hire.lever.co/developer/documentation#users
+    singer-schema: https://github.com/singer-io/tap-lever/blob/master/tap_lever/schemas/users.json
+    api-method: https://hire.lever.co/developer/documentation#list-all-users
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+tap-repo-schemas: true

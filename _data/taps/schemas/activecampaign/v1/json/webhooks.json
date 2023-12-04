@@ -1,0 +1,68 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "events": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "listid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sources": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

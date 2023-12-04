@@ -1,0 +1,412 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "archive": {
+      "type": "boolean"
+    },
+    "bounceBackEmail": {
+      "type": "string"
+    },
+    "contentSections": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "depth": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "dynamicContents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "defaultContentSection": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "string"
+          },
+          "rules": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "emailFooterId": {
+      "type": "string"
+    },
+    "emailGroupId": {
+      "type": "string"
+    },
+    "emailHeaderId": {
+      "type": "string"
+    },
+    "encodingId": {
+      "type": "string"
+    },
+    "fieldMerges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowUrlsInValue": {
+            "type": "string"
+          },
+          "contactFieldId": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "defaultValue": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "eventSessionFieldId": {
+            "type": "string"
+          },
+          "fieldConditions": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "mergeType": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "syntax": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "files": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "folderId": {
+      "type": "string"
+    },
+    "forms": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "htmlContent": {
+      "additionalProperties": false,
+      "properties": {
+        "contentSource": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cssHeader": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "docType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "documentDescription": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "htmlBody": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "metaTags": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "root": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "systemHeader": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "hyperlinks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "hyperlinkType": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "referencedEntityId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "id": {
+      "type": "string"
+    },
+    "images": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "type": "date-time"
+          },
+          "createdBy": {
+            "type": "string"
+          },
+          "currentStatus": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "fullImageUrl": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "permissions": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string"
+          },
+          "syncDate": {
+            "type": "date-time"
+          },
+          "thumbnailUrl": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "date-time"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "isContentProtected": {
+      "type": "boolean"
+    },
+    "isPlainTextEditable": {
+      "type": "string"
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "isTracked": {
+      "type": "string"
+    },
+    "landingPages": {
+      "items": {
+        "properties": {},
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "layout": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "string"
+    },
+    "plainText": {
+      "type": "string"
+    },
+    "renderMode": {
+      "type": "string"
+    },
+    "replyToEmail": {
+      "type": "string"
+    },
+    "replyToName": {
+      "type": "string"
+    },
+    "sendPlainTextOnly": {
+      "type": "string"
+    },
+    "senderEmail": {
+      "type": "string"
+    },
+    "senderName": {
+      "type": "string"
+    },
+    "sourceTemplateId": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "virtualMTAId": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

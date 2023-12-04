@@ -1,0 +1,194 @@
+{
+  "properties": {
+    "Active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Hidden": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PurchaseTaxRateList": {
+      "properties": {
+        "TaxRateDetail": {
+          "items": {
+            "properties": {
+              "TaxOrder": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "TaxRateRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "TaxTypeApplicable": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "SalesTaxRateList": {
+      "properties": {
+        "TaxRateDetail": {
+          "items": {
+            "properties": {
+              "TaxOrder": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "TaxRateRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "TaxTypeApplicable": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxCodeConfigType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxGroup": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "Taxable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

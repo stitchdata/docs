@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "createdAt": {
+      "type": "date-time"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "programName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "workspaceName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object"
+}

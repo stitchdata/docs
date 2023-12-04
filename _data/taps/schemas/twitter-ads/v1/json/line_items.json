@@ -1,0 +1,204 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "advertiser_domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "advertiser_user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "automatically_select_bid": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "bid_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "bid_strategy": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bid_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bid_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "categories": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "charge_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creative_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entity_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "objective": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "optimization": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placements": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "primary_web_event_tag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "target_cpa_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_budget_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tracking_tags": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

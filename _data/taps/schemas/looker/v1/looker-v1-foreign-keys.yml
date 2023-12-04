@@ -1,0 +1,5666 @@
+tap: looker
+version: '1'
+keys:
+  color_collections_color_collection_id:
+  - table: color_collections
+    keys:
+    - id
+  - table: themes
+    keys:
+    - settings.color_collection_id
+  content_favorites_content_favorite_id:
+  - table: content_favorites
+    keys:
+    - id
+    - dashboard.content_favorite_id
+  - table: dashboard_elements
+    keys:
+    - look.content_favorite_id
+  - table: dashboards
+    keys:
+    - content_favorite_id
+  - table: folders
+    keys:
+    - dashboards.content_favorite_id
+    - looks.content_favorite_id
+  - table: lookml_dashboards
+    keys:
+    - content_favorite_id
+  - table: looks
+    keys:
+    - content_favorite_id
+  content_metadata_content_metadata_id:
+  - table: content_favorites
+    keys:
+    - content_metadata_id
+    - dashboard.content_metadata_id
+    - dashboard.folder.content_metadata_id
+    - dashboard.space.content_metadata_id
+    - look.content_metadata_id
+  - table: content_metadata
+    keys:
+    - id
+    - parent_id
+  - table: content_metadata_access
+    keys:
+    - content_metadata_id
+  - table: content_views
+    keys:
+    - content_metadata_id
+  - table: dashboard_elements
+    keys:
+    - look.content_metadata_id
+    - look.folder.content_metadata_id
+    - look.space.content_metadata_id
+  - table: dashboards
+    keys:
+    - content_metadata_id
+    - folder.content_metadata_id
+    - space.content_metadata_id
+  - table: folders
+    keys:
+    - dashboards.folder.content_metadata_id
+    - dashboards.space.content_metadata_id
+    - looks.content_metadata_id
+    - looks.folder.content_metadata_id
+  - table: lookml_dashboards
+    keys:
+    - content_metadata_id
+    - folder.content_metadata_id
+    - space.content_metadata_id
+  - table: looks
+    keys:
+    - content_metadata_id
+  dashboards_dashboard_id:
+  - table: content_favorites
+    keys:
+    - dashboard.id
+    - dashboard_id
+  - table: content_metadata
+    keys:
+    - dashboard_id
+  - table: content_views
+    keys:
+    - dashboard_id
+  - table: dashboard_elements
+    keys:
+    - dashboard_id
+  - table: dashboard_filters
+    keys:
+    - dashboard_id
+  - table: dashboard_layouts
+    keys:
+    - dashboard_id
+  - table: dashboards
+    keys:
+    - id
+  - table: folders
+    keys:
+    - dashboards.id
+  - table: scheduled_plans
+    keys:
+    - dashboard_id
+  dashboard_elements_dashboard_element_id:
+  - table: dashboard_elements
+    keys:
+    - id
+  - table: dashboard_layouts
+    keys:
+    - dashboard_layout_components.dashboard_element_id
+  dashboard_filters_dashboard_filter_id:
+  - table: dashboard_filters
+    keys:
+    - id
+  dashboard_layouts_dashboard_layout_id:
+  - table: dashboard_layouts
+    keys:
+    - id
+    - dashboard_layout_components.dashboard_layout_id
+  folders_folder.id:
+  - table: content_favorites
+    keys:
+    - dashboard.folder.id
+    - dashboard.folder.parent_id
+  - table: dashboard_elements
+    keys:
+    - look.folder.id
+    - look.folder.parent_id
+    - look.folder_id
+  - table: dashboards
+    keys:
+    - folder.id
+    - folder.parent_id
+  - table: folders
+    keys:
+    - id
+    - dashboards.folder.id
+    - dashboards.folder.parent_id
+    - looks.folder.id
+    - looks.folder.parent_id
+    - parent_id
+  - table: lookml_dashboards
+    keys:
+    - folder.id
+    - folder.parent_id
+  - table: looks
+    keys:
+    - folder.id
+    - folder_id
+    - folder.parent_id
+  - table: users
+    keys:
+    - home_folder_id
+    - personal_folder_id
+  groups_group_id:
+  - table: content_metadata_access
+    keys:
+    - group_id
+  - table: content_views
+    keys:
+    - group_id
+  - table: groups
+    keys:
+    - id
+  - table: groups_in_group
+    keys:
+    - id
+    - parent_group_id
+  - table: user_attribute_group_values
+    keys:
+    - group_id
+  - table: users
+    keys:
+    - group_ids
+  integration_hubs_integration_hub_id:
+  - table: integration_hubs
+    keys:
+    - id
+  - table: integrations
+    keys:
+    - integration_hub_id
+  integrations_integration_id:
+  - table: integrations
+    keys:
+    - id
+  looks_look_id:
+  - table: content_favorites
+    keys:
+    - look_id
+    - look.id
+  - table: content_metadata
+    keys:
+    - look_id
+  - table: content_views
+    keys:
+    - look_id
+  - table: dashboard_elements
+    keys:
+    - look.id
+    - look_id
+  - table: folders
+    keys:
+    - looks.id
+  - table: looks
+    keys:
+    - id
+  - table: scheduled_plans
+    keys:
+    - look_id
+  versions_full_version:
+  - table: users
+    keys:
+    - looker_versions
+  - table: versions
+    keys:
+    - looker_release_version
+    - current_version.full_version
+    - supported_versions.full_version
+  lookml_dashboards_lookml_dashboard_id:
+  - table: lookml_dashboards
+    keys:
+    - id
+  - table: scheduled_plans
+    keys:
+    - lookml_dashboard_id
+  merge_queries_merge_query_id:
+  - table: merge_queries
+    keys:
+    - id
+  model_sets_model_set.id:
+  - table: model_sets
+    keys:
+    - id
+  - table: roles
+    keys:
+    - model_set.id
+    - model_set_id
+  models_model.id:
+  - table: content_favorites
+    keys:
+    - dashboard.model.id
+  - table: dashboard_elements
+    keys:
+    - look.model.id
+  - table: dashboards
+    keys:
+    - model.id
+  - table: folders
+    keys:
+    - dashboards.model.id
+    - looks.model.id
+  - table: lookml_dashboards
+    keys:
+    - model.id
+  - table: looks
+    keys:
+    - model.id
+  - table: roles
+    keys:
+    - model_set.models
+  permission_sets_permission_set_id:
+  - table: permission_sets
+    keys:
+    - id
+  - table: roles
+    keys:
+    - permission_set_id
+    - id
+  permissions_permissions:
+  - table: permission_sets
+    keys:
+    - permissions
+  project_files_:
+  - table: project_files
+    keys:
+    - id
+  projects_project_id:
+  - table: git_branches
+    keys:
+    - project_id
+  - table: project_files
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - id
+  - table: workspaces
+    keys:
+    - projects.id
+  queries_query.id:
+  - table: dashboard_elements
+    keys:
+    - look.query.id
+    - look.query_id
+    - query.id
+    - query_id
+    - result_maker.query.id
+    - result_maker.query_id
+  - table: folders
+    keys:
+    - looks.query_id
+  - table: looks
+    keys:
+    - query_id
+  - table: scheduled_plans
+    keys:
+    - query_id
+  - table: queries
+    keys:
+    - id
+  role_groups_role_group_id:
+  - table: role_groups
+    keys:
+    - id
+  roles_role_id:
+  - table: role_groups
+    keys:
+    - role_id
+  - table: roles
+    keys:
+    - id
+  - table: users
+    keys:
+    - role_ids
+  scheduled_plans_scheduled_plan_id:
+  - table: scheduled_plans
+    keys:
+    - id
+    - scheduled_plan_destination.scheduled_plan_id
+  spaces_space.id:
+  - table: content_favorites
+    keys:
+    - dashboard.space.id
+    - dashboard.space.parent_id
+  - table: content_metadata
+    keys:
+    - space_id
+  - table: dashboard_elements
+    keys:
+    - look.space.id
+    - look.space.parent_id
+  - table: dashboards
+    keys:
+    - space.id
+    - space.parent_id
+  - table: folders
+    keys:
+    - dashboards.space.id
+    - dashboards.space.parent_id
+    - looks.space.id
+    - looks.space.parent_id
+    - looks.space_id
+  - table: lookml_dashboards
+    keys:
+    - space.id
+    - space.parent_id
+  - table: looks
+    keys:
+    - space.id
+    - space.parent_id
+    - space_id
+  - table: users
+    keys:
+    - home_space_id
+    - personal_space_id
+  themes_theme_id:
+  - table: themes
+    keys:
+    - id
+  user_attribute_group_values_:
+  - table: user_attribute_group_values
+    keys:
+    - id
+  user_attributes_user_attribute_id:
+  - table: user_attributes
+    keys:
+    - id
+  - table: user_attribute_group_values
+    keys:
+    - user_attribute_id
+  user_sessions_sessions.id:
+  - table: user_sessions
+    keys:
+    - id
+  - table: users
+    keys:
+    - sessions.id
+  users_creator_id:
+  - table: connections
+    keys:
+    - user_id
+  - table: content_favorites
+    keys:
+    - dashboard.folder.creator_id
+    - dashboard.space.creator_id
+    - user_id
+  - table: content_views
+    keys:
+    - user_id
+  - table: dashboard_elements
+    keys:
+    - look.deleter_id
+    - look.folder.creator_id
+    - look.last_updater_id
+    - look.space.creator_id
+    - look.user.id
+    - look.user_id
+  - table: dashboards
+    keys:
+    - space.creator_id
+    - user_id
+  - table: folders
+    keys:
+    - creator_id
+    - dashboards.user_id
+    - dashboards.folder.creator_id
+    - dashboards.space.creator_id
+    - dashboards.user_id
+    - looks.deleter_id
+    - looks.last_updater_id
+    - looks.user.id
+  - table: lookml_dashboards
+    keys:
+    - folder.creator_id
+    - space.creator_id
+    - user_id
+  - table: looks
+    keys:
+    - deleter_id
+    - folder.creator_id
+    - user.id
+    - user_id
+  - table: scheduled_plans
+    keys:
+    - user.id
+    - user_id
+  - table: user_login_lockouts
+    keys:
+    - user_id
+  - table: users
+    keys:
+    - id
+tables:
+- table-name: color_collections
+  join:
+  - table-name: themes
+    keys:
+    - key: id
+      foreign-key: settings.color_collection_id
+- table-name: themes
+  join:
+  - table-name: color_collections
+    keys:
+    - key: settings.color_collection_id
+      foreign-key: id
+- table-name: content_favorites
+  join:
+  - table-name: dashboard_elements
+    keys:
+    - key: id
+      foreign-key: look.content_favorite_id
+    - key: dashboard.content_favorite_id
+      foreign-key: look.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboard.id
+      foreign-key: dashboard_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: dashboard.folder.id
+      foreign-key: look.folder.id
+    - key: dashboard.folder.parent_id
+      foreign-key: look.folder.id
+    - key: dashboard.folder.id
+      foreign-key: look.folder.parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: look.folder.parent_id
+    - key: dashboard.folder.id
+      foreign-key: look.folder_id
+    - key: dashboard.folder.parent_id
+      foreign-key: look.folder_id
+    - key: look_id
+      foreign-key: look.id
+    - key: look.id
+      foreign-key: look.id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.id
+      foreign-key: look_id
+    - key: dashboard.model.id
+      foreign-key: look.model.id
+    - key: dashboard.space.id
+      foreign-key: look.space.id
+    - key: dashboard.space.parent_id
+      foreign-key: look.space.id
+    - key: dashboard.space.id
+      foreign-key: look.space.parent_id
+    - key: dashboard.space.parent_id
+      foreign-key: look.space.parent_id
+    - key: dashboard.folder.creator_id
+      foreign-key: look.deleter_id
+    - key: dashboard.space.creator_id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: dashboard.folder.creator_id
+      foreign-key: look.folder.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: look.last_updater_id
+    - key: dashboard.space.creator_id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: dashboard.folder.creator_id
+      foreign-key: look.space.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: look.user.id
+    - key: dashboard.space.creator_id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: dashboard.folder.creator_id
+      foreign-key: look.user_id
+    - key: dashboard.space.creator_id
+      foreign-key: look.user_id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: id
+      foreign-key: content_favorite_id
+    - key: dashboard.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.id
+      foreign-key: id
+    - key: dashboard_id
+      foreign-key: id
+    - key: dashboard.folder.id
+      foreign-key: folder.id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder.id
+    - key: dashboard.folder.id
+      foreign-key: folder.parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: dashboard.model.id
+      foreign-key: model.id
+    - key: dashboard.space.id
+      foreign-key: space.id
+    - key: dashboard.space.parent_id
+      foreign-key: space.id
+    - key: dashboard.space.id
+      foreign-key: space.parent_id
+    - key: dashboard.space.parent_id
+      foreign-key: space.parent_id
+    - key: dashboard.folder.creator_id
+      foreign-key: space.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: id
+      foreign-key: dashboards.content_favorite_id
+    - key: dashboard.content_favorite_id
+      foreign-key: dashboards.content_favorite_id
+    - key: id
+      foreign-key: looks.content_favorite_id
+    - key: dashboard.content_favorite_id
+      foreign-key: looks.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard.id
+      foreign-key: dashboards.id
+    - key: dashboard_id
+      foreign-key: dashboards.id
+    - key: dashboard.folder.id
+      foreign-key: id
+    - key: dashboard.folder.parent_id
+      foreign-key: id
+    - key: dashboard.folder.id
+      foreign-key: dashboards.folder.id
+    - key: dashboard.folder.parent_id
+      foreign-key: dashboards.folder.id
+    - key: dashboard.folder.id
+      foreign-key: dashboards.folder.parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: dashboards.folder.parent_id
+    - key: dashboard.folder.id
+      foreign-key: looks.folder.id
+    - key: dashboard.folder.parent_id
+      foreign-key: looks.folder.id
+    - key: dashboard.folder.id
+      foreign-key: looks.folder.parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: looks.folder.parent_id
+    - key: dashboard.folder.id
+      foreign-key: parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: parent_id
+    - key: look_id
+      foreign-key: looks.id
+    - key: look.id
+      foreign-key: looks.id
+    - key: dashboard.model.id
+      foreign-key: dashboards.model.id
+    - key: dashboard.model.id
+      foreign-key: looks.model.id
+    - key: dashboard.space.id
+      foreign-key: dashboards.space.id
+    - key: dashboard.space.parent_id
+      foreign-key: dashboards.space.id
+    - key: dashboard.space.id
+      foreign-key: dashboards.space.parent_id
+    - key: dashboard.space.parent_id
+      foreign-key: dashboards.space.parent_id
+    - key: dashboard.space.id
+      foreign-key: looks.space.id
+    - key: dashboard.space.parent_id
+      foreign-key: looks.space.id
+    - key: dashboard.space.id
+      foreign-key: looks.space.parent_id
+    - key: dashboard.space.parent_id
+      foreign-key: looks.space.parent_id
+    - key: dashboard.space.id
+      foreign-key: looks.space_id
+    - key: dashboard.space.parent_id
+      foreign-key: looks.space_id
+    - key: dashboard.folder.creator_id
+      foreign-key: creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: dashboards.user_id
+    - key: dashboard.space.creator_id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: dashboard.folder.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: looks.deleter_id
+    - key: dashboard.space.creator_id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: dashboard.folder.creator_id
+      foreign-key: looks.last_updater_id
+    - key: dashboard.space.creator_id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: dashboard.folder.creator_id
+      foreign-key: looks.user.id
+    - key: dashboard.space.creator_id
+      foreign-key: looks.user.id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: id
+      foreign-key: content_favorite_id
+    - key: dashboard.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard.folder.id
+      foreign-key: folder.id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder.id
+    - key: dashboard.folder.id
+      foreign-key: folder.parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: dashboard.model.id
+      foreign-key: model.id
+    - key: dashboard.space.id
+      foreign-key: space.id
+    - key: dashboard.space.parent_id
+      foreign-key: space.id
+    - key: dashboard.space.id
+      foreign-key: space.parent_id
+    - key: dashboard.space.parent_id
+      foreign-key: space.parent_id
+    - key: dashboard.folder.creator_id
+      foreign-key: folder.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: space.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: id
+      foreign-key: content_favorite_id
+    - key: dashboard.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.folder.id
+      foreign-key: folder.id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder.id
+    - key: dashboard.folder.id
+      foreign-key: folder_id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder_id
+    - key: dashboard.folder.id
+      foreign-key: folder.parent_id
+    - key: dashboard.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: look_id
+      foreign-key: id
+    - key: look.id
+      foreign-key: id
+    - key: dashboard.model.id
+      foreign-key: model.id
+    - key: dashboard.space.id
+      foreign-key: space.id
+    - key: dashboard.space.parent_id
+      foreign-key: space.id
+    - key: dashboard.space.id
+      foreign-key: space.parent_id
+    - key: dashboard.space.parent_id
+      foreign-key: space.parent_id
+    - key: dashboard.space.id
+      foreign-key: space_id
+    - key: dashboard.space.parent_id
+      foreign-key: space_id
+    - key: dashboard.folder.creator_id
+      foreign-key: deleter_id
+    - key: dashboard.space.creator_id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: deleter_id
+    - key: dashboard.folder.creator_id
+      foreign-key: folder.creator_id
+    - key: dashboard.space.creator_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: dashboard.folder.creator_id
+      foreign-key: user.id
+    - key: dashboard.space.creator_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: content_metadata_id
+      foreign-key: id
+    - key: dashboard.content_metadata_id
+      foreign-key: id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: id
+    - key: look.content_metadata_id
+      foreign-key: id
+    - key: content_metadata_id
+      foreign-key: parent_id
+    - key: dashboard.content_metadata_id
+      foreign-key: parent_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: parent_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: parent_id
+    - key: look.content_metadata_id
+      foreign-key: parent_id
+    - key: dashboard.id
+      foreign-key: dashboard_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.id
+      foreign-key: look_id
+    - key: dashboard.space.id
+      foreign-key: space_id
+    - key: dashboard.space.parent_id
+      foreign-key: space_id
+  - table-name: content_metadata_access
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard.id
+      foreign-key: dashboard_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.id
+      foreign-key: look_id
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboard.id
+      foreign-key: dashboard_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboard.id
+      foreign-key: dashboard_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboard.id
+      foreign-key: dashboard_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.id
+      foreign-key: look_id
+    - key: dashboard.folder.creator_id
+      foreign-key: user.id
+    - key: dashboard.space.creator_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: dashboard.folder.id
+      foreign-key: home_folder_id
+    - key: dashboard.folder.parent_id
+      foreign-key: home_folder_id
+    - key: dashboard.folder.id
+      foreign-key: personal_folder_id
+    - key: dashboard.folder.parent_id
+      foreign-key: personal_folder_id
+    - key: dashboard.space.id
+      foreign-key: home_space_id
+    - key: dashboard.space.parent_id
+      foreign-key: home_space_id
+    - key: dashboard.space.id
+      foreign-key: personal_space_id
+    - key: dashboard.space.parent_id
+      foreign-key: personal_space_id
+    - key: dashboard.folder.creator_id
+      foreign-key: id
+    - key: dashboard.space.creator_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: roles
+    keys:
+    - key: dashboard.model.id
+      foreign-key: model_set.models
+  - table-name: connections
+    keys:
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: dashboard.folder.creator_id
+      foreign-key: user_id
+    - key: dashboard.space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+- table-name: dashboard_elements
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: look.content_favorite_id
+      foreign-key: id
+    - key: look.content_favorite_id
+      foreign-key: dashboard.content_favorite_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard.id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look.folder.id
+      foreign-key: dashboard.folder.id
+    - key: look.folder.parent_id
+      foreign-key: dashboard.folder.id
+    - key: look.folder_id
+      foreign-key: dashboard.folder.id
+    - key: look.folder.id
+      foreign-key: dashboard.folder.parent_id
+    - key: look.folder.parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: look.folder_id
+      foreign-key: dashboard.folder.parent_id
+    - key: look.id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.id
+      foreign-key: look.id
+    - key: look_id
+      foreign-key: look.id
+    - key: look.model.id
+      foreign-key: dashboard.model.id
+    - key: look.space.id
+      foreign-key: dashboard.space.id
+    - key: look.space.parent_id
+      foreign-key: dashboard.space.id
+    - key: look.space.id
+      foreign-key: dashboard.space.parent_id
+    - key: look.space.parent_id
+      foreign-key: dashboard.space.parent_id
+    - key: look.deleter_id
+      foreign-key: dashboard.folder.creator_id
+    - key: look.folder.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: look.last_updater_id
+      foreign-key: dashboard.folder.creator_id
+    - key: look.space.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: look.user.id
+      foreign-key: dashboard.folder.creator_id
+    - key: look.user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: look.deleter_id
+      foreign-key: dashboard.space.creator_id
+    - key: look.folder.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: look.last_updater_id
+      foreign-key: dashboard.space.creator_id
+    - key: look.space.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: look.user.id
+      foreign-key: dashboard.space.creator_id
+    - key: look.user_id
+      foreign-key: dashboard.space.creator_id
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: dashboards
+    keys:
+    - key: look.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard_id
+      foreign-key: id
+    - key: look.folder.id
+      foreign-key: folder.id
+    - key: look.folder.parent_id
+      foreign-key: folder.id
+    - key: look.folder_id
+      foreign-key: folder.id
+    - key: look.folder.id
+      foreign-key: folder.parent_id
+    - key: look.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: look.folder_id
+      foreign-key: folder.parent_id
+    - key: look.model.id
+      foreign-key: model.id
+    - key: look.space.id
+      foreign-key: space.id
+    - key: look.space.parent_id
+      foreign-key: space.id
+    - key: look.space.id
+      foreign-key: space.parent_id
+    - key: look.space.parent_id
+      foreign-key: space.parent_id
+    - key: look.deleter_id
+      foreign-key: space.creator_id
+    - key: look.folder.creator_id
+      foreign-key: space.creator_id
+    - key: look.last_updater_id
+      foreign-key: space.creator_id
+    - key: look.space.creator_id
+      foreign-key: space.creator_id
+    - key: look.user.id
+      foreign-key: space.creator_id
+    - key: look.user_id
+      foreign-key: space.creator_id
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: look.content_favorite_id
+      foreign-key: dashboards.content_favorite_id
+    - key: look.content_favorite_id
+      foreign-key: looks.content_favorite_id
+    - key: look.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboards.id
+    - key: look.folder.id
+      foreign-key: id
+    - key: look.folder.parent_id
+      foreign-key: id
+    - key: look.folder_id
+      foreign-key: id
+    - key: look.folder.id
+      foreign-key: dashboards.folder.id
+    - key: look.folder.parent_id
+      foreign-key: dashboards.folder.id
+    - key: look.folder_id
+      foreign-key: dashboards.folder.id
+    - key: look.folder.id
+      foreign-key: dashboards.folder.parent_id
+    - key: look.folder.parent_id
+      foreign-key: dashboards.folder.parent_id
+    - key: look.folder_id
+      foreign-key: dashboards.folder.parent_id
+    - key: look.folder.id
+      foreign-key: looks.folder.id
+    - key: look.folder.parent_id
+      foreign-key: looks.folder.id
+    - key: look.folder_id
+      foreign-key: looks.folder.id
+    - key: look.folder.id
+      foreign-key: looks.folder.parent_id
+    - key: look.folder.parent_id
+      foreign-key: looks.folder.parent_id
+    - key: look.folder_id
+      foreign-key: looks.folder.parent_id
+    - key: look.folder.id
+      foreign-key: parent_id
+    - key: look.folder.parent_id
+      foreign-key: parent_id
+    - key: look.folder_id
+      foreign-key: parent_id
+    - key: look.id
+      foreign-key: looks.id
+    - key: look_id
+      foreign-key: looks.id
+    - key: look.model.id
+      foreign-key: dashboards.model.id
+    - key: look.model.id
+      foreign-key: looks.model.id
+    - key: look.query.id
+      foreign-key: looks.query_id
+    - key: look.query_id
+      foreign-key: looks.query_id
+    - key: query.id
+      foreign-key: looks.query_id
+    - key: query_id
+      foreign-key: looks.query_id
+    - key: result_maker.query.id
+      foreign-key: looks.query_id
+    - key: result_maker.query_id
+      foreign-key: looks.query_id
+    - key: look.space.id
+      foreign-key: dashboards.space.id
+    - key: look.space.parent_id
+      foreign-key: dashboards.space.id
+    - key: look.space.id
+      foreign-key: dashboards.space.parent_id
+    - key: look.space.parent_id
+      foreign-key: dashboards.space.parent_id
+    - key: look.space.id
+      foreign-key: looks.space.id
+    - key: look.space.parent_id
+      foreign-key: looks.space.id
+    - key: look.space.id
+      foreign-key: looks.space.parent_id
+    - key: look.space.parent_id
+      foreign-key: looks.space.parent_id
+    - key: look.space.id
+      foreign-key: looks.space_id
+    - key: look.space.parent_id
+      foreign-key: looks.space_id
+    - key: look.deleter_id
+      foreign-key: creator_id
+    - key: look.folder.creator_id
+      foreign-key: creator_id
+    - key: look.last_updater_id
+      foreign-key: creator_id
+    - key: look.space.creator_id
+      foreign-key: creator_id
+    - key: look.user.id
+      foreign-key: creator_id
+    - key: look.user_id
+      foreign-key: creator_id
+    - key: look.deleter_id
+      foreign-key: dashboards.user_id
+    - key: look.folder.creator_id
+      foreign-key: dashboards.user_id
+    - key: look.last_updater_id
+      foreign-key: dashboards.user_id
+    - key: look.space.creator_id
+      foreign-key: dashboards.user_id
+    - key: look.user.id
+      foreign-key: dashboards.user_id
+    - key: look.user_id
+      foreign-key: dashboards.user_id
+    - key: look.deleter_id
+      foreign-key: dashboards.folder.creator_id
+    - key: look.folder.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: look.last_updater_id
+      foreign-key: dashboards.folder.creator_id
+    - key: look.space.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: look.user.id
+      foreign-key: dashboards.folder.creator_id
+    - key: look.user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: look.deleter_id
+      foreign-key: dashboards.space.creator_id
+    - key: look.folder.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: look.last_updater_id
+      foreign-key: dashboards.space.creator_id
+    - key: look.space.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: look.user.id
+      foreign-key: dashboards.space.creator_id
+    - key: look.user_id
+      foreign-key: dashboards.space.creator_id
+    - key: look.deleter_id
+      foreign-key: looks.deleter_id
+    - key: look.folder.creator_id
+      foreign-key: looks.deleter_id
+    - key: look.last_updater_id
+      foreign-key: looks.deleter_id
+    - key: look.space.creator_id
+      foreign-key: looks.deleter_id
+    - key: look.user.id
+      foreign-key: looks.deleter_id
+    - key: look.user_id
+      foreign-key: looks.deleter_id
+    - key: look.deleter_id
+      foreign-key: looks.last_updater_id
+    - key: look.folder.creator_id
+      foreign-key: looks.last_updater_id
+    - key: look.last_updater_id
+      foreign-key: looks.last_updater_id
+    - key: look.space.creator_id
+      foreign-key: looks.last_updater_id
+    - key: look.user.id
+      foreign-key: looks.last_updater_id
+    - key: look.user_id
+      foreign-key: looks.last_updater_id
+    - key: look.deleter_id
+      foreign-key: looks.user.id
+    - key: look.folder.creator_id
+      foreign-key: looks.user.id
+    - key: look.last_updater_id
+      foreign-key: looks.user.id
+    - key: look.space.creator_id
+      foreign-key: looks.user.id
+    - key: look.user.id
+      foreign-key: looks.user.id
+    - key: look.user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: look.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: look.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: look.folder.id
+      foreign-key: folder.id
+    - key: look.folder.parent_id
+      foreign-key: folder.id
+    - key: look.folder_id
+      foreign-key: folder.id
+    - key: look.folder.id
+      foreign-key: folder.parent_id
+    - key: look.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: look.folder_id
+      foreign-key: folder.parent_id
+    - key: look.model.id
+      foreign-key: model.id
+    - key: look.space.id
+      foreign-key: space.id
+    - key: look.space.parent_id
+      foreign-key: space.id
+    - key: look.space.id
+      foreign-key: space.parent_id
+    - key: look.space.parent_id
+      foreign-key: space.parent_id
+    - key: look.deleter_id
+      foreign-key: folder.creator_id
+    - key: look.folder.creator_id
+      foreign-key: folder.creator_id
+    - key: look.last_updater_id
+      foreign-key: folder.creator_id
+    - key: look.space.creator_id
+      foreign-key: folder.creator_id
+    - key: look.user.id
+      foreign-key: folder.creator_id
+    - key: look.user_id
+      foreign-key: folder.creator_id
+    - key: look.deleter_id
+      foreign-key: space.creator_id
+    - key: look.folder.creator_id
+      foreign-key: space.creator_id
+    - key: look.last_updater_id
+      foreign-key: space.creator_id
+    - key: look.space.creator_id
+      foreign-key: space.creator_id
+    - key: look.user.id
+      foreign-key: space.creator_id
+    - key: look.user_id
+      foreign-key: space.creator_id
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: look.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.id
+      foreign-key: folder.id
+    - key: look.folder.parent_id
+      foreign-key: folder.id
+    - key: look.folder_id
+      foreign-key: folder.id
+    - key: look.folder.id
+      foreign-key: folder_id
+    - key: look.folder.parent_id
+      foreign-key: folder_id
+    - key: look.folder_id
+      foreign-key: folder_id
+    - key: look.folder.id
+      foreign-key: folder.parent_id
+    - key: look.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: look.folder_id
+      foreign-key: folder.parent_id
+    - key: look.id
+      foreign-key: id
+    - key: look_id
+      foreign-key: id
+    - key: look.model.id
+      foreign-key: model.id
+    - key: look.query.id
+      foreign-key: query_id
+    - key: look.query_id
+      foreign-key: query_id
+    - key: query.id
+      foreign-key: query_id
+    - key: query_id
+      foreign-key: query_id
+    - key: result_maker.query.id
+      foreign-key: query_id
+    - key: result_maker.query_id
+      foreign-key: query_id
+    - key: look.space.id
+      foreign-key: space.id
+    - key: look.space.parent_id
+      foreign-key: space.id
+    - key: look.space.id
+      foreign-key: space.parent_id
+    - key: look.space.parent_id
+      foreign-key: space.parent_id
+    - key: look.space.id
+      foreign-key: space_id
+    - key: look.space.parent_id
+      foreign-key: space_id
+    - key: look.deleter_id
+      foreign-key: deleter_id
+    - key: look.folder.creator_id
+      foreign-key: deleter_id
+    - key: look.last_updater_id
+      foreign-key: deleter_id
+    - key: look.space.creator_id
+      foreign-key: deleter_id
+    - key: look.user.id
+      foreign-key: deleter_id
+    - key: look.user_id
+      foreign-key: deleter_id
+    - key: look.deleter_id
+      foreign-key: folder.creator_id
+    - key: look.folder.creator_id
+      foreign-key: folder.creator_id
+    - key: look.last_updater_id
+      foreign-key: folder.creator_id
+    - key: look.space.creator_id
+      foreign-key: folder.creator_id
+    - key: look.user.id
+      foreign-key: folder.creator_id
+    - key: look.user_id
+      foreign-key: folder.creator_id
+    - key: look.deleter_id
+      foreign-key: user.id
+    - key: look.folder.creator_id
+      foreign-key: user.id
+    - key: look.last_updater_id
+      foreign-key: user.id
+    - key: look.space.creator_id
+      foreign-key: user.id
+    - key: look.user.id
+      foreign-key: user.id
+    - key: look.user_id
+      foreign-key: user.id
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: look.content_metadata_id
+      foreign-key: id
+    - key: look.folder.content_metadata_id
+      foreign-key: id
+    - key: look.space.content_metadata_id
+      foreign-key: id
+    - key: look.content_metadata_id
+      foreign-key: parent_id
+    - key: look.folder.content_metadata_id
+      foreign-key: parent_id
+    - key: look.space.content_metadata_id
+      foreign-key: parent_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look.id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.space.id
+      foreign-key: space_id
+    - key: look.space.parent_id
+      foreign-key: space_id
+  - table-name: content_metadata_access
+    keys:
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: look.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look.id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: id
+      foreign-key: dashboard_layout_components.dashboard_element_id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look.id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look.query.id
+      foreign-key: query_id
+    - key: look.query_id
+      foreign-key: query_id
+    - key: query.id
+      foreign-key: query_id
+    - key: query_id
+      foreign-key: query_id
+    - key: result_maker.query.id
+      foreign-key: query_id
+    - key: result_maker.query_id
+      foreign-key: query_id
+    - key: look.deleter_id
+      foreign-key: user.id
+    - key: look.folder.creator_id
+      foreign-key: user.id
+    - key: look.last_updater_id
+      foreign-key: user.id
+    - key: look.space.creator_id
+      foreign-key: user.id
+    - key: look.user.id
+      foreign-key: user.id
+    - key: look.user_id
+      foreign-key: user.id
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: look.folder.id
+      foreign-key: home_folder_id
+    - key: look.folder.parent_id
+      foreign-key: home_folder_id
+    - key: look.folder_id
+      foreign-key: home_folder_id
+    - key: look.folder.id
+      foreign-key: personal_folder_id
+    - key: look.folder.parent_id
+      foreign-key: personal_folder_id
+    - key: look.folder_id
+      foreign-key: personal_folder_id
+    - key: look.space.id
+      foreign-key: home_space_id
+    - key: look.space.parent_id
+      foreign-key: home_space_id
+    - key: look.space.id
+      foreign-key: personal_space_id
+    - key: look.space.parent_id
+      foreign-key: personal_space_id
+    - key: look.deleter_id
+      foreign-key: id
+    - key: look.folder.creator_id
+      foreign-key: id
+    - key: look.last_updater_id
+      foreign-key: id
+    - key: look.space.creator_id
+      foreign-key: id
+    - key: look.user.id
+      foreign-key: id
+    - key: look.user_id
+      foreign-key: id
+  - table-name: roles
+    keys:
+    - key: look.model.id
+      foreign-key: model_set.models
+  - table-name: queries
+    keys:
+    - key: look.query.id
+      foreign-key: id
+    - key: look.query_id
+      foreign-key: id
+    - key: query.id
+      foreign-key: id
+    - key: query_id
+      foreign-key: id
+    - key: result_maker.query.id
+      foreign-key: id
+    - key: result_maker.query_id
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: look.deleter_id
+      foreign-key: user_id
+    - key: look.folder.creator_id
+      foreign-key: user_id
+    - key: look.last_updater_id
+      foreign-key: user_id
+    - key: look.space.creator_id
+      foreign-key: user_id
+    - key: look.user.id
+      foreign-key: user_id
+    - key: look.user_id
+      foreign-key: user_id
+- table-name: dashboards
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: content_favorite_id
+      foreign-key: id
+    - key: content_favorite_id
+      foreign-key: dashboard.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: id
+      foreign-key: dashboard.id
+    - key: id
+      foreign-key: dashboard_id
+    - key: folder.id
+      foreign-key: dashboard.folder.id
+    - key: folder.parent_id
+      foreign-key: dashboard.folder.id
+    - key: folder.id
+      foreign-key: dashboard.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: model.id
+      foreign-key: dashboard.model.id
+    - key: space.id
+      foreign-key: dashboard.space.id
+    - key: space.parent_id
+      foreign-key: dashboard.space.id
+    - key: space.id
+      foreign-key: dashboard.space.parent_id
+    - key: space.parent_id
+      foreign-key: dashboard.space.parent_id
+    - key: space.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: space.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: content_favorite_id
+      foreign-key: look.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: id
+      foreign-key: dashboard_id
+    - key: folder.id
+      foreign-key: look.folder.id
+    - key: folder.parent_id
+      foreign-key: look.folder.id
+    - key: folder.id
+      foreign-key: look.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: look.folder.parent_id
+    - key: folder.id
+      foreign-key: look.folder_id
+    - key: folder.parent_id
+      foreign-key: look.folder_id
+    - key: model.id
+      foreign-key: look.model.id
+    - key: space.id
+      foreign-key: look.space.id
+    - key: space.parent_id
+      foreign-key: look.space.id
+    - key: space.id
+      foreign-key: look.space.parent_id
+    - key: space.parent_id
+      foreign-key: look.space.parent_id
+    - key: space.creator_id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: space.creator_id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: space.creator_id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: space.creator_id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: space.creator_id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: space.creator_id
+      foreign-key: look.user_id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: folders
+    keys:
+    - key: content_favorite_id
+      foreign-key: dashboards.content_favorite_id
+    - key: content_favorite_id
+      foreign-key: looks.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: id
+      foreign-key: dashboards.id
+    - key: folder.id
+      foreign-key: id
+    - key: folder.parent_id
+      foreign-key: id
+    - key: folder.id
+      foreign-key: dashboards.folder.id
+    - key: folder.parent_id
+      foreign-key: dashboards.folder.id
+    - key: folder.id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder.id
+      foreign-key: looks.folder.id
+    - key: folder.parent_id
+      foreign-key: looks.folder.id
+    - key: folder.id
+      foreign-key: looks.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: looks.folder.parent_id
+    - key: folder.id
+      foreign-key: parent_id
+    - key: folder.parent_id
+      foreign-key: parent_id
+    - key: model.id
+      foreign-key: dashboards.model.id
+    - key: model.id
+      foreign-key: looks.model.id
+    - key: space.id
+      foreign-key: dashboards.space.id
+    - key: space.parent_id
+      foreign-key: dashboards.space.id
+    - key: space.id
+      foreign-key: dashboards.space.parent_id
+    - key: space.parent_id
+      foreign-key: dashboards.space.parent_id
+    - key: space.id
+      foreign-key: looks.space.id
+    - key: space.parent_id
+      foreign-key: looks.space.id
+    - key: space.id
+      foreign-key: looks.space.parent_id
+    - key: space.parent_id
+      foreign-key: looks.space.parent_id
+    - key: space.id
+      foreign-key: looks.space_id
+    - key: space.parent_id
+      foreign-key: looks.space_id
+    - key: space.creator_id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: creator_id
+    - key: space.creator_id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: space.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: space.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: space.creator_id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: space.creator_id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: space.creator_id
+      foreign-key: looks.user.id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: folder.id
+      foreign-key: folder.id
+    - key: folder.parent_id
+      foreign-key: folder.id
+    - key: folder.id
+      foreign-key: folder.parent_id
+    - key: folder.parent_id
+      foreign-key: folder.parent_id
+    - key: model.id
+      foreign-key: model.id
+    - key: space.id
+      foreign-key: space.id
+    - key: space.parent_id
+      foreign-key: space.id
+    - key: space.id
+      foreign-key: space.parent_id
+    - key: space.parent_id
+      foreign-key: space.parent_id
+    - key: space.creator_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: space.creator_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.id
+      foreign-key: folder.id
+    - key: folder.parent_id
+      foreign-key: folder.id
+    - key: folder.id
+      foreign-key: folder_id
+    - key: folder.parent_id
+      foreign-key: folder_id
+    - key: folder.id
+      foreign-key: folder.parent_id
+    - key: folder.parent_id
+      foreign-key: folder.parent_id
+    - key: model.id
+      foreign-key: model.id
+    - key: space.id
+      foreign-key: space.id
+    - key: space.parent_id
+      foreign-key: space.id
+    - key: space.id
+      foreign-key: space.parent_id
+    - key: space.parent_id
+      foreign-key: space.parent_id
+    - key: space.id
+      foreign-key: space_id
+    - key: space.parent_id
+      foreign-key: space_id
+    - key: space.creator_id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: deleter_id
+    - key: space.creator_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: space.creator_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: content_metadata_id
+      foreign-key: id
+    - key: folder.content_metadata_id
+      foreign-key: id
+    - key: space.content_metadata_id
+      foreign-key: id
+    - key: content_metadata_id
+      foreign-key: parent_id
+    - key: folder.content_metadata_id
+      foreign-key: parent_id
+    - key: space.content_metadata_id
+      foreign-key: parent_id
+    - key: id
+      foreign-key: dashboard_id
+    - key: space.id
+      foreign-key: space_id
+    - key: space.parent_id
+      foreign-key: space_id
+  - table-name: content_metadata_access
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: id
+      foreign-key: dashboard_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_filters
+    keys:
+    - key: id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: id
+      foreign-key: dashboard_id
+  - table-name: scheduled_plans
+    keys:
+    - key: id
+      foreign-key: dashboard_id
+    - key: space.creator_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: folder.id
+      foreign-key: home_folder_id
+    - key: folder.parent_id
+      foreign-key: home_folder_id
+    - key: folder.id
+      foreign-key: personal_folder_id
+    - key: folder.parent_id
+      foreign-key: personal_folder_id
+    - key: space.id
+      foreign-key: home_space_id
+    - key: space.parent_id
+      foreign-key: home_space_id
+    - key: space.id
+      foreign-key: personal_space_id
+    - key: space.parent_id
+      foreign-key: personal_space_id
+    - key: space.creator_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: roles
+    keys:
+    - key: model.id
+      foreign-key: model_set.models
+  - table-name: connections
+    keys:
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+- table-name: folders
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: dashboards.content_favorite_id
+      foreign-key: id
+    - key: looks.content_favorite_id
+      foreign-key: id
+    - key: dashboards.content_favorite_id
+      foreign-key: dashboard.content_favorite_id
+    - key: looks.content_favorite_id
+      foreign-key: dashboard.content_favorite_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboards.id
+      foreign-key: dashboard.id
+    - key: dashboards.id
+      foreign-key: dashboard_id
+    - key: id
+      foreign-key: dashboard.folder.id
+    - key: dashboards.folder.id
+      foreign-key: dashboard.folder.id
+    - key: dashboards.folder.parent_id
+      foreign-key: dashboard.folder.id
+    - key: looks.folder.id
+      foreign-key: dashboard.folder.id
+    - key: looks.folder.parent_id
+      foreign-key: dashboard.folder.id
+    - key: parent_id
+      foreign-key: dashboard.folder.id
+    - key: id
+      foreign-key: dashboard.folder.parent_id
+    - key: dashboards.folder.id
+      foreign-key: dashboard.folder.parent_id
+    - key: dashboards.folder.parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: looks.folder.id
+      foreign-key: dashboard.folder.parent_id
+    - key: looks.folder.parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: looks.id
+      foreign-key: look_id
+    - key: looks.id
+      foreign-key: look.id
+    - key: dashboards.model.id
+      foreign-key: dashboard.model.id
+    - key: looks.model.id
+      foreign-key: dashboard.model.id
+    - key: dashboards.space.id
+      foreign-key: dashboard.space.id
+    - key: dashboards.space.parent_id
+      foreign-key: dashboard.space.id
+    - key: looks.space.id
+      foreign-key: dashboard.space.id
+    - key: looks.space.parent_id
+      foreign-key: dashboard.space.id
+    - key: looks.space_id
+      foreign-key: dashboard.space.id
+    - key: dashboards.space.id
+      foreign-key: dashboard.space.parent_id
+    - key: dashboards.space.parent_id
+      foreign-key: dashboard.space.parent_id
+    - key: looks.space.id
+      foreign-key: dashboard.space.parent_id
+    - key: looks.space.parent_id
+      foreign-key: dashboard.space.parent_id
+    - key: looks.space_id
+      foreign-key: dashboard.space.parent_id
+    - key: creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: dashboards.user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: looks.deleter_id
+      foreign-key: dashboard.folder.creator_id
+    - key: looks.last_updater_id
+      foreign-key: dashboard.folder.creator_id
+    - key: looks.user.id
+      foreign-key: dashboard.folder.creator_id
+    - key: creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: dashboards.user_id
+      foreign-key: dashboard.space.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: looks.deleter_id
+      foreign-key: dashboard.space.creator_id
+    - key: looks.last_updater_id
+      foreign-key: dashboard.space.creator_id
+    - key: looks.user.id
+      foreign-key: dashboard.space.creator_id
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: dashboards.content_favorite_id
+      foreign-key: look.content_favorite_id
+    - key: looks.content_favorite_id
+      foreign-key: look.content_favorite_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboards.id
+      foreign-key: dashboard_id
+    - key: id
+      foreign-key: look.folder.id
+    - key: dashboards.folder.id
+      foreign-key: look.folder.id
+    - key: dashboards.folder.parent_id
+      foreign-key: look.folder.id
+    - key: looks.folder.id
+      foreign-key: look.folder.id
+    - key: looks.folder.parent_id
+      foreign-key: look.folder.id
+    - key: parent_id
+      foreign-key: look.folder.id
+    - key: id
+      foreign-key: look.folder.parent_id
+    - key: dashboards.folder.id
+      foreign-key: look.folder.parent_id
+    - key: dashboards.folder.parent_id
+      foreign-key: look.folder.parent_id
+    - key: looks.folder.id
+      foreign-key: look.folder.parent_id
+    - key: looks.folder.parent_id
+      foreign-key: look.folder.parent_id
+    - key: parent_id
+      foreign-key: look.folder.parent_id
+    - key: id
+      foreign-key: look.folder_id
+    - key: dashboards.folder.id
+      foreign-key: look.folder_id
+    - key: dashboards.folder.parent_id
+      foreign-key: look.folder_id
+    - key: looks.folder.id
+      foreign-key: look.folder_id
+    - key: looks.folder.parent_id
+      foreign-key: look.folder_id
+    - key: parent_id
+      foreign-key: look.folder_id
+    - key: looks.id
+      foreign-key: look.id
+    - key: looks.id
+      foreign-key: look_id
+    - key: dashboards.model.id
+      foreign-key: look.model.id
+    - key: looks.model.id
+      foreign-key: look.model.id
+    - key: looks.query_id
+      foreign-key: look.query.id
+    - key: looks.query_id
+      foreign-key: look.query_id
+    - key: looks.query_id
+      foreign-key: query.id
+    - key: looks.query_id
+      foreign-key: query_id
+    - key: looks.query_id
+      foreign-key: result_maker.query.id
+    - key: looks.query_id
+      foreign-key: result_maker.query_id
+    - key: dashboards.space.id
+      foreign-key: look.space.id
+    - key: dashboards.space.parent_id
+      foreign-key: look.space.id
+    - key: looks.space.id
+      foreign-key: look.space.id
+    - key: looks.space.parent_id
+      foreign-key: look.space.id
+    - key: looks.space_id
+      foreign-key: look.space.id
+    - key: dashboards.space.id
+      foreign-key: look.space.parent_id
+    - key: dashboards.space.parent_id
+      foreign-key: look.space.parent_id
+    - key: looks.space.id
+      foreign-key: look.space.parent_id
+    - key: looks.space.parent_id
+      foreign-key: look.space.parent_id
+    - key: looks.space_id
+      foreign-key: look.space.parent_id
+    - key: creator_id
+      foreign-key: look.deleter_id
+    - key: dashboards.user_id
+      foreign-key: look.deleter_id
+    - key: dashboards.folder.creator_id
+      foreign-key: look.deleter_id
+    - key: dashboards.space.creator_id
+      foreign-key: look.deleter_id
+    - key: looks.deleter_id
+      foreign-key: look.deleter_id
+    - key: looks.last_updater_id
+      foreign-key: look.deleter_id
+    - key: looks.user.id
+      foreign-key: look.deleter_id
+    - key: creator_id
+      foreign-key: look.folder.creator_id
+    - key: dashboards.user_id
+      foreign-key: look.folder.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: look.folder.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: look.folder.creator_id
+    - key: looks.deleter_id
+      foreign-key: look.folder.creator_id
+    - key: looks.last_updater_id
+      foreign-key: look.folder.creator_id
+    - key: looks.user.id
+      foreign-key: look.folder.creator_id
+    - key: creator_id
+      foreign-key: look.last_updater_id
+    - key: dashboards.user_id
+      foreign-key: look.last_updater_id
+    - key: dashboards.folder.creator_id
+      foreign-key: look.last_updater_id
+    - key: dashboards.space.creator_id
+      foreign-key: look.last_updater_id
+    - key: looks.deleter_id
+      foreign-key: look.last_updater_id
+    - key: looks.last_updater_id
+      foreign-key: look.last_updater_id
+    - key: looks.user.id
+      foreign-key: look.last_updater_id
+    - key: creator_id
+      foreign-key: look.space.creator_id
+    - key: dashboards.user_id
+      foreign-key: look.space.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: look.space.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: look.space.creator_id
+    - key: looks.deleter_id
+      foreign-key: look.space.creator_id
+    - key: looks.last_updater_id
+      foreign-key: look.space.creator_id
+    - key: looks.user.id
+      foreign-key: look.space.creator_id
+    - key: creator_id
+      foreign-key: look.user.id
+    - key: dashboards.user_id
+      foreign-key: look.user.id
+    - key: dashboards.folder.creator_id
+      foreign-key: look.user.id
+    - key: dashboards.space.creator_id
+      foreign-key: look.user.id
+    - key: looks.deleter_id
+      foreign-key: look.user.id
+    - key: looks.last_updater_id
+      foreign-key: look.user.id
+    - key: looks.user.id
+      foreign-key: look.user.id
+    - key: creator_id
+      foreign-key: look.user_id
+    - key: dashboards.user_id
+      foreign-key: look.user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: look.user_id
+    - key: dashboards.space.creator_id
+      foreign-key: look.user_id
+    - key: looks.deleter_id
+      foreign-key: look.user_id
+    - key: looks.last_updater_id
+      foreign-key: look.user_id
+    - key: looks.user.id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: dashboards.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: looks.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboards.id
+      foreign-key: id
+    - key: id
+      foreign-key: folder.id
+    - key: dashboards.folder.id
+      foreign-key: folder.id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder.id
+    - key: looks.folder.id
+      foreign-key: folder.id
+    - key: looks.folder.parent_id
+      foreign-key: folder.id
+    - key: parent_id
+      foreign-key: folder.id
+    - key: id
+      foreign-key: folder.parent_id
+    - key: dashboards.folder.id
+      foreign-key: folder.parent_id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: looks.folder.id
+      foreign-key: folder.parent_id
+    - key: looks.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: parent_id
+      foreign-key: folder.parent_id
+    - key: dashboards.model.id
+      foreign-key: model.id
+    - key: looks.model.id
+      foreign-key: model.id
+    - key: dashboards.space.id
+      foreign-key: space.id
+    - key: dashboards.space.parent_id
+      foreign-key: space.id
+    - key: looks.space.id
+      foreign-key: space.id
+    - key: looks.space.parent_id
+      foreign-key: space.id
+    - key: looks.space_id
+      foreign-key: space.id
+    - key: dashboards.space.id
+      foreign-key: space.parent_id
+    - key: dashboards.space.parent_id
+      foreign-key: space.parent_id
+    - key: looks.space.id
+      foreign-key: space.parent_id
+    - key: looks.space.parent_id
+      foreign-key: space.parent_id
+    - key: looks.space_id
+      foreign-key: space.parent_id
+    - key: creator_id
+      foreign-key: space.creator_id
+    - key: dashboards.user_id
+      foreign-key: space.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: space.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: space.creator_id
+    - key: looks.deleter_id
+      foreign-key: space.creator_id
+    - key: looks.last_updater_id
+      foreign-key: space.creator_id
+    - key: looks.user.id
+      foreign-key: space.creator_id
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: lookml_dashboards
+    keys:
+    - key: dashboards.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: looks.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: id
+      foreign-key: folder.id
+    - key: dashboards.folder.id
+      foreign-key: folder.id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder.id
+    - key: looks.folder.id
+      foreign-key: folder.id
+    - key: looks.folder.parent_id
+      foreign-key: folder.id
+    - key: parent_id
+      foreign-key: folder.id
+    - key: id
+      foreign-key: folder.parent_id
+    - key: dashboards.folder.id
+      foreign-key: folder.parent_id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: looks.folder.id
+      foreign-key: folder.parent_id
+    - key: looks.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: parent_id
+      foreign-key: folder.parent_id
+    - key: dashboards.model.id
+      foreign-key: model.id
+    - key: looks.model.id
+      foreign-key: model.id
+    - key: dashboards.space.id
+      foreign-key: space.id
+    - key: dashboards.space.parent_id
+      foreign-key: space.id
+    - key: looks.space.id
+      foreign-key: space.id
+    - key: looks.space.parent_id
+      foreign-key: space.id
+    - key: looks.space_id
+      foreign-key: space.id
+    - key: dashboards.space.id
+      foreign-key: space.parent_id
+    - key: dashboards.space.parent_id
+      foreign-key: space.parent_id
+    - key: looks.space.id
+      foreign-key: space.parent_id
+    - key: looks.space.parent_id
+      foreign-key: space.parent_id
+    - key: looks.space_id
+      foreign-key: space.parent_id
+    - key: creator_id
+      foreign-key: folder.creator_id
+    - key: dashboards.user_id
+      foreign-key: folder.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: folder.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: folder.creator_id
+    - key: looks.deleter_id
+      foreign-key: folder.creator_id
+    - key: looks.last_updater_id
+      foreign-key: folder.creator_id
+    - key: looks.user.id
+      foreign-key: folder.creator_id
+    - key: creator_id
+      foreign-key: space.creator_id
+    - key: dashboards.user_id
+      foreign-key: space.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: space.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: space.creator_id
+    - key: looks.deleter_id
+      foreign-key: space.creator_id
+    - key: looks.last_updater_id
+      foreign-key: space.creator_id
+    - key: looks.user.id
+      foreign-key: space.creator_id
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: dashboards.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: looks.content_favorite_id
+      foreign-key: content_favorite_id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: id
+      foreign-key: folder.id
+    - key: dashboards.folder.id
+      foreign-key: folder.id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder.id
+    - key: looks.folder.id
+      foreign-key: folder.id
+    - key: looks.folder.parent_id
+      foreign-key: folder.id
+    - key: parent_id
+      foreign-key: folder.id
+    - key: id
+      foreign-key: folder_id
+    - key: dashboards.folder.id
+      foreign-key: folder_id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder_id
+    - key: looks.folder.id
+      foreign-key: folder_id
+    - key: looks.folder.parent_id
+      foreign-key: folder_id
+    - key: parent_id
+      foreign-key: folder_id
+    - key: id
+      foreign-key: folder.parent_id
+    - key: dashboards.folder.id
+      foreign-key: folder.parent_id
+    - key: dashboards.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: looks.folder.id
+      foreign-key: folder.parent_id
+    - key: looks.folder.parent_id
+      foreign-key: folder.parent_id
+    - key: parent_id
+      foreign-key: folder.parent_id
+    - key: looks.id
+      foreign-key: id
+    - key: dashboards.model.id
+      foreign-key: model.id
+    - key: looks.model.id
+      foreign-key: model.id
+    - key: looks.query_id
+      foreign-key: query_id
+    - key: dashboards.space.id
+      foreign-key: space.id
+    - key: dashboards.space.parent_id
+      foreign-key: space.id
+    - key: looks.space.id
+      foreign-key: space.id
+    - key: looks.space.parent_id
+      foreign-key: space.id
+    - key: looks.space_id
+      foreign-key: space.id
+    - key: dashboards.space.id
+      foreign-key: space.parent_id
+    - key: dashboards.space.parent_id
+      foreign-key: space.parent_id
+    - key: looks.space.id
+      foreign-key: space.parent_id
+    - key: looks.space.parent_id
+      foreign-key: space.parent_id
+    - key: looks.space_id
+      foreign-key: space.parent_id
+    - key: dashboards.space.id
+      foreign-key: space_id
+    - key: dashboards.space.parent_id
+      foreign-key: space_id
+    - key: looks.space.id
+      foreign-key: space_id
+    - key: looks.space.parent_id
+      foreign-key: space_id
+    - key: looks.space_id
+      foreign-key: space_id
+    - key: creator_id
+      foreign-key: deleter_id
+    - key: dashboards.user_id
+      foreign-key: deleter_id
+    - key: dashboards.folder.creator_id
+      foreign-key: deleter_id
+    - key: dashboards.space.creator_id
+      foreign-key: deleter_id
+    - key: looks.deleter_id
+      foreign-key: deleter_id
+    - key: looks.last_updater_id
+      foreign-key: deleter_id
+    - key: looks.user.id
+      foreign-key: deleter_id
+    - key: creator_id
+      foreign-key: folder.creator_id
+    - key: dashboards.user_id
+      foreign-key: folder.creator_id
+    - key: dashboards.folder.creator_id
+      foreign-key: folder.creator_id
+    - key: dashboards.space.creator_id
+      foreign-key: folder.creator_id
+    - key: looks.deleter_id
+      foreign-key: folder.creator_id
+    - key: looks.last_updater_id
+      foreign-key: folder.creator_id
+    - key: looks.user.id
+      foreign-key: folder.creator_id
+    - key: creator_id
+      foreign-key: user.id
+    - key: dashboards.user_id
+      foreign-key: user.id
+    - key: dashboards.folder.creator_id
+      foreign-key: user.id
+    - key: dashboards.space.creator_id
+      foreign-key: user.id
+    - key: looks.deleter_id
+      foreign-key: user.id
+    - key: looks.last_updater_id
+      foreign-key: user.id
+    - key: looks.user.id
+      foreign-key: user.id
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: id
+    - key: looks.content_metadata_id
+      foreign-key: id
+    - key: looks.folder.content_metadata_id
+      foreign-key: id
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: parent_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: parent_id
+    - key: looks.content_metadata_id
+      foreign-key: parent_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: parent_id
+    - key: dashboards.id
+      foreign-key: dashboard_id
+    - key: looks.id
+      foreign-key: look_id
+    - key: dashboards.space.id
+      foreign-key: space_id
+    - key: dashboards.space.parent_id
+      foreign-key: space_id
+    - key: looks.space.id
+      foreign-key: space_id
+    - key: looks.space.parent_id
+      foreign-key: space_id
+    - key: looks.space_id
+      foreign-key: space_id
+  - table-name: content_metadata_access
+    keys:
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: dashboards.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: looks.folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: dashboards.id
+      foreign-key: dashboard_id
+    - key: looks.id
+      foreign-key: look_id
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboards.id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboards.id
+      foreign-key: dashboard_id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboards.id
+      foreign-key: dashboard_id
+    - key: looks.id
+      foreign-key: look_id
+    - key: looks.query_id
+      foreign-key: query_id
+    - key: creator_id
+      foreign-key: user.id
+    - key: dashboards.user_id
+      foreign-key: user.id
+    - key: dashboards.folder.creator_id
+      foreign-key: user.id
+    - key: dashboards.space.creator_id
+      foreign-key: user.id
+    - key: looks.deleter_id
+      foreign-key: user.id
+    - key: looks.last_updater_id
+      foreign-key: user.id
+    - key: looks.user.id
+      foreign-key: user.id
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: home_folder_id
+    - key: dashboards.folder.id
+      foreign-key: home_folder_id
+    - key: dashboards.folder.parent_id
+      foreign-key: home_folder_id
+    - key: looks.folder.id
+      foreign-key: home_folder_id
+    - key: looks.folder.parent_id
+      foreign-key: home_folder_id
+    - key: parent_id
+      foreign-key: home_folder_id
+    - key: id
+      foreign-key: personal_folder_id
+    - key: dashboards.folder.id
+      foreign-key: personal_folder_id
+    - key: dashboards.folder.parent_id
+      foreign-key: personal_folder_id
+    - key: looks.folder.id
+      foreign-key: personal_folder_id
+    - key: looks.folder.parent_id
+      foreign-key: personal_folder_id
+    - key: parent_id
+      foreign-key: personal_folder_id
+    - key: dashboards.space.id
+      foreign-key: home_space_id
+    - key: dashboards.space.parent_id
+      foreign-key: home_space_id
+    - key: looks.space.id
+      foreign-key: home_space_id
+    - key: looks.space.parent_id
+      foreign-key: home_space_id
+    - key: looks.space_id
+      foreign-key: home_space_id
+    - key: dashboards.space.id
+      foreign-key: personal_space_id
+    - key: dashboards.space.parent_id
+      foreign-key: personal_space_id
+    - key: looks.space.id
+      foreign-key: personal_space_id
+    - key: looks.space.parent_id
+      foreign-key: personal_space_id
+    - key: looks.space_id
+      foreign-key: personal_space_id
+    - key: creator_id
+      foreign-key: id
+    - key: dashboards.user_id
+      foreign-key: id
+    - key: dashboards.folder.creator_id
+      foreign-key: id
+    - key: dashboards.space.creator_id
+      foreign-key: id
+    - key: looks.deleter_id
+      foreign-key: id
+    - key: looks.last_updater_id
+      foreign-key: id
+    - key: looks.user.id
+      foreign-key: id
+  - table-name: roles
+    keys:
+    - key: dashboards.model.id
+      foreign-key: model_set.models
+    - key: looks.model.id
+      foreign-key: model_set.models
+  - table-name: queries
+    keys:
+    - key: looks.query_id
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: creator_id
+      foreign-key: user_id
+    - key: dashboards.user_id
+      foreign-key: user_id
+    - key: dashboards.folder.creator_id
+      foreign-key: user_id
+    - key: dashboards.space.creator_id
+      foreign-key: user_id
+    - key: looks.deleter_id
+      foreign-key: user_id
+    - key: looks.last_updater_id
+      foreign-key: user_id
+    - key: looks.user.id
+      foreign-key: user_id
+- table-name: lookml_dashboards
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: content_favorite_id
+      foreign-key: id
+    - key: content_favorite_id
+      foreign-key: dashboard.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: folder.id
+      foreign-key: dashboard.folder.id
+    - key: folder.parent_id
+      foreign-key: dashboard.folder.id
+    - key: folder.id
+      foreign-key: dashboard.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: model.id
+      foreign-key: dashboard.model.id
+    - key: space.id
+      foreign-key: dashboard.space.id
+    - key: space.parent_id
+      foreign-key: dashboard.space.id
+    - key: space.id
+      foreign-key: dashboard.space.parent_id
+    - key: space.parent_id
+      foreign-key: dashboard.space.parent_id
+    - key: folder.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: space.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: folder.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: space.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: content_favorite_id
+      foreign-key: look.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: folder.id
+      foreign-key: look.folder.id
+    - key: folder.parent_id
+      foreign-key: look.folder.id
+    - key: folder.id
+      foreign-key: look.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: look.folder.parent_id
+    - key: folder.id
+      foreign-key: look.folder_id
+    - key: folder.parent_id
+      foreign-key: look.folder_id
+    - key: model.id
+      foreign-key: look.model.id
+    - key: space.id
+      foreign-key: look.space.id
+    - key: space.parent_id
+      foreign-key: look.space.id
+    - key: space.id
+      foreign-key: look.space.parent_id
+    - key: space.parent_id
+      foreign-key: look.space.parent_id
+    - key: folder.creator_id
+      foreign-key: look.deleter_id
+    - key: space.creator_id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: folder.creator_id
+      foreign-key: look.folder.creator_id
+    - key: space.creator_id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: folder.creator_id
+      foreign-key: look.last_updater_id
+    - key: space.creator_id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: folder.creator_id
+      foreign-key: look.space.creator_id
+    - key: space.creator_id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: folder.creator_id
+      foreign-key: look.user.id
+    - key: space.creator_id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: folder.creator_id
+      foreign-key: look.user_id
+    - key: space.creator_id
+      foreign-key: look.user_id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: folder.id
+      foreign-key: folder.id
+    - key: folder.parent_id
+      foreign-key: folder.id
+    - key: folder.id
+      foreign-key: folder.parent_id
+    - key: folder.parent_id
+      foreign-key: folder.parent_id
+    - key: model.id
+      foreign-key: model.id
+    - key: space.id
+      foreign-key: space.id
+    - key: space.parent_id
+      foreign-key: space.id
+    - key: space.id
+      foreign-key: space.parent_id
+    - key: space.parent_id
+      foreign-key: space.parent_id
+    - key: folder.creator_id
+      foreign-key: space.creator_id
+    - key: space.creator_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: content_favorite_id
+      foreign-key: dashboards.content_favorite_id
+    - key: content_favorite_id
+      foreign-key: looks.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: folder.id
+      foreign-key: id
+    - key: folder.parent_id
+      foreign-key: id
+    - key: folder.id
+      foreign-key: dashboards.folder.id
+    - key: folder.parent_id
+      foreign-key: dashboards.folder.id
+    - key: folder.id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder.id
+      foreign-key: looks.folder.id
+    - key: folder.parent_id
+      foreign-key: looks.folder.id
+    - key: folder.id
+      foreign-key: looks.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: looks.folder.parent_id
+    - key: folder.id
+      foreign-key: parent_id
+    - key: folder.parent_id
+      foreign-key: parent_id
+    - key: model.id
+      foreign-key: dashboards.model.id
+    - key: model.id
+      foreign-key: looks.model.id
+    - key: space.id
+      foreign-key: dashboards.space.id
+    - key: space.parent_id
+      foreign-key: dashboards.space.id
+    - key: space.id
+      foreign-key: dashboards.space.parent_id
+    - key: space.parent_id
+      foreign-key: dashboards.space.parent_id
+    - key: space.id
+      foreign-key: looks.space.id
+    - key: space.parent_id
+      foreign-key: looks.space.id
+    - key: space.id
+      foreign-key: looks.space.parent_id
+    - key: space.parent_id
+      foreign-key: looks.space.parent_id
+    - key: space.id
+      foreign-key: looks.space_id
+    - key: space.parent_id
+      foreign-key: looks.space_id
+    - key: folder.creator_id
+      foreign-key: creator_id
+    - key: space.creator_id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: creator_id
+    - key: folder.creator_id
+      foreign-key: dashboards.user_id
+    - key: space.creator_id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: folder.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: space.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: folder.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: space.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: folder.creator_id
+      foreign-key: looks.deleter_id
+    - key: space.creator_id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: folder.creator_id
+      foreign-key: looks.last_updater_id
+    - key: space.creator_id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: folder.creator_id
+      foreign-key: looks.user.id
+    - key: space.creator_id
+      foreign-key: looks.user.id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: looks
+    keys:
+    - key: content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.id
+      foreign-key: folder.id
+    - key: folder.parent_id
+      foreign-key: folder.id
+    - key: folder.id
+      foreign-key: folder_id
+    - key: folder.parent_id
+      foreign-key: folder_id
+    - key: folder.id
+      foreign-key: folder.parent_id
+    - key: folder.parent_id
+      foreign-key: folder.parent_id
+    - key: model.id
+      foreign-key: model.id
+    - key: space.id
+      foreign-key: space.id
+    - key: space.parent_id
+      foreign-key: space.id
+    - key: space.id
+      foreign-key: space.parent_id
+    - key: space.parent_id
+      foreign-key: space.parent_id
+    - key: space.id
+      foreign-key: space_id
+    - key: space.parent_id
+      foreign-key: space_id
+    - key: folder.creator_id
+      foreign-key: deleter_id
+    - key: space.creator_id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: deleter_id
+    - key: folder.creator_id
+      foreign-key: folder.creator_id
+    - key: space.creator_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: folder.creator_id
+      foreign-key: user.id
+    - key: space.creator_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: content_metadata_id
+      foreign-key: id
+    - key: folder.content_metadata_id
+      foreign-key: id
+    - key: space.content_metadata_id
+      foreign-key: id
+    - key: content_metadata_id
+      foreign-key: parent_id
+    - key: folder.content_metadata_id
+      foreign-key: parent_id
+    - key: space.content_metadata_id
+      foreign-key: parent_id
+    - key: space.id
+      foreign-key: space_id
+    - key: space.parent_id
+      foreign-key: space_id
+  - table-name: content_metadata_access
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: space.content_metadata_id
+      foreign-key: content_metadata_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: folder.id
+      foreign-key: home_folder_id
+    - key: folder.parent_id
+      foreign-key: home_folder_id
+    - key: folder.id
+      foreign-key: personal_folder_id
+    - key: folder.parent_id
+      foreign-key: personal_folder_id
+    - key: space.id
+      foreign-key: home_space_id
+    - key: space.parent_id
+      foreign-key: home_space_id
+    - key: space.id
+      foreign-key: personal_space_id
+    - key: space.parent_id
+      foreign-key: personal_space_id
+    - key: folder.creator_id
+      foreign-key: id
+    - key: space.creator_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: scheduled_plans
+    keys:
+    - key: id
+      foreign-key: lookml_dashboard_id
+    - key: folder.creator_id
+      foreign-key: user.id
+    - key: space.creator_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: roles
+    keys:
+    - key: model.id
+      foreign-key: model_set.models
+  - table-name: connections
+    keys:
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: space.creator_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+- table-name: looks
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: content_favorite_id
+      foreign-key: id
+    - key: content_favorite_id
+      foreign-key: dashboard.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: folder.id
+      foreign-key: dashboard.folder.id
+    - key: folder_id
+      foreign-key: dashboard.folder.id
+    - key: folder.parent_id
+      foreign-key: dashboard.folder.id
+    - key: folder.id
+      foreign-key: dashboard.folder.parent_id
+    - key: folder_id
+      foreign-key: dashboard.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: dashboard.folder.parent_id
+    - key: id
+      foreign-key: look_id
+    - key: id
+      foreign-key: look.id
+    - key: model.id
+      foreign-key: dashboard.model.id
+    - key: space.id
+      foreign-key: dashboard.space.id
+    - key: space.parent_id
+      foreign-key: dashboard.space.id
+    - key: space_id
+      foreign-key: dashboard.space.id
+    - key: space.id
+      foreign-key: dashboard.space.parent_id
+    - key: space.parent_id
+      foreign-key: dashboard.space.parent_id
+    - key: space_id
+      foreign-key: dashboard.space.parent_id
+    - key: deleter_id
+      foreign-key: dashboard.folder.creator_id
+    - key: folder.creator_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user.id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: deleter_id
+      foreign-key: dashboard.space.creator_id
+    - key: folder.creator_id
+      foreign-key: dashboard.space.creator_id
+    - key: user.id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: content_favorite_id
+      foreign-key: look.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: folder.id
+      foreign-key: look.folder.id
+    - key: folder_id
+      foreign-key: look.folder.id
+    - key: folder.parent_id
+      foreign-key: look.folder.id
+    - key: folder.id
+      foreign-key: look.folder.parent_id
+    - key: folder_id
+      foreign-key: look.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: look.folder.parent_id
+    - key: folder.id
+      foreign-key: look.folder_id
+    - key: folder_id
+      foreign-key: look.folder_id
+    - key: folder.parent_id
+      foreign-key: look.folder_id
+    - key: id
+      foreign-key: look.id
+    - key: id
+      foreign-key: look_id
+    - key: model.id
+      foreign-key: look.model.id
+    - key: query_id
+      foreign-key: look.query.id
+    - key: query_id
+      foreign-key: look.query_id
+    - key: query_id
+      foreign-key: query.id
+    - key: query_id
+      foreign-key: query_id
+    - key: query_id
+      foreign-key: result_maker.query.id
+    - key: query_id
+      foreign-key: result_maker.query_id
+    - key: space.id
+      foreign-key: look.space.id
+    - key: space.parent_id
+      foreign-key: look.space.id
+    - key: space_id
+      foreign-key: look.space.id
+    - key: space.id
+      foreign-key: look.space.parent_id
+    - key: space.parent_id
+      foreign-key: look.space.parent_id
+    - key: space_id
+      foreign-key: look.space.parent_id
+    - key: deleter_id
+      foreign-key: look.deleter_id
+    - key: folder.creator_id
+      foreign-key: look.deleter_id
+    - key: user.id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: deleter_id
+      foreign-key: look.folder.creator_id
+    - key: folder.creator_id
+      foreign-key: look.folder.creator_id
+    - key: user.id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: deleter_id
+      foreign-key: look.last_updater_id
+    - key: folder.creator_id
+      foreign-key: look.last_updater_id
+    - key: user.id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: deleter_id
+      foreign-key: look.space.creator_id
+    - key: folder.creator_id
+      foreign-key: look.space.creator_id
+    - key: user.id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: deleter_id
+      foreign-key: look.user.id
+    - key: folder.creator_id
+      foreign-key: look.user.id
+    - key: user.id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: deleter_id
+      foreign-key: look.user_id
+    - key: folder.creator_id
+      foreign-key: look.user_id
+    - key: user.id
+      foreign-key: look.user_id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: folder.id
+      foreign-key: folder.id
+    - key: folder_id
+      foreign-key: folder.id
+    - key: folder.parent_id
+      foreign-key: folder.id
+    - key: folder.id
+      foreign-key: folder.parent_id
+    - key: folder_id
+      foreign-key: folder.parent_id
+    - key: folder.parent_id
+      foreign-key: folder.parent_id
+    - key: model.id
+      foreign-key: model.id
+    - key: space.id
+      foreign-key: space.id
+    - key: space.parent_id
+      foreign-key: space.id
+    - key: space_id
+      foreign-key: space.id
+    - key: space.id
+      foreign-key: space.parent_id
+    - key: space.parent_id
+      foreign-key: space.parent_id
+    - key: space_id
+      foreign-key: space.parent_id
+    - key: deleter_id
+      foreign-key: space.creator_id
+    - key: folder.creator_id
+      foreign-key: space.creator_id
+    - key: user.id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: content_favorite_id
+      foreign-key: dashboards.content_favorite_id
+    - key: content_favorite_id
+      foreign-key: looks.content_favorite_id
+    - key: content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: folder.id
+      foreign-key: id
+    - key: folder_id
+      foreign-key: id
+    - key: folder.parent_id
+      foreign-key: id
+    - key: folder.id
+      foreign-key: dashboards.folder.id
+    - key: folder_id
+      foreign-key: dashboards.folder.id
+    - key: folder.parent_id
+      foreign-key: dashboards.folder.id
+    - key: folder.id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder_id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: dashboards.folder.parent_id
+    - key: folder.id
+      foreign-key: looks.folder.id
+    - key: folder_id
+      foreign-key: looks.folder.id
+    - key: folder.parent_id
+      foreign-key: looks.folder.id
+    - key: folder.id
+      foreign-key: looks.folder.parent_id
+    - key: folder_id
+      foreign-key: looks.folder.parent_id
+    - key: folder.parent_id
+      foreign-key: looks.folder.parent_id
+    - key: folder.id
+      foreign-key: parent_id
+    - key: folder_id
+      foreign-key: parent_id
+    - key: folder.parent_id
+      foreign-key: parent_id
+    - key: id
+      foreign-key: looks.id
+    - key: model.id
+      foreign-key: dashboards.model.id
+    - key: model.id
+      foreign-key: looks.model.id
+    - key: query_id
+      foreign-key: looks.query_id
+    - key: space.id
+      foreign-key: dashboards.space.id
+    - key: space.parent_id
+      foreign-key: dashboards.space.id
+    - key: space_id
+      foreign-key: dashboards.space.id
+    - key: space.id
+      foreign-key: dashboards.space.parent_id
+    - key: space.parent_id
+      foreign-key: dashboards.space.parent_id
+    - key: space_id
+      foreign-key: dashboards.space.parent_id
+    - key: space.id
+      foreign-key: looks.space.id
+    - key: space.parent_id
+      foreign-key: looks.space.id
+    - key: space_id
+      foreign-key: looks.space.id
+    - key: space.id
+      foreign-key: looks.space.parent_id
+    - key: space.parent_id
+      foreign-key: looks.space.parent_id
+    - key: space_id
+      foreign-key: looks.space.parent_id
+    - key: space.id
+      foreign-key: looks.space_id
+    - key: space.parent_id
+      foreign-key: looks.space_id
+    - key: space_id
+      foreign-key: looks.space_id
+    - key: deleter_id
+      foreign-key: creator_id
+    - key: folder.creator_id
+      foreign-key: creator_id
+    - key: user.id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: creator_id
+    - key: deleter_id
+      foreign-key: dashboards.user_id
+    - key: folder.creator_id
+      foreign-key: dashboards.user_id
+    - key: user.id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: deleter_id
+      foreign-key: dashboards.folder.creator_id
+    - key: folder.creator_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user.id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: deleter_id
+      foreign-key: dashboards.space.creator_id
+    - key: folder.creator_id
+      foreign-key: dashboards.space.creator_id
+    - key: user.id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: deleter_id
+      foreign-key: looks.deleter_id
+    - key: folder.creator_id
+      foreign-key: looks.deleter_id
+    - key: user.id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: deleter_id
+      foreign-key: looks.last_updater_id
+    - key: folder.creator_id
+      foreign-key: looks.last_updater_id
+    - key: user.id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: deleter_id
+      foreign-key: looks.user.id
+    - key: folder.creator_id
+      foreign-key: looks.user.id
+    - key: user.id
+      foreign-key: looks.user.id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: content_favorite_id
+      foreign-key: content_favorite_id
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: folder.id
+      foreign-key: folder.id
+    - key: folder_id
+      foreign-key: folder.id
+    - key: folder.parent_id
+      foreign-key: folder.id
+    - key: folder.id
+      foreign-key: folder.parent_id
+    - key: folder_id
+      foreign-key: folder.parent_id
+    - key: folder.parent_id
+      foreign-key: folder.parent_id
+    - key: model.id
+      foreign-key: model.id
+    - key: space.id
+      foreign-key: space.id
+    - key: space.parent_id
+      foreign-key: space.id
+    - key: space_id
+      foreign-key: space.id
+    - key: space.id
+      foreign-key: space.parent_id
+    - key: space.parent_id
+      foreign-key: space.parent_id
+    - key: space_id
+      foreign-key: space.parent_id
+    - key: deleter_id
+      foreign-key: folder.creator_id
+    - key: folder.creator_id
+      foreign-key: folder.creator_id
+    - key: user.id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: deleter_id
+      foreign-key: space.creator_id
+    - key: folder.creator_id
+      foreign-key: space.creator_id
+    - key: user.id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: content_metadata_id
+      foreign-key: id
+    - key: content_metadata_id
+      foreign-key: parent_id
+    - key: id
+      foreign-key: look_id
+    - key: space.id
+      foreign-key: space_id
+    - key: space.parent_id
+      foreign-key: space_id
+    - key: space_id
+      foreign-key: space_id
+  - table-name: content_metadata_access
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: id
+      foreign-key: look_id
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: folder.id
+      foreign-key: home_folder_id
+    - key: folder_id
+      foreign-key: home_folder_id
+    - key: folder.parent_id
+      foreign-key: home_folder_id
+    - key: folder.id
+      foreign-key: personal_folder_id
+    - key: folder_id
+      foreign-key: personal_folder_id
+    - key: folder.parent_id
+      foreign-key: personal_folder_id
+    - key: space.id
+      foreign-key: home_space_id
+    - key: space.parent_id
+      foreign-key: home_space_id
+    - key: space_id
+      foreign-key: home_space_id
+    - key: space.id
+      foreign-key: personal_space_id
+    - key: space.parent_id
+      foreign-key: personal_space_id
+    - key: space_id
+      foreign-key: personal_space_id
+    - key: deleter_id
+      foreign-key: id
+    - key: folder.creator_id
+      foreign-key: id
+    - key: user.id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+  - table-name: scheduled_plans
+    keys:
+    - key: id
+      foreign-key: look_id
+    - key: query_id
+      foreign-key: query_id
+    - key: deleter_id
+      foreign-key: user.id
+    - key: folder.creator_id
+      foreign-key: user.id
+    - key: user.id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: roles
+    keys:
+    - key: model.id
+      foreign-key: model_set.models
+  - table-name: queries
+    keys:
+    - key: query_id
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: deleter_id
+      foreign-key: user_id
+    - key: folder.creator_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+- table-name: content_metadata
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: id
+      foreign-key: content_metadata_id
+    - key: parent_id
+      foreign-key: content_metadata_id
+    - key: id
+      foreign-key: dashboard.content_metadata_id
+    - key: parent_id
+      foreign-key: dashboard.content_metadata_id
+    - key: id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: parent_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: parent_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: id
+      foreign-key: look.content_metadata_id
+    - key: parent_id
+      foreign-key: look.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard.id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look.id
+    - key: space_id
+      foreign-key: dashboard.space.id
+    - key: space_id
+      foreign-key: dashboard.space.parent_id
+  - table-name: content_metadata_access
+    keys:
+    - key: id
+      foreign-key: content_metadata_id
+    - key: parent_id
+      foreign-key: content_metadata_id
+  - table-name: content_views
+    keys:
+    - key: id
+      foreign-key: content_metadata_id
+    - key: parent_id
+      foreign-key: content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+  - table-name: dashboard_elements
+    keys:
+    - key: id
+      foreign-key: look.content_metadata_id
+    - key: parent_id
+      foreign-key: look.content_metadata_id
+    - key: id
+      foreign-key: look.folder.content_metadata_id
+    - key: parent_id
+      foreign-key: look.folder.content_metadata_id
+    - key: id
+      foreign-key: look.space.content_metadata_id
+    - key: parent_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look.id
+    - key: look_id
+      foreign-key: look_id
+    - key: space_id
+      foreign-key: look.space.id
+    - key: space_id
+      foreign-key: look.space.parent_id
+  - table-name: dashboards
+    keys:
+    - key: id
+      foreign-key: content_metadata_id
+    - key: parent_id
+      foreign-key: content_metadata_id
+    - key: id
+      foreign-key: folder.content_metadata_id
+    - key: parent_id
+      foreign-key: folder.content_metadata_id
+    - key: id
+      foreign-key: space.content_metadata_id
+    - key: parent_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard_id
+      foreign-key: id
+    - key: space_id
+      foreign-key: space.id
+    - key: space_id
+      foreign-key: space.parent_id
+  - table-name: folders
+    keys:
+    - key: id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: parent_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: parent_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: id
+      foreign-key: looks.content_metadata_id
+    - key: parent_id
+      foreign-key: looks.content_metadata_id
+    - key: id
+      foreign-key: looks.folder.content_metadata_id
+    - key: parent_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboards.id
+    - key: look_id
+      foreign-key: looks.id
+    - key: space_id
+      foreign-key: dashboards.space.id
+    - key: space_id
+      foreign-key: dashboards.space.parent_id
+    - key: space_id
+      foreign-key: looks.space.id
+    - key: space_id
+      foreign-key: looks.space.parent_id
+    - key: space_id
+      foreign-key: looks.space_id
+  - table-name: lookml_dashboards
+    keys:
+    - key: id
+      foreign-key: content_metadata_id
+    - key: parent_id
+      foreign-key: content_metadata_id
+    - key: id
+      foreign-key: folder.content_metadata_id
+    - key: parent_id
+      foreign-key: folder.content_metadata_id
+    - key: id
+      foreign-key: space.content_metadata_id
+    - key: parent_id
+      foreign-key: space.content_metadata_id
+    - key: space_id
+      foreign-key: space.id
+    - key: space_id
+      foreign-key: space.parent_id
+  - table-name: looks
+    keys:
+    - key: id
+      foreign-key: content_metadata_id
+    - key: parent_id
+      foreign-key: content_metadata_id
+    - key: look_id
+      foreign-key: id
+    - key: space_id
+      foreign-key: space.id
+    - key: space_id
+      foreign-key: space.parent_id
+    - key: space_id
+      foreign-key: space_id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+  - table-name: users
+    keys:
+    - key: space_id
+      foreign-key: home_space_id
+    - key: space_id
+      foreign-key: personal_space_id
+- table-name: content_metadata_access
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+  - table-name: content_metadata
+    keys:
+    - key: content_metadata_id
+      foreign-key: id
+    - key: content_metadata_id
+      foreign-key: parent_id
+  - table-name: content_views
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: group_id
+      foreign-key: group_id
+  - table-name: dashboard_elements
+    keys:
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.space.content_metadata_id
+  - table-name: dashboards
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+  - table-name: folders
+    keys:
+    - key: content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+  - table-name: lookml_dashboards
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+  - table-name: looks
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: groups_in_group
+    keys:
+    - key: group_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: parent_group_id
+  - table-name: user_attribute_group_values
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: group_ids
+- table-name: content_views
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboard.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard.id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look.id
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: content_metadata_id
+      foreign-key: id
+    - key: content_metadata_id
+      foreign-key: parent_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+  - table-name: content_metadata_access
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: group_id
+      foreign-key: group_id
+  - table-name: dashboard_elements
+    keys:
+    - key: content_metadata_id
+      foreign-key: look.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: look.space.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look.id
+    - key: look_id
+      foreign-key: look_id
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: dashboard_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: content_metadata_id
+      foreign-key: dashboards.folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: dashboards.space.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: looks.folder.content_metadata_id
+    - key: dashboard_id
+      foreign-key: dashboards.id
+    - key: look_id
+      foreign-key: looks.id
+    - key: user_id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: content_metadata_id
+      foreign-key: folder.content_metadata_id
+    - key: content_metadata_id
+      foreign-key: space.content_metadata_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: content_metadata_id
+      foreign-key: content_metadata_id
+    - key: look_id
+      foreign-key: id
+    - key: user_id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: user_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: groups_in_group
+    keys:
+    - key: group_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: parent_group_id
+  - table-name: user_attribute_group_values
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: group_ids
+    - key: user_id
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: dashboard_filters
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard.id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: content_metadata
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: content_views
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_elements
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboards
+    keys:
+    - key: dashboard_id
+      foreign-key: id
+  - table-name: folders
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboards.id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+- table-name: dashboard_layouts
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard.id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: content_metadata
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: content_views
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_elements
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: dashboard_layout_components.dashboard_element_id
+      foreign-key: id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboards
+    keys:
+    - key: dashboard_id
+      foreign-key: id
+  - table-name: folders
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboards.id
+  - table-name: scheduled_plans
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+- table-name: scheduled_plans
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard.id
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: look_id
+      foreign-key: look.id
+    - key: user.id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user.id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_metadata
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+  - table-name: content_views
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+    - key: look_id
+      foreign-key: look.id
+    - key: look_id
+      foreign-key: look_id
+    - key: query_id
+      foreign-key: look.query.id
+    - key: query_id
+      foreign-key: look.query_id
+    - key: query_id
+      foreign-key: query.id
+    - key: query_id
+      foreign-key: query_id
+    - key: query_id
+      foreign-key: result_maker.query.id
+    - key: query_id
+      foreign-key: result_maker.query_id
+    - key: user.id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: user.id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: user.id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: user.id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: user.id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: user.id
+      foreign-key: look.user_id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboard_filters
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboard_layouts
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboard_id
+  - table-name: dashboards
+    keys:
+    - key: dashboard_id
+      foreign-key: id
+    - key: user.id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: dashboard_id
+      foreign-key: dashboards.id
+    - key: look_id
+      foreign-key: looks.id
+    - key: query_id
+      foreign-key: looks.query_id
+    - key: user.id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: creator_id
+    - key: user.id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: user.id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user.id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: user.id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: user.id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: user.id
+      foreign-key: looks.user.id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: looks
+    keys:
+    - key: look_id
+      foreign-key: id
+    - key: query_id
+      foreign-key: query_id
+    - key: user.id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: deleter_id
+    - key: user.id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user.id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user.id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: lookml_dashboards
+    keys:
+    - key: lookml_dashboard_id
+      foreign-key: id
+    - key: user.id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user.id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: queries
+    keys:
+    - key: query_id
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: user.id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user.id
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: home_folder_id
+      foreign-key: dashboard.folder.id
+    - key: personal_folder_id
+      foreign-key: dashboard.folder.id
+    - key: home_folder_id
+      foreign-key: dashboard.folder.parent_id
+    - key: personal_folder_id
+      foreign-key: dashboard.folder.parent_id
+    - key: home_space_id
+      foreign-key: dashboard.space.id
+    - key: personal_space_id
+      foreign-key: dashboard.space.id
+    - key: home_space_id
+      foreign-key: dashboard.space.parent_id
+    - key: personal_space_id
+      foreign-key: dashboard.space.parent_id
+    - key: id
+      foreign-key: dashboard.folder.creator_id
+    - key: id
+      foreign-key: dashboard.space.creator_id
+    - key: id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: home_folder_id
+      foreign-key: look.folder.id
+    - key: personal_folder_id
+      foreign-key: look.folder.id
+    - key: home_folder_id
+      foreign-key: look.folder.parent_id
+    - key: personal_folder_id
+      foreign-key: look.folder.parent_id
+    - key: home_folder_id
+      foreign-key: look.folder_id
+    - key: personal_folder_id
+      foreign-key: look.folder_id
+    - key: home_space_id
+      foreign-key: look.space.id
+    - key: personal_space_id
+      foreign-key: look.space.id
+    - key: home_space_id
+      foreign-key: look.space.parent_id
+    - key: personal_space_id
+      foreign-key: look.space.parent_id
+    - key: id
+      foreign-key: look.deleter_id
+    - key: id
+      foreign-key: look.folder.creator_id
+    - key: id
+      foreign-key: look.last_updater_id
+    - key: id
+      foreign-key: look.space.creator_id
+    - key: id
+      foreign-key: look.user.id
+    - key: id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: home_folder_id
+      foreign-key: folder.id
+    - key: personal_folder_id
+      foreign-key: folder.id
+    - key: home_folder_id
+      foreign-key: folder.parent_id
+    - key: personal_folder_id
+      foreign-key: folder.parent_id
+    - key: home_space_id
+      foreign-key: space.id
+    - key: personal_space_id
+      foreign-key: space.id
+    - key: home_space_id
+      foreign-key: space.parent_id
+    - key: personal_space_id
+      foreign-key: space.parent_id
+    - key: id
+      foreign-key: space.creator_id
+    - key: id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: home_folder_id
+      foreign-key: id
+    - key: personal_folder_id
+      foreign-key: id
+    - key: home_folder_id
+      foreign-key: dashboards.folder.id
+    - key: personal_folder_id
+      foreign-key: dashboards.folder.id
+    - key: home_folder_id
+      foreign-key: dashboards.folder.parent_id
+    - key: personal_folder_id
+      foreign-key: dashboards.folder.parent_id
+    - key: home_folder_id
+      foreign-key: looks.folder.id
+    - key: personal_folder_id
+      foreign-key: looks.folder.id
+    - key: home_folder_id
+      foreign-key: looks.folder.parent_id
+    - key: personal_folder_id
+      foreign-key: looks.folder.parent_id
+    - key: home_folder_id
+      foreign-key: parent_id
+    - key: personal_folder_id
+      foreign-key: parent_id
+    - key: home_space_id
+      foreign-key: dashboards.space.id
+    - key: personal_space_id
+      foreign-key: dashboards.space.id
+    - key: home_space_id
+      foreign-key: dashboards.space.parent_id
+    - key: personal_space_id
+      foreign-key: dashboards.space.parent_id
+    - key: home_space_id
+      foreign-key: looks.space.id
+    - key: personal_space_id
+      foreign-key: looks.space.id
+    - key: home_space_id
+      foreign-key: looks.space.parent_id
+    - key: personal_space_id
+      foreign-key: looks.space.parent_id
+    - key: home_space_id
+      foreign-key: looks.space_id
+    - key: personal_space_id
+      foreign-key: looks.space_id
+    - key: id
+      foreign-key: creator_id
+    - key: id
+      foreign-key: dashboards.user_id
+    - key: id
+      foreign-key: dashboards.folder.creator_id
+    - key: id
+      foreign-key: dashboards.space.creator_id
+    - key: id
+      foreign-key: looks.deleter_id
+    - key: id
+      foreign-key: looks.last_updater_id
+    - key: id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: home_folder_id
+      foreign-key: folder.id
+    - key: personal_folder_id
+      foreign-key: folder.id
+    - key: home_folder_id
+      foreign-key: folder.parent_id
+    - key: personal_folder_id
+      foreign-key: folder.parent_id
+    - key: home_space_id
+      foreign-key: space.id
+    - key: personal_space_id
+      foreign-key: space.id
+    - key: home_space_id
+      foreign-key: space.parent_id
+    - key: personal_space_id
+      foreign-key: space.parent_id
+    - key: id
+      foreign-key: folder.creator_id
+    - key: id
+      foreign-key: space.creator_id
+    - key: id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: home_folder_id
+      foreign-key: folder.id
+    - key: personal_folder_id
+      foreign-key: folder.id
+    - key: home_folder_id
+      foreign-key: folder_id
+    - key: personal_folder_id
+      foreign-key: folder_id
+    - key: home_folder_id
+      foreign-key: folder.parent_id
+    - key: personal_folder_id
+      foreign-key: folder.parent_id
+    - key: home_space_id
+      foreign-key: space.id
+    - key: personal_space_id
+      foreign-key: space.id
+    - key: home_space_id
+      foreign-key: space.parent_id
+    - key: personal_space_id
+      foreign-key: space.parent_id
+    - key: home_space_id
+      foreign-key: space_id
+    - key: personal_space_id
+      foreign-key: space_id
+    - key: id
+      foreign-key: deleter_id
+    - key: id
+      foreign-key: folder.creator_id
+    - key: id
+      foreign-key: user.id
+    - key: id
+      foreign-key: user_id
+  - table-name: content_metadata_access
+    keys:
+    - key: group_ids
+      foreign-key: group_id
+  - table-name: content_views
+    keys:
+    - key: group_ids
+      foreign-key: group_id
+    - key: id
+      foreign-key: user_id
+  - table-name: groups
+    keys:
+    - key: group_ids
+      foreign-key: id
+  - table-name: groups_in_group
+    keys:
+    - key: group_ids
+      foreign-key: id
+    - key: group_ids
+      foreign-key: parent_group_id
+  - table-name: user_attribute_group_values
+    keys:
+    - key: group_ids
+      foreign-key: group_id
+  - table-name: versions
+    keys:
+    - key: looker_versions
+      foreign-key: looker_release_version
+    - key: looker_versions
+      foreign-key: current_version.full_version
+    - key: looker_versions
+      foreign-key: supported_versions.full_version
+  - table-name: role_groups
+    keys:
+    - key: role_ids
+      foreign-key: role_id
+  - table-name: roles
+    keys:
+    - key: role_ids
+      foreign-key: id
+  - table-name: content_metadata
+    keys:
+    - key: home_space_id
+      foreign-key: space_id
+    - key: personal_space_id
+      foreign-key: space_id
+  - table-name: user_sessions
+    keys:
+    - key: sessions.id
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: id
+      foreign-key: user_id
+  - table-name: scheduled_plans
+    keys:
+    - key: id
+      foreign-key: user.id
+    - key: id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: id
+      foreign-key: user_id
+- table-name: groups
+  join:
+  - table-name: content_metadata_access
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: content_views
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: groups_in_group
+    keys:
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: parent_group_id
+  - table-name: user_attribute_group_values
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: group_ids
+- table-name: groups_in_group
+  join:
+  - table-name: content_metadata_access
+    keys:
+    - key: id
+      foreign-key: group_id
+    - key: parent_group_id
+      foreign-key: group_id
+  - table-name: content_views
+    keys:
+    - key: id
+      foreign-key: group_id
+    - key: parent_group_id
+      foreign-key: group_id
+  - table-name: groups
+    keys:
+    - key: id
+      foreign-key: id
+    - key: parent_group_id
+      foreign-key: id
+  - table-name: user_attribute_group_values
+    keys:
+    - key: id
+      foreign-key: group_id
+    - key: parent_group_id
+      foreign-key: group_id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: group_ids
+    - key: parent_group_id
+      foreign-key: group_ids
+- table-name: user_attribute_group_values
+  join:
+  - table-name: content_metadata_access
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: content_views
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: groups_in_group
+    keys:
+    - key: group_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: parent_group_id
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: group_ids
+  - table-name: user_attributes
+    keys:
+    - key: user_attribute_id
+      foreign-key: id
+- table-name: integration_hubs
+  join:
+  - table-name: integrations
+    keys:
+    - key: id
+      foreign-key: integration_hub_id
+- table-name: integrations
+  join:
+  - table-name: integration_hubs
+    keys:
+    - key: integration_hub_id
+      foreign-key: id
+- table-name: versions
+  join:
+  - table-name: users
+    keys:
+    - key: looker_release_version
+      foreign-key: looker_versions
+    - key: current_version.full_version
+      foreign-key: looker_versions
+    - key: supported_versions.full_version
+      foreign-key: looker_versions
+- table-name: model_sets
+  join:
+  - table-name: roles
+    keys:
+    - key: id
+      foreign-key: model_set.id
+    - key: id
+      foreign-key: model_set_id
+- table-name: roles
+  join:
+  - table-name: model_sets
+    keys:
+    - key: model_set.id
+      foreign-key: id
+    - key: model_set_id
+      foreign-key: id
+  - table-name: content_favorites
+    keys:
+    - key: model_set.models
+      foreign-key: dashboard.model.id
+  - table-name: dashboard_elements
+    keys:
+    - key: model_set.models
+      foreign-key: look.model.id
+  - table-name: dashboards
+    keys:
+    - key: model_set.models
+      foreign-key: model.id
+  - table-name: folders
+    keys:
+    - key: model_set.models
+      foreign-key: dashboards.model.id
+    - key: model_set.models
+      foreign-key: looks.model.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: model_set.models
+      foreign-key: model.id
+  - table-name: looks
+    keys:
+    - key: model_set.models
+      foreign-key: model.id
+  - table-name: permission_sets
+    keys:
+    - key: permission_set_id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+  - table-name: role_groups
+    keys:
+    - key: id
+      foreign-key: role_id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: role_ids
+- table-name: permission_sets
+  join:
+  - table-name: roles
+    keys:
+    - key: id
+      foreign-key: permission_set_id
+    - key: id
+      foreign-key: id
+- table-name: project_files
+  join:
+  - table-name: git_branches
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: id
+  - table-name: workspaces
+    keys:
+    - key: project_id
+      foreign-key: projects.id
+- table-name: git_branches
+  join:
+  - table-name: project_files
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: id
+  - table-name: workspaces
+    keys:
+    - key: project_id
+      foreign-key: projects.id
+- table-name: projects
+  join:
+  - table-name: git_branches
+    keys:
+    - key: id
+      foreign-key: project_id
+  - table-name: project_files
+    keys:
+    - key: id
+      foreign-key: project_id
+  - table-name: workspaces
+    keys:
+    - key: id
+      foreign-key: projects.id
+- table-name: workspaces
+  join:
+  - table-name: git_branches
+    keys:
+    - key: projects.id
+      foreign-key: project_id
+  - table-name: project_files
+    keys:
+    - key: projects.id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: projects.id
+      foreign-key: id
+- table-name: queries
+  join:
+  - table-name: dashboard_elements
+    keys:
+    - key: id
+      foreign-key: look.query.id
+    - key: id
+      foreign-key: look.query_id
+    - key: id
+      foreign-key: query.id
+    - key: id
+      foreign-key: query_id
+    - key: id
+      foreign-key: result_maker.query.id
+    - key: id
+      foreign-key: result_maker.query_id
+  - table-name: folders
+    keys:
+    - key: id
+      foreign-key: looks.query_id
+  - table-name: looks
+    keys:
+    - key: id
+      foreign-key: query_id
+  - table-name: scheduled_plans
+    keys:
+    - key: id
+      foreign-key: query_id
+- table-name: role_groups
+  join:
+  - table-name: roles
+    keys:
+    - key: role_id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: role_id
+      foreign-key: role_ids
+- table-name: user_attributes
+  join:
+  - table-name: user_attribute_group_values
+    keys:
+    - key: id
+      foreign-key: user_attribute_id
+- table-name: user_sessions
+  join:
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: sessions.id
+- table-name: connections
+  join:
+  - table-name: content_favorites
+    keys:
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_views
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: user_id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: scheduled_plans
+    keys:
+    - key: user_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_login_lockouts
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id
+- table-name: user_login_lockouts
+  join:
+  - table-name: connections
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_favorites
+    keys:
+    - key: user_id
+      foreign-key: dashboard.folder.creator_id
+    - key: user_id
+      foreign-key: dashboard.space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: content_views
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: dashboard_elements
+    keys:
+    - key: user_id
+      foreign-key: look.deleter_id
+    - key: user_id
+      foreign-key: look.folder.creator_id
+    - key: user_id
+      foreign-key: look.last_updater_id
+    - key: user_id
+      foreign-key: look.space.creator_id
+    - key: user_id
+      foreign-key: look.user.id
+    - key: user_id
+      foreign-key: look.user_id
+  - table-name: dashboards
+    keys:
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: folders
+    keys:
+    - key: user_id
+      foreign-key: creator_id
+    - key: user_id
+      foreign-key: dashboards.user_id
+    - key: user_id
+      foreign-key: dashboards.folder.creator_id
+    - key: user_id
+      foreign-key: dashboards.space.creator_id
+    - key: user_id
+      foreign-key: looks.deleter_id
+    - key: user_id
+      foreign-key: looks.last_updater_id
+    - key: user_id
+      foreign-key: looks.user.id
+  - table-name: lookml_dashboards
+    keys:
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: space.creator_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: looks
+    keys:
+    - key: user_id
+      foreign-key: deleter_id
+    - key: user_id
+      foreign-key: folder.creator_id
+    - key: user_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: scheduled_plans
+    keys:
+    - key: user_id
+      foreign-key: user.id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: id

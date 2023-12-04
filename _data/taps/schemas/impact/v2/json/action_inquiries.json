@@ -1,0 +1,169 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "action_uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "auto_approval_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "comments": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "comment": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "user": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "expected_payout": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "final_payout": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "inquiry_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "media_partner_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "media_partner_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reject_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resolution_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "resolution_deadline_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "resolution_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking_link": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_amount": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "transaction_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

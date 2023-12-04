@@ -1,0 +1,106 @@
+{
+  "properties": {
+    "assignee_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "author_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "confidential": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "created_at": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "iid": {
+      "type": "integer"
+    },
+    "labels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "milestone_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "project_id": {
+      "type": "integer"
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscribed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "user_notes_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

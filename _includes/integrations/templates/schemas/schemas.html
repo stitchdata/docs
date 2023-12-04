@@ -1,0 +1,133 @@
+{% include misc/icons.html %}
+{% include misc/data-files.html %}
+
+{% assign integration = page %}
+{% assign version = integration.this-version | prepend: "v" %}
+
+{% assign filename = integration.name | append: "-" | append: version | append: "-tables" %}
+{% assign tables = site.data.taps.schemas.[integration.name].[version].[filename].tables %}
+
+{% assign fk-filename = integration.name | append: "-" | append: version | append: "-foreign-keys" %}
+{% assign fk-tables = site.data.taps.schemas.[integration.name].[version].[fk-filename].tables %}
+
+{% if integration.permalink contains "saas" %}
+{% capture schemas-and-destination-loading %}
+Depending on your destination, table and column names may not appear as they are outlined below.
+
+For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`), while case is maintained in PostgreSQL destinations (`CusTomERs` > `CusTomERs`). Refer to the [Loading Guide]({{ link.destinations.loading.overview | prepend: site.baseurl }}) for your destination for more info.
+{% endcapture %}
+
+{% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
+{% endif %}
+
+<div>
+{% for table in tables %}
+
+    {% if table.status != "not found" %}
+
+        {% if site.data.taps.schemas.[integration.name].[version].json.[table.name].properties %}
+
+        {% assign data = site.data.taps.schemas.[integration.name].[version].json.[table.name].properties %}
+
+        <!-- Table Name -->
+        <div class="table-heading">
+            
+            <h3 id="{{ table.name | slugify }}">{{ table.name }}</h3>
+            <p>{{ table.description | flatify | markdownify }}</p>
+
+            <!-- Dependent and parent table info -->
+            {% if table.table-details.parent-table or table.table-details.parent-tables %}
+            <!-- If the table is dependent on another table, show this note: -->
+                {% if table.table-details.parent-table %}
+                    <p>
+                        <strong>Note</strong>: In order to replicate this table, you must also set the <a href="#{{ table.table-details.parent-table | slugify }}">{{ table.table-details.parent-table }}</a> table to replicate.
+                    </p>
+                {% elsif table.table-details.parent-tables %}
+                    <p>
+                        <strong>Note</strong>: In order to replicate this table, you must also set the following tables to replicate:
+                        <ul>
+                            {% for parent-table in table.table-details.parent-tables%}
+                                <li><a href="#{{ parent-table | slugify }}">{{ parent-table }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                {% endif %}
+            {% endif %}
+            
+            <table class="attribute-list table-hover">
+
+                {% for field in table.table-details %}
+                    {% assign field-key = field[0] %}
+                    {% assign field-value = field[1] %}
+                    {% assign value-count = field-value | size %}
+                    {% assign field-name = site.data.taps.snapshot-attributes.field-names.[field-key] | flatify | markdownify | strip %}
+                    <tr>
+                        <td>
+                            <strong>{{ field-name }}</strong>
+                        </td>
+                        <td>
+                            {% if value-count > 1 %}
+                                {% for value in field-value %}
+                                    <p>{{ value | flatify | markdownify }}</p>
+                                {% endfor %}
+                            {% else %}
+                                {{ field-value }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                <tr>
+                    {% if table.links %}
+                        <td>
+                            <strong>Useful links</strong>
+                        </td>
+                        <td>
+                            {% for link in table.links %}
+                                {% assign key = link[0] %}
+                                {% assign url = link[1] %}
+                                {% assign text = site.data.taps.snapshot-attributes.field-names.[key] | flatify | strip %}
+                                    <p>
+                                        <a href="{{ url }}" title="Opens in new tab: {{ text }}" target="new">
+                                            {{ text }}
+                                        </a>
+                                    </p>
+                            {% endfor %}
+                        </td>
+                    {% endif %}
+                </tr>
+            </table>
+
+            {% for fk-table in fk-tables %}
+                {% if fk-table.table-name == table.name %}
+                    {% include integrations/templates/schemas/foreign-keys.html %}
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+
+        {% if table.notes %}
+            {{ table.notes | flatify | markdownify }}
+        {% endif %}
+
+
+        <div class="panel-group" id="{{ table.name | slugify }}-schema">
+            <div class="panel panel-default">   
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-table">{{ table.name }} table schema</a>
+                    </h4>
+                </div>
+            
+                <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
+                    {% include integrations/templates/schemas/schemas-table.html jsondata=data table-data=table level="main" %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    {% endif %}
+
+{% endfor %}
+
+</div>

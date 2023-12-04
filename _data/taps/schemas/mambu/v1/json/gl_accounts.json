@@ -1,0 +1,129 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "activated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "allow_manual_journal_entries": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "balance": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "currency_symbol_position": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "digits_after_decimal": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "is_base_currency": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "last_modified_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "symbol": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "entry_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gl_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "strip_trailing_zeros": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

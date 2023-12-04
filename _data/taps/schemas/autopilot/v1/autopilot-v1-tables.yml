@@ -1,0 +1,67 @@
+tap: autopilot
+version: '1'
+tables:
+- name: contacts
+  description: 'The `contacts` table contains info about the contacts in your Autopilot
+    account.
+
+
+    Any custom fields associated with contacts will also be replicated.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-autopilot/blob/master/tap_autopilot/schemas/contacts.json
+    api-method: http://docs.autopilot.apiary.io/#reference/api-methods/get-all-contacts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: contact_id
+    replication-key: updated_at
+- name: lists
+  description: 'The `lists` table contains info about the available lists in your
+    Autopilot account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-autopilot/blob/master/tap_autopilot/schemas/lists.json
+    api-method: http://docs.autopilot.apiary.io/#reference/api-methods/lists/get-list-of-lists
+  table-details:
+    replication-method: Full Table
+    primary-key: list_id
+- name: lists_contacts
+  description: 'The `lists_contacts` table contains list and contact ID pairs, allowing
+    you to create a list of all the contacts that belong to a given {{ integration.display_name
+    }} list.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-autopilot/blob/master/tap_autopilot/schemas/lists_contacts.json
+    api-method: http://docs.autopilot.apiary.io/#reference/api-methods/get-contacts-on-list/get-contacts-on-list
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - list_id
+    - contact_id
+- name: smart_segments
+  description: 'The `smart_segments` table contains info about the smart segments
+    in your Autopilot account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-autopilot/blob/master/tap_autopilot/schemas/smart_segments.json
+    api-method: http://docs.autopilot.apiary.io/#reference/api-methods/smart-segments/get-list-of-smart-segments
+  table-details:
+    replication-method: Full Table
+    primary-key: segment_id
+- name: smart_segments_contacts
+  description: 'The `smart_segments_contacts` table contains segment and contact pairs,
+    or the segments your contacts are associated with.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-autopilot/blob/master/tap_autopilot/schemas/smart_segments_contacts.json
+    api-method: http://docs.autopilot.apiary.io/#reference/api-methods/get-contacts-on-smart-segment/get-contacts-on-smart-segment
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - segment_id
+    - contact_id

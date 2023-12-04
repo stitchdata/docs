@@ -1,0 +1,130 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assigned_user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by_full_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by_user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "date"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_link": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_link_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_link_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

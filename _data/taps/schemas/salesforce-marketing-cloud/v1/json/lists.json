@@ -1,0 +1,96 @@
+{
+  "properties": {
+    "Category": {
+      "description": "ID of the folder that an item is located in.",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "CreatedDate": {
+      "description": "Read-only date and time of the object's creation.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Description": {
+      "description": "Describes and provides information regarding the object.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ID": {
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID.",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ListClassification": {
+      "description": "Specifies the classification for a list.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ListName": {
+      "description": "Name of a specific list.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ModifiedDate": {
+      "description": "Indicates the last time object information was modified.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ObjectID": {
+      "description": "System-controlled, read-only text string identifier for object.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PartnerProperties": {
+      "description": "Specifies key-value pairs of properties associated with an object.",
+      "items": {
+        "properties": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "SendClassification": {
+      "description": "Indicates the send classification to use as part of a send definition.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Type": {
+      "description": "Indicates type of specific list. Valid values include Public, Private, Salesforce, GlobalUnsubscribe, and Master.",
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,77 @@
+tap: google-sheets
+version: '1'
+tables:
+- name: file_metadata
+  description: 'The `{{ table.name }}` table contains metadata about the spreadsheet
+    defined in the integration''s settings.
+
+    '
+  links:
+    doc-link: https://developers.google.com/sheets/api/reference/rest
+    singer-schema: https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/file_metadata.json
+    api-method: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: sample_table
+  description: 'This is an example of a table created from a sheet you set to replicate.
+
+
+    For every sheet you set to replicate, Stitch will create a corresponding table
+    in your destination. The table will contain the columns you select in Stitch,
+    along with a few columns Stitch requires for replication.
+
+
+    Refer to the [Data replication](#extraction--data-replication) section for more
+    info about how this table replicates.
+
+    '
+  links:
+    doc-link: https://developers.google.com/sheets/api/reference/rest
+    singer-schema: ''
+    api-method: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page
+  table-details:
+    replication-method: Full Table
+    primary-key: __sdc_row
+  report: true
+- name: sheets_loaded
+  description: 'The `{{ table.name }}` table contains metadata about individual sheets
+    loaded to your destination.
+
+    '
+  links:
+    doc-link: https://developers.google.com/sheets/api/reference/rest
+    singer-schema: https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/sheets_loaded.json
+    api-method: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - sheetId
+    - spreadsheetId
+    - loadDate
+- name: sheet_metadata
+  description: 'The `{{ table.name }}` table contains metadata about the sheets within
+    the spreadsheet defined in the integration''s settings.
+
+    '
+  links:
+    doc-link: https://developers.google.com/sheets/api/reference/rest
+    singer-schema: https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/sheet_metadata.json
+    api-method: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - sheetId
+    - spreadsheetId
+- name: spreadsheet_metadata
+  description: 'The `{{ table.name }}` table contains metadata about the spreadsheet
+    defined in the integration''s settings.
+
+    '
+  links:
+    doc-link: https://developers.google.com/sheets/api/reference/rest
+    singer-schema: https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/spreadsheet_metadata.json
+    api-method: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page
+  table-details:
+    replication-method: Full Table
+    primary-key: spreadsheetId

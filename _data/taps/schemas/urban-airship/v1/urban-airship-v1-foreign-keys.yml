@@ -1,0 +1,42 @@
+tap: urban-airship
+version: '1'
+keys:
+  channels_channel_id:
+  - table: channels
+    keys:
+    - channel_id
+  - table: named_users
+    keys:
+    - channels
+  lists_name:
+  - table: lists
+    keys:
+    - name
+  named_users_named_user_id:
+  - table: channels
+    keys:
+    - named_user_id
+  - table: named_users
+    keys:
+    - named_user_id
+  segments_segment_id:
+  - table: segments
+    keys:
+    - id
+tables:
+- table-name: channels
+  join:
+  - table-name: named_users
+    keys:
+    - key: channel_id
+      foreign-key: channels
+    - key: named_user_id
+      foreign-key: named_user_id
+- table-name: named_users
+  join:
+  - table-name: channels
+    keys:
+    - key: channels
+      foreign-key: channel_id
+    - key: named_user_id
+      foreign-key: named_user_id

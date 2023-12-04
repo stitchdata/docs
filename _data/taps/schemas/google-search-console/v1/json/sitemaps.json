@@ -1,0 +1,94 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contents": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "indexed": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "submitted": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "errors": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_pending": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_sitemaps_index": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_downloaded": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_submitted": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "site_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "warnings": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

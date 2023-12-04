@@ -1,0 +1,237 @@
+tap: helpscout
+version: '1'
+keys:
+  conversations_conversation_id:
+  - table: conversation_threads
+    keys:
+    - conversation_id
+  - table: conversations
+    keys:
+    - id
+  customers_id:
+  - table: conversation_threads
+    keys:
+    - customer.id
+  - table: conversations
+    keys:
+    - primary_customer.id
+  - table: customers
+    keys:
+    - id
+  mailbox_folders_folder_id:
+  - table: conversations
+    keys:
+    - folder_id
+  - table: mailbox_folders
+    keys:
+    - id
+  mailboxes_mailbox_id:
+  - table: conversations
+    keys:
+    - mailbox_id
+  - table: mailbox_fields
+    keys:
+    - mailbox_id
+  - table: mailbox_folders
+    keys:
+    - mailbox_id
+  - table: mailboxes
+    keys:
+    - id
+  - table: workflows
+    keys:
+    - mailbox_id
+  users_id:
+  - table: conversation_threads
+    keys:
+    - assigned_to.id
+    - created_by.id
+  - table: conversations
+    keys:
+    - assignee.id
+    - closed_by
+    - created_by.id
+  - table: users
+    keys:
+    - id
+tables:
+- table-name: conversation_threads
+  join:
+  - table-name: conversations
+    keys:
+    - key: conversation_id
+      foreign-key: id
+    - key: customer.id
+      foreign-key: primary_customer.id
+    - key: assigned_to.id
+      foreign-key: assignee.id
+    - key: created_by.id
+      foreign-key: assignee.id
+    - key: assigned_to.id
+      foreign-key: closed_by
+    - key: created_by.id
+      foreign-key: closed_by
+    - key: assigned_to.id
+      foreign-key: created_by.id
+    - key: created_by.id
+      foreign-key: created_by.id
+  - table-name: customers
+    keys:
+    - key: customer.id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: assigned_to.id
+      foreign-key: id
+    - key: created_by.id
+      foreign-key: id
+- table-name: conversations
+  join:
+  - table-name: conversation_threads
+    keys:
+    - key: id
+      foreign-key: conversation_id
+    - key: primary_customer.id
+      foreign-key: customer.id
+    - key: assignee.id
+      foreign-key: assigned_to.id
+    - key: closed_by
+      foreign-key: assigned_to.id
+    - key: created_by.id
+      foreign-key: assigned_to.id
+    - key: assignee.id
+      foreign-key: created_by.id
+    - key: closed_by
+      foreign-key: created_by.id
+    - key: created_by.id
+      foreign-key: created_by.id
+  - table-name: customers
+    keys:
+    - key: primary_customer.id
+      foreign-key: id
+  - table-name: mailbox_folders
+    keys:
+    - key: folder_id
+      foreign-key: id
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailbox_fields
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailboxes
+    keys:
+    - key: mailbox_id
+      foreign-key: id
+  - table-name: workflows
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: users
+    keys:
+    - key: assignee.id
+      foreign-key: id
+    - key: closed_by
+      foreign-key: id
+    - key: created_by.id
+      foreign-key: id
+- table-name: customers
+  join:
+  - table-name: conversation_threads
+    keys:
+    - key: id
+      foreign-key: customer.id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: primary_customer.id
+- table-name: mailbox_folders
+  join:
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: folder_id
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailbox_fields
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailboxes
+    keys:
+    - key: mailbox_id
+      foreign-key: id
+  - table-name: workflows
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+- table-name: mailbox_fields
+  join:
+  - table-name: conversations
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailbox_folders
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailboxes
+    keys:
+    - key: mailbox_id
+      foreign-key: id
+  - table-name: workflows
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+- table-name: mailboxes
+  join:
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: mailbox_id
+  - table-name: mailbox_fields
+    keys:
+    - key: id
+      foreign-key: mailbox_id
+  - table-name: mailbox_folders
+    keys:
+    - key: id
+      foreign-key: mailbox_id
+  - table-name: workflows
+    keys:
+    - key: id
+      foreign-key: mailbox_id
+- table-name: workflows
+  join:
+  - table-name: conversations
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailbox_fields
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailbox_folders
+    keys:
+    - key: mailbox_id
+      foreign-key: mailbox_id
+  - table-name: mailboxes
+    keys:
+    - key: mailbox_id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: conversation_threads
+    keys:
+    - key: id
+      foreign-key: assigned_to.id
+    - key: id
+      foreign-key: created_by.id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: assignee.id
+    - key: id
+      foreign-key: closed_by
+    - key: id
+      foreign-key: created_by.id

@@ -1,0 +1,115 @@
+{
+  "properties": {
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "instance_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "metric": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sla": {
+      "properties": {
+        "business_hours": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "policy": {
+          "properties": {
+            "description": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "title": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "target": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "properties": {
+        "business": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "calendar": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "ticket_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

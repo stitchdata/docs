@@ -1,0 +1,115 @@
+{
+  "additional_properties": false,
+  "properties": {
+    "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "app_id": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "browser_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "guide_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "latitude": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "load_time": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "longitude": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "poll_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "poll_response": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "region": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "remote_ip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "server_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_agent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "visitor_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

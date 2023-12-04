@@ -1,0 +1,148 @@
+{
+  "properties": {
+    "active_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "add_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deal": {
+      "properties": {
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "deal_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "last_update_user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "org_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "organization": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "person": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "person_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "pinned_to_deal_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pinned_to_organization_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "pinned_to_person_flag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user": {
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "icon_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_you": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "user_id": {
+      "type": "integer"
+    }
+  },
+  "type": "object"
+}

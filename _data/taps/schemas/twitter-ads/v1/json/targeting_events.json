@@ -1,0 +1,184 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "country_breakdown_percentage": {
+      "additionalProperties": true,
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "country_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "device_breakdown_percentage": {
+      "additionalProperties": false,
+      "properties": {
+        "ANDROID": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "DESKTOP": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "IOS": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "OTHER_MOBILE": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "event_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gender_breakdown_percentage": {
+      "additionalProperties": false,
+      "properties": {
+        "female": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "male": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "is_global": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reach": {
+      "additionalProperties": false,
+      "properties": {
+        "total_impressions": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "total_number_of_tweets": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "total_reach": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "targeting_value": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "top_hashtags": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "top_tweets": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "top_users": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

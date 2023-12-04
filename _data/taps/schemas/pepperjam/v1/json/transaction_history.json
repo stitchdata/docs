@@ -1,0 +1,140 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "item_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "link_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "process_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publisher_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "publisher_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "revision": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sale_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "sale_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "site_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "transaction_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "website_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

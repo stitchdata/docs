@@ -1,0 +1,221 @@
+{
+  "properties": {
+    "alias": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "background": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "channel_id": {
+      "type": "string"
+    },
+    "created": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "device_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "installed": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "ios": {
+      "properties": {
+        "badge": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "quiettime": {
+          "properties": {
+            "end": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "start": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        "tz": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "last_registration": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": [
+            "date-time",
+            "null"
+          ]
+        }
+      ]
+    },
+    "named_user_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opt_in": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "push_address": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tag_groups": {
+      "properties": {
+        "timezone": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_android_app_version": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_android_sdk_version": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_android_version": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_background_enabled": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_ios_app_version": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_ios_model": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_ios_sdk_version": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_ios_version": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_locale_country": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_locale_language": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_location_enabled": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        },
+        "ua_opt_in": {
+          "items": {
+            "type": [
+              "string"
+            ]
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,85 @@
+tap: onfleet
+version: '1'
+tables:
+- name: administrators
+  description: 'The `{{ table.name }}` table contains info about the administrators
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/administrators.json
+    api-method: http://docs.onfleet.com/docs/administrators#list-administrators
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timeLastModified
+- name: hubs
+  description: 'The `{{ table.name }}` table contains info about the hubs, or depots,
+    for teams in your {{ integration.display_name }} account. A hub is the location
+    from which all deliveries for a team''s workers start.
+
+    '
+  links:
+    doc-link: http://docs.onfleet.com/docs/hubs
+    singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/hubs.json
+    api-method: http://docs.onfleet.com/docs/hubs#list-hubs
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: organizations
+  description: 'The `{{ table.name }}` table contains info about the organizations
+    in your {{ integration.display_name }} account. In {{ integration.display_name
+    }}, an organization is the top-most entity - it contains administrators, teams,
+    works, and tasks, all of which belong to the organization.
+
+    '
+  links:
+    doc-link: http://docs.onfleet.com/docs/organizations
+    singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/organizations.json
+    api-method: http://docs.onfleet.com/docs/organizations#get-details
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timeLastModified
+- name: tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks in your
+    {{ integration.display_name }} account. Tasks are units of work that [`administrators`](#administrators)
+    create and assign to [`workers`](#workers) for completion.
+
+    '
+  links:
+    doc-link: http://docs.onfleet.com/docs/tasks
+    singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/tasks.json
+    api-method: http://docs.onfleet.com/docs/tasks#list-tasks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timeLastModified
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about the teams in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: http://docs.onfleet.com/docs/teams
+    singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/teams.json
+    api-method: http://docs.onfleet.com/docs/teams#list-teams
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timeLastModified
+- name: workers
+  description: 'The `{{ table.name }}` table contains info about the workers (or drivers)
+    in your {{ integration.display_name }} account. Workers are organization members
+    who complete tasks.
+
+    '
+  links:
+    doc-link: http://docs.onfleet.com/docs/workers
+    singer-schema: https://github.com/singer-io/tap-onfleet/blob/master/tap_onfleet/schemas/workers.json
+    api-method: http://docs.onfleet.com/docs/workers#list-workers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timeLastModified
+tap-repo-schemas: true

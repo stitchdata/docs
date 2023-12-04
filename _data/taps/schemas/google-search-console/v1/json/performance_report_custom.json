@@ -1,0 +1,80 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ctr": {
+      "multipleOf": 1e-25,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "device": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dimensions_hash_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "page": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "position": {
+      "multipleOf": 1e-25,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "query": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "search_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "site_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

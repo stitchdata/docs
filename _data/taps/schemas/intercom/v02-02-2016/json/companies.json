@@ -1,0 +1,112 @@
+{
+  "properties": {
+    "company_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "custom_attributes": {
+      "type": [
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "monthly_spend": {
+      "type": [
+        "number"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "plan": {
+      "type": [
+        "string"
+      ]
+    },
+    "remote_created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "segments": {
+      "properties": {
+        "segments": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "session_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "tags": {
+      "properties": {
+        "tags": {
+          "properties": {
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "user_count": {
+      "type": [
+        "number"
+      ]
+    }
+  }
+}

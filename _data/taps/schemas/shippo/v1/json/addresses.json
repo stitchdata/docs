@@ -1,0 +1,88 @@
+{
+  "properties": {
+    "city": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "is_residential": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "messages": {
+      "items": {
+        "code": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "type": "array"
+    },
+    "metadata": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "object_created": {
+      "type": "date-time"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "object_owner": {
+      "type": "string"
+    },
+    "object_purpose": {
+      "type": "string"
+    },
+    "object_source": {
+      "type": "string"
+    },
+    "object_state": {
+      "type": "string"
+    },
+    "object_updated": {
+      "type": "date-time"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "street1": {
+      "type": "string"
+    },
+    "street2": {
+      "type": "string"
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "zip": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id"
+  ],
+  "type": "object"
+}

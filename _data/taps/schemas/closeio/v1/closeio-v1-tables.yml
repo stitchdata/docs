@@ -1,0 +1,112 @@
+tap: closeio
+version: '1'
+tables:
+- name: activities
+  description: "The `{{ table.name }}` table contains info about various activities\
+    \ in your {{ integration.display_name }} account.\n\nAn activity belongs to a\
+    \ lead and can represent any type of activity that was performed on a lead or\
+    \ its contact. This includes calls, emails, notes, and so on.\n\n#### Attribution\
+    \ window {#email-attribution-window}\n When Stitch replicates data for this table,\
+    \ it will use an attribution window of {{ integration.attribution-window }} to\
+    \ fetch updated activities.\n\n This means that every time a replication job runs,\
+    \ the last 24 hours' worth of data will be replicated for this table. This is\
+    \ because {{ integration.display_name }} doesn't provide a way to query for activites\
+    \ based on a modification time, only when activities are created. A list of available\
+    \ querying methods can be found in [{{ integration.display_name }}'s documentation](https://developer.close.io/#activities-list-or-filter-all-activity-types){:target=\"\
+    new\"}.\n \n Refer to the [Replication](#replication) section for more info and\
+    \ examples of how the attribution window is used to query for data.\n"
+  links:
+    doc-link: https://developer.close.io/#activities
+    singer-schema: https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/activities.json
+    api-method: https://developer.close.io/#activities-list-or-filter-all-activity-types
+  table-details:
+    replication-method: Append-Only Incremental
+    primary-key: id
+    replication-key: date_created
+- name: custom_fields
+  description: 'The `{{ table.name }}` table contains info about the custom fields
+    in your {{ integration.display_name }} account.
+
+
+    Custom fields allow you to store arbitrary data on leads in {{ integration.display_name
+    }}. [Refer to {{ integration.display_name }}''s documentation](https://help.close.io/customer/portal/articles/1104820-custom-fields)
+    for more info.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/custom_fields.json
+    api-method: https://developer.close.io/#custom-fields-list-all-the-custom-fields-for-your-organization
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_updated
+- name: event_log
+  description: 'The `{{ table.name }}` table contains info about events generated
+    in your {{ integration.display_name }} account. This could include creating a
+    lead, sending an email, or deleting a note.
+
+
+    #### Historical data limitations
+
+
+    Due to how {{ integration.display_name }}''s API functions, [only 30 days of historical
+    data is available for this table](https://developer.close.io/#event-log){:target="new"}
+    from the initial connection date.
+
+
+    Refer to the [Replication section](#historical-event-log-data) for more info.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/event_log.json
+    api-method: https://developer.close.io/#event-log-retrieve-a-list-of-events
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_updated
+- name: leads
+  description: 'The `{{ table.name }}` table contains info about the leads in your
+    {{ integration.display_name }} account.
+
+
+    Leads represent a company or organization and may contain contacts, tasks, opportunities,
+    and activities. In {{ integration.display_name }}, a lead is synonymous with "account"
+    in other CRMs.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/leads.json
+    api-method: https://developer.close.io/#leads-list-or-search-for-leads
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_updated
+- name: tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks in your
+    {{ integration.display_name }} account. Tasks are action items with a given date
+    that are assigned to a sales rep.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/tasks.json
+    api-method: https://developer.close.io/#tasks-list-or-filter-tasks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_updated
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+
+    In {{ integration.display_name }}, users are typically your co-workers and sales
+    reps, or those inside your company.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/users.json
+    api-method: https://developer.close.io/#users-list-all-the-users-who-are-members-of-the-same-organizations-as-you-are
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_updated

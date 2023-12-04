@@ -1,0 +1,437 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "barcode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "brand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_of_manufacture": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "customs_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customs_value": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "do_not_count": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "dropship": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "final_sale": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "height": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ignore_on_customs": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ignore_on_invoice": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "images": {
+      "items": {
+        "properties": {
+          "sort": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "kit": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "kit_build": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "kit_components": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "sku": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "length": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "no_air": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "option": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "product_note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reorder_amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reorder_level": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reserve_inventory": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "tariff_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "thumbnail": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "value_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "virtual": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "warehouses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "allocated": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "available": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "backorder": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "customs_value": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "inventory_bin": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "inventory_overstock_bin": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "on_hand": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "price": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "purchase_orders": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "expected_date": {
+                  "type": [
+                    "null",
+                    "date-time"
+                  ]
+                },
+                "po_id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "quantity": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "quantity_received": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "sell_ahead": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": "object"
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "sell_ahead": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "value_currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "warehouse": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "warehouse_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "weight": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "weight_in_oz": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "width": {
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  },
+  "type": "object"
+}

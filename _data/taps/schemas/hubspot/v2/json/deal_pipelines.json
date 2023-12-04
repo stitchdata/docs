@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "displayOrder": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pipelineId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "stages": {
+      "items": {
+        "properties": {
+          "active": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "closedWon": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "displayOrder": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "label": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "probability": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "stageId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "staticDefault": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  },
+  "type": "object"
+}

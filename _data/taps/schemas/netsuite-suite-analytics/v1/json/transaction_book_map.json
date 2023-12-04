@@ -1,0 +1,49 @@
+{
+  "properties": {
+    "accounting_book_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "date_revenue_committed": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "exchange_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "is_vsoe_bundle": {
+      "type": [
+        "string"
+      ]
+    },
+    "needs_revenue_commitment": {
+      "type": [
+        "string"
+      ]
+    },
+    "revenue_commitment_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "revenue_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

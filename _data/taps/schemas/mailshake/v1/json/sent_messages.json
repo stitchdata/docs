@@ -1,0 +1,293 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actionDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign": {
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "externalConversationID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "externalID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "externalRawMessageID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from": {
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "message": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "plainTextBody": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rawBody": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recipient": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "emailAddress": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fields": {
+          "additionalProperties": true,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fullName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "isPaused": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "first": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fullName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

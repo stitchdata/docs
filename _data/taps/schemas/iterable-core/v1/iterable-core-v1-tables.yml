@@ -1,0 +1,194 @@
+tap: iterable-core
+version: '1'
+tables:
+- name: campaigns
+  description: 'The **{{ table.name }}** table contains information about campaigns
+    in your {{ integration.display_name }} projcect.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/campaigns.json
+    api-method: https://api.iterable.com/api/docs#campaigns_campaigns
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: channels
+  description: 'The **{{ table.name }}** table contains information about all channels
+    within your {{ integration.display_name }} project.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/channels.json
+    api-method: https://api.iterable.com/api/docs#channels_channels
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: email_bounce
+  description: 'The **{{ table.name }}** table contains information about bounced
+    emails within your {{ integration.display_name }} campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_bounce.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_click
+  description: 'The **{{ table.name }}** table contains information about clicks on
+    your {{ integration.display_name }} email campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_click.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_complaint
+  description: 'The **{{ table.name }}** table contains information about email recipients
+    that sent complaints for your {{ integration.display_name }} campain.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_complaint.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_open
+  description: 'The **{{ table.name }}** table contains information about email recipients
+    that opened your {{ integration.display_name }} campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_open.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_send
+  description: 'The **{{ table.name }}** table contains information about campaign
+    emails you sent in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_send.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_send_skip
+  description: 'The **{{ table.name }}** table contains information about campaign
+    email recipients that were skipped in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_send_skip.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_subscribe
+  description: 'The **{{ table.name }}** table contains information about emails subscribed
+    to your {{ integration.display_name }} campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_subscribe.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: email_unsubscribe
+  description: 'The **{{ table.name }}** table contains information about emails unsubscribed
+    from your {{ integration.display_name }} campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/email_unsubscribe.json
+    api-method: https://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: createdAt
+- name: lists
+  description: 'The **{{ table.name }}** tablecontains information about lists within
+    your {{ integration.display_name }} project.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/lists.json
+    api-method: https://api.iterable.com/api/docs#lists_getLists
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: list_users
+  description: 'The **{{ table.name }}** table contains information about users in
+    a list in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/list_users.json
+    api-method: https://api.iterable.com/api/docs#lists_getLists_0
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - email
+    - listId
+- name: message_types
+  description: 'The **{{ table.name }}** table contains information about all message
+    types within your {{ integration.display_name }} project.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/message_types.json
+    api-method: https://api.iterable.com/api/docs#messageTypes_messageTypes
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: metadata
+  description: 'The **{{ table.name }}** table contains the metadata for a single
+    key in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/metadata.json
+    api-method: https://api.iterable.com/api/docs#metadata_get
+  table-details:
+    replication-method: Full Table
+    primary-key: key
+- name: templates
+  description: 'The **{{ table.name }}** table contains information about project
+    templates in you {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/templates.json
+    api-method: https://api.iterable.com/api/docs#templates_getTemplates
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: templateId
+    replication-key: updatedAt
+- name: users
+  description: 'The **{{ table.name }}** table contains information about all users
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://api.iterable.com/api/docs#export_exportDataJson
+    singer-schema: https://github.com/singer-io/tap-iterable/tree/master/tap_iterable/schemas/users.json
+    api-method: ttps://api.iterable.com/api/docs#export_exportDataJson
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+    replication-key: profileUpdatedAt
+tap-repo-schemas: true

@@ -1,0 +1,437 @@
+tap: clubspeed
+version: '1'
+tables:
+- name: booking
+  description: 'The `{{ table.name }}` table contains info about bookings. A booking
+    record exposes a `heat` to the online booking interface in {{ integration.display_name
+    }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/booking.json
+  table-details:
+    replication-method: Full Table
+    primary-key: onlineBookingsId
+- name: booking_availability
+  description: 'The `{{ table.name }}` table contains info about the current availability
+    for online bookings. These take into account both online and local booking reservations.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/booking_availability.json
+  table-details:
+    replication-method: Full Table
+    primary-key: heatId
+- name: checks
+  description: 'The `{{ table.name }}` table contains info about checks, or financial
+    invoices, that have been closed.
+
+
+    {% capture replication-note %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that
+    checks will not be selected for replication until the record has a `{{ replication-keys
+    | strip }}` value, which should occur when the check has a `status` of `closed`.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/checks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: checkId
+    replication-key: closedDate
+- name: check_details
+  description: 'The `{{ table.name }}` table contains info about line items and quantity
+    info attached to [`checks`](#checks).
+
+
+    {% capture replication-tip %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that
+    check details will be selected for replication only when they are initially created.
+    Any subsequent updates made to the check detail will not be detected, as the `{{
+    replication-keys | strip }}` value will not be updated. Refer to the [Key-based
+    Incremental Replication documentation]({{ link.replication.key-based-incremental
+    | prepend: site.baseurl }}) for more info and examples.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-tip %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/check_details.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: checkDetailId
+    replication-key: createdDate
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers for
+    a location.
+
+
+    {% capture replication-note %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means updated
+    customer data will only be selected for replication when the `{{ replication-keys
+    | strip }}` value for the customer''s record is updated.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/customers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: customerId
+    replication-key: lastVisited
+- name: discount_types
+  description: 'The `{{ table.name }}` table contains info about discount types.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/discount_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: discountId
+- name: events
+  description: 'The `{{ table.name }}` table contains info about events.
+
+
+    {% capture replication-note %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that
+    unless an event''s `{{ replication-keys | strip }}` value is updated, changes
+    to event records will not be selected for replication.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/events.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: eventId
+    replication-key: eventScheduledTime
+- name: event_heat_details
+  description: 'The `{{ table.name }}` table contains info about [`customers`](#customers)
+    who have been placed in a queue for a specific [`event`](#events).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_heat_details.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - customerId
+    - eventId
+    replication-key: added
+- name: event_heat_types
+  description: 'The `{{ table.name }}` table contains info about event type classifications,
+    which are used to look up [`event_rounds`](#event_rounds) when creating [`events`](#events).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_heat_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventHeatTypeId
+- name: event_reservations
+  description: 'The `{{ table.name }}` table contains info about event reservations,
+    which are linked to [`events`](#events).
+
+
+    {% capture replication-note %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that
+    unless an event reservation''s `startTime` is updated, changes to event reservation
+    records will not be selected for replication.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_reservations.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: eventReservationId
+    replication-key: startTime
+- name: event_reservation_links
+  description: 'The `{{ table.name }}` table contains lists of [`check`](#checks)
+    and [`reservation`](#reservations) IDs, or checks that are linked to event reservations.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_reservation_links.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventReservationLinkId
+- name: event_reservation_types
+  description: 'The `{{ table.name }}` table contains info about the descriptions
+    for event reservation types.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_reservation_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventReservationTypeId
+- name: event_rounds
+  description: 'The `{{ table.name }}` table contains info about event rounds. This
+    table acts as a link between [`events`](#events) and their corresponding rounds
+    in the [`heat_main`](#heat_main).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_rounds.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventRoundId
+- name: event_statuses
+  description: 'The `{{ table.name }}` table contains info about event statuses, which
+    are statuses assigned to [`event_reservations`](#event_reservations).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_statuses.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventStatusId
+- name: event_tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks to be completed
+    for a given [`event_reservation`](#event_reservations).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_tasks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: eventTaskId
+    replication-key: completedAt
+- name: event_task_types
+  description: 'The `{{ table.name }}` table contains info about event task types,
+    which are [`event_tasks`](#event_tasks) to be tracked for completion.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_task_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventTaskId
+- name: event_types
+  description: 'The `{{ table.name }}` table contains info about event types.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: eventTypeId
+- name: gift_card_history
+  description: 'The `{{ table.name }}` table acts as a transactional log for keeping
+    track of each change that occurs with gift cards.
+
+
+    {% capture replication-note %}
+
+    **Note**: In {{ integration.display_name }}, each gift card is registered as a
+    [`customer`](#customers). This means that each gift card identifier should be
+    considered a `customerId` in this table.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/gift_card_history.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: giftCardHistoryId
+    replication-key: transactionDate
+- name: heat_main
+  description: 'The `{{ table.name }}` table contains info about finished heat mains,
+    which are instances of races on the standard venue calendar.
+
+
+    {% capture replication-note %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that
+    only finished heat mains will be selected for replication.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/heat_main.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: heatId
+    replication-key: finish
+- name: heat_main_details
+  description: 'The `{{ table.name }}` table contains info about customers that were
+    entered into finished heats.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/heat_main_details.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - customerId
+    - heatId
+- name: heat_types
+  description: 'The `{{ table.name }}` table contains info about heat types.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/heat_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: heatTypesId
+- name: memberships
+  description: 'The `{{ table.name }}` table contains info about memberships, which
+    is a pairing of a [`customer`](#customers) and [`membership_type`](#membership_types).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/memberships.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - customerId
+    - membershipTypeId
+    replication-key: changed
+- name: membership_types
+  description: 'The `{{ table.name }}` table contains info about memberships.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/membership_types.json
+  table-details:
+    replication-method: Full Table
+    primary-key: membershipTypeId
+- name: payments
+  description: 'The `{{ table.name }}` table contains info about collected payments.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/payments.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: paymentId
+    replication-key: payDate
+- name: payments_voided
+  description: 'The `{{ table.name }}` table contains info about voided [`payments`](#payments).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/payments_voided.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: paymentId
+    replication-key: voidDate
+- name: products
+  description: 'The `{{ table.name }}` table contains info about products.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/products.json
+  table-details:
+    replication-method: Full Table
+    primary-key: productId
+- name: product_classes
+  description: 'The `{{ table.name }}` table contains info about classes applied to
+    [`products`](#products). Product classes determine how products are aggregated
+    in {{ integration.display_name }}''s reporting system.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/product_classes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: productClassId
+- name: reservations
+  description: 'The `{{ table.name }}` table contains info about reservations. Reservations
+    are indications that a [`customer`](#customers) is looking to purchase a spot
+    in a [`booking`](#booking_availability) or has already purchased a spot.
+
+
+    {% capture replication-note %}
+
+    **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication
+    Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that
+    reservations will be selected for replication only when they are initially created.
+    Any subsequent updates made to the reservation will not be detected, as the `{{
+    replication-keys | strip }}` value will not be updated. Refer to the [Key-based
+    Incremental Replication documentation]({{ link.replication.key-based-incremental
+    | prepend: site.baseurl }}) for more info and examples.
+
+    {% endcapture %}
+
+
+    {% include note.html type="single-line" content=replication-note %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/reservations.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: onlineBookingReservationsId
+    replication-key: createdAt
+- name: sources
+  description: 'The `{{ table.name }}` table contains info about how customers find
+    and register at venues.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/sources.json
+  table-details:
+    replication-method: Full Table
+    primary-key: sourceId
+- name: taxes
+  description: 'The `{{ table.name }}` table contains info about tax calculations,
+    which are typically applied to [`products`](#products).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/taxes.json
+  table-details:
+    replication-method: Full Table
+    primary-key: taxId
+- name: users
+  description: 'The `{{ table.name }}` table contains info about employees and system
+    users. **Note**: While some employees may also be [`customers`](#customers), this
+    table does not contain customer information.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/users.json
+  table-details:
+    replication-method: Full Table
+    primary-key: userId

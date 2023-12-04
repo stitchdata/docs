@@ -1,0 +1,54 @@
+{
+  "properties": {
+    "BatchID": {
+      "description": "Ties triggered send sent events to other events (like clicks and opens that occur at a later date and time)",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "CorrelationID": {
+      "description": "Identifies correlation of objects across several requests.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EventDate": {
+      "description": "Date when a tracking event occurred.",
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "EventType": {
+      "description": "The type of tracking event",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SendID": {
+      "description": "Contains identifier for a specific send.",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "SubscriberKey": {
+      "description": "Identification of a specific subscriber.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "URL": {
+      "description": "URL that was clicked.",
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

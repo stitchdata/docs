@@ -1,0 +1,573 @@
+tap: deputy
+version: '1'
+tap-repo-schemas: false
+tables:
+- name: addresses
+  description: 'The `{{ table.name }}` table contains info about addresses.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Address
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: categories
+  description: 'The `{{ table.name }}` table contains info about categories.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Category
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: comments
+  description: 'The `{{ table.name }}` table contains info about comments.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Comment
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: companies
+  description: 'The `{{ table.name }}` table contains info about companies.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Company
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: company_periods
+  description: 'The `{{ table.name }}` table contains info about company periods.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/CompanyPeriod
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about contacts.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Contact
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: countries
+  description: 'The `{{ table.name }}` table contains info about countries.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Country
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: custom_app_data
+  description: 'The `{{ table.name }}` table contains info about custom app data.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/CustomAppData
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: custom_fields
+  description: "The `{{ table.name }}` table contains info about \n"
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/CustomField
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: custom_field_data
+  description: 'The `{{ table.name }}` table contains info about custom field data.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/CustomFieldData
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_agreements
+  description: 'The `{{ table.name }}` table contains info about employee agreements.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeAgreement
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_agreement_history
+  description: "The `{{ table.name }}` table contains info about \n"
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeAgreementHistory
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_appraisal
+  description: 'The `{{ table.name }}` table contains info about employee appraisals.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeAppraisal
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_availability
+  description: 'The `{{ table.name }}` table contains info about employee availability.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeAvailability
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_contracts
+  description: 'The `{{ table.name }}` table contains info about employee contracts.
+
+    '
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_contract_leave_rules
+  description: 'The `{{ table.name }}` table contains info about employment contract
+    leave rules.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmploymentContractLeaveRules
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_history
+  description: 'The `{{ table.name }}` table contains info about employee histories.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeHistory
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_paycycles
+  description: 'The `{{ table.name }}` table contains info about employee paycycles.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeePaycycle
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_paycycle_returns
+  description: 'The `{{ table.name }}` table contains info about employee paycycle
+    returns.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeePaycycleReturn
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_roles
+  description: 'The `{{ table.name }}` table contains info about employee roles.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeRole
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_salary_opunit_costing
+  description: 'The `{{ table.name }}` table contains info about employee salary operational
+    unit costs.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeSalaryOpunitCosting
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employee_workplaces
+  description: 'The `{{ table.name }}` table contains info about employee workplaces.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmployeeWorkplace
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: employment_conditions
+  description: 'The `{{ table.name }}` table contains info about employment conditions.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/EmploymentCondition
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: events
+  description: 'The `{{ table.name }}` table contains info about events.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Event
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: geo
+  description: 'The `{{ table.name }}` table contains info about geographic locations.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Geo
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: journal
+  description: 'The `{{ table.name }}` table contains info about journals.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Journal
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: kiosks
+  description: 'The `{{ table.name }}` table contains info about kiosks.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Kiosk
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: leaves
+  description: 'The `{{ table.name }}` table contains info about employee leave.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Leave
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: leave_accruals
+  description: 'The `{{ table.name }}` table contains info about employee leave balances.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/LeaveAccrual
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: leave_pay_lines
+  description: 'The `{{ table.name }}` table contains info about employee leave pay
+    lines.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/LeavePayLine
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: leave_rules
+  description: 'The `{{ table.name }}` table contains info about employee leave rules.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/LeaveRules
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: memos
+  description: 'The `{{ table.name }}` table contains info about memos.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Memo
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: operational_units
+  description: 'The `{{ table.name }}` table contains info about operational units.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/OperationalUnit
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: pay_periods
+  description: 'The `{{ table.name }}` table contains info about pay periods.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/PayPeriod
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: pay_rules
+  description: 'The `{{ table.name }}` table contains info about pay rules.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/PayRules
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: public_holidays
+  description: 'The `{{ table.name }}` table contains info about public holidays.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/PublicHoliday
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: rosters
+  description: 'The `{{ table.name }}` table contains info about rosters.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Roster
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: roster_opens
+  description: 'The `{{ table.name }}` table contains info about roster opens.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/RosterOpen
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: roster_swaps
+  description: 'The `{{ table.name }}` table contains info about roster swaps.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/RosterSwap
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: sales_data
+  description: 'The `{{ table.name }}` table contains info about sales data.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/SalesData
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: schedules
+  description: 'The `{{ table.name }}` table contains info about schedules.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Schedule
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: sms_logs
+  description: 'The `{{ table.name }}` table contains info about SMS logs.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/SmsLog
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: states
+  description: 'The `{{ table.name }}` table contains info about states.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/State
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: stress_profiles
+  description: 'The `{{ table.name }}` table contains info about stress profiles.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/StressProfile
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: system_usage_balances
+  description: 'The `{{ table.name }}` table contains info about system usage balances.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/SystemUsageBalance
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: system_usage_tracking
+  description: 'The `{{ table.name }}` table contains info about system usage tracking.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/SystemUsageTracking
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: tasks
+  description: 'The `{{ table.name }}` table contains info about tasks.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Task
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: task_groups
+  description: 'The `{{ table.name }}` table contains info about task groups.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TaskGroup
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: task_group_setups
+  description: 'The `{{ table.name }}` table contains info about task group setups.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TaskGroupSetup
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: task_opunit_configs
+  description: 'The `{{ table.name }}` table contains info about task operational
+    unit configurations.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TaskOpunitConfig
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: task_setups
+  description: 'The `{{ table.name }}` table contains info about task setups.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TaskSetup
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about teams.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Team
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: timesheets
+  description: 'The `{{ table.name }}` table contains info about timesheets.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Timesheet
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: timesheet_pay_returns
+  description: 'The `{{ table.name }}` table contains info about timesheet pay returns.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TimesheetPayReturn
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: training_modules
+  description: 'The `{{ table.name }}` table contains info about training modules.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TrainingModule
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: training_records
+  description: 'The `{{ table.name }}` table contains info about training records.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/TrainingRecord
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified
+- name: webhooks
+  description: 'The `{{ table.name }}` table contains info about webhooks.
+
+    '
+  links:
+    doc-link: https://www.deputy.com/api-doc/Resources/Webhook
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: Modified
+    replication-key: Modified

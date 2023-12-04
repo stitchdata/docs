@@ -1,0 +1,228 @@
+tap: bing-ads
+version: '1'
+tap-repo-schemas: false
+tables:
+- name: accounts
+  description: 'The `accounts` table contains high-level information about each of
+    the ad accounts you selected during setup. Each row in this table corresponds
+    to a single account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    api-method: https://docs.microsoft.com/en-us/bingads/customer-management-service/account
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - lastModifiedTime
+    replication-key: lastModifiedTime
+- name: adgroup_performance_report
+  description: 'The `adgroup_performance_report` table contains performance data for
+    ad groups, aggregated by day.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: ads
+  description: 'The `ads` table contains info about the following ad types:
+
+
+    - `AppInstall`
+
+    - `DynamicSearch`
+
+    - `ExpandedText`
+
+    - `Product`
+
+    - `Text`
+
+    - `Image`
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/ad
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadsbyadgroupid
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ad_groups
+  description: 'The `ad_groups` table contains info about the ad groups associated
+    with the campaigns in your Bing Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroup
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupsbycampaignid
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ad_performance_report
+  description: 'The `ad_performance_report` table contains performance info about
+    ads, including clicks and conversions. This data can be used to identify and improve
+    under-performing ads.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: age_gender_performance_report
+  description: 'The `age_gender_performance_report` table contains info about the
+    age and gender demographics of people interacting with your campaigns and ad groups.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: campaigns
+  description: 'The `campaigns` table contains info about the campaigns in your Bing
+    Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaign
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getcampaignsbyaccountid
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: campaign_performance_report
+  description: 'The `campaign_performance_report` table contains performance data
+    for campaigns, aggregated by day..
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: geographic_performance_report
+  description: 'The `geographic_performance_report` table contains info about the
+    physical locations of people searching for an ad or the locations people are searching
+    for. This data can be used to validate or improve location targeting strategies.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: goals_and_funnels_report
+  description: 'The `goals_and_funnels_report` table contains information about your
+    audience''s progression through your conversion funnel. Use this report to determine
+    the point at which users leave the funnel, thereby allowing you to improve and
+    increase conversion.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: keyword_performance_report
+  description: 'The `keyword_performance_report` table contains performance data about
+    keywords.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate
+- name: search_query_performance_report
+  description: 'The `search_query_performance_report` table contains performance data
+    for search terms that resulted in a significant number of clicks in the last 30
+    days. As this data may change over time, use the `keyword_performance_report`
+    table to analyze the overall performance of keywords.
+
+
+    **Note**: This data in this table is not applicable to Bing Shopping campaigns.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn#values
+  table-details:
+    replication-method: Append-Only (Incremental)
+    primary-keys:
+    - accountId
+    - _sdc_report_datetime
+    - gregorianDate
+    replication-key: gregorianDate

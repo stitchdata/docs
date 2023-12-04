@@ -1,0 +1,23 @@
+tap: google-analytics
+version: 14-09-2016
+tables: 
+- name: sample_report
+  custom-report: true
+  description: |
+    The `{{ table.name }}` table will contain the [Metrics and Dimensions selected during integration setup](#schema).
+
+    ### Data pagination
+
+    {{ integration.display_name }} data is paginated on a daily basis. This means that a single row in this table pertains to a specific day. Use the `start_date` and `end_date` columns to identify what day the row is for.
+
+    ### Primary keys
+
+    The Primary Key for this table is a composite key made up of all **Dimension columns** and the `start_date` and `end_date` columns.
+
+    For example: If `referralPath` and `country` were Dimension columns in the table, both columns, along with `start_date` and `end_date` would make up the Primary Key for the table.
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - start_date
+    - end_date
+    replication-key: start_date

@@ -1,0 +1,125 @@
+tap: tiktok-ads
+version: '1'
+tables:
+- name: adgroups
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1708503489590273
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/adgroups.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - adgroup_id
+    - advertiser_id
+    - campaign_id
+    - modify_time
+    replication-key: modify_time
+- name: ads
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1708572923161602
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/ads.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adgroup_id
+    - advertiser_id
+    - campaign_id
+    - modify_time
+    replication-key: modify_time
+- name: advertisers
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1708503235186689
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/advertisers.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - advertiser_id
+    - create_time
+    replication-key: create_time
+- name: ad_insights
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1707957200780290
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/ad_insights.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adgroup_id
+    - advertiser_id
+    - campaign_id
+    - stat_time_day
+    replication-key: stat_time_day
+- name: ad_insights_by_age_and_gender
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1707957217727489
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/ad_insights_by_age_and_gender.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adgroup_id
+    - advertiser_id
+    - age
+    - campaign_id
+    - gender
+    - stat_time_day
+    replication-key: stat_time_day
+- name: ad_insights_by_country
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1707957217727489
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/ad_insights_by_country.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adgroup_id
+    - advertiser_id
+    - campaign_id
+    - country_code
+    - stat_time_day
+    replication-key: stat_time_day
+- name: ad_insights_by_platform
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1707957217727489
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/ad_insights_by_platform.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adgroup_id
+    - campaign_id
+    - platform
+    - stat_time_day
+    replication-key: stat_time_day
+- name: campaigns
+  description: ''
+  links:
+    doc-link: https://ads.tiktok.com/marketing_api/docs?id=1708582970809346
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/campaigns.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - advertiser_id
+    - campaign_id
+    - modify_time
+    replication-key: modify_time
+- name: campaign_insights_by_province
+  description: ''
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-tiktok-ads/tree/master/tap_tiktok_ads/schemas/campaign_insights_by_province.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - advertiser_id
+    - campaign_id
+    - province_id
+    - stat_time_day
+    replication-key: stat_time_day

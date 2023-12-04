@@ -1,0 +1,146 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "click_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "commission_publisher": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "commission_site": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "coupons": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creative_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "device_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "link_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "new_to_file": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "publisher_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sale_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "sale_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "transaction_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}
