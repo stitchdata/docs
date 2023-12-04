@@ -1,0 +1,127 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "ad_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "download_link": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "file_size_in_bytes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "image_metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "height_px": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "image_format": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "width_px": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "is_demo_media": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lens_package_metadata": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "media_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "video_metadata": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "visibility": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

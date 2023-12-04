@@ -1,0 +1,121 @@
+{
+  "additionalProperties": false,
+  "name": "customers",
+  "properties": {
+    "accepts_marketing": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "company": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "customer_group_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "date_modified": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "email": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "form_fields": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phone": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "registration_ip_address": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reset_pass_on_login": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "store_credit": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_exempt_category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,160 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "address_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "external_product_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "external_variant_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "next_charge_scheduled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "properties": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recharge_product_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shopify_product_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shopify_variant_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sku_override": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "variant_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,338 @@
+{
+  "properties": {
+    "action": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaignGuid": {
+      "type": [
+        "string"
+      ]
+    },
+    "captchaEnabled": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "cloneable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "cssClass": {
+      "type": [
+        "string"
+      ]
+    },
+    "deleteable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "deletedAt": {
+      "type": [
+        "integer"
+      ]
+    },
+    "editable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "followUpId": {
+      "type": [
+        "string"
+      ]
+    },
+    "formFieldGroups": {
+      "properties": {
+        "default": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "fields": {
+          "properties": {
+            "defaultValue": {
+              "type": [
+                "string"
+              ]
+            },
+            "description": {
+              "type": [
+                "string"
+              ]
+            },
+            "displayOrder": {
+              "type": [
+                "integer"
+              ]
+            },
+            "enabled": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "fieldType": {
+              "type": [
+                "string"
+              ]
+            },
+            "groupName": {
+              "type": [
+                "string"
+              ]
+            },
+            "hidden": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "isSmartField": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "label": {
+              "type": [
+                "string"
+              ]
+            },
+            "labelHidden": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "options": {
+              "properties": {
+                "description": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "displayOrder": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "doubleData": {
+                  "type": [
+                    "number"
+                  ]
+                },
+                "hidden": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "readOnly": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "placeholder": {
+              "type": [
+                "string"
+              ]
+            },
+            "required": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            },
+            "unselectedLabel": {
+              "type": [
+                "string"
+              ]
+            },
+            "validation": {
+              "properties": {
+                "blockedEmailAddresses": {
+                  "properties": {
+                    "value": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "array"
+                  ]
+                },
+                "data": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "message": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "useDefaultBlockList": {
+                  "type": [
+                    "boolean"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "isSmartGroup": {
+          "type": [
+            "boolean"
+          ]
+        },
+        "richText": {
+          "properties": {
+            "content": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "formType": {
+      "type": [
+        "string"
+      ]
+    },
+    "guid": {
+      "type": [
+        "string"
+      ]
+    },
+    "ignoreCurrentValues": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "inlineMessage": {
+      "type": [
+        "string"
+      ]
+    },
+    "leadNurturingCampaignId": {
+      "type": [
+        "string"
+      ]
+    },
+    "metaData": {
+      "properties": {
+        "name": {
+          "type": [
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "method": {
+      "type": [
+        "string"
+      ]
+    },
+    "migratedFrom": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "notifyRecipients": {
+      "type": [
+        "string"
+      ]
+    },
+    "performableHtml": {
+      "type": [
+        "string"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "redirect": {
+      "type": [
+        "string"
+      ]
+    },
+    "submitText": {
+      "type": [
+        "string"
+      ]
+    },
+    "tmsId": {
+      "type": [
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

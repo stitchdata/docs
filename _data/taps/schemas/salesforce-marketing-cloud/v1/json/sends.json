@@ -1,0 +1,117 @@
+{
+  "properties": {
+    "CreatedDate": {
+      "description": "Read-only date and time of the object's creation.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EmailID": {
+      "description": "Specifies the ID of an email message associated with a send.",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "EmailName": {
+      "description": "Specifies the name of an email message associated with a send.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "FromAddress": {
+      "description": "Indicates From address associated with a object. Deprecated for email send definitions and triggered send definitions.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "FromName": {
+      "description": "Specifies the default email message From Name. Deprecated for email send definitions and triggered send definitions.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ID": {
+      "description": "Read-only legacy identifier for an object. Not supported on all objects. Some objects use the ObjectID property as the Marketing Cloud unique ID.",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "IsAlwaysOn": {
+      "description": "Indicates whether the request can be performed while the system is is maintenance mode. A value of true indicates the system will process the request.",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "IsMultipart": {
+      "description": "Indicates whether the email is sent with Multipart/MIME enabled.",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ModifiedDate": {
+      "description": "Indicates the last time object information was modified.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PartnerProperties": {
+      "description": "Specifies key-value pairs of properties associated with an object.",
+      "items": {
+        "properties": {
+          "Name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "SendDate": {
+      "description": "Indicates the date on which a send occurred. Set this value to have a CST (Central Standard Time) value.",
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "SentDate": {
+      "description": "Indicates date on which a send took place.",
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "Status": {
+      "description": "Defines status of object. Status of an address.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Subject": {
+      "description": "Contains subject area information for a message.",
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

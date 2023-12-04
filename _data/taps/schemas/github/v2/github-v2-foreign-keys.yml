@@ -1,0 +1,312 @@
+tap: github
+version: '2'
+keys:
+  assignees_:
+  - table: assignees
+    keys:
+    - id
+  collaborators_:
+  - table: collaborators
+    keys:
+    - id
+  - table: pull_requests
+    keys:
+    - user.id
+  - table: reviews
+    keys:
+    - user.id
+  comments_comment_id:
+  - table: comments
+    keys:
+    - id
+  commits_commit_id:
+  - table: commits
+    keys:
+    - id
+  - table: issue_events
+    keys:
+    - commit_id
+  - table: reviews
+    keys:
+    - commit_id
+  - table: review_comments
+    keys:
+    - commit_id
+    - original_commit_id
+  commit_comments_:
+  - table: commit_comments
+    keys:
+    - id
+  issue_labels_:
+  - table: issue_labels
+    keys:
+    - id
+  issue_milestones_:
+  - table: issue_milestones
+    keys:
+    - id
+  issues_issue_id:
+  - table: issues
+    keys:
+    - id
+  - table: issue_events
+    keys:
+    - id
+  - table: pull_requests
+    keys:
+    - id
+  labels_labels.id:
+  - table: issue_labels
+    keys:
+    - id
+  - table: issues
+    keys:
+    - labels.id
+  - table: pull_requests
+    keys:
+    - labels.id
+  milestones_:
+  - table: issue_events
+    keys:
+    - issue.milestone.id
+  projects_:
+  - table: projects
+    keys:
+    - id
+  pull_requests_pull_request_id:
+  - table: issues
+    keys:
+    - id
+  - table: pr_commits
+    keys:
+    - pr_id
+  - table: pull_requests
+    keys:
+    - id
+  review_comments_review_comment_id:
+  - table: review_comments
+    keys:
+    - id
+    - in_reply_to_id
+  reviews_review_id:
+  - table: reviews
+    keys:
+    - id
+  - table: review_comments
+    keys:
+    - pull_request_review_id
+  commits_sha:
+  - table: commits
+    keys:
+    - sha
+  - table: events
+    keys:
+    - payload.commits.sha
+  - table: pr_commits
+    keys:
+    - sha
+  releases_id:
+  - table: releases
+    keys:
+    - id
+  team_members_:
+  - table: team_members
+    keys:
+    - id
+  teams_:
+  - table: teams
+    keys:
+    - id
+tables:
+- table-name: collaborators
+  join:
+  - table-name: pull_requests
+    keys:
+    - key: id
+      foreign-key: user.id
+  - table-name: reviews
+    keys:
+    - key: id
+      foreign-key: user.id
+- table-name: pull_requests
+  join:
+  - table-name: collaborators
+    keys:
+    - key: user.id
+      foreign-key: id
+  - table-name: reviews
+    keys:
+    - key: user.id
+      foreign-key: user.id
+  - table-name: issues
+    keys:
+    - key: id
+      foreign-key: id
+    - key: labels.id
+      foreign-key: labels.id
+  - table-name: issue_events
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: issue_labels
+    keys:
+    - key: labels.id
+      foreign-key: id
+  - table-name: pr_commits
+    keys:
+    - key: id
+      foreign-key: pr_id
+- table-name: reviews
+  join:
+  - table-name: collaborators
+    keys:
+    - key: user.id
+      foreign-key: id
+  - table-name: pull_requests
+    keys:
+    - key: user.id
+      foreign-key: user.id
+  - table-name: commits
+    keys:
+    - key: commit_id
+      foreign-key: id
+  - table-name: issue_events
+    keys:
+    - key: commit_id
+      foreign-key: commit_id
+  - table-name: review_comments
+    keys:
+    - key: commit_id
+      foreign-key: commit_id
+    - key: commit_id
+      foreign-key: original_commit_id
+    - key: id
+      foreign-key: pull_request_review_id
+- table-name: commits
+  join:
+  - table-name: issue_events
+    keys:
+    - key: id
+      foreign-key: commit_id
+  - table-name: reviews
+    keys:
+    - key: id
+      foreign-key: commit_id
+  - table-name: review_comments
+    keys:
+    - key: id
+      foreign-key: commit_id
+    - key: id
+      foreign-key: original_commit_id
+  - table-name: events
+    keys:
+    - key: sha
+      foreign-key: payload.commits.sha
+  - table-name: pr_commits
+    keys:
+    - key: sha
+      foreign-key: sha
+- table-name: issue_events
+  join:
+  - table-name: commits
+    keys:
+    - key: commit_id
+      foreign-key: id
+  - table-name: reviews
+    keys:
+    - key: commit_id
+      foreign-key: commit_id
+  - table-name: review_comments
+    keys:
+    - key: commit_id
+      foreign-key: commit_id
+    - key: commit_id
+      foreign-key: original_commit_id
+  - table-name: issues
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: pull_requests
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: review_comments
+  join:
+  - table-name: commits
+    keys:
+    - key: commit_id
+      foreign-key: id
+    - key: original_commit_id
+      foreign-key: id
+  - table-name: issue_events
+    keys:
+    - key: commit_id
+      foreign-key: commit_id
+    - key: original_commit_id
+      foreign-key: commit_id
+  - table-name: reviews
+    keys:
+    - key: commit_id
+      foreign-key: commit_id
+    - key: original_commit_id
+      foreign-key: commit_id
+    - key: pull_request_review_id
+      foreign-key: id
+- table-name: issue_labels
+  join:
+  - table-name: issues
+    keys:
+    - key: id
+      foreign-key: labels.id
+  - table-name: pull_requests
+    keys:
+    - key: id
+      foreign-key: labels.id
+- table-name: issues
+  join:
+  - table-name: issue_events
+    keys:
+    - key: id
+      foreign-key: id
+  - table-name: pull_requests
+    keys:
+    - key: id
+      foreign-key: id
+    - key: labels.id
+      foreign-key: labels.id
+  - table-name: issue_labels
+    keys:
+    - key: labels.id
+      foreign-key: id
+  - table-name: pr_commits
+    keys:
+    - key: id
+      foreign-key: pr_id
+- table-name: pr_commits
+  join:
+  - table-name: issues
+    keys:
+    - key: pr_id
+      foreign-key: id
+  - table-name: pull_requests
+    keys:
+    - key: pr_id
+      foreign-key: id
+  - table-name: commits
+    keys:
+    - key: sha
+      foreign-key: sha
+  - table-name: events
+    keys:
+    - key: sha
+      foreign-key: payload.commits.sha
+- table-name: events
+  join:
+  - table-name: commits
+    keys:
+    - key: payload.commits.sha
+      foreign-key: sha
+  - table-name: pr_commits
+    keys:
+    - key: payload.commits.sha
+      foreign-key: sha

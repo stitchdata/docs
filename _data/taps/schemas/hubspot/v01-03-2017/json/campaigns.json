@@ -1,0 +1,81 @@
+{
+  "properties": {
+    "appId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "appName": {
+      "type": [
+        "string"
+      ]
+    },
+    "contentId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "counters": {
+      "properties": {
+        "delivered": {
+          "type": [
+            "integer"
+          ]
+        },
+        "open": {
+          "type": [
+            "integer"
+          ]
+        },
+        "processed": {
+          "type": [
+            "integer"
+          ]
+        },
+        "sent": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "numIncluded": {
+      "type": [
+        "integer"
+      ]
+    },
+    "numQueued": {
+      "type": [
+        "integer"
+      ]
+    },
+    "subType": {
+      "type": [
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

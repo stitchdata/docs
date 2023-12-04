@@ -1,0 +1,247 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "access": {
+      "additionalProperties": false,
+      "properties": {
+        "administrator_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "api_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "can_manage_all_branches": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "can_manage_entities_assigned_to_other_officers": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "credit_officer_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "delivery_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "mambu_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "managed_branches": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "branch_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "permissions": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "support_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "teller_access": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "assigned_branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "home_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_logged_in_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "role": {
+      "additionalProperties": false,
+      "properties": {
+        "encoded_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_limits": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "two_factor_authentication": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "user_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "username": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -24,7 +24,7 @@ on:
         required: true
 
 jobs:
-  generate-changelog:
+  get-json-schemas:
     runs-on: ubuntu-latest
     steps:      
       - name: Get current date
@@ -51,7 +51,7 @@ jobs:
             pyyaml
 
       - name: Get JSON files
-        run: python manual_json_import.py ${{ secrets.GITHUB_TOKEN }} ${{ github.event.inputs.tap }} ${{ github.event.inputs.version }} ${{ github.event.inputs.file }}
+        run: python manual_json_import.py ${{ github.event.inputs.tap }} ${{ github.event.inputs.version }} ${{ github.event.inputs.file }}
         working-directory: ./scripts/json
 
       - name: Check for changes
@@ -74,11 +74,11 @@ jobs:
           branch: ${{ github.event.inputs.branch }}
 
       - name: Create pull request
-        if: steps.get_changes.outputs.changed != 0 && ${{ github.event.inputs.pr }} == true
+        if: steps.get_changes.outputs.changed != 0 && github.event.inputs.pr == 'true'
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ github.event.inputs.branch }}
-          destination_branch: "master"
+          destination_branch: "TDL-23186-json-schema"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_label: "json-schemas-update"
           pr_title: ${{ github.event.inputs.tap }} JSON schema updates ${{ env.date }}

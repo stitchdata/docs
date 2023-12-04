@@ -1,0 +1,234 @@
+{
+  "properties": {
+    "accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "archived_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expiration_interval": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expiration_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "initial_charge_after_trial": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "initial_charge_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "interval": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "product_family": {
+      "properties": {
+        "accounting_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "handle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "public_signup_pages": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "return_params": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "return_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "request_credit_card": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "require_credit_card": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "return_params": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "trial_interval": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trial_price_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "update_return_params": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "update_return_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "version_number": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

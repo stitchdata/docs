@@ -1,0 +1,294 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "due_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fee": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "interest": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "last_paid_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "penalty": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "principal": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "additionalProperties": false,
+          "properties": {
+            "due": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "expected": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "paid": {
+              "multipleOf": 1e-10,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "repaid_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

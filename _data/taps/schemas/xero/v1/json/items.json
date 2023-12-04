@@ -1,0 +1,150 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "Code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "InventoryAssetAccountCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "IsPurchased": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "IsSold": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "IsTrackedAsInventory": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ItemID": {
+      "type": [
+        "string"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PurchaseDescription": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "PurchaseDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "AccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "COGSAccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UnitPrice": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "QuantityOnHand": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "SalesDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "AccountCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UnitPrice": {
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "maximum": 1e+33,
+          "minimum": -1e+33,
+          "multipleOf": 1e-05,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "TotalCostPool": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "UpdatedDateUTC": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

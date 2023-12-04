@@ -1,0 +1,307 @@
+tap: codat
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the accounts in your
+    {{ integration.display_name }} instance. In {{ integration.display_name }}, an
+    account is a category used to record accounting transactions for a business.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/accounts-1
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/accounts.json
+    api-method: https://docs.codat.io/reference/accounts#accounts_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - companyId
+    replication-key: modifiedDate
+- name: balance_sheets
+  description: 'The `{{ table.name }}` table contains info about the balance sheets
+    in your {{ integration.display_name }} instance. A balance sheet is a snapshot
+    at a point in time of a company''s accounts.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/balance-sheet-2
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/balance_sheets.json
+    api-method: https://docs.codat.io/reference/financials#financials_balancesheet
+  table-details:
+    replication-method: Full Table
+    primary-key: companyId
+- name: bank_accounts
+  description: 'The `{{ table.name }}` table contains informaiton about bank accounts
+    for a given company in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/bank-accounts
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_accounts.json
+    api-method: https://docs.codat.io/reference/bankaccounts#bankaccounts_listaccountspaged
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - accountName
+    - companyId
+    - connectionId
+- name: bank_account_transactions
+  description: 'The {{ table.name }} table contains information about transactions
+    for a specified company and bank account in your {{ integration.display_name }}
+    account.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/bank-transactions
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_account_transactions.json
+    api-method: https://docs.codat.io/reference/bankaccounts#bankaccounts_getaccounttransactions
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - _transactionIndex
+    - bankAccountId
+    - companyId
+- name: bank_statements
+  description: 'The `{{ table.name }}` table contains info about bank statement report
+    data for a company over a time period.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/bank-accounts
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_statements.json
+    api-method: https://docs.codat.io/reference/bankstatements#bankstatements_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - companyId
+- name: bank_statement_lines
+  description: 'The `{{ table.name }}` table contains info about lines included in
+    bank statements.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/bank-transactions
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bank_statement_lines.json
+    api-method: https://docs.codat.io/reference/bankstatements#bankstatements_listpaged
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - accountName
+    - companyId
+    - _lineIndex
+- name: bills
+  description: 'The `{{ table.name }}` table contains info about the bills in your
+    {{ integration.display_name }} account. A bill is an itemized record of goods
+    or services purchased from a [supplier](#suppliers).
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/bills-1
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bills.json
+    api-method: https://docs.codat.io/reference/bills#bills_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+- name: bill_payments
+  description: 'The {{ table.name }} table contains information about company bill
+    payments in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/billpayments-1
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/bill_payments.json
+    api-method: https://docs.codat.io/reference/billpayments#billpayments_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+    replication-key: modifiedDate
+- name: companies
+  description: 'The `{{ table.name }}` table contains info about the companies in
+    your {{ integration.display_name }} instance. A company represents a business
+    who can share the connection to their financial data sources.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/reference/companies
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/companies.json
+    api-method: https://docs.codat.io/reference/companies#companies_listpaged
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: company_info
+  description: 'The `{{ table.name }}` table contains company info. In {{ integration.display_name
+    }}, company info includes information about a linked company such as address,
+    phone number and company registration.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/reference/info
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/company_info.json
+    api-method: https://docs.codat.io/reference/info#info_list
+  table-details:
+    replication-method: Full Table
+    primary-key: companyId
+- name: connections
+  description: 'The {{ table.name }} table contains information about company connections
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/connections.json
+    api-method: https://docs.codat.io/reference/connection#connection_getconnection
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - companyId
+    - id
+- name: credit_notes
+  description: 'The `{{ table.name }}` table contains info about the credit notes
+    in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/credit-notes
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/credit_notes.json
+    api-method: https://docs.codat.io/reference/creditnotes#creditnotes_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - companyId
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers in
+    your {{ integration.display_name }} instance. A customer is a person or organisation
+    that buys goods or services.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/reference/customers
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/customers.json
+    api-method: https://docs.codat.io/reference/customers#customers_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+    replication-key: modifiedDate
+- name: events
+  description: 'The `{{ table.name }}` table contains information about a given company''s
+    events in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/events.json
+    api-method: https://docs.codat.io/reference/reports#reports_companyevents
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - companyId
+    - eventTimeUtc
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} instance. An invoice is an itemized record of goods
+    or services sold to a [customer](#customers).
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/invoices-1
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/invoices.json
+    api-method: https://docs.codat.io/reference/invoices#invoices_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+    replication-key: modifiedDate
+- name: items
+  description: 'The {{ table.name }} table contains information about items for a
+    given company in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/reference/items
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/items.json
+    api-method: https://docs.codat.io/reference/items#items_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+    replication-key: modifiedDate
+- name: journal_entries
+  description: 'The {{ table.name }} table contains information about journal entries
+    for a given company in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/reference/journals
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/journal_entries.json
+    api-method: https://docs.codat.io/reference/journals#journals_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+    replication-key: modifiedDate
+- name: payments
+  description: 'The `{{ table.name }}` table contains info about the payments, or
+    Accounts Receivable transactions, in your {{ integration.display_name }} instance.
+    This includes details about invoices and credit notes.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/payments-1
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/payments.json
+    api-method: https://docs.codat.io/reference/payments#payments_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+- name: profit_and_loss
+  description: 'The `{{ table.name }}` table contains profit and loss report data
+    for a company over a time period.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/profit-and-loss-2
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/profit_and_loss.json
+    api-method: https://docs.codat.io/reference/financials#financials_profitandloss
+  table-details:
+    replication-method: Full Table
+    primary-key: companyId
+- name: suppliers
+  description: 'The `{{ table.name }}` table contains info about the suppliers in
+    your {{ integration.display_name }} instance. A supplier is a person or organization
+    that provides a product or service.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/docs/suppliers-2
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/suppliers.json
+    api-method: https://docs.codat.io/reference/suppliers#suppliers_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+- name: tax_rates
+  description: 'The {{ table.name }} table contains information about tax rates for
+    a given company in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://docs.codat.io/reference/taxrates
+    singer-schema: https://github.com/singer-io/tap-codat/blob/master/tap_codat/schemas/tax_rates.json
+    api-method: https://docs.codat.io/reference/taxrates#taxrates_listpaged
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - companyId
+    - id
+    replication-key: modifiedDate

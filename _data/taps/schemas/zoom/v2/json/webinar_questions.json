@@ -1,0 +1,82 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "custom_questions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "answers": {
+            "items": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "required": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "questions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "field_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "required": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "webinar_id": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,384 @@
+{
+  "properties": {
+    "accounting_book_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "accounting_period_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "allocated_contract_cost_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "allocation_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "allocation_amount_foreign": {
+      "type": [
+        "number"
+      ]
+    },
+    "allocation_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "alternate_quantity": {
+      "type": [
+        "integer"
+      ]
+    },
+    "alternate_unit_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "amortization_end_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "amortization_schedule_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "amortization_start_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "amortization_template_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "calculated_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "calculated_amount_foreign": {
+      "type": [
+        "number"
+      ]
+    },
+    "class_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "contract_cost_allocation_pct": {
+      "type": [
+        "integer"
+      ]
+    },
+    "contract_exp_offset_acct_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "contract_expense_account_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cost_amortization_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "create_plan_on_event_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "currency_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "date_last_modified": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "deferral_account_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "department_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "disc_sales_amount_foreign": {
+      "type": [
+        "number"
+      ]
+    },
+    "discounted_sales_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "entity_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "exchange_rate": {
+      "type": [
+        "number"
+      ]
+    },
+    "expense_migrate_adjust_acct_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "fair_value": {
+      "type": [
+        "number"
+      ]
+    },
+    "fair_value_foreign": {
+      "type": [
+        "number"
+      ]
+    },
+    "forecast_end_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "forecast_start_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "fx_adjustment_account_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "is_bom_item_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_fair_value_override": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_fair_value_vsoe": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_hold_rev_rec": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_permit_discount": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_posting_discount_applied": {
+      "type": [
+        "string"
+      ]
+    },
+    "item_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "item_labor_cost_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "item_resale_cost_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "labor_deferred_expense_acct_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "labor_expense_acct_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "last_merge_from_arrangement_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "location_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "new_standard_migrate_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "parent_bom_element_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "pending_action": {
+      "type": [
+        "string"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "number"
+      ]
+    },
+    "recognition_account_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "return_revenue_element_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "rev_rec_forecast_rule_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "rev_rec_rule_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "revenue_allocation_group": {
+      "type": [
+        "string"
+      ]
+    },
+    "revenue_allocation_ratio": {
+      "type": [
+        "integer"
+      ]
+    },
+    "revenue_element_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "revenue_element_number": {
+      "type": [
+        "string"
+      ]
+    },
+    "revenue_migrate_adjust_acct_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "sales_amount": {
+      "type": [
+        "number"
+      ]
+    },
+    "sales_amount_foreign": {
+      "type": [
+        "number"
+      ]
+    },
+    "source_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "source_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "source_transaction_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "source_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "subscription_line": {
+      "type": [
+        "integer"
+      ]
+    },
+    "subsidiary_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "term_in_days": {
+      "type": [
+        "integer"
+      ]
+    },
+    "term_in_months": {
+      "type": [
+        "integer"
+      ]
+    },
+    "unbilled_receivable_group": {
+      "type": [
+        "string"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

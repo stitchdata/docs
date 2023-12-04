@@ -1,0 +1,378 @@
+{
+  "properties": {
+    "amount_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "app_fee_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "destination_details": {
+      "properties": {
+        "card_details": {
+          "properties": {
+            "card": {
+              "properties": {
+                "billing_address": {
+                  "properties": {
+                    "address_line_1": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "address_line_2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "address_line_3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "administrative_district_level_1": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "administrative_district_level_2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "administrative_district_level_3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "country": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "first_name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "last_name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "locality": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "postal_code": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sublocality": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sublocality_2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sublocality_3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "bin": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "card_brand": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "card_co_brand": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "card_type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "cardholder_name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "customer_id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "enabled": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "exp_month": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "exp_year": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "fingerprint": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "last_4": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "merchant_id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "prepaid_type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "reference_id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "version": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "entry_method": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "destination_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processing_fee": {
+      "items": {
+        "properties": {
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "effective_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "team_member_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unlinked": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

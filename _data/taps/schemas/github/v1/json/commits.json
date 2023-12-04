@@ -1,0 +1,264 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "_sdc_repository": {
+      "type": [
+        "string"
+      ]
+    },
+    "comments_url": {
+      "description": "The URL to the commit's comments page",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "commit": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "description": "The date the author committed the change",
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "email": {
+              "description": "The author's email",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "login": {
+              "description": "The author's login",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "description": "The author's name",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "comment_count": {
+          "description": "The number of comments on the commit",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "committer": {
+          "additionalProperties": false,
+          "properties": {
+            "date": {
+              "description": "The date the committer committed the change",
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "email": {
+              "description": "The committer's email",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "login": {
+              "description": "The committer's login",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "description": "The committer's name",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "message": {
+          "description": "The commit message",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tree": {
+          "additionalProperties": false,
+          "properties": {
+            "sha": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "url": {
+          "description": "The URL to the commit",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "files": {
+      "items": {
+        "properties": {
+          "additions": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "blob_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "changes": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "deletions": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "filename": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "patch": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "raw_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "html_url": {
+      "description": "The HTML URL to the commit",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "html_url": {
+            "description": "The HTML URL to the parent commit",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "sha": {
+            "description": "The git hash of the parent commit",
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url": {
+            "description": "The URL to the parent commit",
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "sha": {
+      "description": "The git commit hash",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

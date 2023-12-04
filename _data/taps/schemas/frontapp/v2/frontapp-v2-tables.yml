@@ -1,0 +1,86 @@
+tap: frontapp
+version: '2'
+tap-repo-schemas: true
+tables:
+- name: accounts_table
+  description: The `{{ table.name }}` table contains data about accounts in your {{
+    integration.display_name }} account.
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/accounts_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: report_id
+    replication-keys:
+    - analytics_date
+    - analytics_range
+- name: channels_table
+  description: The `{{ table.name }}` table contains data about channels in your {{
+    integration.display_name }} account.
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/channels_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: report_id
+    replication-keys:
+    - analytics_date
+    - analytics_range
+- name: inboxes_table
+  description: The `{{ table.name }}` table contains data about inboxes in your {{
+    integration.display_name }} account.
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/inboxes_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: report_id
+    replication-keys:
+    - analytics_date
+    - analytics_range
+- name: tags_table
+  description: 'The `{{ table.name }}` table contains a list of tag statistics since
+    the last completed replication job through the most recent iteration of the defined
+    [**Incremental Range**](#add-stitch-data-source) (day or hour).
+
+    This table will include tags in your {{ integration.display_name }} account.
+
+    **Note**: During the historical replication job, all increments (defined using
+    the **Incremental Range** setting) since the **Start Date** will be replicated.
+    This will result in the first record for this table being an aggregated record
+    across all tags.
+
+    '
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/tags_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: report_id
+    replication-keys:
+    - analytics_date
+    - analytics_range
+- name: teammates_table
+  description: The `{{ table.name }}` table contains data about teammates in your
+    {{ integration.display_name }} account.
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/teammates_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: report_id
+    replication-keys:
+    - analytics_date
+    - analytics_range
+- name: teams_table
+  description: The `{{ table.name }}` table contains data about teams in your {{ integration.display_name
+    }} account.
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/teams_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: report_id
+    replication-keys:
+    - analytics_date
+    - analytics_range

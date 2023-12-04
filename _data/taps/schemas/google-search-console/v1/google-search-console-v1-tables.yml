@@ -1,0 +1,138 @@
+tap: google-search-console
+version: '1'
+tables:
+- name: performance_report_country
+  description: 'The `{{ table.name }}` table contains information about the performance
+    of your sites in Google searches. This particular table is filtered and grouped
+    by country.
+
+    '
+  links:
+    doc-link: https://support.google.com/webmasters/answer/7576553?hl=en
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_country.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - site_url
+    - search_type
+    - country
+    - date
+    replication-key: date
+- name: performance_report_custom
+  description: 'The `{{ table.name }}` table contains information about the performance
+    of your sites in Google searches. This particular table is filtered and grouped
+    by your custom dimensions.
+
+    '
+  links:
+    doc-link: https://support.google.com/webmasters/answer/7576553?hl=en
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_custom.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - search_type
+    - site_url
+    - dimensions_hash_key
+    - date
+    replication-key: date
+- name: performance_report_date
+  description: 'The `{{ table.name }}` table contains information about the performance
+    of your sites in Google searches. This particular table is filtered and grouped
+    by date.
+
+    '
+  links:
+    doc-link: https://support.google.com/webmasters/answer/7576553?hl=en
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_date.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - search_type
+    - site_url
+    - date
+    replication-key: date
+- name: performance_report_device
+  description: 'The `{{ table.name }}` table contains information about the performance
+    of your sites in Google searches. This particular table is filtered and grouped
+    by the user''s device type.
+
+    '
+  links:
+    doc-link: https://support.google.com/webmasters/answer/7576553?hl=en
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_device.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - search_type
+    - site_url
+    - device
+    - date
+    replication-key: date
+- name: performance_report_page
+  description: 'The `{{ table.name }}` table contains information about the performance
+    of your sites in Google searches. This particular table is filtered and grouped
+    by your landing page URLs that show up in Google search results.
+
+    '
+  links:
+    doc-link: https://support.google.com/webmasters/answer/7576553?hl=en
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_page.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - search_type
+    - site_url
+    - page
+    - date
+    replication-key: date
+- name: performance_report_query
+  description: 'The `{{ table.name }}` table contains information about the performance
+    of your sites in Google searches. This particular table is filtered and grouped
+    by the users'' search queries that resulted in your sites appearing in the search
+    results.
+
+    '
+  links:
+    doc-link: https://support.google.com/webmasters/answer/7576553?hl=en
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/performance_report_query.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/searchanalytics/query
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - search_type
+    - site_url
+    - query
+    - date
+    replication-key: date
+- name: sitemaps
+  description: 'The `{{ table.name }}` table contains information about the sitemap
+    entries in your {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developers.google.com/webmaster-tools/search-console-api-original/v3/sitemaps
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/sitemaps.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/sitemaps/list
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - site_url
+    - path
+    - last_submitted
+- name: sites
+  description: 'The `{{ table.name }}` contains information about your {{ integration.display_name
+    }} sites at a permission level.
+
+    '
+  links:
+    doc-link: https://developers.google.com/webmaster-tools/search-console-api-original/v3/sites
+    singer-schema: https://github.com/singer-io/tap-google-search-console/blob/master/tap_google_search_console/schemas/sites.json
+    api-method: https://developers.google.com/webmaster-tools/search-console-api-original/v3/sites/get
+  table-details:
+    replication-method: Full Table
+    primary-key: site_url

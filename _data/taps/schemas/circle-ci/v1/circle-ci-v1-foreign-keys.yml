@@ -1,0 +1,55 @@
+tap: circle-ci
+version: '1'
+keys:
+  pipelines_id:
+  - table: pipelines
+    keys:
+    - id
+  - table: jobs
+    keys:
+    - _pipeline_id
+  - table: workflows
+    keys:
+    - pipeline_id
+  workflows_id:
+  - table: workflows
+    keys:
+    - id
+  - table: jobs
+    keys:
+    - _workflow_id
+tables:
+- table-name: pipelines
+  join:
+  - table-name: jobs
+    keys:
+    - key: id
+      foreign-key: _pipeline_id
+  - table-name: workflows
+    keys:
+    - key: id
+      foreign-key: pipeline_id
+- table-name: jobs
+  join:
+  - table-name: pipelines
+    keys:
+    - key: _pipeline_id
+      foreign-key: id
+  - table-name: workflows
+    keys:
+    - key: _pipeline_id
+      foreign-key: pipeline_id
+    - key: _workflow_id
+      foreign-key: id
+- table-name: workflows
+  join:
+  - table-name: pipelines
+    keys:
+    - key: pipeline_id
+      foreign-key: id
+  - table-name: jobs
+    keys:
+    - key: pipeline_id
+      foreign-key: _pipeline_id
+    - key: id
+      foreign-key: _workflow_id

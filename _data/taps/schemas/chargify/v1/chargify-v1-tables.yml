@@ -1,0 +1,130 @@
+tap: chargify
+version: '1'
+tables:
+- name: components
+  description: 'The `{{ table.name }}` table contains info about components associated
+    with a product family in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/components.json
+    api-method: https://reference.chargify.com/v1/components/list-components-for-a-product-family
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about coupons associated
+    with a product family in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/coupons.json
+    api-method: https://reference.chargify.com/v1/coupons-editing/list-product-family-coupons
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about customers associated
+    with your {{ integration.display_name }} site.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/customers.json
+    api-method: https://reference.chargify.com/v1/customers/list-customers-for-a-site
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: events
+  description: 'The `{{ table.name }}` table contains info about activity on your
+    {{ integration.display_name }} site.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/events.json
+    api-method: https://reference.chargify.com/v1/events/list-events-for-a-site
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about invoices in your
+    {{ integration.display_name }} instance.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/invoices.json
+    api-method: https://reference.chargify.com/v1/invoices-legacy/list-all-invoices-by-subscription
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: price_points
+  description: 'The `{{ table.name }}` table contains info about product price points
+    in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/price_points.json
+    api-method: https://reference.chargify.com/v1/products-price-points/read-product-price-points
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: products
+  description: 'The `{{ table.name }}` table contains info about the prodcts in your
+    {{ integration.display_name }} instance.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/products.json
+    api-method: https://reference.chargify.com/v1/products/list-products
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: product_families
+  description: 'The `{{ table.name }}` table contains info about product families
+    in your {{ integration.display_name }} instance. Product families house your products,
+    components, and coupons and are used to categorize products, product levels, or
+    service offerings to your subscribers.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/product_families.json
+    api-method: https://reference.chargify.com/v1/product-families/list-product-family-via-site
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: statements
+  description: 'The `{{ table.name }}` table contains info about the statements in
+    your {{ integration.display_name }} instance. Statements show all account activity
+    for a specific usage period and are similar to invoices, as they can be marked
+    as currently paid or unpaid.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/statements.json
+    api-method: https://reference.chargify.com/v1/statements/list-statements-for-a-site
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about the subscriptions
+    in your {{ integration.display_name }} instance.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/subscriptions.json
+    api-method: https://reference.chargify.com/v1/subscriptions/list-subscriptions
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about the transactions
+    for your {{ integration.display_name }} site.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-chargify/blob/master/tap_chargify/schemas/transactions.json
+    api-method: https://reference.chargify.com/v1/transactions/list-transactions-for-the-site
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-key: id
+    replication-key: created_at

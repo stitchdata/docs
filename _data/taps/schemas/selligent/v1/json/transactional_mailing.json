@@ -1,0 +1,71 @@
+{
+  "properties": {
+    "approved": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "asset_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "channel": {
+      "type": [
+        "string"
+      ]
+    },
+    "compliance": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "mailing_priority": {
+      "type": [
+        "string"
+      ]
+    },
+    "mailing_server_group": {
+      "type": [
+        "string"
+      ]
+    },
+    "mailing_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "modified_time": {
+      "type": [
+        "string"
+      ]
+    },
+    "target": {
+      "properties": {
+        "asset_id": {
+          "type": [
+            "integer"
+          ]
+        },
+        "asset_name": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "version_number": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

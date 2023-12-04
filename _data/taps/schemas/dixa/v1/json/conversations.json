@@ -1,0 +1,446 @@
+{
+  "properties": {
+    "anonymized_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "assigned_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "assignee_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assignee_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assignee_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assignee_phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "closed_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "conversation_wrapup_notes": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "properties": {
+          "archived": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "attribute_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "data_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "identifier": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "direction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dixa_email_integration_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dixa_email_integration_sender_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "facebook_page_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "facebook_page_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "forwarding_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from_provisioned_phone_number_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from_provisioned_phone_number_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "handling_duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "initial_channel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_message_created_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "originating_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "queue_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "queue_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "queued_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "rating_message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rating_score": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ratings": {
+      "items": {
+        "properties": {
+          "rating_cancelled_timestamp": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_created_timestamp": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_language": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_message": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_modified_timestamp": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_offered_timestamp": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_rated_timestamp": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_scheduled_for_timestamp": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_scheduled_timestamp": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_score": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "rating_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rating_unscheduled_timestamp": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "requester_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "requester_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "requester_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "requester_phone_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "tags_info": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_deactivated": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "to_provisioned_phone_number_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to_provisioned_phone_number_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "transfer_time": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "transferee_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transferee_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "widget_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "widget_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

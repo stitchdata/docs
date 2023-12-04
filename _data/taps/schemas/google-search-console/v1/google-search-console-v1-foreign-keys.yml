@@ -1,0 +1,348 @@
+tap: google-search-console
+version: '1'
+keys:
+  sites_site_url:
+  - table: sites
+    keys:
+    - site_url
+  - table: sitemaps
+    keys:
+    - site_url
+  - table: performance_report_country
+    keys:
+    - site_url
+  - table: performance_report_custom
+    keys:
+    - site_url
+  - table: performance_report_date
+    keys:
+    - site_url
+  - table: performance_report_device
+    keys:
+    - site_url
+  - table: performance_report_page
+    keys:
+    - site_url
+  - table: performance_report_query
+    keys:
+    - site_url
+  performance_report_query_search_type:
+  - table: performance_report_query
+    keys:
+    - search_type
+  - table: performance_report_country
+    keys:
+    - search_type
+  - table: performance_report_custom
+    keys:
+    - search_type
+  - table: performance_report_date
+    keys:
+    - search_type
+  - table: performance_report_page
+    keys:
+    - search_type
+  - table: performance_report_device
+    keys:
+    - search_type
+tables:
+- table-name: sites
+  join:
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+- table-name: sitemaps
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+- table-name: performance_report_country
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+- table-name: performance_report_custom
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+- table-name: performance_report_date
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+- table-name: performance_report_device
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+- table-name: performance_report_page
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_query
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+- table-name: performance_report_query
+  join:
+  - table-name: sites
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: sitemaps
+    keys:
+    - key: site_url
+      foreign-key: site_url
+  - table-name: performance_report_country
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_custom
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_date
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_device
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type
+  - table-name: performance_report_page
+    keys:
+    - key: site_url
+      foreign-key: site_url
+    - key: search_type
+      foreign-key: search_type

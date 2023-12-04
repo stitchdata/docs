@@ -1,0 +1,221 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "analyze_url": {
+      "type": "string"
+    },
+    "collection_mode": {
+      "enum": [
+        "default",
+        "preview",
+        "data_entry",
+        "survey_preview",
+        "edit"
+      ],
+      "title": "CollectionMode",
+      "type": "string"
+    },
+    "collector_id": {
+      "type": "string"
+    },
+    "custom_value": {
+      "type": "string"
+    },
+    "custom_variables": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
+    },
+    "date_created": {
+      "type": "date-time"
+    },
+    "date_modified": {
+      "type": "date-time"
+    },
+    "edit_url": {
+      "type": "string"
+    },
+    "email_address": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "ip_address": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "logic_path": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
+    },
+    "metadata": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": "object"
+    },
+    "page_path": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "pages": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "questions": {
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "answers": {
+                  "items": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "choice_id": {
+                        "type": "string"
+                      },
+                      "col_id": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "is_correct": {
+                        "type": "boolean"
+                      },
+                      "other_id": {
+                        "type": "string"
+                      },
+                      "row_id": {
+                        "type": "string"
+                      },
+                      "score": {
+                        "type": "integer"
+                      },
+                      "tag_data": {
+                        "items": {
+                          "additionalProperties": true,
+                          "properties": {},
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [],
+                    "title": "Answer",
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "variable_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "answers",
+                "id"
+              ],
+              "title": "Question",
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "questions"
+        ],
+        "title": "Page",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "quiz_results": {
+      "additionalProperties": true,
+      "properties": {
+        "correct": {
+          "type": "integer"
+        },
+        "incorrect": {
+          "type": "integer"
+        },
+        "partially_correct": {
+          "type": "integer"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "total_questions": {
+          "type": "integer"
+        },
+        "total_score": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "recipient_id": {
+      "type": "string"
+    },
+    "response_status": {
+      "enum": [
+        "partial",
+        "completed",
+        "disqualified",
+        "overquota"
+      ],
+      "title": "ResponseStatus",
+      "type": "string"
+    },
+    "survey_id": {
+      "type": "string"
+    },
+    "total_time": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "analyze_url",
+    "collection_mode",
+    "collector_id",
+    "custom_value",
+    "custom_variables",
+    "date_created",
+    "date_modified",
+    "edit_url",
+    "href",
+    "id",
+    "ip_address",
+    "first_name",
+    "last_name",
+    "email_address",
+    "logic_path",
+    "metadata",
+    "page_path",
+    "pages",
+    "recipient_id",
+    "response_status",
+    "survey_id",
+    "total_time"
+  ],
+  "type": "object"
+}

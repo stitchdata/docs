@@ -1,0 +1,728 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_category_ids": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "action_period": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "action_scene": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "video_user_actions": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "adgroup_app_profile_page_state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "adgroup_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "adgroup_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "advertiser_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "age_groups": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "app_download_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "app_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "audience": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "audience_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bid_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "bid_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "brand_safety_partner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "brand_safety_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "budget": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "budget_mode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "carriers_v2": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "catalog_authorized_bc": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "catalog_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversion_bid_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "conversion_window": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cpv_video_duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "create_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creative_material_mode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "current_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dayparting": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deep_bid_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deep_cpa_bid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "delivery_mode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "device_models": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "device_price_ranges": {
+      "items": {
+        "type": [
+          "null",
+          "number"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "excluded_audience": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "excluded_custom_actions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "days": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "frequency": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "frequency_schedule": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "gender": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "included_custom_actions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "days": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "interest_category_v2": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "interest_keywords": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "inventory_filter_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ios14_targeting": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ios_quota_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_comment_disable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_hfss": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_new_structure": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "languages": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "location": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "min_android_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "min_ios_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modify_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "network_types": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "next_day_retention": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "operating_systems": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "operation_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "optimization_event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "optimization_goal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pacing": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "package": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pangle_audience_package_exclude": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pangle_audience_package_include": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pangle_block_app_list_id": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pixel_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placement_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placements": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "product_set_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "promotion_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "promotion_website_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "purchased_impression": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "purchased_reach": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rf_estimated_cpr": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rf_estimated_frequency": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rf_purchased_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "roas_bid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "schedule_end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "schedule_start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "schedule_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "secondary_optimization_event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "secondary_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "share_disabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "shopping_ads_retargeting_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "skip_learning_phase": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "statistic_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targeting_expansion": {
+      "properties": {
+        "expansion_enabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "expansion_types": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "video_download": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

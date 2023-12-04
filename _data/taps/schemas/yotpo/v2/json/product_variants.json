@@ -1,0 +1,152 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "compare_at_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gtins": {
+      "items": {
+        "properties": {
+          "declared_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "inventory_quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_discontinued": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_valid_url_format": {
+      "description": "Actual response shows `is_valid_url_format` whereas documentation mention `is_valid_url`",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "options": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "yotpo_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "yotpo_product_id": {
+      "description": "Actual response shows `yotpo_product_id` whereas documentation does not mention it",
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": [
+    "object"
+  ]
+}

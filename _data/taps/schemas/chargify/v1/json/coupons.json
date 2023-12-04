@@ -1,0 +1,169 @@
+{
+  "properties": {
+    "allow_negative_balance": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "amount_in_cents": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "archived_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "compounding_strategy": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversion_limit": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "coupon_restrictions": {
+      "items": {
+        "properties": {
+          "handle": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "item_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "item_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration_interval": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "duration_interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration_period_count": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "percentage": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "product_family_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "stackable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

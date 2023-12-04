@@ -1,0 +1,218 @@
+tap: onfleet
+version: '1'
+keys:
+  administrators_:
+  - table: administrators
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - creator
+  - table: teams
+    keys:
+    - managers
+  hubs_hub:
+  - table: hubs
+    keys:
+    - id
+  - table: teams
+    keys:
+    - hub
+  organizations_organization:
+  - table: administrators
+    keys:
+    - organization
+  - table: organizations
+    keys:
+    - id
+    - delegatees
+  - table: tasks
+    keys:
+    - organization
+  - table: workers
+    keys:
+    - organization
+  tasks_:
+  - table: tasks
+    keys:
+    - id
+  - table: teams
+    keys:
+    - tasks
+  - table: workers
+    keys:
+    - activeTask
+    - tasks
+  teams_team:
+  - table: hubs
+    keys:
+    - teams
+  - table: teams
+    keys:
+    - id
+  - table: workers
+    keys:
+    - teams
+  workers_worker:
+  - table: tasks
+    keys:
+    - worker
+  - table: teams
+    keys:
+    - workers
+  - table: workers
+    keys:
+    - id
+tables:
+- table-name: administrators
+  join:
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: creator
+    - key: organization
+      foreign-key: organization
+  - table-name: teams
+    keys:
+    - key: id
+      foreign-key: managers
+  - table-name: organizations
+    keys:
+    - key: organization
+      foreign-key: id
+    - key: organization
+      foreign-key: delegatees
+  - table-name: workers
+    keys:
+    - key: organization
+      foreign-key: organization
+- table-name: tasks
+  join:
+  - table-name: administrators
+    keys:
+    - key: creator
+      foreign-key: id
+    - key: organization
+      foreign-key: organization
+  - table-name: teams
+    keys:
+    - key: creator
+      foreign-key: managers
+    - key: id
+      foreign-key: tasks
+    - key: worker
+      foreign-key: workers
+  - table-name: organizations
+    keys:
+    - key: organization
+      foreign-key: id
+    - key: organization
+      foreign-key: delegatees
+  - table-name: workers
+    keys:
+    - key: organization
+      foreign-key: organization
+    - key: id
+      foreign-key: activeTask
+    - key: id
+      foreign-key: tasks
+    - key: worker
+      foreign-key: id
+- table-name: teams
+  join:
+  - table-name: administrators
+    keys:
+    - key: managers
+      foreign-key: id
+  - table-name: tasks
+    keys:
+    - key: managers
+      foreign-key: creator
+    - key: tasks
+      foreign-key: id
+    - key: workers
+      foreign-key: worker
+  - table-name: hubs
+    keys:
+    - key: hub
+      foreign-key: id
+    - key: id
+      foreign-key: teams
+  - table-name: workers
+    keys:
+    - key: tasks
+      foreign-key: activeTask
+    - key: tasks
+      foreign-key: tasks
+    - key: id
+      foreign-key: teams
+    - key: workers
+      foreign-key: id
+- table-name: hubs
+  join:
+  - table-name: teams
+    keys:
+    - key: id
+      foreign-key: hub
+    - key: teams
+      foreign-key: id
+  - table-name: workers
+    keys:
+    - key: teams
+      foreign-key: teams
+- table-name: organizations
+  join:
+  - table-name: administrators
+    keys:
+    - key: id
+      foreign-key: organization
+    - key: delegatees
+      foreign-key: organization
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: organization
+    - key: delegatees
+      foreign-key: organization
+  - table-name: workers
+    keys:
+    - key: id
+      foreign-key: organization
+    - key: delegatees
+      foreign-key: organization
+- table-name: workers
+  join:
+  - table-name: administrators
+    keys:
+    - key: organization
+      foreign-key: organization
+  - table-name: organizations
+    keys:
+    - key: organization
+      foreign-key: id
+    - key: organization
+      foreign-key: delegatees
+  - table-name: tasks
+    keys:
+    - key: organization
+      foreign-key: organization
+    - key: activeTask
+      foreign-key: id
+    - key: tasks
+      foreign-key: id
+    - key: id
+      foreign-key: worker
+  - table-name: teams
+    keys:
+    - key: activeTask
+      foreign-key: tasks
+    - key: tasks
+      foreign-key: tasks
+    - key: teams
+      foreign-key: id
+    - key: id
+      foreign-key: workers
+  - table-name: hubs
+    keys:
+    - key: teams
+      foreign-key: teams

@@ -1,0 +1,114 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "change_audit_stamps": {
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "last_modified": {
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "content_reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content_reference_share_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "content_reference_ucg_post_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner_organization_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

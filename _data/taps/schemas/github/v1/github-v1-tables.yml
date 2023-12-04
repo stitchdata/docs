@@ -1,0 +1,265 @@
+tap: github
+version: '1'
+tables:
+- name: assignees
+  description: 'The `{{ table.name }}` table contains info about the available assignees
+    for issues in the repositories specified for the integration.
+
+    '
+  links:
+    doc-link: https://developer.github.com/v3/issues/assignees/
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/assignees.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-assignees
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: collaborators
+  description: 'The `{{ table.name }}` table contains info about the users who contribute
+    to the repositories specified for the integration.
+
+
+    For organization-owned repositories, this will include outside collaborators,
+    organization owners, organization members that are direct collaborators, who have
+    access through team memberships, or have access through default organization permissions.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/collaborators.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-repository-collaborators
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: comments
+  description: 'The `{{ table.name }}` table contains info about comments made on
+    issues in the repositories specified for the integration.
+
+    '
+  links:
+    doc-link: https://developer.github.com/v3/comments/
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/comments.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-issue-comments-for-a-repository
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: commits
+  description: 'The `{{ table.name }}` table contains info about repository commits
+    in a project.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commits.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-commits
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sha
+- name: commit_comments
+  description: 'The `{{ table.name }}` table contains info about the commit comments
+    in the repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/commit_comments.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-commit-comments-for-a-repository
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: events
+  description: 'The `{{ table.name }}` table contains information about events in
+    the repositories specified for the integration.
+
+    '
+  links:
+    doc-link: https://developer.github.com/v3/activity/events/
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/events.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issues
+  description: 'The `{{ table.name }}` table contains info about issues in the repositories
+    specified for the integration.
+
+
+    #### Issues and pull requests
+
+
+    GitHub''s API considers every pull request an issue, but not every issue may be
+    a pull request. Therefore, this table may contain both issues and pull requests.
+
+    '
+  links:
+    doc-link: https://developer.github.com/v3/issues/
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issues.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-repository-issues
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issue_events
+  description: 'The `{{ table.name }}` table contains info about issue events in the
+    repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_events.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-issue-events-for-a-repository
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issue_labels
+  description: 'The `{{ table.name }}` table contains info about issue labels in the
+    repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_labels.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-labels-for-a-repository
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: issue_milestones
+  description: 'The `{{ table.name }}` table contains info about issue milestones
+    in the repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/issue_milestones.json
+    api-method: https://docs.github.com/en/rest/reference/issues#list-milestones
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: projects
+  description: "The `{{ table.name }}` table contains info about projects in the repositories\
+    \ specified for the integration. \n"
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/projects.json
+    api-method: https://docs.github.com/en/rest/reference/projects#list-repository-projects
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: project_cards
+  description: 'The `{{ table.name }}` table contains information about project cards
+    in the repositories specified for the integration.
+
+    '
+  links:
+    doc-link: https://docs.github.com/en/rest/reference/projects#cards
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_cards.json
+    api-method: https://docs.github.com/en/rest/reference/projects#list-project-cards
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    parent-table: project
+- name: project_columns
+  description: 'The `{{ table.name }}` table contains info about the columns of projects
+    in the repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/project_columns.json
+    api-method: https://docs.github.com/en/rest/reference/projects#list-project-columns
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    parent-table: project
+- name: pull_requests
+  description: 'The `{{ table.name }}` table contains info about pull requests made
+    against the repositories specified for the integration.
+
+    '
+  links:
+    doc-link: https://developer.github.com/v3/pulls/
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/pull_requests.json
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-pull-requests
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: releases
+  description: 'The `{{ table.name }}` table contains info about releases in the repositories
+    specified for the integration.
+
+
+    **Note**: {{ integration.display_name }} doesn''t include regular Git tags that
+    haven''t been associated with a release.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/releases.json
+    api-method: https://docs.github.com/en/rest/reference/repos#list-releases
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: reviews
+  description: 'The `{{ table.name }}` table contains info about pull request reviews
+    in the repositories specified for the integration. A pull request review is a
+    group of comments on a pull request.
+
+    '
+  links:
+    doc-link: https://developer.github.com/v3/pulls/reviews/
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/reviews.json
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-reviews-for-a-pull-request
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    parent-table: pull_request
+- name: review_comments
+  description: 'The `{{ table.name }}` table contains info about comments made on
+    pull request reviews in the repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/review_comments.json
+    api-method: https://docs.github.com/en/rest/reference/pulls#list-review-comments-on-a-pull-request
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    parent-table: pull_request
+- name: stargazers
+  description: 'The `{{ table.name }}` table contains info about users who have starred
+    the repositories specified for the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/stargazers.json
+    api-method: https://docs.github.com/en/rest/reference/activity#list-stargazers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: user_id
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about the teams in an organization.
+    Only teams that are visible to the user who authorized the integration in Stitch
+    will be replicated.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/teams.json
+    api-method: https://docs.github.com/en/rest/reference/teams#list-teams
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: team_members
+  description: 'The `{{ table.name }}` table contains info about members of organization
+    teams that are visible to the user who authorized the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/team_members.json
+    api-method: https://docs.github.com/en/rest/reference/teams#list-teams
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    parent-table: team
+- name: team_memberships
+  description: 'The `{{ table.name }}` table contains info about membership of users
+    in of organization teams that are visible to the user who authorized the integration.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/team_memberships.json
+    api-method: https://docs.github.com/en/rest/reference/teams#get-team-membership-for-a-user
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: url
+    parent-table: team

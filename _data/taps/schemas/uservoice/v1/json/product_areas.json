@@ -1,0 +1,41 @@
+{
+  "properties": {
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "links": {
+      "properties": {
+        "created_by": {
+          "type": [
+            "integer"
+          ]
+        },
+        "updated_by": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

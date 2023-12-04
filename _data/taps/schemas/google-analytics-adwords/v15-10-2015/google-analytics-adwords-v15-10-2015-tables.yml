@@ -1,0 +1,35 @@
+tap: google-analytics-adwords
+version: 15-10-2015
+tables:
+- name: campaigns
+  description: 'The `campaigns` table contains daily info about your AdWords campaigns.
+
+
+    **Note**: Google AdWords data is paginated on a daily basis. This means that a
+    single row in each of the tables pertains to a single day.
+
+    '
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - campaign
+    - adwordsCampaignId
+    - date
+    replication-key: date
+
+- name: adwords
+  description: |
+    The `adwords` table contains daily info about each of your active campaigns and the ads contained within those campaigns.
+
+    **Note**: Google AdWords data is paginated on a daily basis. This means that a single row in each of the tables pertains to a single day.
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - adwordsCampaignId
+    - adGroup
+    - adDestinationUrl
+    - adContent
+    - campaign
+    - date
+    - keyword
+    replication-key: date

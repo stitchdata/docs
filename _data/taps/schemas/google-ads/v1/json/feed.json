@@ -1,0 +1,119 @@
+{
+  "properties": {
+    "attribute_operations": {
+      "properties": {
+        "operation": {
+          "properties": {
+            "operator": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "properties": {
+                "id": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "is_part_of_key": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "attributes": {
+      "properties": {
+        "attribute": {
+          "properties": {
+            "id": {
+              "type": [
+                "integer"
+              ]
+            },
+            "is_part_of_key": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "origin": {
+      "type": [
+        "string"
+      ]
+    },
+    "resource_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "system_feed_generation_data": {
+      "type": [
+        "object"
+      ]
+    }
+  }
+}

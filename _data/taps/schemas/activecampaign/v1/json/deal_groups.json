@@ -1,0 +1,70 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "allgroups": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "allusers": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "autoassign": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "stages": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "udate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

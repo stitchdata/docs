@@ -1,0 +1,443 @@
+{
+  "properties": {
+    "accepts_marketing": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "accepts_marketing_updated_at": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "addresses": {
+      "items": {
+        "properties": {
+          "address1": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "address2": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "city": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "company": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "country_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "customer_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "default": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "first_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "last_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "phone": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "province": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "province_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "zip": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "admin_graphql_api_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "default_address": {
+      "properties": {
+        "address1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "default": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "province": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "province_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_marketing_consent": {
+      "properties": {
+        "consent_updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "opt_in_level": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_order_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_order_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "marketing_opt_in_level": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "multipass_identifier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "orders_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sms_marketing_consent": {
+      "properties": {
+        "consent_collected_from": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "consent_updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "opt_in_level": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tags": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_exempt": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tax_exemptions": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "total_spent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "verified_email": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

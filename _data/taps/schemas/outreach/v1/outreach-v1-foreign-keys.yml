@@ -1,0 +1,2591 @@
+tap: outreach
+version: '1'
+keys:
+  accounts_id:
+  - table: accounts
+    keys:
+    - id
+  - table: opportunities
+    keys:
+    - id
+  - table: prospects
+    keys:
+    - id
+  - table: sequence_states
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - id
+  call_dispositions_callDispositionId:
+  - table: call_dispositions
+    keys:
+    - id
+  - table: calls
+    keys:
+    - callDispositionId
+  call_purposes_callPurposeId:
+  - table: call_purposes
+    keys:
+    - id
+  - table: calls
+    keys:
+    - callPurposeId
+  calls_callId:
+  - table: calls
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - callId
+  content_categories_id:
+  - table: content_categories
+    keys:
+    - id
+  duties_id:
+  - table: duties
+    keys:
+    - id
+  - table: users
+    keys:
+    - duties.id
+  events_id:
+  - table: events
+    keys:
+    - id
+  mailboxes_mailboxId:
+  - table: mailboxes
+    keys:
+    - id
+  - table: mailings
+    keys:
+    - mailboxId
+  - table: users
+    keys:
+    - mailboxId
+  mailings_mailingId:
+  - table: events
+    keys:
+    - mailingId
+  - table: mailings
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - mailingId
+  opportunities_opportunityId:
+  - table: calls
+    keys:
+    - opportunityId
+  - table: mailings
+    keys:
+    - opportunityId
+  - table: opportunities
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - opportunityId
+  personas_personaId:
+  - table: personas
+    keys:
+    - id
+  - table: prospects
+    keys:
+    - personaId
+  prospects_prospectId:
+  - table: calls
+    keys:
+    - prospectId
+  - table: events
+    keys:
+    - prospectId
+  - table: mailings
+    keys:
+    - prospectId
+  - table: prospects
+    keys:
+    - id
+  - table: sequence_states
+    keys:
+    - prospectId
+  - table: tasks
+    keys:
+    - prospectId
+  sequences_sequenceId:
+  - table: calls
+    keys:
+    - sequenceId
+  - table: mailings
+    keys:
+    - sequenceId
+  - table: sequence_states
+    keys:
+    - sequenceId
+  - table: sequence_steps
+    keys:
+    - sequenceId
+  - table: tasks
+    keys:
+    - sequenceId
+  sequence_states_sequenceStateId:
+  - table: calls
+    keys:
+    - sequenceStateId
+  - table: mailings
+    keys:
+    - sequenceStateId
+  - table: sequence_states
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - sequenceStateId
+  sequence_steps_sequenceStepId:
+  - table: calls
+    keys:
+    - sequenceStepId
+  - table: mailings
+    keys:
+    - sequenceStepId
+  - table: sequence_steps
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - sequenceStepId
+  stages_opportunityStageId:
+  - table: opportunities
+    keys:
+    - opportunityStageId
+  - table: prospects
+    keys:
+    - stageId
+  - table: stages
+    keys:
+    - id
+  tasks_id:
+  - table: calls
+    keys:
+    - id
+  - table: mailings
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - id
+  teams_id:
+  - table: teams
+    keys:
+    - id
+  users_creatorId:
+  - table: accounts
+    keys:
+    - creatorId
+    - ownerId
+    - updaterId
+  - table: call_dispositions
+    keys:
+    - creatorId
+  - table: call_purposes
+    keys:
+    - creatorId
+  - table: calls
+    keys:
+    - userId
+  - table: content_categories
+    keys:
+    - creatorId
+  - table: mailboxes
+    keys:
+    - creatorId
+    - updaterId
+    - userId
+  - table: opportunities
+    keys:
+    - creatorId
+    - ownerId
+  - table: prospects
+    keys:
+    - creatorId
+    - updaterId
+  - table: sequence_states
+    keys:
+    - creatorId
+  - table: sequence_steps
+    keys:
+    - creatorId
+    - updaterId
+  - table: sequence_templates
+    keys:
+    - creatorId
+    - updaterId
+  - table: sequences
+    keys:
+    - creatorId
+    - ownerId
+    - updaterId
+  - table: stages
+    keys:
+    - creatorId
+    - updaterId
+  - table: tasks
+    keys:
+    - creatorId
+    - completerId
+  - table: users
+    keys:
+    - creatorId
+    - id
+    - updaterId
+tables:
+- table-name: accounts
+  join:
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: ownerId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: ownerId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+    - key: ownerId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: ownerId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: ownerId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+- table-name: opportunities
+  join:
+  - table-name: accounts
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: ownerId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: id
+    - key: opportunityStageId
+      foreign-key: stageId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: opportunityId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: ownerId
+      foreign-key: completerId
+  - table-name: calls
+    keys:
+    - key: id
+      foreign-key: opportunityId
+    - key: creatorId
+      foreign-key: userId
+    - key: ownerId
+      foreign-key: userId
+  - table-name: mailings
+    keys:
+    - key: id
+      foreign-key: opportunityId
+  - table-name: stages
+    keys:
+    - key: opportunityStageId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: ownerId
+      foreign-key: userId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: ownerId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+- table-name: prospects
+  join:
+  - table-name: accounts
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: id
+    - key: stageId
+      foreign-key: opportunityStageId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: sequence_states
+    keys:
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: prospectId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: prospectId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+  - table-name: personas
+    keys:
+    - key: personaId
+      foreign-key: id
+  - table-name: calls
+    keys:
+    - key: id
+      foreign-key: prospectId
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: prospectId
+  - table-name: mailings
+    keys:
+    - key: id
+      foreign-key: prospectId
+  - table-name: stages
+    keys:
+    - key: stageId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+- table-name: sequence_states
+  join:
+  - table-name: accounts
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: id
+    - key: prospectId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: id
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: id
+      foreign-key: sequenceStateId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+  - table-name: calls
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: id
+      foreign-key: sequenceStateId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: events
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: mailings
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: id
+      foreign-key: sequenceStateId
+  - table-name: sequence_steps
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+- table-name: tasks
+  join:
+  - table-name: accounts
+    keys:
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: completerId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: id
+    - key: opportunityId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: completerId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: id
+    - key: prospectId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: id
+      foreign-key: id
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: callId
+      foreign-key: id
+    - key: opportunityId
+      foreign-key: opportunityId
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: sequenceStateId
+    - key: sequenceStepId
+      foreign-key: sequenceStepId
+    - key: id
+      foreign-key: id
+    - key: creatorId
+      foreign-key: userId
+    - key: completerId
+      foreign-key: userId
+  - table-name: events
+    keys:
+    - key: mailingId
+      foreign-key: mailingId
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: mailings
+    keys:
+    - key: mailingId
+      foreign-key: id
+    - key: opportunityId
+      foreign-key: opportunityId
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: sequenceStateId
+    - key: sequenceStepId
+      foreign-key: sequenceStepId
+    - key: id
+      foreign-key: id
+  - table-name: sequence_steps
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStepId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: completerId
+      foreign-key: userId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: completerId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: completerId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: completerId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: completerId
+      foreign-key: updaterId
+- table-name: call_dispositions
+  join:
+  - table-name: calls
+    keys:
+    - key: id
+      foreign-key: callDispositionId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+- table-name: calls
+  join:
+  - table-name: call_dispositions
+    keys:
+    - key: callDispositionId
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: callPurposeId
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: callId
+    - key: opportunityId
+      foreign-key: opportunityId
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: sequenceStateId
+    - key: sequenceStepId
+      foreign-key: sequenceStepId
+    - key: id
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: completerId
+  - table-name: mailings
+    keys:
+    - key: opportunityId
+      foreign-key: opportunityId
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: sequenceStateId
+    - key: sequenceStepId
+      foreign-key: sequenceStepId
+    - key: id
+      foreign-key: id
+  - table-name: opportunities
+    keys:
+    - key: opportunityId
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: ownerId
+  - table-name: events
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: prospects
+    keys:
+    - key: prospectId
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStepId
+      foreign-key: id
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: accounts
+    keys:
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: ownerId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: content_categories
+    keys:
+    - key: userId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: userId
+  - table-name: sequence_templates
+    keys:
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: ownerId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: id
+    - key: userId
+      foreign-key: updaterId
+- table-name: call_purposes
+  join:
+  - table-name: calls
+    keys:
+    - key: id
+      foreign-key: callPurposeId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+- table-name: content_categories
+  join:
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+- table-name: duties
+  join:
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: duties.id
+- table-name: users
+  join:
+  - table-name: duties
+    keys:
+    - key: duties.id
+      foreign-key: id
+  - table-name: mailboxes
+    keys:
+    - key: mailboxId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: id
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: mailings
+    keys:
+    - key: mailboxId
+      foreign-key: mailboxId
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: id
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+    - key: id
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: id
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: id
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: id
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: id
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: id
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+- table-name: events
+  join:
+  - table-name: mailings
+    keys:
+    - key: mailingId
+      foreign-key: id
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: tasks
+    keys:
+    - key: mailingId
+      foreign-key: mailingId
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: calls
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: prospects
+    keys:
+    - key: prospectId
+      foreign-key: id
+  - table-name: sequence_states
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+- table-name: mailboxes
+  join:
+  - table-name: mailings
+    keys:
+    - key: id
+      foreign-key: mailboxId
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: mailboxId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: userId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: userId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+    - key: userId
+      foreign-key: userId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: userId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: userId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: userId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: userId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+    - key: userId
+      foreign-key: completerId
+- table-name: mailings
+  join:
+  - table-name: mailboxes
+    keys:
+    - key: mailboxId
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: mailboxId
+      foreign-key: mailboxId
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: mailingId
+    - key: prospectId
+      foreign-key: prospectId
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: mailingId
+    - key: opportunityId
+      foreign-key: opportunityId
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: sequenceStateId
+    - key: sequenceStepId
+      foreign-key: sequenceStepId
+    - key: id
+      foreign-key: id
+  - table-name: calls
+    keys:
+    - key: opportunityId
+      foreign-key: opportunityId
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: sequenceStateId
+    - key: sequenceStepId
+      foreign-key: sequenceStepId
+    - key: id
+      foreign-key: id
+  - table-name: opportunities
+    keys:
+    - key: opportunityId
+      foreign-key: id
+  - table-name: prospects
+    keys:
+    - key: prospectId
+      foreign-key: id
+  - table-name: sequence_states
+    keys:
+    - key: prospectId
+      foreign-key: prospectId
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStateId
+      foreign-key: id
+  - table-name: sequence_steps
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: sequenceStepId
+      foreign-key: id
+- table-name: personas
+  join:
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: personaId
+- table-name: sequence_steps
+  join:
+  - table-name: calls
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: id
+      foreign-key: sequenceStepId
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: mailings
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: id
+      foreign-key: sequenceStepId
+  - table-name: sequence_states
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: tasks
+    keys:
+    - key: sequenceId
+      foreign-key: sequenceId
+    - key: id
+      foreign-key: sequenceStepId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+- table-name: stages
+  join:
+  - table-name: opportunities
+    keys:
+    - key: id
+      foreign-key: opportunityStageId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: id
+      foreign-key: stageId
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+- table-name: sequence_templates
+  join:
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequences
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+- table-name: sequences
+  join:
+  - table-name: accounts
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: ownerId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: call_dispositions
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: call_purposes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: calls
+    keys:
+    - key: creatorId
+      foreign-key: userId
+    - key: ownerId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: content_categories
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: mailboxes
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+    - key: creatorId
+      foreign-key: userId
+    - key: ownerId
+      foreign-key: userId
+    - key: updaterId
+      foreign-key: userId
+  - table-name: opportunities
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: ownerId
+    - key: ownerId
+      foreign-key: ownerId
+    - key: updaterId
+      foreign-key: ownerId
+  - table-name: prospects
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_states
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+  - table-name: sequence_steps
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: sequence_templates
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: stages
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId
+  - table-name: tasks
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: completerId
+    - key: ownerId
+      foreign-key: completerId
+    - key: updaterId
+      foreign-key: completerId
+  - table-name: users
+    keys:
+    - key: creatorId
+      foreign-key: creatorId
+    - key: ownerId
+      foreign-key: creatorId
+    - key: updaterId
+      foreign-key: creatorId
+    - key: creatorId
+      foreign-key: id
+    - key: ownerId
+      foreign-key: id
+    - key: updaterId
+      foreign-key: id
+    - key: creatorId
+      foreign-key: updaterId
+    - key: ownerId
+      foreign-key: updaterId
+    - key: updaterId
+      foreign-key: updaterId

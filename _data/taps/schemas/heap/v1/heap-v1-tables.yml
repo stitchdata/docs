@@ -1,0 +1,80 @@
+tap: heap
+version: '1'
+tap-repo-schemas: false
+tables:
+- name: event_tables
+  description: 'For every event type defined in {{ integration.display_name }}, a
+    table will display in the Stitch app. The name of the table will be the event
+    name, which {{ integration.display_name }} will first strip the non-alphanumeric
+    characters from. For example: The table name for `Sign Up - Click Link` will be
+    transformed into `sign_up_click_link` by {{ integration.display_name }}.
+
+
+    **Note**: Custom attributes are supported for this table. As {{ integration.display_name
+    }} schemas are dynamic, Stitch''s `{{ table.name }}` documentation will only list
+    the non-custom attributes outlined in {{ integration.display_name }}''s documentation.
+
+    '
+  links:
+    doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#event-tables
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: event_id
+- name: pageviews
+  description: 'The `{{ table.name }}` table contains info about pageviews.
+
+
+    **Note**: Custom attributes are supported for this table. As {{ integration.display_name
+    }} schemas are dynamic, Stitch''s `{{ table.name }}` documentation will only list
+    the non-custom attributes outlined in {{ integration.display_name }}''s documentation.
+
+    '
+  links:
+    doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#pageviews-table
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: event_id
+- name: sessions
+  description: 'The `{{ table.name }}` table contains info about sessions. In {{ integration.display_name
+    }}, a web session ends after 30 minutes of user inactivity, while in iOS, a session
+    ends after the app has entered the background.
+
+
+    **Note**: Custom attributes are supported for this table. As {{ integration.display_name
+    }} schemas are dynamic, Stitch''s `{{ table.name }}` documentation will only list
+    the non-custom attributes outlined in {{ integration.display_name }}''s documentation.
+
+    '
+  links:
+    doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#sessions-table
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: event_id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about users.
+
+
+    **Note**: Custom attributes are supported for this table. As {{ integration.display_name
+    }} schemas are dynamic, Stitch''s `{{ table.name }}` documentation will only list
+    the non-custom attributes outlined in {{ integration.display_name }}''s documentation.
+
+    '
+  links:
+    doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#users-table
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: user_id
+- name: user_migrations
+  description: 'The `{{ table.name }}` table contains info about user migrations.
+
+
+    **Note**: Custom attributes are supported for this table. As {{ integration.display_name
+    }} schemas are dynamic, Stitch''s `{{ table.name }}` documentation will only list
+    the non-custom attributes outlined in {{ integration.display_name }}''s documentation.
+
+    '
+  links:
+    doc-link: https://help.heap.io/heap-connect/heap-connect-guide/data-schema/#user-migrations-table
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: from_user_id

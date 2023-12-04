@@ -1,0 +1,117 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assignee": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deal_tasktype": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "done_automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "duedate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "edate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "relid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reltype": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "udate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "user": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

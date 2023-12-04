@@ -1,0 +1,150 @@
+{
+  "properties": {
+    "allowed_state": {
+      "type": [
+        "string"
+      ]
+    },
+    "avatar_url": {
+      "type": [
+        "string"
+      ]
+    },
+    "city": {
+      "type": [
+        "string"
+      ]
+    },
+    "comment_notifications": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "country": {
+      "type": [
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "email_address": {
+      "type": [
+        "string"
+      ]
+    },
+    "email_confirmed": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "guid": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "is_admin": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "is_owner": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "job_title": {
+      "type": [
+        "string"
+      ]
+    },
+    "last_ip": {
+      "type": [
+        "string"
+      ]
+    },
+    "links": {
+      "properties": {
+        "current_nps_rating": {
+          "type": [
+            "integer"
+          ]
+        },
+        "external_users": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "previous_nps_rating": {
+          "type": [
+            "integer"
+          ]
+        },
+        "teams": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "region": {
+      "type": [
+        "string"
+      ]
+    },
+    "satisfaction_score": {
+      "type": [
+        "integer"
+      ]
+    },
+    "state": {
+      "type": [
+        "string"
+      ]
+    },
+    "status_notifications": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "supported_suggestions_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

@@ -57,7 +57,7 @@ non-standard handling of certain data types, etc. -->
     {% endif %}
 {% else %}
     {% unless integration.exclude-table-schemas == true %}
-        {% include integrations/templates/schemas/table-schemas.html %}
+        {% include integrations/templates/schemas/schemas.html %}
     {% endunless %}
 {% endif %}
 

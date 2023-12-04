@@ -1,0 +1,141 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "line_items": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actions": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "campaign_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "campaign_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "due_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "event_month_year": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "net_item_amount": {
+                "multipleOf": 1e-08,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "paid_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "status": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "total_item_amount": {
+                "multipleOf": 1e-08,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "vat_item_amount": {
+                "multipleOf": 1e-08,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "media_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "media_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pdf": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_amount": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_vat_amount": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,192 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "analysis": {
+      "additionalProperties": false,
+      "properties": {
+        "completion": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "starting_amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "steps": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "worst": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date"
+      ]
+    },
+    "datetime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "funnel_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "steps": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "avg_time": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "count": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "event": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "goal": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "overall_conv_ratio": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "step_conv_ratio": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "step_label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "time_buckets_from_prev": {
+                "additionalProperties": false,
+                "properties": {
+                  "buckets": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "integer"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "higher": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "lower": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "time_buckets_from_start": {
+                "additionalProperties": false,
+                "properties": {
+                  "buckets": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "integer"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "higher": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "lower": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,821 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attachments": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "content_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "filename": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "size": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "bcc": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "body_html": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body_html_quoted": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "expand": {
+            "type": [
+              "null",
+              "integer",
+              "boolean"
+            ]
+          },
+          "html": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "body_preview": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "body_text_quoted": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "expand": {
+            "type": [
+              "null",
+              "integer",
+              "boolean"
+            ]
+          },
+          "text": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "cc": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "contact_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_scheduled": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_sent": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "dialer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "direction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "email_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "envelope": {
+      "additionalProperties": true,
+      "properties": {
+        "bcc": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "cc": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        },
+        "from": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "in_reply_to": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_autoreply": {
+          "type": [
+            "null",
+            "integer",
+            "boolean"
+          ]
+        },
+        "message_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reply_to": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "sender": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "to": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "email": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "import_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "in_reply_to_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lead_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "local_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "need_smtp_credentials": {
+      "type": [
+        "null",
+        "integer",
+        "boolean"
+      ]
+    },
+    "new_status_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "new_status_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "new_status_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "old_status_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "old_status_label": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "old_status_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opens": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "ip_address": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "opened_at": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "opened_by": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "user_agent": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "opens_summary": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_confidence": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "opportunity_date_won": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_value": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "opportunity_value_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_value_formatted": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "opportunity_value_period": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recording_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "references": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "remote_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "send_attempts": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "error_class": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "error_message": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "sender": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_assigned_to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_assigned_to_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "task_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "template_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "template_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "thread_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "transferred_from": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transferred_to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_by_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "users": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "voicemail_duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "voicemail_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "users"
+  ],
+  "type": "object"
+}

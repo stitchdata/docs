@@ -1,0 +1,239 @@
+{
+  "properties": {
+    "active": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "associations": {
+      "properties": {
+        "companyIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "contactIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "dealIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "attachments": {
+      "properties": {
+        "id": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "lastUpdated": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "metadata": {
+      "properties": {
+        "bcc": {
+          "properties": {
+            "email": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "body": {
+          "type": [
+            "string"
+          ]
+        },
+        "cc": {
+          "properties": {
+            "email": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "durationMilliseconds": {
+          "type": [
+            "integer"
+          ]
+        },
+        "endTime": {
+          "type": [
+            "integer"
+          ]
+        },
+        "externalAccountId": {
+          "type": [
+            "string"
+          ]
+        },
+        "externalId": {
+          "type": [
+            "string"
+          ]
+        },
+        "forObjectType": {
+          "type": [
+            "string"
+          ]
+        },
+        "from": {
+          "properties": {
+            "email": {
+              "type": [
+                "string"
+              ]
+            },
+            "firstName": {
+              "type": [
+                "string"
+              ]
+            },
+            "lastName": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "fromNumber": {
+          "type": [
+            "string"
+          ]
+        },
+        "html": {
+          "type": [
+            "string"
+          ]
+        },
+        "recordingUrl": {
+          "type": [
+            "string"
+          ]
+        },
+        "startTime": {
+          "type": [
+            "integer"
+          ]
+        },
+        "status": {
+          "type": [
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string"
+          ]
+        },
+        "text": {
+          "type": [
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "string"
+          ]
+        },
+        "to": {
+          "properties": {
+            "email": {
+              "type": [
+                "sring"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "toNumber": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "ownerId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

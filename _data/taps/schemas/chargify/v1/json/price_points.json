@@ -1,0 +1,106 @@
+{
+  "properties": {
+    "archived_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "component_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "default": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "handle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "prices": {
+      "items": {
+        "properties": {
+          "component_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ending_quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "starting_quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unit_price": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "pricing_scheme": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

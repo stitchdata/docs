@@ -1,0 +1,3385 @@
+tap: activecampaign
+version: '1'
+keys:
+  account_custom_fields_id:
+  - table: account_custom_fields
+    keys:
+    - id
+  - table: account_custom_field_values
+    keys:
+    - custom_field_id
+  addresses_id:
+  - table: addresses
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - addressid
+  - table: forms
+    keys:
+    - addressid
+  campaigns_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: campaign_links
+    keys:
+    - campaignid
+  - table: bounce_logs
+    keys:
+    - campaignid
+  - table: campaign_lists
+    keys:
+    - campaignid
+  - table: campaign_messages
+    keys:
+    - campaignid
+  - table: contact_lists
+    keys:
+    - campaign
+  deal_custom_fields_id:
+  - table: deal_custom_fields
+    keys:
+    - id
+  - table: deal_custom_field_values
+    keys:
+    - custom_field_id
+  deals_id:
+  - table: deals
+    keys:
+    - id
+  - table: deal_custom_field_values
+    keys:
+    - deal_id
+  - table: contact_deals
+    keys:
+    - deal
+  - table: forms
+    keys:
+    - deals
+  - table: deal_activities
+    keys:
+    - deal
+  - table: email_activities
+    keys:
+    - deal
+  - table: contact_emails
+    keys:
+    - deal
+  deal_stages_id:
+  - table: deal_stages
+    keys:
+    - id
+  - table: deals
+    keys:
+    - stage
+  - table: deal_groups
+    keys:
+    - stages
+  - table: deal_activities
+    keys:
+    - stage
+  deal_groups_id:
+  - table: deal_groups
+    keys:
+    - id
+  - table: deals
+    keys:
+    - group
+  - table: deal_stages
+    keys:
+    - group
+  - table: deal_group_users
+    keys:
+    - deal_group
+  accounts_id:
+  - table: accounts
+    keys:
+    - id
+  - table: deals
+    keys:
+    - account
+  - table: contact_emails
+    keys:
+    - account
+  - table: email_activities
+    keys:
+    - account
+  - table: account_contacts
+    keys:
+    - account
+  - table: account_custom_field_values
+    keys:
+    - account_id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  - table: deals
+    keys:
+    - contact
+  - table: forms
+    keys:
+    - contacts
+  - table: bounce_logs
+    keys:
+    - contact
+  - table: contact_data
+    keys:
+    - contact
+  - table: contact_emails
+    keys:
+    - contact
+  - table: contact_lists
+    keys:
+    - contact
+  - table: contact_tags
+    keys:
+    - contact
+  - table: contact_conversions
+    keys:
+    - contact
+  - table: email_activities
+    keys:
+    - contact
+  - table: account_contacts
+    keys:
+    - contact
+  - table: contact_automations
+    keys:
+    - contact
+  - table: contact_custom_field_values
+    keys:
+    - contact
+  - table: contact_deals
+    keys:
+    - contact
+  ecommerce_connections_id:
+  - table: ecommerce_connections
+    keys:
+    - id
+  - table: ecommerce_customers
+    keys:
+    - connectionid
+  - table: ecommerce_orders
+    keys:
+    - connectionid
+    - connectionid
+  - table: ecommerce_order_products
+    keys:
+    - connectionid
+  - table: ecommerce_order_activities
+    keys:
+    - connectionid
+  ecommerce_customers_id:
+  - table: ecommerce_customers
+    keys:
+    - id
+  - table: ecommerce_orders
+    keys:
+    - customer
+  - table: ecommerce_order_activities
+    keys:
+    - customerid
+  ecommerce_orders_id:
+  - table: ecommerce_orders
+    keys:
+    - id
+  - table: ecommerce_order_products
+    keys:
+    - orderid
+  - table: ecommerce_order_activities
+    keys:
+    - orderid
+  - table: contact_custom_field_options
+    keys:
+    - orderid
+  - table: deal_stages
+    keys:
+    - order
+  users_id:
+  - table: users
+    keys:
+    - id
+  - table: forms
+    keys:
+    - userid
+  - table: lists
+    keys:
+    - userid
+  - table: messages
+    keys:
+    - userid
+  - table: saved_responses
+    keys:
+    - last_sent_user_id
+  - table: tasks
+    keys:
+    - user
+  - table: templates
+    keys:
+    - userid
+  - table: activities
+    keys:
+    - userid
+  - table: campaign_lists
+    keys:
+    - userid
+  - table: configs
+    keys:
+    - userid
+  - table: contact_emails
+    keys:
+    - userid
+  - table: deal_activities
+    keys:
+    - userid
+  - table: deal_group_users
+    keys:
+    - user
+  - table: email_activities
+    keys:
+    - userid
+  - table: sms
+    keys:
+    - userid
+  - table: automations
+    keys:
+    - userid
+  - table: calendars
+    keys:
+    - userid
+  - table: campaigns
+    keys:
+    - userid
+  task_types_id:
+  - table: task_types
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - deal_tasktype
+  lists_id:
+  - table: lists
+    keys:
+    - id
+  - table: webhooks
+    keys:
+    - listid
+  - table: campaign_lists
+    keys:
+    - listid
+  - table: contact_lists
+    keys:
+    - list
+  messages_id:
+  - table: messages
+    keys:
+    - id
+  - table: bounce_logs
+    keys:
+    - messageid
+  - table: campaign_messages
+    keys:
+    - messageid
+  - table: contact_emails
+    keys:
+    - messageid
+  - table: contact_lists
+    keys:
+    - message
+  - table: campaign_links
+    keys:
+    - messageid
+  tags_id:
+  - table: tags
+    keys:
+    - id
+  - table: contact_tags
+    keys:
+    - tag
+  conversions_id:
+  - table: conversions
+    keys:
+    - id
+  - table: contact_conversions
+    keys:
+    - conversion
+  - table: conversion_triggers
+    keys:
+    - conversion
+  conversion_triggers_id:
+  - table: conversion_triggers
+    keys:
+    - id
+  - table: contact_conversions
+    keys:
+    - conversiontrigger
+  automations_id:
+  - table: automations
+    keys:
+    - id
+  - table: deal_activities
+    keys:
+    - automation
+  - table: goals
+    keys:
+    - automation
+  - table: site_messages
+    keys:
+    - automation
+  - table: sms
+    keys:
+    - automation
+  - table: automation_blocks
+    keys:
+    - automation
+  - table: campaigns
+    keys:
+    - automation
+  - table: contact_automations
+    keys:
+    - automation
+  segments_id:
+  - table: segments
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - segmentid
+  forms_id:
+  - table: forms
+    keys:
+    - id
+  - table: contact_lists
+    keys:
+    - form
+tables:
+- table-name: account_custom_fields
+  join:
+  - table-name: account_custom_field_values
+    keys:
+    - key: id
+      foreign-key: custom_field_id
+- table-name: account_custom_field_values
+  join:
+  - table-name: account_custom_fields
+    keys:
+    - key: custom_field_id
+      foreign-key: id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: account_id
+      foreign-key: account
+  - table-name: contact_emails
+    keys:
+    - key: account_id
+      foreign-key: account
+  - table-name: email_activities
+    keys:
+    - key: account_id
+      foreign-key: account
+  - table-name: account_contacts
+    keys:
+    - key: account_id
+      foreign-key: account
+- table-name: addresses
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: addressid
+  - table-name: forms
+    keys:
+    - key: id
+      foreign-key: addressid
+- table-name: campaigns
+  join:
+  - table-name: addresses
+    keys:
+    - key: addressid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: addressid
+      foreign-key: addressid
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_links
+    keys:
+    - key: id
+      foreign-key: campaignid
+  - table-name: bounce_logs
+    keys:
+    - key: id
+      foreign-key: campaignid
+  - table-name: campaign_lists
+    keys:
+    - key: id
+      foreign-key: campaignid
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_messages
+    keys:
+    - key: id
+      foreign-key: campaignid
+  - table-name: contact_lists
+    keys:
+    - key: id
+      foreign-key: campaign
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: automation
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: automation
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: id
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: goals
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: segments
+    keys:
+    - key: segmentid
+      foreign-key: id
+- table-name: forms
+  join:
+  - table-name: addresses
+    keys:
+    - key: addressid
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: addressid
+      foreign-key: addressid
+    - key: userid
+      foreign-key: userid
+  - table-name: deals
+    keys:
+    - key: deals
+      foreign-key: id
+    - key: contacts
+      foreign-key: contact
+  - table-name: deal_custom_field_values
+    keys:
+    - key: deals
+      foreign-key: deal_id
+  - table-name: contact_deals
+    keys:
+    - key: deals
+      foreign-key: deal
+    - key: contacts
+      foreign-key: contact
+  - table-name: deal_activities
+    keys:
+    - key: deals
+      foreign-key: deal
+    - key: userid
+      foreign-key: userid
+  - table-name: email_activities
+    keys:
+    - key: deals
+      foreign-key: deal
+    - key: contacts
+      foreign-key: contact
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: deals
+      foreign-key: deal
+    - key: contacts
+      foreign-key: contact
+    - key: userid
+      foreign-key: userid
+  - table-name: contacts
+    keys:
+    - key: contacts
+      foreign-key: id
+  - table-name: bounce_logs
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contacts
+      foreign-key: contact
+    - key: id
+      foreign-key: form
+  - table-name: contact_tags
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contacts
+      foreign-key: contact
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+- table-name: campaign_links
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaignid
+      foreign-key: id
+  - table-name: bounce_logs
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+    - key: messageid
+      foreign-key: messageid
+  - table-name: campaign_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+  - table-name: campaign_messages
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+    - key: messageid
+      foreign-key: messageid
+  - table-name: contact_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaign
+    - key: messageid
+      foreign-key: message
+  - table-name: messages
+    keys:
+    - key: messageid
+      foreign-key: id
+  - table-name: contact_emails
+    keys:
+    - key: messageid
+      foreign-key: messageid
+- table-name: bounce_logs
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaignid
+      foreign-key: id
+  - table-name: campaign_links
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+    - key: messageid
+      foreign-key: messageid
+  - table-name: campaign_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+  - table-name: campaign_messages
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+    - key: messageid
+      foreign-key: messageid
+  - table-name: contact_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaign
+    - key: contact
+      foreign-key: contact
+    - key: messageid
+      foreign-key: message
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+    - key: messageid
+      foreign-key: messageid
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: messages
+    keys:
+    - key: messageid
+      foreign-key: id
+- table-name: campaign_lists
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaignid
+      foreign-key: id
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_links
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+  - table-name: bounce_logs
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+  - table-name: campaign_messages
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+  - table-name: contact_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaign
+    - key: listid
+      foreign-key: list
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: listid
+      foreign-key: id
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: webhooks
+    keys:
+    - key: listid
+      foreign-key: listid
+- table-name: campaign_messages
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaignid
+      foreign-key: id
+  - table-name: campaign_links
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+    - key: messageid
+      foreign-key: messageid
+  - table-name: bounce_logs
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+    - key: messageid
+      foreign-key: messageid
+  - table-name: campaign_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaignid
+  - table-name: contact_lists
+    keys:
+    - key: campaignid
+      foreign-key: campaign
+    - key: messageid
+      foreign-key: message
+  - table-name: messages
+    keys:
+    - key: messageid
+      foreign-key: id
+  - table-name: contact_emails
+    keys:
+    - key: messageid
+      foreign-key: messageid
+- table-name: contact_lists
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign
+      foreign-key: id
+  - table-name: campaign_links
+    keys:
+    - key: campaign
+      foreign-key: campaignid
+    - key: message
+      foreign-key: messageid
+  - table-name: bounce_logs
+    keys:
+    - key: campaign
+      foreign-key: campaignid
+    - key: contact
+      foreign-key: contact
+    - key: message
+      foreign-key: messageid
+  - table-name: campaign_lists
+    keys:
+    - key: campaign
+      foreign-key: campaignid
+    - key: list
+      foreign-key: listid
+  - table-name: campaign_messages
+    keys:
+    - key: campaign
+      foreign-key: campaignid
+    - key: message
+      foreign-key: messageid
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+    - key: form
+      foreign-key: id
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+    - key: message
+      foreign-key: messageid
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: lists
+    keys:
+    - key: list
+      foreign-key: id
+  - table-name: webhooks
+    keys:
+    - key: list
+      foreign-key: listid
+  - table-name: messages
+    keys:
+    - key: message
+      foreign-key: id
+- table-name: deal_custom_fields
+  join:
+  - table-name: deal_custom_field_values
+    keys:
+    - key: id
+      foreign-key: custom_field_id
+- table-name: deal_custom_field_values
+  join:
+  - table-name: deal_custom_fields
+    keys:
+    - key: custom_field_id
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: deal_id
+      foreign-key: id
+  - table-name: contact_deals
+    keys:
+    - key: deal_id
+      foreign-key: deal
+  - table-name: forms
+    keys:
+    - key: deal_id
+      foreign-key: deals
+  - table-name: deal_activities
+    keys:
+    - key: deal_id
+      foreign-key: deal
+  - table-name: email_activities
+    keys:
+    - key: deal_id
+      foreign-key: deal
+  - table-name: contact_emails
+    keys:
+    - key: deal_id
+      foreign-key: deal
+- table-name: deals
+  join:
+  - table-name: deal_custom_field_values
+    keys:
+    - key: id
+      foreign-key: deal_id
+  - table-name: contact_deals
+    keys:
+    - key: id
+      foreign-key: deal
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: id
+      foreign-key: deals
+    - key: contact
+      foreign-key: contacts
+  - table-name: deal_activities
+    keys:
+    - key: id
+      foreign-key: deal
+    - key: stage
+      foreign-key: stage
+  - table-name: email_activities
+    keys:
+    - key: id
+      foreign-key: deal
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: id
+      foreign-key: deal
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: deal_stages
+    keys:
+    - key: stage
+      foreign-key: id
+    - key: group
+      foreign-key: group
+  - table-name: deal_groups
+    keys:
+    - key: stage
+      foreign-key: stages
+    - key: group
+      foreign-key: id
+  - table-name: deal_group_users
+    keys:
+    - key: group
+      foreign-key: deal_group
+  - table-name: accounts
+    keys:
+    - key: account
+      foreign-key: id
+  - table-name: account_contacts
+    keys:
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: account_custom_field_values
+    keys:
+    - key: account
+      foreign-key: account_id
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+- table-name: contact_deals
+  join:
+  - table-name: deals
+    keys:
+    - key: deal
+      foreign-key: id
+    - key: contact
+      foreign-key: contact
+  - table-name: deal_custom_field_values
+    keys:
+    - key: deal
+      foreign-key: deal_id
+  - table-name: forms
+    keys:
+    - key: deal
+      foreign-key: deals
+    - key: contact
+      foreign-key: contacts
+  - table-name: deal_activities
+    keys:
+    - key: deal
+      foreign-key: deal
+  - table-name: email_activities
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: contact
+      foreign-key: contact
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+- table-name: deal_activities
+  join:
+  - table-name: deals
+    keys:
+    - key: deal
+      foreign-key: id
+    - key: stage
+      foreign-key: stage
+  - table-name: deal_custom_field_values
+    keys:
+    - key: deal
+      foreign-key: deal_id
+  - table-name: contact_deals
+    keys:
+    - key: deal
+      foreign-key: deal
+  - table-name: forms
+    keys:
+    - key: deal
+      foreign-key: deals
+    - key: userid
+      foreign-key: userid
+  - table-name: email_activities
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_stages
+    keys:
+    - key: stage
+      foreign-key: id
+  - table-name: deal_groups
+    keys:
+    - key: stage
+      foreign-key: stages
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: automation
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: id
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: automation
+  - table-name: goals
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: automation
+      foreign-key: automation
+- table-name: email_activities
+  join:
+  - table-name: deals
+    keys:
+    - key: deal
+      foreign-key: id
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: deal_custom_field_values
+    keys:
+    - key: deal
+      foreign-key: deal_id
+  - table-name: contact_deals
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: deal
+      foreign-key: deals
+    - key: contact
+      foreign-key: contacts
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+    - key: userid
+      foreign-key: userid
+  - table-name: accounts
+    keys:
+    - key: account
+      foreign-key: id
+  - table-name: account_contacts
+    keys:
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: account_custom_field_values
+    keys:
+    - key: account
+      foreign-key: account_id
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+- table-name: contact_emails
+  join:
+  - table-name: deals
+    keys:
+    - key: deal
+      foreign-key: id
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: deal_custom_field_values
+    keys:
+    - key: deal
+      foreign-key: deal_id
+  - table-name: contact_deals
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: deal
+      foreign-key: deals
+    - key: contact
+      foreign-key: contacts
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: userid
+      foreign-key: userid
+  - table-name: email_activities
+    keys:
+    - key: deal
+      foreign-key: deal
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+    - key: userid
+      foreign-key: userid
+  - table-name: accounts
+    keys:
+    - key: account
+      foreign-key: id
+  - table-name: account_contacts
+    keys:
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: account_custom_field_values
+    keys:
+    - key: account
+      foreign-key: account_id
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+    - key: messageid
+      foreign-key: messageid
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+    - key: messageid
+      foreign-key: message
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: messageid
+      foreign-key: id
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_messages
+    keys:
+    - key: messageid
+      foreign-key: messageid
+  - table-name: campaign_links
+    keys:
+    - key: messageid
+      foreign-key: messageid
+- table-name: deal_stages
+  join:
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: stage
+    - key: group
+      foreign-key: group
+  - table-name: deal_groups
+    keys:
+    - key: id
+      foreign-key: stages
+    - key: group
+      foreign-key: id
+  - table-name: deal_activities
+    keys:
+    - key: id
+      foreign-key: stage
+  - table-name: deal_group_users
+    keys:
+    - key: group
+      foreign-key: deal_group
+  - table-name: ecommerce_orders
+    keys:
+    - key: order
+      foreign-key: id
+  - table-name: ecommerce_order_products
+    keys:
+    - key: order
+      foreign-key: orderid
+  - table-name: ecommerce_order_activities
+    keys:
+    - key: order
+      foreign-key: orderid
+  - table-name: contact_custom_field_options
+    keys:
+    - key: order
+      foreign-key: orderid
+- table-name: deal_groups
+  join:
+  - table-name: deal_stages
+    keys:
+    - key: stages
+      foreign-key: id
+    - key: id
+      foreign-key: group
+  - table-name: deals
+    keys:
+    - key: stages
+      foreign-key: stage
+    - key: id
+      foreign-key: group
+  - table-name: deal_activities
+    keys:
+    - key: stages
+      foreign-key: stage
+  - table-name: deal_group_users
+    keys:
+    - key: id
+      foreign-key: deal_group
+- table-name: deal_group_users
+  join:
+  - table-name: deal_groups
+    keys:
+    - key: deal_group
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: deal_group
+      foreign-key: group
+  - table-name: deal_stages
+    keys:
+    - key: deal_group
+      foreign-key: group
+  - table-name: users
+    keys:
+    - key: user
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: user
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: user
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: email_activities
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: user
+      foreign-key: userid
+- table-name: accounts
+  join:
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: account
+  - table-name: contact_emails
+    keys:
+    - key: id
+      foreign-key: account
+  - table-name: email_activities
+    keys:
+    - key: id
+      foreign-key: account
+  - table-name: account_contacts
+    keys:
+    - key: id
+      foreign-key: account
+  - table-name: account_custom_field_values
+    keys:
+    - key: id
+      foreign-key: account_id
+- table-name: account_contacts
+  join:
+  - table-name: accounts
+    keys:
+    - key: account
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: account
+      foreign-key: account
+    - key: contact
+      foreign-key: contact
+  - table-name: account_custom_field_values
+    keys:
+    - key: account
+      foreign-key: account_id
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+- table-name: contacts
+  join:
+  - table-name: deals
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: id
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: id
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: id
+      foreign-key: contact
+- table-name: contact_data
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+- table-name: contact_tags
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: tags
+    keys:
+    - key: tag
+      foreign-key: id
+- table-name: contact_conversions
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: conversions
+    keys:
+    - key: conversion
+      foreign-key: id
+  - table-name: conversion_triggers
+    keys:
+    - key: conversion
+      foreign-key: conversion
+    - key: conversiontrigger
+      foreign-key: id
+- table-name: contact_automations
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_custom_field_values
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: automations
+    keys:
+    - key: automation
+      foreign-key: id
+  - table-name: deal_activities
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: goals
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: sms
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: campaigns
+    keys:
+    - key: automation
+      foreign-key: automation
+- table-name: contact_custom_field_values
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact
+      foreign-key: id
+  - table-name: deals
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: forms
+    keys:
+    - key: contact
+      foreign-key: contacts
+  - table-name: bounce_logs
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_data
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_emails
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_lists
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_tags
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_conversions
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: email_activities
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: account_contacts
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_automations
+    keys:
+    - key: contact
+      foreign-key: contact
+  - table-name: contact_deals
+    keys:
+    - key: contact
+      foreign-key: contact
+- table-name: ecommerce_connections
+  join:
+  - table-name: ecommerce_customers
+    keys:
+    - key: id
+      foreign-key: connectionid
+  - table-name: ecommerce_orders
+    keys:
+    - key: id
+      foreign-key: connectionid
+  - table-name: ecommerce_order_products
+    keys:
+    - key: id
+      foreign-key: connectionid
+  - table-name: ecommerce_order_activities
+    keys:
+    - key: id
+      foreign-key: connectionid
+- table-name: ecommerce_customers
+  join:
+  - table-name: ecommerce_connections
+    keys:
+    - key: connectionid
+      foreign-key: id
+  - table-name: ecommerce_orders
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: id
+      foreign-key: customer
+  - table-name: ecommerce_order_products
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+  - table-name: ecommerce_order_activities
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: id
+      foreign-key: customerid
+- table-name: ecommerce_orders
+  join:
+  - table-name: ecommerce_connections
+    keys:
+    - key: connectionid
+      foreign-key: id
+  - table-name: ecommerce_customers
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: customer
+      foreign-key: id
+  - table-name: ecommerce_order_products
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: id
+      foreign-key: orderid
+  - table-name: ecommerce_order_activities
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: customer
+      foreign-key: customerid
+    - key: id
+      foreign-key: orderid
+  - table-name: contact_custom_field_options
+    keys:
+    - key: id
+      foreign-key: orderid
+  - table-name: deal_stages
+    keys:
+    - key: id
+      foreign-key: order
+- table-name: ecommerce_order_products
+  join:
+  - table-name: ecommerce_connections
+    keys:
+    - key: connectionid
+      foreign-key: id
+  - table-name: ecommerce_customers
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+  - table-name: ecommerce_orders
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: orderid
+      foreign-key: id
+  - table-name: ecommerce_order_activities
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: orderid
+      foreign-key: orderid
+  - table-name: contact_custom_field_options
+    keys:
+    - key: orderid
+      foreign-key: orderid
+  - table-name: deal_stages
+    keys:
+    - key: orderid
+      foreign-key: order
+- table-name: ecommerce_order_activities
+  join:
+  - table-name: ecommerce_connections
+    keys:
+    - key: connectionid
+      foreign-key: id
+  - table-name: ecommerce_customers
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: customerid
+      foreign-key: id
+  - table-name: ecommerce_orders
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: customerid
+      foreign-key: customer
+    - key: orderid
+      foreign-key: id
+  - table-name: ecommerce_order_products
+    keys:
+    - key: connectionid
+      foreign-key: connectionid
+    - key: orderid
+      foreign-key: orderid
+  - table-name: contact_custom_field_options
+    keys:
+    - key: orderid
+      foreign-key: orderid
+  - table-name: deal_stages
+    keys:
+    - key: orderid
+      foreign-key: order
+- table-name: contact_custom_field_options
+  join:
+  - table-name: ecommerce_orders
+    keys:
+    - key: orderid
+      foreign-key: id
+  - table-name: ecommerce_order_products
+    keys:
+    - key: orderid
+      foreign-key: orderid
+  - table-name: ecommerce_order_activities
+    keys:
+    - key: orderid
+      foreign-key: orderid
+  - table-name: deal_stages
+    keys:
+    - key: orderid
+      foreign-key: order
+- table-name: users
+  join:
+  - table-name: forms
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: id
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: id
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: id
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: userid
+- table-name: lists
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: id
+      foreign-key: listid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: webhooks
+    keys:
+    - key: id
+      foreign-key: listid
+  - table-name: contact_lists
+    keys:
+    - key: id
+      foreign-key: list
+- table-name: messages
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: id
+      foreign-key: messageid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: bounce_logs
+    keys:
+    - key: id
+      foreign-key: messageid
+  - table-name: campaign_messages
+    keys:
+    - key: id
+      foreign-key: messageid
+  - table-name: contact_lists
+    keys:
+    - key: id
+      foreign-key: message
+  - table-name: campaign_links
+    keys:
+    - key: id
+      foreign-key: messageid
+- table-name: saved_responses
+  join:
+  - table-name: users
+    keys:
+    - key: last_sent_user_id
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: tasks
+    keys:
+    - key: last_sent_user_id
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: last_sent_user_id
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: last_sent_user_id
+      foreign-key: userid
+- table-name: tasks
+  join:
+  - table-name: users
+    keys:
+    - key: user
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: user
+      foreign-key: last_sent_user_id
+  - table-name: templates
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: user
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: user
+      foreign-key: userid
+  - table-name: task_types
+    keys:
+    - key: deal_tasktype
+      foreign-key: id
+- table-name: templates
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+- table-name: activities
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+- table-name: configs
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+- table-name: sms
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: automation
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: id
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: automation
+      foreign-key: automation
+  - table-name: goals
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: automation
+      foreign-key: automation
+- table-name: automations
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: id
+      foreign-key: automation
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: id
+      foreign-key: automation
+  - table-name: calendars
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+    - key: id
+      foreign-key: automation
+  - table-name: goals
+    keys:
+    - key: id
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: id
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: id
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: id
+      foreign-key: automation
+- table-name: calendars
+  join:
+  - table-name: users
+    keys:
+    - key: userid
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: messages
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: saved_responses
+    keys:
+    - key: userid
+      foreign-key: last_sent_user_id
+  - table-name: tasks
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: templates
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaign_lists
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: configs
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: contact_emails
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: deal_group_users
+    keys:
+    - key: userid
+      foreign-key: user
+  - table-name: email_activities
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: sms
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: automations
+    keys:
+    - key: userid
+      foreign-key: userid
+  - table-name: campaigns
+    keys:
+    - key: userid
+      foreign-key: userid
+- table-name: task_types
+  join:
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: deal_tasktype
+- table-name: webhooks
+  join:
+  - table-name: lists
+    keys:
+    - key: listid
+      foreign-key: id
+  - table-name: campaign_lists
+    keys:
+    - key: listid
+      foreign-key: listid
+  - table-name: contact_lists
+    keys:
+    - key: listid
+      foreign-key: list
+- table-name: tags
+  join:
+  - table-name: contact_tags
+    keys:
+    - key: id
+      foreign-key: tag
+- table-name: conversions
+  join:
+  - table-name: contact_conversions
+    keys:
+    - key: id
+      foreign-key: conversion
+  - table-name: conversion_triggers
+    keys:
+    - key: id
+      foreign-key: conversion
+- table-name: conversion_triggers
+  join:
+  - table-name: conversions
+    keys:
+    - key: conversion
+      foreign-key: id
+  - table-name: contact_conversions
+    keys:
+    - key: conversion
+      foreign-key: conversion
+    - key: id
+      foreign-key: conversiontrigger
+- table-name: goals
+  join:
+  - table-name: automations
+    keys:
+    - key: automation
+      foreign-key: id
+  - table-name: deal_activities
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: sms
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: campaigns
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: automation
+      foreign-key: automation
+- table-name: site_messages
+  join:
+  - table-name: automations
+    keys:
+    - key: automation
+      foreign-key: id
+  - table-name: deal_activities
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: goals
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: sms
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: automation_blocks
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: campaigns
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: automation
+      foreign-key: automation
+- table-name: automation_blocks
+  join:
+  - table-name: automations
+    keys:
+    - key: automation
+      foreign-key: id
+  - table-name: deal_activities
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: goals
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: site_messages
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: sms
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: campaigns
+    keys:
+    - key: automation
+      foreign-key: automation
+  - table-name: contact_automations
+    keys:
+    - key: automation
+      foreign-key: automation
+- table-name: segments
+  join:
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: segmentid

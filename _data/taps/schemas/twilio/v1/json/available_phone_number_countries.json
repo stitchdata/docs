@@ -1,0 +1,88 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "beta": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "country_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subresource_uris": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "subresource": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "uri": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "local": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "mobile": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "toll_free": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

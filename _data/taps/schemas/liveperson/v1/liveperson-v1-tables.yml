@@ -1,0 +1,130 @@
+tap: liveperson
+version: '1'
+tables:
+- name: agent_activity
+  description: 'The `{{ table.name }}` table contains info about agent session data.
+    Activity data is a list of sessions that occur from the agent''s login time to
+    their logout time.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_activity.json
+    api-method: https://developers.liveperson.com/data-access-api-methods-agent-activity.html
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: agent_groups
+  description: 'The `{{ table.name }}` table contains info about the agent groups
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: Stitch will query for and replicate deleted agent groups.
+
+    '
+  links:
+    doc-link: https://developers.liveperson.com/agent-groups-api-overview.html#use-cases-for-the-agent-groups-api
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_groups.json
+    api-method: https://developers.liveperson.com/agent-groups-api-methods-get-all-agent-groups.html#request
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: agent_state_distribution
+  description: The `{{ table.name }}` table contains info about the agent state distribution
+    in your {{ integration.display_name }} account.
+  links:
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_state_distribution.json
+    api-method: https://developers.liveperson.com/operational-realtime-api-methods-agent-activity.html
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: agent_status
+  description: 'The `{{ table.name }}` table contains data for each of the agent statuses
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: Stitch will query for and replicate deleted agent statuses.
+
+    '
+  links:
+    doc-link: https://developers.liveperson.com/agent-status-reason-api-overview.html#status-reason-object-description
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_status.json
+    api-method: https://developers.liveperson.com/agent-status-reason-api-methods-agent-status-list.html#description
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: engagement_history
+  description: 'The `{{ table.name }}` table contains info about the engagements in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.liveperson.com/engagement-history-api-overview.html
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/engagement_history.json
+    api-method: https://developers.liveperson.com/engagement-history-api-methods.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: messaging_interactions
+  description: 'The `{{ table.name }}` table contains info about contact center messaging
+    interactions.
+
+    '
+  links:
+    doc-link: https://developers.liveperson.com/messaging-interactions-api-overview.html#getting-started
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/messaging_interactions.json
+    api-method: https://developers.liveperson.com/messaging-interactions-api-methods-conversations.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: messaging_queue_health
+  description: 'The `{{ table.name }}` table contains messaging queue-related metrics.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/messaging_queue_health.json
+    api-method: https://developers.liveperson.com/messaging-operations-api-methods-messaging-queue-health.html
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: queue_health
+  description: 'The `{{ table.name }}` table contains queue-related metrics.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/queue_health.json
+    api-method: https://developers.liveperson.com/operational-realtime-api-methods-queue-health.html
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: skills
+  description: 'The `{{ table.name }}` table contains info about the agent skills
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: Stitch will query for and replicate deleted skills.
+
+    '
+  links:
+    doc-link: https://developers.liveperson.com/skills-api-overview.html
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/skills.json
+    api-method: https://developers.liveperson.com/skills-api-methods-get-all-skills.html
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account. This includes agents, agent managers,
+    administrators, and campaign managers.
+
+
+    **Note**: Stitch will query for and replicate deleted users.
+
+    '
+  links:
+    doc-link: https://developers.liveperson.com/users-api-overview.html
+    singer-schema: https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/users.json
+    api-method: https://developers.liveperson.com/users-api-methods-get-all-users.html
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+tap-repo-schemas: true

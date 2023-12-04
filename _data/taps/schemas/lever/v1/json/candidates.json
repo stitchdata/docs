@@ -1,0 +1,217 @@
+{
+  "properties": {
+    "applications": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "archived": {
+      "properties": {
+        "archivedAt": {
+          "type": [
+            "date-time",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "contact": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "dataProtection": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "emails": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "followers": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "headline": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "isAnonymized": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "lastAdvancedAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "lastInteractionAt": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "links": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "origin": {
+      "type": "string"
+    },
+    "owner": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "phones": {
+      "items": {
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "resume": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "snoozedUntil": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "sources": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stageChanges": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "tags": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "urls": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": "object"
+}

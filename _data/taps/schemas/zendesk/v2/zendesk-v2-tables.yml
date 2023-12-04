@@ -1,0 +1,308 @@
+tap: zendesk
+version: '2'
+tables:
+- name: groups
+  description: "The `{{ table.name }}` table contains info about the groups in your\
+    \ {{ integration.display_name }} account. \n\n**Note**: Retrieving group data\
+    \ requires {{ integration.display_name }} Admin or Agent permissions.\n"
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/groups
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/groups.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/groups#list-groups
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: group_memberships
+  description: 'The `{{ table.name }}` table contains info about the groups your {{
+    integration.display_name }} agents are members of.
+
+
+    **Note**: Retrieving group membership data requires {{ integration.display_name
+    }} Agent or Admin permissions.
+
+
+    #### Deleted group memberships
+
+
+    As {{ integration.display_name }}''s API doesn''t currently provide a method for
+    identifying deleted group memberships, we recommend periodically dropping this
+    table and allowing Stitch to re-create it. Currently, dropping and re-populating
+    the table is the only way to detect deletions.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/group_memberships
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/group_memberships.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/group_memberships#list-memberships
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: macros
+  description: "The `{{ table.name }}` table contains info about the macros in your\
+    \ {{ integration.display_name }} account. Macros are actions defined by you that\
+    \ modify the values of a ticket\u2019s fields.\n\n**Note**: Retrieving macro data\
+    \ requires {{ integration.display_name }} Agent or Admin permissions.\n"
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/macros
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/macros.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/macros#list-macros
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: organizations
+  description: 'The `{{ table.name }}` table contains information about the organizations
+    your end-users belong to.
+
+
+    #### Custom organization fields
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate any custom
+    fields associated with organization records.
+
+
+    **Note**: Replicating organization custom fields requires that you be on a Team,
+    Professional, or Enterprise {{ integration.display_name }} plan and have Admin
+    permissions in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/organizations
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/organizations.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-organization-export
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: satisfaction_ratings
+  description: "The `{{ table.name }}` table contains info about ratings users have\
+    \ offered on support tickets. \n\n**Note**: This table is only available if satisfaction\
+    \ ratings are enabled in your {{ integration.display_name }} account.\n"
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/satisfaction_ratings
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/satisfaction_ratings.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/satisfaction_ratings#list-satisfaction-ratings
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: sla_policies
+  description: 'The `{{ table.name }}` table contains info about the Service Level
+    Agreements (SLAs) in your {{ integration.display_name }} account. An SLA is a
+    documented agreement between a support provider and their customers that defines
+    performance measures for support.
+
+
+    **Note**: Replicating SLA policies requires that you be on an Enterprise or Professional
+    {{ integration.display_name }} plan, and have Admin permissions in {{ integration.display_name
+    }}.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/sla_policies
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/sla_policies.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/sla_policies#list-sla-policies
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: tags
+  description: 'The `{{ table.name }}` table the names and total number of applications
+    of the tags in your {{ integration.display_name }} account.
+
+
+    **Note**: Retrieving tag data requires {{ integration.display_name }} Admin permissions.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/tags
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/tags.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/tags#list-tags
+  table-details:
+    replication-method: Full Table
+    primary-key: name
+- name: talk_phone_numbers
+  description: This table contains data about phone numbers in Zendesk Talk.
+  links:
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/talk_phone_numbers.json
+    api-method: https://developer.zendesk.com/api-reference/voice/talk-api/phone_numbers/
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: tickets
+  description: 'The `{{ table.name }}` table contains info about the tickets in your
+    {{ integration.display_name }} account. Tickets are the means through which your
+    end users (customers) communicate with your {{ integration.display_name }} agents.
+
+
+    **Note**: Retrieving ticket data requires {{ integration.display_name }} Admin
+    permissions.
+
+
+    #### Custom ticket fields {#custom-ticket-fields}
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate all custom
+    ticket fields.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/tickets
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/tickets.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-ticket-export
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: generated_timestamp
+- name: ticket_audits
+  description: 'The `{{ table.name }}` table contains info about the activity associated
+    with a ticket. An audit is a history of all updates to a given ticket. When a
+    ticket is updated in {{ integration.display_name }}, an audit record is created.
+    Each audit represents a single update to a ticket.
+
+
+    A single audit record may include multiple event types. For example: A ticket
+    comment, satisfaction rating, and a change event. For a full list of {{ integration.display_name
+    }} audit event types, [refer to {{ integration.display_name }}''s documentation](https://developer.zendesk.com/rest_api/docs/support/ticket_audits#audit-events){:target="new"}.
+
+
+    #### Replication {#ticket-audit-replication}
+
+
+    This table uses Append-Only Incremental Replication. This means that new audit
+    records, or updates made to existing audits, are appended as new rows to the end
+    of the table.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_audits
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_audits.json
+    api-method: https://developer.zendesk.com/rest_api/support/core/ticket_audits#list-all-ticket-audits
+  table-details:
+    replication-method: Append-Only Incremental
+    primary-key: id
+    replication-key: created_at
+- name: ticket_comments
+  description: 'The `{{ table.name }}` table contains info about the comments on tickets,
+    which is the conversation between requesters, collaborators, and agents. Comments
+    can be public or private.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_comments
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_comments.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/ticket_comments#list-comments
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: ticket_fields
+  description: 'The `{{ table.name }}` table contains info about the basic text and
+    custom ticket fields in your {{ integration.display_name }} account.
+
+
+    **Note**: Retrieving ticket metric data requires {{ integration.display_name }}
+    Agent or Admin permissions.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_fields
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_fields.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/ticket_fields#list-ticket-fields
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: ticket_forms
+  description: 'The `{{ table.name }}` table contains info about the ticket forms
+    in your {{ integration.display_name }} account.
+
+
+    **Note**: Replicating ticket forms requires that you be on an Enterprise {{ integration.display_name
+    }} plan or a Professional plan with the corresponding add-on, and have Admin permissions
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_forms
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_forms.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/ticket_forms#list-ticket-forms
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: ticket_metrics
+  description: 'The `{{ table.name }}` table contains info about the metrics associated
+    with {{ integration.display_name }} tickets. **This table will not include records
+    for deleted tickets.**
+
+
+    **Note**: Retrieving ticket metric data requires {{ integration.display_name }}
+    Admin permissions.
+
+
+    #### Deleted ticket metrics
+
+
+    As {{ integration.display_name }}''s API doesn''t currently support returning
+    metrics for deleted tickets, this table will not contain any metrics for deleted
+    tickets.
+
+
+    If you believe you''re missing records, check in your {{ integration.display_name
+    }} account to see if the missing records are for deleted tickets.
+
+
+    For more info on how {{ integration.display_name }} handles deleting tickets,
+    [refer to their documentation](https://support.zendesk.com/hc/en-us/articles/203690936){:target="new"}.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_metrics
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_metrics.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/ticket_metrics#list-ticket-metrics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: ticket_metric_events
+  description: This table contains data about reply times, agent work times, and requester
+    wait times.
+  links:
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_metric_events.json
+    api-method: https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_metric_events/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: time
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users associated
+    with your {{ integration.display_name }} account. This includes agents, admins,
+    and end-users (customers).
+
+
+    **Note**: Retrieving user data requires {{ integration.display_name }} Admin permissions.
+
+
+    #### Custom user fields {#customer-user-fields}
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate any custom
+    fields associated with user records.
+
+
+    **Note**: Replicating user custom fields requires that you be on a Team, Professional,
+    or Enterprise {{ integration.display_name }} plan.
+
+    '
+  links:
+    doc-link: https://developer.zendesk.com/rest_api/docs/support/users
+    singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/users.json
+    api-method: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-user-export
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true

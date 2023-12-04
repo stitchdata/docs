@@ -1,0 +1,220 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "auth_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "friendly_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner_account_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subresource_uris": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "subresource": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "uri": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "addresses": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "applications": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "authorized_connect_apps": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "available_phone_numbers": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "balance": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "calls": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "conferences": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "connect_apps": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "incoming_phone_numbers": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "keys": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "messages": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "notifications": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "outgoing_caller_ids": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "queues": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "recordings": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "short_codes": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "signing_keys": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "sip": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transcriptions": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "usage": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

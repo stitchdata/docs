@@ -1,0 +1,195 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accessedAt": {
+      "type": "date-time"
+    },
+    "createdAt": {
+      "type": "date-time"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "currentStatus": {
+      "type": "string"
+    },
+    "customCSS": {
+      "type": "string"
+    },
+    "defaultKeyFieldMapping": {
+      "type": "string"
+    },
+    "depth": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "elements": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "altText": {
+            "type": "string"
+          },
+          "createdFromContactFieldId": {
+            "type": "string"
+          },
+          "dataType": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "displayType": {
+            "type": "string"
+          },
+          "fieldMergeId": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          },
+          "htmlName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "numberOfFieldsToDisplay": {
+            "type": "string"
+          },
+          "onlyShowIncompleteFields": {
+            "type": "string"
+          },
+          "optionListId": {
+            "type": "string"
+          },
+          "randomizeFields": {
+            "type": "string"
+          },
+          "style": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "useGlobalSubscriptionStatus": {
+            "type": "string"
+          },
+          "validations": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "emailAddressFormFieldId": {
+      "type": "string"
+    },
+    "folderId": {
+      "type": "string"
+    },
+    "html": {
+      "type": "string"
+    },
+    "htmlName": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "permissions": {
+      "type": "string"
+    },
+    "processingSteps": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "allowResend": {
+            "type": "boolean"
+          },
+          "campaignElementId": {
+            "type": "string"
+          },
+          "campaignId": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "emailAddressFormFieldId": {
+            "type": "string"
+          },
+          "emailId": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "execute": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "keyFieldId": {
+            "type": "string"
+          },
+          "keyFieldMapping": {
+            "type": "string"
+          },
+          "landingPageId": {
+            "type": "string"
+          },
+          "mappings": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "resendLimit": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "processingType": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "style": {
+      "type": "string"
+    },
+    "submitFailedLandingPageId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "date-time"
+    },
+    "updatedBy": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,162 @@
+tap: recurly
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the customer accounts
+    in your {{ integration.display_name }} account. Account objects store the history
+    of the customer, billing info, etc.
+
+
+    ### Custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration supports replicating custom
+    fields for {{ table.name }} objects.
+
+    '
+  links:
+    doc-link: https://dev.recurly.com/docs/account-object
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/accounts.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_accounts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: adjustments
+  description: 'The `{{ table.name }}` table contains info about adjustments, which
+    are credits and charges associated with your customers.
+
+    '
+  links:
+    doc-link: https://dev.recurly.com/docs/adjustment-object
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/adjustments.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_account_line_items
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: billing_info
+  description: 'The `{{ table.name }}` table contains info about the billing information
+    for [`accounts`](#accounts).
+
+
+    **Note**: To replicate this table, you must also have the [`accounts`](#accounts)
+    table set to replicate.
+
+
+    ### Custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration supports replicating custom
+    fields for billing info objects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/billing_info.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/get_billing_info
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: account_id
+    replication-key: updated_at
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about the coupons available
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/coupons.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_coupons
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: plans
+  description: 'The `{{ table.name }}` table contains info about the plans in your
+    {{ integration.display_name }} account. A plan tells {{ integration.display_name
+    }} how much to charge customers.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_plans
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: plans_add_ons
+  description: 'The `{{ table.name }}` table contains info about the add-ons in your
+    {{ integration.display_name }} account. An add-on is a charge billed each billing
+    period in addition to a subscription''s base charge.
+
+
+    **Note**: To replicate this table, you must also have the [`plans`](#plans) table
+    set to replicate.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/plans_add_ons.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_plan_add_ons
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about the subscriptions
+    in your {{ integration.display_name }} account. Subscriptions are created when
+    your customers subscribe to one of your plans. The customer''s subscription tells
+    {{ integration.display_name }} when and how much to bill the customer.
+
+
+    ### Custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration supports replicating custom
+    fields for subscription objects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/subscriptions.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_subscriptions
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about the transactions
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/transactions.json
+    api-method: https://partner-docs.recurly.com/v2018-08-09#operation/list_transactions
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: collected_at
+- name: coupon_redemptions
+  description: The `{{ table.name }}` table contains info about the coupons redeemed
+    in your {{ integration.display_name }} account.
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/coupon_redemptions.json
+    api-method: https://recurly.com/developers/api/v2018-08-09/index.html#operation/list_account_coupon_redemptions
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+    parent-tables:
+    - accounts
+    - subscription
+    - invoices
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about the invoices in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recurly/blob/master/tap_recurly/schemas/invoices.json
+    api-method: https://recurly.com/developers/api/v2018-08-09/index.html#operation/list_account_invoices
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true

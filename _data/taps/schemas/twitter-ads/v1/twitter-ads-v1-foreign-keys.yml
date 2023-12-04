@@ -1,0 +1,1448 @@
+tap: twitter-ads
+version: '1'
+keys:
+  accounts_account_id:
+  - table: account_media
+    keys:
+    - account_id
+  - table: accounts
+    keys:
+    - id
+  - table: campaigns
+    keys:
+    - account_id
+  - table: cards_image_conversation
+    keys:
+    - account_id
+  - table: cards_poll
+    keys:
+    - account_id
+  - table: cards_video_conversation
+    keys:
+    - account_id
+  - table: funding_instruments
+    keys:
+    - account_id
+  - table: line_item_apps
+    keys:
+    - account_id
+  - table: line_items
+    keys:
+    - account_id
+  - table: media_creatives
+    keys:
+    - account_id
+  - table: preroll_call_to_actions
+    keys:
+    - account_id
+  - table: promoted_accounts
+    keys:
+    - account_id
+  - table: promoted_tweets
+    keys:
+    - account_id
+  - table: scheduled_promoted_tweets
+    keys:
+    - account_id
+  - table: tailored_audiences
+    keys:
+    - account_id
+  - table: targeting_criteria
+    keys:
+    - account_id
+  - table: tweets
+    keys:
+    - account_id
+  account_media_account_media_id:
+  - table: media_creatives
+    keys:
+    - account_media_id
+  - table: account_media
+    keys:
+    - id
+  line_items_line_item_id:
+  - table: line_item_apps
+    keys:
+    - line_item_id
+  - table: media_creatives
+    keys:
+    - line_item_id
+  - table: preroll_call_to_actions
+    keys:
+    - line_item_id
+  - table: promoted_accounts
+    keys:
+    - line_item_id
+  - table: promoted_tweets
+    keys:
+    - line_item_id
+  - table: scheduled_promoted_tweets
+    keys:
+    - line_item_id
+  - table: targeting_criteria
+    keys:
+    - line_item_id
+  campaigns_campaign_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: line_items
+    keys:
+    - campaign_id
+  funding_instruments_funding_instrument_id:
+  - table: account_media
+    keys:
+    - funding_instrument_id
+  - table: campaigns
+    keys:
+    - funding_instrument_id
+  - table: funding_instruments
+    keys:
+    - id
+  iab_categories_value:
+  - table: advertiser_business_categories
+    keys:
+    - iab_categories
+  - table: content_categories
+    keys:
+    - iab_categories
+  - table: iab_categories
+    keys:
+    - id
+  line_item_apps_line_item_app_id:
+  - table: line_item_apps
+    keys:
+    - line_item_app_id
+  tweets_tweet_id:
+  - table: promoted_tweets
+    keys:
+    - tweet_id
+  - table: scheduled_promoted_tweets
+    keys:
+    - tweet_id
+  - table: tweets
+    keys:
+    - id
+  _user_id:
+  - table: promotable_users
+    keys:
+    - user_id
+  - table: promoted_accounts
+    keys:
+    - user_id
+  - table: tweets
+    keys:
+    - entities.user_mentions.id
+    - in_reply_to_user_id
+    - user.id
+  _video_owner_id:
+  - table: cards_video_conversation
+    keys:
+    - video_owner_id
+tables:
+- table-name: account_media
+  join:
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: funding_instrument_id
+      foreign-key: funding_instrument_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: funding_instrument_id
+      foreign-key: id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: account_media_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: accounts
+  join:
+  - table-name: account_media
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: id
+      foreign-key: account_id
+- table-name: campaigns
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: funding_instrument_id
+      foreign-key: funding_instrument_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: funding_instrument_id
+      foreign-key: id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: cards_image_conversation
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: cards_poll
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: cards_video_conversation
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: funding_instruments
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: funding_instrument_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: funding_instrument_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: line_item_apps
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: line_items
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: campaign_id
+      foreign-key: id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: media_creatives
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: account_media_id
+      foreign-key: id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: preroll_call_to_actions
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: promoted_accounts
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: user_id
+      foreign-key: entities.user_mentions.id
+    - key: user_id
+      foreign-key: in_reply_to_user_id
+    - key: user_id
+      foreign-key: user.id
+  - table-name: promotable_users
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: promoted_tweets
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+    - key: tweet_id
+      foreign-key: tweet_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: tweet_id
+      foreign-key: id
+- table-name: scheduled_promoted_tweets
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+    - key: tweet_id
+      foreign-key: tweet_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: tweet_id
+      foreign-key: id
+- table-name: tailored_audiences
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: targeting_criteria
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: line_item_id
+      foreign-key: line_item_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+- table-name: tweets
+  join:
+  - table-name: account_media
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: accounts
+    keys:
+    - key: account_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_image_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_poll
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: cards_video_conversation
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: funding_instruments
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_item_apps
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: line_items
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: media_creatives
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: preroll_call_to_actions
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promoted_accounts
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: entities.user_mentions.id
+      foreign-key: user_id
+    - key: in_reply_to_user_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+  - table-name: promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: tweet_id
+  - table-name: scheduled_promoted_tweets
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: tweet_id
+  - table-name: tailored_audiences
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: targeting_criteria
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: promotable_users
+    keys:
+    - key: entities.user_mentions.id
+      foreign-key: user_id
+    - key: in_reply_to_user_id
+      foreign-key: user_id
+    - key: user.id
+      foreign-key: user_id
+- table-name: advertiser_business_categories
+  join:
+  - table-name: content_categories
+    keys:
+    - key: iab_categories
+      foreign-key: iab_categories
+  - table-name: iab_categories
+    keys:
+    - key: iab_categories
+      foreign-key: id
+- table-name: content_categories
+  join:
+  - table-name: advertiser_business_categories
+    keys:
+    - key: iab_categories
+      foreign-key: iab_categories
+  - table-name: iab_categories
+    keys:
+    - key: iab_categories
+      foreign-key: id
+- table-name: iab_categories
+  join:
+  - table-name: advertiser_business_categories
+    keys:
+    - key: id
+      foreign-key: iab_categories
+  - table-name: content_categories
+    keys:
+    - key: id
+      foreign-key: iab_categories
+- table-name: promotable_users
+  join:
+  - table-name: promoted_accounts
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: tweets
+    keys:
+    - key: user_id
+      foreign-key: entities.user_mentions.id
+    - key: user_id
+      foreign-key: in_reply_to_user_id
+    - key: user_id
+      foreign-key: user.id

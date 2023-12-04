@@ -1,0 +1,139 @@
+tap: sendgrid-core
+version: '1'
+tables:
+- name: blocks
+  description: 'The `{{ table.name }}` table contains info about the email addresses
+    currently on your blocks list. There are several causes for blocked emails: A
+    mail server IP address being on an ISP blacklist, blocked by an ISP, or if the
+    receiving server flags the message content.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/blocks.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/blocks.html#List-all-blocks-GET
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: bounces
+  description: 'The `{{ table.name }}` table contains info about bounced emails. A
+    bounced email is when the message is undeliverable and returned to the server
+    that sent it.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/bounces.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/bounces.html#List-all-bounces-GET
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: contacts
+  description: 'The `{{ table.name }}` table contains info about the contacts in your
+    SendGrid account.
+
+
+    #### Contact custom fields
+
+
+    Stitch''s {{ integration.display_name }} integration will replicate any custom
+    fields associated with contact records.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/contacts.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Marketing_Campaigns/contactdb.html#Get-Recipients-Matching-Search-Criteria-GET
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: global_suppressions
+  description: 'The `{{ table.name }}` table contains info about global suppressions,
+    or global unsubscribes. Recipients who are globally suppressed will be removed
+    from any email you send.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/global_suppressions.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/global_suppressions.html#-Global-Unsubscribes
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: groups_all
+  description: 'The `{{ table.name }}` table contains info about the groups in your
+    SendGrid account. Groups are specific types of email you want your recipients
+    to be able to unsubscribe from or subscribe to. For example: Newsletters, Invoices,
+    Alerts, etc.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_all.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html#-GET
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: groups_members
+  description: 'The `{{ table.name }}` table contains a list of `email` and `group_id`
+    pairs, allowing you to identify recipients and the groups they are members of.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_members.json
+    api-method: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/suppressions.html#-GET
+  table-details:
+    replication-method: Full Table
+    primary-key: email
+- name: campaigns
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/campaigns.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: invalids
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/invalids.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: lists_all
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: lists_members
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_members.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: segments_all
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: segments_members
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_members.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: spam_reports
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/spam_reports.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: email
+- name: templates_all
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/templates_all.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+tap-repo-schemas: true

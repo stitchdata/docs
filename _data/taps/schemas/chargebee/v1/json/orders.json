@@ -1,0 +1,827 @@
+{
+  "properties": {
+    "amount_adjusted": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount_paid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "batch_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_address": {
+      "properties": {
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "line1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "line2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "line3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "validation_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "cancellation_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cancelled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "delivered_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "discount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "document_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fulfillment_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gift_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gift_note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice_round_off_amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_gifted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_resent": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "line_item_discounts": {
+      "items": {
+        "properties": {
+          "coupon_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discount_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "discount_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "line_item_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "line_item_taxes": {
+      "items": {
+        "properties": {
+          "is_non_compliance_tax": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "is_partial_tax_applied": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "line_item_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "local_currency_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "tax_amount_in_local_currency": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "tax_juris_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_juris_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_juris_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_rate": {
+            "type": [
+              "null",
+              "integer",
+              "number"
+            ]
+          },
+          "taxable_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "linked_credit_notes": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_adjusted": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_refunded": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "order_line_items": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_adjusted": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_paid": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "discount_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "entity_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "entity_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fulfillment_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "fulfillment_quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "invoice_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "invoice_line_item_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_shippable": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "item_level_discount_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "refundable_credits": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "refundable_credits_issued": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "sku": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unit_price": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "order_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paid_on": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "payment_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "refundable_credits": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "refundable_credits_issued": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "resend_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resent_orders": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "order_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "reason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "resent_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "rounding_adjustement": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shipment_carrier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipped_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "shipping_address": {
+      "properties": {
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "line1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "line2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "line3": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "state_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "validation_status,": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "shipping_cut_off_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "shipping_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status_update_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "sub_total": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tracking_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

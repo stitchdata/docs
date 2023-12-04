@@ -1,0 +1,153 @@
+tap: gitlab
+version: '1'
+keys:
+  projects_project_id:
+  - table: branches
+    keys:
+    - project_id
+  - table: commits
+    keys:
+    - project_id
+  - table: issues
+    keys:
+    - project_id
+  - table: milestones
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - project_id
+  commits_commit_id:
+  - table: commits
+    keys:
+    - id
+  - table: branches
+    keys:
+    - commit_id
+  issues_issue_id:
+  - table: issues
+    keys:
+    - id
+  milestones_milestone_id:
+  - table: issues
+    keys:
+    - milestone_id
+  - table: milestones
+    keys:
+    - id
+  users_user_id:
+  - table: projects
+    keys:
+    - creator_id
+  - table: users
+    keys:
+    - id
+tables:
+- table-name: branches
+  join:
+  - table-name: commits
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: commit_id
+      foreign-key: id
+  - table-name: issues
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: milestones
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: commits
+  join:
+  - table-name: branches
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: id
+      foreign-key: commit_id
+  - table-name: issues
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: milestones
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: issues
+  join:
+  - table-name: branches
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: commits
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: milestones
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: milestone_id
+      foreign-key: id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: milestones
+  join:
+  - table-name: branches
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: commits
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: issues
+    keys:
+    - key: project_id
+      foreign-key: project_id
+    - key: id
+      foreign-key: milestone_id
+  - table-name: projects
+    keys:
+    - key: project_id
+      foreign-key: project_id
+- table-name: projects
+  join:
+  - table-name: branches
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: commits
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: issues
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: milestones
+    keys:
+    - key: project_id
+      foreign-key: project_id
+  - table-name: users
+    keys:
+    - key: creator_id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: creator_id

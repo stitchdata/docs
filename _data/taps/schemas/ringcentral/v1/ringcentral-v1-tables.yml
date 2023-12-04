@@ -1,0 +1,47 @@
+tap: ringcentral
+version: '1'
+tables:
+- name: call_log
+  description: 'The `{{ table.name }}` contains info about your call logs.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ringcentral/blob/master/tap_ringcentral/schemas/call_log.json
+    api-method: https://developers.ringcentral.com/api-reference/Call-Log/readUserCallLog
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: company_call_log
+  description: 'The `{{ table.name }}` contains info about company call log records.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ringcentral/blob/master/tap_ringcentral/schemas/company_call_log.json
+    api-method: https://developers.ringcentral.com/api-reference#Call-Log-loadCompanyCallLog
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: contacts
+  description: 'The `{{ table.name }}` contains info about corporate users of federated
+    accounts.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ringcentral/blob/master/tap_ringcentral/schemas/contacts.json
+    api-method: https://developers.ringcentral.com/api-reference/Internal-Contacts/readDirectoryEntry
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: messages
+  description: 'The `{{ table.name }}` contains info about an extension mailbox''s
+    messages.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ringcentral/blob/master/tap_ringcentral/schemas/messages.json
+    api-method: https://developers.ringcentral.com/api-reference/Message-Store/listMessages
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - conversationId

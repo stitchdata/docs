@@ -1,0 +1,721 @@
+integrations:
+  3plcentral:
+    display_name: 3PL Central
+    id: 3plcentral
+    tap: tap-3plcentral
+    type: saas
+  activecampaign:
+    display_name: ActiveCampaign
+    id: activecampaign
+    tap: tap-activecampaign
+    type: saas
+  adroll:
+    display_name: AdRoll
+    id: adroll
+    tap: tap-adroll
+    type: saas
+  amazon-dsp:
+    display_name: Amazon DSP
+    id: amazon-dsp
+    tap: tap-amazon-ads-dsp
+    type: saas
+  amazon-dynamodb:
+    display_name: Amazon DynamoDB
+    id: amazon-dynamodb
+    tap: tap-dynamodb
+    type: database
+  amazon-s3-csv:
+    display_name: Amazon S3 CSV
+    id: amazon-s3-csv
+    tap: tap-s3-csv
+    type: database
+  amplitude:
+    display_name: Amplitude
+    id: amplitude
+    tap: tap-amplitude
+    type: saas
+  any-database:
+    display_name: Any database
+    id: any-database
+    tap: ''
+    type: database
+  appsflyer:
+    display_name: AppsFlyer
+    id: appsflyer
+    tap: tap-appsflyer
+    type: saas
+  asana:
+    display_name: Asana
+    id: asana
+    tap: tap-asana
+    type: saas
+  aurora-postgresql-rds:
+    display_name: Amazon Aurora PostgreSQL RDS
+    id: aurora-postgresql-rds
+    tap: tap-postgres
+    type: database
+  aurora-rds:
+    display_name: Amazon Aurora MySQL RDS
+    id: aurora-rds
+    tap: tap-mysql
+    type: database
+  autopilot:
+    display_name: Autopilot
+    id: autopilot
+    tap: tap-autopilot
+    type: saas
+  bigcommerce:
+    display_name: BigCommerce
+    id: bigcommerce
+    tap: tap-bigcommerce
+    type: saas
+  bing-ads:
+    display_name: Microsoft Advertising
+    id: bing-ads
+    tap: tap-bing-ads
+    type: saas
+  braintree:
+    display_name: Braintree
+    id: braintree
+    tap: tap-braintree
+    type: saas
+  bronto:
+    display_name: Bronto
+    id: bronto
+    tap: tap-bronto
+    type: saas
+  campaign-manager:
+    display_name: Campaign Manager
+    id: campaign-manager
+    tap: tap-doubleclick-campaign-manager
+    type: saas
+  campaign-monitor:
+    display_name: Campaign Monitor
+    id: campaign-monitor
+    tap: tap-campaign-monitor
+    type: saas
+  chargebee:
+    display_name: Chargebee
+    id: chargebee
+    tap: tap-chargebee
+    type: saas
+  chargify:
+    display_name: Chargify
+    id: chargify
+    tap: tap-chargify
+    type: saas
+  circle-ci:
+    display_name: CircleCI
+    id: circle-ci
+    tap: tap-circle-ci
+    type: saas
+  closeio:
+    display_name: Close.io
+    id: closeio
+    tap: tap-closeio
+    type: saas
+  cloudsql-mysql:
+    display_name: Google CloudSQL MySQL
+    id: cloudsql-mysql
+    tap: tap-mysql
+    type: database
+  cloudsql-postgres:
+    display_name: Google CloudSQL PostgreSQL
+    id: cloudsql-postgres
+    tap: tap-postgres
+    type: database
+  clubspeed:
+    display_name: Club Speed
+    id: clubspeed
+    tap: tap-clubspeed
+    type: saas
+  codat:
+    display_name: Codat
+    id: codat
+    tap: tap-codat
+    type: saas
+  covid-19:
+    display_name: COVID-19 Public Data
+    id: covid-19
+    tap: tap-covid-19
+    type: saas
+  crossbeam:
+    display_name: Crossbeam
+    id: crossbeam
+    tap: tap-crossbeam
+    type: saas
+  darksky:
+    display_name: Darksky
+    id: darksky
+    tap: tap-darksky
+    type: saas
+  deputy:
+    display_name: Deputy
+    id: deputy
+    tap: tap-deputy
+    type: saas
+  desk:
+    display_name: Desk
+    id: desk
+    tap: ''
+    type: saas
+  dixa:
+    display_name: Dixa
+    id: dixa
+    tap: tap-dixa
+    type: saas
+  doorbell-io:
+    display_name: Doorbell.io
+    id: doorbell-io
+    tap: ''
+    type: saas
+  dynamodb:
+    display_name: DynamoDB
+    id: dynamodb
+    tap: ''
+    type: database
+  ebay:
+    display_name: eBay
+    id: ebay
+    tap: tap-ebay
+    type: saas
+  eloqua:
+    display_name: Eloqua
+    id: eloqua
+    tap: tap-eloqua
+    type: saas
+  facebook-ads:
+    display_name: Facebook Ads
+    id: facebook-ads
+    tap: tap-facebook
+    type: saas
+  freshdesk:
+    display_name: Freshdesk
+    id: freshdesk
+    tap: tap-freshdesk
+    type: saas
+  frontapp:
+    display_name: Front
+    id: frontapp
+    tap: tap-frontapp
+    type: saas
+  fullstory:
+    display_name: FullStory
+    id: fullstory
+    tap: tap-fullstory
+    type: saas
+  github:
+    display_name: GitHub
+    id: github
+    tap: tap-github
+    type: saas
+  gitlab:
+    display_name: GitLab
+    id: gitlab
+    tap: tap-gitlab
+    type: saas
+  google-ads:
+    display_name: Google Ads
+    id: google-ads
+    tap: tap-google-ads
+    type: saas
+  google-ads-adwords:
+    display_name: Google Ads (AdWords)
+    id: google-ads-adwords
+    tap: tap-adwords
+    type: saas
+  google-analytics:
+    display_name: Google Analytics
+    id: google-analytics
+    tap: tap-google-analytics
+    type: saas
+  google-analytics-360:
+    display_name: Google Analytics 360
+    id: google-analytics-360
+    tap: tap-ga360
+    type: saas
+  google-analytics-4:
+    display_name: Google Analytics 4
+    id: google-analytics-4
+    tap: tap-ga4
+    type: saas
+  google-analytics-adwords:
+    display_name: Google Analytics (AdWords)
+    id: google-analytics-adwords
+    tap: ''
+    type: saas
+  google-ecommerce:
+    display_name: Google ECommerce
+    id: google-ecommerce
+    tap: ''
+    type: saas
+  google-search-console:
+    display_name: Google Search Console
+    id: google-search-console
+    tap: tap-google-search-console
+    type: saas
+  google-sheets:
+    display_name: Google Sheets
+    id: google-sheets
+    tap: tap-google-sheets
+    type: saas
+  harvest:
+    display_name: Harvest
+    id: harvest
+    tap: tap-harvest
+    type: saas
+  harvest-forecast:
+    display_name: Harvest Forecast
+    id: harvest-forecast
+    tap: tap-harvest-forecast
+    type: saas
+  heap:
+    display_name: Heap
+    id: heap
+    tap: tap-heap
+    type: saas
+  helpscout:
+    display_name: Help Scout
+    id: helpscout
+    tap: tap-helpscout
+    type: saas
+  heroku:
+    display_name: Heroku
+    id: heroku
+    tap: tap-postgres
+    type: database
+  hubspot:
+    display_name: HubSpot
+    id: hubspot
+    tap: tap-hubspot
+    type: saas
+  ilevel:
+    display_name: iLEVEL
+    id: ilevel
+    tap: tap-ilevel
+    type: saas
+  impact:
+    display_name: Impact
+    id: impact
+    tap: tap-impact
+    type: saas
+  insided:
+    display_name: inSided
+    id: insided
+    tap: tap-insided
+    type: saas
+  intacct:
+    display_name: Intacct
+    id: intacct
+    tap: tap-intacct
+    type: saas
+  intercom:
+    display_name: Intercom
+    id: intercom
+    tap: tap-intercom
+    type: saas
+  invoiced:
+    display_name: Invoiced
+    id: invoiced
+    tap: tap-invoiced
+    type: saas
+  iterable-core:
+    display_name: Iterable
+    id: iterable-core
+    tap: tap-iterable
+    type: saas
+  jira:
+    display_name: JIRA
+    id: jira
+    tap: tap-jira
+    type: saas
+  klaviyo:
+    display_name: Klaviyo
+    id: klaviyo
+    tap: tap-klaviyo
+    type: saas
+  kustomer:
+    display_name: Kustomer
+    id: kustomer
+    tap: tap-kustomer
+    type: saas
+  lever:
+    display_name: Lever
+    id: lever
+    tap: tap-lever
+    type: saas
+  linkedin-ads:
+    display_name: LinkedIn Ads
+    id: linkedin-ads
+    tap: tap-linkedin-ads
+    type: saas
+  listrak:
+    display_name: Listrak
+    id: listrak
+    tap: tap-listrak
+    type: saas
+  liveperson:
+    display_name: LivePerson
+    id: liveperson
+    tap: tap-liveperson
+    type: saas
+  looker:
+    display_name: Looker
+    id: looker
+    tap: tap-looker
+    type: saas
+  lookml:
+    display_name: LookML
+    id: lookml
+    tap: tap-lookml
+    type: saas
+  magento:
+    display_name: Magento
+    id: magento
+    tap: tap-mysql
+    type: database
+  mailchimp:
+    display_name: MailChimp
+    id: mailchimp
+    tap: tap-mailchimp
+    type: saas
+  mailshake:
+    display_name: Mailshake
+    id: mailshake
+    tap: tap-mailshake
+    type: saas
+  mambu:
+    display_name: Mambu
+    id: mambu
+    tap: tap-mambu
+    type: saas
+  mariadb:
+    display_name: MariaDB
+    id: mariadb
+    tap: tap-mysql
+    type: database
+  marketo:
+    display_name: Marketo
+    id: marketo
+    tap: tap-marketo
+    type: saas
+  microsoft-azure:
+    display_name: Microsoft Azure
+    id: microsoft-azure
+    tap: ''
+    type: database
+  microsoft-azure-mysql:
+    display_name: Microsoft Azure MySQL
+    id: microsoft-azure-mysql
+    tap: tap-mysql
+    type: database
+  mixpanel:
+    display_name: Mixpanel
+    id: mixpanel
+    tap: tap-mixpanel
+    type: saas
+  mongodb:
+    display_name: MongoDB
+    id: mongodb
+    tap: tap-mongodb
+    type: database
+  mongodb-atlas:
+    display_name: MongoDB Atlas
+    id: mongodb-atlas
+    tap: tap-mongodb
+    type: database
+  ms-teams:
+    display_name: Microsoft Teams
+    id: ms-teams
+    tap: tap-ms-teams
+    type: saas
+  mssql:
+    display_name: Microsoft SQL Server
+    id: mssql
+    tap: tap-mssql
+    type: database
+  mysql:
+    display_name: MySQL
+    id: mysql
+    tap: tap-mysql
+    type: database
+  mysql-rds:
+    display_name: Amazon MySQL RDS
+    id: mysql-rds
+    tap: tap-mysql
+    type: database
+  netsuite:
+    display_name: NetSuite
+    id: netsuite
+    tap: ''
+    type: saas
+  netsuite-suite-analytics:
+    display_name: NetSuite Suite Analytics
+    id: netsuite-suite-analytics
+    tap: ''
+    type: saas
+  onfleet:
+    display_name: Onfleet
+    id: onfleet
+    tap: tap-onfleet
+    type: saas
+  oracle:
+    display_name: Oracle
+    id: oracle
+    tap: tap-oracle
+    type: database
+  oracle-rds:
+    display_name: Amazon Oracle RDS
+    id: oracle-rds
+    tap: tap-oracle
+    type: database
+  outbrain:
+    display_name: Outbrain
+    id: outbrain
+    tap: tap-outbrain
+    type: saas
+  outreach:
+    display_name: Outreach
+    id: outreach
+    tap: tap-outreach
+    type: saas
+  pardot:
+    display_name: Pardot
+    id: pardot
+    tap: tap-pardot
+    type: saas
+  pendo:
+    display_name: Pendo
+    id: pendo
+    tap: tap-pendo
+    type: saas
+  pepperjam:
+    display_name: Pepperjam
+    id: pepperjam
+    tap: tap-pepperjam
+    type: saas
+  pipedrive:
+    display_name: Pipedrive
+    id: pipedrive
+    tap: tap-pipedrive
+    type: saas
+  postgres:
+    display_name: PostgreSQL
+    id: postgres
+    tap: tap-postgres
+    type: database
+  postgresql-rds:
+    display_name: Amazon PostgreSQL RDS
+    id: postgresql-rds
+    tap: tap-postgres
+    type: database
+  quick-base:
+    display_name: Quick Base
+    id: quick-base
+    tap: tap-quickbase
+    type: saas
+  quickbooks:
+    display_name: QuickBooks
+    id: quickbooks
+    tap: tap-quickbooks
+    type: saas
+  recharge:
+    display_name: Recharge
+    id: recharge
+    tap: tap-recharge
+    type: saas
+  recurly:
+    display_name: Recurly
+    id: recurly
+    tap: tap-recurly
+    type: saas
+  referral-saasquatch:
+    display_name: Referral SaaSquatch
+    id: referral-saasquatch
+    tap: tap-referral-saasquatch
+    type: saas
+  responsys:
+    display_name: Responsys
+    id: responsys
+    tap: tap-responsys
+    type: database
+  revinate:
+    display_name: Revinate
+    id: revinate
+    tap: tap-revinate
+    type: saas
+  ringcentral:
+    display_name: RingCentral
+    id: ringcentral
+    tap: tap-ringcentral
+    type: saas
+  saasoptics:
+    display_name: SaaSOptics
+    id: saasoptics
+    tap: tap-saasoptics
+    type: saas
+  sailthru:
+    display_name: Sailthru
+    id: sailthru
+    tap: tap-sailthru
+    type: saas
+  salesforce:
+    display_name: Salesforce
+    id: salesforce
+    tap: tap-salesforce
+    type: saas
+  salesforce-marketing-cloud:
+    display_name: Salesforce Marketing Cloud
+    id: salesforce-marketing-cloud
+    tap: tap-exacttarget
+    type: saas
+  selligent:
+    display_name: Selligent
+    id: selligent
+    tap: tap-selligent
+    type: saas
+  sendgrid-core:
+    display_name: SendGrid Core
+    id: sendgrid-core
+    tap: tap-sendgrid
+    type: saas
+  sftp:
+    display_name: SFTP
+    id: sftp
+    tap: tap-sftp
+    type: database
+  shiphero:
+    display_name: ShipHero
+    id: shiphero
+    tap: tap-shiphero
+    type: saas
+  shippo:
+    display_name: Shippo
+    id: shippo
+    tap: tap-shippo
+    type: saas
+  shopify:
+    display_name: Shopify
+    id: shopify
+    tap: tap-shopify
+    type: saas
+  slack:
+    display_name: Slack
+    id: slack
+    tap: tap-slack
+    type: saas
+  snapchat-ads:
+    display_name: Snapchat Ads
+    id: snapchat-ads
+    tap: tap-snapchat-ads
+    type: saas
+  sql-server-rds:
+    display_name: Amazon Microsoft SQL Server RDS
+    id: sql-server-rds
+    tap: tap-mssql
+    type: database
+  square:
+    display_name: Square
+    id: square
+    tap: tap-square
+    type: saas
+  stripe:
+    display_name: Stripe
+    id: stripe
+    tap: tap-stripe
+    type: saas
+  surveymonkey:
+    display_name: SurveyMonkey
+    id: surveymonkey
+    tap: tap-surveymonkey
+    type: saas
+  taboola:
+    display_name: Taboola
+    id: taboola
+    tap: tap-taboola
+    type: saas
+  tiktok-ads:
+    display_name: TikTok Ads
+    id: tiktok-ads
+    tap: tap-tiktok-ads
+    type: saas
+  toggl:
+    display_name: Toggl
+    id: toggl
+    tap: tap-toggl
+    type: saas
+  trello:
+    display_name: Trello
+    id: trello
+    tap: tap-trello
+    type: saas
+  twilio:
+    display_name: Twilio
+    id: twilio
+    tap: tap-twilio
+    type: saas
+  twitter-ads:
+    display_name: Twitter Ads
+    id: twitter-ads
+    tap: tap-twitter-ads
+    type: saas
+  typeform:
+    display_name: Typeform
+    id: typeform
+    tap: tap-typeform
+    type: saas
+  ujet:
+    display_name: UJET
+    id: ujet
+    tap: tap-ujet
+    type: saas
+  urban-airship:
+    display_name: Urban Airship
+    id: urban-airship
+    tap: tap-urban-airship
+    type: saas
+  uservoice:
+    display_name: UserVoice
+    id: uservoice
+    tap: tap-uservoice
+    type: saas
+  wootric:
+    display_name: Wootric
+    id: wootric
+    tap: tap-wootric
+    type: saas
+  workday-raas:
+    display_name: Workday RaaS
+    id: workday-raas
+    tap: tap-workday-raas
+    type: saas
+  xero:
+    display_name: Xero
+    id: xero
+    tap: tap-xero
+    type: saas
+  yotpo:
+    display_name: Yotpo
+    id: yotpo
+    tap: tap-yotpo
+    type: saas
+  zendesk:
+    display_name: Zendesk Support
+    id: zendesk
+    tap: tap-zendesk
+    type: saas
+  zendesk-chat:
+    display_name: Zendesk Chat
+    id: zendesk-chat
+    tap: tap-zendesk-chat
+    type: saas
+  zoom:
+    display_name: Zoom
+    id: zoom
+    tap: tap-zoom
+    type: saas
+  zuora:
+    display_name: Zuora
+    id: zuora
+    tap: tap-zuora
+    type: saas

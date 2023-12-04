@@ -1,0 +1,141 @@
+{
+  "additionalProperties": false,
+  "name": "coupons",
+  "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "applies_to": {
+      "additionalProperties": false,
+      "properties": {
+        "entity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ids": {
+          "items": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "enabled": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "expires": {
+      "type": [
+        "date-time",
+        "null"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "max_uses": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "max_uses_per_customer": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "min_purchase": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "num_uses": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "restricted_to": {
+      "items": {
+        "properties": {
+          "countries": {
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        },
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "shipping_methods": {
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "type": "object"
+}

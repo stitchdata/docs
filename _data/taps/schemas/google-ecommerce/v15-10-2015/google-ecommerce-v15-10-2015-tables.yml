@@ -1,0 +1,11 @@
+tap: google-ecommerce
+version: 15-10-2015
+tables: 
+- name: ecommerce_v2
+  description: |
+    The `{{ table.name }}` table contains ECommerce data from your Google Analytics account. Refer to the table schema for the metrics and dimensions that are included.
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    replication-key: start-date

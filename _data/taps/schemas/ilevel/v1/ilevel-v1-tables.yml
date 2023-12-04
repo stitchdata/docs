@@ -1,0 +1,153 @@
+tap: ilevel
+version: '1'
+tables:
+- name: assets
+  description: 'The `{{ table.name }}` table contains info about the assets in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/assets.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: asset_to_asset_relations
+  description: 'The `{{ table.name }}` table contains info about asset to asset relations
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/asset_to_asset_relations.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: data_items
+  description: 'The `{{ table.name }}` table contains info about global data items
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/data_items.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: funds
+  description: 'The `{{ table.name }}` table contains info about the funds in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/funds.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: fund_to_asset_relations
+  description: 'The `{{ table.name }}` table contains info about fund to asset relations
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/fund_to_asset_relations.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: fund_to_fund_relations
+  description: 'The `{{ table.name }}` table contains info about fund to fund relations
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/fund_to_fund_relations.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: investments
+  description: 'The `{{ table.name }}` table contains info about the investments in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/investments.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+- name: investment_transactions
+  description: 'The `{{ table.name }}` table contains info about investment transactions
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/investment_transactions.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified
+- name: periodic_data_calculated
+  description: 'The `{{ table.name }}` table contains calculated data using the following
+    dimensions:
+
+
+    - **Entities**: Assets
+
+    - **Scenarios**: Actual
+
+    - **Currency**: USD
+
+    - **Period**: Fiscal quarter
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/periodic_data_calculated.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: hash_key
+    replication-key: reported_date_value
+- name: periodic_data_standardized
+  description: 'The `{{ table.name }}` table contains info about periodic standardized
+    data.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/periodic_data_standardized.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: hash_key
+    replication-key: reported_date_value
+- name: scenarios
+  description: 'The `{{ table.name }}` table contains info about the scenarios in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/scenarios.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: securities
+  description: 'The `{{ table.name }}` table contains info about the securities in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ilevel/blob/master/tap_ilevel/schemas/securities.json
+    api-method: '{{ integration.api-docs }}'
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_date
+tap-repo-schemas: true

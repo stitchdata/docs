@@ -1,0 +1,59 @@
+tap: typeform
+version: '1'
+tables:
+- name: answers
+  description: 'The `{{ table.name }}` table contains info about the answers submitted
+    for the forms specified in the {{ app.page-names.int-settings }} page.
+
+    '
+  links:
+    doc-link: https://developer.typeform.com/responses/
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/answers.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - landing_id
+    - question_id
+    replication-key: landing_id
+- name: forms
+  description: 'The `{{ table.name }}` table contains info about the forms (public
+    and private) that are accesible by the user who authorized the integration in
+    Stitch.
+
+    '
+  links:
+    doc-link: https://developer.typeform.com/responses/
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/forms.json
+    api-method: https://developer.typeform.com/create/reference/retrieve-forms/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_updated_at
+- name: landings
+  description: 'The `{{ table.name }}` table contains info about form landings. Depending
+    on the [**Incremental Range**]() setting defined in the {{ app.page-names.int-settings
+    }} page, data may be aggregated on a daily or hourly basis.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/landings.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: landing_id
+    replication-key: submitted_at
+- name: questions
+  description: 'The `{{ table.name }}` table contains a list of question titles and
+    IDs that can be used to link to [`answers`](#answers).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/questions.json
+    api-method: https://developer.typeform.com/create/reference/retrieve-form/
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - form_id
+    - question_id
+tap-repo-schemas: true

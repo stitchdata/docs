@@ -1,0 +1,190 @@
+tap: harvest
+version: '1'
+tables:
+- name: clients
+  description: 'The `clients` table contains info about the clients in your Harvest
+    account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-clients-api/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/clients.json
+    api-method: http://help.getharvest.com/api-v1/clients-api/clients/using-the-clients-api/#get-all-clients
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: contacts
+  description: 'The `contacts` table contains info about the client contacts in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-client-contacts-api/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/contacts.json
+    api-method: http://help.getharvest.com/api-v1/clients-api/clients/using-the-client-contacts-api/#get-all-contacts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: expenses
+  description: 'The `expenses` table contains info about the expenses recorded in
+    your Harvest account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/expenses-api/expenses/add-update-expenses/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/expenses.json
+    api-method: http://help.getharvest.com/api-v1/expenses-api/expenses/add-update-expenses/#show-an-expense
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: expense_categories
+  description: 'The `expense_categories` table contains info about the expense categories
+    in your Harvest account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/expenses-api/expenses/expense-categories/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/expense_categories.json
+    api-method: http://help.getharvest.com/api-v1/expenses-api/expenses/expense-categories/#show-all-categories
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoices
+  description: 'The `invoices` table contains info about the invoices in your Harvest
+    account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/show-invoices#show-a-single-invoice
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoices.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoice_item_categories
+  description: 'The `invoice_item_categories` table contains info about the various
+    categories that can be applied to invoice line items.
+
+
+    Note: Harvest includes two non-removable categories by default for the hours and
+    expenses you bill.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments#invoice-categories
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_item_categories.json
+    api-method: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-all-categories
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoice_messages
+  description: 'The `invoice_messages` table contains info about invoice messages,
+    or emails sent to clients about invoices.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_messages.json
+    api-method: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-invoice-messages
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: invoice_payments
+  description: 'The `invoice_payments` table contains info about the payments applied
+    to invoices in your Harvest account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments#show-payments-for-an-invoice
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoice_payments.json
+    api-method: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-payments-for-an-invoice
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: people
+  description: 'The `people` table contains info about the people - or users - in
+    your Harvest account.
+
+
+    **Note**: These are **internal** users. Info about external users, or clients,
+    is in the `clients` table.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/users-api/users/managing-users/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/people.json
+    api-method: http://help.getharvest.com/api-v1/users-api/users/managing-users/#show-all-users
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: projects
+  description: 'The `projects` table contains info about the projects in your Harvest
+    account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/projects-api/projects/create-and-show-projects#projects-parameters
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/projects.json
+    api-method: http://help.getharvest.com/api-v1/projects-api/projects/create-and-show-projects/#show-all-projects
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: project_tasks
+  description: 'The `project_tasks` table contains info about the tasks assigned to
+    projects.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/tasks-api/tasks/task-assignments#all-assigned-tasks-to-project
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/project_tasks.json
+    api-method: http://help.getharvest.com/api-v1/tasks-api/tasks/task-assignments/#all-assigned-tasks-to-project
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: project_users
+  description: 'The `project_users` table contains info about the users assigned to
+    projects.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/users-api/users/user-assignments#get-users-assigned-to-projects
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/project_users.json
+    api-method: http://help.getharvest.com/api-v1/users-api/users/user-assignments/#get-users-assigned-to-projects
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: tasks
+  description: 'The `tasks` table contains info about the tasks in your Harvest account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/tasks-api/tasks/create-show-tasks/
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/tasks.json
+    api-method: http://help.getharvest.com/api-v1/tasks-api/tasks/create-show-tasks/#show-all-tasks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: time_entries
+  description: 'The `time_entries` table contains info about the time entries in your
+    Harvest account.
+
+    '
+  links:
+    doc-link: http://help.getharvest.com/api-v1/timesheets-api/timesheets/retrieving-time-entries#retrieving-a-single-entry
+    singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/time_entries.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

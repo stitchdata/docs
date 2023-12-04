@@ -1,0 +1,264 @@
+{
+  "properties": {
+    "associations": {
+      "properties": {
+        "companyIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "contactIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "dealIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "attachments": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "engagement": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        },
+        "lastUpdated": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "ownerId": {
+          "type": "integer"
+        },
+        "portalId": {
+          "type": "integer"
+        },
+        "timestamp": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "engagement_id": {
+      "type": "integer"
+    },
+    "lastUpdated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "metadata": {
+      "properties": {
+        "bcc": {
+          "items": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "body": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "cc": {
+          "items": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "disposition": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "durationMilliseconds": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "endTime": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "externalAccountId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "externalId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "forObjectType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "from": {
+          "properties": {
+            "email": {
+              "type": "string"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "fromNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "recordingUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "startTime": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "to": {
+          "items": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "toNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,157 @@
+tap: pardot
+version: '1'
+tables:
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#campaign
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/campaigns.json
+    api-method: http://developer.pardot.com/kb/api-version-3/campaigns/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: id
+- name: email_clicks
+  description: 'The `{{ table.name }}` table contains info about email click events.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#email-clicks
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/email_clicks.json
+    api-method: http://developer.pardot.com/kb/api-version-3/batch-email-clicks/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: lists
+  description: 'The `{{ table.name }}` table contains info about the lists in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#list
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/lists.json
+    api-method: http://developer.pardot.com/kb/api-version-3/lists/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: list_memberships
+  description: 'The `{{ table.name }}` table contains info about list memberships.
+
+
+    **Note**: To replicate this table, the [`lists`](#lists) table must also be set
+    to replicate.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#list-membership
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/list_memberships.json
+    api-method: http://developer.pardot.com/kb/api-version-3/list-memberships/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-keys:
+    - id
+    - list_id
+    - updated_at
+- name: opportunities
+  description: 'The `{{ table.name }}` table contains info about the opportunities
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#opportunity
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/opportunities.json
+    api-method: http://developer.pardot.com/kb/api-version-3/opportunities/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-keys:
+    - id
+    - updated_at
+- name: prospects
+  description: 'The `{{ table.name }}` table contains info about the prospects in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#prospect
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/prospects.json
+    api-method: http://developer.pardot.com/kb/api-version-3/prospects/#supported-operations_1
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: prospect_accounts
+  description: 'The `{{ table.name }}` table contains info about prospect accounts.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#prospect-account
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/prospect_accounts.json
+    api-method: http://developer.pardot.com/kb/api-version-3/prospect-accounts/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#user
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/users.json
+    api-method: http://developer.pardot.com/kb/api-version-3/users/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-keys:
+    - id
+    - updated_at
+- name: visitors
+  description: 'The `{{ table.name }}` table contains info about visitors.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#visitor
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/visitors.json
+    api-method: http://developer.pardot.com/kb/api-version-3/visitors/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: visitor_activities
+  description: 'The `{{ table.name }}` table contains info about visitor activities.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#visitor-activity
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/visitor_activities.json
+    api-method: http://developer.pardot.com/kb/api-version-3/visitor-activities/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: id
+- name: visits
+  description: 'The `{{ table.name }}` table contains info about visits.
+
+
+    **Note**: To replicate this table, you must also set the [`visitors`](#visitors)
+    table to replicate.
+
+    '
+  links:
+    doc-link: http://developer.pardot.com/kb/object-field-references/#visit
+    singer-schema: https://github.com/singer-io/tap-pardot/blob/master/tap_pardot/schemas/visits.json
+    api-method: http://developer.pardot.com/kb/api-version-3/visits/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-keys:
+    - id
+    - updated_at

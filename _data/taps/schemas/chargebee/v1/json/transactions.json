@@ -1,0 +1,449 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount_capturable": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "amount_unused": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "authorization_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "base_currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "error_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "error_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "exchange_rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "fraud_flag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fraud_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gateway": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gateway_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id_at_gateway": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "iin": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "initiator_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last4": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "linked_credit_notes": {
+      "items": {
+        "properties": {
+          "applied_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "applied_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "cn_create_reason_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cn_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "cn_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cn_reason_code": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cn_reference_invoice_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cn_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "cn_total": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "linked_invoices": {
+      "items": {
+        "properties": {
+          "applied_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "applied_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "invoice_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "invoice_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "invoice_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "invoice_total": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "linked_payments": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "linked_refunds": {
+      "items": {
+        "properties": {
+          "txn_amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "txn_date": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "txn_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "txn_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "masked_card_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "merchant_reference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_source_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_authorization_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "refunded_txn_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reversal_transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reversal_txn_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "settled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "three_d_secure": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "validated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "voided_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

@@ -1,0 +1,121 @@
+tap: linkedin-ads
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about your {{ integration.display_name
+    }} ad accounts.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/accounts.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts#search-for-accounts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_time
+- name: account_users
+  description: 'The `{{ table.name }}` table contains info about the users who have
+    permissions to an ad account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/account_users.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users#find-ad-account-users-by-accounts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_id
+    - user_person_id
+    replication-key: last_modified_time
+- name: ad_analytics_by_campaign
+  description: 'The `{{ table.name }}` table contains analytics data for ads, segmented
+    by campaign.
+
+
+    To replicate data from this table, you must also select the parent `campaigns`
+    table.
+
+
+    **Note**: This table is replicated using an attribution window of {{ integration.attribution-window
+    }}. Refer to the [Replication](#replication) section for more info.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/ad_analytics_by_campaign.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - campaign_id
+    - start_at
+    replication-key: end_at
+- name: ad_analytics_by_creative
+  description: 'The `{{ table.name }}` table contains info about ad analytics, segmented
+    by creative.
+
+
+    To replicate data from this table, you must also select the parent `creatives`
+    table.
+
+
+    **Note**: This table is replicated using an attribution window of {{ integration.attribution-window
+    }}. Refer to the [Replication](#replication) section for more info.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/ad_analytics_by_creative.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - creative_id
+    - start_at
+    replication-key: end_at
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/campaigns.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaigns#search-for-campaigns
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_time
+- name: campaign_groups
+  description: 'The `{{ table.name }}` table contains info about the campaign groups
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/campaign_groups.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaign-groups#search-for-campaign-groups
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_time
+- name: creatives
+  description: 'The `{{ table.name }}` table contains info about the creatives in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/creatives.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-creatives#search-for-creatives
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_modified_time
+- name: video_ads
+  description: 'The `{{ table.name }}` table contains info about the video ads in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/video_ads.json
+    api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/create-and-manage-video#finders
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: content_reference
+    replication-key: last_modified_time

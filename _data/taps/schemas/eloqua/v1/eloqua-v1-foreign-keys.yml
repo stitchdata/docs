@@ -1,0 +1,1415 @@
+tap: eloqua
+version: '1'
+keys:
+  accounts_id:
+  - table: accounts
+    keys:
+    - id
+  assets_AssetId:
+  - table: assets
+    keys:
+    - id
+  - table: activity_bounceback
+    keys:
+    - AssetId
+  - table: activity_email_clickthrough
+    keys:
+    - AssetId
+  - table: activity_email_open
+    keys:
+    - AssetId
+  - table: activity_email_send
+    keys:
+    - AssetId
+  - table: activity_form_submit
+    keys:
+    - AssetId
+  - table: activity_page_view
+    keys:
+    - AssetId
+  - table: activity_subscribe
+    keys:
+    - AssetId
+  - table: activity_unsubscribe
+    keys:
+    - AssetId
+  - table: activity_web_visit
+    keys:
+    - AssetId
+  campaigns_CampaignId:
+  - table: campaigns
+    keys:
+    - id
+  - table: activity_bounceback
+    keys:
+    - CampaignId
+  - table: activity_email_clickthrough
+    keys:
+    - CampaignId
+  - table: activity_email_open
+    keys:
+    - CampaignId
+  - table: activity_email_send
+    keys:
+    - CampaignId
+  - table: activity_form_submit
+    keys:
+    - CampaignId
+  - table: activity_page_view
+    keys:
+    - CampaignId
+  - table: activity_subscribe
+    keys:
+    - CampaignId
+  - table: activity_unsubscribe
+    keys:
+    - CampaignId
+  - table: forms
+    keys:
+    - processingSteps.campaignId
+  contacts_ContactId:
+  - table: contacts
+    keys:
+    - Id
+  - table: activity_bounceback
+    keys:
+    - ContactId
+  - table: activity_email_clickthrough
+    keys:
+    - ContactId
+  - table: activity_email_open
+    keys:
+    - ContactId
+  - table: activity_email_send
+    keys:
+    - ContactId
+  - table: activity_form_submit
+    keys:
+    - ContactId
+  - table: activity_page_view
+    keys:
+    - ContactId
+  - table: activity_subscribe
+    keys:
+    - ContactId
+  - table: activity_unsubscribe
+    keys:
+    - ContactId
+  - table: visitors
+    keys:
+    - contactId
+  emails_emailId:
+  - table: emails
+    keys:
+    - id
+  - table: forms
+    keys:
+    - processingSteps.emailId
+  _emailFooterId:
+  - table: emailGroups
+    keys:
+    - emailFooterId
+  - table: emails
+    keys:
+    - emailFooterId
+  _emailHeaderId:
+  - table: emailGroups
+    keys:
+    - emailHeaderId
+  - table: emails
+    keys:
+    - emailHeaderId
+  _folderId:
+  - table: assets
+    keys:
+    - folderId
+  - table: campaigns
+    keys:
+    - folderId
+  - table: emails
+    keys:
+    - dynamicContents.folderId
+    - hyperlinks.folderId
+    - images.folderId
+  - table: forms
+    keys:
+    - folderId
+  forms_id:
+  - table: forms
+    keys:
+    - id
+  _:
+  - table: assets
+    keys:
+    - createdBy
+    - updatedBy
+  - table: campaigns
+    keys:
+    - createdBy
+    - updatedBy
+    - runAsUserId
+  - table: emails
+    keys:
+    - createdBy
+    - dynamicContents.createdBy
+    - dynamicContents.updatedBy
+    - fieldMerges.createdBy
+    - fieldMerges.updatedBy
+    - hyperlinks.createdBy
+    - hyperlinks.updatedBy
+    - images.createdBy
+    - images.updatedBy
+    - updatedBy
+  visitors_VisitorId:
+  - table: activity_email_clickthrough
+    keys:
+    - VisitorId
+  - table: activity_email_open
+    keys:
+    - VisitorId
+  - table: activity_form_submit
+    keys:
+    - VisitorId
+  - table: activity_page_view
+    keys:
+    - VisitorId
+  - table: visitors
+    keys:
+    - id
+tables:
+- table-name: assets
+  join:
+  - table-name: activity_bounceback
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_email_open
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_email_send
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_form_submit
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_page_view
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_subscribe
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: activity_web_visit
+    keys:
+    - key: id
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: folderId
+      foreign-key: folderId
+    - key: createdBy
+      foreign-key: createdBy
+    - key: updatedBy
+      foreign-key: createdBy
+    - key: createdBy
+      foreign-key: updatedBy
+    - key: updatedBy
+      foreign-key: updatedBy
+    - key: createdBy
+      foreign-key: runAsUserId
+    - key: updatedBy
+      foreign-key: runAsUserId
+  - table-name: emails
+    keys:
+    - key: folderId
+      foreign-key: dynamicContents.folderId
+    - key: folderId
+      foreign-key: hyperlinks.folderId
+    - key: folderId
+      foreign-key: images.folderId
+    - key: createdBy
+      foreign-key: createdBy
+    - key: updatedBy
+      foreign-key: createdBy
+    - key: createdBy
+      foreign-key: dynamicContents.createdBy
+    - key: updatedBy
+      foreign-key: dynamicContents.createdBy
+    - key: createdBy
+      foreign-key: dynamicContents.updatedBy
+    - key: updatedBy
+      foreign-key: dynamicContents.updatedBy
+    - key: createdBy
+      foreign-key: fieldMerges.createdBy
+    - key: updatedBy
+      foreign-key: fieldMerges.createdBy
+    - key: createdBy
+      foreign-key: fieldMerges.updatedBy
+    - key: updatedBy
+      foreign-key: fieldMerges.updatedBy
+    - key: createdBy
+      foreign-key: hyperlinks.createdBy
+    - key: updatedBy
+      foreign-key: hyperlinks.createdBy
+    - key: createdBy
+      foreign-key: hyperlinks.updatedBy
+    - key: updatedBy
+      foreign-key: hyperlinks.updatedBy
+    - key: createdBy
+      foreign-key: images.createdBy
+    - key: updatedBy
+      foreign-key: images.createdBy
+    - key: createdBy
+      foreign-key: images.updatedBy
+    - key: updatedBy
+      foreign-key: images.updatedBy
+    - key: createdBy
+      foreign-key: updatedBy
+    - key: updatedBy
+      foreign-key: updatedBy
+  - table-name: forms
+    keys:
+    - key: folderId
+      foreign-key: folderId
+- table-name: activity_bounceback
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+- table-name: activity_email_clickthrough
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+    - key: VisitorId
+      foreign-key: id
+- table-name: activity_email_open
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+    - key: VisitorId
+      foreign-key: id
+- table-name: activity_email_send
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+- table-name: activity_form_submit
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+    - key: VisitorId
+      foreign-key: id
+- table-name: activity_page_view
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+    - key: VisitorId
+      foreign-key: VisitorId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+    - key: VisitorId
+      foreign-key: id
+- table-name: activity_subscribe
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+- table-name: activity_unsubscribe
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+    - key: CampaignId
+      foreign-key: CampaignId
+    - key: ContactId
+      foreign-key: ContactId
+  - table-name: activity_web_visit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: campaigns
+    keys:
+    - key: CampaignId
+      foreign-key: id
+  - table-name: forms
+    keys:
+    - key: CampaignId
+      foreign-key: processingSteps.campaignId
+  - table-name: contacts
+    keys:
+    - key: ContactId
+      foreign-key: Id
+  - table-name: visitors
+    keys:
+    - key: ContactId
+      foreign-key: contactId
+- table-name: activity_web_visit
+  join:
+  - table-name: assets
+    keys:
+    - key: AssetId
+      foreign-key: id
+  - table-name: activity_bounceback
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_email_open
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_email_send
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_form_submit
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_page_view
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_subscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: AssetId
+      foreign-key: AssetId
+- table-name: campaigns
+  join:
+  - table-name: activity_bounceback
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_email_open
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_email_send
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_form_submit
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_page_view
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_subscribe
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: id
+      foreign-key: CampaignId
+  - table-name: forms
+    keys:
+    - key: id
+      foreign-key: processingSteps.campaignId
+    - key: folderId
+      foreign-key: folderId
+  - table-name: assets
+    keys:
+    - key: folderId
+      foreign-key: folderId
+    - key: createdBy
+      foreign-key: createdBy
+    - key: updatedBy
+      foreign-key: createdBy
+    - key: runAsUserId
+      foreign-key: createdBy
+    - key: createdBy
+      foreign-key: updatedBy
+    - key: updatedBy
+      foreign-key: updatedBy
+    - key: runAsUserId
+      foreign-key: updatedBy
+  - table-name: emails
+    keys:
+    - key: folderId
+      foreign-key: dynamicContents.folderId
+    - key: folderId
+      foreign-key: hyperlinks.folderId
+    - key: folderId
+      foreign-key: images.folderId
+    - key: createdBy
+      foreign-key: createdBy
+    - key: updatedBy
+      foreign-key: createdBy
+    - key: runAsUserId
+      foreign-key: createdBy
+    - key: createdBy
+      foreign-key: dynamicContents.createdBy
+    - key: updatedBy
+      foreign-key: dynamicContents.createdBy
+    - key: runAsUserId
+      foreign-key: dynamicContents.createdBy
+    - key: createdBy
+      foreign-key: dynamicContents.updatedBy
+    - key: updatedBy
+      foreign-key: dynamicContents.updatedBy
+    - key: runAsUserId
+      foreign-key: dynamicContents.updatedBy
+    - key: createdBy
+      foreign-key: fieldMerges.createdBy
+    - key: updatedBy
+      foreign-key: fieldMerges.createdBy
+    - key: runAsUserId
+      foreign-key: fieldMerges.createdBy
+    - key: createdBy
+      foreign-key: fieldMerges.updatedBy
+    - key: updatedBy
+      foreign-key: fieldMerges.updatedBy
+    - key: runAsUserId
+      foreign-key: fieldMerges.updatedBy
+    - key: createdBy
+      foreign-key: hyperlinks.createdBy
+    - key: updatedBy
+      foreign-key: hyperlinks.createdBy
+    - key: runAsUserId
+      foreign-key: hyperlinks.createdBy
+    - key: createdBy
+      foreign-key: hyperlinks.updatedBy
+    - key: updatedBy
+      foreign-key: hyperlinks.updatedBy
+    - key: runAsUserId
+      foreign-key: hyperlinks.updatedBy
+    - key: createdBy
+      foreign-key: images.createdBy
+    - key: updatedBy
+      foreign-key: images.createdBy
+    - key: runAsUserId
+      foreign-key: images.createdBy
+    - key: createdBy
+      foreign-key: images.updatedBy
+    - key: updatedBy
+      foreign-key: images.updatedBy
+    - key: runAsUserId
+      foreign-key: images.updatedBy
+    - key: createdBy
+      foreign-key: updatedBy
+    - key: updatedBy
+      foreign-key: updatedBy
+    - key: runAsUserId
+      foreign-key: updatedBy
+- table-name: forms
+  join:
+  - table-name: campaigns
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: id
+    - key: folderId
+      foreign-key: folderId
+  - table-name: activity_bounceback
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_email_open
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_email_send
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_form_submit
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_page_view
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_subscribe
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: processingSteps.campaignId
+      foreign-key: CampaignId
+  - table-name: emails
+    keys:
+    - key: processingSteps.emailId
+      foreign-key: id
+    - key: folderId
+      foreign-key: dynamicContents.folderId
+    - key: folderId
+      foreign-key: hyperlinks.folderId
+    - key: folderId
+      foreign-key: images.folderId
+  - table-name: assets
+    keys:
+    - key: folderId
+      foreign-key: folderId
+- table-name: contacts
+  join:
+  - table-name: activity_bounceback
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_email_open
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_email_send
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_page_view
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_subscribe
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: Id
+      foreign-key: ContactId
+  - table-name: visitors
+    keys:
+    - key: Id
+      foreign-key: contactId
+- table-name: visitors
+  join:
+  - table-name: contacts
+    keys:
+    - key: contactId
+      foreign-key: Id
+  - table-name: activity_bounceback
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+  - table-name: activity_email_clickthrough
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+    - key: id
+      foreign-key: VisitorId
+  - table-name: activity_email_open
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+    - key: id
+      foreign-key: VisitorId
+  - table-name: activity_email_send
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+  - table-name: activity_form_submit
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+    - key: id
+      foreign-key: VisitorId
+  - table-name: activity_page_view
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+    - key: id
+      foreign-key: VisitorId
+  - table-name: activity_subscribe
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+  - table-name: activity_unsubscribe
+    keys:
+    - key: contactId
+      foreign-key: ContactId
+- table-name: emails
+  join:
+  - table-name: forms
+    keys:
+    - key: id
+      foreign-key: processingSteps.emailId
+    - key: dynamicContents.folderId
+      foreign-key: folderId
+    - key: hyperlinks.folderId
+      foreign-key: folderId
+    - key: images.folderId
+      foreign-key: folderId
+  - table-name: emailGroups
+    keys:
+    - key: emailFooterId
+      foreign-key: emailFooterId
+    - key: emailHeaderId
+      foreign-key: emailHeaderId
+  - table-name: assets
+    keys:
+    - key: dynamicContents.folderId
+      foreign-key: folderId
+    - key: hyperlinks.folderId
+      foreign-key: folderId
+    - key: images.folderId
+      foreign-key: folderId
+    - key: createdBy
+      foreign-key: createdBy
+    - key: dynamicContents.createdBy
+      foreign-key: createdBy
+    - key: dynamicContents.updatedBy
+      foreign-key: createdBy
+    - key: fieldMerges.createdBy
+      foreign-key: createdBy
+    - key: fieldMerges.updatedBy
+      foreign-key: createdBy
+    - key: hyperlinks.createdBy
+      foreign-key: createdBy
+    - key: hyperlinks.updatedBy
+      foreign-key: createdBy
+    - key: images.createdBy
+      foreign-key: createdBy
+    - key: images.updatedBy
+      foreign-key: createdBy
+    - key: updatedBy
+      foreign-key: createdBy
+    - key: createdBy
+      foreign-key: updatedBy
+    - key: dynamicContents.createdBy
+      foreign-key: updatedBy
+    - key: dynamicContents.updatedBy
+      foreign-key: updatedBy
+    - key: fieldMerges.createdBy
+      foreign-key: updatedBy
+    - key: fieldMerges.updatedBy
+      foreign-key: updatedBy
+    - key: hyperlinks.createdBy
+      foreign-key: updatedBy
+    - key: hyperlinks.updatedBy
+      foreign-key: updatedBy
+    - key: images.createdBy
+      foreign-key: updatedBy
+    - key: images.updatedBy
+      foreign-key: updatedBy
+    - key: updatedBy
+      foreign-key: updatedBy
+  - table-name: campaigns
+    keys:
+    - key: dynamicContents.folderId
+      foreign-key: folderId
+    - key: hyperlinks.folderId
+      foreign-key: folderId
+    - key: images.folderId
+      foreign-key: folderId
+    - key: createdBy
+      foreign-key: createdBy
+    - key: dynamicContents.createdBy
+      foreign-key: createdBy
+    - key: dynamicContents.updatedBy
+      foreign-key: createdBy
+    - key: fieldMerges.createdBy
+      foreign-key: createdBy
+    - key: fieldMerges.updatedBy
+      foreign-key: createdBy
+    - key: hyperlinks.createdBy
+      foreign-key: createdBy
+    - key: hyperlinks.updatedBy
+      foreign-key: createdBy
+    - key: images.createdBy
+      foreign-key: createdBy
+    - key: images.updatedBy
+      foreign-key: createdBy
+    - key: updatedBy
+      foreign-key: createdBy
+    - key: createdBy
+      foreign-key: updatedBy
+    - key: dynamicContents.createdBy
+      foreign-key: updatedBy
+    - key: dynamicContents.updatedBy
+      foreign-key: updatedBy
+    - key: fieldMerges.createdBy
+      foreign-key: updatedBy
+    - key: fieldMerges.updatedBy
+      foreign-key: updatedBy
+    - key: hyperlinks.createdBy
+      foreign-key: updatedBy
+    - key: hyperlinks.updatedBy
+      foreign-key: updatedBy
+    - key: images.createdBy
+      foreign-key: updatedBy
+    - key: images.updatedBy
+      foreign-key: updatedBy
+    - key: updatedBy
+      foreign-key: updatedBy
+    - key: createdBy
+      foreign-key: runAsUserId
+    - key: dynamicContents.createdBy
+      foreign-key: runAsUserId
+    - key: dynamicContents.updatedBy
+      foreign-key: runAsUserId
+    - key: fieldMerges.createdBy
+      foreign-key: runAsUserId
+    - key: fieldMerges.updatedBy
+      foreign-key: runAsUserId
+    - key: hyperlinks.createdBy
+      foreign-key: runAsUserId
+    - key: hyperlinks.updatedBy
+      foreign-key: runAsUserId
+    - key: images.createdBy
+      foreign-key: runAsUserId
+    - key: images.updatedBy
+      foreign-key: runAsUserId
+    - key: updatedBy
+      foreign-key: runAsUserId
+- table-name: emailGroups
+  join:
+  - table-name: emails
+    keys:
+    - key: emailFooterId
+      foreign-key: emailFooterId
+    - key: emailHeaderId
+      foreign-key: emailHeaderId

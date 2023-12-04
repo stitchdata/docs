@@ -1,0 +1,49 @@
+tap: google-analytics-360
+version: '1'
+keys:
+  ga_sessions_visitId:
+  - table: ga_sessions
+    keys:
+    - visitId
+  - table: ga_session_hits
+    keys:
+    - visitId
+  ga_sessions_fullVisitorId:
+  - table: ga_sessions
+    keys:
+    - fullVisitorId
+  - table: ga_session_hits
+    keys:
+    - fullVisitorId
+  ga_sessions_visitStartTime:
+  - table: ga_sessions
+    keys:
+    - visitStartTime
+  - table: ga_session_hits
+    keys:
+    - visitStartTime
+  ga_session_hits_hitNumber:
+  - table: ga_sessions_hits
+    keys:
+    - hitNumber
+tables:
+- table-name: ga_sessions
+  join:
+  - table-name: ga_session_hits
+    keys:
+    - key: visitId
+      foreign-key: visitId
+    - key: fullVisitorId
+      foreign-key: fullVisitorId
+    - key: visitStartTime
+      foreign-key: visitStartTime
+- table-name: ga_session_hits
+  join:
+  - table-name: ga_sessions
+    keys:
+    - key: visitId
+      foreign-key: visitId
+    - key: fullVisitorId
+      foreign-key: fullVisitorId
+    - key: visitStartTime
+      foreign-key: visitStartTime

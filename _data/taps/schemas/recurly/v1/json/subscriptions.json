@@ -1,0 +1,903 @@
+{
+  "properties": {
+    "account": {
+      "properties": {
+        "bill_to": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "parent_account_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "activated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "add_ons": {
+      "items": {
+        "properties": {
+          "add_on": {
+            "properties": {
+              "accounting_code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "object": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "created_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "expired_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "subscription_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "unit_amount": {
+            "multipleOf": 1e-08,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "updated_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "add_ons_total": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "auto_renew": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "bank_account_authorized_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "canceled_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "collection_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "coupon_redemptions": {
+      "items": {
+        "properties": {
+          "coupon": {
+            "properties": {
+              "code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "coupon_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "discount": {
+                "properties": {
+                  "currencies": {
+                    "items": {
+                      "properties": {
+                        "amount": {
+                          "multipleOf": 1e-08,
+                          "type": [
+                            "null",
+                            "number"
+                          ]
+                        },
+                        "currency": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "null",
+                        "object"
+                      ]
+                    },
+                    "type": [
+                      "null",
+                      "array"
+                    ]
+                  },
+                  "percent": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "trial": {
+                    "properties": {
+                      "length": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "unit": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "expired_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "object": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "state": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "created_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "discounted": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "current_period_ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_period_started_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_term_ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "current_term_started_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "properties": {
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "customer_notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expiration_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expires_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "net_terms": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paused_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "pending_change": {
+      "properties": {
+        "activate_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "activated": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "add_ons": {
+          "items": {
+            "properties": {
+              "add_on": {
+                "properties": {
+                  "accounting_code": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "code": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "object": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "created_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "expired_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "object": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "quantity": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "subscription_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "unit_amount": {
+                "multipleOf": 1e-08,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "updated_at": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "deleted_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "plan": {
+          "properties": {
+            "code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "object": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "subscription_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "unit_amount": {
+          "multipleOf": 1e-08,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "plan": {
+      "properties": {
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "po_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "remaining_billing_cycles": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "remaining_pause_cycles": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "renewal_billing_cycles": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "shipping_address": {
+      "properties": {
+        "account_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "region": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "street1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "street2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "updated_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "vat_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subtotal": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "terms_and_conditions": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_billing_cycles": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "trial_started_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "unit_amount": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

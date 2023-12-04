@@ -1,80 +1,37 @@
-<!-- This file is used to output and display foreign key information
-    for table attributes where foreign-key == true  -->
+{% assign join = fk-table.join %}
 
+<div class="panel-group" id="{{ table.name | slugify }}-foreign-keys">
+    <div class="panel panel-default">   
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-foreign-keys">{{ table.name }} table foreign keys</a>
+            </h4>
+        </div>
+    
+        <div id="collapse-{{ table.name | slugify }}-foreign-keys" class="panel-collapse collapse noCrossRef">
+            
+            <table style="margin-top: 0px; margin-bottom: 0px;">
 
-<!-- Get the foreign key file in the integration's schema folder -->
-    {% assign integration-references = site.integration-schemas | where:"tap-reference",integration.name %}
-
-<!-- Locate the reference file for this version -->
-        {% assign references = integration-references | where:"version",integration.this-version %}
-
-<!-- Because the object names of attributes vary from level to level,
-    we need to capture each one and assign it to a common variable 
-    that'll be used in the forloop. This means we don't have to repeat
-    the loop a bunch of times.
-
-    The logic below will also capture the attribute's `table` name,
-    if there is one. `table` is used to indicate a foreign key when the
-    name of the foreign key isn't the same throughout the schema.
-
-    For example: In a subtable called `campaigns__contactIds`, a subattribute
-    might just be named `id` - not useful for identifying which type of ID it is.
-    So in this case, the `table` value would say "contacts", indicating that 
-    id = contacts.id.  -->
-
-{% assign foreign-key-id = attribute.foreign-key-id %}
-{% assign attribute-table = attribute.table %}
-
-{% assign attribute-key = attribute %}
-
-{% for reference in references %}
-    {% for key in reference.foreign-keys %}
-        {% if key.id == attribute-key.foreign-key-id %}
-            {% if key.all-foreign-keys %}
-                <p>
-                    <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
-                    <strong>Reference</strong>:
-                </p>
-                    <ul>
-                        {% for foreign-key in key.all-foreign-keys %}
-                            <li>
-                                <a href="#{{ foreign-key.table | slugify }}">
-                                    {% if foreign-key.subattribute %}
-                                        {%- capture full-table-name -%}
-                                            {{ foreign-key.subattribute | prepend: "." | prepend: foreign-key.table }}
-                                        {%- endcapture -%}
-
-                                    {% elsif foreign-key.subtable %}
-                                        {%- capture full-table-name -%}
-                                            {{ foreign-key.table | append: "." | append: foreign-key.subtable }}
-                                        {%- endcapture -%}
-
-                                    {% else %}
-                                        {%- capture full-table-name -%}
-                                            {{ foreign-key.table }}
-                                        {%- endcapture -%}
-                                    {% endif %} 
-
-                                    {{ full-table-name | append: "." }}
-
-                                    {%- if foreign-key.join-on -%}
-                                        {{ foreign-key.join-on | strip }}
-                                    {%- else -%}
-                                        {{ key.attribute | strip }}
-                                    {%- endif -%}
-                                </a>
-                            </li>
+                <tr>
+                    <th>Join {{ table.name }} with</th>
+                    <th>on</th>
+                </tr>
+                {% for t in join %}
+                <tr>
+                    <td>
+                        <a href="#{{ t.table-name | slugify }}">{{t.table-name}}</a>
+                    </td>
+                    <td>
+                        {% for key in t.keys %}
+                            <pre>{{ table.name }}.{{key.key}} = {{t.table-name}}.{{key.foreign-key}}</pre>
                         {% endfor %}
-                    </ul>
+                    </td>
+                </tr>
 
-            {% else %}
+                {% endfor %}
 
-                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
-                    <strong>Reference</strong>: 
-                    <a href="#{{ key.table }}">
-                        {{ key.table }}.{{ key.join-on }}
-                    </a>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-{% endfor %}
+            </table>
+            
+        </div>
+    </div>
+</div>
