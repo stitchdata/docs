@@ -1,0 +1,203 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "booking_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "branch_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "entry_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "entry_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "foreign_amount": {
+      "additionalProperties": false,
+      "properties": {
+        "accounting_rate": {
+          "additionalProperties": false,
+          "properties": {
+            "encoded_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "end_date": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "from_currency_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "rate": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "start_date": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "to_currency_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "currency": {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "gl_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gl_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gl_account_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gl_account_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_entry_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

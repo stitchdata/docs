@@ -1,0 +1,40 @@
+tap: circle-ci
+version: '1'
+tables:
+- name: jobs
+  description: 'The **{{ table.name }}** table contains information about jobs from
+    your {{ integration.display_name }} workflows.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-circle-ci/tree/master/tap_circle_ci/schemas/jobs.json
+    api-method: https://circleci.com/docs/api/v2/index.html#operation/listWorkflowJobs
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - id
+    - _workflow_id
+- name: pipelines
+  description: 'The **{{ table.name }}** table contains information about piplines
+    from your {{ integration.display_name }} projects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-circle-ci/tree/master/tap_circle_ci/schemas/pipelines.json
+    api-method: https://circleci.com/docs/api/v2/index.html#operation/listPipelinesForProject
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: workflows
+  description: 'The **{{ table.name }}** table contains a list of workflows from your
+    {{ integration.display_name }} projects, sorted by pipeline ID.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-circle-ci/tree/master/tap_circle_ci/schemas/workflows.json
+    api-method: https://circleci.com/docs/api/v2/index.html#operation/listWorkflowsByPipelineId
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at

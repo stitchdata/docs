@@ -1,0 +1,39 @@
+tap: dixa
+version: '1'
+tables:
+- name: activity_logs
+  description: 'The `{{ table.name }}` lists all information from activity logs for
+    an organization in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-dixa/blob/main/tap_dixa/schemas/activity_logs.json
+    api-method: https://docs.dixa.io/openapi/dixa-api/tag/Conversations/#tag/Conversations/operation/getConversationsActivitylog
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: activityTimestamp
+- name: conversations
+  description: 'The `{{ table.name }}` table lists information about conversations
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-dixa/blob/main/tap_dixa/schemas/conversations.json
+    api-method: https://docs.dixa.io/openapi/dixa-api/tag/Conversations/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: messages
+  description: 'The `{{ table.name }}` table contains information about all messages
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-dixa/blob/main/tap_dixa/schemas/messages.json
+    api-method: https://docs.dixa.io/openapi/dixa-api/tag/Messages/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at

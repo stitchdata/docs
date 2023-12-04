@@ -1,0 +1,213 @@
+tap: asana
+version: '1'
+keys:
+  projects_id:
+  - table: projects
+    keys:
+    - id
+  - table: tasks
+    keys:
+    - projects.id
+  tags_id:
+  - table: tags
+    keys:
+    - id
+  tasks_id:
+  - table: tasks
+    keys:
+    - id
+  users_id:
+  - table: projects
+    keys:
+    - followers.id
+    - members.id
+    - owner.id
+  - table: tags
+    keys:
+    - followers.id
+  - table: tasks
+    keys:
+    - assignee.id
+    - followers.id
+  - table: users
+    keys:
+    - id
+  workspace_id:
+  - table: projects
+    keys:
+    - workspace.id
+  - table: tags
+    keys:
+    - workspace.id
+  - table: tasks
+    keys:
+    - workspace.id
+  - table: users
+    keys:
+    - workspaces.id
+  - table: workspaces
+    keys:
+    - id
+tables:
+- table-name: projects
+  join:
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: projects.id
+    - key: followers.id
+      foreign-key: assignee.id
+    - key: members.id
+      foreign-key: assignee.id
+    - key: owner.id
+      foreign-key: assignee.id
+    - key: followers.id
+      foreign-key: followers.id
+    - key: members.id
+      foreign-key: followers.id
+    - key: owner.id
+      foreign-key: followers.id
+    - key: workspace.id
+      foreign-key: workspace.id
+  - table-name: tags
+    keys:
+    - key: followers.id
+      foreign-key: followers.id
+    - key: members.id
+      foreign-key: followers.id
+    - key: owner.id
+      foreign-key: followers.id
+    - key: workspace.id
+      foreign-key: workspace.id
+  - table-name: users
+    keys:
+    - key: followers.id
+      foreign-key: id
+    - key: members.id
+      foreign-key: id
+    - key: owner.id
+      foreign-key: id
+    - key: workspace.id
+      foreign-key: workspaces.id
+  - table-name: workspaces
+    keys:
+    - key: workspace.id
+      foreign-key: id
+- table-name: tasks
+  join:
+  - table-name: projects
+    keys:
+    - key: projects.id
+      foreign-key: id
+    - key: assignee.id
+      foreign-key: followers.id
+    - key: followers.id
+      foreign-key: followers.id
+    - key: assignee.id
+      foreign-key: members.id
+    - key: followers.id
+      foreign-key: members.id
+    - key: assignee.id
+      foreign-key: owner.id
+    - key: followers.id
+      foreign-key: owner.id
+    - key: workspace.id
+      foreign-key: workspace.id
+  - table-name: tags
+    keys:
+    - key: assignee.id
+      foreign-key: followers.id
+    - key: followers.id
+      foreign-key: followers.id
+    - key: workspace.id
+      foreign-key: workspace.id
+  - table-name: users
+    keys:
+    - key: assignee.id
+      foreign-key: id
+    - key: followers.id
+      foreign-key: id
+    - key: workspace.id
+      foreign-key: workspaces.id
+  - table-name: workspaces
+    keys:
+    - key: workspace.id
+      foreign-key: id
+- table-name: tags
+  join:
+  - table-name: projects
+    keys:
+    - key: followers.id
+      foreign-key: followers.id
+    - key: followers.id
+      foreign-key: members.id
+    - key: followers.id
+      foreign-key: owner.id
+    - key: workspace.id
+      foreign-key: workspace.id
+  - table-name: tasks
+    keys:
+    - key: followers.id
+      foreign-key: assignee.id
+    - key: followers.id
+      foreign-key: followers.id
+    - key: workspace.id
+      foreign-key: workspace.id
+  - table-name: users
+    keys:
+    - key: followers.id
+      foreign-key: id
+    - key: workspace.id
+      foreign-key: workspaces.id
+  - table-name: workspaces
+    keys:
+    - key: workspace.id
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: followers.id
+    - key: id
+      foreign-key: members.id
+    - key: id
+      foreign-key: owner.id
+    - key: workspaces.id
+      foreign-key: workspace.id
+  - table-name: tags
+    keys:
+    - key: id
+      foreign-key: followers.id
+    - key: workspaces.id
+      foreign-key: workspace.id
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: assignee.id
+    - key: id
+      foreign-key: followers.id
+    - key: workspaces.id
+      foreign-key: workspace.id
+  - table-name: workspaces
+    keys:
+    - key: workspaces.id
+      foreign-key: id
+- table-name: workspaces
+  join:
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: workspace.id
+  - table-name: tags
+    keys:
+    - key: id
+      foreign-key: workspace.id
+  - table-name: tasks
+    keys:
+    - key: id
+      foreign-key: workspace.id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: workspaces.id

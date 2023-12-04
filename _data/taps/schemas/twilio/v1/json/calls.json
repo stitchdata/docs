@@ -1,0 +1,215 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "annotation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "answered_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "api_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "caller_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "date_updated": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "direction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "forwarded_from": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from_formatted": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_call_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phone_number_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "multipleOf": 1e-08,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "price_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "queue_time": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subresource_uris": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "subresource": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "uri": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "notifications": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "recordings": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      ]
+    },
+    "to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to_formatted": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "trunk_sid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

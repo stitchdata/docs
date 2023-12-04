@@ -1,0 +1,287 @@
+{
+  "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "credit_card_details": {
+      "properties": {
+        "card_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customer_location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "currency_iso_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer_details": {
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "disbursement_details": {
+      "anyOf": [
+        {
+          "properties": {
+            "disbursement_date": {
+              "anyOf": [
+                {
+                  "type": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "success": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gateway_rejection_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "merchant_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_instrument_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paypal_details": {
+      "anyOf": [
+        {
+          "properties": {
+            "authorization_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "capture_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "payer_email": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "payer_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "payer_status": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "payment_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "refund_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "seller_protection_status": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "tax_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "tax_id_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transaction_fee_amount": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transaction_fee_currency_iso_code": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "plan_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_authorization_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_response_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_response_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "refunded_transaction_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "service_fee_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "settlement_batch_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscription_details": {
+      "properties": {
+        "billing_period_end_date": {
+          "anyOf": [
+            {
+              "type": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "billing_period_start_date": {
+          "anyOf": [
+            {
+              "type": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "subscription_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": "date-time"
+    }
+  },
+  "type": "object"
+}

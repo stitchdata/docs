@@ -1,0 +1,20 @@
+tap: darksky
+version: '1'
+tables:
+- name: forecast
+  description: "The `forecasts` table contains weather conditions for a particular\
+    \ date and location. The locations are determined by the locations entered into\
+    \ the **Locations** field in Stitch.\n\n**Note**: The units data points are returned\
+    \ in is determined by the value entered into the **Units** field in Stitch. For\
+    \ example: If `us` is entered, data will be returned in Imperial units. \n"
+  links:
+    doc-link: https://darksky.net/dev/docs#overview
+    singer-schema: https://github.com/singer-io/tap-darksky/blob/master/tap_darksky/schemas/forecast.json
+    api-method: https://darksky.net/dev/docs#time-machine-request
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - forecast_date
+    - latitude
+    - longitude
+    replication-key: forecast_date

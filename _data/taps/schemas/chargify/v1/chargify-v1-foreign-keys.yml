@@ -1,0 +1,964 @@
+tap: chargify
+version: '1'
+keys:
+  components_component_id:
+  - table: components
+    keys:
+    - id
+    - prices.id
+  - table: invoices
+    keys:
+    - charges.component_id
+    - payments_and_credits.component_id
+  - table: price_points
+    keys:
+    - component_id
+    - prices.component_id
+  - table: statements
+    keys:
+    - transactions.component_id
+  - table: transactions
+    keys:
+    - component_id
+  coupons_coupon_id:
+  - table: coupons
+    keys:
+    - id
+  customers_customer_id:
+  - table: customers
+    keys:
+    - id
+    - parent_id
+  - table: invoices
+    keys:
+    - charges.customer_id
+    - payments_and_credits.customer_id
+  - table: statements
+    keys:
+    - transactions.customer_id
+  - table: subscriptions
+    keys:
+    - credit_card.customer_id
+    - customer.id
+  - table: transactions
+    keys:
+    - customer_id
+  events_event_id:
+  - table: events
+    keys:
+    - id
+  - table: statements
+    keys:
+    - events.event.id
+  invoices_invoice_id:
+  - table: invoices
+    keys:
+    - id
+  price_points_price_point_id:
+  - table: components
+    keys:
+    - default_price_point_id
+    - prices.price_point_id
+  - table: price_points
+    keys:
+    - id
+  product_families_product_family_id:
+  - table: components
+    keys:
+    - product_family_id
+  - table: coupons
+    keys:
+    - product_family_id
+  - table: product_families
+    keys:
+    - id
+  - table: products
+    keys:
+    - product_family.id
+  - table: subscriptions
+    keys:
+    - product.product_family.id
+  products_product_id:
+  - table: events
+    keys:
+    - event_specific_data.product_id
+  - table: invoices
+    keys:
+    - charges.product_id
+    - payments_and_credits.product_id
+  - table: products
+    keys:
+    - id
+  - table: statements
+    keys:
+    - events.event.event_specific_data.product_id
+    - transactions.product_id
+  - table: subscriptions
+    keys:
+    - next_product_id
+    - product.id
+  - table: transactions
+    keys:
+    - product_id
+  statements_statement_id:
+  - table: invoices
+    keys:
+    - statement_id
+  - table: statements
+    keys:
+    - id
+    - transactions.statement_id
+  - table: transactions
+    keys:
+    - statement_id
+  subscriptions_subscription_id:
+  - table: events
+    keys:
+    - subscription_id
+  - table: invoices
+    keys:
+    - charges.subscription_id
+    - payments_and_credits.subscription_id
+    - subscription_id
+  - table: statements
+    keys:
+    - events.event.subscription_id
+    - subscription_id
+    - transactions.subscription_id
+  - table: subscriptions
+    keys:
+    - id
+  - table: transactions
+    keys:
+    - subscription_id
+  transactions_transaction-id:
+  - table: events
+    keys:
+    - event_specific_data.account_transaction_id
+  - table: invoices
+    keys:
+    - charges.payment_id
+    - payments_and_credits.payment_id
+  - table: statements
+    keys:
+    - transactions.id
+  - table: subscriptions
+    keys:
+    - signup_payment_id
+    - stored_credential_transaction_id
+  - table: transactions
+    keys:
+    - id
+    - parent_id
+    - payment_id
+tables:
+- table-name: components
+  join:
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: charges.component_id
+    - key: prices.id
+      foreign-key: charges.component_id
+    - key: id
+      foreign-key: payments_and_credits.component_id
+    - key: prices.id
+      foreign-key: payments_and_credits.component_id
+  - table-name: price_points
+    keys:
+    - key: id
+      foreign-key: component_id
+    - key: prices.id
+      foreign-key: component_id
+    - key: id
+      foreign-key: prices.component_id
+    - key: prices.id
+      foreign-key: prices.component_id
+    - key: default_price_point_id
+      foreign-key: id
+    - key: prices.price_point_id
+      foreign-key: id
+  - table-name: statements
+    keys:
+    - key: id
+      foreign-key: transactions.component_id
+    - key: prices.id
+      foreign-key: transactions.component_id
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: component_id
+    - key: prices.id
+      foreign-key: component_id
+  - table-name: coupons
+    keys:
+    - key: product_family_id
+      foreign-key: product_family_id
+  - table-name: product_families
+    keys:
+    - key: product_family_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: product_family_id
+      foreign-key: product_family.id
+  - table-name: subscriptions
+    keys:
+    - key: product_family_id
+      foreign-key: product.product_family.id
+- table-name: invoices
+  join:
+  - table-name: components
+    keys:
+    - key: charges.component_id
+      foreign-key: id
+    - key: payments_and_credits.component_id
+      foreign-key: id
+    - key: charges.component_id
+      foreign-key: prices.id
+    - key: payments_and_credits.component_id
+      foreign-key: prices.id
+  - table-name: price_points
+    keys:
+    - key: charges.component_id
+      foreign-key: component_id
+    - key: payments_and_credits.component_id
+      foreign-key: component_id
+    - key: charges.component_id
+      foreign-key: prices.component_id
+    - key: payments_and_credits.component_id
+      foreign-key: prices.component_id
+  - table-name: statements
+    keys:
+    - key: charges.component_id
+      foreign-key: transactions.component_id
+    - key: payments_and_credits.component_id
+      foreign-key: transactions.component_id
+    - key: charges.customer_id
+      foreign-key: transactions.customer_id
+    - key: payments_and_credits.customer_id
+      foreign-key: transactions.customer_id
+    - key: charges.product_id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: payments_and_credits.product_id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: charges.product_id
+      foreign-key: transactions.product_id
+    - key: payments_and_credits.product_id
+      foreign-key: transactions.product_id
+    - key: statement_id
+      foreign-key: id
+    - key: statement_id
+      foreign-key: transactions.statement_id
+    - key: charges.subscription_id
+      foreign-key: events.event.subscription_id
+    - key: payments_and_credits.subscription_id
+      foreign-key: events.event.subscription_id
+    - key: subscription_id
+      foreign-key: events.event.subscription_id
+    - key: charges.subscription_id
+      foreign-key: subscription_id
+    - key: payments_and_credits.subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: charges.subscription_id
+      foreign-key: transactions.subscription_id
+    - key: payments_and_credits.subscription_id
+      foreign-key: transactions.subscription_id
+    - key: subscription_id
+      foreign-key: transactions.subscription_id
+    - key: charges.payment_id
+      foreign-key: transactions.id
+    - key: payments_and_credits.payment_id
+      foreign-key: transactions.id
+  - table-name: transactions
+    keys:
+    - key: charges.component_id
+      foreign-key: component_id
+    - key: payments_and_credits.component_id
+      foreign-key: component_id
+    - key: charges.customer_id
+      foreign-key: customer_id
+    - key: payments_and_credits.customer_id
+      foreign-key: customer_id
+    - key: charges.product_id
+      foreign-key: product_id
+    - key: payments_and_credits.product_id
+      foreign-key: product_id
+    - key: statement_id
+      foreign-key: statement_id
+    - key: charges.subscription_id
+      foreign-key: subscription_id
+    - key: payments_and_credits.subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: charges.payment_id
+      foreign-key: id
+    - key: payments_and_credits.payment_id
+      foreign-key: id
+    - key: charges.payment_id
+      foreign-key: parent_id
+    - key: payments_and_credits.payment_id
+      foreign-key: parent_id
+    - key: charges.payment_id
+      foreign-key: payment_id
+    - key: payments_and_credits.payment_id
+      foreign-key: payment_id
+  - table-name: customers
+    keys:
+    - key: charges.customer_id
+      foreign-key: id
+    - key: payments_and_credits.customer_id
+      foreign-key: id
+    - key: charges.customer_id
+      foreign-key: parent_id
+    - key: payments_and_credits.customer_id
+      foreign-key: parent_id
+  - table-name: subscriptions
+    keys:
+    - key: charges.customer_id
+      foreign-key: credit_card.customer_id
+    - key: payments_and_credits.customer_id
+      foreign-key: credit_card.customer_id
+    - key: charges.customer_id
+      foreign-key: customer.id
+    - key: payments_and_credits.customer_id
+      foreign-key: customer.id
+    - key: charges.product_id
+      foreign-key: next_product_id
+    - key: payments_and_credits.product_id
+      foreign-key: next_product_id
+    - key: charges.product_id
+      foreign-key: product.id
+    - key: payments_and_credits.product_id
+      foreign-key: product.id
+    - key: charges.subscription_id
+      foreign-key: id
+    - key: payments_and_credits.subscription_id
+      foreign-key: id
+    - key: subscription_id
+      foreign-key: id
+    - key: charges.payment_id
+      foreign-key: signup_payment_id
+    - key: payments_and_credits.payment_id
+      foreign-key: signup_payment_id
+    - key: charges.payment_id
+      foreign-key: stored_credential_transaction_id
+    - key: payments_and_credits.payment_id
+      foreign-key: stored_credential_transaction_id
+  - table-name: events
+    keys:
+    - key: charges.product_id
+      foreign-key: event_specific_data.product_id
+    - key: payments_and_credits.product_id
+      foreign-key: event_specific_data.product_id
+    - key: charges.subscription_id
+      foreign-key: subscription_id
+    - key: payments_and_credits.subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: charges.payment_id
+      foreign-key: event_specific_data.account_transaction_id
+    - key: payments_and_credits.payment_id
+      foreign-key: event_specific_data.account_transaction_id
+  - table-name: products
+    keys:
+    - key: charges.product_id
+      foreign-key: id
+    - key: payments_and_credits.product_id
+      foreign-key: id
+- table-name: price_points
+  join:
+  - table-name: components
+    keys:
+    - key: component_id
+      foreign-key: id
+    - key: prices.component_id
+      foreign-key: id
+    - key: component_id
+      foreign-key: prices.id
+    - key: prices.component_id
+      foreign-key: prices.id
+    - key: id
+      foreign-key: default_price_point_id
+    - key: id
+      foreign-key: prices.price_point_id
+  - table-name: invoices
+    keys:
+    - key: component_id
+      foreign-key: charges.component_id
+    - key: prices.component_id
+      foreign-key: charges.component_id
+    - key: component_id
+      foreign-key: payments_and_credits.component_id
+    - key: prices.component_id
+      foreign-key: payments_and_credits.component_id
+  - table-name: statements
+    keys:
+    - key: component_id
+      foreign-key: transactions.component_id
+    - key: prices.component_id
+      foreign-key: transactions.component_id
+  - table-name: transactions
+    keys:
+    - key: component_id
+      foreign-key: component_id
+    - key: prices.component_id
+      foreign-key: component_id
+- table-name: statements
+  join:
+  - table-name: components
+    keys:
+    - key: transactions.component_id
+      foreign-key: id
+    - key: transactions.component_id
+      foreign-key: prices.id
+  - table-name: invoices
+    keys:
+    - key: transactions.component_id
+      foreign-key: charges.component_id
+    - key: transactions.component_id
+      foreign-key: payments_and_credits.component_id
+    - key: transactions.customer_id
+      foreign-key: charges.customer_id
+    - key: transactions.customer_id
+      foreign-key: payments_and_credits.customer_id
+    - key: events.event.event_specific_data.product_id
+      foreign-key: charges.product_id
+    - key: transactions.product_id
+      foreign-key: charges.product_id
+    - key: events.event.event_specific_data.product_id
+      foreign-key: payments_and_credits.product_id
+    - key: transactions.product_id
+      foreign-key: payments_and_credits.product_id
+    - key: id
+      foreign-key: statement_id
+    - key: transactions.statement_id
+      foreign-key: statement_id
+    - key: events.event.subscription_id
+      foreign-key: charges.subscription_id
+    - key: subscription_id
+      foreign-key: charges.subscription_id
+    - key: transactions.subscription_id
+      foreign-key: charges.subscription_id
+    - key: events.event.subscription_id
+      foreign-key: payments_and_credits.subscription_id
+    - key: subscription_id
+      foreign-key: payments_and_credits.subscription_id
+    - key: transactions.subscription_id
+      foreign-key: payments_and_credits.subscription_id
+    - key: events.event.subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: transactions.subscription_id
+      foreign-key: subscription_id
+    - key: transactions.id
+      foreign-key: charges.payment_id
+    - key: transactions.id
+      foreign-key: payments_and_credits.payment_id
+  - table-name: price_points
+    keys:
+    - key: transactions.component_id
+      foreign-key: component_id
+    - key: transactions.component_id
+      foreign-key: prices.component_id
+  - table-name: transactions
+    keys:
+    - key: transactions.component_id
+      foreign-key: component_id
+    - key: transactions.customer_id
+      foreign-key: customer_id
+    - key: events.event.event_specific_data.product_id
+      foreign-key: product_id
+    - key: transactions.product_id
+      foreign-key: product_id
+    - key: id
+      foreign-key: statement_id
+    - key: transactions.statement_id
+      foreign-key: statement_id
+    - key: events.event.subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: transactions.subscription_id
+      foreign-key: subscription_id
+    - key: transactions.id
+      foreign-key: id
+    - key: transactions.id
+      foreign-key: parent_id
+    - key: transactions.id
+      foreign-key: payment_id
+  - table-name: customers
+    keys:
+    - key: transactions.customer_id
+      foreign-key: id
+    - key: transactions.customer_id
+      foreign-key: parent_id
+  - table-name: subscriptions
+    keys:
+    - key: transactions.customer_id
+      foreign-key: credit_card.customer_id
+    - key: transactions.customer_id
+      foreign-key: customer.id
+    - key: events.event.event_specific_data.product_id
+      foreign-key: next_product_id
+    - key: transactions.product_id
+      foreign-key: next_product_id
+    - key: events.event.event_specific_data.product_id
+      foreign-key: product.id
+    - key: transactions.product_id
+      foreign-key: product.id
+    - key: events.event.subscription_id
+      foreign-key: id
+    - key: subscription_id
+      foreign-key: id
+    - key: transactions.subscription_id
+      foreign-key: id
+    - key: transactions.id
+      foreign-key: signup_payment_id
+    - key: transactions.id
+      foreign-key: stored_credential_transaction_id
+  - table-name: events
+    keys:
+    - key: events.event.id
+      foreign-key: id
+    - key: events.event.event_specific_data.product_id
+      foreign-key: event_specific_data.product_id
+    - key: transactions.product_id
+      foreign-key: event_specific_data.product_id
+    - key: events.event.subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: transactions.subscription_id
+      foreign-key: subscription_id
+    - key: transactions.id
+      foreign-key: event_specific_data.account_transaction_id
+  - table-name: products
+    keys:
+    - key: events.event.event_specific_data.product_id
+      foreign-key: id
+    - key: transactions.product_id
+      foreign-key: id
+- table-name: transactions
+  join:
+  - table-name: components
+    keys:
+    - key: component_id
+      foreign-key: id
+    - key: component_id
+      foreign-key: prices.id
+  - table-name: invoices
+    keys:
+    - key: component_id
+      foreign-key: charges.component_id
+    - key: component_id
+      foreign-key: payments_and_credits.component_id
+    - key: customer_id
+      foreign-key: charges.customer_id
+    - key: customer_id
+      foreign-key: payments_and_credits.customer_id
+    - key: product_id
+      foreign-key: charges.product_id
+    - key: product_id
+      foreign-key: payments_and_credits.product_id
+    - key: statement_id
+      foreign-key: statement_id
+    - key: subscription_id
+      foreign-key: charges.subscription_id
+    - key: subscription_id
+      foreign-key: payments_and_credits.subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: id
+      foreign-key: charges.payment_id
+    - key: parent_id
+      foreign-key: charges.payment_id
+    - key: payment_id
+      foreign-key: charges.payment_id
+    - key: id
+      foreign-key: payments_and_credits.payment_id
+    - key: parent_id
+      foreign-key: payments_and_credits.payment_id
+    - key: payment_id
+      foreign-key: payments_and_credits.payment_id
+  - table-name: price_points
+    keys:
+    - key: component_id
+      foreign-key: component_id
+    - key: component_id
+      foreign-key: prices.component_id
+  - table-name: statements
+    keys:
+    - key: component_id
+      foreign-key: transactions.component_id
+    - key: customer_id
+      foreign-key: transactions.customer_id
+    - key: product_id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: product_id
+      foreign-key: transactions.product_id
+    - key: statement_id
+      foreign-key: id
+    - key: statement_id
+      foreign-key: transactions.statement_id
+    - key: subscription_id
+      foreign-key: events.event.subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: transactions.subscription_id
+    - key: id
+      foreign-key: transactions.id
+    - key: parent_id
+      foreign-key: transactions.id
+    - key: payment_id
+      foreign-key: transactions.id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+    - key: customer_id
+      foreign-key: parent_id
+  - table-name: subscriptions
+    keys:
+    - key: customer_id
+      foreign-key: credit_card.customer_id
+    - key: customer_id
+      foreign-key: customer.id
+    - key: product_id
+      foreign-key: next_product_id
+    - key: product_id
+      foreign-key: product.id
+    - key: subscription_id
+      foreign-key: id
+    - key: id
+      foreign-key: signup_payment_id
+    - key: parent_id
+      foreign-key: signup_payment_id
+    - key: payment_id
+      foreign-key: signup_payment_id
+    - key: id
+      foreign-key: stored_credential_transaction_id
+    - key: parent_id
+      foreign-key: stored_credential_transaction_id
+    - key: payment_id
+      foreign-key: stored_credential_transaction_id
+  - table-name: events
+    keys:
+    - key: product_id
+      foreign-key: event_specific_data.product_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: id
+      foreign-key: event_specific_data.account_transaction_id
+    - key: parent_id
+      foreign-key: event_specific_data.account_transaction_id
+    - key: payment_id
+      foreign-key: event_specific_data.account_transaction_id
+  - table-name: products
+    keys:
+    - key: product_id
+      foreign-key: id
+- table-name: coupons
+  join:
+  - table-name: components
+    keys:
+    - key: product_family_id
+      foreign-key: product_family_id
+  - table-name: product_families
+    keys:
+    - key: product_family_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: product_family_id
+      foreign-key: product_family.id
+  - table-name: subscriptions
+    keys:
+    - key: product_family_id
+      foreign-key: product.product_family.id
+- table-name: customers
+  join:
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: charges.customer_id
+    - key: parent_id
+      foreign-key: charges.customer_id
+    - key: id
+      foreign-key: payments_and_credits.customer_id
+    - key: parent_id
+      foreign-key: payments_and_credits.customer_id
+  - table-name: statements
+    keys:
+    - key: id
+      foreign-key: transactions.customer_id
+    - key: parent_id
+      foreign-key: transactions.customer_id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: credit_card.customer_id
+    - key: parent_id
+      foreign-key: credit_card.customer_id
+    - key: id
+      foreign-key: customer.id
+    - key: parent_id
+      foreign-key: customer.id
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: customer_id
+    - key: parent_id
+      foreign-key: customer_id
+- table-name: subscriptions
+  join:
+  - table-name: customers
+    keys:
+    - key: credit_card.customer_id
+      foreign-key: id
+    - key: customer.id
+      foreign-key: id
+    - key: credit_card.customer_id
+      foreign-key: parent_id
+    - key: customer.id
+      foreign-key: parent_id
+  - table-name: invoices
+    keys:
+    - key: credit_card.customer_id
+      foreign-key: charges.customer_id
+    - key: customer.id
+      foreign-key: charges.customer_id
+    - key: credit_card.customer_id
+      foreign-key: payments_and_credits.customer_id
+    - key: customer.id
+      foreign-key: payments_and_credits.customer_id
+    - key: next_product_id
+      foreign-key: charges.product_id
+    - key: product.id
+      foreign-key: charges.product_id
+    - key: next_product_id
+      foreign-key: payments_and_credits.product_id
+    - key: product.id
+      foreign-key: payments_and_credits.product_id
+    - key: id
+      foreign-key: charges.subscription_id
+    - key: id
+      foreign-key: payments_and_credits.subscription_id
+    - key: id
+      foreign-key: subscription_id
+    - key: signup_payment_id
+      foreign-key: charges.payment_id
+    - key: stored_credential_transaction_id
+      foreign-key: charges.payment_id
+    - key: signup_payment_id
+      foreign-key: payments_and_credits.payment_id
+    - key: stored_credential_transaction_id
+      foreign-key: payments_and_credits.payment_id
+  - table-name: statements
+    keys:
+    - key: credit_card.customer_id
+      foreign-key: transactions.customer_id
+    - key: customer.id
+      foreign-key: transactions.customer_id
+    - key: next_product_id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: product.id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: next_product_id
+      foreign-key: transactions.product_id
+    - key: product.id
+      foreign-key: transactions.product_id
+    - key: id
+      foreign-key: events.event.subscription_id
+    - key: id
+      foreign-key: subscription_id
+    - key: id
+      foreign-key: transactions.subscription_id
+    - key: signup_payment_id
+      foreign-key: transactions.id
+    - key: stored_credential_transaction_id
+      foreign-key: transactions.id
+  - table-name: transactions
+    keys:
+    - key: credit_card.customer_id
+      foreign-key: customer_id
+    - key: customer.id
+      foreign-key: customer_id
+    - key: next_product_id
+      foreign-key: product_id
+    - key: product.id
+      foreign-key: product_id
+    - key: id
+      foreign-key: subscription_id
+    - key: signup_payment_id
+      foreign-key: id
+    - key: stored_credential_transaction_id
+      foreign-key: id
+    - key: signup_payment_id
+      foreign-key: parent_id
+    - key: stored_credential_transaction_id
+      foreign-key: parent_id
+    - key: signup_payment_id
+      foreign-key: payment_id
+    - key: stored_credential_transaction_id
+      foreign-key: payment_id
+  - table-name: components
+    keys:
+    - key: product.product_family.id
+      foreign-key: product_family_id
+  - table-name: coupons
+    keys:
+    - key: product.product_family.id
+      foreign-key: product_family_id
+  - table-name: product_families
+    keys:
+    - key: product.product_family.id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: product.product_family.id
+      foreign-key: product_family.id
+    - key: next_product_id
+      foreign-key: id
+    - key: product.id
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: next_product_id
+      foreign-key: event_specific_data.product_id
+    - key: product.id
+      foreign-key: event_specific_data.product_id
+    - key: id
+      foreign-key: subscription_id
+    - key: signup_payment_id
+      foreign-key: event_specific_data.account_transaction_id
+    - key: stored_credential_transaction_id
+      foreign-key: event_specific_data.account_transaction_id
+- table-name: events
+  join:
+  - table-name: statements
+    keys:
+    - key: id
+      foreign-key: events.event.id
+    - key: event_specific_data.product_id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: event_specific_data.product_id
+      foreign-key: transactions.product_id
+    - key: subscription_id
+      foreign-key: events.event.subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: subscription_id
+      foreign-key: transactions.subscription_id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: transactions.id
+  - table-name: invoices
+    keys:
+    - key: event_specific_data.product_id
+      foreign-key: charges.product_id
+    - key: event_specific_data.product_id
+      foreign-key: payments_and_credits.product_id
+    - key: subscription_id
+      foreign-key: charges.subscription_id
+    - key: subscription_id
+      foreign-key: payments_and_credits.subscription_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: charges.payment_id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: payments_and_credits.payment_id
+  - table-name: products
+    keys:
+    - key: event_specific_data.product_id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: event_specific_data.product_id
+      foreign-key: next_product_id
+    - key: event_specific_data.product_id
+      foreign-key: product.id
+    - key: subscription_id
+      foreign-key: id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: signup_payment_id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: stored_credential_transaction_id
+  - table-name: transactions
+    keys:
+    - key: event_specific_data.product_id
+      foreign-key: product_id
+    - key: subscription_id
+      foreign-key: subscription_id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: parent_id
+    - key: event_specific_data.account_transaction_id
+      foreign-key: payment_id
+- table-name: product_families
+  join:
+  - table-name: components
+    keys:
+    - key: id
+      foreign-key: product_family_id
+  - table-name: coupons
+    keys:
+    - key: id
+      foreign-key: product_family_id
+  - table-name: products
+    keys:
+    - key: id
+      foreign-key: product_family.id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: product.product_family.id
+- table-name: products
+  join:
+  - table-name: components
+    keys:
+    - key: product_family.id
+      foreign-key: product_family_id
+  - table-name: coupons
+    keys:
+    - key: product_family.id
+      foreign-key: product_family_id
+  - table-name: product_families
+    keys:
+    - key: product_family.id
+      foreign-key: id
+  - table-name: subscriptions
+    keys:
+    - key: product_family.id
+      foreign-key: product.product_family.id
+    - key: id
+      foreign-key: next_product_id
+    - key: id
+      foreign-key: product.id
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: event_specific_data.product_id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: charges.product_id
+    - key: id
+      foreign-key: payments_and_credits.product_id
+  - table-name: statements
+    keys:
+    - key: id
+      foreign-key: events.event.event_specific_data.product_id
+    - key: id
+      foreign-key: transactions.product_id
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: product_id

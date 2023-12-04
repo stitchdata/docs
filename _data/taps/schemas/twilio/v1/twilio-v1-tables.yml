@@ -1,0 +1,302 @@
+tap: twilio
+version: '1'
+tables:
+- name: accounts
+  description: 'The **{{ table.name }}** table returns a list of accounts in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/usage/api/account#read-multiple-account-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/accounts.json
+    api-method: https://www.twilio.com/docs/usage/api/account?code-sample=code-list-all-accounts&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Full Table
+    primary-key: sid
+- name: account_balance
+  description: 'The **{{ table.name }}** returns your {{ integration.display_name
+    }} account balance.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/account_balance.json
+  table-details:
+    replication-method: Full Table
+    primary-key: account_sid
+- name: addresses
+  description: 'The **{{ table.name }}** table returns a list of address resource
+    representations, each representing an address within your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/usage/api/address#read-multiple-address-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/addresses.json
+    api-method: https://www.twilio.com/docs/usage/api/address?code-sample=code-show-all-addresses&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: alerts
+  description: 'The **{{ table.name }}** returns a list of alerts generated for an
+    account within your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/usage/monitor-alert#read-multiple-alert-resource
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/alerts.json
+    api-method: https://www.twilio.com/docs/usage/monitor-alert?code-sample=code-list-all-alerts&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: applications
+  description: 'The **{{ table.name }}** table returns a list of application resource
+    representations, each representing an application within your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/usage/api/applications#read-multiple-application-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/applications.json
+    api-method: https://www.twilio.com/docs/usage/api/applications?code-sample=code-list-all-application-resource-representations&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_created
+- name: available_phone_numbers_local
+  description: 'The **{{ table.name }}** table returns a list of available phone numbers
+    for local resources for your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/available_phone_numbers_local.json
+    api-method: https://www.twilio.com/docs/phone-numbers/api/availablephonenumberlocal-resource#read-multiple-availablephonenumberlocal-resources
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - iso_country
+    - phone_number
+- name: available_phone_numbers_mobile
+  description: 'The **{{ table.name }}** table returns a list of available phone numbers
+    for mobile resources for your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/phone-numbers/api/availablephonenumber-mobile-resource#read-multiple-availablephonenumbermobile-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/available_phone_numbers_mobile.json
+    api-method: https://www.twilio.com/docs/phone-numbers/api/availablephonenumber-mobile-resource?code-sample=code-find-mobile-numbers-by-region&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - iso_country
+    - phone_number
+- name: available_phone_numbers_toll_free
+  description: 'The **{{ table.name }}** table returns a list of available toll free
+    phone numbers for your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/phone-numbers/api/availablephonenumber-tollfree-resource#read-multiple-availablephonenumbertollfree-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/available_phone_numbers_toll_free.json
+    api-method: https://www.twilio.com/docs/phone-numbers/api/availablephonenumber-tollfree-resource?code-sample=code-find-any-toll-free-number&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - iso_country
+    - phone_number
+- name: available_phone_number_countries
+  description: 'The **{{ table.name }}** table returns a list of countries that have
+    phone numbers to purchase for your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/phone-numbers/api/availablephonenumber-resource#read-a-list-of-countries
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/available_phone_number_countries.json
+    api-method: https://www.twilio.com/docs/phone-numbers/api/availablephonenumber-resource?code-sample=code-read-a-list-of-countries&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Full Table
+    primary-key: country_code
+- name: calls
+  description: 'The **{{ table.name }}** table returns a list of phone calls made
+    to and from an account in your {{ integration.display_name }} account, identified
+    by its `AccountSid`.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/voice/api/call-resource#read-multiple-call-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/calls.json
+    api-method: https://www.twilio.com/docs/voice/api/call-resource?code-sample=code-read-multiple-call-resources&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: conferences
+  description: 'The **{{ table.name }}** table returns all the conferences within
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/voice/api/conference-resource#read-multiple-conference-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/conferences.json
+    api-method: https://www.twilio.com/docs/voice/api/conference-resource?code-sample=code-read-multiple-conference-resources&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: conference_participants
+  description: 'The **{{ table.name }}** table returns the list of active participants
+    in the {{ integration.display_name }} conference identified by `ConferenceSid`.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/voice/api/conference-participant-resource#read-multiple-participant-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/conference_participants.json
+    api-method: https://www.twilio.com/docs/voice/api/conference-participant-resource?code-sample=code-read-multiple-participant-resources&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Full Table
+    primary-key: uri
+- name: dependent_phone_numbers
+  description: 'The **{{ table.name }}** table returns a list of `IncomingPhoneNumbers`
+    in your {{ integration.display_name }} account that require the specified address.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/dependent_phone_numbers.json
+    api-method: https://www.twilio.com/docs/usage/api/address?code-sample=code-list-dependent-pns-subresources&code-language=curl&code-sdk-version=json#instance-subresources
+  table-details:
+    replication-method: Full Table
+    primary-key: sid
+- name: incoming_phone_numbers
+  description: 'The **{{ table.name }}** table returns a list of `IncomingPhoneNumbers`
+    in your {{ integration.display_name }} account that require the specified address.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/phone-numbers/api/incomingphonenumber-resource#read-multiple-incomingphonenumber-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/incoming_phone_numbers.json
+    api-method: https://www.twilio.com/docs/phone-numbers/api/incomingphonenumber-resource?code-sample=code-list-all-incomingphonenumber-resources-for-your-account&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: keys
+  description: 'The **{{ table.name }}** table returns a list of API Keys in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/keys.json
+    api-method: https://www.twilio.com/docs/usage/api/keys?code-sample=code-read-a-key-resource&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: messages
+  description: 'The **{{ table.name }}** table returns a list of messages associated
+    with your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/sms/api/message-resource#read-multiple-message-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/messages.json
+    api-method: https://www.twilio.com/docs/sms/api/message-resource?code-sample=code-read-list-all-messages&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: message_media
+  description: 'The **{{ table.name }}** table returns the list of media associated
+    with your {{ integration.display_name }} message.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/sms/api/media-resource#read-multiple-media-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/message_media.json
+    api-method: https://www.twilio.com/docs/sms/api/media-resource?code-sample=code-read-media&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Full Table
+    primary-key: sid
+- name: outgoing_caller_ids
+  description: 'The **{{ table.name }}** table returns a list of `OutgoingCallerId`
+    resource representations, each representing a Caller ID number valid for a {{
+    integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/outgoing_caller_ids.json
+    api-method: https://www.twilio.com/docs/voice/api/outgoing-caller-ids?code-sample=code-list-an-accounts-outgoing-caller-ids&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: queues
+  description: 'The **{{ table.name }}** table returns the list of call queues within
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/voice/api/queue-resource#read-multiple-queue-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/queues.json
+    api-method: https://www.twilio.com/docs/voice/api/queue-resource?code-sample=code-read-multiple-queue-resources&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: recordings
+  description: 'The **{{ table.name }}** table returns a list of recordings, each
+    representing a recording generated during a call or conference in your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/voice/api/recording#read-multiple-recording-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/recordings.json
+    api-method: https://www.twilio.com/docs/voice/api/recording?code-sample=code-get-all-recordings-for-an-account&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_created
+- name: transcriptions
+  description: 'The **{{ table.name }}** table returns the full set of transcriptions
+    generated from all recordings in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/voice/api/recording-transcription#read-multiple-transcription-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/transcriptions.json
+    api-method: https://www.twilio.com/docs/voice/api/recording-transcription?code-sample=code-read-list-all-transcriptions&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+- name: usage_records
+  description: 'The **{{ table.name }}** table returns a list of usage records in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/usage/api/usage-record#read-multiple-usagerecord-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/usage_records.json
+    api-method: https://www.twilio.com/docs/usage/api/usage-record?code-sample=code-all-time-usage-all-usage-categories&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - account_sid
+    - category
+    - start_date
+    replication-key: start_date
+- name: usage_triggers
+  description: 'The **{{ table.name }}** table returns list of usage triggers in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.twilio.com/docs/usage/api/usage-trigger#read-multiple-usagetrigger-resources
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_twilio/schemas/usage_triggers.json
+    api-method: https://www.twilio.com/docs/usage/api/usage-trigger?code-sample=code-read-multiple-usagetrigger-resources&code-language=curl&code-sdk-version=json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: sid
+    replication-key: date_updated
+tap-repo-schemas: true

@@ -1,0 +1,93 @@
+tap: autopilot
+version: '1'
+keys:
+  contacts_contact_id:
+  - table: contacts
+    keys:
+    - contact_id
+  - table: lists_contacts
+    keys:
+    - contact_id
+  - table: smart_segments_contacts
+    keys:
+    - contact_id
+  smart_segments_segment_id:
+  - table: smart_segments
+    keys:
+    - segment_id
+  - table: smart_segments_contacts
+    keys:
+    - segment_id
+  lists_list_id:
+  - table: contacts
+    keys:
+    - lists
+  - table: lists
+    keys:
+    - list_id
+  - table: lists_contacts
+    keys:
+    - list_id
+tables:
+- table-name: contacts
+  join:
+  - table-name: lists_contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+    - key: lists
+      foreign-key: list_id
+  - table-name: smart_segments_contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+  - table-name: lists
+    keys:
+    - key: lists
+      foreign-key: list_id
+- table-name: lists_contacts
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+    - key: list_id
+      foreign-key: lists
+  - table-name: smart_segments_contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: list_id
+- table-name: smart_segments_contacts
+  join:
+  - table-name: contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+  - table-name: lists_contacts
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+  - table-name: smart_segments
+    keys:
+    - key: segment_id
+      foreign-key: segment_id
+- table-name: smart_segments
+  join:
+  - table-name: smart_segments_contacts
+    keys:
+    - key: segment_id
+      foreign-key: segment_id
+- table-name: lists
+  join:
+  - table-name: contacts
+    keys:
+    - key: list_id
+      foreign-key: lists
+  - table-name: lists_contacts
+    keys:
+    - key: list_id
+      foreign-key: list_id

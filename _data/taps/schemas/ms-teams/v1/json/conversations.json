@@ -1,0 +1,58 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "group_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_attachments": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_delivered_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "preview": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "topic": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unique_senders": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

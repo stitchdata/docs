@@ -1,0 +1,124 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "daily_budget_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "duration_in_days": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entity_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "frequency_cap": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "funding_instrument_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reasons_not_servable": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "servable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "standard_delivery": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "total_budget_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

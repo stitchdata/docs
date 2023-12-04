@@ -1,0 +1,428 @@
+tap: jira
+version: '1'
+keys:
+  changelogs_:
+  - table: changelogs
+    keys:
+    - id
+  issue_comments_issueCommentId:
+  - table: issue_comments
+    keys:
+    - id
+  issues_issueId:
+  - table: changelogs
+    keys:
+    - issueId
+  - table: issue_comments
+    keys:
+    - issueId
+  - table: issue_transitions
+    keys:
+    - issueId
+  - table: issues
+    keys:
+    - id
+  - table: worklogs
+    keys:
+    - issueId
+  issue_transitions_issueTransitionId:
+  - table: issue_transitions
+    keys:
+    - id
+  project_types_projectTypeKey:
+  - table: project_types
+    keys:
+    - key
+  project_categories_projectCategoryId:
+  - table: project_categories
+    keys:
+    - id
+  - table: projects
+    keys:
+    - projectCategory.id
+  projects_projectId:
+  - table: projects
+    keys:
+    - id
+  - table: versions
+    keys:
+    - projectId
+  resolutions_resolutionId:
+  - table: resolutions
+    keys:
+    - id
+  roles_roleId:
+  - table: roles
+    keys:
+    - id
+  users_key:
+  - table: changelogs
+    keys:
+    - author.key
+  - table: issue_comments
+    keys:
+    - author.key
+    - updateAuthor.key
+  - table: issues
+    keys:
+    - fields.attachment.author.key
+  - table: projects
+    keys:
+    - components.assignee.key
+    - components.lead.key
+    - components.realAssignee.key
+    - lead.key
+  - table: users
+    keys:
+    - key
+  - table: worklogs
+    keys:
+    - author.key
+    - updateAuthor.key
+  versions_versionId:
+  - table: versions
+    keys:
+    - id
+  worklogs_worklogId:
+  - table: worklogs
+    keys:
+    - id
+tables:
+- table-name: changelogs
+  join:
+  - table-name: issue_comments
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.key
+      foreign-key: author.key
+    - key: author.key
+      foreign-key: updateAuthor.key
+  - table-name: issue_transitions
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+    - key: author.key
+      foreign-key: fields.attachment.author.key
+  - table-name: worklogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.key
+      foreign-key: author.key
+    - key: author.key
+      foreign-key: updateAuthor.key
+  - table-name: projects
+    keys:
+    - key: author.key
+      foreign-key: components.assignee.key
+    - key: author.key
+      foreign-key: components.lead.key
+    - key: author.key
+      foreign-key: components.realAssignee.key
+    - key: author.key
+      foreign-key: lead.key
+  - table-name: users
+    keys:
+    - key: author.key
+      foreign-key: key
+- table-name: issue_comments
+  join:
+  - table-name: changelogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.key
+      foreign-key: author.key
+    - key: updateAuthor.key
+      foreign-key: author.key
+  - table-name: issue_transitions
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+    - key: author.key
+      foreign-key: fields.attachment.author.key
+    - key: updateAuthor.key
+      foreign-key: fields.attachment.author.key
+  - table-name: worklogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.key
+      foreign-key: author.key
+    - key: updateAuthor.key
+      foreign-key: author.key
+    - key: author.key
+      foreign-key: updateAuthor.key
+    - key: updateAuthor.key
+      foreign-key: updateAuthor.key
+  - table-name: projects
+    keys:
+    - key: author.key
+      foreign-key: components.assignee.key
+    - key: updateAuthor.key
+      foreign-key: components.assignee.key
+    - key: author.key
+      foreign-key: components.lead.key
+    - key: updateAuthor.key
+      foreign-key: components.lead.key
+    - key: author.key
+      foreign-key: components.realAssignee.key
+    - key: updateAuthor.key
+      foreign-key: components.realAssignee.key
+    - key: author.key
+      foreign-key: lead.key
+    - key: updateAuthor.key
+      foreign-key: lead.key
+  - table-name: users
+    keys:
+    - key: author.key
+      foreign-key: key
+    - key: updateAuthor.key
+      foreign-key: key
+- table-name: issue_transitions
+  join:
+  - table-name: changelogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issue_comments
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+  - table-name: worklogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+- table-name: issues
+  join:
+  - table-name: changelogs
+    keys:
+    - key: id
+      foreign-key: issueId
+    - key: fields.attachment.author.key
+      foreign-key: author.key
+  - table-name: issue_comments
+    keys:
+    - key: id
+      foreign-key: issueId
+    - key: fields.attachment.author.key
+      foreign-key: author.key
+    - key: fields.attachment.author.key
+      foreign-key: updateAuthor.key
+  - table-name: issue_transitions
+    keys:
+    - key: id
+      foreign-key: issueId
+  - table-name: worklogs
+    keys:
+    - key: id
+      foreign-key: issueId
+    - key: fields.attachment.author.key
+      foreign-key: author.key
+    - key: fields.attachment.author.key
+      foreign-key: updateAuthor.key
+  - table-name: projects
+    keys:
+    - key: fields.attachment.author.key
+      foreign-key: components.assignee.key
+    - key: fields.attachment.author.key
+      foreign-key: components.lead.key
+    - key: fields.attachment.author.key
+      foreign-key: components.realAssignee.key
+    - key: fields.attachment.author.key
+      foreign-key: lead.key
+  - table-name: users
+    keys:
+    - key: fields.attachment.author.key
+      foreign-key: key
+- table-name: worklogs
+  join:
+  - table-name: changelogs
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.key
+      foreign-key: author.key
+    - key: updateAuthor.key
+      foreign-key: author.key
+  - table-name: issue_comments
+    keys:
+    - key: issueId
+      foreign-key: issueId
+    - key: author.key
+      foreign-key: author.key
+    - key: updateAuthor.key
+      foreign-key: author.key
+    - key: author.key
+      foreign-key: updateAuthor.key
+    - key: updateAuthor.key
+      foreign-key: updateAuthor.key
+  - table-name: issue_transitions
+    keys:
+    - key: issueId
+      foreign-key: issueId
+  - table-name: issues
+    keys:
+    - key: issueId
+      foreign-key: id
+    - key: author.key
+      foreign-key: fields.attachment.author.key
+    - key: updateAuthor.key
+      foreign-key: fields.attachment.author.key
+  - table-name: projects
+    keys:
+    - key: author.key
+      foreign-key: components.assignee.key
+    - key: updateAuthor.key
+      foreign-key: components.assignee.key
+    - key: author.key
+      foreign-key: components.lead.key
+    - key: updateAuthor.key
+      foreign-key: components.lead.key
+    - key: author.key
+      foreign-key: components.realAssignee.key
+    - key: updateAuthor.key
+      foreign-key: components.realAssignee.key
+    - key: author.key
+      foreign-key: lead.key
+    - key: updateAuthor.key
+      foreign-key: lead.key
+  - table-name: users
+    keys:
+    - key: author.key
+      foreign-key: key
+    - key: updateAuthor.key
+      foreign-key: key
+- table-name: project_categories
+  join:
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: projectCategory.id
+- table-name: projects
+  join:
+  - table-name: project_categories
+    keys:
+    - key: projectCategory.id
+      foreign-key: id
+  - table-name: versions
+    keys:
+    - key: id
+      foreign-key: projectId
+  - table-name: changelogs
+    keys:
+    - key: components.assignee.key
+      foreign-key: author.key
+    - key: components.lead.key
+      foreign-key: author.key
+    - key: components.realAssignee.key
+      foreign-key: author.key
+    - key: lead.key
+      foreign-key: author.key
+  - table-name: issue_comments
+    keys:
+    - key: components.assignee.key
+      foreign-key: author.key
+    - key: components.lead.key
+      foreign-key: author.key
+    - key: components.realAssignee.key
+      foreign-key: author.key
+    - key: lead.key
+      foreign-key: author.key
+    - key: components.assignee.key
+      foreign-key: updateAuthor.key
+    - key: components.lead.key
+      foreign-key: updateAuthor.key
+    - key: components.realAssignee.key
+      foreign-key: updateAuthor.key
+    - key: lead.key
+      foreign-key: updateAuthor.key
+  - table-name: issues
+    keys:
+    - key: components.assignee.key
+      foreign-key: fields.attachment.author.key
+    - key: components.lead.key
+      foreign-key: fields.attachment.author.key
+    - key: components.realAssignee.key
+      foreign-key: fields.attachment.author.key
+    - key: lead.key
+      foreign-key: fields.attachment.author.key
+  - table-name: users
+    keys:
+    - key: components.assignee.key
+      foreign-key: key
+    - key: components.lead.key
+      foreign-key: key
+    - key: components.realAssignee.key
+      foreign-key: key
+    - key: lead.key
+      foreign-key: key
+  - table-name: worklogs
+    keys:
+    - key: components.assignee.key
+      foreign-key: author.key
+    - key: components.lead.key
+      foreign-key: author.key
+    - key: components.realAssignee.key
+      foreign-key: author.key
+    - key: lead.key
+      foreign-key: author.key
+    - key: components.assignee.key
+      foreign-key: updateAuthor.key
+    - key: components.lead.key
+      foreign-key: updateAuthor.key
+    - key: components.realAssignee.key
+      foreign-key: updateAuthor.key
+    - key: lead.key
+      foreign-key: updateAuthor.key
+- table-name: versions
+  join:
+  - table-name: projects
+    keys:
+    - key: projectId
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: changelogs
+    keys:
+    - key: key
+      foreign-key: author.key
+  - table-name: issue_comments
+    keys:
+    - key: key
+      foreign-key: author.key
+    - key: key
+      foreign-key: updateAuthor.key
+  - table-name: issues
+    keys:
+    - key: key
+      foreign-key: fields.attachment.author.key
+  - table-name: projects
+    keys:
+    - key: key
+      foreign-key: components.assignee.key
+    - key: key
+      foreign-key: components.lead.key
+    - key: key
+      foreign-key: components.realAssignee.key
+    - key: key
+      foreign-key: lead.key
+  - table-name: worklogs
+    keys:
+    - key: key
+      foreign-key: author.key
+    - key: key
+      foreign-key: updateAuthor.key

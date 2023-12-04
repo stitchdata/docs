@@ -1,0 +1,83 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "acting_organization_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "event_data": {
+      "additionalProperties": false,
+      "properties": {
+        "acting_user_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "event_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "is_private": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "message": {
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "edited_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "is_deleted": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "user_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": "object"
+}

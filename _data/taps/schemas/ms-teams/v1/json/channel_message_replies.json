@@ -1,0 +1,414 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "attachments": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "content": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "content_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "thumbnail_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "body": {
+      "additionalProperties": true,
+      "properties": {
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "content_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "channel_identity": {
+      "additionalProperties": true,
+      "properties": {
+        "channel_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "teamId": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "chat_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "etag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from": {
+      "additionalProperties": true,
+      "properties": {
+        "application": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "conversation": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "device": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user": {
+          "additionalProperties": true,
+          "properties": {
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "user_identity_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "importance": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "locale": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mentions": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "mention_text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mentioned": {
+                "additionalProperties": true,
+                "properties": {
+                  "application": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "conversation": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "device": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "user": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "display_name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "id": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "user_identity_type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "message_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "policy_violation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reactions": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "created_date_time": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "reaction_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user": {
+                "additionalProperties": true,
+                "properties": {
+                  "application": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "conversation": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "device": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "user": {
+                    "additionalProperties": true,
+                    "properties": {
+                      "display_name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "id": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "user_identity_type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reply_to_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subject": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "summary": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

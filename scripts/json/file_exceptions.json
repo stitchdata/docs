@@ -1,0 +1,89 @@
+{
+    "tap-chargebee": {
+        "1": {
+            "ignore": [
+                "cards.json"
+            ]
+        }
+    },
+    "tap-codat": {
+        "0": {
+            "ignore": [
+                "payment_allocations.json"
+            ]
+        }
+    },
+    "tap-facebook": {
+        "1": {
+            "ignore": [
+                "leads.json"
+            ]
+        }
+    },
+    "tap-freshdesk": {
+        "0": {
+            "ignore": [
+                "contacts.json"
+            ]
+        }
+    },
+    "tap-harvest": {
+        "2": {
+            "ignore": [
+                "external_reference.json"
+            ]
+        }
+    },
+    "tap-hubspot": {
+        "1": {
+            "ignore": [
+                "hubspot_contacts_by_company.json"
+            ]
+        },
+        "2": {
+            "keep": [
+                "custom_objects.json"
+            ]
+        }
+    },
+    "tap-ms-teams": {
+        "0": {
+            "ignore": [
+                "channel.json"
+            ]
+        }
+    },
+    "tap-xero": {
+        "1": {
+            "ignore": [
+                "addresses.json",
+                "allocations.json",
+                "line_items.json",
+                "nested_invoice.json",
+                "payment_terms.json",
+                "phones.json"
+            ]
+        },
+        "2": {
+            "ignore": [
+                "addresses.json",
+                "allocations.json",
+                "line_items.json",
+                "nested_invoice.json",
+                "payment_terms.json",
+                "phones.json"
+            ]
+        }
+    },
+    "tap-zendesk-chat": {
+        "0": {
+            "ignore": [
+                "chat_conversion.json",
+                "chat_count.json",
+                "chat_history.json",
+                "chat_response_time.json",
+                "chat_visitor.json"
+            ]
+        }
+    }
+}

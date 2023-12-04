@@ -1,0 +1,44 @@
+tap: appsflyer
+version: '1'
+tables:
+- name: installations
+  description: The `{{ table.name }}` table contains information about iOS and Android
+    app installations.
+  links:
+    doc-link: https://support.appsflyer.com/hc/en-us/articles/208387843-Raw-Data-Reports-V5-
+    singer-schema: https://github.com/singer-io/tap-appsflyer/blob/master/tap_appsflyer/schemas/raw_data/installations.json
+    api-method: https://dev.appsflyer.com/hc/reference/get_app-id-installs-report-v5
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - appsflyer_id
+    - event_name
+    - event_time
+    replication-key: event_time
+- name: in_app_events
+  description: The `{{ table.name }}` table contains information about in-app events
+    for iOS and Android apps.
+  links:
+    doc-link: https://support.appsflyer.com/hc/en-us/articles/208387843-Raw-Data-Reports-V5-
+    singer-schema: https://github.com/singer-io/tap-appsflyer/blob/master/tap_appsflyer/schemas/raw_data/in_app_events.json
+    api-method: https://dev.appsflyer.com/hc/reference/get_app-id-in-app-events-report-v5
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - appsflyer_id
+    - event_name
+    - event_time
+    replication-key: event_time
+- name: organic_installs
+  description: The `{{ table.name }}` table contains information about organic installs.
+  links:
+    doc-link: https://support.appsflyer.com/hc/en-us/articles/208387843-Raw-Data-Reports-V5-
+    singer-schema: https://github.com/singer-io/tap-appsflyer/blob/master/tap_appsflyer/schemas/raw_data/organic_installs.json
+    api-method: https://dev.appsflyer.com/hc/reference/get_app-id-organic-installs-report-v5
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - appsflyer_id
+    - event_name
+    - event_time
+    replication-key: event_time

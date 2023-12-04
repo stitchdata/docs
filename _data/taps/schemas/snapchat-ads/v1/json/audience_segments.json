@@ -1,0 +1,97 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "ad_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "approximate_number_users": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "retention_in_days": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "source_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targetable_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "upload_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "visible_to": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

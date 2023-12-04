@@ -1,0 +1,72 @@
+tap: 3plcentral
+version: '1'
+tables:
+- name: customers
+  description: This table contains information about customers.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/customers.json
+    api-method: http://api.3plcentral.com/rels/customers/customers
+  table-details:
+    replication-method: Full Table
+    primary-key: customer_id
+- name: inventory
+  description: This table contains information about inventory resources.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/inventory.json
+    api-method: http://api.3plcentral.com/rels/inventory/inventory
+  table-details:
+    replication-method: Full Table
+    primary-key: receive_item_id
+- name: locations
+  description: This table contains information about inventory facility locations.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/locations.json
+    api-method: http://api.3plcentral.com/rels/inventory/locations
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - location_id
+    - facility_id
+- name: orders
+  description: This table contains information about orders.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/orders.json
+    api-method: http://api.3plcentral.com/rels/orders/orders
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: order_id
+    replication-key: last_modified_date
+- name: sku_items
+  description: This table contains information about SKU items.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/sku_items.json
+    api-method: http://api.3plcentral.com/rels/customers/items
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: item_id
+    replication-key: last_modified_date
+- name: stock_details
+  description: This table contains information about stock details.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/stock_details.json
+    api-method: http://api.3plcentral.com/rels/inventory/stockdetails
+  table-details:
+    replication-method: Full Table
+    primary-key: receive_item_id
+- name: stock_summaries
+  description: This table contains information about stock summaries.
+  links:
+    doc-link: http://api.3plcentral.com/rels/
+    singer-schema: https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/stock_summaries.json
+    api-method: http://api.3plcentral.com/rels/inventory/stocksummaries
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - facility_id
+    - item_id

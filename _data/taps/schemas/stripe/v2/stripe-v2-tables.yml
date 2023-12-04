@@ -1,0 +1,262 @@
+tap: stripe
+version: '2'
+tables:
+- name: balance_transactions
+  description: The `{{ table.name }}` table contains info about transactions have
+    have contributed to your Stripe account balance, including charges, transfers,
+    etc.
+  links:
+    doc-link: https://stripe.com/docs/api/balance/balance_transaction
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/balance_transactions.json
+    api-method: https://stripe.com/docs/api/balance/balance_history
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: charges
+  description: 'The `{{ table.name }}` table contains info about charges to credit
+    and debit cards.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/charges/object
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/charges.json
+    api-method: https://stripe.com/docs/api/charges/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about percent or amount-off
+    discounts that may be applied to a customer. **Note:** Coupons only apply to invoices;
+    they don''t apply to one-off charges.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/coupons
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/coupons.json
+    api-method: https://stripe.com/docs/api/coupons/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about your customers.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/customers/object
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/customers.json
+    api-method: https://stripe.com/docs/api/customers/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: disputes
+  description: This table contains information about customer disputes related to
+    charges on their credit card.
+  links:
+    doc-link: https://stripe.com/docs/api/disputes/object
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/disputes.json
+    api-method: https://stripe.com/docs/api/disputes/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: events
+  description: 'The `{{ table.name }}` table contains info about [events](https://stripe.com/docs/api/events){:target="new"}.
+    When an  event occurs, a new event object is created. This table acts as the history
+    of an object, allowing you to see how it has changed over time.
+
+
+    For example: When an invoice is created, an `invoice.created` event is created.
+    When the draft invoice is finalized and updated to be open, an `invoice.finalized`
+    event is created. When the invoice is sent to the customer, an `invoice.sent`
+    event is created.
+
+
+    For more info about this table and how data is replicated, refer to the [Replication](#replication)
+    section. Additionally, refer to [{{ integration.display_name }}''s documentation](https://stripe.com/docs/api/events/types){:target="new"}
+    for info about event types and the objects they describe.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/events
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/events.json
+    api-method: https://stripe.com/docs/api/events/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: invoices
+  description: 'The `{{ table.name }}` table contains info about invoices. Invoices
+    are statements of amounts owed by customers, which can be one-off charges or generated
+    periodically from a subscription.
+
+
+    #### Invoice line items
+
+
+    Full records for the line items associated with an invoice can be found in the
+    [`invoice_line_items`](#invoice_line_items) table. To replicate these records,
+    you must set this table and the `invoice_line_items` table to replicate.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/invoices
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/invoices.json
+    api-method: https://stripe.com/docs/api/invoices/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: invoice_line_items
+  description: 'The `{{ table.name }}` table contains info about the line items contained
+    in invoices.
+
+
+    **Note**: In order to replicate invoice line item data, the [`invoices`](#invoices)
+    table must also be set to replicate.
+
+
+    #### Invoice line item replication
+
+
+    To replicate invoice line items, Stitch will use the Replication Key of the corresponding
+    invoice in the [`invoices`](#invoices) table to detect new and updated records.
+    This means that any time an invoice is updated, its associated line items will
+    also be replicated.
+
+
+    For example: An invoice with five line items is updated when its status changes
+    from `draft` to `open`. The record in `invoices` will be replicated, as will the
+    records for its five line items. In this example, a total of six records will
+    be replicated.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/invoices/line_item
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/invoice_line_items.json
+    api-method: https://stripe.com/docs/api/invoices/invoice_lines
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - invoice
+- name: payment_intents
+  description: 'This table contains information about payments, from creation through
+    checkout, in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/payments/payment-intents
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/payment_intents.json
+    api-method: https://stripe.com/docs/api/payment_intents/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: payouts
+  description: 'The `{{ table.name }}` table contains info about payouts, which occur
+    when you receive funds from {{ integration.display_name }} or initiate a payout
+    to a bank account of the debit card of a connected {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/payouts
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/payouts.json
+    api-method: https://stripe.com/docs/api/payouts/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: payout_transactions
+  description: This table contains info about payout transactions.
+  links:
+    doc-link: https://stripe.com/docs/api/payouts
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/payout_transactions.json
+    api-method: https://stripe.com/docs/api/payouts/list
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: plans
+  description: 'The `{{ table.name }}` table contains info about the plans in your
+    {{ integration.display_name }} account. A plan defines the base price, currency,
+    and billing cycle for subscriptions.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/plans
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/plans.json
+    api-method: https://stripe.com/docs/api/plans/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: products
+  description: 'The `{{ table.name }}` table contains info about the products in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/products
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/products.json
+    api-method: https://stripe.com/docs/api/products/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about subscriptions, which
+    allow you to charge a customer on a recurring basis. A subscription ties a customer
+    to a particular [plan](#plans).
+
+    '
+  links:
+    doc-link: https://stripe.com/docs/api/subscriptions
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/subscriptions.json
+    api-method: https://stripe.com/docs/api/subscriptions/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: subscription_items
+  description: The `{{ table.name }}` table contains info about subscription items.
+    In {{ integration.display_name }}, subscription items are used to create customer
+    subscriptions with more than one plan.
+  links:
+    doc-link: https://stripe.com/docs/api/subscription_items
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/subscription_items.json
+    api-method: https://stripe.com/docs/api/subscription_items/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+- name: invoice_items
+  description: 'The `{{ table.name }}` table contains info about items contained in
+    customer invoices.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/invoice_items.json
+    api-method: https://stripe.com/docs/api/invoiceitems/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date
+- name: transfers
+  description: 'The `{{ table.name }}` table contains info about transfers sent to
+    connected accounts.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-stripe/tree/master/tap_stripe/schemas/transfers.json
+    api-method: https://stripe.com/docs/api/transfers/list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created
+tap-repo-schemas: true

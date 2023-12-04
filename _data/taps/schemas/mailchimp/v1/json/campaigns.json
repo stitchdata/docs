@@ -1,0 +1,458 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "archive_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "content_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "create_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "delivery_status": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "emails_sent": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "has_logo_merge_tag": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "long_archive_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "needs_block_refresh": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "recipients": {
+      "additionalProperties": false,
+      "properties": {
+        "list_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "list_is_active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "list_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "recipient_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "segment_opts": {
+          "additionalProperties": false,
+          "properties": {
+            "conditions": {
+              "items": {
+                "additionalProperties": true,
+                "properties": {
+                  "condition_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "field": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "op": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "match": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "prebuilt_segment_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "saved_segment_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "segment_text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "report_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "click_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "clicks": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "ecommerce": {
+          "additionalProperties": false,
+          "properties": {
+            "total_orders": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "total_revenue": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "total_spent": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "open_rate": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "opens": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "subscriber_clicks": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "unique_opens": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "resendable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "send_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "settings": {
+      "additionalProperties": false,
+      "properties": {
+        "authenticate": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "auto_footer": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "auto_tweet": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "drag_and_drop": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "fb_comments": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "folder_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "from_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "inline_css": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "preview_text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "reply_to": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "subject_line": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "template_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "timewarp": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "to_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "use_conversation": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "social_card": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking": {
+      "additionalProperties": false,
+      "properties": {
+        "clicktale": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ecomm360": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "goal_tracking": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "google_analytics": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "html_clicks": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "opens": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "text_clicks": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "web_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

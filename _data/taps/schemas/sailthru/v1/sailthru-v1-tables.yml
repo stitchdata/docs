@@ -1,0 +1,107 @@
+tap: sailthru
+version: '1'
+tables:
+- name: ad_targeter_plans
+  description: 'The `{{ table.name }}` table contains information about Ad Targeter
+    Plans in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://getstarted.sailthru.com/email/ad-targeter/ad-targeter-overview/
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/ad_targeter_plans.json
+    api-method: https://getstarted.sailthru.com/developers/api/ad-plan/
+  table-details:
+    replication-method: Full Table
+    primary-key: plan_id
+- name: blasts
+  description: 'The `{{ table.name }}` table contains infomation about your specific
+    {{ integration.display_name }} campaigns, or information about campaigns by status
+    types: `sent`, `sending`, `scheduled`, `unscheduled`.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blasts.json
+    api-method: https://getstarted.sailthru.com/developers/api/blast/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: blast_id
+    replication-key: modify_time
+- name: blast_query
+  description: 'The `{{ table.name }}` table contains information from blast query
+    jobs in your {{ integration.display_name }} account. This is a child table of
+    `blasts`.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sailthru/tree/master/tap_sailthru/schemas/blast_query.json
+    api-method: https://getstarted.sailthru.com/developers/api/job/#blast-query
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - blast_id
+    - profile_id
+- name: blast_repeats
+  description: 'The `{{ table.name }}` table contains information about recurring
+    campaigns in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_repeats.json
+    api-method: https://getstarted.sailthru.com/developers/api/blast_repeat/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: repeat_id
+    replication-key: modify_time
+- name: blast_save_list
+  description: 'The `{{ table.name }}` table contains a list of users that received
+    a specific campaign from your {{ integration.display_name }} account. This is
+    a child table of `lists`.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/blast_save_list.json
+    api-method: https://getstarted.sailthru.com/developers/api/job/#blast-save-list
+  table-details:
+    replication-method: Full Table
+    primary-key: profile_id
+- name: lists
+  description: 'The `{{ table.name }}` table contains basic information about lists
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://getstarted.sailthru.com/audience/managing-lists/lists-overview/
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/lists.json
+    api-method: https://getstarted.sailthru.com/developers/api/list/
+  table-details:
+    replication-method: Full Table
+    primary-key: list_id
+- name: purchase_log
+  description: 'The `{{ table.name }}` table contains a a list of user data in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/purchase_log.json
+    api-method: https://getstarted.sailthru.com/developers/api/job/#export-purchase-log
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - channel
+    - email_hash
+    - extid
+    - message_id
+    - price
+    replication-key: date
+- name: users
+  description: 'The `{{ table.name }}` table contains user data from your {{ integration.display_name
+    }} account. This is a child table of `blast_save_list`.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-sailthru/blob/master/tap_sailthru/schemas/users.json
+    api-method: https://getstarted.sailthru.com/developers/api/user/
+  table-details:
+    replication-method: Full Table
+    primary-key: profile_id
+tap-repo-schemas: true

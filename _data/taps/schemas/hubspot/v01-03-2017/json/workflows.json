@@ -1,0 +1,75 @@
+{
+  "properties": {
+    "contactListIds": {
+      "properties": {
+        "active": {
+          "type": [
+            "integer"
+          ]
+        },
+        "enrolled": {
+          "type": [
+            "integer"
+          ]
+        },
+        "steps": {
+          "properties": {
+            "type": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "enabled": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "inserted-at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "personaTagIds": {
+      "properties": {
+        "value": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

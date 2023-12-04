@@ -1,0 +1,837 @@
+tap: facebook-ads
+version: '1'
+keys:
+  account_id:
+  - table: adcreative
+    keys:
+    - account_id
+  - table: ads
+    keys:
+    - account_id
+  - table: ads_insights
+    keys:
+    - account_id
+  - table: ads_insights_age_and_gender
+    keys:
+    - account_id
+  - table: ads_insights_country
+    keys:
+    - account_id
+  - table: ads_insights_dma
+    keys:
+    - account_id
+  - table: ads_insights_platform_and_device
+    keys:
+    - account_id
+  - table: ads_insights_region
+    keys:
+    - account_id
+  ad_label_id:
+  - table: adcreative
+    keys:
+    - adlabels.id
+  - table: ads
+    keys:
+    - id
+  - table: adsets
+    keys:
+    - id
+  adsets_adset_id:
+  - table: ads
+    keys:
+    - adset_id
+  - table: adsets
+    keys:
+    - id
+  - table: ads_insights
+    keys:
+    - adset_id
+    - adset_id
+  - table: ads_insights_age_and_gender
+    keys:
+    - adset_id
+  - table: ads_insights_country
+    keys:
+    - adset_id
+  - table: ads_insights_dma
+    keys:
+    - adset_id
+  - table: ads_insights_platform_and_device
+    keys:
+    - adset_id
+  - table: ads_insights_region
+    keys:
+    - adset_id
+  app_store_id:
+  - table: adcreative
+    keys:
+    - template_url_spec.ios.app_store_id
+    - template_url_spec.ipad.app_store_id
+    - template_url_spec.iphone.app_store_id
+  ads_ad_id:
+  - table: ads
+    keys:
+    - id
+  - table: ads_insights
+    keys:
+    - ad_id
+    - ad_id
+  - table: ads_insights_age_and_gender
+    keys:
+    - ad_id
+  - table: ads_insights_country
+    keys:
+    - ad_id
+  - table: ads_insights_dma
+    keys:
+    - ad_id
+  - table: ads_insights_platform_and_device
+    keys:
+    - ad_id
+  - table: ads_insights_region
+    keys:
+    - ad_id
+  - table: campaigns
+    keys:
+    - ads.data.id
+  campaigns_campaign_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: ads
+    keys:
+    - campaign_id
+  - table: ads_insights
+    keys:
+    - campaign_id
+    - campaign_id
+  - table: ads_insights_age_and_gender
+    keys:
+    - campaign_id
+  - table: ads_insights_country
+    keys:
+    - campaign_id
+  - table: ads_insights_dma
+    keys:
+    - campaign_id
+  - table: ads_insights_platform_and_device
+    keys:
+    - campaign_id
+  - table: ads_insights_region
+    keys:
+    - campaign_id
+  adcreative_creative_id:
+  - table: adcreative
+    keys:
+    - id
+  - table: ads
+    keys:
+    - creative.creative_id
+  offer_id:
+  - table: adsets
+    keys:
+    - promoted_object.offer_id
+  - table: adcreative
+    keys:
+    - object_story_spec.link_data.offer_id
+    - object_story_spec.template_data.offer_id
+    - object_story_spec.video_data.offer_id
+  page_id:
+  - table: adsets
+    keys:
+    - promoted_object.page_id
+  - table: adcreative
+    keys:
+    - object_story_spec.page_id
+  pixel_id:
+  - table: adsets
+    keys:
+    - pixel_id
+  product_set_id:
+  - table: adcreative
+    keys:
+    - product_set_id
+  - table: adsets
+    keys:
+    - promoted_object.product_set_id
+  app_id:
+  - table: adcreative
+    keys:
+    - template_url.spec.windows_phone.app_id
+tables:
+- table-name: adcreative
+  join:
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adlabels.id
+      foreign-key: id
+    - key: id
+      foreign-key: creative.creative_id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: adsets
+    keys:
+    - key: adlabels.id
+      foreign-key: id
+    - key: object_story_spec.link_data.offer_id
+      foreign-key: promoted_object.offer_id
+    - key: object_story_spec.template_data.offer_id
+      foreign-key: promoted_object.offer_id
+    - key: object_story_spec.video_data.offer_id
+      foreign-key: promoted_object.offer_id
+    - key: object_story_spec.page_id
+      foreign-key: promoted_object.page_id
+    - key: product_set_id
+      foreign-key: promoted_object.product_set_id
+- table-name: ads
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: id
+      foreign-key: adlabels.id
+    - key: creative.creative_id
+      foreign-key: id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: id
+      foreign-key: id
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: ads_insights
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: ad_id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: ads_insights_age_and_gender
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: ad_id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: ads_insights_country
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: ad_id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: ads_insights_dma
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: ad_id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: ads_insights_platform_and_device
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: ad_id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: ads_insights_region
+  join:
+  - table-name: adcreative
+    keys:
+    - key: account_id
+      foreign-key: account_id
+  - table-name: ads
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: adsets
+    keys:
+    - key: adset_id
+      foreign-key: id
+  - table-name: campaigns
+    keys:
+    - key: ad_id
+      foreign-key: ads.data.id
+    - key: campaign_id
+      foreign-key: id
+- table-name: adsets
+  join:
+  - table-name: adcreative
+    keys:
+    - key: id
+      foreign-key: adlabels.id
+    - key: promoted_object.offer_id
+      foreign-key: object_story_spec.link_data.offer_id
+    - key: promoted_object.offer_id
+      foreign-key: object_story_spec.template_data.offer_id
+    - key: promoted_object.offer_id
+      foreign-key: object_story_spec.video_data.offer_id
+    - key: promoted_object.page_id
+      foreign-key: object_story_spec.page_id
+    - key: promoted_object.product_set_id
+      foreign-key: product_set_id
+  - table-name: ads
+    keys:
+    - key: id
+      foreign-key: id
+    - key: id
+      foreign-key: adset_id
+  - table-name: ads_insights
+    keys:
+    - key: id
+      foreign-key: adset_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: id
+      foreign-key: adset_id
+  - table-name: ads_insights_country
+    keys:
+    - key: id
+      foreign-key: adset_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: id
+      foreign-key: adset_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: id
+      foreign-key: adset_id
+  - table-name: ads_insights_region
+    keys:
+    - key: id
+      foreign-key: adset_id
+- table-name: campaigns
+  join:
+  - table-name: ads
+    keys:
+    - key: ads.data.id
+      foreign-key: id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights_age_and_gender
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights_country
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights_platform_and_device
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights_region
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id

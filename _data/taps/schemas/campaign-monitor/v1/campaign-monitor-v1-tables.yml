@@ -1,0 +1,229 @@
+tap: campaign-monitor
+version: '1'
+tables:
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the the campaigns
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.campaignmonitor.com/api/campaigns/
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaigns.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: CampaignID
+- name: campaign_bounces
+  description: 'The `{{ table.name }}` table contains info about the subscribers who
+    bounced for a given campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_bounces.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-bounces
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - CampaignID
+    - EmailAddress
+    - Date
+    - ListID
+    replication-key: Date
+- name: campaign_clicks
+  description: 'The `{{ table.name }}` table contains info about subscribers who clicked
+    a link in a given campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_clicks.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-clicks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - CampaignID
+    - EmailAddress
+    - ListID
+    - Date
+    replication-key: Date
+- name: campaign_email_client_usage
+  description: 'The `{{ table.name }}` table contains info about the email clients
+    subscribers use to open campaigns.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_email_client_usage.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-email-client-usage
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - CampaignID
+    - Client
+    - Version
+- name: campaign_opens
+  description: 'The `{{ table.name }}` table contains info about subscribers who opened
+    a campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_opens.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-opens
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - CampaignID
+    - EmailAddress
+    - ListID
+    - Date
+    replication-key: Date
+- name: campaign_recipients
+  description: 'The `{{ table.name }}` table contains info about the subscribers that
+    a campaign was sent to.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_recipients.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-recipients
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - CampaignID
+    - EmailAddress
+    - ListID
+- name: campaign_spam_complaints
+  description: 'The `{{ table.name }}` table contains info about subscribers who marked
+    a campaign as spam.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_spam_complaints.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-spam-complaints
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - CampaignID
+    - EmailAddress
+    - ListID
+    - Date
+    replication-key: Date
+- name: campaign_summary
+  description: 'The `{{ table.name }}` table contains summary info about sent campaigns.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_summary.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-summary
+  table-details:
+    replication-method: Full Table
+    primary-key: CampaignID
+- name: campaign_unsubscribes
+  description: 'The `{{ table.name }}` table contains info about the subscribers who
+    unsubscribed from the email for a campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/fsinger-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaign_unsubscribes.json
+    api-method: https://www.campaignmonitor.com/api/campaigns/#campaign-unsubscribes
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - CampaignID
+    - EmailAddress
+    - ListID
+    - Date
+    replication-key: Date
+- name: lists
+  description: 'The `{{ table.name }}` table contains info about the lists in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.campaignmonitor.com/api/lists/
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/lists.json
+  table-details:
+    replication-method: Full Table
+    primary-key: ListID
+- name: list_active_subscribers
+  description: 'The `{{ table.name }}` table contains info about the active subscribers
+    for lists.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_active_subscribers.json
+    api-method: https://www.campaignmonitor.com/api/lists/#active-subscribers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - EmailAddress
+    - Date
+    replication-key: Date
+- name: list_bounced_subscribers
+  description: 'The `{{ table.name }}` table contains info about the bounced subscribers
+    for lists.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_bounced_subscribers.json
+    api-method: https://www.campaignmonitor.com/api/lists/#bounced-subscribers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - EmailAddress
+    - Date
+    replication-key: Date
+- name: list_deleted_subscribers
+  description: 'The `{{ table.name }}` table contains info about the deleted subscribers
+    for lists.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_deleted_subscribers.json
+    api-method: https://www.campaignmonitor.com/api/lists/#deleted-subscribers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - EmailAddress
+    - Date
+    replication-key: Date
+- name: list_details
+  description: 'The `{{ table.name }}` table contains summary info about lists in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_details.json
+    api-method: https://www.campaignmonitor.com/api/lists/#list-details
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: ListID
+- name: list_unconfirmed_subscribers
+  description: 'The `{{ table.name }}` table contains info about the unconfirmed subscribers
+    for lists.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_unconfirmed_subscribers.json
+    api-method: https://www.campaignmonitor.com/api/lists/#unconfirmed-subscribers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - EmailAddress
+    - Date
+    replication-key: Date
+- name: list_unsubscribed_subscribers
+  description: 'The `{{ table.name }}` table contains info about the unsubscribed
+    subscribers for lists.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_unsubscribed_subscribers.json
+    api-method: https://www.campaignmonitor.com/api/lists/#unsubscribed-subscribers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ListID
+    - EmailAddress
+    - Date
+    replication-key: Date

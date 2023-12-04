@@ -1,0 +1,135 @@
+tap: helpscout
+version: '1'
+tap-repo-schemas: true
+tables:
+- name: conversations
+  description: 'The `{{ table.name }}` table contains info about the conversations
+    in your {{ integration.display_name }} mailbox. Stitch will replicate all conversations,
+    including active, closed, open, pending, and spam.
+
+
+    **Note**: If custom fields are available, Stitch will replicate them.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/conversations.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/conversations/list/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: conversation_threads
+  description: 'The `{{ table.name }}` table contains info about the threads that
+    make up [`conversations`](#conversations).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/conversation_threads.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/conversations/threads/list/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/customers.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/customers/list/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: happiness_ratings_report
+  description: "The happiness ratings report provides a company\u2019s ratings for\
+    \ a specified time range."
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/tree/master/tap_helpscout/schemas/happiness_ratings_report.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/reports/happiness/reports-happiness-ratings/
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - conversation_id
+    - rating_created_at
+    - rating_customer_id
+- name: mailboxes
+  description: 'The `{{ table.name }}` table contains info about the mailboxes in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/mailboxes.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/mailboxes/list/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: mailbox_fields
+  description: 'The `{{ table.name }}` table contains info about the custom fields
+    associated with your {{ integration.display_name }} mailboxes.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/mailbox_fields.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/mailboxes/mailbox-fields/
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: mailbox_folders
+  description: 'The `{{ table.name }}` table contains info about the mailbox folders
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/mailbox_folders.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/mailboxes/mailbox-folders/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: teams
+  description: This report contains information about all the different teams in the
+    company.
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/tree/master/tap_helpscout/schemas/teams.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/teams/list-teams/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: team_members
+  description: This report contains information about team members.
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/tree/master/tap_helpscout/schemas/team_members.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/teams/list-team-members/
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - team_id
+    - user_id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/users.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/users/list/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: workflows
+  description: 'The `{{ table.name }}` table contains info about the workflows in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-helpscout/blob/master/tap_helpscout/schemas/workflows.json
+    api-method: https://developer.helpscout.com/mailbox-api/endpoints/workflows/list/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified_at

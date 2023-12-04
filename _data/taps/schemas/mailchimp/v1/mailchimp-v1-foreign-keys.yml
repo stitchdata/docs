@@ -1,0 +1,223 @@
+tap: mailchimp
+version: '1'
+keys:
+  automations_automation_id:
+  - table: automations
+    keys:
+    - id
+  campaigns_campaign_id:
+  - table: campaigns
+    keys:
+    - id
+  - table: reports_email_activity
+    keys:
+    - campaign_id
+  lists_list_id:
+  - table: automations
+    keys:
+    - recipients.list_id
+  - table: campaigns
+    keys:
+    - recipients.list_id
+  - table: list_members
+    keys:
+    - list_id
+  - table: list_segment_members
+    keys:
+    - list_id
+  - table: list_segments
+    keys:
+    - list_id
+  - table: lists
+    keys:
+    - id
+  - table: reports_email_activity
+    keys:
+    - list_id
+tables:
+- table-name: automations
+  join:
+  - table-name: campaigns
+    keys:
+    - key: recipients.list_id
+      foreign-key: recipients.list_id
+  - table-name: list_members
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: list_segment_members
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: list_segments
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: lists
+    keys:
+    - key: recipients.list_id
+      foreign-key: id
+  - table-name: reports_email_activity
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+- table-name: campaigns
+  join:
+  - table-name: reports_email_activity
+    keys:
+    - key: id
+      foreign-key: campaign_id
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: automations
+    keys:
+    - key: recipients.list_id
+      foreign-key: recipients.list_id
+  - table-name: list_members
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: list_segment_members
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: list_segments
+    keys:
+    - key: recipients.list_id
+      foreign-key: list_id
+  - table-name: lists
+    keys:
+    - key: recipients.list_id
+      foreign-key: id
+- table-name: reports_email_activity
+  join:
+  - table-name: campaigns
+    keys:
+    - key: campaign_id
+      foreign-key: id
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: automations
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: list_members
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: list_segment_members
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: list_segments
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: id
+- table-name: list_members
+  join:
+  - table-name: automations
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: campaigns
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: list_segment_members
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: list_segments
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: id
+  - table-name: reports_email_activity
+    keys:
+    - key: list_id
+      foreign-key: list_id
+- table-name: list_segment_members
+  join:
+  - table-name: automations
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: campaigns
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: list_members
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: list_segments
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: id
+  - table-name: reports_email_activity
+    keys:
+    - key: list_id
+      foreign-key: list_id
+- table-name: list_segments
+  join:
+  - table-name: automations
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: campaigns
+    keys:
+    - key: list_id
+      foreign-key: recipients.list_id
+  - table-name: list_members
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: list_segment_members
+    keys:
+    - key: list_id
+      foreign-key: list_id
+  - table-name: lists
+    keys:
+    - key: list_id
+      foreign-key: id
+  - table-name: reports_email_activity
+    keys:
+    - key: list_id
+      foreign-key: list_id
+- table-name: lists
+  join:
+  - table-name: automations
+    keys:
+    - key: id
+      foreign-key: recipients.list_id
+  - table-name: campaigns
+    keys:
+    - key: id
+      foreign-key: recipients.list_id
+  - table-name: list_members
+    keys:
+    - key: id
+      foreign-key: list_id
+  - table-name: list_segment_members
+    keys:
+    - key: id
+      foreign-key: list_id
+  - table-name: list_segments
+    keys:
+    - key: id
+      foreign-key: list_id
+  - table-name: reports_email_activity
+    keys:
+    - key: id
+      foreign-key: list_id

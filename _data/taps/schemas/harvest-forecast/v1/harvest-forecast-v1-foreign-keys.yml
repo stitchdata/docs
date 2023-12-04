@@ -1,0 +1,347 @@
+tap: harvest-forecast
+version: '1'
+keys:
+  assignments_:
+  - table: assignments
+    keys:
+    - id
+  clients_client_id:
+  - table: clients
+    keys:
+    - id
+  - table: projects
+    keys:
+    - client_id
+  milestones_:
+  - table: milestones
+    keys:
+    - id
+  people_updated_by_id:
+  - table: assignments
+    keys:
+    - person_id
+    - updated_by_id
+  - table: clients
+    keys:
+    - updated_by_id
+  - table: milestones
+    keys:
+    - updated_by_id
+  - table: people
+    keys:
+    - id
+    - updated_by_id
+  - table: projects
+    keys:
+    - updated_by_id
+  - table: placeholders
+    keys:
+    - updated_by_id
+  - table: roles
+    keys:
+    - updated_by_id
+  projects_project_id:
+  - table: assignments
+    keys:
+    - project_id
+  - table: milestones
+    keys:
+    - project_id
+  - table: projects
+    keys:
+    - id
+  placeholders_placeholder_id:
+  - table: assignments
+    keys:
+    - placeholder_id
+  - table: placeholders
+    keys:
+    - id
+  - table: roles
+    keys:
+    - placeholder_ids
+  roles_value:
+  - table: people
+    keys:
+    - roles
+  - table: placeholders
+    keys:
+    - roles
+  - table: roles
+    keys:
+    - id
+tables:
+- table-name: assignments
+  join:
+  - table-name: clients
+    keys:
+    - key: person_id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: milestones
+    keys:
+    - key: person_id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: people
+    keys:
+    - key: person_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: id
+    - key: person_id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: projects
+    keys:
+    - key: person_id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: project_id
+      foreign-key: id
+  - table-name: placeholders
+    keys:
+    - key: person_id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: placeholder_id
+      foreign-key: id
+  - table-name: roles
+    keys:
+    - key: person_id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: placeholder_id
+      foreign-key: placeholder_ids
+- table-name: clients
+  join:
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: client_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: assignments
+    keys:
+    - key: updated_by_id
+      foreign-key: person_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: milestones
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: people
+    keys:
+    - key: updated_by_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: placeholders
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: roles
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+- table-name: projects
+  join:
+  - table-name: clients
+    keys:
+    - key: client_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: assignments
+    keys:
+    - key: updated_by_id
+      foreign-key: person_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: id
+      foreign-key: project_id
+  - table-name: milestones
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: id
+      foreign-key: project_id
+  - table-name: people
+    keys:
+    - key: updated_by_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: placeholders
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: roles
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+- table-name: milestones
+  join:
+  - table-name: assignments
+    keys:
+    - key: updated_by_id
+      foreign-key: person_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: project_id
+      foreign-key: project_id
+  - table-name: clients
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: people
+    keys:
+    - key: updated_by_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: projects
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: project_id
+      foreign-key: id
+  - table-name: placeholders
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: roles
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+- table-name: people
+  join:
+  - table-name: assignments
+    keys:
+    - key: id
+      foreign-key: person_id
+    - key: updated_by_id
+      foreign-key: person_id
+    - key: id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: clients
+    keys:
+    - key: id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: milestones
+    keys:
+    - key: id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: projects
+    keys:
+    - key: id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: placeholders
+    keys:
+    - key: id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: roles
+      foreign-key: roles
+  - table-name: roles
+    keys:
+    - key: id
+      foreign-key: updated_by_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: roles
+      foreign-key: id
+- table-name: placeholders
+  join:
+  - table-name: assignments
+    keys:
+    - key: updated_by_id
+      foreign-key: person_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: id
+      foreign-key: placeholder_id
+  - table-name: clients
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: milestones
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: people
+    keys:
+    - key: updated_by_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: roles
+      foreign-key: roles
+  - table-name: projects
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: roles
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: id
+      foreign-key: placeholder_ids
+    - key: roles
+      foreign-key: id
+- table-name: roles
+  join:
+  - table-name: assignments
+    keys:
+    - key: updated_by_id
+      foreign-key: person_id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: placeholder_ids
+      foreign-key: placeholder_id
+  - table-name: clients
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: milestones
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: people
+    keys:
+    - key: updated_by_id
+      foreign-key: id
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: id
+      foreign-key: roles
+  - table-name: projects
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+  - table-name: placeholders
+    keys:
+    - key: updated_by_id
+      foreign-key: updated_by_id
+    - key: placeholder_ids
+      foreign-key: id
+    - key: id
+      foreign-key: roles

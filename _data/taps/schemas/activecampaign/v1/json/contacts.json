@@ -1,0 +1,242 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_contacts": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "adate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "anonymized": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "bounced_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bounced_hard": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "bounced_soft": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_utc_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "edate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email_empty": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "email_local": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gravatar": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "orgid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rating_tstamp": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "score_values": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "segmentio_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sentcnt": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "socialdata_lastcheck": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ua": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "udate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_by": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_utc_timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

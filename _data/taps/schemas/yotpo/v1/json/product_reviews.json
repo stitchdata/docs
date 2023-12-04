@@ -1,0 +1,128 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "comment": {
+      "properties": {
+        "comments_avatar": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "date-time"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "content": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "date-time"
+    },
+    "domain_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "images_data": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "original_url": {
+            "type": "string"
+          },
+          "thumb_url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "score": {
+      "type": "number"
+    },
+    "sentiment": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_review_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "user": {
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "is_social_connected": {
+          "type": "number"
+        },
+        "social_image": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_id": {
+          "type": "number"
+        },
+        "user_type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "verified_buyer": {
+      "type": "boolean"
+    },
+    "votes_down": {
+      "type": "number"
+    },
+    "votes_up": {
+      "type": "number"
+    }
+  },
+  "type": [
+    "object"
+  ]
+}

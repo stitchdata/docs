@@ -1,0 +1,353 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "ad_account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "auto_bid": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "bid_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "bid_strategy": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cap_and_exclusion_config": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "daily_budget_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "delivery_constraint": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "impression_goal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lifetime_budget_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "optimization_goal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pacing_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pixel_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placement": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "placement_v2": {
+      "additionalProperties": true,
+      "properties": {
+        "config": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "exclusion": {
+          "additionalProperties": true,
+          "properties": {
+            "content_types": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "inclusion": {
+          "additionalProperties": true,
+          "properties": {
+            "content_types": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "platforms": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "product_properties": {
+      "additionalProperties": true,
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "reach_and_frequency_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reach_and_frequency_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reach_goal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "target_bid": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "targeting": {
+      "additionalProperties": true,
+      "properties": {
+        "demographics": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "devices": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "enable_targeting_expansion": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "geos": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interests": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": true,
+                "properties": {},
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "regulated_content": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "segments": {
+          "anyOf": [
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targeting_reach_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

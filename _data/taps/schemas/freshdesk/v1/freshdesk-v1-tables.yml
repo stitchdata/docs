@@ -1,0 +1,118 @@
+tap: freshdesk
+version: '1'
+tables:
+- name: agents
+  description: 'The `{{ table.name }}` table contains info about the agents in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.freshdesk.com/api/#agents
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/agents.json
+    api-method: https://developers.freshdesk.com/api/#list_all_agents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: companies
+  description: 'The `{{ table.name }}` table contains info about the companies your
+    various customers and contacts belong to.
+
+
+    #### Custom Fields
+
+
+    If applicable, Stitch will replicate custom fields related to `{{ table.name }}`
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    doc-link: https://developers.freshdesk.com/api/#companies
+    api-method: https://developers.freshdesk.com/api/#list_all_companies
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: conversations
+  description: 'The `{{ table.name }}` table contains info about replies and public/private
+    notes added to the tickets in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.freshdesk.com/api/#conversations
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/conversations.json
+    api-method: https://developers.freshdesk.com/api/#list_all_ticket_notes
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: groups
+  description: 'The `{{ table.name }}` table contains info about the groups your agents
+    belong to.
+
+    '
+  links:
+    doc-link: https://developers.freshdesk.com/api/#groups
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/groups.json
+    api-method: https://developers.freshdesk.com/api/#list_all_groups
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: roles
+  description: 'The `{{ table.name }}` table contains info about the various roles
+    that can be assigned to team members in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.freshdesk.com/api/#roles
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/roles.json
+    api-method: https://developers.freshdesk.com/api/#list_all_roles
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: satisfaction_ratings
+  description: 'The `{{ table.name }}` table contains info about customer satisfaction
+    survey responses, or satisfaction ratings.
+
+    '
+  links:
+    doc-link: https://developers.freshdesk.com/api/#satisfaction-ratings
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/satisfaction_ratings.json
+    api-method: https://developers.freshdesk.com/api/#view_all_satisfaction_ratings
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: tickets
+  description: 'The `tickets` table contains info about the tickets in your {{ integration.display_name
+    }} account.
+
+
+    #### Custom Fields
+
+
+    If applicable, Stitch will replicate custom fields related to `tickets` in {{
+    integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/tickets.json
+    api-method: https://developers.freshdesk.com/api/#tickets
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: time_entries
+  description: 'The `time_entries` table contains info about the time entries entered
+    by agents working on tickets.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/time_entries.json
+    api-method: https://developers.freshdesk.com/api/#time-entries
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at

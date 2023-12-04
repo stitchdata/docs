@@ -1,0 +1,211 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "acquisition_as_of": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "acquisition_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "asset_status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "calendar_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_acquisition_as_of": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "industry_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "initial_period": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "investment_thesis": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "lead_fund_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "period_mapping": {
+      "additionalProperties": false,
+      "properties": {
+        "fiscal_period_mapping": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "calendar_period": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_quarter": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_quarter_offset": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "fiscal_period": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "fiscal_quarter": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "is_calendar_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "is_fiscal_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "object_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

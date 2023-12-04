@@ -1,0 +1,78 @@
+tap: adroll
+version: '1'
+tables:
+- name: ads
+  description: 'The `{{ table.name }}` table contains information about the ads and
+    creatives associated with the advertisables in your {{ integration.display_name
+    }} account.
+
+    '
+  links:
+    doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-ad-get
+    singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ads.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_ads
+  table-details:
+    replication-method: Full Table
+    primary-key: eid
+- name: advertisables
+  description: 'The `{{ table.name }}` table contains information about the advertisables
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get
+    singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/advertisables.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-organization-get_advertisables
+  table-details:
+    replication-method: Full Table
+    primary-key: eid
+- name: ad_groups
+  description: 'The `{{ table.name }}` table contains info about the adgroups contained
+    within the campaigns of your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-adgroup-get
+    singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ad_groups.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_adgroups
+  table-details:
+    replication-method: Full Table
+    primary-key: eid
+- name: ad_reports
+  description: 'The `{{ table.name }}` table contains ad-level reporting data from
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/ad_reports.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-report-ad
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - eid
+    - date
+    replication-key: date
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains information about the advertising
+    campaigns in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-campaign-get
+    singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/campaigns.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_campaigns
+  table-details:
+    replication-method: Full Table
+    primary-key: eid
+- name: segments
+  description: 'The `{{ table.name }}` table contains information about segments,
+    or the lists of users that visit your {{ integration.display_name }} site.
+
+    '
+  links:
+    doc-link: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-segment-get
+    singer-schema: https://github.com/singer-io/tap-adroll/blob/master/tap_adroll/schemas/segments.json
+    api-method: https://developers.nextroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_segments
+  table-details:
+    replication-method: Full Table
+    primary-key: eid

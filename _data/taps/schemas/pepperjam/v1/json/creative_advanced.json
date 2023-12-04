@@ -1,0 +1,176 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "flash_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "personalized": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "private": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "private_affiliates": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "affiliate_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "first_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "promotions": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sub_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supression_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "verified": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

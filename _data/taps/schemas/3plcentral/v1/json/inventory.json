@@ -1,0 +1,445 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cost": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "customer_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "external_d": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "expiration_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "facility_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "inventory_unit_of_measure_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "inventory_units_per_secondary_unity": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "item_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "item_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "sku": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "location_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name_key": {
+          "additionalProperties": false,
+          "properties": {
+            "facility_identifier": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "lot_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "on_hand_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "on_hold": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "on_hold_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "on_hold_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "on_hold_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "on_hold_user_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "pallet_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name_key": {
+          "additionalProperties": false,
+          "properties": {
+            "facility_identifier": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "qualifier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "quarantined": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "receive_item_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "receive_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "received_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "receiver_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "secondary_available_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "secondary_on_hand_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "secondary_on_hold_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "secondary_received_qty": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "secondary_unit_of_measure_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "serial_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supplier_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "weight_imperial": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "weight_imperial_available": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "weight_imperial_on_hand": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "weight_metric": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "weight_metric_available": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "weight_metric_on_hand": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  },
+  "type": "object"
+}

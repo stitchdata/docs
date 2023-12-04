@@ -1,0 +1,237 @@
+{
+  "properties": {
+    "amazon_payment": {
+      "properties": {
+        "agreement_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "bank_account": {
+      "properties": {
+        "account_holder_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "account_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "bank_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "echeck_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "last4": {
+          "type": [
+            "string"
+          ]
+        },
+        "mandate_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "name_on_account": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "card": {
+      "properties": {
+        "billing_addr1": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_addr2": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_city": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_country": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_state": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_state_code": {
+          "type": [
+            "string"
+          ]
+        },
+        "billing_zip": {
+          "type": [
+            "string"
+          ]
+        },
+        "brand": {
+          "type": [
+            "string"
+          ]
+        },
+        "expiry_month": {
+          "type": [
+            "integer"
+          ]
+        },
+        "expiry_year": {
+          "type": [
+            "integer"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "funding_type": {
+          "type": [
+            "string"
+          ]
+        },
+        "iin": {
+          "type": [
+            "string"
+          ]
+        },
+        "last4": {
+          "type": [
+            "string"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "string"
+          ]
+        },
+        "masked_number": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "gateway": {
+      "type": [
+        "string"
+      ]
+    },
+    "gateway_account_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "ip_address": {
+      "type": [
+        "string"
+      ]
+    },
+    "issuing_country": {
+      "type": [
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "string"
+      ]
+    },
+    "paypal": {
+      "properties": {
+        "agremeent_id": {
+          "type": [
+            "string"
+          ]
+        },
+        "email": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "resource_version": {
+      "type": [
+        "integer"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

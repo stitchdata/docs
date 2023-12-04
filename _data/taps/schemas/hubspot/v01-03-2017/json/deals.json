@@ -1,0 +1,62 @@
+{
+  "properties": {
+    "associations": {
+      "properties": {
+        "associatedCompanyIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "associatedDealIds": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        },
+        "associatedVids": {
+          "properties": {
+            "value": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "dealId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "isDeleted": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "integer"
+      ]
+    }
+  }
+}

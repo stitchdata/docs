@@ -1,0 +1,280 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_for": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "dependent_field_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "display_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "built_in_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "display_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "field_size": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "position": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "edit_rights": {
+      "additionalProperties": false,
+      "properties": {
+        "all_users": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "roles": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "selection_options": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "available_options": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "score": {
+                          "type": [
+                            "null",
+                            "number"
+                          ]
+                        },
+                        "selection_key": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "for_selection_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "for_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "usage": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "object_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "required": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value_validation_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "unique": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "validation_pattern": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "view_rights": {
+      "additionalProperties": false,
+      "properties": {
+        "all_users": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "roles": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": "object"
+}

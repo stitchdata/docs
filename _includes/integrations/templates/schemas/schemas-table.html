@@ -1,0 +1,134 @@
+{% assign integration = page %}
+
+{% capture array-note %}attributes will be denested into a subtable.{% endcapture %}
+
+{% capture object-note %}attributes in this object will be flattened into the table.{% endcapture %}
+
+{% capture nested-data-tooltip-content %}This is a nested data structure. If your destination doesn't natively support nested data, TYPE NOTE <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
+
+<div class="table-responsive">
+	<table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
+	
+		{% for property in include.jsondata %}
+			{% assign name = property | first %}
+			{% assign data = property | last %}
+			{% if data.type or data.anyOf %}
+				<tr>
+					<td>
+						<p>
+							<strong>
+								{{ name }}
+							</strong>
+							{% if include.level == "main" %}
+								{% if name == table.table-details.primary-key or table.table-details.primary-keys contains name %}
+									{{ ui-icon.primary-key | flatify }}
+								{% endif %}
+								{% if name == table.table-details.replication-key or table.table-details.replication-keys contains name %}
+									{{ ui-icon.replication-key | flatify }}
+								{% endif %}
+							{% endif %}
+						</p>
+						
+						{% assign types = data.type %}
+						{% assign types_string = types | join: " " %}
+						{% assign new_types = types_string | remove: "null" | strip | replace: "  ", " " | split: " " | join: ", " %}
+
+						<p>
+							{{ new_types | upcase }}
+
+							{% if new_types contains 'object' or new_types contains 'array' %}
+								{% if new_types contains 'object' %}
+									{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", object-note }}{% endcapture %}
+								{% elsif new_types contains  'array' %}
+									{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", array-note }}{% endcapture %}
+								{% endif %}
+								{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+							{% endif %}
+						</p>
+
+						{% if data.anyOf %}
+							{% for item in data.anyOf %}
+
+								{% assign anyof_types = item.type %}
+								{% assign anyof_types_string = item.type | join: " " %}
+								
+								{% for anyof_type in anyof_types %}
+									{% if anyof_type != "null" %}
+
+										<p>{{ anyof_type | upcase  }}
+
+										{% if anyof_type contains 'object' or anyof_type contains 'array' %}
+											{% if anyof_type contains 'object' %}
+												{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", object-note }}{% endcapture %}
+											{% elsif anyof_type contains  'array' %}
+												{% capture nested-data-tooltip %}{{ nested-data-tooltip-content | replace:"TYPE NOTE", array-note }}{% endcapture %}
+											{% endif %}
+											{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+										{% endif %}
+
+										</p>
+
+										{% if item.properties or item.items.properties %}
+											{% if item.properties.size > 0 or item.items.properties.size > 0 %}
+												{% capture attribute-id %}{% increment counter %}{% endcapture %}
+	
+												{% assign full-id = name | append: "--" | append: attribute-id %}
+	
+												<div class="panel-group" id="{{ full-id | slugify }}">
+													<div class="panel panel-table-subattributes">
+														<div class="panel-table-subattribute-heading">
+															<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ name }}</a>
+														</div>
+	
+														<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+															{% if data.properties %}
+																{% include integrations/templates/schemas/schemas-table.html jsondata=item.properties level="nested" %}
+															{% else %}
+																	{% if item.items.properties %}
+																		{% include integrations/templates/schemas/schemas-table.html jsondata=item.items.properties level="nested"%}
+																	{% else %}
+																		{% include integrations/templates/schemas/schemas-table.html jsondata=item level="nested"%}
+																	{% endif %}
+															{% endif %}
+														</div>
+													</div>
+												</div>
+											{% endif %}
+										{% endif %}
+									{% endif %}
+								{% endfor %}
+							{% endfor %}
+						{% endif %}
+
+						{% if data.properties or data.items.properties %}
+								{% if data.properties.size > 0 or data.items.properties.size > 0 %}
+								{% capture attribute-id %}{% increment counter %}{% endcapture %}
+								{% assign full-id = name | append: "--" | append: attribute-id %}
+
+								<div class="panel-group" id="{{ full-id | slugify }}">
+									<div class="panel panel-table-subattributes">
+										<div class="panel-table-subattribute-heading">
+											<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | slugify | strip }}" href="#collapse{{ full-id | slugify }}">Click to expand {{ name }}</a>
+										</div>
+
+										<div id="collapse{{ full-id | slugify | strip }}" class="panel-collapse collapse noCrossRef">
+											{% if data.properties %}
+												{% include integrations/templates/schemas/schemas-table.html jsondata=data.properties level="nested" %}
+											{% else %}
+												{% if data.items.properties %}
+													{% include integrations/templates/schemas/schemas-table.html jsondata=data.items.properties level="nested"%}
+												{% else %}
+													{% include integrations/templates/schemas/schemas-table.html jsondata=data level="nested"%}
+												{% endif %}
+											{% endif %}
+										</div>
+									</div>
+								</div>
+							{% endif %}
+						{% endif %}
+					</td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+</div>

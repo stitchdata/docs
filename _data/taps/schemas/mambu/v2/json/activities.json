@@ -1,0 +1,148 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "branch_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "client_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "client_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "field_changes": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "branchKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "clientKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "field_change_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "loanAccountKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "loanProductKey": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "new_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "original_value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "transaction_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "loan_account_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "loan_product_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timestamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "transaction_ID": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

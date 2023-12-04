@@ -1,0 +1,89 @@
+tap: ujet
+version: '1'
+tables:
+- name: agents
+  description: 'The `{{ table.name }}` table contains info about agents.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/agents.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: status_updated_at
+- name: agent_activity_logs
+  description: 'The `{{ table.name }}` table contains info about agent activity logs.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/agent_activity_logs.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: started_at
+- name: calls
+  description: 'The `{{ table.name }}` table contains info about calls.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/calls.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: menus
+  description: 'The `{{ table.name }}` table contains info about menus.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/menus.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+- name: menu_tree
+  description: 'The `{{ table.name }}` table contains info about menu trees.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/menu_tree.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about teams.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/teams.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: team_tree
+  description: 'The `{{ table.name }}` table contains info about team trees.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/team_tree.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: user_statuses
+  description: 'The `{{ table.name }}` table contains info about user statuses.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/user_statuses.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: chats
+  description: 'The `{{ table.name }}` table contains info about chats.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-ujet/blob/master/tap_ujet/schemas/chats.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true

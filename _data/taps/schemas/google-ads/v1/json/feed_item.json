@@ -1,0 +1,322 @@
+{
+  "properties": {
+    "attribute_values": {
+      "properties": {
+        "attribute_value": {
+          "properties": {
+            "boolean_value": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "boolean_values": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "double_value": {
+              "type": [
+                "double"
+              ]
+            },
+            "double_values": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "double"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "feed_attribute_id": {
+              "type": [
+                "integer"
+              ]
+            },
+            "integer_value": {
+              "type": [
+                "integer"
+              ]
+            },
+            "integer_values": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "price_value": {
+              "properties": {
+                "amount_micros": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "currency-code": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "string_value": {
+              "type": [
+                "string"
+              ]
+            },
+            "string_values": {
+              "properties": {
+                "value": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "end_date_time": {
+      "type": [
+        "string"
+      ]
+    },
+    "feed": {
+      "type": [
+        "string"
+      ]
+    },
+    "feed_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "geo_targeting_restriction": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "policy_infos": {
+      "properties": {
+        "info": {
+          "properties": {
+            "approval_status": {
+              "type": [
+                "string"
+              ]
+            },
+            "feed_mapping_resource_name": {
+              "type": [
+                "string"
+              ]
+            },
+            "placeholder_type_enum": {
+              "type": [
+                "string"
+              ]
+            },
+            "policy_topic_entries": {
+              "properties": {
+                "entry": {
+                  "properties": {
+                    "constraints": {
+                      "properties": {
+                        "value": {
+                          "type": [
+                            "object"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "array"
+                      ]
+                    },
+                    "evidences": {
+                      "properties": {
+                        "value": {
+                          "type": [
+                            "object"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "array"
+                      ]
+                    },
+                    "topic": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "type": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "quality_approval_status": {
+              "type": [
+                "string"
+              ]
+            },
+            "quality_disapproval_reasons": {
+              "properties": {
+                "reason": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "review_status": {
+              "type": [
+                "string"
+              ]
+            },
+            "validation_errors": {
+              "properties": {
+                "error": {
+                  "properties": {
+                    "description": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "extra_info": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "feed_attribute_ids": {
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "integer"
+                          ]
+                        }
+                      },
+                      "type": [
+                        "array"
+                      ]
+                    },
+                    "validation_error": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "validation_status": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "resource_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "start_date_time": {
+      "type": [
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "url_custom_parameters": {
+      "properties": {
+        "parameter": {
+          "properties": {
+            "key": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    }
+  }
+}

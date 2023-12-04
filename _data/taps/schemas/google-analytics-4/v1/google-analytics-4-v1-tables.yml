@@ -1,0 +1,19 @@
+tap: google-analytics-4
+version: '1'
+tables: 
+- name: sample_report
+  custom-report: true
+  description: |
+    For every report you create in the integration's settings page, Stitch will create a corresponding table in your destination. The table will contain the [metrics and dimensions you select](#track-data), along with a few columns Stitch requires for replication.
+
+    **Note**: Every row in this table pertains to a specific day. Use the `start_date` and `end_date` columns to identify what day the row is for.
+    
+    The `{{table.table-details.primary-key}}` column is a Stitch-generated SHA 256 hash that should be used as a Primary Key. The hash consists of a UTF-8 encoded JSON list containing:
+
+      - The account ID, web property ID, and profile ID of the associated report
+      - Pairs of `ga:dimension_name` and `dimension_value`
+      - The `start_date` and `end_date` values for the record, in `YYYY-mm-dd` format
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: _sdc_record_hash
+    replication-key: start_date

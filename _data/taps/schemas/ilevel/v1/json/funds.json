@@ -1,0 +1,205 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "business_unit_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "calendar_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "enabled_capabilities_string": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "excel_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_logo": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "initial_period": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "object_type_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner_type_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "period_mapping": {
+      "additionalProperties": false,
+      "properties": {
+        "fiscal_period_mapping": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "calendar_period": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_quarter": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_quarter_offset": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "calendar_type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "fiscal_period": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "fiscal_quarter": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "is_calendar_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "is_fiscal_year_end": {
+                    "default": false,
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "object_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "status_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_committed_capital": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "type_of_plan_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vintage": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

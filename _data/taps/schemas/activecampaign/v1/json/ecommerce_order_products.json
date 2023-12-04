@@ -1,0 +1,107 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "connectionid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ecom_order": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "externalid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "orderid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "price": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "product_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tstamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

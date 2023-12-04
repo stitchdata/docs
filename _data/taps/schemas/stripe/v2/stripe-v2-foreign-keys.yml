@@ -1,0 +1,922 @@
+tap: stripe
+version: '2'
+keys:
+  balance_transactions_balance_transaction:
+  - table: balance_transactions
+    keys:
+    - id
+  - table: charges
+    keys:
+    - balance_transaction
+  - table: payouts
+    keys:
+    - balance_transaction
+    - failure_balance_transaction
+  - table: transfers
+    keys:
+    - balance_transaction
+    - failure_balance_transaction
+  - table: disputes
+    keys:
+    - balance_transactions.id
+  _card:
+  - table: charges
+    keys:
+    - card.id
+    - source.id
+  - table: customers
+    keys:
+    - cards.id
+  charges_charge:
+  - table: charges
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - charge
+  - table: disputes
+    keys:
+    - charge
+  coupons_coupon:
+  - table: coupons
+    keys:
+    - id
+  - table: customers
+    keys:
+    - discount.coupon.id
+  - table: invoices
+    keys:
+    - discount.coupon.id
+  - table: subscriptions
+    keys:
+    - discount.coupon.id
+  customers_customer:
+  - table: charges
+    keys:
+    - customer
+    - card.customer
+  - table: customers
+    keys:
+    - id
+    - cards.customer
+    - discount.customer
+  - table: invoice_items
+    keys:
+    - customer
+  - table: invoices
+    keys:
+    - customer
+    - discount.customer
+  - table: subscription_items
+    keys:
+    - customer
+  - table: subscriptions
+    keys:
+    - customer
+  events_event:
+  - table: events
+    keys:
+    - id
+  invoices_invoice:
+  - table: charges
+    keys:
+    - invoice
+  - table: invoice_items
+    keys:
+    - invoice
+  - table: invoice_line_items
+    keys:
+    - invoice
+  - table: invoices
+    keys:
+    - id
+  invoice_items_invoice_item:
+  - table: invoice_items
+    keys:
+    - id
+  - table: invoice_line_items
+    keys:
+    - invoice_item
+  invoice_line_items_invoice_line_item:
+  - table: invoice_line_items
+    keys:
+    - id
+  - table: invoices
+    keys:
+    - lines
+  plans_plan:
+  - table: invoice_items
+    keys:
+    - plan.id
+  - table: plans
+    keys:
+    - id
+  - table: subscription_items
+    keys:
+    - plan.id
+  - table: subscriptions
+    keys:
+    - plan.id
+  payouts_payout:
+  - table: payouts
+    keys:
+    - id
+  - table: payout_transactions
+    keys:
+    - payout_id
+  products_product:
+  - table: invoice_items
+    keys:
+    - plan.product
+  - table: invoice_line_items
+    keys:
+    - plan.product
+  - table: plans
+    keys:
+    - product
+  - table: products
+    keys:
+    - id
+  - table: subscription_items
+    keys:
+    - plan.product
+  - table: subscriptions
+    keys:
+    - plan.product
+  subscription_items_subscription_item:
+  - table: invoice_items
+    keys:
+    - subscription_item
+  - table: subscription_items
+    keys:
+    - id
+  - table: subscriptions
+    keys:
+    - items
+  subscriptions_subscription:
+  - table: customers
+    keys:
+    - subscriptions
+    - discount.subscription
+  - table: invoice_items
+    keys:
+    - subscription
+  - table: invoice_line_items
+    keys:
+    - subscription
+  - table: invoices
+    keys:
+    - subscription
+    - discount.subscription
+  - table: subscriptions
+    keys:
+    - id
+  - table: subscription_items
+    keys:
+    - subscription
+  transfers_transfer:
+  - table: charges
+    keys:
+    - source_transfer
+  - table: transfers
+    keys:
+    - id
+  disputes_id:
+  - table: disputes
+    keys:
+    - id
+  payout_transactions_id:
+  - table: payout_transactions
+    keys:
+    - id
+tables:
+- table-name: balance_transactions
+  join:
+  - table-name: charges
+    keys:
+    - key: id
+      foreign-key: balance_transaction
+  - table-name: payouts
+    keys:
+    - key: id
+      foreign-key: balance_transaction
+    - key: id
+      foreign-key: failure_balance_transaction
+  - table-name: transfers
+    keys:
+    - key: id
+      foreign-key: balance_transaction
+    - key: id
+      foreign-key: failure_balance_transaction
+  - table-name: disputes
+    keys:
+    - key: id
+      foreign-key: balance_transactions.id
+- table-name: charges
+  join:
+  - table-name: balance_transactions
+    keys:
+    - key: balance_transaction
+      foreign-key: id
+  - table-name: payouts
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transaction
+    - key: balance_transaction
+      foreign-key: failure_balance_transaction
+  - table-name: transfers
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transaction
+    - key: balance_transaction
+      foreign-key: failure_balance_transaction
+    - key: source_transfer
+      foreign-key: id
+  - table-name: disputes
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transactions.id
+    - key: id
+      foreign-key: charge
+  - table-name: customers
+    keys:
+    - key: card.id
+      foreign-key: cards.id
+    - key: source.id
+      foreign-key: cards.id
+    - key: customer
+      foreign-key: id
+    - key: card.customer
+      foreign-key: id
+    - key: customer
+      foreign-key: cards.customer
+    - key: card.customer
+      foreign-key: cards.customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: card.customer
+      foreign-key: discount.customer
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: charge
+    - key: customer
+      foreign-key: customer
+    - key: card.customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: card.customer
+      foreign-key: discount.customer
+    - key: invoice
+      foreign-key: id
+  - table-name: invoice_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: card.customer
+      foreign-key: customer
+    - key: invoice
+      foreign-key: invoice
+  - table-name: subscription_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: card.customer
+      foreign-key: customer
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: card.customer
+      foreign-key: customer
+  - table-name: invoice_line_items
+    keys:
+    - key: invoice
+      foreign-key: invoice
+- table-name: payouts
+  join:
+  - table-name: balance_transactions
+    keys:
+    - key: balance_transaction
+      foreign-key: id
+    - key: failure_balance_transaction
+      foreign-key: id
+  - table-name: charges
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transaction
+    - key: failure_balance_transaction
+      foreign-key: balance_transaction
+  - table-name: transfers
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transaction
+    - key: failure_balance_transaction
+      foreign-key: balance_transaction
+    - key: balance_transaction
+      foreign-key: failure_balance_transaction
+    - key: failure_balance_transaction
+      foreign-key: failure_balance_transaction
+  - table-name: disputes
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transactions.id
+    - key: failure_balance_transaction
+      foreign-key: balance_transactions.id
+  - table-name: payout_transactions
+    keys:
+    - key: id
+      foreign-key: payout_id
+- table-name: transfers
+  join:
+  - table-name: balance_transactions
+    keys:
+    - key: balance_transaction
+      foreign-key: id
+    - key: failure_balance_transaction
+      foreign-key: id
+  - table-name: charges
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transaction
+    - key: failure_balance_transaction
+      foreign-key: balance_transaction
+    - key: id
+      foreign-key: source_transfer
+  - table-name: payouts
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transaction
+    - key: failure_balance_transaction
+      foreign-key: balance_transaction
+    - key: balance_transaction
+      foreign-key: failure_balance_transaction
+    - key: failure_balance_transaction
+      foreign-key: failure_balance_transaction
+  - table-name: disputes
+    keys:
+    - key: balance_transaction
+      foreign-key: balance_transactions.id
+    - key: failure_balance_transaction
+      foreign-key: balance_transactions.id
+- table-name: disputes
+  join:
+  - table-name: balance_transactions
+    keys:
+    - key: balance_transactions.id
+      foreign-key: id
+  - table-name: charges
+    keys:
+    - key: balance_transactions.id
+      foreign-key: balance_transaction
+    - key: charge
+      foreign-key: id
+  - table-name: payouts
+    keys:
+    - key: balance_transactions.id
+      foreign-key: balance_transaction
+    - key: balance_transactions.id
+      foreign-key: failure_balance_transaction
+  - table-name: transfers
+    keys:
+    - key: balance_transactions.id
+      foreign-key: balance_transaction
+    - key: balance_transactions.id
+      foreign-key: failure_balance_transaction
+  - table-name: invoices
+    keys:
+    - key: charge
+      foreign-key: charge
+- table-name: customers
+  join:
+  - table-name: charges
+    keys:
+    - key: cards.id
+      foreign-key: card.id
+    - key: cards.id
+      foreign-key: source.id
+    - key: id
+      foreign-key: customer
+    - key: cards.customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: id
+      foreign-key: card.customer
+    - key: cards.customer
+      foreign-key: card.customer
+    - key: discount.customer
+      foreign-key: card.customer
+  - table-name: coupons
+    keys:
+    - key: discount.coupon.id
+      foreign-key: id
+  - table-name: invoices
+    keys:
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
+    - key: id
+      foreign-key: customer
+    - key: cards.customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: id
+      foreign-key: discount.customer
+    - key: cards.customer
+      foreign-key: discount.customer
+    - key: discount.customer
+      foreign-key: discount.customer
+    - key: subscriptions
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+    - key: subscriptions
+      foreign-key: discount.subscription
+    - key: discount.subscription
+      foreign-key: discount.subscription
+  - table-name: subscriptions
+    keys:
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
+    - key: id
+      foreign-key: customer
+    - key: cards.customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscriptions
+      foreign-key: id
+    - key: discount.subscription
+      foreign-key: id
+  - table-name: invoice_items
+    keys:
+    - key: id
+      foreign-key: customer
+    - key: cards.customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscriptions
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+  - table-name: subscription_items
+    keys:
+    - key: id
+      foreign-key: customer
+    - key: cards.customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscriptions
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+  - table-name: invoice_line_items
+    keys:
+    - key: subscriptions
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+- table-name: invoices
+  join:
+  - table-name: charges
+    keys:
+    - key: charge
+      foreign-key: id
+    - key: customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: card.customer
+    - key: discount.customer
+      foreign-key: card.customer
+    - key: id
+      foreign-key: invoice
+  - table-name: disputes
+    keys:
+    - key: charge
+      foreign-key: charge
+  - table-name: coupons
+    keys:
+    - key: discount.coupon.id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
+    - key: customer
+      foreign-key: id
+    - key: discount.customer
+      foreign-key: id
+    - key: customer
+      foreign-key: cards.customer
+    - key: discount.customer
+      foreign-key: cards.customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: discount.customer
+      foreign-key: discount.customer
+    - key: subscription
+      foreign-key: subscriptions
+    - key: discount.subscription
+      foreign-key: subscriptions
+    - key: subscription
+      foreign-key: discount.subscription
+    - key: discount.subscription
+      foreign-key: discount.subscription
+  - table-name: subscriptions
+    keys:
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
+    - key: customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscription
+      foreign-key: id
+    - key: discount.subscription
+      foreign-key: id
+  - table-name: invoice_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: id
+      foreign-key: invoice
+    - key: subscription
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+  - table-name: subscription_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: discount.customer
+      foreign-key: customer
+    - key: subscription
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+  - table-name: invoice_line_items
+    keys:
+    - key: id
+      foreign-key: invoice
+    - key: lines
+      foreign-key: id
+    - key: subscription
+      foreign-key: subscription
+    - key: discount.subscription
+      foreign-key: subscription
+- table-name: coupons
+  join:
+  - table-name: customers
+    keys:
+    - key: id
+      foreign-key: discount.coupon.id
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: discount.coupon.id
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: discount.coupon.id
+- table-name: subscriptions
+  join:
+  - table-name: coupons
+    keys:
+    - key: discount.coupon.id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
+    - key: customer
+      foreign-key: id
+    - key: customer
+      foreign-key: cards.customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: id
+      foreign-key: subscriptions
+    - key: id
+      foreign-key: discount.subscription
+  - table-name: invoices
+    keys:
+    - key: discount.coupon.id
+      foreign-key: discount.coupon.id
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: id
+      foreign-key: subscription
+    - key: id
+      foreign-key: discount.subscription
+  - table-name: charges
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: card.customer
+  - table-name: invoice_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: items
+      foreign-key: subscription_item
+    - key: id
+      foreign-key: subscription
+  - table-name: subscription_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: items
+      foreign-key: id
+    - key: id
+      foreign-key: subscription
+  - table-name: plans
+    keys:
+    - key: plan.id
+      foreign-key: id
+    - key: plan.product
+      foreign-key: product
+  - table-name: invoice_line_items
+    keys:
+    - key: plan.product
+      foreign-key: plan.product
+    - key: id
+      foreign-key: subscription
+  - table-name: products
+    keys:
+    - key: plan.product
+      foreign-key: id
+- table-name: invoice_items
+  join:
+  - table-name: charges
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: card.customer
+    - key: invoice
+      foreign-key: invoice
+  - table-name: customers
+    keys:
+    - key: customer
+      foreign-key: id
+    - key: customer
+      foreign-key: cards.customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: subscription
+      foreign-key: subscriptions
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: invoice
+      foreign-key: id
+    - key: subscription
+      foreign-key: subscription
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: subscription_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription_item
+      foreign-key: id
+    - key: subscription
+      foreign-key: subscription
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription_item
+      foreign-key: items
+    - key: subscription
+      foreign-key: id
+  - table-name: invoice_line_items
+    keys:
+    - key: invoice
+      foreign-key: invoice
+    - key: id
+      foreign-key: invoice_item
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription
+      foreign-key: subscription
+  - table-name: plans
+    keys:
+    - key: plan.id
+      foreign-key: id
+    - key: plan.product
+      foreign-key: product
+  - table-name: products
+    keys:
+    - key: plan.product
+      foreign-key: id
+- table-name: subscription_items
+  join:
+  - table-name: charges
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: card.customer
+  - table-name: customers
+    keys:
+    - key: customer
+      foreign-key: id
+    - key: customer
+      foreign-key: cards.customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: subscription
+      foreign-key: subscriptions
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: invoice_items
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: id
+      foreign-key: subscription_item
+    - key: subscription
+      foreign-key: subscription
+  - table-name: invoices
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: customer
+      foreign-key: discount.customer
+    - key: subscription
+      foreign-key: subscription
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: subscriptions
+    keys:
+    - key: customer
+      foreign-key: customer
+    - key: plan.id
+      foreign-key: plan.id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: id
+      foreign-key: items
+    - key: subscription
+      foreign-key: id
+  - table-name: plans
+    keys:
+    - key: plan.id
+      foreign-key: id
+    - key: plan.product
+      foreign-key: product
+  - table-name: invoice_line_items
+    keys:
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription
+      foreign-key: subscription
+  - table-name: products
+    keys:
+    - key: plan.product
+      foreign-key: id
+- table-name: invoice_line_items
+  join:
+  - table-name: charges
+    keys:
+    - key: invoice
+      foreign-key: invoice
+  - table-name: invoice_items
+    keys:
+    - key: invoice
+      foreign-key: invoice
+    - key: invoice_item
+      foreign-key: id
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription
+      foreign-key: subscription
+  - table-name: invoices
+    keys:
+    - key: invoice
+      foreign-key: id
+    - key: id
+      foreign-key: lines
+    - key: subscription
+      foreign-key: subscription
+    - key: subscription
+      foreign-key: discount.subscription
+  - table-name: plans
+    keys:
+    - key: plan.product
+      foreign-key: product
+  - table-name: products
+    keys:
+    - key: plan.product
+      foreign-key: id
+  - table-name: subscription_items
+    keys:
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription
+      foreign-key: subscription
+  - table-name: subscriptions
+    keys:
+    - key: plan.product
+      foreign-key: plan.product
+    - key: subscription
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: subscription
+      foreign-key: subscriptions
+    - key: subscription
+      foreign-key: discount.subscription
+- table-name: plans
+  join:
+  - table-name: invoice_items
+    keys:
+    - key: id
+      foreign-key: plan.id
+    - key: product
+      foreign-key: plan.product
+  - table-name: subscription_items
+    keys:
+    - key: id
+      foreign-key: plan.id
+    - key: product
+      foreign-key: plan.product
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: plan.id
+    - key: product
+      foreign-key: plan.product
+  - table-name: invoice_line_items
+    keys:
+    - key: product
+      foreign-key: plan.product
+  - table-name: products
+    keys:
+    - key: product
+      foreign-key: id
+- table-name: payout_transactions
+  join:
+  - table-name: payouts
+    keys:
+    - key: payout_id
+      foreign-key: id
+- table-name: products
+  join:
+  - table-name: invoice_items
+    keys:
+    - key: id
+      foreign-key: plan.product
+  - table-name: invoice_line_items
+    keys:
+    - key: id
+      foreign-key: plan.product
+  - table-name: plans
+    keys:
+    - key: id
+      foreign-key: product
+  - table-name: subscription_items
+    keys:
+    - key: id
+      foreign-key: plan.product
+  - table-name: subscriptions
+    keys:
+    - key: id
+      foreign-key: plan.product

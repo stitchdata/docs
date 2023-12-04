@@ -1,0 +1,432 @@
+tap: bing-ads
+version: '2'
+tap-repo-schemas: false
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains high-level information about
+    each of the ad accounts you selected during setup. Each row in this table corresponds
+    to a single account.
+
+
+    [This is a **Core Object** table](#replication).
+
+
+    #### Schema changes from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, the schema
+    of this table has changed. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `CurrencyType` is now `CurrencyCode`
+
+    - `AccountType` has been removed
+
+    - `CountryCode` has been removed
+
+    - `AutoTagType` has been added
+
+    - `BusinessAddress` has been added
+
+    - `SoldToPaymentInstrumentId` has been added
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - Id
+    - LastModifiedTime
+    replication-key: LastModifiedTime
+- name: ads
+  description: 'The `{{ table.name }}` table contains info about the following ad
+    types:
+
+
+    - `AppInstall`
+
+    - `DynamicSearch`
+
+    - `ExpandedText`
+
+    - `Product`
+
+    - `Text`
+
+    - `Image`
+
+
+    [This is a **Core Object** table](#replication).
+
+
+    #### Schema changes from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, the schema
+    of this table has changed. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `Domain` has been added
+
+    - `TextPart2` has been added
+
+    - `TitlePart3` has been added
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadsbyids?view=bingads-13
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadsbyadgroupid
+  table-details:
+    replication-method: Full Table
+    primary-key: Id
+- name: ad_groups
+  description: 'The `{{ table.name }}` table contains info about the ad groups associated
+    with the campaigns in your Bing Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+
+    #### Schema changes from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, the schema
+    of this table has changed. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `AdDistribution` has been removed
+
+    - `ContentMatchBid` has been removed
+
+    - `NativeBidAdjustment` has been removed
+
+    - `PricingModel` has been removed
+
+    - `RemarketingTargetingSetting` has been removed
+
+    - `SearchBid` has been removed
+
+    - `AudienceAdsBidAdjustment` has been added
+
+    - `CpcBid` has been added
+
+    - Additional fields have been added to `BiddingScheme` and `Settings`
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadgroupsbyids?view=bingads-13
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getadgroupsbycampaignid
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ad_group_performance_report
+  description: 'The `{{ table.name }}` table contains performance data for ad groups,
+    aggregated by day.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+
+    #### Column compatibility
+
+
+    As per Microsoft''s attribute selection rules, some columns may be incompatible.
+    This means that you won''t be able to select certain combinations of columns in
+    Stitch. Refer to [Microsoft''s documentation](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"}
+    for more info, and the specific column combinations for this table.
+
+
+    #### Columns renamed from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, some
+    columns have been re-named. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `HistoricQualityScore` is now `HistoricalQualityScore`
+
+    - `HistoricExpectedCtr` is now `HistoricalExpectedCtr`
+
+    - `HistoricAdRelevance` is now `HistoricalAdRelevance`
+
+    - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
+
+    - `Status` is now `CampaignStatus`
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: ad_performance_report
+  description: 'The `{{ table.name }}` table contains performance info about ads,
+    including clicks and conversions. This data can be used to identify and improve
+    under-performing ads.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+
+    #### Columns renamed from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, some
+    columns have been re-named. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `FinalAppURL` is now `FinalAppUrl`
+
+    - `FinalURL` is now `FinalUrl`
+
+    - `FinalMobileURL` is now `FinalMobileUrl`
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: age_gender_audience_report
+  description: 'The `{{ table.name }}` table contains info about the age and gender
+    demographics of people interacting with your campaigns and ad groups.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/agegenderaudiencereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: audience_performance_report
+  description: 'The `{{ table.name }}` table contains info about performance statistics
+    for various audiences.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - AudienceId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your Bing Ads account.
+
+
+    [This is a **Core Object** table](#replication).
+
+
+    #### Schema changes from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, the schema
+    of this table has changed. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `NativeBidAdjustment` has been removed
+
+    - `AudienceAdsBidAdjustment` has been added
+
+    - Additional fields have been added to `BiddingScheme` and `Settings`
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignsbyids?view=bingads-13
+    api-method: https://docs.microsoft.com/en-us/bingads/campaign-management-service/getcampaignsbyaccountid
+  table-details:
+    replication-method: Full Table
+    primary-key: Id
+- name: campaign_performance_report
+  description: 'The `{{ table.name }}` table contains performance data for campaigns,
+    aggregated by day..
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+
+    #### Column compatibility
+
+
+    As per Microsoft''s attribute selection rules, some columns may be incompatible.
+    This means that you won''t be able to select certain combinations of columns in
+    Stitch. Refer to [Microsoft''s documentation](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"}
+    for more info, and the specific column combinations for this table.
+
+
+    #### Columns renamed from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, some
+    columns have been re-named. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `HistoricQualityScore` is now `HistoricalQualityScore`
+
+    - `HistoricExpectedCtr` is now `HistoricalExpectedCtr`
+
+    - `HistoricAdRelevance` is now `HistoricalAdRelevance`
+
+    - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
+
+    - `Status` is now `CampaignStatus`
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: geographic_performance_report
+  description: 'The `{{ table.name }}` table contains info about the physical locations
+    of people searching for an ad or the locations people are searching for. This
+    data can be used to validate or improve location targeting strategies.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/geographicperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: goals_and_funnels_report
+  description: 'The `{{ table.name }}` table contains information about your audience''s
+    progression through your conversion funnel. Use this report to determine the point
+    at which users leave the funnel, thereby allowing you to improve and increase
+    conversion.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: keyword_performance_report
+  description: 'The `{{ table.name }}` table contains performance data about keywords.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+
+    #### Columns renamed from Bing Ads v1 {#renamed-v1-columns}
+
+
+    In this version of Stitch''s {{ integration.display_name }} integration, some
+    columns have been re-named. This was done to ensure consistency between the fields
+    in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+
+    - `FinalAppURL` is now `FinalAppUrl`
+
+    - `FinalURL` is now `FinalUrl`
+
+    - `FinalMobileURL` is now `FinalMobileUrl`
+
+    - `HistoricQualityScore` is now `HistoricalQualityScore`
+
+    - `HistoricExpectedCtr` is now `HistoricalExpectedCtr`
+
+    - `HistoricAdRelevance` is now `HistoricalAdRelevance`
+
+    - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
+
+    - `Status` is now `CampaignStatus`
+
+    - `SidebarBid` is now `FirstPageBid`
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/keywordperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod
+- name: search_query_performance_report
+  description: 'The `{{ table.name }} ` table contains performance data for search
+    terms that resulted in a significant number of clicks in the last 30 days. As
+    this data may change over time, use the `keyword_performance_report` table to
+    analyze the overall performance of keywords.
+
+
+    **Note**: This data in this table is not applicable to Bing Shopping campaigns.
+
+
+    [This is a **Report** table](#replication). See the **Replication** section for
+    information on how data is replicated and loaded for this table.
+
+    '
+  links:
+    doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-13
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    primary-keys:
+    - AccountId
+    - '_sdc_report_datetime'
+    - TimePeriod
+    replication-key: TimePeriod

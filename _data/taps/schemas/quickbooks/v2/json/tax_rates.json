@@ -1,0 +1,188 @@
+{
+  "properties": {
+    "Active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "AgencyRef": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "Description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "DisplayType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "EffectiveTaxRate": {
+      "anyOf": [
+        {
+          "properties": {
+            "EffectiveDate ": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "EndDate": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            },
+            "RateValue": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "properties": {
+              "EffectiveDate ": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "EndDate": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "RateValue": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "Name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "OriginalTaxRate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "RateValue": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "SpecialTaxType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxReturnLineRef": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

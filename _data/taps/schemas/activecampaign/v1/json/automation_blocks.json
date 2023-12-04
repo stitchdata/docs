@@ -1,0 +1,71 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "automation": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mdate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ordernum": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "params": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "additionalProperties": true,
+            "properties": {},
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "parent": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

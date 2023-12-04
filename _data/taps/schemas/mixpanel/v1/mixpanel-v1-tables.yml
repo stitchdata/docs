@@ -1,0 +1,137 @@
+tap: mixpanel
+version: '1'
+tables:
+- name: annotations
+  description: 'The `{{ table.name }}` table contains info about annotations.
+
+    '
+  links:
+    doc-link: https://developer.mixpanel.com/docs/data-export-api#section-annotations
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/annotations.json
+    api-method: https://mixpanel.com/api/2.0/annotations
+  table-details:
+    replication-method: Full Table
+    primary-key: date
+- name: cohorts
+  description: 'The `{{ table.name }}` table contains info about the cohorts in a
+    {{ integration.display_name }} project.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/cohorts.json
+    api-method: https://developer.mixpanel.com/docs/cohorts#section-list-cohorts
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: cohort_members
+  description: 'The `{{ table.name }}` table contains info about the cohorts user
+    profiles belong to.
+
+    '
+  links:
+    doc-link: https://developer.mixpanel.com/docs/data-export-api#section-engage
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/cohort_members.json
+    api-method: https://mixpanel.com/api/2.0/cohorts/list
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - cohort_id
+    - distinct_id
+- name: engage
+  description: 'The `{{ table.name }}` table contains info about user profiles.
+
+
+    The schema for this table is dynamic, meaning that the columns Stitch detects
+    are dependent upon the properties provided upon upload in {{ integration.display_name
+    }}. For every property available in {{ integration.display_name }} for `{{ table.name
+    }}` records, Stitch will display a column in the integration''s **Tables to Replicate**
+    tab.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/engage.json
+    api-method: https://developer.mixpanel.com/docs/data-export-api#section-engage
+  table-details:
+    replication-method: Full Table
+    primary-key: distinct_id
+- name: export
+  description: "The `{{ table.name }}` table contains \"raw data dumps\" of tracked\
+    \ events. The API endpoint for EU region servers will return a `200 terminated\
+    \ early` error code.\n\n#### Table schema {#export-events-table-schema}\n\nThe\
+    \ schema for this table is dynamic, meaning that the columns Stitch detects are\
+    \ dependent upon the properties provided upon upload in {{ integration.display_name\
+    \ }}. For every property available in {{ integration.display_name }} for `{{ table.name\
+    \ }}` records, Stitch will display a column in the integration's **Tables to Replicate**\
+    \ tab.\n\n#### Replication with attribution window {#export-events-attribution-window}\n\
+    \nThis table is replicated using the **Attribution Window** value defined in the\
+    \ integration's settings page. Refer to the [Replication section](#attribution-windows-extraction)\
+    \ for more info.\n\n#### Distinct events and loading behavior {#export-events-loading-behavior}\n\
+    \nAs Stitch doesn't use a Primary Key for this table, data will be loaded using\
+    \ [Append-Only loading]({{ link.destinations.storage.loading-behavior | prepend:\
+    \ site.baseurl }}). This means you may see duplicate records in your destination,\
+    \ which requires a querying strategy that selects the latest version of each record.\n\
+    \nStitch takes this approach because it's possible to track events without a `distinct_id`.\
+    \ In {{ integration.display_name }}, `distinct_id` [is used to identify a unique\
+    \ user](https://help.mixpanel.com/hc/en-us/articles/115004509406-Distinct-IDs-){:target=\"\
+    new\"}:\n\n> Mixpanel\u2019s client-side tracking libraries automatically assign\
+    \ a distinct_id to a user when they first visit a website or an application that\
+    \ has Mixpanel installed. Distinct_id should not contain any special characters\
+    \ such as forward slashes, as it will break the URL.\n> Distinct_ids can and often\
+    \ should be sent in server-side implementations as well.\n\nIn order for Stitch\
+    \ to replicate records' `distinct_id` attributes, your server-side {{ integration.display_name\
+    \ }} implementation must send them with tracked events. If the server-side implementation\
+    \ doesn't do this, this attribute will be `null`.\n\nPrevious versions of Stitch's\
+    \ {{ integration.display_name }} integration used `distinct_id` as part of a composite\
+    \ Primary Key for this table. However, due to the possibility of this attribute\
+    \ being `null`, Stitch no longer uses a Primary Key for this table, as `null`\
+    \ values in Primary Key columns will prevent successful Extraction. \n\nWhen working\
+    \ with `exports` data in your destination, you'll need to use a querying strategy\
+    \ that accounts for the Append-Only loading used by this table. We recommend using\
+    \ the following columns to de-duplicate records, along with the approach outlined\
+    \ in the [Querying Append-Only tables guide]({{ link.replication.append-only-querying\
+    \ | prepend: site.baseurl }}):\n\n- `distinct_id`\n- `event`\n- `time`\n"
+  links:
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/export.json
+    api-method: https://developer.mixpanel.com/docs/exporting-raw-data#section-export-api-reference
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: time
+- name: funnels
+  description: 'The `{{ table.name }}` table contains data about your {{ integration.display_name
+    }} funnels, segmented by funnel and day.
+
+
+    **Note**: This table is replicated using the **Attribution Window** value defined
+    in the integration''s settings page. Refer to the [Replication section](#attribution-windows-extraction)
+    for more info.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/funnels.json
+    api-method: https://developer.mixpanel.com/docs/data-export-api#section-funnels
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - funnel_id
+    - date
+    replication-key: date
+- name: revenue
+  description: 'The `{{ table.name }}` table contains info about revenue, segmented
+    by day. The API endpoint for EU region servers will return a `400 bad requests
+    (Timeout Error)` code.
+
+
+    **Note**: This table is replicated using the **Attribution Window** value defined
+    in the integration''s settings page. Refer to the [Replication section](#attribution-windows-extraction)
+    for more info.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/schemas/revenue.json
+    api-method: https://developer.mixpanel.com/docs/data-export-api#hrspan-stylefont-family-courierrevenuespan
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: date
+    replication-key: date
+tap-repo-schemas: true

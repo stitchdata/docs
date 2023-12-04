@@ -1,0 +1,143 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "columns": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "columnIndex": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "columnLetter": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "columnName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "columnSkipped": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "columnType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "format": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "gridProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "columnCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "frozenColumnCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "frozenRowCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "rowCount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "index": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sheetId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sheetType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sheetUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "spreadsheetId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

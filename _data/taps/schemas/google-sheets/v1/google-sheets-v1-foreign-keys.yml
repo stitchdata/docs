@@ -1,0 +1,99 @@
+tap: google-sheets
+version: '1'
+keys:
+  file_metadata_id:
+  - table: file_metadata
+    keys:
+    - id
+  spreadsheet_metadata_spreadsheetId:
+  - table: spreadsheet_metadata
+    keys:
+    - spreadsheetId
+  - table: sheet_metadata
+    keys:
+    - spreadsheetId
+  - table: sheets_loaded
+    keys:
+    - spreadsheetId
+  - table: sample_table
+    keys:
+    - __sdc_spreadsheet_id
+  sheet_metadata_sheetId:
+  - table: sheet_metadata
+    keys:
+    - sheetId
+  - table: sheets_loaded
+    keys:
+    - sheetId
+  - table: sample_table
+    keys:
+    - __sdc_sheet_id
+tables:
+- table-name: spreadsheet_metadata
+  join:
+  - table-name: sheet_metadata
+    keys:
+    - key: spreadsheetId
+      foreign-key: spreadsheetId
+  - table-name: sheets_loaded
+    keys:
+    - key: spreadsheetId
+      foreign-key: spreadsheetId
+  - table-name: sample_table
+    keys:
+    - key: spreadsheetId
+      foreign-key: __sdc_spreadsheet_id
+- table-name: sheet_metadata
+  join:
+  - table-name: spreadsheet_metadata
+    keys:
+    - key: spreadsheetId
+      foreign-key: spreadsheetId
+  - table-name: sheets_loaded
+    keys:
+    - key: spreadsheetId
+      foreign-key: spreadsheetId
+    - key: sheetId
+      foreign-key: sheetId
+  - table-name: sample_table
+    keys:
+    - key: spreadsheetId
+      foreign-key: __sdc_spreadsheet_id
+    - key: sheetId
+      foreign-key: __sdc_sheet_id
+- table-name: sheets_loaded
+  join:
+  - table-name: spreadsheet_metadata
+    keys:
+    - key: spreadsheetId
+      foreign-key: spreadsheetId
+  - table-name: sheet_metadata
+    keys:
+    - key: spreadsheetId
+      foreign-key: spreadsheetId
+    - key: sheetId
+      foreign-key: sheetId
+  - table-name: sample_table
+    keys:
+    - key: spreadsheetId
+      foreign-key: __sdc_spreadsheet_id
+    - key: sheetId
+      foreign-key: __sdc_sheet_id
+- table-name: sample_table
+  join:
+  - table-name: spreadsheet_metadata
+    keys:
+    - key: __sdc_spreadsheet_id
+      foreign-key: spreadsheetId
+  - table-name: sheet_metadata
+    keys:
+    - key: __sdc_spreadsheet_id
+      foreign-key: spreadsheetId
+    - key: __sdc_sheet_id
+      foreign-key: sheetId
+  - table-name: sheets_loaded
+    keys:
+    - key: __sdc_spreadsheet_id
+      foreign-key: spreadsheetId
+    - key: __sdc_sheet_id
+      foreign-key: sheetId
