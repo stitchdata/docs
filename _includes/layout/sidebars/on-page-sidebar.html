@@ -72,6 +72,7 @@
                                             </li>
                                         {% endfor %}
                                     </ul>
+				</li>
                             {% else %}
                         		<li>
                                     <a href="#{{ subsection.anchor }}">{{ subsection.title | flatify }}</a>
@@ -80,7 +81,7 @@
                     	{% endfor %}
                     {% endif %}
                 </ul>
-
+    	</li>
             {% else %}
             	<li>
             		<a href="#{{ section.anchor }}">
@@ -88,7 +89,6 @@
 		            </a>
 		        </li>
     		{% endif %}
-    	</li>
     {% endfor %}
 
     {% if page.related %}
