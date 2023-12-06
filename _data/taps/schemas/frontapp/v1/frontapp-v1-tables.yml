@@ -1,0 +1,138 @@
+tap: frontapp
+version: '1'
+tables:
+- name: tags_table
+  description: 'The `{{ table.name }}` table contains a list of tag statistics since
+    the last completed replication job through the most recent iteration of the defined
+    [**Incremental Range**](#add-stitch-data-source) (day or hour).
+
+
+    This table will include tags in your {{ integration.display_name }} account.
+
+
+    **Note**: During the historical replication job, all increments (defined using
+    the **Incremental Range** setting) since the **Start Date** will be replicated.
+    This will result in the first record for this table being an aggregated record
+    across all tags.
+
+    '
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/tags_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - tag_v
+    - analytics_range
+    - analytics_date
+    replication-key: analytics_date
+- name: team_table
+  description: 'The `{{ table.name }}` table contains a list of team member statistics
+    since the last completed replication job through the most recent iteration of
+    the defined [**Incremental Range**](#add-stitch-data-source) (day or hour).
+
+
+    This table will include team members from all teams in your {{ integration.display_name
+    }} account.
+
+
+    **Note**: During the historical replication job, all increments since the **Start
+    Date** will be replicated. This will result in the first record for this table
+    being an aggregated record across all team members.
+
+    '
+  links:
+    doc-link: https://dev.frontapp.com/reference/analytics
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/team_table.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - teammate_v
+    replication-key: analytics_date
+- name: customers_table
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/customers_table.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - resource_t
+    - resource_v
+    replication-key: analytics_date
+- name: first_response_histo
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/first_response_histo.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - time_v
+    replication-key: analytics_date
+- name: resolution_histo
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/resolution_histo.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - time_v
+    replication-key: analytics_date
+- name: response_histo
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/response_histo.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - time_v
+    replication-key: analytics_date
+- name: top_conversations_table
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/top_conversations_table.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - teammate_v
+    replication-key: analytics_date
+- name: top_reaction_time_table
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/top_reaction_time_table.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - teammate_v
+    replication-key: analytics_date
+- name: top_replies_table
+  description: ''
+  links:
+    singer-schema: https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/top_replies_table.json
+    doc-link: https://dev.frontapp.com/reference/analytics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - analytics_date
+    - analytics_range
+    - teammate_v
+    replication-key: analytics_date

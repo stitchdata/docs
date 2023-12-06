@@ -1,0 +1,256 @@
+tap: salesforce-marketing-cloud
+version: '1'
+keys:
+  campaign_:
+  - table: campaigns
+    keys:
+    - ID
+  content_area_:
+  - table: content_areas
+    keys:
+    - ID
+  - table: emails
+    keys:
+    - ContentAreaIDs
+  email_EmailID:
+  - table: emails
+    keys:
+    - ID
+    - ClonedFromID
+  - table: sends
+    keys:
+    - EmailID
+  folder_CategoryID:
+  - table: content_areas
+    keys:
+    - CategoryID
+  - table: emails
+    keys:
+    - CategoryID
+  - table: folders
+    keys:
+    - ID
+    - ParentFolder
+  - table: lists
+    keys:
+    - Category
+  list_ListID:
+  - table: lists
+    keys:
+    - ID
+  - table: list_sends
+    keys:
+    - ListID
+  - table: list_subscribers
+    keys:
+    - ListID
+  - table: subscribers
+    keys:
+    - ListIDs
+  event_SendID:
+  - table: events
+    keys:
+    - SendID
+  - table: list_sends
+    keys:
+    - SendID
+  - table: sends
+    keys:
+    - ID
+  subscriber_SubscriberKey:
+  - table: events
+    keys:
+    - SubscriberKey
+  - table: list_subscribers
+    keys:
+    - SubscriberKey
+  - table: subscribers
+    keys:
+    - ID
+tables:
+- table-name: content_areas
+  join:
+  - table-name: emails
+    keys:
+    - key: ID
+      foreign-key: ContentAreaIDs
+    - key: CategoryID
+      foreign-key: CategoryID
+  - table-name: folders
+    keys:
+    - key: CategoryID
+      foreign-key: ID
+    - key: CategoryID
+      foreign-key: ParentFolder
+  - table-name: lists
+    keys:
+    - key: CategoryID
+      foreign-key: Category
+- table-name: emails
+  join:
+  - table-name: content_areas
+    keys:
+    - key: ContentAreaIDs
+      foreign-key: ID
+    - key: CategoryID
+      foreign-key: CategoryID
+  - table-name: sends
+    keys:
+    - key: ID
+      foreign-key: EmailID
+    - key: ClonedFromID
+      foreign-key: EmailID
+  - table-name: folders
+    keys:
+    - key: CategoryID
+      foreign-key: ID
+    - key: CategoryID
+      foreign-key: ParentFolder
+  - table-name: lists
+    keys:
+    - key: CategoryID
+      foreign-key: Category
+- table-name: sends
+  join:
+  - table-name: emails
+    keys:
+    - key: EmailID
+      foreign-key: ID
+    - key: EmailID
+      foreign-key: ClonedFromID
+  - table-name: events
+    keys:
+    - key: ID
+      foreign-key: SendID
+  - table-name: list_sends
+    keys:
+    - key: ID
+      foreign-key: SendID
+- table-name: folders
+  join:
+  - table-name: content_areas
+    keys:
+    - key: ID
+      foreign-key: CategoryID
+    - key: ParentFolder
+      foreign-key: CategoryID
+  - table-name: emails
+    keys:
+    - key: ID
+      foreign-key: CategoryID
+    - key: ParentFolder
+      foreign-key: CategoryID
+  - table-name: lists
+    keys:
+    - key: ID
+      foreign-key: Category
+    - key: ParentFolder
+      foreign-key: Category
+- table-name: lists
+  join:
+  - table-name: content_areas
+    keys:
+    - key: Category
+      foreign-key: CategoryID
+  - table-name: emails
+    keys:
+    - key: Category
+      foreign-key: CategoryID
+  - table-name: folders
+    keys:
+    - key: Category
+      foreign-key: ID
+    - key: Category
+      foreign-key: ParentFolder
+  - table-name: list_sends
+    keys:
+    - key: ID
+      foreign-key: ListID
+  - table-name: list_subscribers
+    keys:
+    - key: ID
+      foreign-key: ListID
+  - table-name: subscribers
+    keys:
+    - key: ID
+      foreign-key: ListIDs
+- table-name: list_sends
+  join:
+  - table-name: lists
+    keys:
+    - key: ListID
+      foreign-key: ID
+  - table-name: list_subscribers
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: subscribers
+    keys:
+    - key: ListID
+      foreign-key: ListIDs
+  - table-name: events
+    keys:
+    - key: SendID
+      foreign-key: SendID
+  - table-name: sends
+    keys:
+    - key: SendID
+      foreign-key: ID
+- table-name: list_subscribers
+  join:
+  - table-name: lists
+    keys:
+    - key: ListID
+      foreign-key: ID
+  - table-name: list_sends
+    keys:
+    - key: ListID
+      foreign-key: ListID
+  - table-name: subscribers
+    keys:
+    - key: ListID
+      foreign-key: ListIDs
+    - key: SubscriberKey
+      foreign-key: ID
+  - table-name: events
+    keys:
+    - key: SubscriberKey
+      foreign-key: SubscriberKey
+- table-name: subscribers
+  join:
+  - table-name: lists
+    keys:
+    - key: ListIDs
+      foreign-key: ID
+  - table-name: list_sends
+    keys:
+    - key: ListIDs
+      foreign-key: ListID
+  - table-name: list_subscribers
+    keys:
+    - key: ListIDs
+      foreign-key: ListID
+    - key: ID
+      foreign-key: SubscriberKey
+  - table-name: events
+    keys:
+    - key: ID
+      foreign-key: SubscriberKey
+- table-name: events
+  join:
+  - table-name: list_sends
+    keys:
+    - key: SendID
+      foreign-key: SendID
+  - table-name: sends
+    keys:
+    - key: SendID
+      foreign-key: ID
+  - table-name: list_subscribers
+    keys:
+    - key: SubscriberKey
+      foreign-key: SubscriberKey
+  - table-name: subscribers
+    keys:
+    - key: SubscriberKey
+      foreign-key: ID

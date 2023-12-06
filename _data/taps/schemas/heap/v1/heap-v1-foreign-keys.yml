@@ -1,0 +1,154 @@
+tap: heap
+version: '1'
+keys:
+  events_event_id:
+  - table: event_tables
+    keys:
+    - event_id
+  - table: pageviews
+    keys:
+    - event_id
+  - table: sessions
+    keys:
+    - event_id
+  sessions_session_id:
+  - table: event_tables
+    keys:
+    - session_id
+  - table: pageviews
+    keys:
+    - session_id
+  - table: sessions
+    keys:
+    - session_id
+  users_user_id:
+  - table: event_tables
+    keys:
+    - user_id
+  - table: pageviews
+    keys:
+    - user_id
+  - table: sessions
+    keys:
+    - user_id
+  - table: user_migrations
+    keys:
+    - to_user_id
+  - table: users
+    keys:
+    - user_id
+tables:
+- table-name: event_tables
+  join:
+  - table-name: pageviews
+    keys:
+    - key: event_id
+      foreign-key: event_id
+    - key: session_id
+      foreign-key: session_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: sessions
+    keys:
+    - key: event_id
+      foreign-key: event_id
+    - key: session_id
+      foreign-key: session_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_migrations
+    keys:
+    - key: user_id
+      foreign-key: to_user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: pageviews
+  join:
+  - table-name: event_tables
+    keys:
+    - key: event_id
+      foreign-key: event_id
+    - key: session_id
+      foreign-key: session_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: sessions
+    keys:
+    - key: event_id
+      foreign-key: event_id
+    - key: session_id
+      foreign-key: session_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_migrations
+    keys:
+    - key: user_id
+      foreign-key: to_user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: sessions
+  join:
+  - table-name: event_tables
+    keys:
+    - key: event_id
+      foreign-key: event_id
+    - key: session_id
+      foreign-key: session_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: pageviews
+    keys:
+    - key: event_id
+      foreign-key: event_id
+    - key: session_id
+      foreign-key: session_id
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_migrations
+    keys:
+    - key: user_id
+      foreign-key: to_user_id
+  - table-name: users
+    keys:
+    - key: user_id
+      foreign-key: user_id
+- table-name: user_migrations
+  join:
+  - table-name: event_tables
+    keys:
+    - key: to_user_id
+      foreign-key: user_id
+  - table-name: pageviews
+    keys:
+    - key: to_user_id
+      foreign-key: user_id
+  - table-name: sessions
+    keys:
+    - key: to_user_id
+      foreign-key: user_id
+  - table-name: users
+    keys:
+    - key: to_user_id
+      foreign-key: user_id
+- table-name: users
+  join:
+  - table-name: event_tables
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: pageviews
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: sessions
+    keys:
+    - key: user_id
+      foreign-key: user_id
+  - table-name: user_migrations
+    keys:
+    - key: user_id
+      foreign-key: to_user_id

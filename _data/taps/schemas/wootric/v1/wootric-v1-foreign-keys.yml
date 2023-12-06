@@ -1,0 +1,59 @@
+tap: wootric
+version: '1'
+keys:
+  declines_:
+  - table: declines
+    keys:
+    - id
+  end_users_end_user_id:
+  - table: declines
+    keys:
+    - end_user_id
+  - table: end_users
+    keys:
+    - id
+  - table: responses
+    keys:
+    - end_user_id
+  responses_survey_id:
+  - table: declines
+    keys:
+    - survey_id
+  - table: responses
+    keys:
+    - survey_id
+tables:
+- table-name: declines
+  join:
+  - table-name: end_users
+    keys:
+    - key: end_user_id
+      foreign-key: id
+  - table-name: responses
+    keys:
+    - key: end_user_id
+      foreign-key: end_user_id
+    - key: survey_id
+      foreign-key: survey_id
+- table-name: end_users
+  join:
+  - table-name: declines
+    keys:
+    - key: id
+      foreign-key: end_user_id
+  - table-name: responses
+    keys:
+    - key: id
+      foreign-key: end_user_id
+- table-name: responses
+  join:
+  - table-name: declines
+    keys:
+    - key: end_user_id
+      foreign-key: end_user_id
+    - key: survey_id
+      foreign-key: survey_id
+  - table-name: end_users
+    keys:
+    - key: end_user_id
+      foreign-key: id

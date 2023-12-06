@@ -1,0 +1,132 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "links": {
+      "additionalProperties": false,
+      "properties": {
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "modified_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "modified_by": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "org": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

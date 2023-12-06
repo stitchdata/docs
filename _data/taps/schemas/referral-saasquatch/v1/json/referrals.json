@@ -1,0 +1,91 @@
+{
+  "properties": {
+    "dateConverted": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dateModerated": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dateReferralEnded": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dateReferralPaid": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dateReferralStarted": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "properties": {
+        "key": true,
+        "type": "string"
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "programId": {
+      "type": "string"
+    },
+    "referredAccount": {
+      "type": "string"
+    },
+    "referredModerationStatus": {
+      "type": "string"
+    },
+    "referredReward": {
+      "type": "string"
+    },
+    "referredUser": {
+      "type": "string"
+    },
+    "referrerAccount": {
+      "type": "string"
+    },
+    "referrerModerationStatus": {
+      "type": "string"
+    },
+    "referrerReward": {
+      "type": "string"
+    },
+    "referrerUser": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

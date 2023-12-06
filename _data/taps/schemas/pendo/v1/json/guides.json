@@ -1,0 +1,468 @@
+{
+  "properties": {
+    "app_id": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "attributes": {
+      "properties": {
+        "badge": {
+          "properties": {
+            "can_change_badge_color": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "color": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "height": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_only_show_once": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "offsets": {
+              "properties": {
+                "left": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "right": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "top": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "position": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "show_on_event": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "use_hover": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "width": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "device": {
+          "properties": {
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "priority": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "audience": {
+      "items": {
+        "properties": {
+          "identified": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "select": {
+            "properties": {
+              "visitor_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "source": {
+            "properties": {
+              "visitors": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by_user": {
+      "properties": {
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "role": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_multi_step": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "kind": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_updated_by_user": {
+      "properties": {
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "role": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "username": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "launch_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "published_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "reset_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "root_version_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "stable_version_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "steps": {
+      "items": {
+        "properties": {
+          "advance_method": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "attributes": {
+            "properties": {
+              "auto_height": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "css": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "content_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_url_css": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "content_url_js": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "element_path_rule": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "guide_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "last_updated_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "page_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "rank": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "regex_url_rule": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "reset_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

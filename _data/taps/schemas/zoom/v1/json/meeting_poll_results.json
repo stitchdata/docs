@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "email": {
+      "type": [
+        "string"
+      ]
+    },
+    "meeting_uuid": {
+      "type": [
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "question_details": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "answer": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "question": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    }
+  },
+  "type": "object"
+}

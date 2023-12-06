@@ -1,0 +1,138 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "created_by": {
+      "additionalProperties": true,
+      "properties": {
+        "user": {
+          "additionalProperties": true,
+          "properties": {
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "drive_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date_time": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner": {
+      "additionalProperties": true,
+      "properties": {
+        "group": {
+          "additionalProperties": true,
+          "properties": {
+            "display_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "email": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "quota": {
+      "additionalProperties": true,
+      "properties": {
+        "deleted": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "remaining": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "total": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "used": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

@@ -1,0 +1,84 @@
+tap: referral-saasquatch
+version: '1'
+keys:
+  users_userId:
+  - table: referrals
+    keys:
+    - referredUser
+    - referrerUser
+  - table: reward_balances
+    keys:
+    - userId
+  - table: users
+    keys:
+    - id
+  users_accountId:
+  - table: referrals
+    keys:
+    - referredAccount
+    - referrerAccount
+  - table: reward_balances
+    keys:
+    - accountId
+  - table: users
+    keys:
+    - accountId
+tables:
+- table-name: referrals
+  join:
+  - table-name: reward_balances
+    keys:
+    - key: referredUser
+      foreign-key: userId
+    - key: referrerUser
+      foreign-key: userId
+    - key: referredAccount
+      foreign-key: accountId
+    - key: referrerAccount
+      foreign-key: accountId
+  - table-name: users
+    keys:
+    - key: referredUser
+      foreign-key: id
+    - key: referrerUser
+      foreign-key: id
+    - key: referredAccount
+      foreign-key: accountId
+    - key: referrerAccount
+      foreign-key: accountId
+- table-name: reward_balances
+  join:
+  - table-name: referrals
+    keys:
+    - key: userId
+      foreign-key: referredUser
+    - key: userId
+      foreign-key: referrerUser
+    - key: accountId
+      foreign-key: referredAccount
+    - key: accountId
+      foreign-key: referrerAccount
+  - table-name: users
+    keys:
+    - key: userId
+      foreign-key: id
+    - key: accountId
+      foreign-key: accountId
+- table-name: users
+  join:
+  - table-name: referrals
+    keys:
+    - key: id
+      foreign-key: referredUser
+    - key: id
+      foreign-key: referrerUser
+    - key: accountId
+      foreign-key: referredAccount
+    - key: accountId
+      foreign-key: referrerAccount
+  - table-name: reward_balances
+    keys:
+    - key: id
+      foreign-key: userId
+    - key: accountId
+      foreign-key: accountId

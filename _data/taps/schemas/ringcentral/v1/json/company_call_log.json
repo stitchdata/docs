@@ -1,0 +1,123 @@
+{
+  "properties": {
+    "_contact_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {},
+    "direction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "extension": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "uri": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "from": {
+      "properties": {
+        "location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message": {},
+    "reason": {},
+    "reasonDescription": {},
+    "result": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sessionId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "startTime": {
+      "type": "date-time"
+    },
+    "to": {
+      "properties": {
+        "location": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phoneNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

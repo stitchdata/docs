@@ -1,0 +1,347 @@
+tap: ilevel
+version: '1'
+keys:
+  assets_asset_id:
+  - table: asset_to_asset_relations
+    keys:
+    - from_id
+    - to_id
+  - table: assets
+    keys:
+    - id
+  - table: data_items
+    keys:
+    - asset_id
+  - table: fund_to_asset_relations
+    keys:
+    - to_id
+  - table: securities
+    keys:
+    - asset_id
+  data_items_data_item_id:
+  - table: data_items
+    keys:
+    - id
+  - table: periodic_data_calculated
+    keys:
+    - data_item_id
+  - table: periodic_data_standardized
+    keys:
+    - data_item_id
+  funds_fund_id:
+  - table: assets
+    keys:
+    - lead_fund_id
+  - table: fund_to_asset_relations
+    keys:
+    - from_id
+  - table: fund_to_fund_relations
+    keys:
+    - from_id
+    - to_id
+  - table: funds
+    keys:
+    - id
+  investments_id:
+  - table: investment_transactions
+    keys:
+    - investment.id
+  - table: investments
+    keys:
+    - id
+  scenarios_id:
+  - table: investment_transactions
+    keys:
+    - scenario.id
+  - table: periodic_data_calculated
+    keys:
+    - scenario_id
+  - table: periodic_data_standardized
+    keys:
+    - scenario_id
+  - table: scenarios
+    keys:
+    - id
+  securities_id:
+  - table: investment_transactions
+    keys:
+    - security.id
+  - table: investments
+    keys:
+    - id
+  - table: securities
+    keys:
+    - id
+tables:
+- table-name: asset_to_asset_relations
+  join:
+  - table-name: assets
+    keys:
+    - key: from_id
+      foreign-key: id
+    - key: to_id
+      foreign-key: id
+  - table-name: data_items
+    keys:
+    - key: from_id
+      foreign-key: asset_id
+    - key: to_id
+      foreign-key: asset_id
+  - table-name: fund_to_asset_relations
+    keys:
+    - key: from_id
+      foreign-key: to_id
+    - key: to_id
+      foreign-key: to_id
+  - table-name: securities
+    keys:
+    - key: from_id
+      foreign-key: asset_id
+    - key: to_id
+      foreign-key: asset_id
+- table-name: assets
+  join:
+  - table-name: asset_to_asset_relations
+    keys:
+    - key: id
+      foreign-key: from_id
+    - key: id
+      foreign-key: to_id
+  - table-name: data_items
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: fund_to_asset_relations
+    keys:
+    - key: id
+      foreign-key: to_id
+    - key: lead_fund_id
+      foreign-key: from_id
+  - table-name: securities
+    keys:
+    - key: id
+      foreign-key: asset_id
+  - table-name: fund_to_fund_relations
+    keys:
+    - key: lead_fund_id
+      foreign-key: from_id
+    - key: lead_fund_id
+      foreign-key: to_id
+  - table-name: funds
+    keys:
+    - key: lead_fund_id
+      foreign-key: id
+- table-name: data_items
+  join:
+  - table-name: asset_to_asset_relations
+    keys:
+    - key: asset_id
+      foreign-key: from_id
+    - key: asset_id
+      foreign-key: to_id
+  - table-name: assets
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: fund_to_asset_relations
+    keys:
+    - key: asset_id
+      foreign-key: to_id
+  - table-name: securities
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: periodic_data_calculated
+    keys:
+    - key: id
+      foreign-key: data_item_id
+  - table-name: periodic_data_standardized
+    keys:
+    - key: id
+      foreign-key: data_item_id
+- table-name: fund_to_asset_relations
+  join:
+  - table-name: asset_to_asset_relations
+    keys:
+    - key: to_id
+      foreign-key: from_id
+    - key: to_id
+      foreign-key: to_id
+  - table-name: assets
+    keys:
+    - key: to_id
+      foreign-key: id
+    - key: from_id
+      foreign-key: lead_fund_id
+  - table-name: data_items
+    keys:
+    - key: to_id
+      foreign-key: asset_id
+  - table-name: securities
+    keys:
+    - key: to_id
+      foreign-key: asset_id
+  - table-name: fund_to_fund_relations
+    keys:
+    - key: from_id
+      foreign-key: from_id
+    - key: from_id
+      foreign-key: to_id
+  - table-name: funds
+    keys:
+    - key: from_id
+      foreign-key: id
+- table-name: securities
+  join:
+  - table-name: asset_to_asset_relations
+    keys:
+    - key: asset_id
+      foreign-key: from_id
+    - key: asset_id
+      foreign-key: to_id
+  - table-name: assets
+    keys:
+    - key: asset_id
+      foreign-key: id
+  - table-name: data_items
+    keys:
+    - key: asset_id
+      foreign-key: asset_id
+  - table-name: fund_to_asset_relations
+    keys:
+    - key: asset_id
+      foreign-key: to_id
+  - table-name: investment_transactions
+    keys:
+    - key: id
+      foreign-key: security.id
+  - table-name: investments
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: periodic_data_calculated
+  join:
+  - table-name: data_items
+    keys:
+    - key: data_item_id
+      foreign-key: id
+  - table-name: periodic_data_standardized
+    keys:
+    - key: data_item_id
+      foreign-key: data_item_id
+    - key: scenario_id
+      foreign-key: scenario_id
+  - table-name: investment_transactions
+    keys:
+    - key: scenario_id
+      foreign-key: scenario.id
+  - table-name: scenarios
+    keys:
+    - key: scenario_id
+      foreign-key: id
+- table-name: periodic_data_standardized
+  join:
+  - table-name: data_items
+    keys:
+    - key: data_item_id
+      foreign-key: id
+  - table-name: periodic_data_calculated
+    keys:
+    - key: data_item_id
+      foreign-key: data_item_id
+    - key: scenario_id
+      foreign-key: scenario_id
+  - table-name: investment_transactions
+    keys:
+    - key: scenario_id
+      foreign-key: scenario.id
+  - table-name: scenarios
+    keys:
+    - key: scenario_id
+      foreign-key: id
+- table-name: fund_to_fund_relations
+  join:
+  - table-name: assets
+    keys:
+    - key: from_id
+      foreign-key: lead_fund_id
+    - key: to_id
+      foreign-key: lead_fund_id
+  - table-name: fund_to_asset_relations
+    keys:
+    - key: from_id
+      foreign-key: from_id
+    - key: to_id
+      foreign-key: from_id
+  - table-name: funds
+    keys:
+    - key: from_id
+      foreign-key: id
+    - key: to_id
+      foreign-key: id
+- table-name: funds
+  join:
+  - table-name: assets
+    keys:
+    - key: id
+      foreign-key: lead_fund_id
+  - table-name: fund_to_asset_relations
+    keys:
+    - key: id
+      foreign-key: from_id
+  - table-name: fund_to_fund_relations
+    keys:
+    - key: id
+      foreign-key: from_id
+    - key: id
+      foreign-key: to_id
+- table-name: investment_transactions
+  join:
+  - table-name: investments
+    keys:
+    - key: investment.id
+      foreign-key: id
+    - key: security.id
+      foreign-key: id
+  - table-name: periodic_data_calculated
+    keys:
+    - key: scenario.id
+      foreign-key: scenario_id
+  - table-name: periodic_data_standardized
+    keys:
+    - key: scenario.id
+      foreign-key: scenario_id
+  - table-name: scenarios
+    keys:
+    - key: scenario.id
+      foreign-key: id
+  - table-name: securities
+    keys:
+    - key: security.id
+      foreign-key: id
+- table-name: investments
+  join:
+  - table-name: investment_transactions
+    keys:
+    - key: id
+      foreign-key: investment.id
+    - key: id
+      foreign-key: security.id
+  - table-name: securities
+    keys:
+    - key: id
+      foreign-key: id
+- table-name: scenarios
+  join:
+  - table-name: investment_transactions
+    keys:
+    - key: id
+      foreign-key: scenario.id
+  - table-name: periodic_data_calculated
+    keys:
+    - key: id
+      foreign-key: scenario_id
+  - table-name: periodic_data_standardized
+    keys:
+    - key: id
+      foreign-key: scenario_id

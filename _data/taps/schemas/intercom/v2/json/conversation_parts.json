@@ -1,0 +1,181 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assigned_to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attachments": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "content_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "filesize": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "author": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversation_created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "conversation_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversation_total_parts": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "conversation_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notified_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "part_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "redacted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

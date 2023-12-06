@@ -1,0 +1,151 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "body": {
+      "additionalProperties": true,
+      "properties": {
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "content_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "categories": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "change_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "conversation_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "from": {
+      "additionalProperties": true,
+      "properties": {
+        "emailAddress": {
+          "additionalProperties": false,
+          "properties": {
+            "address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "has_attachments": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "received_date_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "sender": {
+      "additionalProperties": true,
+      "properties": {
+        "emailAddress": {
+          "additionalProperties": true,
+          "properties": {
+            "address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "thread_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

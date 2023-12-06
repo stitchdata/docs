@@ -1,0 +1,386 @@
+{
+  "definitions": {
+    "field-meta": {
+      "properties": {
+        "allowedValues": {
+          "items": {},
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "autoCompleteUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "defaultValue": {},
+        "hasDefaultValue": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "operations": {
+          "items": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "required": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "schema": {
+          "properties": {
+            "custom": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "customId": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "system": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "title": "Json Type",
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "title": "Field Meta",
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "json-type": {
+      "properties": {
+        "custom": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "customId": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "items": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "system": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "Json Type",
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "properties": {
+    "expand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fields": {
+      "patternProperties": {
+        ".+": {
+          "properties": {
+            "allowedValues": {
+              "items": {},
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "autoCompleteUrl": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "defaultValue": {},
+            "hasDefaultValue": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "operations": {
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "required": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "schema": {
+              "properties": {
+                "custom": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "customId": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "items": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "system": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "title": "Json Type",
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "title": "Field Meta",
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "hasScreen": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "isConditional": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isGlobal": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "isInitial": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "issueId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to": {
+      "properties": {
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "iconUrl": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "self": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statusCategory": {
+          "properties": {
+            "colorName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "self": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "title": "Status Category",
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "statusColor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "title": "Status",
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "title": "Transition",
+  "type": [
+    "null",
+    "object"
+  ]
+}

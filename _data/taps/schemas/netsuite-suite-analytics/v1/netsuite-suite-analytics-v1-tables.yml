@@ -1,0 +1,2403 @@
+tap: netsuite-suite-analytics
+version: '1'
+tables:
+- name: accounting_books
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/accountingbook.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: accounting_periods
+  description: 'The `{{ table.name }}` table contains info about accounting periods.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/accountingperiod.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: accounts
+  description: 'The `{{ table.name }}` table contains info about the accounts in the
+    Chart of Accounts in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: account_activity
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_activity.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: account_period_activity
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_period_activity.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: account_period_activity_pe
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_period_activity_pe.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: account_subsidiary_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/account_subsidiary_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: activities
+  description: 'The `{{ table.name }}` table contains info about activities.
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/activities.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: addresses
+  description: 'The `{{ table.name }}` table contains info about all address instances.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/addresses.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: address_book
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/address_book.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: amortization_schedules
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/amortizationschedule.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: amortization_sched_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/amortization_sched_lines.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: billing_accounts
+  description: 'The `{{ table.name }}` table contains info about the billing accounts
+    in your NetSuite account. A billing account is a record used to show all billing
+    information for a customer or subcustomer. A billing account contains billing-specific
+    information, including billing schedule, default payment terms, bill-to address,
+    and currency.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingaccount.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: billing_classes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_classes.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: billing_class_rates
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_class_rates.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: billing_rate_cards
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingratecard.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: billing_rate_cards_prices
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_rate_cards_prices.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: billing_rate_cards_versions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_rate_cards_versions.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: billing_schedule
+  description: 'The `{{ table.name }}` table contains info about the billing schedules
+    in your NetSuite account.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingschedule.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: billing_schedule
+  description: 'The `{{ table.name }}` table contains info about the billing schedules
+    in your NetSuite account.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billingschedule.html
+  table-details:
+    replication-method: Full Table
+- name: billing_schedule_descriptions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_schedule_descriptions.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: billing_subscriptions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_subscriptions.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: billing_subscription_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/billing_subscription_lines.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: bill_of_distributions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bill_of_distributions.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: bill_of_materials
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bill_of_materials.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: bins
+  description: 'The `{{ table.name }}` table contains info about bins, or places in
+    your warehouse where you store inventory items.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bin.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: bin_number
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bin_number.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: bin_number_counts
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bin_number_counts.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: bom_revisions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bomrevision.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: bom_revision_components
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/bom_revision_components.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: budget
+  description: "The `{{ table.name }}` table contains info about the budgets in your\
+    \ {{ integration.display_name }} account. A budget records the expected values\
+    \ of income and expenses for your business. Budgets can be created for specific\
+    \ customers, items, departments, classes, locations, or any combination of these\
+    \ criteria. \n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/budget.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: budget_category
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/budgetcategory.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: calls
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/calls.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: campaignchannel
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignchannel.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: campaignevent
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignevent.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: campaignitem
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignitem.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: campaignoffer
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignoffer.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaignresponse
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignresponse.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+    primary-key: '{{ system-column.record-hash }}'
+- name: campaignresponse
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignresponsehisstory.html
+  table-details:
+    replication-method: Full Table
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your NetSuite account. Campaigns are used to manage marketing initiatives.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaign_audiences
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignaudience.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaign_categories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_categories.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaign_families
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_families.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaign_search_engine
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignsearchengine.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaign_subscriptions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignsubscription.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: campaign_subscription_statuses
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaign_subscription_statuses.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: campaign_verticals
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/campaignvertical.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: caseescalationhistory
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/caseescalationhistory.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: caseissue
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/caseissue.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: caseorigin
+  description: '**Note**: This table contains the same data as the [`case_origins`](#case-origins)
+    table.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/caseorigin.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: casetype
+  description: '**Note**: This table contains the same data as the [`case_types`](#case-types)
+    table.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/casetype.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: case_origins
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/case_origins.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: case_stage_changes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/case_stage_changes.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: case_types
+  description: '**Note**: This table contains the same data as the [`casetype`](#casetype)
+    table.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/case_types.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: charges
+  description: 'The `{{ table.name }}` table contains info about the charges in your
+    Netsuite account, which represent billable amounts that your clients must pay.
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/charge.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: classes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/classes.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: commissionplan
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commissionplan.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: commissionrate
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commissionrate.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: commissionschedule
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commissionschedule.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: commission_authorization_link
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/commission_authorization_link.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: companies
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/companies.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: companycontactmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/company_status.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: company_status
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/company_status.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: competitor
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/competitor.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: competitoroppmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/competitoroppmap.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: components_per_routing_steps
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/components_per_routing_steps.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: consolidated_exchange_rates
+  description: 'The `{{ table.name }}` table contains info about consolidated exchange
+    rates. This is used in {{ integration.display_name }} OneWorld for consolidation
+    purposes, ensuring currency amounts correctly roll up from child to parent subsidiaries.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/consolidatedexchangerate.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: contactrole
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/contactrole.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: contacts
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/contact.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: contact_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/contact_types.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: countries
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/countries.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: coupon_codes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/couponcode.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: crmgroup
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/crmgroup.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: crmgroupmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/crmgroupmap.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: crmtemplate
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/crmtemplate.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: currencies
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currencies.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: currencyrates
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currencyrate.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: currency_exchange_rates
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currency_exchange_rates.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: currency_exchange_rate_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/currency_exchange_rate_types.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: customers
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: customer_currencies
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_currencies.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: customer_group_pricing
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_group_pricing.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: customer_item_pricing
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_item_pricing.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: customer_partner_sales_teams
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_partner_sales_teams.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: customer_sales_teams
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_sales_teams.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: customer_subsidiary_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_subsidiary_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: customer_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/customer_types.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: deleted_records
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/deletedrecord.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_deleted
+- name: departments
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/department.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: distribution_categories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/distribution_categories.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: distribution_networks
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/distribution_networks.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: employees
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employee.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: employee_currency_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employee_currency_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: employee_time
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employee_time.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: employee_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/employeetype.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: entity
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: entitycategory
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entitycategory.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: entityeventmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entityeventmap.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: entityterritorymap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entityterritorymap.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: entity_role_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity_role_map.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: entity_status
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity_status.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: entity_status_history
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/entity_status_history.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: eventattendees
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/eventattendees.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: events1
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/calendarevent.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: expense_accounts
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_accounts.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: expense_amortization_rules
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_amortization_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: expense_based_charge_rules
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_based_charge_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: expense_categories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_categories.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: expense_categories_rates
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_categories_rates.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: expense_categories_subs_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_categories_subs_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: expense_detail
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_detail.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: expense_plans
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expenseplan.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: expense_plan_lines
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/expense_plan_lines.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: fair_value_prices
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/fairvalueprice.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: fixed_fee_charge_rules
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/fixed_fee_charge_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: generic_resources
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/genericresource.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: gift_certificates
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/giftcertificate.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: global_account_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/global_account_map.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: global_inventory_relationships
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/globalinventoryrelationship.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: group_test_cell
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/group_test_cell.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: inbound_shipments
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inboundshipment.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: inbound_shipment_items
+  description: 'From NetSuite''s documentation:
+
+
+    > This table is available only for NetSuite accounts with the Inbound Shipment
+    Management feature enabled.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inboundshipment.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: income_accounts
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/income_accounts.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: inventory_cost_template
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventory_cost_template.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: inventory_cost_template_items
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventory_cost_template_items.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: inventory_items
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventoryitem.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: inventory_number
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/inventorynumber.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: items
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: item_account_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_account_map.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: item_billing_rates
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_billing_rates.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: item_collections
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemcollection.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_collection_item_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemcollectionitemmap.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_demand_plans
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemdemandplan.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: item_demand_plan_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_demand_plan_lines.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_fulfillments
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemfulfillment.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: item_group
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemgroup.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_location_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_location_map.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_prices
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_prices.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: item_price_history
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_price_history.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_quantity
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_quantity.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_revisions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemrevision.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: item_shipmethods
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_shipmethods.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_site_categories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_site_categories.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_subsidiary_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_subsidiary_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_supply_plans
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/itemsupplyplan.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: item_supply_plan_attributes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_attributes.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_supply_plan_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_lines.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_supply_plan_source
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_source.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_supply_plan_source_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_supply_plan_source_types.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: item_vendor_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_vendor_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: item_vendor_pricing
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/item_vendor_pricing.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: job_resources
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/job_resources.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: job_resource_role
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/job_resource_role.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: job_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/jobtype.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: locations
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/location.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: location_costing_groups
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/location_costing_groups.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: location_costing_grp_locations
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/location_costing_grp_locations.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: memorized_trans
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/memorized_trans.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: message
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/message.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: messagerecipient
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/messagerecipient.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: mfg_cost_template
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_cost_template.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: mfg_cost_template_items
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_cost_template_items.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: mfg_routing
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_routing.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: mfg_routing_steps
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/mfg_routing_steps.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: nexus
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/nexus.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: notes_system
+  description: 'From NetSuite''s documentation:
+
+
+    > As of NetSuite 2017.1, the `notes_system` table is obsolete. Use the [`system_notes`
+    table](#system-notes) instead.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_system.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: notes_system_custom
+  description: 'From NetSuite''s documentation:
+
+
+    > As of NetSuite 2017.1, the `notes_system_custom` table is obsolete. Use the
+    [`system_notes_custom` table](#system-notes-custom) instead.
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_system_custom.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: notes_user
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notes_user.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: notetype
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/notetype.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: opportunities
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/opportunities.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: opportunitycontactmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/opportunitycontactmap.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: opportunity_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/opportunity_lines.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: originating_leads
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/originatinglead.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: other_names
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+
+    {{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/othername.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: partners
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: partner_sales_roles
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner_sales_roles.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: partner_types
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/partner_types.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: payment_methods
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/paymentmethod.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: payment_terms
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/payment_terms.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: payroll_items
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/payrollitem.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: payroll_item_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/payroll_item_types.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: percent_complete_overrides
+  description: "**Note**: This table\u2019s data is available only to NetSuite accounts\
+    \ that have Advanced Revenue Management enabled.\n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/percent_complete_overrides.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: planassignmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/planassignmap.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: planned_standard_costs
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/planned_standard_costs.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: planschedulemap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/planschedulemap.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: posting_account_activity
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/posting_account_activity.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: posting_account_activity_pe
+  description: 'From NetSuite''s documentation:
+
+
+    > This table includes all transactions. Note that when the ID of the `balance_from_subsidiary_id`
+    and the `subsidiary_id` fields are different, the Period End Journal transaction
+    represents transactions from the source subsidiary. When both fields have the
+    same ID, the Period End Journal transaction represents transactions from the posting
+    subsidiary.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/posting_account_activity_pe.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: price_books
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/pricebook.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: price_book_line_intervals
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/price_book_line_intervals.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: price_plans
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/priceplan.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: price_tiers
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/price_tiers.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: price_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/price_tiers.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: pricing_groups
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/pricinggroup.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: project_billing_budgets
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_billing_budgets.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: project_cost_budgets
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_cost_budgets.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: project_cost_categories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_cost_categories.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: project_expense_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projectexpensetype.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: project_revenue_rls_charge_rls
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rls_charge_rls.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: project_revenue_rl_plans
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rl_plans.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: project_revenue_rules
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_revenue_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: project_tasks
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projecttask.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: project_task_assignments
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projecttaskassignment.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: project_task_billing_budgets
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_task_billing_budgets.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: project_task_cost_budgets
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_task_cost_budgets.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: project_task_dependencies
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_task_dependencies.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: project_templates
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/projecttemplate.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: project_time_approval_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/project_time_approval_types.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: promotion_codes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/promotioncode.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: purchase_charge_rules
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/purchase_charge_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: quota1
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/quota1.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: resource_allocations
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/resourceallocation.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: resource_groups
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/resource_groups.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: resource_group_entity_map
+  description: "From NetSuite's documentation:\n\n> This table contains data related\
+    \ to the assigned members of a resource group. Each resource group entity must\
+    \ have an assigned resource group. The table\u2019s data is only available for\
+    \ accounts with Project Management enabled.\n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/resource_group_entity_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: revaluation
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revaluation.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: revenue_elements
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_elements.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: revenue_plans
+  description: "From NetSuite's documentation:\n\n>  This table\u2019s data is available\
+    \ only to NetSuite accounts that have Advanced Revenue Management enabled.\n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenueplan.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: revenue_plan_lines
+  description: "From NetSuite's documentation:\n\n> This table\u2019s data is available\
+    \ only to NetSuite accounts that have Advanced Revenue Management enabled.\n\n\
+    {{ integration.append-only-loading | flatify }}\n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_plan_lines.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: revenue_plan_versions
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_plan_versions.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: revenue_plan_version_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_plan_version_lines.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: revenue_recognition_rules
+  description: "From NetSuite's documentation:\n\n> This table\u2019s data is available\
+    \ only to NetSuite accounts that have Advanced Revenue Management enabled.\n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revenue_recognition_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: revrecschedulelines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revrecschedulelines.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: revrecschedules
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/revrecschedule.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: roles1
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/role.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: role_subsidiary_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/role_subsidiary_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: salesforecast
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/salesforecast.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: sales_reps
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/sales_reps.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: sales_roles
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/salesrole.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: sales_territories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/sales_territories.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: service_items
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/serviceitem.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: shipment_packages
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/shipment_packages.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: shipping_items
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/shipping_items.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: solution
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/solution.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: solutioncasemap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/solutioncasemap.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: solutiontopicmap
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/solutiontopicmap.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: standard_cost_components
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/standard_cost_components.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: states
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/state.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subscription_change_orders
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscriptionchangeorder.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: subscription_co_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_co_lines.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: subscription_line_revisions
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_line_revisions.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: subscription_plans
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscriptionplan.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: subscription_plan_lines
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_plan_lines.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subscription_terms
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscription_terms.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subscript_line_price_intervals
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subscript_line_price_intervals.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: subsidiaries
+  description: "The `{{ table.name }}` table contains info about the subsidiary records\
+    \ in your NetSuite account. A subsidiary represents a separate company within\
+    \ your global organization. \n"
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiaries.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: subsidiary_book_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_book_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subsidiary_class_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_class_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subsidiary_department_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_department_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subsidiary_location_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_location_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: subsidiary_nexus_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/subsidiary_nexus_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: supplier_categories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/supplier_categories.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: supportcasehistory
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/supportcasehistory.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: support_incidents
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/support_incidents.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: support_reps
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/support_reps.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: support_territories
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/support_territories.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: system_notes
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/system_notes.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: system_notes_custom
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/system_notes_custom.html
+  table-details:
+    replication-method: Full Table
+- name: tasks
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/task.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: task_contacts
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/task_contacts.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: tax_items
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/tax_items.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: territory
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/territory.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: timesheet
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/timesheet.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: time_based_charge_rules
+  description: '{{ integration.append-only-loading | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/time_based_charge_rules.html
+  table-details:
+    replication-method: Key-based Incremental
+    loading-behavior: Append-Only
+    replication-key: date_last_modified
+- name: topic
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/topic.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: transactions
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+
+    From NetSuite''s documentation:
+
+
+    > Credit and debit amounts are not exposed as columns in this table. However,
+    you can query the `transaction_lines` table to obtain transaction credit and debit
+    amounts. For more details, see [Connect Access to Transaction Credit and Debit
+    Amounts](https://system.netsuite.com/app/help/helpcenter.nl?topic=DOC_section_4400769955){:target="new"}.
+
+
+    > Item count and quantity values are not exposed as columns in in this table.
+    However, you can query the `transaction_lines` table to obtain these values. For
+    more details, see [Connect Access to Transaction Quantities](https://system.netsuite.com/app/help/helpcenter.nl?topic=DOC_section_1512507697){:target="new"}.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: transaction_address
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_address.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: transaction_bin_numbers
+  description: 'From NetSuite''s documentation:
+
+
+    > Each line in this table represents one and only one bin.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_bin_numbers.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: transaction_book_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_book_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: transaction_cost_components
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_cost_components.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: transaction_history
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_history.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: transaction_inventory_numbers
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_inventory_numbers.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: transaction_lines
+  description: 'From NetSuite''s documentation:
+
+
+    > Credit and debit amounts are not exposed as columns in this table. However,
+    you can query this table to obtain transaction credit and debit amounts.
+
+
+    > To obtain landed cost category names, you can include the `memo` column in your
+    query. For each line where `is_landed_cost` is set to `Yes`, text is written to
+    this column in the format `<Landed Cost Category Name>:<Item Name>`.
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_lines.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified_gmt
+- name: transaction_line_book_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_line_book_map.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: transaction_links
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_links.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: transaction_sales_teams
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_sales_teams.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: transaction_shipping_groups
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_shipping_groups.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: transaction_tax_detail
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_tax_detail.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: transaction_tracking_numbers
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/transaction_tracking_numbers.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: trans_partner_sales_teams
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/trans_partner_sales_teams.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: units_type
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/unitstype.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: unlocked_time_periods
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/unlockedtimeperiod.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: uom
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/uom.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: usages
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/usage.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: vendors
+  description: '{{ integration.netsuite-replication-keys | flatify }}
+
+    '
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-keys:
+    - date_last_modified
+    - last_modified_date
+- name: vendor_currencies
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor_currencies.html
+  table-details:
+    replication-method: Full Table
+    loading-behavior: Append-Only
+- name: vendor_subsidiary_map
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor_subsidiary_map.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: vendor_types
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/vendor_types.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: winlossreason
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/winlossreason.html
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: '{{ system-column.record-hash }}'
+    replication-key: date_last_modified
+- name: work_calendars
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/work_calendars.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'
+- name: work_calendar_holidays
+  description: ''
+  links:
+    doc-link: https://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2020_1/odbc/record/work_calendar_holidays.html
+  table-details:
+    replication-method: Full Table
+    primary-key: '{{ system-column.record-hash }}'

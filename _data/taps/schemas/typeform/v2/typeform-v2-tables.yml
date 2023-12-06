@@ -1,0 +1,78 @@
+tap: typeform
+version: '2'
+tables:
+- name: answers
+  description: "The `{{ table.name }}` table contains info about the answers submitted\
+    \ for the forms specified in the {{ app.page-names.int-settings }} page. \n**Note**:\
+    \ There is no replication key for this table, it uses the replication key `submitted_at`\
+    \ from its parent stream [`submitted_landings`](#submitted-landings).\n"
+  links:
+    doc-link: https://developer.typeform.com/responses/
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/answers.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - landing_id
+    - question_id
+- name: forms
+  description: 'The `{{ table.name }}` table contains info about the forms (public
+    and private) that are accesible by the user who authorized the integration in
+    Stitch.
+
+    '
+  links:
+    doc-link: https://developer.typeform.com/responses/
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/forms.json
+    api-method: https://developer.typeform.com/create/reference/retrieve-forms/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: last_updated_at
+- name: questions
+  description: 'The `{{ table.name }}` table contains a list of question titles and
+    IDs that can be used to link to [`answers`](#answers).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/questions.json
+    api-method: https://developer.typeform.com/create/reference/retrieve-form/
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - form_id
+    - question_id
+- name: submitted_landings
+  description: 'The `{{ table.name }}` table contains info about submitted form landings.
+
+
+    **Note**: Data related to a form landing can be retrieved twice, once in `unsubmitted_landings`
+    when it is unsubmitted and once in `submitted_landings` when it is submitted.
+    In this case, they will have different bookmarks.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/submitted_landings.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: landing_id
+    replication-key: submitted_at
+- name: unsubmitted_landings
+  description: 'The `{{ table.name }}` table contains info about unsubmitted form
+    landings.
+
+
+    **Note**: Data related to a form landing can be retrieved twice, once in `unsubmitted_landings`
+    when it is unsubmitted and once in `submitted_landings` when it is submitted.
+    In this case, they will have different bookmarks.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/unsubmitted_landings.json
+    api-method: https://developer.typeform.com/responses/reference/retrieve-responses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: landing_id
+    replication-key: landed_at
+tap-repo-schemas: true

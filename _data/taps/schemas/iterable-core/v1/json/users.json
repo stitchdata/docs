@@ -1,0 +1,1830 @@
+{
+  "properties": {
+    "CCProvider": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "Industry": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "accessIp": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "acquisition_source": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "actively_seeking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "age": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "auctionDigest": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "auctionDigest.auctionDateLocation": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "auctionDigest.auctionHouse": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "auctionDigest.auctionImageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "auctionDigest.auctionInfo": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "auctionDigest.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "averageOrderValue": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "badgeCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "bestFriend": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "booked_activity_before": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "booked_package_before": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "browserTokens": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "city": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "congressional Districts": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "counties": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "current_employer": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "current_employer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date_last_booked_package": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "daysSinceLastOrder": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "designation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "devices": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "devices.applicationName": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "devices.endpointEnabled": {
+      "items": {
+        "type": [
+          "null",
+          "boolean"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "devices.platform": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "devices.platformEndpoint": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "devices.token": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "emailListIds": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "estimatedSizing": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "experience": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteAnimal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteCategories": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "favoriteCategories.category": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "favoriteCategory": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteCuisine": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteItem": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteProduct": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteRestaurant": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoriteShowCategories": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favorite_category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "favoritedShows": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fb_follow": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "featuredDeal": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "firstName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gender": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hasMobileApp": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "highestBidPrice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "house Districts": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "industry": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "installedDropbox": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "installed_sync": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "interested_in_detergent": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "interested_in_soap": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "interested_in_toilet_paper": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "invoice": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "invoice.customAmount": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.customSubTotal": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.customerEmail": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.customerName": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.invoiceDate": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.invoiceNumber": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.merchantName": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "invoice.totalDue": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "is_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_available": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "itblInternal.emailDomain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "jobRecommendations": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "jobRecommendations.applicationURL": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "jobRecommendations.description": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "jobRecommendations.id": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "jobRecommendations.imageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "jobRecommendations.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "job_categories_interested": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "job_title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastAccessedAgent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastKnownLatitude": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "lastKnownLongitude": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "lastName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastOrderlocation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lastOrderrestaurant": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_game_played": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_purchased": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_purchased_category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_session_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "level": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lifetime Dontation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lifetime_Spent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locale": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "loyalty_member": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "loyalty_points": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "loyalty_program": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "major": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "marketSmith_subscription": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "merchantId": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "newListedVehicles": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "newListedVehicles.category": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "newListedVehicles.imageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "newListedVehicles.miles": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "newListedVehicles.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "newListedVehicles.noHagglePrice": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "newListedVehicles.price": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "newListedVehicles.sku": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "offers.Intro APR": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.categories": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.description": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.id": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.imageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.intro APR": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.quantity": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.sku": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "offers.url": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "onboardingCohort": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "paid_user": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "passively_seeking": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "phoneNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "phoneNumberDetails": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "phoneNumberDetails.carrier": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "phoneNumberDetails.countryCodeISO": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "phoneNumberDetails.lineType": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "phoneNumberDetails.updatedAt": {
+      "items": {
+        "type": [
+          "null",
+          "date-time"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "profileUpdatedAt": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "promoCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "readingList": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "readingList.avgRating": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "readingList.bookAuthor": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "readingList.bookName": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "readingList.imageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "recommendedVehicles": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "recommendedVehicles.TrueCar Estimate": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "recommendedVehicles.category": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "recommendedVehicles.estimateDescription": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "recommendedVehicles.imageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "recommendedVehicles.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "recommendedVehicles.sku": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "region": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sat": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "scheduled_ride": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "selected_games": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "senate Districts": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shoppingCartItems": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "shoppingCartItems.categories": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.description": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.id": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.imageUrl": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.price": {
+      "items": {
+        "type": [
+          "null",
+          "number"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.quantity": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.sku": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shoppingCartItems.url": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "shopppingCartTotal": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "should_receive_recommendation": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "signupDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "signupSource": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "streetAddress": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "swingTrader_subscription": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tagline": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "timeZone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "times donated": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "times_purchased": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "totalOrderCount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "totalOrders": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "totalPurchases": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "totalSpent": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_playtime": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "university_interest": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unsubscribedChannelIds": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "unsubscribedMessageTypeIds": {
+      "items": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "uploaded_resume": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "userId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vegetarian_menu": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "vegetarian_menu.featured_item_availability": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "vegetarian_menu.featured_item_description": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "vegetarian_menu.featured_item_id": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "vegetarian_menu.featured_item_image_url": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "vegetarian_menu.featured_item_menu_availability": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "vegetarian_menu.featured_item_menu_date": {
+      "items": {
+        "type": [
+          "null",
+          "date-time"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "vip": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "wishList": {
+      "anyOf": [
+        {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      ]
+    },
+    "wishList.name": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "wishList.price": {
+      "items": {
+        "type": [
+          "null",
+          "number"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "zip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

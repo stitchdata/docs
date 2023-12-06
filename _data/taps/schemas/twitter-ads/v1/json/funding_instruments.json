@@ -1,0 +1,118 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "able_to_fund": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "account_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "credit_limit_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "credit_remaining_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "entity_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "funded_amount_local_micro": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "io_header": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reasons_not_able_to_fund": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

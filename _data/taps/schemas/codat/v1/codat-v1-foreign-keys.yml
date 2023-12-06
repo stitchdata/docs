@@ -1,0 +1,2054 @@
+tap: codat
+version: '1'
+keys:
+  accounts_name:
+  - table: accounts
+    keys:
+    - name
+  - table: bank_accounts
+    keys:
+    - accountName
+  accounts_accountId:
+  - table: accounts
+    keys:
+    - id
+  - table: balance_sheets
+    keys:
+    - reports.assets.accountId
+    - reports.equity.accountId
+    - reports.liabilities.accountId
+  - table: profit_and_loss
+    keys:
+    - reports.costOfSales.accountId
+    - reports.expenses.accountId
+    - reports.income.accountId
+    - reports.otherExpenses.accountId
+    - reports.otherIncome.accountId
+  - table: bills
+    keys:
+    - lineItems.accountRef.id
+  - table: items
+    keys:
+    - billItem.accountRef.id
+    - invoiceItem.accountRef.id
+  - table: journal_entries
+    keys:
+    - journalLines.accountRef.id
+  accounts_accountName:
+  - table: accounts
+    keys:
+    - name
+  - table: bank_accounts
+    keys:
+    - accountName
+  - table: bank_statement_lines
+    keys:
+    - accountName
+  bank_accounts_id:
+  - table: bank_accounts
+    keys:
+    - id
+  - table: bank_account_transactions
+    keys:
+    - bankAccountId
+  bank_statements_:
+  - table: bank_statements
+    keys:
+    - id
+  bills_billId:
+  - table: bills
+    keys:
+    - id
+  bill_payments_id:
+  - table: bill_payments
+    keys:
+    - id
+  companies_companyId:
+  - table: companies
+    keys:
+    - id
+  - table: balance_sheets
+    keys:
+    - companyId
+  - table: bank_statements
+    keys:
+    - companyId
+  - table: bank_statement_lines
+    keys:
+    - companyId
+  - table: bill_payments
+    keys:
+    - supplierRef.companyId
+  - table: bills
+    keys:
+    - companyId
+  - table: company_info
+    keys:
+    - companyId
+  - table: customers
+    keys:
+    - companyId
+  - table: invoices
+    keys:
+    - companyId
+  - table: payments
+    keys:
+    - companyId
+  - table: profit_and_loss
+    keys:
+    - companyId
+  - table: suppliers
+    keys:
+    - companyId
+  - table: connections
+    keys:
+    - companyId
+  - table: events
+    keys:
+    - companyId
+  - table: items
+    keys:
+    - companyId
+  - table: journal_entries
+    keys:
+    - companyId
+  - table: tax_rates
+    keys:
+    - companyId
+  - table: bill_payments
+    keys:
+    - companyId
+  - table: bank_account_transactions
+    keys:
+    - companyId
+  - table: bank_accounts
+    keys:
+    - companyId
+  connections_connectionId:
+  - table: bank_accounts
+    keys:
+    - connectionId
+  - table: connections
+    keys:
+    - id
+  credit_notes_creditNoteId:
+  - table: credit_notes
+    keys:
+    - id
+  - table: payments
+    keys:
+    - lines.links.id
+  customers_customerId:
+  - table: credit_notes
+    keys:
+    - customerRef.id
+    - customerRef.id
+  - table: customers
+    keys:
+    - id
+  - table: payments
+    keys:
+    - customerRef.id
+  invoices_invoiceId:
+  - table: invoices
+    keys:
+    - id
+  - table: payments
+    keys:
+    - lines.links.id
+  items_id:
+  - table: bills
+    keys:
+    - lineItems.itemRef.id
+  - table: items
+    keys:
+    - id
+  journal_entries_id:
+  - table: journal_entries
+    keys:
+    - id
+  payments_paymentId:
+  - table: payments
+    keys:
+    - id
+    - lines.links.id
+  suppliers_supplierId:
+  - table: bills
+    keys:
+    - supplierRef
+  - table: suppliers
+    keys:
+    - id
+  events_eventTimeUtc:
+  - table: events
+    keys:
+    - eventTimeUtc
+  suppliers_supplierRef:
+  - table: bill_payments
+    keys:
+    - supplierRef.id
+  - table: bills
+    keys:
+    - supplierRef
+  tax_rates_id:
+  - table: bills
+    keys:
+    - lineItems.taxRateRef.id
+  - table: items
+    keys:
+    - billItem.taxRateRef.id
+    - invoiceItem.taxRateRef.id
+  - table: tax_rates
+    keys:
+    - id
+  bank_account_transactions_transactionIndex:
+  - table: bank_account_transactions
+    keys:
+    - _transactionIndex
+tables:
+- table-name: accounts
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: name
+      foreign-key: accountName
+  - table-name: balance_sheets
+    keys:
+    - key: id
+      foreign-key: reports.assets.accountId
+    - key: id
+      foreign-key: reports.equity.accountId
+    - key: id
+      foreign-key: reports.liabilities.accountId
+  - table-name: profit_and_loss
+    keys:
+    - key: id
+      foreign-key: reports.costOfSales.accountId
+    - key: id
+      foreign-key: reports.expenses.accountId
+    - key: id
+      foreign-key: reports.income.accountId
+    - key: id
+      foreign-key: reports.otherExpenses.accountId
+    - key: id
+      foreign-key: reports.otherIncome.accountId
+  - table-name: bills
+    keys:
+    - key: id
+      foreign-key: lineItems.accountRef.id
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: billItem.accountRef.id
+    - key: id
+      foreign-key: invoiceItem.accountRef.id
+  - table-name: journal_entries
+    keys:
+    - key: id
+      foreign-key: journalLines.accountRef.id
+  - table-name: bank_statement_lines
+    keys:
+    - key: name
+      foreign-key: accountName
+- table-name: bank_accounts
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountName
+      foreign-key: name
+  - table-name: bank_statement_lines
+    keys:
+    - key: accountName
+      foreign-key: accountName
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: id
+      foreign-key: bankAccountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: connectionId
+      foreign-key: id
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: balance_sheets
+  join:
+  - table-name: accounts
+    keys:
+    - key: reports.assets.accountId
+      foreign-key: id
+    - key: reports.equity.accountId
+      foreign-key: id
+    - key: reports.liabilities.accountId
+      foreign-key: id
+  - table-name: profit_and_loss
+    keys:
+    - key: reports.assets.accountId
+      foreign-key: reports.costOfSales.accountId
+    - key: reports.equity.accountId
+      foreign-key: reports.costOfSales.accountId
+    - key: reports.liabilities.accountId
+      foreign-key: reports.costOfSales.accountId
+    - key: reports.assets.accountId
+      foreign-key: reports.expenses.accountId
+    - key: reports.equity.accountId
+      foreign-key: reports.expenses.accountId
+    - key: reports.liabilities.accountId
+      foreign-key: reports.expenses.accountId
+    - key: reports.assets.accountId
+      foreign-key: reports.income.accountId
+    - key: reports.equity.accountId
+      foreign-key: reports.income.accountId
+    - key: reports.liabilities.accountId
+      foreign-key: reports.income.accountId
+    - key: reports.assets.accountId
+      foreign-key: reports.otherExpenses.accountId
+    - key: reports.equity.accountId
+      foreign-key: reports.otherExpenses.accountId
+    - key: reports.liabilities.accountId
+      foreign-key: reports.otherExpenses.accountId
+    - key: reports.assets.accountId
+      foreign-key: reports.otherIncome.accountId
+    - key: reports.equity.accountId
+      foreign-key: reports.otherIncome.accountId
+    - key: reports.liabilities.accountId
+      foreign-key: reports.otherIncome.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: reports.assets.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: reports.equity.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: reports.liabilities.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: reports.assets.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.equity.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.liabilities.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.assets.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: reports.equity.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: reports.liabilities.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: reports.assets.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: reports.equity.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: reports.liabilities.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: profit_and_loss
+  join:
+  - table-name: accounts
+    keys:
+    - key: reports.costOfSales.accountId
+      foreign-key: id
+    - key: reports.expenses.accountId
+      foreign-key: id
+    - key: reports.income.accountId
+      foreign-key: id
+    - key: reports.otherExpenses.accountId
+      foreign-key: id
+    - key: reports.otherIncome.accountId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: reports.costOfSales.accountId
+      foreign-key: reports.assets.accountId
+    - key: reports.expenses.accountId
+      foreign-key: reports.assets.accountId
+    - key: reports.income.accountId
+      foreign-key: reports.assets.accountId
+    - key: reports.otherExpenses.accountId
+      foreign-key: reports.assets.accountId
+    - key: reports.otherIncome.accountId
+      foreign-key: reports.assets.accountId
+    - key: reports.costOfSales.accountId
+      foreign-key: reports.equity.accountId
+    - key: reports.expenses.accountId
+      foreign-key: reports.equity.accountId
+    - key: reports.income.accountId
+      foreign-key: reports.equity.accountId
+    - key: reports.otherExpenses.accountId
+      foreign-key: reports.equity.accountId
+    - key: reports.otherIncome.accountId
+      foreign-key: reports.equity.accountId
+    - key: reports.costOfSales.accountId
+      foreign-key: reports.liabilities.accountId
+    - key: reports.expenses.accountId
+      foreign-key: reports.liabilities.accountId
+    - key: reports.income.accountId
+      foreign-key: reports.liabilities.accountId
+    - key: reports.otherExpenses.accountId
+      foreign-key: reports.liabilities.accountId
+    - key: reports.otherIncome.accountId
+      foreign-key: reports.liabilities.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: reports.costOfSales.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: reports.expenses.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: reports.income.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: reports.otherExpenses.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: reports.otherIncome.accountId
+      foreign-key: lineItems.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: reports.costOfSales.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.expenses.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.income.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.otherExpenses.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.otherIncome.accountId
+      foreign-key: billItem.accountRef.id
+    - key: reports.costOfSales.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: reports.expenses.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: reports.income.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: reports.otherExpenses.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: reports.otherIncome.accountId
+      foreign-key: invoiceItem.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: reports.costOfSales.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: reports.expenses.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: reports.income.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: reports.otherExpenses.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: reports.otherIncome.accountId
+      foreign-key: journalLines.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: bills
+  join:
+  - table-name: accounts
+    keys:
+    - key: lineItems.accountRef.id
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: lineItems.accountRef.id
+      foreign-key: reports.assets.accountId
+    - key: lineItems.accountRef.id
+      foreign-key: reports.equity.accountId
+    - key: lineItems.accountRef.id
+      foreign-key: reports.liabilities.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: lineItems.accountRef.id
+      foreign-key: reports.costOfSales.accountId
+    - key: lineItems.accountRef.id
+      foreign-key: reports.expenses.accountId
+    - key: lineItems.accountRef.id
+      foreign-key: reports.income.accountId
+    - key: lineItems.accountRef.id
+      foreign-key: reports.otherExpenses.accountId
+    - key: lineItems.accountRef.id
+      foreign-key: reports.otherIncome.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: lineItems.accountRef.id
+      foreign-key: billItem.accountRef.id
+    - key: lineItems.accountRef.id
+      foreign-key: invoiceItem.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+    - key: lineItems.itemRef.id
+      foreign-key: id
+    - key: lineItems.taxRateRef.id
+      foreign-key: billItem.taxRateRef.id
+    - key: lineItems.taxRateRef.id
+      foreign-key: invoiceItem.taxRateRef.id
+  - table-name: journal_entries
+    keys:
+    - key: lineItems.accountRef.id
+      foreign-key: journalLines.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+    - key: supplierRef
+      foreign-key: supplierRef.id
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: supplierRef
+      foreign-key: id
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: lineItems.taxRateRef.id
+      foreign-key: id
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: items
+  join:
+  - table-name: accounts
+    keys:
+    - key: billItem.accountRef.id
+      foreign-key: id
+    - key: invoiceItem.accountRef.id
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: billItem.accountRef.id
+      foreign-key: reports.assets.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.assets.accountId
+    - key: billItem.accountRef.id
+      foreign-key: reports.equity.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.equity.accountId
+    - key: billItem.accountRef.id
+      foreign-key: reports.liabilities.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.liabilities.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: billItem.accountRef.id
+      foreign-key: reports.costOfSales.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.costOfSales.accountId
+    - key: billItem.accountRef.id
+      foreign-key: reports.expenses.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.expenses.accountId
+    - key: billItem.accountRef.id
+      foreign-key: reports.income.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.income.accountId
+    - key: billItem.accountRef.id
+      foreign-key: reports.otherExpenses.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.otherExpenses.accountId
+    - key: billItem.accountRef.id
+      foreign-key: reports.otherIncome.accountId
+    - key: invoiceItem.accountRef.id
+      foreign-key: reports.otherIncome.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: billItem.accountRef.id
+      foreign-key: lineItems.accountRef.id
+    - key: invoiceItem.accountRef.id
+      foreign-key: lineItems.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: lineItems.itemRef.id
+    - key: billItem.taxRateRef.id
+      foreign-key: lineItems.taxRateRef.id
+    - key: invoiceItem.taxRateRef.id
+      foreign-key: lineItems.taxRateRef.id
+  - table-name: journal_entries
+    keys:
+    - key: billItem.accountRef.id
+      foreign-key: journalLines.accountRef.id
+    - key: invoiceItem.accountRef.id
+      foreign-key: journalLines.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: billItem.taxRateRef.id
+      foreign-key: id
+    - key: invoiceItem.taxRateRef.id
+      foreign-key: id
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: journal_entries
+  join:
+  - table-name: accounts
+    keys:
+    - key: journalLines.accountRef.id
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: journalLines.accountRef.id
+      foreign-key: reports.assets.accountId
+    - key: journalLines.accountRef.id
+      foreign-key: reports.equity.accountId
+    - key: journalLines.accountRef.id
+      foreign-key: reports.liabilities.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: journalLines.accountRef.id
+      foreign-key: reports.costOfSales.accountId
+    - key: journalLines.accountRef.id
+      foreign-key: reports.expenses.accountId
+    - key: journalLines.accountRef.id
+      foreign-key: reports.income.accountId
+    - key: journalLines.accountRef.id
+      foreign-key: reports.otherExpenses.accountId
+    - key: journalLines.accountRef.id
+      foreign-key: reports.otherIncome.accountId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: journalLines.accountRef.id
+      foreign-key: lineItems.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: journalLines.accountRef.id
+      foreign-key: billItem.accountRef.id
+    - key: journalLines.accountRef.id
+      foreign-key: invoiceItem.accountRef.id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: bank_statement_lines
+  join:
+  - table-name: accounts
+    keys:
+    - key: accountName
+      foreign-key: name
+  - table-name: bank_accounts
+    keys:
+    - key: accountName
+      foreign-key: accountName
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: bank_account_transactions
+  join:
+  - table-name: bank_accounts
+    keys:
+    - key: bankAccountId
+      foreign-key: id
+    - key: companyId
+      foreign-key: companyId
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: bank_statements
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: bill_payments
+  join:
+  - table-name: companies
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: id
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+    - key: supplierRef.id
+      foreign-key: supplierRef
+  - table-name: company_info
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: supplierRef.companyId
+      foreign-key: companyId
+    - key: companyId
+      foreign-key: companyId
+- table-name: companies
+  join:
+  - table-name: balance_sheets
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: id
+      foreign-key: supplierRef.companyId
+    - key: id
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: id
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: id
+      foreign-key: companyId
+- table-name: company_info
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: customers
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: customerRef.id
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: credit_notes
+    keys:
+    - key: id
+      foreign-key: customerRef.id
+- table-name: invoices
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: lines.links.id
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: payments
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: customerRef.id
+      foreign-key: id
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: lines.links.id
+      foreign-key: id
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: credit_notes
+    keys:
+    - key: lines.links.id
+      foreign-key: id
+    - key: customerRef.id
+      foreign-key: customerRef.id
+- table-name: suppliers
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: supplierRef
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: connections
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: connectionId
+- table-name: events
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: tax_rates
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: tax_rates
+  join:
+  - table-name: companies
+    keys:
+    - key: companyId
+      foreign-key: id
+  - table-name: balance_sheets
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statements
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_statement_lines
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bill_payments
+    keys:
+    - key: companyId
+      foreign-key: supplierRef.companyId
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bills
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: lineItems.taxRateRef.id
+  - table-name: company_info
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: customers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: invoices
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: payments
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: profit_and_loss
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: suppliers
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: connections
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: events
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: items
+    keys:
+    - key: companyId
+      foreign-key: companyId
+    - key: id
+      foreign-key: billItem.taxRateRef.id
+    - key: id
+      foreign-key: invoiceItem.taxRateRef.id
+  - table-name: journal_entries
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_account_transactions
+    keys:
+    - key: companyId
+      foreign-key: companyId
+  - table-name: bank_accounts
+    keys:
+    - key: companyId
+      foreign-key: companyId
+- table-name: credit_notes
+  join:
+  - table-name: payments
+    keys:
+    - key: id
+      foreign-key: lines.links.id
+    - key: customerRef.id
+      foreign-key: customerRef.id
+  - table-name: customers
+    keys:
+    - key: customerRef.id
+      foreign-key: id

@@ -1,0 +1,77 @@
+tap: shippo
+version: '1'
+keys:
+  addresses_:
+  - table: addresses
+    keys:
+    - object_id
+  - table: shipments
+    keys:
+    - object_from
+    - object_to
+    - object_return
+  parcels_:
+  - table: parcels
+    keys:
+    - object_id
+  - table: shipments
+    keys:
+    - object_parcel
+  refunds_:
+  - table: refunds
+    keys:
+    - object_id
+  shipments_shipment:
+  - table: shipment
+    keys:
+    - shipment
+  transactions_transaction:
+  - table: refunds
+    keys:
+    - transaction
+  - table: transactions
+    keys:
+    - object_id
+tables:
+- table-name: addresses
+  join:
+  - table-name: shipments
+    keys:
+    - key: object_id
+      foreign-key: object_from
+    - key: object_id
+      foreign-key: object_to
+    - key: object_id
+      foreign-key: object_return
+- table-name: shipments
+  join:
+  - table-name: addresses
+    keys:
+    - key: object_from
+      foreign-key: object_id
+    - key: object_to
+      foreign-key: object_id
+    - key: object_return
+      foreign-key: object_id
+  - table-name: parcels
+    keys:
+    - key: object_parcel
+      foreign-key: object_id
+- table-name: parcels
+  join:
+  - table-name: shipments
+    keys:
+    - key: object_id
+      foreign-key: object_parcel
+- table-name: refunds
+  join:
+  - table-name: transactions
+    keys:
+    - key: transaction
+      foreign-key: object_id
+- table-name: transactions
+  join:
+  - table-name: refunds
+    keys:
+    - key: object_id
+      foreign-key: transaction

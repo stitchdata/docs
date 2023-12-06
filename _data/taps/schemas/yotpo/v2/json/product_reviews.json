@@ -1,0 +1,192 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "comment": {
+      "properties": {
+        "comments_avatar": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "display_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "content": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "deleted": {
+      "description": "Available in APi Response Object",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "domain_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "images_data": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "original_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "thumb_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "product_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "product_yotpo_id": {
+      "type": "string"
+    },
+    "score": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "sentiment": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_review_id": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user": {
+      "properties": {
+        "display_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_social_connected": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "social_image": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_id": {
+          "type": "integer"
+        },
+        "user_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "verified_buyer": {
+      "type": "boolean"
+    },
+    "votes_down": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "votes_up": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": [
+    "object"
+  ]
+}

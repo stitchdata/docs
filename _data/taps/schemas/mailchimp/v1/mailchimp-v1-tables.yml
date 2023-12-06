@@ -1,0 +1,108 @@
+tap: mailchimp
+version: '1'
+tables:
+- name: automations
+  description: 'The `{{ table.name }}` table contains summary info about your {{ integration.display_name
+    }} account''s automations. In {{ integration.display_name }}, an automation is
+    a feature that sends a series of emails to subscribers when triggered by a specific
+    date, activity, or event.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/automations.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/automations/#read-get_automations
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+    replication-key: create_time
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about the campaigns in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/campaigns.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/campaigns/#read-get_campaigns
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: lists
+  description: 'The `{{ table.name }}` table contains info about all the lists in
+    your {{ integration.display_name }} account. A list is also known as an audience,
+    and is where all contacts are stored and managed in {{ integration.display_name
+    }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/lists.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: list_members
+  description: 'The `{{ table.name }}` table contains info about the members in a
+    specific {{ integration.display_name }} list, including currently subscribed,
+    unsubscribed, and bounced members.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/list_members.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/members/#read-get_lists_list_id_members
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - list_id
+    replication-key: last_changed
+- name: list_segments
+  description: 'The `{{ table.name }}` table contains info about the available segments
+    for a specific list.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/list_segments.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#read-get_lists_list_id_segments
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+    replication-key: updated_at
+- name: list_segment_members
+  description: 'The `{{ table.name }}` table contains info about members in a [saved
+    segment](https://mailchimp.com/help/save-and-manage-segments/){:target="new"}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/list_segment_members.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/members/#read-get_lists_list_id_segments_segment_id_members
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: reports_email_activity
+  description: 'The `{{ table.name }}` table contains info about a member''s subscriber
+    activity in a specific campaign.
+
+    '
+  links:
+    doc-link: https://developer.mailchimp.com/documentation/mailchimp/reference/reports/email-activity/
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/reports_email_activity.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/guides/how-to-use-batch-operations/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - action
+    - campaign_id
+    - email_id
+    - timestamp
+- name: unsubscribes
+  description: 'The `{{ table.name }}` table contains info about members who have
+    unsubscribed from a specific campaign.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/unsubscribes.json
+    api-method: https://developer.mailchimp.com/documentation/mailchimp/reference/reports/unsubscribed/#read-get_reports_campaign_id_unsubscribed
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - campaign_id
+    - email_id

@@ -1,0 +1,120 @@
+tap: revinate
+version: '1'
+tap-repo-schemas: false
+tables:
+- name: hotels
+  description: 'The  `{{ table.name }}` table contains info about the hotels in your
+    {{ integration.display_name }} account.
+
+
+    **Note**: Stitch will only replicate data for the hotels that the user whose API
+    key is used to [authenticate the integration](#add-stitch-data-source) has access
+    to. If you''re missing records, verify that the authenticating user has access
+    to those hotels in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L1
+    api-method: https://porter.revinate.com/documentation#hotels
+  table-details:
+    replication-method: Full Table
+    primary-key: hotel_id
+- name: hotel_reviews_snapshot
+  description: 'The `{{ table.name }}` table contains snapshot summary stats of reviews
+    for the last completed week, segmented by hotel.
+
+
+    **Note**: Stitch will only replicate review snapshot data for the hotels that
+    the user whose API key is used to [authenticate the integration](#add-stitch-data-source)
+    has access to. If you''re missing records, verify that the authenticating user
+    has access to those hotels in {{ integration.display_name }}.
+
+
+    #### Replication {#review-snapshot-replication}
+
+
+    During each replication job, snapshot data for the last completed week will be
+    replicated. This means that if the integration is scheduled to run every 30 minutes,
+    then snapshot data for the last week will be replicated every 30 minutes.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L26
+    api-method: https://porter.revinate.com/documentation#hotels
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - hotel_id
+    - snapshot_start_date
+    replication-key: snapshot_start_date
+- name: hotel_reviews_snapshot_by_site
+  description: 'The `{{ table.name }}` table contains snapshot summary stats of reviews
+    for the last completed week, segmented by hotel and review site.
+
+
+    **Note**: Stitch will only replicate review snapshot data for the hotels that
+    the user whose API key is used to [authenticate the integration](#add-stitch-data-source)
+    has access to. If you''re missing records, verify that the authenticating user
+    has access to those hotels in {{ integration.display_name }}.
+
+
+    #### Replication {#review-snapshot--site-replication}
+
+
+    During each replication job, snapshot data for the last completed week will be
+    replicated. This means that if the integration is scheduled to run every 30 minutes,
+    then snapshot data for the last week will be replicated every 30 minutes.
+
+    '
+  links:
+    doc-link: https://porter.revinate.com/documentation#review-sites
+    singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L47
+    api-method: https://porter.revinate.com/documentation#hotels
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - hotel_id
+    - review_site_id
+    - snapshot_start_date
+    replication-key: snapshot_start_date
+- name: hotel_reviews_snapshot_by_time
+  description: 'The `{{ table.name }}` table contains snapshot summary stats of reviews
+    for the last completed week, segmented by hotel and time.
+
+
+    **Note**: Stitch will only replicate review snapshot data for the hotels that
+    the user whose API key is used to [authenticate the integration](#add-stitch-data-source)
+    has access to. If you''re missing records, verify that the authenticating user
+    has access to those hotels in {{ integration.display_name }}.
+
+
+    #### Replication {#review-snapshot-time-replication}
+
+
+    During each replication job, snapshot data for the last completed week will be
+    replicated. This means that if the integration is scheduled to run every 30 minutes,
+    then snapshot data for the last week will be replicated every 30 minutes.
+
+    '
+  links:
+    doc-link: https://porter.revinate.com/documentation#review-sites
+    singer-schema: https://github.com/singer-io/tap-revinate/blob/master/tap_revinate/schemas.py#L70
+    api-method: https://porter.revinate.com/documentation#hotels
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - hotel_id
+    - unix_time
+- name: reviews
+  description: "The `table_name` table contains a subset of the latest reviews for\
+    \ the hotels in your {{ integration.display_name }} account.\n\n **Note**: Stitch\
+    \ will only replicate review data for the hotels that the user whose API key is\
+    \ used to [authenticate the integration](#add-stitch-data-source) has access to.\
+    \ If you're missing records, verify that the authenticating user has access to\
+    \ those hotels in {{ integration.display_name }}.\n"
+  links:
+    api-method: https://porter.revinate.com/documentation#reviews
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: review_id
+    replication-key: updated_at

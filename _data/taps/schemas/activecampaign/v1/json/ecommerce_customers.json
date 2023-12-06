@@ -1,0 +1,82 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "avg_product_category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "avg_revenue_per_order": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "connection": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "connectionid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "externalid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_orders": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_products": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_revenue": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "tstamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

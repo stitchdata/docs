@@ -1,0 +1,298 @@
+tap: facebook-ads
+version: '1'
+tap-repo-schemas: true
+tables:
+- name: adcreative
+  description: 'The `adcreative` table contains info about the creatives used in ads,
+    in your {{ integration.display_name }} account.
+
+
+    **This is a Core Object table**.
+
+
+    #### Limits {#adcreative-table-limits}
+
+
+    Facebook''s API limits the number of ad creatives that can be retrieved through
+    their API to 50,000, which is [documented here](https://developers.facebook.com/docs/marketing-api/reference/ad-creative#limits){:target="new"}.
+    If you''re missing data from this table and have more than 50,000 ad creatives
+    in your {{ integration.display_name }} account, this may be the cause of the discrepancy.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/reference/ads-api/adcreative/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/adcreative.json
+    api-method: https://developers.facebook.com/docs/marketing-api/reference/ad-creative/#Reading
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: ads
+  description: 'The `ads` table contains info about the ads in your Facebook Ads account.
+
+
+    **This is a Core Object table**.
+
+
+    #### updated_time and querying
+
+
+    Because this table uses `updated_time` as part of the Primary Key, query results
+    might return various versions of the same adgroup.
+
+
+    To reflect the latest state of the adgroup, use the latest `updated_time` timestamp.
+
+
+    #### Deleted ads
+
+
+    If the **Include data from deleted campaigns, ads, and adsets** box in the integration''s
+    settings is checked, this table will include data for deleted ads.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/reference/ads-api/adgroup/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads.json
+    api-method: https://developers.facebook.com/docs/marketing-api/reference/adgroup
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - updated_time
+    replication-key: updated_time
+- name: adsets
+  description: "The `adsets` table contains info about the Ad Sets in your Facebook\
+    \ Ads account.\n\n**This is a Core Object table**.\n\n#### updated_time and querying\n\
+    \nBecause this table uses `updated_time` as part of the Primary Key, query results\
+    \ might return various versions of the same adgroup. \n\nTo reflect the latest\
+    \ state of the adgroup, use the latest `updated_time` timestamp.\n\n#### Deleted\
+    \ adsets\n\nIf the **Include data from deleted campaigns, ads, and adsets** box\
+    \ in the integration's settings is checked, this table will include data for deleted\
+    \ adsets.\n"
+  links:
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/adsets.json
+    api-method: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - id
+    - updated_time
+    replication-key: updated_time
+- name: ads_insights
+  description: 'The `ads_insights` table contains entries for each campaign/set/ad
+    combination for each day, along with detailed statistics.
+
+
+    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
+    table even if the **Include data from deleted campaigns, ads, and adsets** option
+    in the integration''s settings is enabled.
+
+
+    #### Segmented insights data
+
+
+    To analyze data that''s been segmented by various characteristics, consider tracking
+    some of the other `ads_insights` tables in this integration. The following tables
+    contain the same fields as this one (`ads_insights`), but include additional dimensions
+    to segment the data:
+
+
+    - [`ads_insights_age_and_gender`](#ads-insights-age-and-gender) - Data segmented
+    by age and gender
+
+    - [`ads_insights_country`](#ads-insights-country) - Data segmented by country
+
+    - [`ads_insights_dma`](#ads-insights-dma) - Data segmented by DMA (Designated
+    Market Area)
+
+    - [`ads_insights_platform_and_device`](#ads-insights-platform-and-device) - Data
+    segmented by platform and device
+
+    - [`ads_insights_region`](#ads-insights-region) - Data segmented by region
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adset_id
+    - campaign_id
+    - date_start
+    replication-key: date_start
+- name: ads_insights_age_and_gender
+  description: 'The `ads_insights_age_and_gender` table contains entries for each
+    campaign/set/ad combination for each day, along with detailed statistics, segmented
+    by age and gender.
+
+
+    This table contains the same fields as the [`ads_insights`](#ads_insights) table,
+    with the exception of `age` and `gender`.
+
+
+    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
+    table even if the **Include data from deleted campaigns, ads, and adsets** option
+    in the integration''s settings is enabled.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_age_and_gender.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adset_id
+    - campaign_id
+    - date_start
+    - age
+    - gender
+    replication-key: date_start
+- name: ads_insights_country
+  description: 'The `ads_insights_country` table contains entries for each campaign/set/ad
+    combination for each day, along with detailed statistics, segmented by country.
+
+
+    This table contains the same fields as the [`ads_insights`](#ads_insights) table,
+    with the exception of `country`.
+
+
+    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
+    table even if the **Include data from deleted campaigns, ads, and adsets** option
+    in the integration''s settings is enabled.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_country.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adset_id
+    - campaign_id
+    - date_start
+    - country
+    replication-key: date_start
+- name: ads_insights_dma
+  description: 'The `ads_insights_dma` table contains entries for each campaign/set/ad
+    combination for each day, along with detailed statistics, segmented by DMA (Designated
+    Market Area).
+
+
+    This table contains the same fields as the [`ads_insights`](#ads_insights) table,
+    with the exception of `dma`.
+
+
+    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
+    table even if the **Include data from deleted campaigns, ads, and adsets** option
+    in the integration''s settings is enabled.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_dma.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adset_id
+    - campaign_id
+    - dma
+    - date_start
+    replication-key: date_start
+- name: ads_insights_hourly_advertiser
+  description: 'The `ads_insights_hourly_advertiser` table contains entries for each
+    campaign/set/ad combination for each day, along with detailed statistics, segmented
+    by audience and advertiser time zones.
+
+    This table contains the same fields as the [`ads_insights`](#ads_insights) table,
+    with the exception of `hourly_stats_aggregated_by_advertiser_time_zone`.
+
+
+    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
+    table even if the **Include data from deleted campaigns, ads, and adsets** option
+    in the integration''s settings is enabled.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_hourly_advertiser.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - hourly_stats_aggregated_by_advertiser_time_zone
+    - ad_id
+    - adset_id
+    - campaign_id
+    - date_start
+    replication-key: date_start
+- name: ads_insights_platform_and_device
+  description: "The `ads_insights_country` table contains entries for each campaign/set/ad\
+    \ combination for each day, along with detailed statistics, segmented by publisher\
+    \ platform, platform position, and device.\n\nThis table contains the same fields\
+    \ as the [`ads_insights`](#ads_insights) table, with the exception of the following\
+    \ fields:\n\n   - `publisher_platform`\n   - `platform_position`\n   - `impression_device`\n\
+    \n**Note**: Data for deleted ads, adsets, and campaigns will not appear in this\
+    \ table even if the **Include data from deleted campaigns, ads, and adsets** option\
+    \ in the integration's settings is enabled.\n"
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_platform_and_device.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adset_id
+    - campaign_id
+    - date_start
+    - publisher_platform
+    - platform_position
+    - impression_device
+    replication-key: date_start
+- name: ads_insights_region
+  description: 'The `ads_insights_region` table contains entries for each campaign/set/ad
+    combination for each day, along with detailed statistics, segmented by region.
+    This table enables you to view your data by the region (ex: state or province)
+    where people live or were located when they saw your ads, depending on how the
+    location targeting was set.
+
+
+    This table contains the same fields as the [`ads_insights`](#ads_insights) table,
+    with the exception of `region`.
+
+
+    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
+    table even if the **Include data from deleted campaigns, ads, and adsets** option
+    in the integration''s settings is enabled.
+
+    '
+  links:
+    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_region.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ad_id
+    - adset_id
+    - campaign_id
+    - date_start
+    - region
+    replication-key: date_start
+- name: campaigns
+  description: "The `campaigns` table contains info about the campaigns in your Facebook\
+    \ Ads account. Facebook defines campaigns as _\"a grouping of ad sets organized\
+    \ by the same business objective.\"_\n\n**This is a Core Object table**.\n\n####\
+    \ Deleted campaigns\n \nIf the **Include data from deleted campaigns, ads, and\
+    \ adsets** box in the integration's settings is checked, this table will include\
+    \ data for deleted campaigns.\n"
+  links:
+    doc-link: https://developers.facebook.com/docs/reference/ads-api/adcampaign/
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/campaigns.json
+    api-method: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_time

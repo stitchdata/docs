@@ -1,0 +1,245 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "CreatedDateUTC": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "JournalDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "JournalID": {
+      "type": [
+        "string"
+      ]
+    },
+    "JournalLines": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "AccountCode": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "AccountID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "AccountName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "AccountType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "GrossAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "JournalLineID": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "NetAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "TaxAmount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "TaxName": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TaxType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "TrackingCategories": {
+            "items": {
+              "properties": {
+                "Name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "Option": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "Options": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "HasValidationErrors": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "IsActive": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "IsArchived": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "IsDeleted": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "Name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "Status": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "TrackingOptionID": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "Status": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TrackingCategoryID": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "TrackingCategoryName": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TrackingOptionID": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "TrackingOptionName": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "JournalNumber": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "Reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SourceID": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "SourceType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "tracking_categories"
+  ],
+  "type": [
+    "null",
+    "object"
+  ]
+}

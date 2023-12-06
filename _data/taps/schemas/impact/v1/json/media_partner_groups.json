@@ -1,0 +1,64 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "campaign_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "media_partners": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "partner_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "partner_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "partner_uri": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "uri": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

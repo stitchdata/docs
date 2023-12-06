@@ -1,0 +1,111 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "followers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "gid": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "resource_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "gid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "permalink_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "resource_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "workspace": {
+      "additionalProperties": false,
+      "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "account_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "associated_entity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "associated_entity_organization_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "associated_entity_person_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "audience_expansion_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "campaign_group": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign_group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "change_audit_stamps": {
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "last_modified": {
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "cost_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "creative_selection": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "daily_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "currency_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_modified_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "locale": {
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "language": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "offsite_delivery_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "optimization_target_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "run_schedule": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "start": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "serving_statuses": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targeting": {
+      "additionalProperties": false,
+      "properties": {
+        "excluded_targeting_facets": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "values": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "included_targeting_facets": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "values": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "targeting_criteria": {
+      "additionalProperties": false,
+      "properties": {
+        "exclude": {
+          "properties": {
+            "or": {
+              "properties": {
+                "urn:li:ad_targeting_facet:followed_companies": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "urn:li:ad_targeting_facet:seniorities": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "urn:li:ad_targeting_facet:staff_count_ranges": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                },
+                "urn:li:ad_targeting_facet:titles": {
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "type": [
+                    "null",
+                    "array"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "include": {
+          "additionalProperties": false,
+          "properties": {
+            "and": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "values": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unit_cost": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "currency_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "version": {
+      "additionalProperties": false,
+      "properties": {
+        "version_tag": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": "object"
+}

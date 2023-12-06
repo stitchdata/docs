@@ -1,0 +1,118 @@
+{
+  "properties": {
+    "bcc_emails": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "body_text": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cc_emails": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "created_at": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "from_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "incoming": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "private": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "support_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ticket_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "to_emails": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "type": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

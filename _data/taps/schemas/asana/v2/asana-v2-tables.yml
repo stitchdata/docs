@@ -1,0 +1,128 @@
+tap: asana
+version: '2'
+tables:
+- name: portfolios
+  description: 'The `{{ table.name }}` table contains info about the portfolios in
+    your {{ integration.display_name }} account.
+
+
+    #### Custom fields
+
+
+    To replicate task custom fields, select the `custom_fields` attribute in Stitch.
+    If your destination doesn''t natively support nested data structures, two subtables
+    (`tasks__custom_fields`, `tasks__custom_fields__enum_options`) will be created.
+
+    '
+  links:
+    doc-link: https://developers.asana.com/docs/portfolios
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/portfolios.json
+    api-method: https://developers.asana.com/docs/get-multiple-portfolios
+  table-details:
+    replication-method: Full Table
+    primary-key: gid
+- name: projects
+  description: 'The `{{ table.name }}` table contains info about the projects the
+    user who authorized the {{ integration.display_name }} integration in Stitch has
+    access to.
+
+    '
+  links:
+    doc-link: https://asana.com/developers/api-reference/projects
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/projects.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: gid
+    replication-key: modified_at
+- name: sections
+  description: 'The `{{ table.name }}` table contains info about sections within specified
+    projects in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.asana.com/docs/sections
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/sections.json
+    api-method: https://developers.asana.com/docs/get-sections-in-a-project
+  table-details:
+    replication-method: Full Table
+    primary-key: gid
+- name: stories
+  description: 'The `{{ table.name }}` table contains info about all stories within
+    specified tasks in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.asana.com/docs/stories
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/stories.json
+    api-method: https://developers.asana.com/docs/get-stories-from-a-task
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: gid
+    replication-key: created_at
+- name: tags
+  description: 'The `{{ table.name }}` table contains info about the tags in your
+    {{ integration.display_name }} account. A tag is a label that can be attached
+    to any task in Asana.
+
+    '
+  links:
+    doc-link: https://asana.com/developers/api-reference/tags
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/tags.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: gid
+    replication-key: created_at
+- name: tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks in your
+    {{ integration.display_name }} account.
+
+
+    #### Custom fields
+
+
+    To replicate task custom fields, select the `custom_fields` attribute in Stitch.
+    If your destination doesn''t natively support nested data structures, two subtables
+    (`tasks__custom_fields`, `tasks__custom_fields__enum_options`) will be created.
+
+    '
+  links:
+    doc-link: https://asana.com/developers/api-reference/tasks
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/tasks.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: gid
+    replication-key: modified_at
+- name: teams
+  description: 'The `{{ table.name }}` table contains info about teams that belong
+    to a specified user in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.asana.com/docs/teams
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/teams.json
+    api-method: https://developers.asana.com/docs/get-teams-for-a-user
+  table-details:
+    replication-method: Full Table
+    primary-key: gid
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://asana.com/developers/api-reference/users
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/users.json
+  table-details:
+    replication-method: Full Table
+    primary-key: gid
+- name: workspaces
+  description: 'The `{{ table.name }}` table contains info about the workspaces associated
+    with your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://asana.com/developers/api-reference/workspaces
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/workspaces.json
+  table-details:
+    replication-method: Full Table
+    primary-key: gid

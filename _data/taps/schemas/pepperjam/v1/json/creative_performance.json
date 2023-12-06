@@ -1,0 +1,116 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "affiliate_usage": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "click_through_rate": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "creative_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "creative_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creative_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date"
+      ]
+    },
+    "datetime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "earnings_per_click": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "items": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "sales": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "transactions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

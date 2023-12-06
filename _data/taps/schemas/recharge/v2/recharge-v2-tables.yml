@@ -1,0 +1,157 @@
+tap: recharge
+version: '2'
+tables:
+- name: addresses
+  description: 'The `{{ table.name }}` table contains info about the addresses (shipping
+    locations) a customer has. A subscription is tied to a given address, but a customer
+    can have multiple addresses.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/addresses.json
+    api-method: https://developer.rechargepayments.com/2021-11/addresses/list_addresses
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: charges
+  description: 'The `{{ table.name }}` table contains info about charges. A charge
+    is a placeholder for an upcoming charge once the charge is processed successfully.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/charges.json
+    api-method: https://developer.rechargepayments.com/2021-11/charges/charge_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: collections
+  description: 'The `{{ table.name }}` table contains info about your collections.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/collections.json
+    api-method: https://developer.rechargepayments.com/2021-11/collection_products
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about customer accounts
+    with a store.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/customers.json
+    api-method: https://developer.rechargepayments.com/2021-11/customers/customers_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: discounts
+  description: 'The `{{ table.name }}` table contains info about discounts.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/discounts.json
+    api-method: https://developer.rechargepayments.com/2021-11/discounts/discounts_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: metafields_customer
+  description: 'The `{{ table.name }}` table contains info about metafields related
+    to customers.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/metafields_customer.json
+    api-method: https://developer.rechargepayments.com/2021-11/metafields/metafields_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: metafields_store
+  description: 'The `{{ table.name }}` table contains info about metafields related
+    to stores.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/metafields_store.json
+    api-method: https://developer.rechargepayments.com/2021-11/metafields/metafields_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: metafields_subscription
+  description: 'The `{{ table.name }}` table contains info about metafields related
+    to subscriptions.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/metafields_subscription.json
+    api-method: https://developer.rechargepayments.com/2021-11/metafields/metafields_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: onetimes
+  description: 'The `{{ table.name }}` table contains info about one time products.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/onetimes.json
+    api-method: https://developer.rechargepayments.com/2021-11/onetimes/onetimes_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: orders
+  description: 'The `{{ table.name }}` table contains info about orders. Orders are
+    created after a charge is successfully processed.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/orders.json
+    api-method: https://developer.rechargepayments.com/2021-11/orders/orders_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: products
+  description: 'The `{{ table.name }}` table contains info about your products. This
+    table uses the 2021-01 API version.
+
+    '
+  links:
+    doc-link: https://developer.rechargepayments.com/2021-11/products/products_list
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/products.json
+    api-method: https://developer.rechargepayments.com/2021-01/products/products_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: store
+  description: 'The `{{ table.name }}` table contains info about your store.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/store.json
+    api-method: https://developer.rechargepayments.com/2021-11/store/store_retrieve
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: subscriptions
+  description: 'The `{{ table.name }}` table contains info about subscriptions. Subscriptions
+    are individual items that customers receive on a recurring basis.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/subscriptions.json
+    api-method: https://developer.rechargepayments.com/2021-11/subscriptions/subscriptions_list
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+tap-repo-schemas: true

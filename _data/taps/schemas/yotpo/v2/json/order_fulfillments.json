@@ -1,0 +1,116 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fulfilled_items": {
+      "items": {
+        "properties": {
+          "external_product_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "yotpo_product_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "fulfillment_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "description": "Actual response displays `id` whereas documentation mention `yotpo_id`",
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "order_id": {
+      "description": "Actual response shows `order_id` whereas documentation mention `yotpo_order_id`",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipment_info": {
+      "properties": {
+        "shipment_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_company": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "object"
+  ]
+}

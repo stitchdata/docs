@@ -1,0 +1,2182 @@
+{
+  "properties": {
+    "api_version": {
+      "type": [
+        "string"
+      ]
+    },
+    "content": {
+      "properties": {
+        "coupon": {
+          "properties": {
+            "addon_constraint": {
+              "type": [
+                "string"
+              ]
+            },
+            "apply_discount_on": {
+              "type": [
+                "string"
+              ]
+            },
+            "apply_on": {
+              "type": [
+                "string"
+              ]
+            },
+            "archived_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "created_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "discount_amount": {
+              "type": [
+                "number"
+              ]
+            },
+            "discount_percentage": {
+              "type": [
+                "number"
+              ]
+            },
+            "discount_type": {
+              "type": [
+                "string"
+              ]
+            },
+            "duration_month": {
+              "type": [
+                "integer"
+              ]
+            },
+            "duration_type": {
+              "type": [
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "max_redemptions": {
+              "type": [
+                "integer"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "object": {
+              "type": [
+                "string"
+              ]
+            },
+            "plan_constraint": {
+              "type": [
+                "string"
+              ]
+            },
+            "redemptions": {
+              "type": [
+                "integer"
+              ]
+            },
+            "resource_version": {
+              "type": [
+                "integer"
+              ]
+            },
+            "status": {
+              "type": [
+                "string"
+              ]
+            },
+            "updated_at": {
+              "type": [
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "customer": {
+          "properties": {
+            "allow_direct_debit": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "auto_collection": {
+              "type": [
+                "string"
+              ]
+            },
+            "balances": {
+              "properties": {
+                "currency_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "excess_payments": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "promotional_credits": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "refundable_credits ": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "unbilled_charges": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "billing_address": {
+              "properties": {
+                "city": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "country": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "email": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "first_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "last_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line1": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line2": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line3": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "phone": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "validation_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "zip": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "billing_date": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "billing_date_mode": {
+              "type": [
+                "string"
+              ]
+            },
+            "billing_day_of_week": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "billing_day_of_week_mode": {
+              "type": [
+                "string"
+              ]
+            },
+            "card_status": {
+              "type": [
+                "string"
+              ]
+            },
+            "cf_company_id": {
+              "type": [
+                "integer"
+              ]
+            },
+            "company": {
+              "type": [
+                "string"
+              ]
+            },
+            "consolidated_invoicing": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "contacts": {
+              "properties": {
+                "email": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "enabled": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "first_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "last_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "phone": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "send_account_email": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "send_billing_email": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "created_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "deleted": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "email": {
+              "type": [
+                "string"
+              ]
+            },
+            "excess_payments": {
+              "type": [
+                "integer"
+              ]
+            },
+            "first_name": {
+              "type": [
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "invoice_notes": {
+              "type": [
+                "string"
+              ]
+            },
+            "last_name": {
+              "type": [
+                "string"
+              ]
+            },
+            "locale": {
+              "type": [
+                "string"
+              ]
+            },
+            "net_term_days": {
+              "type": [
+                "integer"
+              ]
+            },
+            "object": {
+              "type": [
+                "string"
+              ]
+            },
+            "payment_method": {
+              "properties": {
+                "gateway": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "gateway_account_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "reference_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "type": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "phone": {
+              "type": [
+                "string"
+              ]
+            },
+            "pii_cleared": {
+              "type": [
+                "string"
+              ]
+            },
+            "preferred_currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "primary_payment_source_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "promotional_credits": {
+              "type": [
+                "integer"
+              ]
+            },
+            "referral_urls": {
+              "properties": {
+                "created_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "external_customer_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referral_account_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referral_campaign_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referral_external_account_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referral_sharing_url": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referral_system": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "updated_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "refundable_credits": {
+              "type": [
+                "integer"
+              ]
+            },
+            "resource_version": {
+              "type": [
+                "integer"
+              ]
+            },
+            "taxability": {
+              "type": [
+                "string"
+              ]
+            },
+            "unbilled_charges": {
+              "type": [
+                "integer"
+              ]
+            },
+            "updated_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "vat_number": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "invoice": {
+          "properties": {
+            "adjustment_credit_notes": {
+              "properties": {
+                "cn_date": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "cn_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_reason_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_total": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "amount_adjusted": {
+              "type": [
+                "integer"
+              ]
+            },
+            "amount_due": {
+              "type": [
+                "integer"
+              ]
+            },
+            "amount_paid": {
+              "type": [
+                "integer"
+              ]
+            },
+            "amount_to_collect": {
+              "type": [
+                "integer"
+              ]
+            },
+            "applied_credits": {
+              "properties": {
+                "applied_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "applied_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "cn_date": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "cn_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_reason_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_status": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "base_currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "billing_address": {
+              "properties": {
+                "city": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "country": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "email": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "first_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "last_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line1": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line2": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line3": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "phone": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "validation_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "zip": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "credits_applied": {
+              "type": [
+                "integer"
+              ]
+            },
+            "currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "customer_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "date": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "deleted": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "discounts": {
+              "properties": {
+                "amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "description": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "entity_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "entity_type": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "due_date": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "dunning_status": {
+              "type": [
+                "string"
+              ]
+            },
+            "exchange_rate": {
+              "type": [
+                "number"
+              ]
+            },
+            "expected_payment_date": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "first_invoice": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "has_advance_charges": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "is_gifted": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "issued_credit_notes": {
+              "properties": {
+                "cn_date": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "cn_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_reason_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_total": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "line_item_discounts": {
+              "properties": {
+                "coupon_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "discount_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "discount_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line_item_id": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "line_item_taxes": {
+              "properties": {
+                "line_item_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "tax_juris_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_juris_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_juris_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_rate": {
+                  "type": [
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "line_items": {
+              "properties": {
+                "amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "date_from": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "date_to": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "description": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "discount_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "entity_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "entity_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "is_taxed": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "item_level_discount_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "pricing_model": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "quantity": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "subscription_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "tax_exempt_reason": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "tax_rate": {
+                  "type": [
+                    "number"
+                  ]
+                },
+                "unit_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "linked_orders": {
+              "properties": {
+                "batch_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "created_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "fulfillment_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "reference_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "status": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "linked_payments": {
+              "properties": {
+                "applied_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "applied_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "txn_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "txn_date": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "txn_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "txn_status": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "net_term_days": {
+              "type": [
+                "integer"
+              ]
+            },
+            "new_sales_amount": {
+              "type": [
+                "integer"
+              ]
+            },
+            "next_retry_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "notes": {
+              "properties": {
+                "entity_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "entity_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "note": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "object": {
+              "type": [
+                "string"
+              ]
+            },
+            "paid_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "po_number": {
+              "type": [
+                "string"
+              ]
+            },
+            "price_type": {
+              "type": [
+                "string"
+              ]
+            },
+            "recurring": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "resource_version": {
+              "type": [
+                "integer"
+              ]
+            },
+            "round_off_amount": {
+              "type": [
+                "integer"
+              ]
+            },
+            "shipping_address": {
+              "properties": {
+                "city": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "country": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "email": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "first_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "last_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line1": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line2": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line3": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "phone": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "validation_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "zip": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "status": {
+              "type": [
+                "string"
+              ]
+            },
+            "sub_total": {
+              "type": [
+                "integer"
+              ]
+            },
+            "subscription_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "tax": {
+              "type": [
+                "integer"
+              ]
+            },
+            "taxes": {
+              "properties": {
+                "amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "description": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "term_finalized": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "total": {
+              "type": [
+                "integer"
+              ]
+            },
+            "updated_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "vat_number": {
+              "type": [
+                "string"
+              ]
+            },
+            "voided_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "write_off_amount": {
+              "type": [
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "plan": {
+          "properties": {
+            "billing_cycles": {
+              "type": [
+                "integer"
+              ]
+            },
+            "charge_model": {
+              "type": [
+                "string"
+              ]
+            },
+            "description": {
+              "type": [
+                "string"
+              ]
+            },
+            "free_quantity": {
+              "type": [
+                "integer"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "invoice_notes": {
+              "type": [
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "string"
+              ]
+            },
+            "period": {
+              "type": [
+                "integer"
+              ]
+            },
+            "period_unit": {
+              "type": [
+                "string"
+              ]
+            },
+            "price": {
+              "type": [
+                "integer"
+              ]
+            },
+            "redirect_url": {
+              "type": [
+                "string"
+              ]
+            },
+            "setup_cost": {
+              "type": [
+                "integer"
+              ]
+            },
+            "sku": {
+              "type": [
+                "string"
+              ]
+            },
+            "status": {
+              "type": [
+                "string"
+              ]
+            },
+            "tax_profile_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "taxable": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "trial_period": {
+              "type": [
+                "integer"
+              ]
+            },
+            "trial_period_unit": {
+              "type": [
+                "string"
+              ]
+            },
+            "updated_at": {
+              "type": [
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "subscription": {
+          "properties": {
+            "activated_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "addons": {
+              "properties": {
+                "id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "quantity": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "remaining_billing_cycles": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "trial_end": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "unit_price": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "affiliate_token": {
+              "type": [
+                "string"
+              ]
+            },
+            "auto_collection": {
+              "type": [
+                "string"
+              ]
+            },
+            "base_currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "billing_period": {
+              "type": [
+                "integer"
+              ]
+            },
+            "billing_period_unit": {
+              "type": [
+                "string"
+              ]
+            },
+            "cancel_reason": {
+              "type": [
+                "string"
+              ]
+            },
+            "cancelled_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "charged_event_based_addons": {
+              "properties": {
+                "id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "last_charged_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "coupon": {
+              "type": [
+                "string"
+              ]
+            },
+            "coupons": {
+              "properties": {
+                "applied_count": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "apply_till": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "coupon_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "coupon_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "created_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "current_term_end": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "current_term_start": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "customer_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "deleted": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "due_invoices_count": {
+              "type": [
+                "integer"
+              ]
+            },
+            "event_based_addons": {
+              "properties": {
+                "charge_once": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "on_event": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "quantity": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "unit_price": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "exchange_rate": {
+              "type": [
+                "number"
+              ]
+            },
+            "has_scheduled_changes": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "invoice_notes": {
+              "type": [
+                "string"
+              ]
+            },
+            "mrr": {
+              "type": [
+                "integer"
+              ]
+            },
+            "next_billing_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "object": {
+              "type": [
+                "string"
+              ]
+            },
+            "payment_source_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "plan_amount": {
+              "type": [
+                "integer"
+              ]
+            },
+            "plan_free_quantity": {
+              "type": [
+                "integer"
+              ]
+            },
+            "plan_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "plan_quantity": {
+              "type": [
+                "integer"
+              ]
+            },
+            "plan_unit_price": {
+              "type": [
+                "integer"
+              ]
+            },
+            "po_number": {
+              "type": [
+                "string"
+              ]
+            },
+            "referral_info": {
+              "properties": {
+                "account_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "campaign_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "coupon_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "destination_url": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "external_campaign_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "external_reference_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "friend_offer_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "notify_referral_system": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "post_purchase_widget_enabled": {
+                  "type": [
+                    "boolean"
+                  ]
+                },
+                "referral_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referral_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referrer_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "referrer_reward_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "reward_status": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "remaining_billing_cycles": {
+              "type": [
+                "integer"
+              ]
+            },
+            "resource_version": {
+              "type": [
+                "integer"
+              ]
+            },
+            "shipping_address": {
+              "properties": {
+                "city": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "company": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "country": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "email": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "first_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "last_name": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line1": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line2": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "line3": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "phone": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "state_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "validation_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "zip": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "start_date": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "started_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "status": {
+              "type": [
+                "string"
+              ]
+            },
+            "trial_end": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "trial_start": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "updated_at": {
+              "type": [
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "transaction": {
+          "properties": {
+            "amount": {
+              "type": [
+                "integer"
+              ]
+            },
+            "amount_unused": {
+              "type": [
+                "integer"
+              ]
+            },
+            "base_currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "currency_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "customer_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "date": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "deleted": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "error_code": {
+              "type": [
+                "string"
+              ]
+            },
+            "error_text": {
+              "type": [
+                "string"
+              ]
+            },
+            "exchange_rate": {
+              "type": [
+                "number"
+              ]
+            },
+            "fraud_flag": {
+              "type": [
+                "string"
+              ]
+            },
+            "fraud_reason": {
+              "type": [
+                "string"
+              ]
+            },
+            "gateway": {
+              "type": [
+                "string"
+              ]
+            },
+            "gateway_account_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "id": {
+              "type": [
+                "string"
+              ]
+            },
+            "id_at_gateway": {
+              "type": [
+                "string"
+              ]
+            },
+            "linked_credit_notes": {
+              "properties": {
+                "applied_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "applied_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "cn_date": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "cn_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_reason_code": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_reference_invoice_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "cn_total": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "linked_invoices": {
+              "properties": {
+                "applied_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "applied_at": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "invoice_date": {
+                  "type": [
+                    "date-times"
+                  ]
+                },
+                "invoice_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "invoice_status": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "invoice_total": {
+                  "type": [
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "linked_refunds": {
+              "properties": {
+                "txn_amount": {
+                  "type": [
+                    "integer"
+                  ]
+                },
+                "txn_date": {
+                  "type": [
+                    "date-time"
+                  ]
+                },
+                "txn_id": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "txn_status": {
+                  "type": [
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            },
+            "masked_card_number": {
+              "type": [
+                "string"
+              ]
+            },
+            "object": {
+              "type": [
+                "string"
+              ]
+            },
+            "payment_method": {
+              "type": [
+                "string"
+              ]
+            },
+            "payment_source_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "reference_number": {
+              "type": [
+                "string"
+              ]
+            },
+            "reference_transaction_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "refunded_txn_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "resource_version": {
+              "type": [
+                "integer"
+              ]
+            },
+            "reversal_txn_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "settled_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "status": {
+              "type": [
+                "string"
+              ]
+            },
+            "subscription_id": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            },
+            "updated_at": {
+              "type": [
+                "date-time"
+              ]
+            },
+            "validated_at": {
+              "type": [
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "event_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "string"
+      ]
+    },
+    "occurred_at": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "source": {
+      "type": [
+        "string"
+      ]
+    },
+    "user": {
+      "type": [
+        "string"
+      ]
+    },
+    "webhook_status": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

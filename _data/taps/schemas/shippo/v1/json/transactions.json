@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "commercial_invoice_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "label_url": {
+      "type": "string"
+    },
+    "messages": {
+      "items": {
+        "code": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "type": "array"
+    },
+    "metadata": {
+      "type": "string"
+    },
+    "object_created": {
+      "type": "date-time"
+    },
+    "object_id": {
+      "type": "string"
+    },
+    "object_owner": {
+      "type": "string"
+    },
+    "object_state": {
+      "type": "string"
+    },
+    "object_status": {
+      "type": "string"
+    },
+    "object_updated": {
+      "type": "date-time"
+    },
+    "rate": {
+      "type": "string"
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "tracking_history": {
+      "type": "array"
+    },
+    "tracking_number": {
+      "type": "string"
+    },
+    "tracking_status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tracking_url_provider": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "object_id"
+  ],
+  "type": "object"
+}

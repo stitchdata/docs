@@ -1,0 +1,507 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_balances": {
+      "additionalProperties": false,
+      "properties": {
+        "advance_position": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "arrears_position": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "expected_principal_redraw": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "redraw_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "total_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "adjustment_transaction_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "affected_amounts": {
+      "additionalProperties": false,
+      "properties": {
+        "fees_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "fraction_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "funds_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "interest_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "overdraft_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "overdraft_fees_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "overdraft_interest_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "technical_overdraft_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "technical_overdraft_interest_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "booking_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "centre_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_field_sets": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "custom_field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "custom_field_values": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "custom_field_id": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "custom_field_value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "custom_payment_amounts": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "custom_payment_amount_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tax_on_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fees": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "predefined_fee_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tax_amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "trigger": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "linked_loan_transaction_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "migration_event_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "original_currency_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_transaction_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "parent_loan_transaction_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "taxes": {
+      "additionalProperties": false,
+      "properties": {
+        "deferred_tax_on_interest_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "tax_interest_from_arrears_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "tax_on_fees_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "tax_on_interest_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "tax_on_penalty_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "tax_rate": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "terms": {
+      "additionalProperties": false,
+      "properties": {
+        "interest_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "index_interest_rate": {
+              "maximum": 1000000000000000,
+              "minimum": -1000000000000000,
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "interest_rate": {
+              "maximum": 1000000000000000,
+              "minimum": -1000000000000000,
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "principal_payment_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "principal_payment_percentage": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "till_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction_details": {
+      "additionalProperties": false,
+      "properties": {
+        "transaction_channel_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transaction_channel_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "transfer_details": {
+      "additionalProperties": false,
+      "properties": {
+        "linked_deposit_transaction_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "linked_loan_transaction_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

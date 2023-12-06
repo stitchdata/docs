@@ -1,0 +1,118 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "companyId": {
+      "type": [
+        "string"
+      ]
+    },
+    "creditNoteNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customerRef": {
+      "additionalProperties": true,
+      "properties": {
+        "companyName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "string"
+      ]
+    },
+    "issueDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "paymentAllocations": {
+      "items": {
+        "companyId": {
+          "type": "string"
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "id": {
+          "type": [
+            "string"
+          ]
+        },
+        "note": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "totalAmount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "remainingCredit": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "totalAmount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  },
+  "tap_schema_dependencies": [
+    "payment_allocations"
+  ],
+  "type": [
+    "object"
+  ]
+}

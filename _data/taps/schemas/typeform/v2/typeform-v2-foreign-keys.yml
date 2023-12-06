@@ -1,0 +1,78 @@
+tap: typeform
+version: '2'
+keys:
+  forms_form_id:
+  - table: forms
+    keys:
+    - id
+  - table: questions
+    keys:
+    - form_id
+  submitted_landings_landing_id:
+  - table: answers
+    keys:
+    - landing_id
+  - table: submitted_landings
+    keys:
+    - landing_id
+  - table: unsubmitted_landings
+    keys:
+    - landing_id
+  questions_question_id:
+  - table: answers
+    keys:
+    - question_id
+  - table: questions
+    keys:
+    - question_id
+tables:
+- table-name: forms
+  join:
+  - table-name: questions
+    keys:
+    - key: id
+      foreign-key: form_id
+- table-name: questions
+  join:
+  - table-name: forms
+    keys:
+    - key: form_id
+      foreign-key: id
+  - table-name: answers
+    keys:
+    - key: question_id
+      foreign-key: question_id
+- table-name: answers
+  join:
+  - table-name: submitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: unsubmitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: questions
+    keys:
+    - key: question_id
+      foreign-key: question_id
+- table-name: submitted_landings
+  join:
+  - table-name: answers
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: unsubmitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+- table-name: unsubmitted_landings
+  join:
+  - table-name: answers
+    keys:
+    - key: landing_id
+      foreign-key: landing_id
+  - table-name: submitted_landings
+    keys:
+    - key: landing_id
+      foreign-key: landing_id

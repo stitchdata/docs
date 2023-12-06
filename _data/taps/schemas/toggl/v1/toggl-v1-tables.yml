@@ -1,0 +1,141 @@
+tap: toggl
+version: '1'
+tables:
+- name: clients
+  description: 'The `{{ table.name }}` table contains info about the clients in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/clients.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/clients.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-clients
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+- name: groups
+  description: 'The `{{ table.name }}` table contains info about the groups in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/groups.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/groups.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-groups
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+- name: projects
+  description: 'The `{{ table.name }}` table contains info about the projects in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/projects.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/projects.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-projects
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+- name: tags
+  description: 'The `{{ table.name }}` table contains info about the tags in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/tags.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/tags.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-tags
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: tasks
+  description: 'The `{{ table.name }}` table contains info about the tasks in your
+    {{ integration.display_name }} account.
+
+
+    **Note**: Tasks are only available for {{ integration.display_name }} starter
+    and other paid workspaces.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/tasks.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/tasks.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-tasks
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+- name: time_entries
+  description: 'The `{{ table.name }}` table contains info about time entries. **Note**:
+    This table uses an attribution window to replicate data. Refer to the [Replicating
+    time entry data](#replicating-time-entry-data) section for more info.
+
+
+    #### Time entries and user permissions {#time-entries-user-permissions}
+
+
+    The time entries Stitch replicates are dependent upon the user whose API token
+    is used to create the integration in Stitch. Stitch is only able to access the
+    same data as the user whose token is used.
+
+
+    For example: If the user is unable to access a workspace, or is not an Admin in
+    that workspace, Stitch will not be able to replicate time entry data for those
+    workspaces. In this case, only the user''s own time entries will be accessible
+    by Stitch.
+
+
+    If data from a workspace is missing, verify that the user whose API token is being
+    used in Stitch has Admin permissions in that workspace.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/time_entries.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/reports/detailed.md
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/users.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-users
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+- name: workspaces
+  description: 'The `{{ table.name }}` table contains info about the workspaces in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/a_workspaces.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspaces
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+- name: workspace_users
+  description: 'The `{{ table.name }}` table contains info about the users in a workspace.
+
+    '
+  links:
+    doc-link: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspace_users.md
+    singer-schema: https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/workspace_users.json
+    api-method: https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspace_users.md#get-workspace-users
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: at
+tap-repo-schemas: true

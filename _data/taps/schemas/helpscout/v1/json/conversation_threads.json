@@ -1,0 +1,322 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "assigned_to": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "attachments": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "filename": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "height": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "mime_type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "size": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "width": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "bcc": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "body": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cc": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "conversation_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "created_by": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "customer": {
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "photo_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "opened_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "saved_reply_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "via": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

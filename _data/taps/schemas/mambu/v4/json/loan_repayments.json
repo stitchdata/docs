@@ -1,0 +1,278 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assigned_branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_centre_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_settings": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "loan_transaction_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "due_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fees_applied_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "fees_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "fees_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "fees_unapplied_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "funders_interest_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "index": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "interest_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "interest_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "last_paid_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_penalty_applied_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_commission_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "parent_account_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "penalty_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "penalty_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "principal_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "principal_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "repaid_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "repayment_unapplied_fee_details": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fee_due": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "index_in_list": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "predefined_fee_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "repayment_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tax_on_fee_due": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_fees_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_fees_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_interest_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_interest_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_penalty_due": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "tax_penalty_paid": {
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  },
+  "type": "object"
+}

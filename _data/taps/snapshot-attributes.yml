@@ -32,15 +32,18 @@
 ## Used in: _includes/integrations/templates/schemas/table-snapshot.html
 
 field-names:
-  replication-method: |
-    Replication Method {{ info-icon | flatify }}
+  replication-method: | 
+    Replication Method <a href="{{ link.replication.rep-methods | prepend: site.baseurl }}" target="new">{{ info-icon | replace:"TOOLTIP","Defines how Stitch extracts data from a source. Click here for more details." }}</a>
   primary-key: "Primary Key {{ ui-icon.primary-key | flatify }}"
+  primary-keys: "Primary Keys {{ ui-icon.primary-key | flatify }}"
   replication-key: "Replication Key {{ ui-icon.replication-key | flatify }}"
-  loading-behavior: "Loading Behavior"
-  api-endpoint: "API endpoint {{ info-icon | flatify }}"
-  parent-table: "Parent table {{ info-icon | flatify }}"
-  doc-link: "Official docs {{ info-icon | flatify }}"
-
+  replication-keys: "Replication Keys {{ ui-icon.replication-key | flatify }}"
+  loading-behavior: |
+    Loading Behavior <a href="{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}" target="new">{{ info-icon | replace:"TOOLTIP","Defines how Stitch loads data into a destination. Click here for more details." }}</a>
+  api-endpoint: "API endpoint"
+  api-method: "{{ integration.display_name }} API method"
+  doc-link: "{{ integration.display_name }} documentation"
+  singer-schema: "{{ table.name }} schema on GitHub"
 
 field-values:
   replication-method: "{{ table.replication-method | flatify }}"
@@ -59,14 +62,8 @@ field-values:
   api-endpoint: |
     <a href="{{ table.api-method.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
 
-  parent-table: |
-    {% assign parent-table = schema | find:"key",table.dependent-table-key %}
-
-    <a href="#{{ parent-table.name | slugify }}">{{ parent-table.name }}</a>
-
   doc-link: |
     <a href="{{ table.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
-
 
 full-table:
   - name: "replication-method"
@@ -87,9 +84,6 @@ loading-field:
 
 api-field:
   - name: "api-endpoint"
-
-parent-table:
-  - name: "parent-table"
 
 doc-link-field:
   - name: "doc-link"

@@ -1,0 +1,474 @@
+{
+  "properties": {
+    "badges": {
+      "properties": {
+        "attachments": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "attachmentsByType": {
+          "properties": {
+            "trello": {
+              "properties": {
+                "board": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "card": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "checkItems": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "checkItemsChecked": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "checkItemsEarliestDue": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "comments": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "due": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "dueComplete": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "fogbugz": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "location": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "subscribed": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "viewingMemberVoted": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "votes": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "checkItemStates": {
+      "items": {},
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "cover": {
+      "properties": {
+        "brightness": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "color": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "idAttachment": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "idUploadedBackground": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "size": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "customFieldItems": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "idCustomField": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "idModel": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "idValue": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "modelType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "properties": {
+              "checked": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "date": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "option": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "text": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "dateLastActivity": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "desc": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "descData": {
+      "properties": {
+        "emoji": {
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "due": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "dueComplete": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "dueReminder": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "idAttachmentCover": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "idBoard": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "idChecklists": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "idLabels": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": "array"
+    },
+    "idList": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "idMembers": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "idMembersVoted": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "idShort": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "isTemplate": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "labels": {
+      "items": {
+        "properties": {
+          "color": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "idBoard": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "manualCoverAttachment": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pos": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "shortLink": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shortUrl": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscribed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

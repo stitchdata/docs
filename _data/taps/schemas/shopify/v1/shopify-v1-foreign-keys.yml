@@ -1,0 +1,354 @@
+tap: shopify
+version: '1'
+keys:
+  collects_collects_id:
+  - table: collects
+    keys:
+    - id
+  custom_collections_collection_id:
+  - table: collects
+    keys:
+    - collection_id
+  - table: custom_collections
+    keys:
+    - id
+  customers_customer_id:
+  - table: abandoned_checkouts
+    keys:
+    - customer.default_address.customer_id
+    - customer.id
+    - customer.addresses.customer_id
+  - table: customers
+    keys:
+    - id
+    - addresses.id
+  metafields_metafield_id:
+  - table: metafields
+    keys:
+    - id
+  orders_order_id:
+  - table: abandoned_checkouts
+    keys:
+    - customer.last_order_id
+  - table: customers
+    keys:
+    - last_order_id
+  - table: order_refunds
+    keys:
+    - order_id
+  - table: orders
+    keys:
+    - id
+    - refunds.order_adjustments.order_id
+  - table: transactions
+    keys:
+    - order_id
+  order_refunds_refund_id:
+  - table: order_refunds
+    keys:
+    - id
+  - table: orders
+    keys:
+    - refunds.id
+    - refunds.order_adjustments.refund_id
+  product_product_id:
+  - table: abandoned_checkouts
+    keys:
+    - line_items.product_id
+  - table: collects
+    keys:
+    - product_id
+  - table: order_refunds
+    keys:
+    - refund_line_items.line_item.product_id
+  - table: orders
+    keys:
+    - fulfillments.line_items.product_id
+    - refunds.refund_line_items.line_item.product_id
+    - line_items.product_id
+  - table: products
+    keys:
+    - id
+    - options.product_id
+  transactions_transaction_id:
+  - table: transactions
+    keys:
+    - id
+    - parent_id
+tables:
+- table-name: collects
+  join:
+  - table-name: custom_collections
+    keys:
+    - key: collection_id
+      foreign-key: id
+  - table-name: abandoned_checkouts
+    keys:
+    - key: product_id
+      foreign-key: line_items.product_id
+  - table-name: order_refunds
+    keys:
+    - key: product_id
+      foreign-key: refund_line_items.line_item.product_id
+  - table-name: orders
+    keys:
+    - key: product_id
+      foreign-key: fulfillments.line_items.product_id
+    - key: product_id
+      foreign-key: refunds.refund_line_items.line_item.product_id
+    - key: product_id
+      foreign-key: line_items.product_id
+  - table-name: products
+    keys:
+    - key: product_id
+      foreign-key: id
+    - key: product_id
+      foreign-key: options.product_id
+- table-name: custom_collections
+  join:
+  - table-name: collects
+    keys:
+    - key: id
+      foreign-key: collection_id
+- table-name: abandoned_checkouts
+  join:
+  - table-name: customers
+    keys:
+    - key: customer.default_address.customer_id
+      foreign-key: id
+    - key: customer.id
+      foreign-key: id
+    - key: customer.addresses.customer_id
+      foreign-key: id
+    - key: customer.default_address.customer_id
+      foreign-key: addresses.id
+    - key: customer.id
+      foreign-key: addresses.id
+    - key: customer.addresses.customer_id
+      foreign-key: addresses.id
+    - key: customer.last_order_id
+      foreign-key: last_order_id
+  - table-name: order_refunds
+    keys:
+    - key: customer.last_order_id
+      foreign-key: order_id
+    - key: line_items.product_id
+      foreign-key: refund_line_items.line_item.product_id
+  - table-name: orders
+    keys:
+    - key: customer.last_order_id
+      foreign-key: id
+    - key: customer.last_order_id
+      foreign-key: refunds.order_adjustments.order_id
+    - key: line_items.product_id
+      foreign-key: fulfillments.line_items.product_id
+    - key: line_items.product_id
+      foreign-key: refunds.refund_line_items.line_item.product_id
+    - key: line_items.product_id
+      foreign-key: line_items.product_id
+  - table-name: transactions
+    keys:
+    - key: customer.last_order_id
+      foreign-key: order_id
+  - table-name: collects
+    keys:
+    - key: line_items.product_id
+      foreign-key: product_id
+  - table-name: products
+    keys:
+    - key: line_items.product_id
+      foreign-key: id
+    - key: line_items.product_id
+      foreign-key: options.product_id
+- table-name: customers
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: id
+      foreign-key: customer.default_address.customer_id
+    - key: addresses.id
+      foreign-key: customer.default_address.customer_id
+    - key: id
+      foreign-key: customer.id
+    - key: addresses.id
+      foreign-key: customer.id
+    - key: id
+      foreign-key: customer.addresses.customer_id
+    - key: addresses.id
+      foreign-key: customer.addresses.customer_id
+    - key: last_order_id
+      foreign-key: customer.last_order_id
+  - table-name: order_refunds
+    keys:
+    - key: last_order_id
+      foreign-key: order_id
+  - table-name: orders
+    keys:
+    - key: last_order_id
+      foreign-key: id
+    - key: last_order_id
+      foreign-key: refunds.order_adjustments.order_id
+  - table-name: transactions
+    keys:
+    - key: last_order_id
+      foreign-key: order_id
+- table-name: order_refunds
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: order_id
+      foreign-key: customer.last_order_id
+    - key: refund_line_items.line_item.product_id
+      foreign-key: line_items.product_id
+  - table-name: customers
+    keys:
+    - key: order_id
+      foreign-key: last_order_id
+  - table-name: orders
+    keys:
+    - key: order_id
+      foreign-key: id
+    - key: order_id
+      foreign-key: refunds.order_adjustments.order_id
+    - key: id
+      foreign-key: refunds.id
+    - key: id
+      foreign-key: refunds.order_adjustments.refund_id
+    - key: refund_line_items.line_item.product_id
+      foreign-key: fulfillments.line_items.product_id
+    - key: refund_line_items.line_item.product_id
+      foreign-key: refunds.refund_line_items.line_item.product_id
+    - key: refund_line_items.line_item.product_id
+      foreign-key: line_items.product_id
+  - table-name: transactions
+    keys:
+    - key: order_id
+      foreign-key: order_id
+  - table-name: collects
+    keys:
+    - key: refund_line_items.line_item.product_id
+      foreign-key: product_id
+  - table-name: products
+    keys:
+    - key: refund_line_items.line_item.product_id
+      foreign-key: id
+    - key: refund_line_items.line_item.product_id
+      foreign-key: options.product_id
+- table-name: orders
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: id
+      foreign-key: customer.last_order_id
+    - key: refunds.order_adjustments.order_id
+      foreign-key: customer.last_order_id
+    - key: fulfillments.line_items.product_id
+      foreign-key: line_items.product_id
+    - key: refunds.refund_line_items.line_item.product_id
+      foreign-key: line_items.product_id
+    - key: line_items.product_id
+      foreign-key: line_items.product_id
+  - table-name: customers
+    keys:
+    - key: id
+      foreign-key: last_order_id
+    - key: refunds.order_adjustments.order_id
+      foreign-key: last_order_id
+  - table-name: order_refunds
+    keys:
+    - key: id
+      foreign-key: order_id
+    - key: refunds.order_adjustments.order_id
+      foreign-key: order_id
+    - key: refunds.id
+      foreign-key: id
+    - key: refunds.order_adjustments.refund_id
+      foreign-key: id
+    - key: fulfillments.line_items.product_id
+      foreign-key: refund_line_items.line_item.product_id
+    - key: refunds.refund_line_items.line_item.product_id
+      foreign-key: refund_line_items.line_item.product_id
+    - key: line_items.product_id
+      foreign-key: refund_line_items.line_item.product_id
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: order_id
+    - key: refunds.order_adjustments.order_id
+      foreign-key: order_id
+  - table-name: collects
+    keys:
+    - key: fulfillments.line_items.product_id
+      foreign-key: product_id
+    - key: refunds.refund_line_items.line_item.product_id
+      foreign-key: product_id
+    - key: line_items.product_id
+      foreign-key: product_id
+  - table-name: products
+    keys:
+    - key: fulfillments.line_items.product_id
+      foreign-key: id
+    - key: refunds.refund_line_items.line_item.product_id
+      foreign-key: id
+    - key: line_items.product_id
+      foreign-key: id
+    - key: fulfillments.line_items.product_id
+      foreign-key: options.product_id
+    - key: refunds.refund_line_items.line_item.product_id
+      foreign-key: options.product_id
+    - key: line_items.product_id
+      foreign-key: options.product_id
+- table-name: transactions
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: order_id
+      foreign-key: customer.last_order_id
+  - table-name: customers
+    keys:
+    - key: order_id
+      foreign-key: last_order_id
+  - table-name: order_refunds
+    keys:
+    - key: order_id
+      foreign-key: order_id
+  - table-name: orders
+    keys:
+    - key: order_id
+      foreign-key: id
+    - key: order_id
+      foreign-key: refunds.order_adjustments.order_id
+- table-name: products
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: id
+      foreign-key: line_items.product_id
+    - key: options.product_id
+      foreign-key: line_items.product_id
+  - table-name: collects
+    keys:
+    - key: id
+      foreign-key: product_id
+    - key: options.product_id
+      foreign-key: product_id
+  - table-name: order_refunds
+    keys:
+    - key: id
+      foreign-key: refund_line_items.line_item.product_id
+    - key: options.product_id
+      foreign-key: refund_line_items.line_item.product_id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: fulfillments.line_items.product_id
+    - key: options.product_id
+      foreign-key: fulfillments.line_items.product_id
+    - key: id
+      foreign-key: refunds.refund_line_items.line_item.product_id
+    - key: options.product_id
+      foreign-key: refunds.refund_line_items.line_item.product_id
+    - key: id
+      foreign-key: line_items.product_id
+    - key: options.product_id
+      foreign-key: line_items.product_id

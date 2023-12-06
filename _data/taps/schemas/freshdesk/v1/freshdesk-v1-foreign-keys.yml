@@ -1,0 +1,229 @@
+tap: freshdesk
+version: '1'
+keys:
+  agents_agent_id:
+  - table: agents
+    keys:
+    - id
+  - table: groups
+    keys:
+    - agent_ids
+  - table: satisfaction_ratings
+    keys:
+    - agent_id
+  - table: tickets
+    keys:
+    - responder_id
+  - table: time_entries
+    keys:
+    - agent_id
+  companies_company_id:
+  - table: companies
+    keys:
+    - id
+  - table: tickets
+    keys:
+    - company_id
+  contacts_contact_id:
+  - table: contacts
+    keys:
+    - id
+  conversations_conversation_id:
+  - table: conversations
+    keys:
+    - id
+  groups_group_id:
+  - table: agents
+    keys:
+    - group_ids.type
+  - table: groups
+    keys:
+    - id
+  - table: satisfaction_ratings
+    keys:
+    - group_id
+  - table: tickets
+    keys:
+    - group_id
+  roles_role_id:
+  - table: agents
+    keys:
+    - role_ids.type
+  - table: roles
+    keys:
+    - id
+  satisfaction_ratings_satisfaction_rating_id:
+  - table: satisfaction_ratings
+    keys:
+    - id
+  tickets_ticket_id:
+  - table: conversations
+    keys:
+    - ticket_id
+  - table: tickets
+    keys:
+    - id
+  - table: satisfaction_ratings
+    keys:
+    - ticket_id
+  time_entries_time_entry_id:
+  - table: time_entries
+    keys:
+    - id
+tables:
+- table-name: agents
+  join:
+  - table-name: groups
+    keys:
+    - key: id
+      foreign-key: agent_ids
+    - key: group_ids.type
+      foreign-key: id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: id
+      foreign-key: agent_id
+    - key: group_ids.type
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: id
+      foreign-key: responder_id
+    - key: group_ids.type
+      foreign-key: group_id
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: agent_id
+  - table-name: roles
+    keys:
+    - key: role_ids.type
+      foreign-key: id
+- table-name: groups
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_ids
+      foreign-key: id
+    - key: id
+      foreign-key: group_ids.type
+  - table-name: satisfaction_ratings
+    keys:
+    - key: agent_ids
+      foreign-key: agent_id
+    - key: id
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: agent_ids
+      foreign-key: responder_id
+    - key: id
+      foreign-key: group_id
+  - table-name: time_entries
+    keys:
+    - key: agent_ids
+      foreign-key: agent_id
+- table-name: satisfaction_ratings
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: group_ids.type
+  - table-name: groups
+    keys:
+    - key: agent_id
+      foreign-key: agent_ids
+    - key: group_id
+      foreign-key: id
+  - table-name: tickets
+    keys:
+    - key: agent_id
+      foreign-key: responder_id
+    - key: group_id
+      foreign-key: group_id
+    - key: ticket_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: agent_id
+      foreign-key: agent_id
+  - table-name: conversations
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+- table-name: tickets
+  join:
+  - table-name: agents
+    keys:
+    - key: responder_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: group_ids.type
+  - table-name: groups
+    keys:
+    - key: responder_id
+      foreign-key: agent_ids
+    - key: group_id
+      foreign-key: id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: responder_id
+      foreign-key: agent_id
+    - key: group_id
+      foreign-key: group_id
+    - key: id
+      foreign-key: ticket_id
+  - table-name: time_entries
+    keys:
+    - key: responder_id
+      foreign-key: agent_id
+  - table-name: companies
+    keys:
+    - key: company_id
+      foreign-key: id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: ticket_id
+- table-name: time_entries
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_id
+      foreign-key: id
+  - table-name: groups
+    keys:
+    - key: agent_id
+      foreign-key: agent_ids
+  - table-name: satisfaction_ratings
+    keys:
+    - key: agent_id
+      foreign-key: agent_id
+  - table-name: tickets
+    keys:
+    - key: agent_id
+      foreign-key: responder_id
+- table-name: companies
+  join:
+  - table-name: tickets
+    keys:
+    - key: id
+      foreign-key: company_id
+- table-name: conversations
+  join:
+  - table-name: tickets
+    keys:
+    - key: ticket_id
+      foreign-key: id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+- table-name: roles
+  join:
+  - table-name: agents
+    keys:
+    - key: id
+      foreign-key: role_ids.type

@@ -1,0 +1,615 @@
+tap: zendesk
+version: '2'
+keys:
+  groups_group_id:
+  - table: groups
+    keys:
+    - id
+  - table: group_memberships
+    keys:
+    - group_id
+  - table: organizations
+    keys:
+    - group_id
+  - table: satisfaction_ratings
+    keys:
+    - group_id
+  - table: tickets
+    keys:
+    - group_id
+  - table: users
+    keys:
+    - default_group_id
+  groups_group_membership_id:
+  - table: group_memberships
+    keys:
+    - id
+  macros_macro_id:
+  - table: macros
+    keys:
+    - id
+  - table: ticket_audits
+    keys:
+    - events.macro_id
+  organizations_organization_id:
+  - table: organizations
+    keys:
+    - id
+  - table: tickets
+    keys:
+    - organization_id
+  - table: users
+    keys:
+    - organization_id
+  _restriction_id:
+  - table: macros
+    keys:
+    - restriction.id
+  - table: groups
+    keys:
+    - id
+  - table: users
+    keys:
+    - id
+  _sla_policy_id:
+  - table: sla_policies
+    keys:
+    - id
+  tags_name:
+  - table: tags
+    keys:
+    - name
+  - table: organizations
+    keys:
+    - tags
+  - table: tickets
+    keys:
+    - tags
+  - table: users
+    keys:
+    - tags
+  ticket_audits_audit_id:
+  - table: ticket_audits
+    keys:
+    - id
+    - events.audit_id
+  - table: ticket_comments
+    keys:
+    - audit_id
+  ticket_fields_ticket_field_id:
+  - table: ticket_fields
+    keys:
+    - id
+  - table: ticket_forms
+    keys:
+    - ticket_field_ids
+  - table: tickets
+    keys:
+    - custom_fields.id
+  ticket_forms_ticket_form_id:
+  - table: ticket_forms
+    keys:
+    - id
+  - table: tickets
+    keys:
+    - ticket_form_id
+  tickets_ticket_id:
+  - table: satisfaction_ratings
+    keys:
+    - ticket_id
+  - table: tickets
+    keys:
+    - id
+  - table: ticket_audits
+    keys:
+    - ticket_id
+  - table: ticket_comments
+    keys:
+    - ticket_id
+  - table: ticket_metrics
+    keys:
+    - ticket_id
+  ticket_metrics_ticket_metric_id:
+  - table: ticket_metrics
+    keys:
+    - id
+  users_user_id:
+  - table: satisfaction_ratings
+    keys:
+    - assignee_id
+    - requester_id
+  - table: ticket_audits
+    keys:
+    - author_id
+  - table: ticket_comments
+    keys:
+    - author_id
+  - table: tickets
+    keys:
+    - requester_id
+    - follower_ids
+    - submitter_id
+    - collaborator_ids
+    - assignee_id
+  - table: users
+    keys:
+    - id
+tables:
+- table-name: groups
+  join:
+  - table-name: group_memberships
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: organizations
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: id
+      foreign-key: group_id
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: default_group_id
+    - key: id
+      foreign-key: id
+  - table-name: macros
+    keys:
+    - key: id
+      foreign-key: restriction.id
+- table-name: group_memberships
+  join:
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: organizations
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: default_group_id
+- table-name: organizations
+  join:
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_memberships
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: id
+      foreign-key: organization_id
+    - key: tags
+      foreign-key: tags
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: default_group_id
+    - key: id
+      foreign-key: organization_id
+    - key: tags
+      foreign-key: tags
+  - table-name: tags
+    keys:
+    - key: tags
+      foreign-key: name
+- table-name: satisfaction_ratings
+  join:
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_memberships
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: organizations
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: ticket_id
+      foreign-key: id
+    - key: assignee_id
+      foreign-key: requester_id
+    - key: requester_id
+      foreign-key: requester_id
+    - key: assignee_id
+      foreign-key: follower_ids
+    - key: requester_id
+      foreign-key: follower_ids
+    - key: assignee_id
+      foreign-key: submitter_id
+    - key: requester_id
+      foreign-key: submitter_id
+    - key: assignee_id
+      foreign-key: collaborator_ids
+    - key: requester_id
+      foreign-key: collaborator_ids
+    - key: assignee_id
+      foreign-key: assignee_id
+    - key: requester_id
+      foreign-key: assignee_id
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: default_group_id
+    - key: assignee_id
+      foreign-key: id
+    - key: requester_id
+      foreign-key: id
+  - table-name: ticket_audits
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+    - key: assignee_id
+      foreign-key: author_id
+    - key: requester_id
+      foreign-key: author_id
+  - table-name: ticket_comments
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+    - key: assignee_id
+      foreign-key: author_id
+    - key: requester_id
+      foreign-key: author_id
+  - table-name: ticket_metrics
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+- table-name: tickets
+  join:
+  - table-name: groups
+    keys:
+    - key: group_id
+      foreign-key: id
+  - table-name: group_memberships
+    keys:
+    - key: group_id
+      foreign-key: group_id
+  - table-name: organizations
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: organization_id
+      foreign-key: id
+    - key: tags
+      foreign-key: tags
+  - table-name: satisfaction_ratings
+    keys:
+    - key: group_id
+      foreign-key: group_id
+    - key: id
+      foreign-key: ticket_id
+    - key: requester_id
+      foreign-key: assignee_id
+    - key: follower_ids
+      foreign-key: assignee_id
+    - key: submitter_id
+      foreign-key: assignee_id
+    - key: collaborator_ids
+      foreign-key: assignee_id
+    - key: assignee_id
+      foreign-key: assignee_id
+    - key: requester_id
+      foreign-key: requester_id
+    - key: follower_ids
+      foreign-key: requester_id
+    - key: submitter_id
+      foreign-key: requester_id
+    - key: collaborator_ids
+      foreign-key: requester_id
+    - key: assignee_id
+      foreign-key: requester_id
+  - table-name: users
+    keys:
+    - key: group_id
+      foreign-key: default_group_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: tags
+      foreign-key: tags
+    - key: requester_id
+      foreign-key: id
+    - key: follower_ids
+      foreign-key: id
+    - key: submitter_id
+      foreign-key: id
+    - key: collaborator_ids
+      foreign-key: id
+    - key: assignee_id
+      foreign-key: id
+  - table-name: tags
+    keys:
+    - key: tags
+      foreign-key: name
+  - table-name: ticket_fields
+    keys:
+    - key: custom_fields.id
+      foreign-key: id
+  - table-name: ticket_forms
+    keys:
+    - key: custom_fields.id
+      foreign-key: ticket_field_ids
+    - key: ticket_form_id
+      foreign-key: id
+  - table-name: ticket_audits
+    keys:
+    - key: id
+      foreign-key: ticket_id
+    - key: requester_id
+      foreign-key: author_id
+    - key: follower_ids
+      foreign-key: author_id
+    - key: submitter_id
+      foreign-key: author_id
+    - key: collaborator_ids
+      foreign-key: author_id
+    - key: assignee_id
+      foreign-key: author_id
+  - table-name: ticket_comments
+    keys:
+    - key: id
+      foreign-key: ticket_id
+    - key: requester_id
+      foreign-key: author_id
+    - key: follower_ids
+      foreign-key: author_id
+    - key: submitter_id
+      foreign-key: author_id
+    - key: collaborator_ids
+      foreign-key: author_id
+    - key: assignee_id
+      foreign-key: author_id
+  - table-name: ticket_metrics
+    keys:
+    - key: id
+      foreign-key: ticket_id
+- table-name: users
+  join:
+  - table-name: groups
+    keys:
+    - key: default_group_id
+      foreign-key: id
+    - key: id
+      foreign-key: id
+  - table-name: group_memberships
+    keys:
+    - key: default_group_id
+      foreign-key: group_id
+  - table-name: organizations
+    keys:
+    - key: default_group_id
+      foreign-key: group_id
+    - key: organization_id
+      foreign-key: id
+    - key: tags
+      foreign-key: tags
+  - table-name: satisfaction_ratings
+    keys:
+    - key: default_group_id
+      foreign-key: group_id
+    - key: id
+      foreign-key: assignee_id
+    - key: id
+      foreign-key: requester_id
+  - table-name: tickets
+    keys:
+    - key: default_group_id
+      foreign-key: group_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: tags
+      foreign-key: tags
+    - key: id
+      foreign-key: requester_id
+    - key: id
+      foreign-key: follower_ids
+    - key: id
+      foreign-key: submitter_id
+    - key: id
+      foreign-key: collaborator_ids
+    - key: id
+      foreign-key: assignee_id
+  - table-name: macros
+    keys:
+    - key: id
+      foreign-key: restriction.id
+  - table-name: tags
+    keys:
+    - key: tags
+      foreign-key: name
+  - table-name: ticket_audits
+    keys:
+    - key: id
+      foreign-key: author_id
+  - table-name: ticket_comments
+    keys:
+    - key: id
+      foreign-key: author_id
+- table-name: macros
+  join:
+  - table-name: ticket_audits
+    keys:
+    - key: id
+      foreign-key: events.macro_id
+  - table-name: groups
+    keys:
+    - key: restriction.id
+      foreign-key: id
+  - table-name: users
+    keys:
+    - key: restriction.id
+      foreign-key: id
+- table-name: ticket_audits
+  join:
+  - table-name: macros
+    keys:
+    - key: events.macro_id
+      foreign-key: id
+  - table-name: ticket_comments
+    keys:
+    - key: id
+      foreign-key: audit_id
+    - key: events.audit_id
+      foreign-key: audit_id
+    - key: ticket_id
+      foreign-key: ticket_id
+    - key: author_id
+      foreign-key: author_id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+    - key: author_id
+      foreign-key: assignee_id
+    - key: author_id
+      foreign-key: requester_id
+  - table-name: tickets
+    keys:
+    - key: ticket_id
+      foreign-key: id
+    - key: author_id
+      foreign-key: requester_id
+    - key: author_id
+      foreign-key: follower_ids
+    - key: author_id
+      foreign-key: submitter_id
+    - key: author_id
+      foreign-key: collaborator_ids
+    - key: author_id
+      foreign-key: assignee_id
+  - table-name: ticket_metrics
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+  - table-name: users
+    keys:
+    - key: author_id
+      foreign-key: id
+- table-name: tags
+  join:
+  - table-name: organizations
+    keys:
+    - key: name
+      foreign-key: tags
+  - table-name: tickets
+    keys:
+    - key: name
+      foreign-key: tags
+  - table-name: users
+    keys:
+    - key: name
+      foreign-key: tags
+- table-name: ticket_comments
+  join:
+  - table-name: ticket_audits
+    keys:
+    - key: audit_id
+      foreign-key: id
+    - key: audit_id
+      foreign-key: events.audit_id
+    - key: ticket_id
+      foreign-key: ticket_id
+    - key: author_id
+      foreign-key: author_id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+    - key: author_id
+      foreign-key: assignee_id
+    - key: author_id
+      foreign-key: requester_id
+  - table-name: tickets
+    keys:
+    - key: ticket_id
+      foreign-key: id
+    - key: author_id
+      foreign-key: requester_id
+    - key: author_id
+      foreign-key: follower_ids
+    - key: author_id
+      foreign-key: submitter_id
+    - key: author_id
+      foreign-key: collaborator_ids
+    - key: author_id
+      foreign-key: assignee_id
+  - table-name: ticket_metrics
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+  - table-name: users
+    keys:
+    - key: author_id
+      foreign-key: id
+- table-name: ticket_fields
+  join:
+  - table-name: ticket_forms
+    keys:
+    - key: id
+      foreign-key: ticket_field_ids
+  - table-name: tickets
+    keys:
+    - key: id
+      foreign-key: custom_fields.id
+- table-name: ticket_forms
+  join:
+  - table-name: ticket_fields
+    keys:
+    - key: ticket_field_ids
+      foreign-key: id
+  - table-name: tickets
+    keys:
+    - key: ticket_field_ids
+      foreign-key: custom_fields.id
+    - key: id
+      foreign-key: ticket_form_id
+- table-name: ticket_metrics
+  join:
+  - table-name: satisfaction_ratings
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+  - table-name: tickets
+    keys:
+    - key: ticket_id
+      foreign-key: id
+  - table-name: ticket_audits
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id
+  - table-name: ticket_comments
+    keys:
+    - key: ticket_id
+      foreign-key: ticket_id

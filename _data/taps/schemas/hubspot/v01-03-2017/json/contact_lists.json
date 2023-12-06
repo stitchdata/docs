@@ -1,0 +1,140 @@
+{
+  "properties": {
+    "archived": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "deleteable": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "dynamic": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "filters": {
+      "properties": {
+        "value": {
+          "properties": {
+            "checkPastVersions": {
+              "type": [
+                "boolean"
+              ]
+            },
+            "filterFamily": {
+              "type": [
+                "string"
+              ]
+            },
+            "operator": {
+              "type": [
+                "string"
+              ]
+            },
+            "property": {
+              "type": [
+                "string"
+              ]
+            },
+            "type": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            },
+            "withinTimeMode": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "internalListId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "listId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "listType": {
+      "type": [
+        "string"
+      ]
+    },
+    "metaData": {
+      "properties": {
+        "error": {
+          "type": [
+            "string"
+          ]
+        },
+        "lastProcessingStateChangeAt": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "lastSizeChangeAt": {
+          "type": [
+            "date-time"
+          ]
+        },
+        "processing": {
+          "type": [
+            "string"
+          ]
+        },
+        "size": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "parentId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "portalId": {
+      "type": [
+        "integer"
+      ]
+    },
+    "updatedAt": {
+      "type": [
+        "date-time"
+      ]
+    }
+  }
+}

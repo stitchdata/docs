@@ -1,0 +1,274 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "addresses": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "index_in_list": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "line1": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "line2": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "parent_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "postcode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "assigned_branch_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_centre_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "assigned_user_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom_fields": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "field_set_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "email_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_members": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "client_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "roles": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "encoded_key": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "group_role_name_key": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "role_name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "group_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_role_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "home_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "loan_cycle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "migration_event_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "mobile_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "preferred_language": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,148 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accepted_term_version": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "address_line_1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "administrative_district_level_1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "configuration_settings": {
+      "additionalProperties": true,
+      "properties": {
+        "notifications_enabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "contact_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contact_phone_optin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locality": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "my_display_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "my_invited_email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "my_member_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "postal_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "roles": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

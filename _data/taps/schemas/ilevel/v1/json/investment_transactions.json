@@ -1,0 +1,357 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "as_of": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "client": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "cost_per_share": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom3": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom4": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "custom5": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom6": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "internal_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "investment": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "is_soft_deleted": {
+      "default": false,
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "last_modified_by": {
+      "additionalProperties": false,
+      "properties": {
+        "email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "first_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "last_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "middle_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "user_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "local_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "local_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "original_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "owner": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "scenario": {
+      "additionalProperties": false,
+      "properties": {
+        "excel_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "security": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "shares": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "transaction_category": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "transaction_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "transaction_type": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "value_per_share": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    }
+  },
+  "type": "object"
+}

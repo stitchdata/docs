@@ -1,0 +1,197 @@
+tap: pipedrive
+version: '1'
+tables:
+- name: activities
+  description: 'The `{{ table.name }}` table contains info about recent activities  -
+    calls, tasks, lunches, etc. - recorded in your {{ integration.display_name }}
+    account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/activities.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: activity_types
+  description: 'The `{{ table.name }}` table contains info about the different kinds
+    of activities in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: https://developers.pipedrive.com/docs/api/v1/#!/ActivityTypes
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/activity_types.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/ActivityTypes/get_activityTypes
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: currency
+  description: 'The `{{ table.name }}` table contains info about the currencies listed
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/currency.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Currencies
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: dealflow
+  description: 'The `{{ table.name }}` table contains info about the updates made
+    to a deal.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/dealflow.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_id_flow
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: log_time
+- name: deals
+  description: 'The `{{ table.name }}` table contains info about updates made recently
+    to the deals in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/deals.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: deal_fields
+  description: 'The `{{ table.name }}` table contains info about all deal fields.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-twilio/tree/master/tap_pipedrive/schemas/deal_fields.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: deal_products
+  description: 'The `{{ table.name }}` table contains info about the products attached
+    to deals.
+
+    '
+  links:
+    doc-link: https://developers.pipedrive.com/docs/api/v1/#!/Deals
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/deal_products.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_id_products
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: files
+  description: 'The `{{ table.name }}` table contains info about the recently updated
+    files in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/files.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: filters
+  description: 'The `{{ table.name }}` table contains info about the filters, or data
+    validation conditions, used in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/filters.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Filters
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: notes
+  description: 'The `{{ table.name }}` table contains info about recent notes in your
+    {{ integration.display_name }} account. Notes are pieces of textual (HTML-formatted)
+    information that can be attached to [`deals`](#deals), [`persons`](#persons) and
+    [`organizations`](#organizations).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/notes.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: organizations
+  description: 'The `{{ table.name }}` table contains info about the recent organizations
+    in your {{ integration.display_name }} account. Organizations are companies and
+    other types of organizations you are making deals with.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/organizations.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: ''
+    primary-key: id
+    replication-key: update_time
+- name: persons
+  description: 'The `{{ table.name }}` table contains info about the recent persons
+    in your {{ integration.display_name }} account. In {{ integration.display_name
+    }}, a person represents a contact, or a customer you''re doing a deal with.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/persons.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: pipelines
+  description: 'The `{{ table.name }}` table contains info about the pipelines in
+    your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/pipelines.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Pipelines
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: products
+  description: 'The `{{ table.name }}` table contains info about the recent products
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/products.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: update_time
+- name: stages
+  description: 'The `{{ table.name }}` table contains info about the pipeline stages
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/stages.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Stages/get_stages
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: users
+  description: 'The `{{ table.name }}` table contains info about the users associated
+    with your {{ integration.display_name }} account. **Note**: This table contains
+    info about the people with access to your {{ integration.display_name }} account
+    - they should not be confused with [`persons`](#persons).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/users.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+tap-repo-schemas: true

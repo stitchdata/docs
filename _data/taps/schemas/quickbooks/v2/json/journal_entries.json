@@ -1,0 +1,533 @@
+{
+  "properties": {
+    "Adjustment": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "CurrencyRef": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "DocNumber": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ExchangeRate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "GlobalTaxCalculation": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "HomeTotalAmt": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "Id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "JournalCodeRef": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "Line": {
+      "items": {
+        "properties": {
+          "Amount": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "Description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "DescriptionLineDetail": {
+            "properties": {
+              "ServiceDate": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "TaxCodeRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "DetailType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "Id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "JournalEntryLineDetail": {
+            "properties": {
+              "AccountRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "BillableStatus": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "ClassRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "DepartmentRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "Entity": {
+                "properties": {
+                  "EntityRef": {
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "object"
+                    ]
+                  },
+                  "Type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "JournalCodeRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "PostingType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "TaxAmount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "TaxApplicableOn": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "TaxCodeRef": {
+                "properties": {
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "value": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "object"
+                ]
+              },
+              "TaxInclusiveAmt": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "LineNum": {
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "MetaData": {
+      "properties": {
+        "CreateTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "LastUpdatedTime": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "PrivateNote": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "RecurDataRef": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "SyncToken": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TaxRateRef": {
+      "properties": {
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "TotalAmt": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "TransactionLocationType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "TxnDate": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "TxnTaxDetail": {
+      "properties": {
+        "TaxLine": {
+          "items": {
+            "properties": {
+              "Amount": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "DetailType": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "TaxLineDetail": {
+                "properties": {
+                  "NetAmountTaxable": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "OverrideDeltaAmount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "PercentBased": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "TaxInclusiveAmount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "TaxPercent": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "TaxRateRef": {
+                    "properties": {
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "TotalTax": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "TxnTaxCodeRef": {
+          "properties": {
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

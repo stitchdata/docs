@@ -1,0 +1,69 @@
+tap: bigcommerce
+version: '1'
+tables:
+- name: coupons
+  description: 'The `{{ table.name }}` table contains info about the coupons in your
+    {{ integration.display_name }} store.
+
+
+    {% capture replication-tip %}
+
+    This table uses Full Table Replication, which means all records will be replicated
+    during every replication job.
+
+
+    To avoid re-replicating unnecessary data, create a second {{ integration.display_name
+    }} integration in your Stitch account (you can even use the same {{ integration.display_name
+    }} API credentials) and set the integration to replicate every 12 or 24 hours.
+
+    {% endcapture %}
+
+
+    {% include tip.html content=replication-tip %}
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/coupons.json
+    api-method: https://developer.bigcommerce.com/api-reference/marketing/marketing-api/coupons/getallcoupons
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the customers in
+    your {{ integration.display_name }} store.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/customers.json
+    api-method: https://developer.bigcommerce.com/api-reference/customer-subscribers/customers-api/customers/getallcustomers
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
+- name: products
+  description: 'The `{{ table.name }}` table contains info about the products in your
+    {{ integration.display_name }} store.
+
+
+    **Note**: During the initial replication job for a {{ integration.display_name
+    }} integration, all products will be replicated. On subsequent replication jobs,
+    only new and updated product records will be replicated.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/products.json
+    api-method: https://developer.bigcommerce.com/api-reference/catalog/catalog-api/products/getproducts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified
+- name: orders
+  description: The `{{ table.name }}` table contains info about the orders in your
+    {{ integration.display_name }} store.
+  links:
+    singer-schema: https://github.com/singer-io/tap-bigcommerce/blob/master/tap_bigcommerce/schemas/orders.json
+    api-method: https://developer.bigcommerce.com/docs/rest-management/orders#get-all-orders
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: date_modified

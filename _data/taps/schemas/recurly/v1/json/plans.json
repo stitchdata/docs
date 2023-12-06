@@ -1,0 +1,188 @@
+{
+  "properties": {
+    "accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "auto_renew": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currencies": {
+      "items": {
+        "properties": {
+          "currency": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "setup_fee": {
+            "multipleOf": 1e-08,
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "unit_amount": {
+            "multipleOf": 1e-08,
+            "type": [
+              "null",
+              "number"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "hosted_pages": {
+      "properties": {
+        "bypass_confirmation": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "cancel_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "display_quantity": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "success_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "interval_length": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "interval_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "setup_fee_accounting_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_exempt": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "total_billing_cycles": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_length": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "trial_unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

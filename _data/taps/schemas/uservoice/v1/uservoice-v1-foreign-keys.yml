@@ -1,0 +1,1338 @@
+tap: uservoice
+version: '1'
+keys:
+  categories_category:
+  - table: categories
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.category
+  comments_comment:
+  - table: comments
+    keys:
+    - id
+  external_accounts_:
+  - table: external_accounts
+    keys:
+    - id
+  external_users_external_user:
+  - table: external_users
+    keys:
+    - id
+  - table: users
+    keys:
+    - links.external_users.value
+  feature_statuses_feature_status:
+  - table: features
+    keys:
+    - links.feature_status
+  - table: feature_statuses
+    keys:
+    - id
+  forums_forum:
+  - table: categories
+    keys:
+    - links.forum
+  - table: forums
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.forum
+  labels_:
+  - table: labels
+    keys:
+    - id
+    - links.parent
+  - table: suggestions
+    keys:
+    - links.labels.value
+  nps_ratings_:
+  - table: nps_ratings
+    keys:
+    - id
+  product_areas_product_area:
+  - table: features
+    keys:
+    - links.product_area
+  - table: product_areas
+    keys:
+    - id
+  requests_:
+  - table: requests
+    keys:
+    - id
+  segmented_values_:
+  - table: segmented_values
+    keys:
+    - id
+  segments_segment:
+  - table: segments
+    keys:
+    - id
+  statuses_:
+  - table: status_updates
+    keys:
+    - links.new_status
+    - links.old_status
+  - table: statuses
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.status
+  status_updates_:
+  - table: status_updates
+    keys:
+    - id
+  - table: suggestions
+    keys:
+    - links.last_status_update
+  suggestions_suggestion:
+  - table: comments
+    keys:
+    - links.suggestion
+  - table: requests
+    keys:
+    - links.suggestion
+  - table: status_updates
+    keys:
+    - links.suggestion
+  - table: suggestions
+    keys:
+    - id
+    - links.parent_suggestion
+  - table: supporters
+    keys:
+    - links.suggestion
+  supporters_supporter:
+  - table: requests
+    keys:
+    - links.supporter
+  - table: supporters
+    keys:
+    - id
+  teams_team:
+  - table: teams
+    keys:
+    - id
+  - table: users
+    keys:
+    - links.teams.value
+  users_user:
+  - table: comments
+    keys:
+    - links.created_by
+  - table: features
+    keys:
+    - links.updated_by
+    - links.created_by
+  - table: feature_statuses
+    keys:
+    - links.updated_by
+    - links.created_by
+  - table: forums
+    keys:
+    - links.updated_by
+  - table: nps_ratings
+    keys:
+    - links.user
+  - table: product_areas
+    keys:
+    - links.updated_by
+    - links.created_by
+  - table: requests
+    keys:
+    - links.user
+    - links.created_by
+    - links.updated_by
+  - table: segmented_values
+    keys:
+    - links.created_by
+    - links.updated_by
+  - table: status_updates
+    keys:
+    - links.user
+  - table: suggestions
+    keys:
+    - links.created_by
+  - table: supporters
+    keys:
+    - links.created_by
+    - links.updated_by
+    - links.user
+  - table: users
+    keys:
+    - id
+tables:
+- table-name: categories
+  join:
+  - table-name: suggestions
+    keys:
+    - key: id
+      foreign-key: links.category
+    - key: links.forum
+      foreign-key: links.forum
+  - table-name: forums
+    keys:
+    - key: links.forum
+      foreign-key: id
+- table-name: suggestions
+  join:
+  - table-name: categories
+    keys:
+    - key: links.category
+      foreign-key: id
+    - key: links.forum
+      foreign-key: links.forum
+  - table-name: forums
+    keys:
+    - key: links.forum
+      foreign-key: id
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: labels
+    keys:
+    - key: links.labels.value
+      foreign-key: id
+    - key: links.labels.value
+      foreign-key: links.parent
+  - table-name: status_updates
+    keys:
+    - key: links.status
+      foreign-key: links.new_status
+    - key: links.status
+      foreign-key: links.old_status
+    - key: links.last_status_update
+      foreign-key: id
+    - key: id
+      foreign-key: links.suggestion
+    - key: links.parent_suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: statuses
+    keys:
+    - key: links.status
+      foreign-key: id
+  - table-name: comments
+    keys:
+    - key: id
+      foreign-key: links.suggestion
+    - key: links.parent_suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: id
+      foreign-key: links.suggestion
+    - key: links.parent_suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: supporters
+    keys:
+    - key: id
+      foreign-key: links.suggestion
+    - key: links.parent_suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: features
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: segmented_values
+    keys:
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: users
+    keys:
+    - key: links.created_by
+      foreign-key: id
+- table-name: comments
+  join:
+  - table-name: requests
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.suggestion
+      foreign-key: id
+    - key: links.suggestion
+      foreign-key: links.parent_suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: features
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: segmented_values
+    keys:
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: users
+    keys:
+    - key: links.created_by
+      foreign-key: id
+- table-name: external_users
+  join:
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: links.external_users.value
+- table-name: users
+  join:
+  - table-name: external_users
+    keys:
+    - key: links.external_users.value
+      foreign-key: id
+  - table-name: teams
+    keys:
+    - key: links.teams.value
+      foreign-key: id
+  - table-name: comments
+    keys:
+    - key: id
+      foreign-key: links.created_by
+  - table-name: features
+    keys:
+    - key: id
+      foreign-key: links.updated_by
+    - key: id
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: id
+      foreign-key: links.updated_by
+    - key: id
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: id
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: id
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: id
+      foreign-key: links.updated_by
+    - key: id
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: id
+      foreign-key: links.user
+    - key: id
+      foreign-key: links.created_by
+    - key: id
+      foreign-key: links.updated_by
+  - table-name: segmented_values
+    keys:
+    - key: id
+      foreign-key: links.created_by
+    - key: id
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: id
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: id
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: id
+      foreign-key: links.created_by
+    - key: id
+      foreign-key: links.updated_by
+    - key: id
+      foreign-key: links.user
+- table-name: features
+  join:
+  - table-name: feature_statuses
+    keys:
+    - key: links.feature_status
+      foreign-key: id
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: product_areas
+    keys:
+    - key: links.product_area
+      foreign-key: id
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: comments
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: requests
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: segmented_values
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: users
+    keys:
+    - key: links.updated_by
+      foreign-key: id
+    - key: links.created_by
+      foreign-key: id
+- table-name: feature_statuses
+  join:
+  - table-name: features
+    keys:
+    - key: id
+      foreign-key: links.feature_status
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: comments
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: segmented_values
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: users
+    keys:
+    - key: links.updated_by
+      foreign-key: id
+    - key: links.created_by
+      foreign-key: id
+- table-name: forums
+  join:
+  - table-name: categories
+    keys:
+    - key: id
+      foreign-key: links.forum
+  - table-name: suggestions
+    keys:
+    - key: id
+      foreign-key: links.forum
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: comments
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: features
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+  - table-name: segmented_values
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: supporters
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: users
+    keys:
+    - key: links.updated_by
+      foreign-key: id
+- table-name: labels
+  join:
+  - table-name: suggestions
+    keys:
+    - key: id
+      foreign-key: links.labels.value
+    - key: links.parent
+      foreign-key: links.labels.value
+- table-name: nps_ratings
+  join:
+  - table-name: comments
+    keys:
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: features
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: product_areas
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: links.user
+      foreign-key: links.user
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: segmented_values
+    keys:
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.user
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.user
+  - table-name: users
+    keys:
+    - key: links.user
+      foreign-key: id
+- table-name: product_areas
+  join:
+  - table-name: features
+    keys:
+    - key: id
+      foreign-key: links.product_area
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: comments
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: requests
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: segmented_values
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+  - table-name: users
+    keys:
+    - key: links.updated_by
+      foreign-key: id
+    - key: links.created_by
+      foreign-key: id
+- table-name: requests
+  join:
+  - table-name: comments
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: status_updates
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.user
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.suggestion
+      foreign-key: id
+    - key: links.suggestion
+      foreign-key: links.parent_suggestion
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.supporter
+      foreign-key: id
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: features
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.user
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: segmented_values
+    keys:
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+  - table-name: users
+    keys:
+    - key: links.user
+      foreign-key: id
+    - key: links.created_by
+      foreign-key: id
+    - key: links.updated_by
+      foreign-key: id
+- table-name: segmented_values
+  join:
+  - table-name: comments
+    keys:
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: features
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+  - table-name: supporters
+    keys:
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+  - table-name: users
+    keys:
+    - key: links.created_by
+      foreign-key: id
+    - key: links.updated_by
+      foreign-key: id
+- table-name: status_updates
+  join:
+  - table-name: statuses
+    keys:
+    - key: links.new_status
+      foreign-key: id
+    - key: links.old_status
+      foreign-key: id
+  - table-name: suggestions
+    keys:
+    - key: links.new_status
+      foreign-key: links.status
+    - key: links.old_status
+      foreign-key: links.status
+    - key: id
+      foreign-key: links.last_status_update
+    - key: links.suggestion
+      foreign-key: id
+    - key: links.suggestion
+      foreign-key: links.parent_suggestion
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: comments
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.user
+      foreign-key: links.user
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: supporters
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.user
+  - table-name: features
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.user
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: segmented_values
+    keys:
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: users
+    keys:
+    - key: links.user
+      foreign-key: id
+- table-name: statuses
+  join:
+  - table-name: status_updates
+    keys:
+    - key: id
+      foreign-key: links.new_status
+    - key: id
+      foreign-key: links.old_status
+  - table-name: suggestions
+    keys:
+    - key: id
+      foreign-key: links.status
+- table-name: supporters
+  join:
+  - table-name: comments
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: requests
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: id
+      foreign-key: links.supporter
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.user
+      foreign-key: links.user
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: status_updates
+    keys:
+    - key: links.suggestion
+      foreign-key: links.suggestion
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.user
+      foreign-key: links.user
+  - table-name: suggestions
+    keys:
+    - key: links.suggestion
+      foreign-key: id
+    - key: links.suggestion
+      foreign-key: links.parent_suggestion
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: features
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: feature_statuses
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: forums
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: nps_ratings
+    keys:
+    - key: links.created_by
+      foreign-key: links.user
+    - key: links.updated_by
+      foreign-key: links.user
+    - key: links.user
+      foreign-key: links.user
+  - table-name: product_areas
+    keys:
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.updated_by
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+  - table-name: segmented_values
+    keys:
+    - key: links.created_by
+      foreign-key: links.created_by
+    - key: links.updated_by
+      foreign-key: links.created_by
+    - key: links.user
+      foreign-key: links.created_by
+    - key: links.created_by
+      foreign-key: links.updated_by
+    - key: links.updated_by
+      foreign-key: links.updated_by
+    - key: links.user
+      foreign-key: links.updated_by
+  - table-name: users
+    keys:
+    - key: links.created_by
+      foreign-key: id
+    - key: links.updated_by
+      foreign-key: id
+    - key: links.user
+      foreign-key: id
+- table-name: teams
+  join:
+  - table-name: users
+    keys:
+    - key: id
+      foreign-key: links.teams.value

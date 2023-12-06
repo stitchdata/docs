@@ -1,0 +1,48 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "harvest_role_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "person_ids": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "placeholder_ids": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_by_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

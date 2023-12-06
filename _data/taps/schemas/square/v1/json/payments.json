@@ -1,0 +1,373 @@
+{
+  "properties": {
+    "amount_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "card_details": {
+      "properties": {
+        "auth_result_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "avs_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "card": {
+          "properties": {
+            "bin": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_brand": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "card_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "cardholder_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "exp_month": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "exp_year": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "fingerprint": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "last_4": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "prepaid_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "cvv_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "entry_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "errors": {
+          "items": {
+            "properties": {
+              "category": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "code": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "detail": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "statement_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "delay_action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "delay_duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "delayed_until": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "location_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "note": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processing_fee": {
+      "items": {
+        "properties": {
+          "amount_money": {
+            "properties": {
+              "amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "currency": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "effective_at": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "receipt_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receipt_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "refund_ids": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "refunded_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "risk_evaluation": {
+      "properties": {
+        "created_at": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "risk_level": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "source_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_money": {
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

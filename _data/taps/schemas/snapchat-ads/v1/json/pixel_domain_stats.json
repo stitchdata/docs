@@ -1,0 +1,67 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "domains": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "domain_name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "total_events": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "end_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pixel_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

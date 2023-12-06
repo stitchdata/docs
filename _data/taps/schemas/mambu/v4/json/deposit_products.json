@@ -1,0 +1,927 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "accounting_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "accounting_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "accounting_rules": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "financial_resource": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "gl_account_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interest_accrued_accounting_method": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "availability_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "available_for": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "branch_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "available_product_branches": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "for_all_branches": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "credit_arrangement_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "credit_arrangement_requirement": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "currency_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "currencies": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "code": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "custom_fields": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {},
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "encoded_key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "fees_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_arbitrary_fees": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "fees": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "accounting_rules": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "encoded_key": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "financial_resource": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "gl_account_key": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "amount": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "amount_calculation_method": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "apply_date_method": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "creation_date": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  },
+                  "encoded_key": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "fee_application": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "id": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "last_modified_date": {
+                    "type": [
+                      "null",
+                      "date-time"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "state": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "trigger": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "interest_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "collect_interest_when_locked": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "days_in_year": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_calculation_balance": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_paid_into_account": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "interest_payment_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "interest_payment_dates": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "day": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "month": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "interest_payment_point": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "interest_rate_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "accrue_interest_after_maturity": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "allow_negative_interest_rate": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "encoded_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "index_source_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_charge_frequency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_charge_frequency_count": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "interest_rate": {
+              "additionalProperties": false,
+              "properties": {
+                "default_value": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "max_value": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "min_value": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "interest_rate_review_count": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "interest_rate_review_unit": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_rate_source": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_rate_terms": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_rate_tiers": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "encoded_key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "ending_balance": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "ending_day": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "interest_rate": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "maximum_balance": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "internal_controls": {
+      "additionalProperties": false,
+      "properties": {
+        "dormancy_period_days": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "max_withdrawal_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "opening_balance": {
+          "additionalProperties": false,
+          "properties": {
+            "default_value": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "max_value": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "min_value": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "recommended_deposit_amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "maturity_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "maturity_period": {
+          "additionalProperties": false,
+          "properties": {
+            "default_value": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "max_value": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "min_value": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "maturity_period_unit": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "new_account_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "id_generator_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id_pattern": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "offset_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_offset": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "overdraft_interest_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "days_in_year": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_calculation_balance": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interest_rate_settings": {
+          "additionalProperties": false,
+          "properties": {
+            "index_source_key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_charge_frequency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_charge_frequency_count": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "interest_rate": {
+              "additionalProperties": false,
+              "properties": {
+                "default_value": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "max_value": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "min_value": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "interest_rate_review_count": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "interest_rate_review_unit": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_rate_source": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_rate_terms": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interest_rate_tiers": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "encoded_key": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "ending_balance": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "interest_rate": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "overdraft_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_overdraft": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "allow_technical_overdraft": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "max_overdraft_limit": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_settings": {
+      "additionalProperties": false,
+      "properties": {
+        "withholding_tax_enabled": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "templates": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "creation_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "encoded_key": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "last_modified_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "type": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

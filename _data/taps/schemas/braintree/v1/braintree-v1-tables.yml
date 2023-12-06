@@ -1,0 +1,22 @@
+tap: braintree
+version: '1'
+tables:
+- name: transactions
+  description: 'The `transactions` table contains info about the transactions in your
+    Braintree account, including the transaction''s status.
+
+
+    **Note**: Our Braintree integration will only replicate transactions for the **default
+    merchant account** in your Braintree instance. You can verify the merchant account
+    set as the default by going to **Settings > Processing > Merchant Accounts** when
+    signed into Braintree.
+
+    '
+  links:
+    doc-link: https://developers.braintreepayments.com/reference/request/transaction/search/java
+    singer-schema: https://github.com/singer-io/tap-braintree/blob/master/tap_braintree/schemas/transactions.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+tap-repo-schemas: true

@@ -1,0 +1,1087 @@
+tap: closeio
+version: '1'
+keys:
+  activities_activity_id:
+  - table: activities
+    keys:
+    - id
+  _contact_id:
+  - table: activities
+    keys:
+    - contact_id
+  - table: leads
+    keys:
+    - contacts.id
+    - opportunities.contact_id
+    - tasks.contact_id
+  - table: tasks
+    keys:
+    - contact_id
+  event_log_event_id:
+  - table: event_log
+    keys:
+    - id
+  leads_lead_id:
+  - table: activities
+    keys:
+    - lead_id
+  - table: event_log
+    keys:
+    - lead_id
+  - table: leads
+    keys:
+    - id
+    - contacts.lead_id
+    - opportunities.lead_id
+    - tasks.lead_id
+  - table: tasks
+    keys:
+    - lead_id
+  _organization_id:
+  - table: activities
+    keys:
+    - organization_id
+  - table: custom_fields
+    keys:
+    - organization_id
+  - table: event_log
+    keys:
+    - organization_id
+  - table: leads
+    keys:
+    - contacts.organization_id
+    - opportunities.organization_id
+    - organization_id
+    - tasks.organization_id
+  - table: tasks
+    keys:
+    - organization_id
+  - table: users
+    keys:
+    - organizations
+  tasks_task_id:
+  - table: activities
+    keys:
+    - task_id
+  - table: leads
+    keys:
+    - tasks.id
+  - table: tasks
+    keys:
+    - id
+  users_user_id:
+  - table: activities
+    keys:
+    - created_by
+    - updated_by
+    - user_id
+    - task_assigned_to
+    - users
+  - table: custom_fields
+    keys:
+    - created_by
+    - updated_by
+  - table: event_log
+    keys:
+    - user_id
+  - table: leads
+    keys:
+    - contacts.created_by
+    - contacts.updated_by
+    - created_by
+    - opportunities.created_by
+    - opportunities.updated_by
+    - opportunities.user_id
+    - tasks.assigned_to
+    - tasks.created_by
+    - tasks.updated_by
+    - updated_by
+  - table: tasks
+    keys:
+    - assigned_to
+    - created_by
+    - updated_by
+  - table: users
+    keys:
+    - id
+tables:
+- table-name: activities
+  join:
+  - table-name: leads
+    keys:
+    - key: contact_id
+      foreign-key: contacts.id
+    - key: contact_id
+      foreign-key: opportunities.contact_id
+    - key: contact_id
+      foreign-key: tasks.contact_id
+    - key: lead_id
+      foreign-key: id
+    - key: lead_id
+      foreign-key: contacts.lead_id
+    - key: lead_id
+      foreign-key: opportunities.lead_id
+    - key: lead_id
+      foreign-key: tasks.lead_id
+    - key: organization_id
+      foreign-key: contacts.organization_id
+    - key: organization_id
+      foreign-key: opportunities.organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: tasks.organization_id
+    - key: task_id
+      foreign-key: tasks.id
+    - key: created_by
+      foreign-key: contacts.created_by
+    - key: updated_by
+      foreign-key: contacts.created_by
+    - key: user_id
+      foreign-key: contacts.created_by
+    - key: task_assigned_to
+      foreign-key: contacts.created_by
+    - key: users
+      foreign-key: contacts.created_by
+    - key: created_by
+      foreign-key: contacts.updated_by
+    - key: updated_by
+      foreign-key: contacts.updated_by
+    - key: user_id
+      foreign-key: contacts.updated_by
+    - key: task_assigned_to
+      foreign-key: contacts.updated_by
+    - key: users
+      foreign-key: contacts.updated_by
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: created_by
+    - key: task_assigned_to
+      foreign-key: created_by
+    - key: users
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: opportunities.created_by
+    - key: updated_by
+      foreign-key: opportunities.created_by
+    - key: user_id
+      foreign-key: opportunities.created_by
+    - key: task_assigned_to
+      foreign-key: opportunities.created_by
+    - key: users
+      foreign-key: opportunities.created_by
+    - key: created_by
+      foreign-key: opportunities.updated_by
+    - key: updated_by
+      foreign-key: opportunities.updated_by
+    - key: user_id
+      foreign-key: opportunities.updated_by
+    - key: task_assigned_to
+      foreign-key: opportunities.updated_by
+    - key: users
+      foreign-key: opportunities.updated_by
+    - key: created_by
+      foreign-key: opportunities.user_id
+    - key: updated_by
+      foreign-key: opportunities.user_id
+    - key: user_id
+      foreign-key: opportunities.user_id
+    - key: task_assigned_to
+      foreign-key: opportunities.user_id
+    - key: users
+      foreign-key: opportunities.user_id
+    - key: created_by
+      foreign-key: tasks.assigned_to
+    - key: updated_by
+      foreign-key: tasks.assigned_to
+    - key: user_id
+      foreign-key: tasks.assigned_to
+    - key: task_assigned_to
+      foreign-key: tasks.assigned_to
+    - key: users
+      foreign-key: tasks.assigned_to
+    - key: created_by
+      foreign-key: tasks.created_by
+    - key: updated_by
+      foreign-key: tasks.created_by
+    - key: user_id
+      foreign-key: tasks.created_by
+    - key: task_assigned_to
+      foreign-key: tasks.created_by
+    - key: users
+      foreign-key: tasks.created_by
+    - key: created_by
+      foreign-key: tasks.updated_by
+    - key: updated_by
+      foreign-key: tasks.updated_by
+    - key: user_id
+      foreign-key: tasks.updated_by
+    - key: task_assigned_to
+      foreign-key: tasks.updated_by
+    - key: users
+      foreign-key: tasks.updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+    - key: user_id
+      foreign-key: updated_by
+    - key: task_assigned_to
+      foreign-key: updated_by
+    - key: users
+      foreign-key: updated_by
+  - table-name: tasks
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+    - key: lead_id
+      foreign-key: lead_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: task_id
+      foreign-key: id
+    - key: created_by
+      foreign-key: assigned_to
+    - key: updated_by
+      foreign-key: assigned_to
+    - key: user_id
+      foreign-key: assigned_to
+    - key: task_assigned_to
+      foreign-key: assigned_to
+    - key: users
+      foreign-key: assigned_to
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: created_by
+    - key: task_assigned_to
+      foreign-key: created_by
+    - key: users
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+    - key: user_id
+      foreign-key: updated_by
+    - key: task_assigned_to
+      foreign-key: updated_by
+    - key: users
+      foreign-key: updated_by
+  - table-name: event_log
+    keys:
+    - key: lead_id
+      foreign-key: lead_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: created_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: user_id
+    - key: task_assigned_to
+      foreign-key: user_id
+    - key: users
+      foreign-key: user_id
+  - table-name: custom_fields
+    keys:
+    - key: organization_id
+      foreign-key: organization_id
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: created_by
+    - key: task_assigned_to
+      foreign-key: created_by
+    - key: users
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+    - key: user_id
+      foreign-key: updated_by
+    - key: task_assigned_to
+      foreign-key: updated_by
+    - key: users
+      foreign-key: updated_by
+  - table-name: users
+    keys:
+    - key: organization_id
+      foreign-key: organizations
+    - key: created_by
+      foreign-key: id
+    - key: updated_by
+      foreign-key: id
+    - key: user_id
+      foreign-key: id
+    - key: task_assigned_to
+      foreign-key: id
+    - key: users
+      foreign-key: id
+- table-name: leads
+  join:
+  - table-name: activities
+    keys:
+    - key: contacts.id
+      foreign-key: contact_id
+    - key: opportunities.contact_id
+      foreign-key: contact_id
+    - key: tasks.contact_id
+      foreign-key: contact_id
+    - key: id
+      foreign-key: lead_id
+    - key: contacts.lead_id
+      foreign-key: lead_id
+    - key: opportunities.lead_id
+      foreign-key: lead_id
+    - key: tasks.lead_id
+      foreign-key: lead_id
+    - key: contacts.organization_id
+      foreign-key: organization_id
+    - key: opportunities.organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: tasks.organization_id
+      foreign-key: organization_id
+    - key: tasks.id
+      foreign-key: task_id
+    - key: contacts.created_by
+      foreign-key: created_by
+    - key: contacts.updated_by
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: created_by
+    - key: opportunities.created_by
+      foreign-key: created_by
+    - key: opportunities.updated_by
+      foreign-key: created_by
+    - key: opportunities.user_id
+      foreign-key: created_by
+    - key: tasks.assigned_to
+      foreign-key: created_by
+    - key: tasks.created_by
+      foreign-key: created_by
+    - key: tasks.updated_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: contacts.created_by
+      foreign-key: updated_by
+    - key: contacts.updated_by
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: opportunities.created_by
+      foreign-key: updated_by
+    - key: opportunities.updated_by
+      foreign-key: updated_by
+    - key: opportunities.user_id
+      foreign-key: updated_by
+    - key: tasks.assigned_to
+      foreign-key: updated_by
+    - key: tasks.created_by
+      foreign-key: updated_by
+    - key: tasks.updated_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+    - key: contacts.created_by
+      foreign-key: user_id
+    - key: contacts.updated_by
+      foreign-key: user_id
+    - key: created_by
+      foreign-key: user_id
+    - key: opportunities.created_by
+      foreign-key: user_id
+    - key: opportunities.updated_by
+      foreign-key: user_id
+    - key: opportunities.user_id
+      foreign-key: user_id
+    - key: tasks.assigned_to
+      foreign-key: user_id
+    - key: tasks.created_by
+      foreign-key: user_id
+    - key: tasks.updated_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+    - key: contacts.created_by
+      foreign-key: task_assigned_to
+    - key: contacts.updated_by
+      foreign-key: task_assigned_to
+    - key: created_by
+      foreign-key: task_assigned_to
+    - key: opportunities.created_by
+      foreign-key: task_assigned_to
+    - key: opportunities.updated_by
+      foreign-key: task_assigned_to
+    - key: opportunities.user_id
+      foreign-key: task_assigned_to
+    - key: tasks.assigned_to
+      foreign-key: task_assigned_to
+    - key: tasks.created_by
+      foreign-key: task_assigned_to
+    - key: tasks.updated_by
+      foreign-key: task_assigned_to
+    - key: updated_by
+      foreign-key: task_assigned_to
+    - key: contacts.created_by
+      foreign-key: users
+    - key: contacts.updated_by
+      foreign-key: users
+    - key: created_by
+      foreign-key: users
+    - key: opportunities.created_by
+      foreign-key: users
+    - key: opportunities.updated_by
+      foreign-key: users
+    - key: opportunities.user_id
+      foreign-key: users
+    - key: tasks.assigned_to
+      foreign-key: users
+    - key: tasks.created_by
+      foreign-key: users
+    - key: tasks.updated_by
+      foreign-key: users
+    - key: updated_by
+      foreign-key: users
+  - table-name: tasks
+    keys:
+    - key: contacts.id
+      foreign-key: contact_id
+    - key: opportunities.contact_id
+      foreign-key: contact_id
+    - key: tasks.contact_id
+      foreign-key: contact_id
+    - key: id
+      foreign-key: lead_id
+    - key: contacts.lead_id
+      foreign-key: lead_id
+    - key: opportunities.lead_id
+      foreign-key: lead_id
+    - key: tasks.lead_id
+      foreign-key: lead_id
+    - key: contacts.organization_id
+      foreign-key: organization_id
+    - key: opportunities.organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: tasks.organization_id
+      foreign-key: organization_id
+    - key: tasks.id
+      foreign-key: id
+    - key: contacts.created_by
+      foreign-key: assigned_to
+    - key: contacts.updated_by
+      foreign-key: assigned_to
+    - key: created_by
+      foreign-key: assigned_to
+    - key: opportunities.created_by
+      foreign-key: assigned_to
+    - key: opportunities.updated_by
+      foreign-key: assigned_to
+    - key: opportunities.user_id
+      foreign-key: assigned_to
+    - key: tasks.assigned_to
+      foreign-key: assigned_to
+    - key: tasks.created_by
+      foreign-key: assigned_to
+    - key: tasks.updated_by
+      foreign-key: assigned_to
+    - key: updated_by
+      foreign-key: assigned_to
+    - key: contacts.created_by
+      foreign-key: created_by
+    - key: contacts.updated_by
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: created_by
+    - key: opportunities.created_by
+      foreign-key: created_by
+    - key: opportunities.updated_by
+      foreign-key: created_by
+    - key: opportunities.user_id
+      foreign-key: created_by
+    - key: tasks.assigned_to
+      foreign-key: created_by
+    - key: tasks.created_by
+      foreign-key: created_by
+    - key: tasks.updated_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: contacts.created_by
+      foreign-key: updated_by
+    - key: contacts.updated_by
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: opportunities.created_by
+      foreign-key: updated_by
+    - key: opportunities.updated_by
+      foreign-key: updated_by
+    - key: opportunities.user_id
+      foreign-key: updated_by
+    - key: tasks.assigned_to
+      foreign-key: updated_by
+    - key: tasks.created_by
+      foreign-key: updated_by
+    - key: tasks.updated_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+  - table-name: event_log
+    keys:
+    - key: id
+      foreign-key: lead_id
+    - key: contacts.lead_id
+      foreign-key: lead_id
+    - key: opportunities.lead_id
+      foreign-key: lead_id
+    - key: tasks.lead_id
+      foreign-key: lead_id
+    - key: contacts.organization_id
+      foreign-key: organization_id
+    - key: opportunities.organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: tasks.organization_id
+      foreign-key: organization_id
+    - key: contacts.created_by
+      foreign-key: user_id
+    - key: contacts.updated_by
+      foreign-key: user_id
+    - key: created_by
+      foreign-key: user_id
+    - key: opportunities.created_by
+      foreign-key: user_id
+    - key: opportunities.updated_by
+      foreign-key: user_id
+    - key: opportunities.user_id
+      foreign-key: user_id
+    - key: tasks.assigned_to
+      foreign-key: user_id
+    - key: tasks.created_by
+      foreign-key: user_id
+    - key: tasks.updated_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+  - table-name: custom_fields
+    keys:
+    - key: contacts.organization_id
+      foreign-key: organization_id
+    - key: opportunities.organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: tasks.organization_id
+      foreign-key: organization_id
+    - key: contacts.created_by
+      foreign-key: created_by
+    - key: contacts.updated_by
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: created_by
+    - key: opportunities.created_by
+      foreign-key: created_by
+    - key: opportunities.updated_by
+      foreign-key: created_by
+    - key: opportunities.user_id
+      foreign-key: created_by
+    - key: tasks.assigned_to
+      foreign-key: created_by
+    - key: tasks.created_by
+      foreign-key: created_by
+    - key: tasks.updated_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: contacts.created_by
+      foreign-key: updated_by
+    - key: contacts.updated_by
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: opportunities.created_by
+      foreign-key: updated_by
+    - key: opportunities.updated_by
+      foreign-key: updated_by
+    - key: opportunities.user_id
+      foreign-key: updated_by
+    - key: tasks.assigned_to
+      foreign-key: updated_by
+    - key: tasks.created_by
+      foreign-key: updated_by
+    - key: tasks.updated_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+  - table-name: users
+    keys:
+    - key: contacts.organization_id
+      foreign-key: organizations
+    - key: opportunities.organization_id
+      foreign-key: organizations
+    - key: organization_id
+      foreign-key: organizations
+    - key: tasks.organization_id
+      foreign-key: organizations
+    - key: contacts.created_by
+      foreign-key: id
+    - key: contacts.updated_by
+      foreign-key: id
+    - key: created_by
+      foreign-key: id
+    - key: opportunities.created_by
+      foreign-key: id
+    - key: opportunities.updated_by
+      foreign-key: id
+    - key: opportunities.user_id
+      foreign-key: id
+    - key: tasks.assigned_to
+      foreign-key: id
+    - key: tasks.created_by
+      foreign-key: id
+    - key: tasks.updated_by
+      foreign-key: id
+    - key: updated_by
+      foreign-key: id
+- table-name: tasks
+  join:
+  - table-name: activities
+    keys:
+    - key: contact_id
+      foreign-key: contact_id
+    - key: lead_id
+      foreign-key: lead_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: id
+      foreign-key: task_id
+    - key: assigned_to
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: assigned_to
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+    - key: assigned_to
+      foreign-key: user_id
+    - key: created_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+    - key: assigned_to
+      foreign-key: task_assigned_to
+    - key: created_by
+      foreign-key: task_assigned_to
+    - key: updated_by
+      foreign-key: task_assigned_to
+    - key: assigned_to
+      foreign-key: users
+    - key: created_by
+      foreign-key: users
+    - key: updated_by
+      foreign-key: users
+  - table-name: leads
+    keys:
+    - key: contact_id
+      foreign-key: contacts.id
+    - key: contact_id
+      foreign-key: opportunities.contact_id
+    - key: contact_id
+      foreign-key: tasks.contact_id
+    - key: lead_id
+      foreign-key: id
+    - key: lead_id
+      foreign-key: contacts.lead_id
+    - key: lead_id
+      foreign-key: opportunities.lead_id
+    - key: lead_id
+      foreign-key: tasks.lead_id
+    - key: organization_id
+      foreign-key: contacts.organization_id
+    - key: organization_id
+      foreign-key: opportunities.organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: tasks.organization_id
+    - key: id
+      foreign-key: tasks.id
+    - key: assigned_to
+      foreign-key: contacts.created_by
+    - key: created_by
+      foreign-key: contacts.created_by
+    - key: updated_by
+      foreign-key: contacts.created_by
+    - key: assigned_to
+      foreign-key: contacts.updated_by
+    - key: created_by
+      foreign-key: contacts.updated_by
+    - key: updated_by
+      foreign-key: contacts.updated_by
+    - key: assigned_to
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: assigned_to
+      foreign-key: opportunities.created_by
+    - key: created_by
+      foreign-key: opportunities.created_by
+    - key: updated_by
+      foreign-key: opportunities.created_by
+    - key: assigned_to
+      foreign-key: opportunities.updated_by
+    - key: created_by
+      foreign-key: opportunities.updated_by
+    - key: updated_by
+      foreign-key: opportunities.updated_by
+    - key: assigned_to
+      foreign-key: opportunities.user_id
+    - key: created_by
+      foreign-key: opportunities.user_id
+    - key: updated_by
+      foreign-key: opportunities.user_id
+    - key: assigned_to
+      foreign-key: tasks.assigned_to
+    - key: created_by
+      foreign-key: tasks.assigned_to
+    - key: updated_by
+      foreign-key: tasks.assigned_to
+    - key: assigned_to
+      foreign-key: tasks.created_by
+    - key: created_by
+      foreign-key: tasks.created_by
+    - key: updated_by
+      foreign-key: tasks.created_by
+    - key: assigned_to
+      foreign-key: tasks.updated_by
+    - key: created_by
+      foreign-key: tasks.updated_by
+    - key: updated_by
+      foreign-key: tasks.updated_by
+    - key: assigned_to
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+  - table-name: event_log
+    keys:
+    - key: lead_id
+      foreign-key: lead_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: assigned_to
+      foreign-key: user_id
+    - key: created_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+  - table-name: custom_fields
+    keys:
+    - key: organization_id
+      foreign-key: organization_id
+    - key: assigned_to
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: assigned_to
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+  - table-name: users
+    keys:
+    - key: organization_id
+      foreign-key: organizations
+    - key: assigned_to
+      foreign-key: id
+    - key: created_by
+      foreign-key: id
+    - key: updated_by
+      foreign-key: id
+- table-name: event_log
+  join:
+  - table-name: activities
+    keys:
+    - key: lead_id
+      foreign-key: lead_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: user_id
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: updated_by
+    - key: user_id
+      foreign-key: user_id
+    - key: user_id
+      foreign-key: task_assigned_to
+    - key: user_id
+      foreign-key: users
+  - table-name: leads
+    keys:
+    - key: lead_id
+      foreign-key: id
+    - key: lead_id
+      foreign-key: contacts.lead_id
+    - key: lead_id
+      foreign-key: opportunities.lead_id
+    - key: lead_id
+      foreign-key: tasks.lead_id
+    - key: organization_id
+      foreign-key: contacts.organization_id
+    - key: organization_id
+      foreign-key: opportunities.organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: tasks.organization_id
+    - key: user_id
+      foreign-key: contacts.created_by
+    - key: user_id
+      foreign-key: contacts.updated_by
+    - key: user_id
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: opportunities.created_by
+    - key: user_id
+      foreign-key: opportunities.updated_by
+    - key: user_id
+      foreign-key: opportunities.user_id
+    - key: user_id
+      foreign-key: tasks.assigned_to
+    - key: user_id
+      foreign-key: tasks.created_by
+    - key: user_id
+      foreign-key: tasks.updated_by
+    - key: user_id
+      foreign-key: updated_by
+  - table-name: tasks
+    keys:
+    - key: lead_id
+      foreign-key: lead_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: user_id
+      foreign-key: assigned_to
+    - key: user_id
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: updated_by
+  - table-name: custom_fields
+    keys:
+    - key: organization_id
+      foreign-key: organization_id
+    - key: user_id
+      foreign-key: created_by
+    - key: user_id
+      foreign-key: updated_by
+  - table-name: users
+    keys:
+    - key: organization_id
+      foreign-key: organizations
+    - key: user_id
+      foreign-key: id
+- table-name: custom_fields
+  join:
+  - table-name: activities
+    keys:
+    - key: organization_id
+      foreign-key: organization_id
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+    - key: created_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+    - key: created_by
+      foreign-key: task_assigned_to
+    - key: updated_by
+      foreign-key: task_assigned_to
+    - key: created_by
+      foreign-key: users
+    - key: updated_by
+      foreign-key: users
+  - table-name: event_log
+    keys:
+    - key: organization_id
+      foreign-key: organization_id
+    - key: created_by
+      foreign-key: user_id
+    - key: updated_by
+      foreign-key: user_id
+  - table-name: leads
+    keys:
+    - key: organization_id
+      foreign-key: contacts.organization_id
+    - key: organization_id
+      foreign-key: opportunities.organization_id
+    - key: organization_id
+      foreign-key: organization_id
+    - key: organization_id
+      foreign-key: tasks.organization_id
+    - key: created_by
+      foreign-key: contacts.created_by
+    - key: updated_by
+      foreign-key: contacts.created_by
+    - key: created_by
+      foreign-key: contacts.updated_by
+    - key: updated_by
+      foreign-key: contacts.updated_by
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: opportunities.created_by
+    - key: updated_by
+      foreign-key: opportunities.created_by
+    - key: created_by
+      foreign-key: opportunities.updated_by
+    - key: updated_by
+      foreign-key: opportunities.updated_by
+    - key: created_by
+      foreign-key: opportunities.user_id
+    - key: updated_by
+      foreign-key: opportunities.user_id
+    - key: created_by
+      foreign-key: tasks.assigned_to
+    - key: updated_by
+      foreign-key: tasks.assigned_to
+    - key: created_by
+      foreign-key: tasks.created_by
+    - key: updated_by
+      foreign-key: tasks.created_by
+    - key: created_by
+      foreign-key: tasks.updated_by
+    - key: updated_by
+      foreign-key: tasks.updated_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+  - table-name: tasks
+    keys:
+    - key: organization_id
+      foreign-key: organization_id
+    - key: created_by
+      foreign-key: assigned_to
+    - key: updated_by
+      foreign-key: assigned_to
+    - key: created_by
+      foreign-key: created_by
+    - key: updated_by
+      foreign-key: created_by
+    - key: created_by
+      foreign-key: updated_by
+    - key: updated_by
+      foreign-key: updated_by
+  - table-name: users
+    keys:
+    - key: organization_id
+      foreign-key: organizations
+    - key: created_by
+      foreign-key: id
+    - key: updated_by
+      foreign-key: id
+- table-name: users
+  join:
+  - table-name: activities
+    keys:
+    - key: organizations
+      foreign-key: organization_id
+    - key: id
+      foreign-key: created_by
+    - key: id
+      foreign-key: updated_by
+    - key: id
+      foreign-key: user_id
+    - key: id
+      foreign-key: task_assigned_to
+    - key: id
+      foreign-key: users
+  - table-name: custom_fields
+    keys:
+    - key: organizations
+      foreign-key: organization_id
+    - key: id
+      foreign-key: created_by
+    - key: id
+      foreign-key: updated_by
+  - table-name: event_log
+    keys:
+    - key: organizations
+      foreign-key: organization_id
+    - key: id
+      foreign-key: user_id
+  - table-name: leads
+    keys:
+    - key: organizations
+      foreign-key: contacts.organization_id
+    - key: organizations
+      foreign-key: opportunities.organization_id
+    - key: organizations
+      foreign-key: organization_id
+    - key: organizations
+      foreign-key: tasks.organization_id
+    - key: id
+      foreign-key: contacts.created_by
+    - key: id
+      foreign-key: contacts.updated_by
+    - key: id
+      foreign-key: created_by
+    - key: id
+      foreign-key: opportunities.created_by
+    - key: id
+      foreign-key: opportunities.updated_by
+    - key: id
+      foreign-key: opportunities.user_id
+    - key: id
+      foreign-key: tasks.assigned_to
+    - key: id
+      foreign-key: tasks.created_by
+    - key: id
+      foreign-key: tasks.updated_by
+    - key: id
+      foreign-key: updated_by
+  - table-name: tasks
+    keys:
+    - key: organizations
+      foreign-key: organization_id
+    - key: id
+      foreign-key: assigned_to
+    - key: id
+      foreign-key: created_by
+    - key: id
+      foreign-key: updated_by

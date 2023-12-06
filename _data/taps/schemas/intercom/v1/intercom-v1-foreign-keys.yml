@@ -1,0 +1,394 @@
+tap: intercom
+version: '1'
+keys:
+  admins_admin_id:
+  - table: admins
+    keys:
+    - id
+  - table: company_attributes
+    keys:
+    - admin_id
+  - table: contact_attributes
+    keys:
+    - admin_id
+  - table: contacts
+    keys:
+    - owner_id
+  - table: conversation_parts
+    keys:
+    - assigned_to
+  - table: conversations
+    keys:
+    - conversation_rating.teammate.id
+    - tags.applied_by.id
+    - teammates.admins.id
+  - table: teams
+    keys:
+    - admin_ids
+  companies_id:
+  - table: companies
+    keys:
+    - id
+  - table: contacts
+    keys:
+    - companies.data.id
+  company_segments_id:
+  - table: company_segments
+    keys:
+    - id
+  conversations_id:
+  - table: conversations
+    keys:
+    - id
+  - table: conversation_parts
+    keys:
+    - conversation_id
+  contacts_id:
+  - table: contacts
+    keys:
+    - id
+  - table: conversations
+    keys:
+    - conversation_rating.customer.id
+    - customers.id
+    - contacts.id
+  segment_id:
+  - table: companies
+    keys:
+    - segments.id
+  - table: segments
+    keys:
+    - id
+  tags_id:
+  - table: contacts
+    keys:
+    - tags.data.id
+  - table: conversations
+    keys:
+    - tags.id
+  - table: companies
+    keys:
+    - tags.id
+  - table: tags
+    keys:
+    - id
+  teams_id:
+  - table: admins
+    keys:
+    - team_ids
+  - table: teams
+    keys:
+    - id
+tables:
+- table-name: admins
+  join:
+  - table-name: company_attributes
+    keys:
+    - key: id
+      foreign-key: admin_id
+  - table-name: contact_attributes
+    keys:
+    - key: id
+      foreign-key: admin_id
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: owner_id
+  - table-name: conversation_parts
+    keys:
+    - key: id
+      foreign-key: assigned_to
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: conversation_rating.teammate.id
+    - key: id
+      foreign-key: tags.applied_by.id
+    - key: id
+      foreign-key: teammates.admins.id
+  - table-name: teams
+    keys:
+    - key: id
+      foreign-key: admin_ids
+    - key: team_ids
+      foreign-key: id
+- table-name: company_attributes
+  join:
+  - table-name: admins
+    keys:
+    - key: admin_id
+      foreign-key: id
+  - table-name: contact_attributes
+    keys:
+    - key: admin_id
+      foreign-key: admin_id
+  - table-name: contacts
+    keys:
+    - key: admin_id
+      foreign-key: owner_id
+  - table-name: conversation_parts
+    keys:
+    - key: admin_id
+      foreign-key: assigned_to
+  - table-name: conversations
+    keys:
+    - key: admin_id
+      foreign-key: conversation_rating.teammate.id
+    - key: admin_id
+      foreign-key: tags.applied_by.id
+    - key: admin_id
+      foreign-key: teammates.admins.id
+  - table-name: teams
+    keys:
+    - key: admin_id
+      foreign-key: admin_ids
+- table-name: contact_attributes
+  join:
+  - table-name: admins
+    keys:
+    - key: admin_id
+      foreign-key: id
+  - table-name: company_attributes
+    keys:
+    - key: admin_id
+      foreign-key: admin_id
+  - table-name: contacts
+    keys:
+    - key: admin_id
+      foreign-key: owner_id
+  - table-name: conversation_parts
+    keys:
+    - key: admin_id
+      foreign-key: assigned_to
+  - table-name: conversations
+    keys:
+    - key: admin_id
+      foreign-key: conversation_rating.teammate.id
+    - key: admin_id
+      foreign-key: tags.applied_by.id
+    - key: admin_id
+      foreign-key: teammates.admins.id
+  - table-name: teams
+    keys:
+    - key: admin_id
+      foreign-key: admin_ids
+- table-name: contacts
+  join:
+  - table-name: admins
+    keys:
+    - key: owner_id
+      foreign-key: id
+  - table-name: company_attributes
+    keys:
+    - key: owner_id
+      foreign-key: admin_id
+  - table-name: contact_attributes
+    keys:
+    - key: owner_id
+      foreign-key: admin_id
+  - table-name: conversation_parts
+    keys:
+    - key: owner_id
+      foreign-key: assigned_to
+  - table-name: conversations
+    keys:
+    - key: owner_id
+      foreign-key: conversation_rating.teammate.id
+    - key: owner_id
+      foreign-key: tags.applied_by.id
+    - key: owner_id
+      foreign-key: teammates.admins.id
+    - key: id
+      foreign-key: conversation_rating.customer.id
+    - key: id
+      foreign-key: customers.id
+    - key: id
+      foreign-key: contacts.id
+    - key: tags.data.id
+      foreign-key: tags.id
+  - table-name: teams
+    keys:
+    - key: owner_id
+      foreign-key: admin_ids
+  - table-name: companies
+    keys:
+    - key: companies.data.id
+      foreign-key: id
+    - key: tags.data.id
+      foreign-key: tags.id
+  - table-name: tags
+    keys:
+    - key: tags.data.id
+      foreign-key: id
+- table-name: conversation_parts
+  join:
+  - table-name: admins
+    keys:
+    - key: assigned_to
+      foreign-key: id
+  - table-name: company_attributes
+    keys:
+    - key: assigned_to
+      foreign-key: admin_id
+  - table-name: contact_attributes
+    keys:
+    - key: assigned_to
+      foreign-key: admin_id
+  - table-name: contacts
+    keys:
+    - key: assigned_to
+      foreign-key: owner_id
+  - table-name: conversations
+    keys:
+    - key: assigned_to
+      foreign-key: conversation_rating.teammate.id
+    - key: assigned_to
+      foreign-key: tags.applied_by.id
+    - key: assigned_to
+      foreign-key: teammates.admins.id
+    - key: conversation_id
+      foreign-key: id
+  - table-name: teams
+    keys:
+    - key: assigned_to
+      foreign-key: admin_ids
+- table-name: conversations
+  join:
+  - table-name: admins
+    keys:
+    - key: conversation_rating.teammate.id
+      foreign-key: id
+    - key: tags.applied_by.id
+      foreign-key: id
+    - key: teammates.admins.id
+      foreign-key: id
+  - table-name: company_attributes
+    keys:
+    - key: conversation_rating.teammate.id
+      foreign-key: admin_id
+    - key: tags.applied_by.id
+      foreign-key: admin_id
+    - key: teammates.admins.id
+      foreign-key: admin_id
+  - table-name: contact_attributes
+    keys:
+    - key: conversation_rating.teammate.id
+      foreign-key: admin_id
+    - key: tags.applied_by.id
+      foreign-key: admin_id
+    - key: teammates.admins.id
+      foreign-key: admin_id
+  - table-name: contacts
+    keys:
+    - key: conversation_rating.teammate.id
+      foreign-key: owner_id
+    - key: tags.applied_by.id
+      foreign-key: owner_id
+    - key: teammates.admins.id
+      foreign-key: owner_id
+    - key: conversation_rating.customer.id
+      foreign-key: id
+    - key: customers.id
+      foreign-key: id
+    - key: contacts.id
+      foreign-key: id
+    - key: tags.id
+      foreign-key: tags.data.id
+  - table-name: conversation_parts
+    keys:
+    - key: conversation_rating.teammate.id
+      foreign-key: assigned_to
+    - key: tags.applied_by.id
+      foreign-key: assigned_to
+    - key: teammates.admins.id
+      foreign-key: assigned_to
+    - key: id
+      foreign-key: conversation_id
+  - table-name: teams
+    keys:
+    - key: conversation_rating.teammate.id
+      foreign-key: admin_ids
+    - key: tags.applied_by.id
+      foreign-key: admin_ids
+    - key: teammates.admins.id
+      foreign-key: admin_ids
+  - table-name: companies
+    keys:
+    - key: tags.id
+      foreign-key: tags.id
+  - table-name: tags
+    keys:
+    - key: tags.id
+      foreign-key: id
+- table-name: teams
+  join:
+  - table-name: admins
+    keys:
+    - key: admin_ids
+      foreign-key: id
+    - key: id
+      foreign-key: team_ids
+  - table-name: company_attributes
+    keys:
+    - key: admin_ids
+      foreign-key: admin_id
+  - table-name: contact_attributes
+    keys:
+    - key: admin_ids
+      foreign-key: admin_id
+  - table-name: contacts
+    keys:
+    - key: admin_ids
+      foreign-key: owner_id
+  - table-name: conversation_parts
+    keys:
+    - key: admin_ids
+      foreign-key: assigned_to
+  - table-name: conversations
+    keys:
+    - key: admin_ids
+      foreign-key: conversation_rating.teammate.id
+    - key: admin_ids
+      foreign-key: tags.applied_by.id
+    - key: admin_ids
+      foreign-key: teammates.admins.id
+- table-name: companies
+  join:
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: companies.data.id
+    - key: tags.id
+      foreign-key: tags.data.id
+  - table-name: segments
+    keys:
+    - key: segments.id
+      foreign-key: id
+  - table-name: conversations
+    keys:
+    - key: tags.id
+      foreign-key: tags.id
+  - table-name: tags
+    keys:
+    - key: tags.id
+      foreign-key: id
+- table-name: segments
+  join:
+  - table-name: companies
+    keys:
+    - key: id
+      foreign-key: segments.id
+- table-name: tags
+  join:
+  - table-name: contacts
+    keys:
+    - key: id
+      foreign-key: tags.data.id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: tags.id
+  - table-name: companies
+    keys:
+    - key: id
+      foreign-key: tags.id

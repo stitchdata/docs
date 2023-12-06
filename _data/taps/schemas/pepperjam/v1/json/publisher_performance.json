@@ -1,0 +1,172 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "bonus_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "clicks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "null",
+        "date"
+      ]
+    },
+    "datetime": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "earnings_per_click": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "leads": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "publisher_bonus": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "publisher_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "publisher_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "publisher_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sale_lead_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "sales": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "site_bonus": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "site_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_commission": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "website": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

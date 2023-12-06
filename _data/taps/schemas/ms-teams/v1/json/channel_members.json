@@ -1,0 +1,52 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "channel_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "display_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "roles": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

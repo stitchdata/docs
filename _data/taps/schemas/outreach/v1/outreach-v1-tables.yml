@@ -1,0 +1,240 @@
+tap: outreach
+version: '1'
+tables:
+- name: accounts
+  description: 'The `{{ table.name }}` table contains information about prospective
+    clients in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/accounts.json
+    api-method: https://api.outreach.io/api/v2/docs#account
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: calls
+  description: 'The `{{ table.name}}` table contains information about inbound and
+    outbound calls in your {{ integration.display_name }} call logs.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/calls.json
+    api-method: https://api.outreach.io/api/v2/docs#call
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: call_dispositions
+  description: 'The `{{ table.name}}` table contains information about call dispositions
+    from your call log in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/call_dispositions.json
+    api-method: https://api.outreach.io/api/v2/docs#callDisposition
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: call_purposes
+  description: 'The `{{ table.name}}` table contains information about the purpose
+    of calls in your {{ integration.display_name }} call logs.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/call_purposes.json
+    api-method: https://api.outreach.io/api/v2/docs#callPurpose
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: content_categories
+  description: 'The `{{ table.name}}` table contains information about your content
+    categories in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/content_categories.json
+    api-method: https://api.outreach.io/api/v2/docs#contentCategory
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: duties
+  description: 'The `{{ table.name}}` table contains {{ integration.display_name }}-suggested
+    job roles for users.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/duties.json
+    api-method: https://api.outreach.io/api/v2/docs#duty
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: events
+  description: 'The `{{ table.name}}` table contains information about application
+    events in your {{ integration.display_name }} account.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/events.json
+    api-method: https://api.outreach.io/api/v2/docs#event
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: eventAt
+- name: mailboxes
+  description: 'The `{{ table.name}}` table contains information about your {{ integration.display_name
+    }} email mailbox.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/mailboxes.json
+    api-method: https://api.outreach.io/api/v2/docs#mailbox
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: mailings
+  description: 'The `{{ table.name}}` table is a representation of a platform-related
+    email.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/mailings.json
+    api-method: https://api.outreach.io/api/v2/docs#mailing
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: opportunities
+  description: 'The `{{ table.name}}` table contains information about your pending
+    deals and sales in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/opportunities.json
+    api-method: https://api.outreach.io/api/v2/docs#opportunity
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: personas
+  description: 'The `{{ table.name}}` table contains information about descriptions
+    and types of people in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/personas.json
+    api-method: https://api.outreach.io/api/v2/docs#persona
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: prospects
+  description: 'The `{{ table.name}}` table contains information about your prospects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/prospects.json
+    api-method: https://api.outreach.io/api/v2/docs#prospect
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: sequences
+  description: 'The `{{ table.name }}` table contains info about sequences.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/sequences.json
+    api-method: https://api.outreach.io/api/v2/docs#sequence
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: sequence_states
+  description: 'The `{{ table.name }}` table contains info about currently sequenced
+    prospects.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/sequence_states.json
+    api-method: https://api.outreach.io/api/v2/docs#sequenceState
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: sequence_steps
+  description: 'The `{{ table.name }}` table contains info about individual steps
+    within automated sequences.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/sequence_steps.json
+    api-method: https://api.outreach.io/api/v2/docs#sequenceStep
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: sequence_templates
+  description: 'The `{{ table.name }}` table contains info about templates used by
+    sequence steps.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/sequence_templates.json
+    api-method: https://api.outreach.io/api/v2/docs#sequenceTemplate
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: stages
+  description: 'The `{{ table.name}}` table contains information about different stages
+    in a deal process.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/stages.json
+    api-method: https://api.outreach.io/api/v2/docs#stage
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: tasks
+  description: 'The `{{ table.name}}` table contains information about items that
+    require action in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/tasks.json
+    api-method: https://api.outreach.io/api/v2/docs#task
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: teams
+  description: 'The `{{ table.name}}` table contains information about groups of users
+    in {{ integration.display_name }}.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/teams.json
+    api-method: https://api.outreach.io/api/v2/docs#team
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: users
+  description: 'The `{{ table.name}}` table contains information about individual
+    users that use the {{ integration.display_name }} app.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/users.json
+    api-method: https://api.outreach.io/api/v2/docs#user
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+tap-repo-schemas: true

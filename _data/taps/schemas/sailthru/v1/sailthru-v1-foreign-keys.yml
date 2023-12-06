@@ -1,0 +1,172 @@
+tap: sailthru
+version: '1'
+keys:
+  lists_list_id:
+  - table: lists
+    keys:
+    - list_id
+  - table: ad_targeter_plans
+    keys:
+    - list
+  - table: blast_save_list
+    keys:
+    - lists
+  - table: users
+    keys:
+    - lists
+  - table: blasts
+    keys:
+    - list
+  - table: blast_repeats
+    keys:
+    - list
+  blasts_blast_id:
+  - table: blasts
+    keys:
+    - blast_id
+  - table: blast_query
+    keys:
+    - blast_id
+tables:
+- table-name: lists
+  join:
+  - table-name: ad_targeter_plans
+    keys:
+    - key: list_id
+      foreign-key: list
+  - table-name: blast_save_list
+    keys:
+    - key: list_id
+      foreign-key: lists
+  - table-name: users
+    keys:
+    - key: list_id
+      foreign-key: lists
+  - table-name: blasts
+    keys:
+    - key: list_id
+      foreign-key: list
+  - table-name: blast_repeats
+    keys:
+    - key: list_id
+      foreign-key: list
+- table-name: ad_targeter_plans
+  join:
+  - table-name: lists
+    keys:
+    - key: list
+      foreign-key: list_id
+  - table-name: blast_save_list
+    keys:
+    - key: list
+      foreign-key: lists
+  - table-name: users
+    keys:
+    - key: list
+      foreign-key: lists
+  - table-name: blasts
+    keys:
+    - key: list
+      foreign-key: list
+  - table-name: blast_repeats
+    keys:
+    - key: list
+      foreign-key: list
+- table-name: blast_save_list
+  join:
+  - table-name: lists
+    keys:
+    - key: lists
+      foreign-key: list_id
+  - table-name: ad_targeter_plans
+    keys:
+    - key: lists
+      foreign-key: list
+  - table-name: users
+    keys:
+    - key: lists
+      foreign-key: lists
+  - table-name: blasts
+    keys:
+    - key: lists
+      foreign-key: list
+  - table-name: blast_repeats
+    keys:
+    - key: lists
+      foreign-key: list
+- table-name: users
+  join:
+  - table-name: lists
+    keys:
+    - key: lists
+      foreign-key: list_id
+  - table-name: ad_targeter_plans
+    keys:
+    - key: lists
+      foreign-key: list
+  - table-name: blast_save_list
+    keys:
+    - key: lists
+      foreign-key: lists
+  - table-name: blasts
+    keys:
+    - key: lists
+      foreign-key: list
+  - table-name: blast_repeats
+    keys:
+    - key: lists
+      foreign-key: list
+- table-name: blasts
+  join:
+  - table-name: lists
+    keys:
+    - key: list
+      foreign-key: list_id
+  - table-name: ad_targeter_plans
+    keys:
+    - key: list
+      foreign-key: list
+  - table-name: blast_save_list
+    keys:
+    - key: list
+      foreign-key: lists
+  - table-name: users
+    keys:
+    - key: list
+      foreign-key: lists
+  - table-name: blast_repeats
+    keys:
+    - key: list
+      foreign-key: list
+  - table-name: blast_query
+    keys:
+    - key: blast_id
+      foreign-key: blast_id
+- table-name: blast_repeats
+  join:
+  - table-name: lists
+    keys:
+    - key: list
+      foreign-key: list_id
+  - table-name: ad_targeter_plans
+    keys:
+    - key: list
+      foreign-key: list
+  - table-name: blast_save_list
+    keys:
+    - key: list
+      foreign-key: lists
+  - table-name: users
+    keys:
+    - key: list
+      foreign-key: lists
+  - table-name: blasts
+    keys:
+    - key: list
+      foreign-key: list
+- table-name: blast_query
+  join:
+  - table-name: blasts
+    keys:
+    - key: blast_id
+      foreign-key: blast_id

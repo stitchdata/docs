@@ -1,0 +1,83 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "clearbit_domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "domain": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "logo_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "users": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "first_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "gravatar_url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "integer"
+            ]
+          },
+          "last_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "uuid": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

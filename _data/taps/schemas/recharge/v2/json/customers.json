@@ -1,0 +1,256 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "analytics_data": {
+      "additionalProperties": false,
+      "properties": {
+        "utm_params": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "utm_campaign": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_content": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_data_source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_medium": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_source": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_term": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "utm_timestamp": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "billing_address1": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_address2": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_city": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_company": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_country": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_phone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_province": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billing_zip": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "braintree_customer_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_customer_id": {
+      "additionalProperties": false,
+      "properties": {
+        "ecommerce": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "first_charge_processed_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "first_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "has_card_error_in_dunning": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_payment_method_in_dunning": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "has_valid_payment_method": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hash": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "number_active_subscriptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "number_subscriptions": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "paypal_customer_token": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "processor_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reason_payment_method_not_valid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscriptions_active_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscriptions_total_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

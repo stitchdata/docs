@@ -1,0 +1,680 @@
+{
+  "properties": {
+    "amount": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "discount_amounts": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "discount": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "discountable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "discounts": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invoice_item": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "livemode": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "metadata": {
+      "properties": {},
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "period": {
+      "properties": {
+        "end": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "start": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "plan": {
+      "properties": {
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "aggregate_usage": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "amount_decimal": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "billing_scheme": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "interval_count": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "livemode": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "metadata": {
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statement_description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "statement_descriptor": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tiers": {
+          "items": {
+            "properties": {
+              "flat_amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "unit_amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "up_to": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "string",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "tiers_mode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transform_usage": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "trial_period_days": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "updated": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "updated_by_event_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "usage_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "price": {
+      "properties": {
+        "active": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "billing_scheme": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "created": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "currency": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "livemode": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "lookup_key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "metadata": {
+          "properties": {},
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "nickname": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "object": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "product": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "recurring": {
+          "properties": {
+            "aggregate_usage": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interval": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "interval_count": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "usage_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "tax_behavior": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tiers": {
+          "items": {
+            "properties": {
+              "flat_amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "flat_amount_decimal": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "unit_amount": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "unit_amount_decimal": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "up_to": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "tiers_mode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "transform_quantity": {
+          "properties": {
+            "divide_by": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "round": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "unit_amount": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "unit_amount_decimal": {
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "proration": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "proration_details": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "subscription": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subscription_item": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax_amounts": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "inclusive": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "tax_rate": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "tax_rates": {
+      "items": {
+        "properties": {
+          "active": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "country": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "created": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "description": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "display_name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "inclusive": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "jurisdiction": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "livemode": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "metadata": {
+            "properties": {},
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "percentage": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "state": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "tax_type": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

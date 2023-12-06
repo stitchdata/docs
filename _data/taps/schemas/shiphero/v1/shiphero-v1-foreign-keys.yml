@@ -1,0 +1,82 @@
+tap: shiphero
+version: '1'
+keys:
+  orders_order_id:
+  - table: orders
+    keys:
+    - id
+  - table: shipments
+    keys:
+    - order_id
+    - order.id
+  products_product_id:
+  - table: orders
+    keys:
+    - line_items.product_id
+  - table: products
+    keys:
+    - id
+  - table: shipments
+    keys:
+    - order.line_items.product_id
+  _warehouse_id:
+  - table: orders
+    keys:
+    - line_items.warehouse_id
+  - table: products
+    keys:
+    - warehouses.warehouse_id
+  - table: shipments
+    keys:
+    - order.line_items.warehouse_id
+tables:
+- table-name: orders
+  join:
+  - table-name: shipments
+    keys:
+    - key: id
+      foreign-key: order_id
+    - key: id
+      foreign-key: order.id
+    - key: line_items.product_id
+      foreign-key: order.line_items.product_id
+    - key: line_items.warehouse_id
+      foreign-key: order.line_items.warehouse_id
+  - table-name: products
+    keys:
+    - key: line_items.product_id
+      foreign-key: id
+    - key: line_items.warehouse_id
+      foreign-key: warehouses.warehouse_id
+- table-name: shipments
+  join:
+  - table-name: orders
+    keys:
+    - key: order_id
+      foreign-key: id
+    - key: order.id
+      foreign-key: id
+    - key: order.line_items.product_id
+      foreign-key: line_items.product_id
+    - key: order.line_items.warehouse_id
+      foreign-key: line_items.warehouse_id
+  - table-name: products
+    keys:
+    - key: order.line_items.product_id
+      foreign-key: id
+    - key: order.line_items.warehouse_id
+      foreign-key: warehouses.warehouse_id
+- table-name: products
+  join:
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: line_items.product_id
+    - key: warehouses.warehouse_id
+      foreign-key: line_items.warehouse_id
+  - table-name: shipments
+    keys:
+    - key: id
+      foreign-key: order.line_items.product_id
+    - key: warehouses.warehouse_id
+      foreign-key: order.line_items.warehouse_id

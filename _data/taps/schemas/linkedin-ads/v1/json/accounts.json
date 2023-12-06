@@ -1,0 +1,184 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "change_audit_stamps": {
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "last_modified": {
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "date-time"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "created_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "last_modified_time": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notified_on_campaign_optimization": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "notified_on_creative_approval": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "notified_on_creative_rejection": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "notified_on_end_of_campaign": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_organization_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reference_person_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "serving_statuses": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "currency_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "total_budget_ends_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "version": {
+      "additionalProperties": false,
+      "properties": {
+        "version_tag": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    }
+  },
+  "type": "object"
+}

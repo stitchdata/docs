@@ -1,0 +1,166 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "brand": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "compare_at_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_properties": {
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_created_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_id": {
+      "type": "string"
+    },
+    "external_updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "group_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "gtins": {
+      "items": {
+        "properties": {
+          "declared_type": {
+            "type": "string"
+          },
+          "detected_type": {
+            "description": "Actual response shows `detected_type` whereas documentation does not mention it",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "handle": {
+      "description": "Actual response shows `handle` whereas documentation does not mention it",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "image_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "inventory_quantity": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_discontinued": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_valid_url_format": {
+      "description": "Actual response displays `is_valid_url_format` whereas documentation mention `is_valid_url`",
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "mpn": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "sku": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "yotpo_id": {
+      "type": "integer"
+    }
+  },
+  "type": [
+    "object"
+  ]
+}

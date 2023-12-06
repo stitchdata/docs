@@ -1,0 +1,89 @@
+{
+  "properties": {
+    "avatar_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "full_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "full_path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lfs_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "path": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "projects": {
+      "anyOf": [
+        {
+          "items": {
+            "properties": {
+              "id": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "request_access_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "visibility_level": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "web_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}

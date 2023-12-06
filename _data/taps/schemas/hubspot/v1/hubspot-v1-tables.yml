@@ -1,0 +1,181 @@
+tap: hubspot
+version: '1'
+tables:
+- name: campaigns
+  description: 'The `campaigns` table contains info about the campaigns in your HubSpot
+    account.
+
+    '
+  links:
+    doc-link: http://developers.hubspot.com/docs/methods/email/get_campaign_data
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/campaigns.json
+    api-method: https://developers.hubspot.com/docs/methods/email/get_campaign_data
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: companies
+  description: 'The `companies` table contains info about the companies your HubSpot
+    contacts belong to.
+
+
+    **Note:** when this table is synced, the [`hubspot_contacts_by_company`](#hubspot_contacts_by_company)
+    table will also be automatically synced and created in your data warehouse.
+
+    '
+  links:
+    doc-link: http://developers.hubspot.com/docs/methods/companies/get_company
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/companies.json
+    api-method: https://developers.hubspot.com/docs/methods/companies/get_company
+  table-details:
+    replication-method: Full Table
+    primary-key: companyId
+- name: contacts
+  description: 'The `contacts` table contains info about individual contacts in HubSpot.
+
+
+    ### Contact properties
+
+
+    If properties have been set for the contact, additional fields beginning with
+    `properties__` will be included in the table. **Note**: Contacts will only have
+    an entry for a property if that property has been set for the contact''s record.
+
+
+    HubSpot always types the value of `properties` fields as `STRING` despite the
+    property type. [Refer to HubSpot''s documentation for more info](https://developers.hubspot.com/docs/methods/contacts/contacts-overview).
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/contacts/contacts-overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/contacts.json
+    api-method: https://developers.hubspot.com/docs/methods/contacts/get_contacts
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: canonical-vid
+    replication-key: properties__lastModifiedDate__value
+- name: contact_lists
+  description: 'The `contact_lists` table contains info about the contacts lists in
+    your HubSpot account. Contact lists are used to segment contacts into groups,
+    and there are two types: dynamic (smart lists) and static.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/lists/contact-lists-overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/contact_lists.json
+    api-method: https://developers.hubspot.com/docs/methods/lists/get_lists
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: listId
+    replication-key: updatedAt
+- name: deals
+  description: 'The `deals` table contains info about the deals in a HubSpot portal.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/deals/deals_overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/deals.json
+    api-method: https://developers.hubspot.com/docs/methods/deals/get_deals_modified
+  table-details:
+    replication-method: Full Table
+    primary-keys:
+    - dealId
+    - portalId
+- name: email_events
+  description: 'The `email_events` table contains info about email events and how
+    recipients interact with content.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/email/email_events_overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/email_events.json
+    api-method: https://developers.hubspot.com/docs/methods/email/get_events
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: id
+- name: engagements
+  description: 'The `engagements` table contains info about all the engagements in
+    a HubSpot portal.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/engagements/engagements-overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/engagements.json
+    api-method: https://developers.hubspot.com/docs/methods/engagements/get-all-engagements
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: engagement_id
+    replication-key: lastUpdated
+- name: forms
+  description: 'The `forms` table contains info about your HubSpot website forms.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/forms/forms_overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/forms.json
+    api-method: https://developers.hubspot.com/docs/methods/forms/v2/get_forms
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: guid
+    replication-key: updatedAt
+- name: owners
+  description: 'The `owners` table contains info about the owners that exist in your
+    HubSpot portal. Owners are created and updated in HubSpot when new users are added
+    or when owners are synced from Salesforce to HubSpot.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/owners/owners_overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/owners.json
+    api-method: https://developers.hubspot.com/docs/methods/owners/get_owners
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - ownerId
+    - portalId
+    replication-key: updatedAt
+- name: subscription_changes
+  description: 'The `subscription_changes` table contains info about changes made
+    subscriptions.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/timeline/timeline-overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/subscription_changes.json
+    api-method: https://developers.hubspot.com/docs/methods/email/get_subscriptions_timeline
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - recipient
+    - portalId
+    - timestamp
+    replication-key: timestamp
+- name: deal_pipelines
+  description: 'The `{{ table.name }}` table contains info about the `deal stage`
+    and `pipeline` properties.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/deal-pipelines/overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/deal_pipelines.json
+    api-method: https://developers.hubspot.com/docs/methods/deal-pipelines/get-all-deal-pipelines
+  table-details:
+    replication-method: Full Table
+    primary-key: pipelineId
+- name: workflows
+  description: 'The `workflows` table contains info about the workflows in your {{
+    integration.display_name }} portal.
+
+
+    **Note**: The `workflows` stream only supports contact-based workflows.
+
+    '
+  links:
+    doc-link: https://developers.hubspot.com/docs/methods/workflows/workflows_overview
+    singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/workflows.json
+    api-method: https://developers.hubspot.com/docs/methods/workflows/v3/get_workflows
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+tap-repo-schemas: true

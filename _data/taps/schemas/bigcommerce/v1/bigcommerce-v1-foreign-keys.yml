@@ -1,0 +1,94 @@
+tap: bigcommerce
+version: '1'
+keys:
+  coupons_:
+  - table: coupons
+    keys:
+    - id
+  - table: orders
+    keys:
+    - coupons.coupon_id
+    - products.applied_discounts.id
+  customers_customer_id:
+  - table: customers
+    keys:
+    - id
+  - table: orders
+    keys:
+    - customer_id
+  products_product_id:
+  - table: products
+    keys:
+    - id
+    - images.product_id
+    - related_products.items
+    - variants.product_id
+  - table: orders
+    keys:
+    - products.product_id
+    - products.parent_order_product_id
+tables:
+- table-name: coupons
+  join:
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: coupons.coupon_id
+    - key: id
+      foreign-key: products.applied_discounts.id
+- table-name: orders
+  join:
+  - table-name: coupons
+    keys:
+    - key: coupons.coupon_id
+      foreign-key: id
+    - key: products.applied_discounts.id
+      foreign-key: id
+  - table-name: customers
+    keys:
+    - key: customer_id
+      foreign-key: id
+  - table-name: products
+    keys:
+    - key: products.product_id
+      foreign-key: id
+    - key: products.parent_order_product_id
+      foreign-key: id
+    - key: products.product_id
+      foreign-key: images.product_id
+    - key: products.parent_order_product_id
+      foreign-key: images.product_id
+    - key: products.product_id
+      foreign-key: related_products.items
+    - key: products.parent_order_product_id
+      foreign-key: related_products.items
+    - key: products.product_id
+      foreign-key: variants.product_id
+    - key: products.parent_order_product_id
+      foreign-key: variants.product_id
+- table-name: customers
+  join:
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: customer_id
+- table-name: products
+  join:
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: products.product_id
+    - key: images.product_id
+      foreign-key: products.product_id
+    - key: related_products.items
+      foreign-key: products.product_id
+    - key: variants.product_id
+      foreign-key: products.product_id
+    - key: id
+      foreign-key: products.parent_order_product_id
+    - key: images.product_id
+      foreign-key: products.parent_order_product_id
+    - key: related_products.items
+      foreign-key: products.parent_order_product_id
+    - key: variants.product_id
+      foreign-key: products.parent_order_product_id

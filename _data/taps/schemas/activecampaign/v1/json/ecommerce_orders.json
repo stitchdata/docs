@@ -1,0 +1,174 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "connection": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "connectionid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "customer": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "discount_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_created_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "external_updated_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "externalid": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "order_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "order_products": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "order_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shipping_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "shipping_method": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "state": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tax_amount": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "total_price": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "multipleOf": 1e-08,
+          "type": "number"
+        }
+      ]
+    },
+    "total_products": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "tstamp": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "updated_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    }
+  },
+  "type": "object"
+}

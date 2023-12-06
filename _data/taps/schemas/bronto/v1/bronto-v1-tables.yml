@@ -1,0 +1,65 @@
+tap: bronto
+version: '1'
+tables:
+- name: contact
+  description: 'The `contacts` table contains information about your contacts. A contact
+    describes an individual email address and/or SMS number in Bronto, along with
+    associated statistics and field data that you have provided.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/schemas.py#L291
+    api-method: http://dev.bronto.com/api/soap/objects/general/contactobject/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: modified
+- name: inbound_activity
+  description: 'The `inbound_activity` object contains activity info regarding contacts,
+    messages, and deliveries.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/schemas.py#L60
+    api-method: http://dev.bronto.com/api/soap/objects/general/activityobject/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: createdDate
+- name: list
+  description: "The `lists` table contains info about the contact lists in your Bronto\
+    \ account. \n"
+  links:
+    singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/endpoints/list.py#L16
+    api-method: http://dev.bronto.com/api/soap/objects/general/maillistobject/
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: outbound_activity
+  description: 'The `outbound_activity` table contains activity info regarding contacts,
+    messages, and deliveries.
+
+    '
+  links:
+    doc-link: http://dev.bronto.com/api/soap/objects/general/activityobject/
+    singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/schemas.py#L60
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: createdDate
+- name: unsubscribe
+  description: 'The `unsubscribe` table contains info about unsubscribe events. Contacts
+    may be unsubscribed by you, or they can unsubscribe themselves via an Unsubscribe
+    or Manage Preferences Webform.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/endpoints/unsubscribe.py#L20
+    api-method: http://dev.bronto.com/api/soap/objects/general/unsubscribeobject/
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - contactId
+    - deliveryId
+    - created
+    replication-key: created

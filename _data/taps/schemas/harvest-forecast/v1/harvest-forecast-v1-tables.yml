@@ -1,0 +1,79 @@
+tap: harvest-forecast
+version: '1'
+tables:
+- name: assignments
+  description: 'The `{{ table.name }}` table contains info about the assignments assigned
+    to the people in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/assignments.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: clients
+  description: 'The `{{ table.name }}` table contains info about the clients in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/clients.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: milestones
+  description: 'The `{{ table.name }}` table contains info about the project milestones
+    in your {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/milestones.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: people
+  description: 'The `{{ table.name }}` table contains info about the people in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/people.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: placeholders
+  description: The `{{ table.name }}` table contains info about the placeholders in
+    your {{ integration.display_name }} account.
+  links:
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/placeholders.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: projects
+  description: 'The `{{ table.name }}` table contains info about the projects in your
+    {{ integration.display_name }} account.
+
+    '
+  links:
+    doc-link: null
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/projects.json
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: roles
+  description: The `{{ table.name }}` table contains info about the roles in your
+    {{ integration.display_name }} account.
+  links:
+    singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/roles.json
+  table-details:
+    replication-method: Full Table
+    primary-key: id
