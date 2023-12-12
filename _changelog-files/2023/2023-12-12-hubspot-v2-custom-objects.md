@@ -1,7 +1,7 @@
 ---
 title: "HubSpot (v2): Custom objects support"
 content-type: "changelog-entry"
-date: 2023-11-22
+date: 2023-12-12
 entry-type: new-feature
 entry-category: integration
 connection-id: hubspot
