@@ -71,7 +71,7 @@ grant-permissions-to-user: &grant-permissions-sql |
 
 ## The individual steps for creating a Microsoft SQL Server user for Stitch.
 
-microsoft-sql-server:
+microsoft-sql-server: &mssql-steps
   - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
   - copy: "Navigate to the `master` database."
   - copy: |
@@ -84,3 +84,7 @@ microsoft-sql-server:
   - copy: |
       Run the following commands to allow the user to create tables and schemas:
     command: *grant-permissions-sql
+
+amazon-rds-microsoft-sql-server: *mssql-steps
+azure-sql-database: *mssql-steps
+azure-sql-managed-instance:  *mssql-steps

@@ -127,7 +127,7 @@ grant-permissions-to-user: &grant-permissions-sql |
 
 ## The individual steps for creating a MySQL user for Stitch.
 
-mysql:
+mysql: &mysql-steps
   - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
   - copy: |
       Run the following commands to create a login and a user named `stitch`. Replace `<STRONG_PASSWORD_HERE>` with a strong password.:
@@ -135,3 +135,7 @@ mysql:
   - copy: |
       Run the following command to grant the required privileges to the Stitch user:
     command: *grant-permissions-sql
+
+amazon-aurora-mysql: *mysql-steps
+amazon-rds-mysql: *mysql-steps
+mariadb-mysql: *mysql-steps

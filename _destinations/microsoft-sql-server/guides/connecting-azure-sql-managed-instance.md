@@ -12,15 +12,15 @@
 # Page formatting & Controls #
 # -------------------------- #
 
-title: Connecting a Microsoft SQL Server Destination to Stitch
-permalink: /destinations/microsoft-sql-server/connecting-a-microsoft-sql-server-destination-to-stitch
+title: Connecting an Azure SQL Managed Instance Destination to Stitch
+permalink: /destinations/microsoft-sql-server/connecting-an-azure-sql-managed-instance-destination-to-stitch
 
-keywords: microsoft sql server, microsoft sql server data warehouse, microsoft sql server data warehouse, microsoft sql server etl, etl to microsoft sql server, microsoft sql server destination
-summary: "Connect a Microsoft SQL Server destination to your Stitch account."
+keywords: azure sql managed instance, azure sql managed instance data warehouse, azure sql managed instance data warehouse, azure sql managed instance etl, etl to azure sql managed instance, azure sql managed instance destination
+summary: "Connect an Azure SQL Managed Instance destination to your Stitch account."
 
 content-type: "destination-setup"
-key: "microsoft-sql-server-destination-setup"
-order: 1
+key: "azure-sql-managed-instance-destination-setup"
+order: 2
 
 toc: true
 layout: tutorial
@@ -32,14 +32,14 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 type: "microsoft-sql-server"
-display_name: "Microsoft SQL Server"
-name: "microsoft-sql-server"
+display_name: "Azure SQL Managed Instance"
+name: "azure-sql-managed-instance"
 
 ssh: true
 ssl: true
 port: 1433
 
-hosting-type: "generic" # amazon, generic, microsoft, etc.
+hosting-type: "microsoft-azure" # amazon, generic, microsoft, etc.
 
 api-type: "mssql_server"
 
@@ -59,7 +59,7 @@ intro: |
 requirements:
   - item: |
       {% assign destination = page %}
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.documentation }}){:target="new"}.
+      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/){:target="new"}.
 
 
 # -------------------------- #
@@ -107,8 +107,6 @@ steps:
         content: |
           {% capture tsl-support-note %}
           SSL can only be used with versions of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
-
-          If your {{ destination.display_name }} instance is not hosted on RDS or Azure, you will not have the option to submit your own SSL certificate.
           {% endcapture %}
 
           {% include note.html type="single-line" content=tsl-support-note %}
