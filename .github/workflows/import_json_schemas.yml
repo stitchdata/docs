@@ -77,7 +77,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ env.branch }}
-          destination_branch: "TDL-23186-json-schema"
+          destination_branch: "master"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_label: "json-schemas-update"
           pr_title: ${{ github.event.inputs.repo }} JSON schema updates ${{ env.date }}
