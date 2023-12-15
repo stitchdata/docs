@@ -127,13 +127,15 @@ tables:
     replication-method: Full Table
     primary-key: gid
 - name: subtasks
-  description: ''
+  description: 'The `{{ table.name }}` table contains info about the subtasks associated
+    with tasks in your {{ integration.display_name }} account.
+
+    '
   links:
-    doc-link: ''
-    singer-schema: ''
-    api-method: ''
+    singer-schema: https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/subtasks.json
+    api-method: https://developers.asana.com/reference/getsubtasksfortask
   table-details:
-    replication-method: ''
-    primary-key: ''
-    replication-key: ''
+    replication-method: Key-based Incremental
+    primary-key: gid
+    replication-key: modified_at
 tap-repo-schemas: true
