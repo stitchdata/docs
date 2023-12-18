@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-surveymonkey/pull/29"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) to fix the missing `heading` field issue in the `simplified_responses` stream.
+We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix the missing `heading` field issue in the `simplified_responses` stream.
