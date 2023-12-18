@@ -137,7 +137,7 @@ setup-steps:
   - title: "Select an encoding format"
     anchor: "select-encoding-format"
     content: |
-      The default encoding format is `utf-8`, but you can update it by selecting a format in the **Encoding Format** drop-down list.
+      The default encoding format is `utf-8`, but you can update it by entering the name of the format in the **Encoding Format** field.
 
       **Note**: The selected format will be used for all files selected. If a file is encoded in a different format, an error may occur. If you need to replicate data from files with different encoding formats, you should consider creating a different connection for each format.
 
