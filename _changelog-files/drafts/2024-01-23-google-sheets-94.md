@@ -1,0 +1,11 @@
+---
+title: "Update to python 3.11"
+content-type: "changelog-entry"
+date: 2024-01-23
+entry-type: 
+entry-category: integration
+connection-id: 
+connection-version: 
+pull-request: "https://github.com/singer-io/tap-google-sheets/pull/94"
+---
+{{ site.data.changelog.metadata.single-integration | flatify }}
