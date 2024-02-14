@@ -49,13 +49,13 @@ required:
 # -------------------------- #
 
 ## ACCOUNT
-account:
+Account:
   permission:
     tab:  *lists
     name: "Accounts"
 
 ## ACCOUNTING PERIOD
-accounting-period:
+AccountingPeriod:
   permission:
     tab: *setup
     name: "Manage Accounting Periods"
@@ -65,25 +65,25 @@ accounting-period:
       name: "Accounting Periods"
 
 ## ADDRESS
-address:
+Address:
   permission:
     tab: "Lists"
     name: "[Parent Record Permission]"
 
 # APP DEFINITION
-app-definition:
+AppDefinition:
   permission:
     tab: *setup
     name: &int-app "Integration Application"
 
 # APP PACKAGE
-app-package:
+AppPackage:
   permission:
     tab: *setup
     name: *int-app
 
 ## BILLING ACCOUNT
-billing-account:
+BillingAccount:
   permission:
     tab: "Lists"
     name: "Customers"
@@ -93,7 +93,7 @@ billing-account:
       name: "Billing Accounts"
 
 ## BILLING SCHEDULE
-billing-schedule:
+BillingSchedule:
   permission:
     tab: *lists
     name: "Billing Schedules"
@@ -110,7 +110,7 @@ billing-schedule:
       description: "(Required for Charge-based billing schedules)"
 
 ## BIN
-bin:
+Bin:
   permission:
     tab: "Lists"
     name: "Bins"
@@ -120,7 +120,7 @@ bin:
       name: "Bin Management"
 
 ## BOM
-bom: &bom
+Bom: &bom
   permission:
     tab: "Lists"
     name: "Bill of Materials"
@@ -130,22 +130,22 @@ bom: &bom
       name: "Advanced Bill of Materials"
 
 ## BOM REVISION
-bom-revision: *bom
+BomRevision: *bom
 
 ## BUDGET
-budget:
+Budget:
   permission:
     tab: "Lists"
     name: "Set Up Budgets"
 
 ## CALENDAR EVENT
-calendar-event:
+CalendarEvent:
   permission:
     tab: "Lists"
     name: "Calendar"
 
 ## CAMPAIGN
-campaign:
+Campaign:
   permission:
     tab: "Lists"
     name: "Marketing Campaigns"
@@ -155,7 +155,7 @@ campaign:
       name: "Marketing Automation"
 
 ## CHARGE
-charge:
+Charge:
   permission:
     tab: "Transactions"
     name: "Charge"
@@ -165,13 +165,13 @@ charge:
       name: "Charge-Based Billing"
 
 ## CLASSIFICATION
-classification:
+Classification:
   permission:
     tab: "Lists"
     name: "[Parent Record Permission]"
 
 ## CONSOLIDATED EXCHANGE RATE
-consolidated-exchange-rate:
+ConsolidatedExchangeRate:
   permission:
     tab: "Lists"
     name: "Currency"
@@ -180,13 +180,13 @@ consolidated-exchange-rate:
     - name: "{{ integration.display_name }} OneWorld"
 
 ## CONTACT
-contact:
+Contact:
   permission:
     tab: "Lists"
     name: "Contacts"
 
 ## CONTACT CATEGORY
-contact-category:
+ContactCategory:
   permission:
     tab: "Setup"
     name: "CRM Lists"
@@ -196,7 +196,7 @@ contact-category:
       name: "Customer Relationship Management"
 
 ## CONTACT ROLE
-contact-role:
+ContactRole:
   permission:
     tab: "Setup"
     name: "CRM Lists"
@@ -206,7 +206,7 @@ contact-role:
       name: "Customer Relationship Management"
 
 ## COST CATEGORY
-cost-category:
+CostCategory:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
@@ -220,7 +220,7 @@ cost-category:
       name: "Landed Cost"
 
 ## COUPON CODE
-coupon-code:
+CouponCode:
   permission:
     tab: "Lists"
     name: "Promotion"
@@ -230,42 +230,42 @@ coupon-code:
       name: "Promotion Codes"
 
 ## CURRENCY RATE
-currency-rate:
+CurrencyRate:
   permission:
     tab: "Lists"
     name: "Currency"
 
 ## CUSTOM RECORDS
-custom-record:
+CustomRecord:
   permission:
     tab: "Setup"
     name: "Custom Record Types"
 
 ## CUSTOMER
-customer:
+Customer:
   permission:
     tab: "Lists"
     name: "Customers"
 
 ## CUSTOMER CATEGORY
-customer-category:
+CustomerCategory:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
 
 ## CUSTOMER MESSAGE
-customer-message:
+CustomerMessage:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
 
 ## CUSTOMER STATUS
-customer-status:
+CustomerStatus:
   permission:
     tab: "Setup"
     name: "Customer Status"
 
-customer-subsidiary-relationship:
+CustomerSubsidiaryRelationship:
   permission: &subsidiaries-permission
     tab: "Lists"
     name: "Subsidiaries"
@@ -276,44 +276,44 @@ customer-subsidiary-relationship:
     
 
 ## CUSTOM LIST
-custom-list:
+CustomList:
   permission:
     tab: "Setup"
     name: "Custom Lists"
 
 ## DELETED
-deleted:
+Deleted:
   permission:
     tab: "Setup"
     name: "Deleted Records"
     level: "Full"
 
 ## DEPARTMENT
-department:
+Department:
   permission:
     tab: "Lists"
     name: "Departments"
 
 ## EMPLOYEE
-employee:
+Employee:
   permission:
     tab: "Lists"
     name: "Employees"
 
 ## ENTITY GROUP
-entity-group:
+EntityGroup:
   permission:
     tab: "Lists"
     name: "CRM Groups"
 
 ## EXPENSE CATEGORY
-expense-category:
+ExpenseCategory:
   permission:
     tab: "Lists"
     name: "Expense Categories"
 
 ## FAIR VALUE PRICE
-fair-value-price:
+FairValuePrice:
   permission:
     tab: "Lists"
     name: "Fair Value Price"
@@ -323,19 +323,19 @@ fair-value-price:
       name: "Advanced Revenue Management"
 
 ## FILE
-file:
+File:
   permission:
     tab: "Lists"
     name: "Documents and Files"
 
 ## FOLDER
-folder:
+Folder:
   permission:
     tab: "Lists"
     name: "Documents and Files"
 
 ## GIFT CERTIFICATE
-gift-certificate:
+GiftCertificate:
   permission:
     tab: "Lists"
     name: "Items"
@@ -345,7 +345,7 @@ gift-certificate:
       name: "Gift Certificates"
 
 ## GLOBAL ACCOUNT MAPPING
-global-account-mapping:
+GlobalAccountMapping:
   permission:
     tab: "Setup"
     name: "Global Account Mapping"
@@ -358,7 +358,7 @@ global-account-mapping:
       name: "Chart of Accounts Mapping"
 
 ## HCMJOB
-hcmjob:
+HcmJob:
   permission:
     tab: "Lists"
     name: "HCMJob Management"
@@ -368,7 +368,7 @@ hcmjob:
       name: "Job Management"
 
 ## INBOUND SHIPMENT
-inbound-shipment:
+InboundShipment:
   permission:
     tab: "Lists"
     name: "Inbound Shipment"
@@ -378,7 +378,7 @@ inbound-shipment:
       name: "Inbound Shipment Management"
 
 ## INVENTORY NUMBER
-inventory-number:
+InventoryNumber:
   permission:
     tab: "Lists"
     name: "Items"
@@ -388,7 +388,7 @@ inventory-number:
       name: "Serialized Inventory or Lot Tracking"
 
 ## ISSUE
-issue:
+Issue:
   permission:
     tab: "Lists"
     name: "Issues"
@@ -398,14 +398,14 @@ issue:
       name: "Issue Management"
 
 ## ITEM
-item:
+Item:
   permission:
     tab: "Lists"
     name: "[Item Type]"
     description: ", where **[Item Type]** is a [supported item type](#supported-item-types),"
 
 ## ITEM ACCOUNT MAPPING
-item-account-mapping:
+ItemAccountMapping:
   permission:
     tab: "Setup"
     name: "Item Account Mapping"
@@ -418,7 +418,7 @@ item-account-mapping:
       name: "Chart of Accounts Mapping"
 
 ## ITEM DEMAND PLAN
-item-demand-plan:
+ItemDemandPlan:
   permission:
     tab: "Lists"
     name: "Item Demand Plan"
@@ -428,7 +428,7 @@ item-demand-plan:
       name: "Demand Planning"
 
 ## ITEM REVISION
-item-revision:
+ItemRevision:
   permission:
     tab: "Lists"
     name: "Item Revisions"
@@ -438,7 +438,7 @@ item-revision:
       name: "Assembly Items"
 
 ## ITEM SUPPLY PLAN
-item-supply-plan:
+ItemSupplyPlan:
   permission:
     tab: "Lists"
     name: "Item Supply Plan"
@@ -448,7 +448,7 @@ item-supply-plan:
       name: "Demand Planning"
 
 ## JOB
-job:
+Job:
   permission:
     tab: "Lists"
     name: "Projects"
@@ -458,7 +458,7 @@ job:
       name: "Projects"
 
 ## JOB STATUS
-job-status:
+JobStatus:
   permission:
     tab: "Lists"
     name: "Projects"
@@ -468,7 +468,7 @@ job-status:
       name: "Projects"
 
 ## JOB TYPE
-job-type:
+JobType:
   permission:
     tab: "Lists"
     name: "Projects"
@@ -478,7 +478,7 @@ job-type:
       name: "Projects"
 
 ## LOCATION
-location:
+Location:
   permission:
     tab: "Lists"
     name: "Locations"
@@ -488,7 +488,7 @@ location:
       name: "Locations"
 
 ## MANUFACTURING COST TEMPLATE
-manufacturing-cost-template:
+ManufacturingCostTemplate:
   permission:
     tab: "Lists"
     name: "Manufacturing Cost Template"
@@ -498,7 +498,7 @@ manufacturing-cost-template:
       name: "Manufacturing Routing and Work Center"
 
 ## MANUFACTURING OPERATION TASK
-manufacturing-operation-task:
+ManufacturingOperationTask:
   permission:
     tab: "Transactions"
     name: "Work Orders"
@@ -508,7 +508,7 @@ manufacturing-operation-task:
       name: "Manufacturing Routing and Work Center"
 
 ## MANUFACTURING ROUTING
-manufacturing-routing:
+ManufacturingRouting:
   permission:
     tab: "Lists"
     name: "Manufacturing Routing"
@@ -517,19 +517,19 @@ manufacturing-routing:
     - tab: "Items & Inventory"
       name: "Manufacturing Routing and Work Center"
 
-merchandise-hierarchy-node:
+MerchandiseHierarchyNode:
   permission:
     tab: "Setup"
     name: "Merchandise Hierarchy Node"
 
 ## MESSAGE
-message:
+Message:
   permission:
     tab: "Lists"
     name: "Track Messages"
 
 ## NEXUS
-nexus:
+Nexus:
   permission:
     tab: "Lists"
     name: "Tax Items"
@@ -539,19 +539,19 @@ nexus:
       name: "Advanced Taxes"
 
 ## NOTE
-note:
+Note:
   permission:
     tab: "Lists"
     name: "Notes Tab"
 
 ## NOTE TYPE
-note-type:
+NoteType:
   permission:
     tab: "Setup"
     name: "CRM Lists"
 
 ## OPPORTUNITY
-opportunity:
+Opportunity:
   permission:
     tab: "Transactions"
     name: "Opportunity"
@@ -561,13 +561,13 @@ opportunity:
       name: "Opportunities"
 
 ## ORIGINATING LEAD
-originating-lead:
+OriginatingLead:
   permission:
     tab: "Lists"
     name: "Customers"
 
 ## OTHER NAME CATEGORY
-other-name-category:
+OtherNameCategory:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
@@ -577,7 +577,7 @@ other-name-category:
       name: "Sales Force Automation"
 
 ## PARTNER
-partner:
+Partner:
   permission:
     tab: "Lists"
     name: "Partners"
@@ -587,7 +587,7 @@ partner:
       name: "Partner Relationship Management"
 
 ## PARTNER CATEGORY
-partner-category:
+PartnerCategory:
   permission:
     tab: "Setup"
     name: "CRM Lists"
@@ -597,7 +597,7 @@ partner-category:
       name: "Partner Relationship Management"
 
 ## PAYCHECK
-paycheck:
+Paycheck:
   permission:
     tab: "Transactions"
     name: "Individual Paycheck"
@@ -607,13 +607,13 @@ paycheck:
       name: "Payroll"
 
 ## PAYMENT METHOD
-payment-method:
+PaymentMethod:
   permission:
     tab: "Lists"
     name: "Payment Methods"
 
 ## PAYROLL ITEM
-payroll-item:
+PayrollItem:
   permission:
     tab: "Lists"
     name: "Payroll Items"
@@ -623,25 +623,25 @@ payroll-item:
       name: "Payroll"
 
 ## PHONE CALL
-phone-call:
+PhoneCall:
   permission:
     tab: "Lists"
     name: "Phone Call"
 
 ## PRICE LEVEL
-price-level:
+PriceLevel:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
 
 ## PRICING GROUP
-pricing-group:
+PricingGroup:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
 
 ## PROJECT TASK
-project-task:
+ProjectTask:
   permission:
     tab: "Lists"
     name: "Project Tasks"
@@ -651,7 +651,7 @@ project-task:
       name: "Project Management"
 
 ## PROMOTION CODE
-promotion-code:
+PromotionCode:
   permission:
     tab: "Lists"
     name: "Promotions"
@@ -661,7 +661,7 @@ promotion-code:
       name: "Promotion Codes"
 
 ## RESOURCE ALLOCATION
-resource-allocation:
+ResourceAllocation:
   permission:
     tab: "Lists"
     name: "Resource Allocations"
@@ -671,7 +671,7 @@ resource-allocation:
       name: "Advanced Accounting > Revenue Recognition"
 
 ## REVENUE RECOGNITION SCHEDULE
-rev-rec-schedule:
+RevRecSchedule:
   permission:
     tab: "Lists"
     name: "Revenue Recognition Schedules"
@@ -681,7 +681,7 @@ rev-rec-schedule:
       name: "Advanced Accounting > Revenue Recognition"
 
 ## REVENUE RECOGNITION TEMPLATE
-rev-rec-template:
+RevRecTemplate:
   permission:
     tab: "Lists"
     name: "Revenue Recognition Schedules"
@@ -691,7 +691,7 @@ rev-rec-template:
       name: "Advanced Accounting > Revenue Recognition"
 
 ## SALES ROLE
-sales-role:
+SalesRole:
   permission:
     tab: "Lists"
     name: "Sales Roles"
@@ -701,23 +701,23 @@ sales-role:
       name: "Team Selling"
 
 ## SALES TAX ITEM
-sales-tax-item:
+SalesTaxItem:
   permission:
     tab: "Lists"
     name: "Tax Items"
 
 ## SITE CATEGORY
-site-category:
+SiteCategory:
   permission:
     tab: "Lists"
     name: "Presentation Categories"
 
-feature-requirements:
+FeatureRequirements:
   - tab: "Web Presence"
     name: "Web Site"
 
 ## SOLUTION
-solution:
+Solution:
   permission:
     tab: "Lists"
     name: "Knowledge Base"
@@ -727,13 +727,13 @@ solution:
       name: "Knowledge Base"
 
 ## SUBSIDIARY
-subsidiary:
+Subsidiary:
   permission: *subsidiaries-permission
   feature-requirements:
     - name: "{{ integration.display_name }} OneWorld"
 
 ## SUPPORT CASE
-support-case:
+SupportCase:
   permission:
     tab: "Lists"
     name: "Cases"
@@ -743,7 +743,7 @@ support-case:
       name: "Case Management"
 
 ## TASK
-task:
+Task:
   permission:
     tab: "Lists"
     name: "Project Tasks"
@@ -753,25 +753,25 @@ task:
       name: "Project Management"
 
 ## TAX GROUP
-tax-group:
+TaxGroup:
   permission:
     tab: "Lists"
     name: "Tax Groups"
 
 ## TAX TYPE
-tax-type:
+TaxType:
   permission:
     tab: "Lists"
     name: "Tax Groups"
 
 ## TERM
-term:
+Term:
   permission:
     tab: "Transactions"
     name: "Customer Payment"
 
 ## TIME BILL
-time-bill:
+TimeBill:
   permission:
     tab: "Transactions"
     name: "Track Time"
@@ -781,7 +781,7 @@ time-bill:
       name: "Time Tracking"
 
 ## TIME ENTRY
-time-entry:
+TimeEntry:
   permission:
     tab: "Transactions"
     name: "Track Time"
@@ -791,7 +791,7 @@ time-entry:
       name: "Time Sheets"
 
 ## TIMESHEET
-timesheet:
+TimeSheet:
   permission:
     tab: "Transactions"
     name: "Track Time"
@@ -801,7 +801,7 @@ timesheet:
       name: "Timesheets"
 
 ## TOPIC
-topic:
+Topic:
   permission:
     tab: "Lists"
     name: "Knowledge Base"
@@ -811,14 +811,14 @@ topic:
       name: "Knowledge Base"
 
 ## TRANSACTION
-transaction:
+Transaction:
   permission:
     tab: "Transactions"
     name: "[Transaction Type]"
     description: ", where **[Transaction Type]** is a [supported transaction type](#supported-transaction-types),"
 
 ## UNITS TYPE
-units-type:
+UnitsType:
   permission:
     tab: "Lists"
     name: "Units"
@@ -830,7 +830,7 @@ units-type:
       name: *uom
 
 ## USAGE
-usage:
+Usage:
   permission:
     tab: "Lists"
     name: "Subscriptions"
@@ -839,23 +839,23 @@ usage:
     - name: "SuiteBilling"
 
 ## VENDOR
-vendor:
+Vendor:
   permission:
     tab: "Lists"
     name: "Vendors"
 
-vendor-subsidiary-relationship:
+VendorSubsidiaryRelationship:
   permission: *subsidiaries-permission
 
 ## VENDOR CATEGORY
-vendor-category:
+VendorCategory:
   permission:
     tab: "Setup"
     name: "Accounting Lists"
 
 
 ## WIN LOSS REASON
-win-loss-reason:
+WinLossReason:
   permission:
     tab: "Transactions"
     name: "Opportunity"
