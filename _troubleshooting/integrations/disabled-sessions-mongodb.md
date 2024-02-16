@@ -30,12 +30,12 @@ sections:
   - title: "Cause"
     anchor: "cause"
     content: |
-      Sessions are enabled by default on MongoDB. However, if sessions are disabled on your MongoDB server, cursor timeouts can occur.
+      These issues can occur when sessions are disabled on your MongoDB server.
 
   - title: "Solution"
     anchor: "solution"
     content: |
-      Enable sessions on your MongoDB server.
+      Sessions are enabled by default on MongoDB in version 3.6 or later. However, if sessions are disabled, you should enable them on your MongoDB server. For more information, reach out to MongoDB support.
       
       
 ---
