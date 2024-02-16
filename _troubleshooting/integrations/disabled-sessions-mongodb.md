@@ -1,5 +1,5 @@
 ---
-title: Mongo Disabled Sessions
+title: MongoDB Disabled Sessions
 keywords: troubleshooting, integration, database integration, trouble, issue, help, mongo, mongodb, session, cursor timeout
 permalink: /troubleshooting/disabled-sessions-mongodb
 
