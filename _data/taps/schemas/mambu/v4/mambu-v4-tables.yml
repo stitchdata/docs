@@ -61,9 +61,8 @@ tables:
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/centres.json
     api-method: https://api.mambu.com/?http#centres-getall
   table-details:
-    replication-method: Key-based Incremental
+    replication-method: Full Table
     primary-key: id
-    replication-key: last_modified_date
 - name: clients
   description: 'This table contains information about clients.
 
