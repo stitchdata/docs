@@ -11,14 +11,12 @@ search_no_results_text: No results found.
 
 enterprise:
   general: "available during the free trial or for customers on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan."
-
+  request: 'available for customers on an {{ site.data.stitch.subscription-plans.advanced.name }} or {{ site.data.stitch.subscription-plans.premium.name }} plan. It is not available by default during the free trial, but it can be enabled if needed.'
+  
   title:
-    is-an: " is an upgraded
- feature"
-    are-an: " are an upgraded
- feature"
-    multiple: " are upgraded
- features"
+    is-an: " is an upgraded feature"
+    are-an: " are an upgraded feature"
+    multiple: " are upgraded features"
 
   copy:
     is-an: |
@@ -27,3 +25,5 @@ enterprise:
       {{ site.data.strings.enterprise.title.are-an | append: " that's " | append: site.data.strings.enterprise.general | flatify }}
     multiple: |
       {{ site.data.strings.enterprise.title.multiple | append: " that are " | append: site.data.strings.enterprise.general | flatify }}
+    oracle: |
+      {{ site.data.strings.enterprise.title.are-an | append: " that's " | append: site.data.strings.enterprise.request | flatify }}

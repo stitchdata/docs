@@ -1,6 +1,7 @@
-{% assign integration-tables = site.integration-schemas | where:"tap",integration.name %}  
+{% assign version = integration.this-version | prepend: "v" %}
 
-{% assign schema = integration-tables | where:"version",integration.this-version | sort:"name" %}
+{% assign filename = integration.name | append: "-" | append: version | append: "-tables" %}
+{% assign schema = site.data.taps.schemas.[integration.name].[version].[filename].tables | sort:"name" %}
 
 
 {% include misc/icons.html %}
@@ -127,7 +128,7 @@ To add a permission to the role:
                 <tr>
                     <td>
                     <!-- Use the table's key to get the permissions and required features (if any) -->
-                        {% assign object = site.data.taps.extraction.netsuite.netsuite-permissions[table.key] %}
+                        {% assign object = site.data.taps.extraction.netsuite.netsuite-permissions[table.name] %}
 
                         {% if object.feature-requirements %}
                             {% capture required-features-tooltip %}
