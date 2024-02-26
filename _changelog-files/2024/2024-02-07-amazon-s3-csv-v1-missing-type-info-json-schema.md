@@ -12,7 +12,7 @@ pull-request: "https://github.com/singer-io/tap-s3-csv/pull/62"
 
 We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix the following error during the data loading process:
 
-`ERROR Target exited abnormally with status 1. Terminating tap.`
-`INFO No tunnel subprocess to tear down`
-`INFO Exit status is: Discovery succeeded. Tap succeeded. Target failed with `
-`code 1 and error message: "Error persisting data to Stitch: 400: {'error': 'Invalid JSON schema: key null: expected type is one of JSONObject, found: String'}".`
+```ERROR Target exited abnormally with status 1. Terminating tap.
+INFO No tunnel subprocess to tear down
+INFO Exit status is: Discovery succeeded. Tap succeeded. Target failed with 
+code 1 and error message: "Error persisting data to Stitch: 400: {'error': 'Invalid JSON schema: key null: expected type is one of JSONObject, found: String'}".```
