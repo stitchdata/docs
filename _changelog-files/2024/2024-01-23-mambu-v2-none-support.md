@@ -1,5 +1,5 @@
 ---
-title: "Mambu (v4) update: None support in list"
+title: "Mambu (v4) update: None value support in list"
 content-type: "changelog-entry"
 date: 2024-01-23
 entry-type: improvement
