@@ -51,6 +51,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: vid
+    replication-key: versionTimestamp
 - name: contacts_by_company
   description: 'The `{{ table.name }}` table contains contact and company ID pairs,
     allowing you to join contacts to relevant company data.
