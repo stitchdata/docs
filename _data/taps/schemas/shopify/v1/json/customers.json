@@ -1,24 +1,5 @@
 {
   "properties": {
-    "accepts_marketing": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "accepts_marketing_updated_at": {
-      "anyOf": [
-        {
-          "type": "date-time"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
     "addresses": {
       "items": {
         "properties": {
@@ -145,12 +126,6 @@
       "type": [
         "null",
         "date-time"
-      ]
-    },
-    "currency": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "default_address": {
@@ -320,12 +295,6 @@
       ]
     },
     "last_order_name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "marketing_opt_in_level": {
       "type": [
         "null",
         "string"
