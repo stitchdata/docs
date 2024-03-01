@@ -65,6 +65,10 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **Access to Single Sign-On (SSO) authentication.**
+
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
