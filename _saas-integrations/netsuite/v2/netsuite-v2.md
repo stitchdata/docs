@@ -29,7 +29,7 @@ key: "netsuite-setup"
 name: "netsuite"
 display_name: "NetSuite"
 
-singer: true
+singer: false
 tap-name: "NetSuite"
 
 
