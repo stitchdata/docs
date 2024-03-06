@@ -269,7 +269,7 @@ schema-sections:
 
       To ensure we can provide you with up-to-date documentation, this section will only cover a few of the most popular tables Stitch's {{ integration.display_name }} integration offers.
 
-      See the [{{ integration.display_name }} Object Reference](https://resources.docs.salesforce.com/sfdc/pdf/object_reference.pdf){:target="new"} guide for info on objects not listed here, including the fields available in each object.
+      See the [{{ integration.display_name }} Object Reference](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_list.htm){:target="new"} guide for info on objects not listed here, including the fields available in each object.
 
   - title: "Custom {{ integration.display_name }} object and field replication"
     anchor: "custom-objects-fields-replication"
