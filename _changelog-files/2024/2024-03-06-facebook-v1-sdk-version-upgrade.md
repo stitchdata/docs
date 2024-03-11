@@ -1,5 +1,5 @@
 ---
-title: "Facebook Adds (v1) update: SDK version upgrade"
+title: "Facebook Ads (v1) update: SDK version upgrade"
 content-type: "changelog-entry"
 date: 2024-03-06
 entry-type: updated-feature
