@@ -5,7 +5,7 @@ date: 2024-03-06
 entry-type: updated-feature
 entry-category: integration
 connection-id: facebook-ads
-connection-version: 
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-facebook/pull/238"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
