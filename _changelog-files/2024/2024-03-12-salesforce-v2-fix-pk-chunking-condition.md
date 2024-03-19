@@ -10,7 +10,7 @@ pull-request: "https://github.com/singer-io/tap-salesforce/pull/176"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix the following error during the ingteration execution:
+We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix the following error during the integration execution:
 
 ```
 CRITICAL One or more batches failed during PK chunked job.
