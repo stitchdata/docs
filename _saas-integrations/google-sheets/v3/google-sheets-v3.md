@@ -12,8 +12,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Google Sheets (v2)
-permalink: /integrations/saas/google-sheets/v2
+title: Google Sheets (v3)
+permalink: /integrations/saas/google-sheets
 keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeets etl, google-sheeets schema
 layout: singer
 # input: false
@@ -34,7 +34,7 @@ status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 tap-name: "Google Sheets"
 repo-url: https://github.com/singer-io/tap-google-sheets
 
-this-version: "2"
+this-version: "3"
 
 api: |
   [Google Sheets v4 AP1](https://developers.google.com/sheets/api){:target="new"}
