@@ -71,11 +71,6 @@ mysql: &standard-fields
     version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - &database
-    name: &database-name "{{ site.data.ui.common.database-connections.field-names.database }}"
-    version: "all"
-    copy: "{{ site.data.ui.common.database-connections.field-copy.optional-database | flatify }}"
-
   - &server-id
     name: &server-id-name "Server ID"
     version: "all"
