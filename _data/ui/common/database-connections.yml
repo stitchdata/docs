@@ -25,7 +25,6 @@ field-names:
   port: "Port"
   username: "Username"
   password: "Password"
-  database: "Database"
 
   encryption: "Encryption Type"
 
@@ -64,7 +63,8 @@ field-copy:
   port: |
     Enter the port used by the {{ page.display_name }} instance. The default is `{{ page.port }}`.
   
-  username: "Enter the Stitch {{ page.display_name }} database user's username."
+  username: | 
+    Enter the Stitch {{ page.display_name }} database user's username.
 
   password: |
     Enter the password for the Stitch {{ page.display_name }} database user.

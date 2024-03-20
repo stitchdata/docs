@@ -71,11 +71,6 @@ mysql: &standard-fields
     version: "all"
     copy: "{{ site.data.ui.common.database-connections.field-copy.password | flatify }}"
 
-  - &database
-    name: &database-name "{{ site.data.ui.common.database-connections.field-names.database }}"
-    version: "all"
-    copy: "{{ site.data.ui.common.database-connections.field-copy.optional-database | flatify }}"
-
   - &server-id
     name: &server-id-name "Server ID"
     version: "all"
@@ -97,11 +92,6 @@ aurora-rds: &rds-fields
   - *port
   - *username
   - *password
-  - name: *database-name
-    version: "all"
-    copy: |
-      Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.
-
 
 # -------------------------- #
 #           MAGENTO          #
@@ -113,7 +103,6 @@ magento:
   - *port
   - *username
   - *password
-  - *database
 
 
 # -------------------------- #
@@ -143,7 +132,6 @@ cloudsql-mysql:
   - *port
   - *username
   - *password
-  - *database
   - *server-id
 
 
@@ -160,4 +148,3 @@ microsoft-azure-mysql:
   - *port
   - *username
   - *password
-  - *database
