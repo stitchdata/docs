@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-twitter-ads
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} API v.7](https://developer.twitter.com/en/docs/ads/general/overview){:target="new"}
+  [{{ integration.display_name }} API v.10](https://developer.twitter.com/en/docs/ads/general/overview){:target="new"}
 
 
 # -------------------------- #
