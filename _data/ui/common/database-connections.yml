@@ -68,6 +68,12 @@ field-copy:
 
   password: |
     Enter the password for the Stitch {{ page.display_name }} database user.
+  
+  database: |
+    Enter the name of the {{ page.display_name }} database you want to connect to Stitch. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. This is required for {{ page.display_name }} integrations.
+
+  optional-database: |
+      **Optional:** Enter the name of the default database Stitch will connect to. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to test and complete the connection.
 
   schema-names-tables: |
     {% if integration.db-type == "mongodb" %}
