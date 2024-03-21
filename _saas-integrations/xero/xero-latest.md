@@ -65,6 +65,10 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **To enable Single Sign-On (SSO) authentication in your Stitch account.** For more information, see [Enabling SSO](https://www.stitchdata.com/docs/account-security/single-sign-on#enable-sso).
+
 setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
