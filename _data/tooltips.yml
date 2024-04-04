@@ -45,6 +45,8 @@ destination: "Destination is the Stitch word for 'data warehouse.' A data wareho
 
 extraction-logs: "Logs detailing the Extraction phase of the replication process for a given integration. Includes error info, should an error occur."
 
+history-mode: "When data is loaded using the History mode, records are appended to the end of the table as new rows. Only the `_sdc_end_date` column is updated in existing rows, to indicate when a new version was added. Multiple versions of a row can exist in a table, creating a log of how a record has changed over time."
+
 historical-replication-job: "A Stitch replication job that replicates historical data."
 
 historical-sync: "Historical syncs are how far back from the Stitch connection date, by default, Stitch will fetch historical data."
