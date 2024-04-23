@@ -7,86 +7,6 @@
         "date-time"
       ]
     },
-    "addons": {
-      "items": {
-        "properties": {
-          "amount": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "amount_in_decimal": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "object": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "quantity": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "quantity_in_decimal": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "remaining_billing_cycles": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "trial_end": {
-            "type": [
-              "null",
-              "date-time"
-            ]
-          },
-          "unit_price": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "unit_price_in_decimal": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "affiliate_token": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "auto_close_invoices": {
       "type": [
         "null",
@@ -153,10 +73,10 @@
         "string"
       ]
     },
-    "charged_event_based_addons": {
+    "charged_items": {
       "items": {
         "properties": {
-          "id": {
+          "item_price_id": {
             "type": [
               "null",
               "string"
@@ -381,68 +301,6 @@
         "date-time"
       ]
     },
-    "event_based_addons": {
-      "items": {
-        "properties": {
-          "charge_once": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          },
-          "id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "object": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "on_event": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "quantity": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "quantity_in_decimal": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "unit_price": {
-            "type": [
-              "null",
-              "integer"
-            ]
-          },
-          "unit_price_in_decimal": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
     "exchange_rate": {
       "type": [
         "null",
@@ -456,12 +314,6 @@
       ]
     },
     "free_period_unit": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "gift_id": {
       "type": [
         "null",
         "string"
@@ -491,6 +343,62 @@
         "string"
       ]
     },
+    "item_tiers": {
+      "items": {
+        "properties": {
+          "ending_unit": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "ending_unit_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "item_price_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "price": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "price_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "starting_unit": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "starting_unit_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
     "meta_data": {
       "type": [
         "null",
@@ -515,12 +423,6 @@
         "string"
       ]
     },
-    "offline_payment_method": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "override_relationship": {
       "type": [
         "null",
@@ -539,22 +441,10 @@
         "string"
       ]
     },
-    "plan_amount": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "plan_amount_in_decimal": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "plan_free_quantity": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "plan_free_quantity_in_decimal": {
@@ -563,28 +453,10 @@
         "string"
       ]
     },
-    "plan_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "plan_quantity": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "plan_quantity_in_decimal": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "plan_unit_price": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "plan_unit_price_in_decimal": {
@@ -709,12 +581,6 @@
         "date-time"
       ]
     },
-    "setup_fee": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "shipping_address": {
       "properties": {
         "city": {
@@ -829,6 +695,122 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "subscription_items": {
+      "items": {
+        "properties": {
+          "amount": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "amount_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "billing_cycles": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "charge_on_event": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "charge_on_option": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "charge_once": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "free_quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "free_quantity_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "item_price_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "item_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "object": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "quantity_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "service_period_days": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "trial_end": {
+            "type": [
+              "null",
+              "date-time"
+            ]
+          },
+          "unit_price": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "unit_price_in_decimal": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "total_dues": {
