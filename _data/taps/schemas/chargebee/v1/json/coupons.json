@@ -1,24 +1,6 @@
 {
   "additionalProperties": false,
   "properties": {
-    "addon_constraint": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "addon_ids": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
     "apply_discount_on": {
       "type": [
         "null",
@@ -85,12 +67,6 @@
         "string"
       ]
     },
-    "included_in_mrr": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "invoice_name": {
       "type": [
         "null",
@@ -101,6 +77,100 @@
       "type": [
         "null",
         "string"
+      ]
+    },
+    "item_constraint_criteria": {
+      "items": {
+        "properties": {
+          "currencies": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "item_family_ids": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "item_price_periods": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "item_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "item_constraints": {
+      "items": {
+        "properties": {
+          "constraint": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "item_price_ids": {
+            "items": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "type": [
+              "null",
+              "array"
+            ]
+          },
+          "item_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
       ]
     },
     "max_redemptions": {
@@ -137,24 +207,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "plan_constraint": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "plan_ids": {
-      "items": {
-        "type": [
-          "null",
-          "string"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
       ]
     },
     "redemptions": {
