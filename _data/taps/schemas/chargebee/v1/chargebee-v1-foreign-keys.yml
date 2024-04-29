@@ -5,25 +5,12 @@ keys:
   - table: addons
     keys:
     - id
-  - table: coupons
-    keys:
-    - addon_ids
-  - table: events
-    keys:
-    - content.subscription.addons.id
-    - content.subscription.charged_event_based_addons.id
-    - content.subscription.event_based_addons.id
   - table: invoices
     keys:
     - notes.entity_id
   - table: plans
     keys:
     - applicable_addons.id
-  - table: subscriptions
-    keys:
-    - addons.id
-    - charged_event_based_addons.id
-    - event_based_addons.id
   cards_:
   - table: cards
     keys:
@@ -116,9 +103,6 @@ keys:
   - table: orders
     keys:
     - gift_id
-  - table: subscriptions
-    keys:
-    - gift_id
   invoices_invoice_id:
   - table: credit_notes
     keys:
@@ -184,22 +168,12 @@ keys:
     - line_item_discounts.line_item_id
     - line_item_taxes.line_item_id
   plans_plan_id:
-  - table: coupons
-    keys:
-    - plan_ids
-  - table: events
-    keys:
-    - content.coupon.plan_ids
-    - content.subscription.plan_id
   - table: plans
     keys:
     - id
   - table: invoices
     keys:
     - notes.entity_id
-  - table: subscriptions
-    keys:
-    - plan_id
   payment_sources_payment_source_id:
   - table: customers
     keys:
