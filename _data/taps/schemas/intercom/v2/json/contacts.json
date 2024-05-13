@@ -1,5 +1,4 @@
 {
-  "additionalProperties": false,
   "properties": {
     "android_app_name": {
       "type": [
@@ -63,9 +62,20 @@
     },
     "companies": {
       "items": {
-        "additionalProperties": false,
         "properties": {
           "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "url": {
             "type": [
               "null",
               "string"
