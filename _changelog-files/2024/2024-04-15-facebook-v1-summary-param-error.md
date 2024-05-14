@@ -1,5 +1,5 @@
 ---
-title: "Facebook Ads (v1) bug fix: Summary param error workaround"
+title: "Facebook Ads (v1) bug fix: Summary param error"
 content-type: "changelog-entry"
 date: 2024-04-15
 entry-type: bug-fix
