@@ -17,7 +17,6 @@ We've updated API endpoints for the following streams: `campaign_groups`, `campa
 A cursor-based pagination has been implemented for the following streams: `accounts`, `campaign_groups`, `campaigns`, `creatives`.
 
 Unsupported `pivot` and `pivotValue` have been removed from the `fields` query parameters in Analytics API requests.
-These values have been incorporated within the integration to ensure consistency with the previous version.
 
 New fields have been added to the `video_ads` stream. It now requires the scope `r_organization_social` to synchronize the records.
 Data is not available for `change_audit_stamps` in the new endpoint.
