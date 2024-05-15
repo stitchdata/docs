@@ -2,7 +2,7 @@
 title: "Intercom (v2) update: New fields"
 content-type: "changelog-entry"
 date: 2024-05-08
-entry-type: update
+entry-type: updated-feature
 entry-category: integration
 connection-id: intercom
 connection-version: 2
