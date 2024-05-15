@@ -174,8 +174,8 @@ setup-steps:
       2. To track a report, click the **checkbox** next to the report's name. You'll be redirected to a page with a list of metrics and dimensions available for replication.
       3. Select the metrics and dimensions you want to include in the report. When making your selections, keep the following in mind:
 
-         - **You can select up to 10 metrics and 9 dimensions per report.** Stitch automatically sets the `date` dimension, so technically you can only select 8 other dimensions. This limit is imposed by Google and can't be changed or worked around. When you reach this limit, you won't be able to make any other selections until you de-select a metric or dimension.
-         - **Metric and dimension combinations are subject to Google's compatibility rules.** When you select a metric or dimension, all other metrics and dimensions incompatible with the selection will be greyed out. To test your combos before selecting them in Stitch, use [Google's Dimensions & Metrics Explorer](https://ga-dev-tools.web.app/ga4/dimensions-metrics-explorer/){:target="new"}.
+         - **You can select up to 10 metrics and 9 dimensions per report.** This limit is imposed by Google and can't be changed or worked around.
+         - **Metric and dimension combinations are subject to Google's compatibility rules.** To test your combos before selecting them in Stitch, use [Google's Dimensions & Metrics Explorer](https://ga-dev-tools.web.app/ga4/dimensions-metrics-explorer/){:target="new"}.
          - **Custom metrics and dimensions** will display as either `ga:metric` or `ga:dimension`.
 
            How a custom dimension will look in your {{ integration.display_name }} console:
