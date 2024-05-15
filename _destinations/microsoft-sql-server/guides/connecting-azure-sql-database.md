@@ -107,7 +107,7 @@ steps:
         content: |
           {% capture tsl-support-note %}
           SSL can only be used with versions of {{ destination.display_name }} that support TSL 1.2. Check which versions support it in [Microsoft's documentation]({{ site.data.destinations.microsoft-sql-server.resource-links.tls-support }}).
-          {% endcapture %}s
+          {% endcapture %}
           {% include note.html type="single-line" content=tsl-support-note %}
 
           Check the **{{ defaults.field-names.ssl }}** checkbox. {{ defaults.field-copy.ssl }}
