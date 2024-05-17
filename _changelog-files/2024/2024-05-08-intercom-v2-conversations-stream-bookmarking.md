@@ -14,4 +14,4 @@ We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-v
 
 The `conversations` records have been updated after the previous synchronization start was missed. This issue has been fixed by bookmarking the last synchronization start time.
 
-A long running synchronization was stuck in loop after an interruption because the synchronization was resumed from the beginning. Nested filters have been added in `search_query` to resume the synchronization from the last processed conversations record.
+A long running synchronization was stuck in loop after interruption because the synchronization was resumed from the start. Nested filters have been added in `search_query` to resume the synchronization from the last processed conversations record.
