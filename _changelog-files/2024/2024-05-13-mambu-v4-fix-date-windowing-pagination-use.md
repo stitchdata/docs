@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2024-05-13
 entry-type: bug-fix
 entry-category: integration
-connection-id: tap-mambu
+connection-id: mambu
 connection-version: 4
 pull-request: "https://github.com/singer-io/tap-mambu/pull/113"
 ---
