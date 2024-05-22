@@ -22,5 +22,3 @@ Multi-threaded execution has been reintroduced to expedite historical sync execu
 Data discrepancies were reported in certain streams after the extraction gets interrupted due to extraction timeout and memory issue.
 The bookmark strategy has been revised for multi-threaded generators to address data discrepancies.
 We segregated the `LoanAccounts` sub-stream bookmarking to rectify data inconsistencies.
-- Miscellaneous Issues:
-Additional discrepancies were reported, including date time zone mismatches and a failure to sync custom fields. These issues have been fixed.
