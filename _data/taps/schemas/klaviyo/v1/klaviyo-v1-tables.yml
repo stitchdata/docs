@@ -61,6 +61,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
+  status: not_found
 - name: dropped_email
   description: 'The `{{ table.name }}` table contains metrics related to `Clicked
     Email` events.
@@ -245,3 +246,23 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
+- name: subscribed_to_sms
+  description: ''
+  links:
+    doc-link: ''
+    singer-schema: ''
+    api-method: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
+- name: subscribed_to_email
+  description: ''
+  links:
+    doc-link: ''
+    singer-schema: ''
+    api-method: ''
+  table-details:
+    replication-method: ''
+    primary-key: ''
+    replication-key: ''
