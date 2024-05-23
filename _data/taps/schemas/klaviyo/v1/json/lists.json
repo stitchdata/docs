@@ -3,22 +3,10 @@
     "created": {
       "type": [
         "null",
-        "string"
-      ]
-    },
-    "folder": {
-      "type": [
-        "null",
-        "string"
+        "date-time"
       ]
     },
     "id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "list_type": {
       "type": [
         "null",
         "string"
@@ -30,22 +18,54 @@
         "string"
       ]
     },
-    "object": {
+    "opt_in_process": {
       "type": [
         "null",
         "string"
       ]
     },
-    "person_count": {
+    "tags": {
+      "items": {
+        "properties": {
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        },
+        "type": [
+          "null",
+          "object"
+        ]
+      },
       "type": [
         "null",
-        "integer"
+        "array"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "updated": {
       "type": [
         "null",
-        "string"
+        "date-time"
       ]
     }
   },
