@@ -16,8 +16,6 @@ The base URL has been updated for all streams.
 
 The API key authorization has been moved from the query parameters to the request headers.
 
-A new property `api_version` has been added in the integration configuration.
-
 The schema for all streams has been updated to include all relevant fields.
 
 New tables have been added: `subscribed_to_email` and `subscribed_to_sms`.
