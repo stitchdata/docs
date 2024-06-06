@@ -59,8 +59,9 @@ attributes:
     all: *delimiters
 
   - name: "Character encoding"
-    all: *encodings
-
+    amazon-s3-csv: *encodings
+    sftp: |
+      The default encoding is UTF-8, but it can be changed to any encoding format supported by Python 3.9. For more information, see the [Python documentation](https://docs.python.org/3.9/library/codecs.html#standard-encodings).
 
 # ------------------------------- #
 #          SUPPORT TABLE          #
