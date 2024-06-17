@@ -24,7 +24,7 @@ time-limit: &time-limit
   cause: |
     The extraction exceeded the maximum six hour limit set for individual extraction jobs.
 
-    Stitch sets a maximum limit of six hours for individual extraction jobs. This is done to balance resource usage across Stitch, and to help prevent unexpected or unintended continuations of connections against integrations.
+    Stitch sets a maximum limit of 24 hours for individual extraction jobs. This is done to balance resource usage across Stitch, and to help prevent unexpected or unintended continuations of connections against integrations.
   fix-it: |
     To help decrease the runtime of extraction, we recommend de-selecting unneeded tables and columns. This will reduce the amount of data being replicated.
 
