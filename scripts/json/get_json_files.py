@@ -18,29 +18,6 @@ try:
 except:
     branch = ''
 
-def getTags(repo):
-    # To be removed
-
-    major_versions = []
-    version_tags = []
-
-    tags_api = host + '/repos/singer-io/' + repo + '/tags'
-    tags = json.loads(requests.get(tags_api, headers=github_headers).content)
-
-    for tag in tags:
-        name = tag['name']
-        version = name.replace('v', '')
-        major_version = version[0]
-        
-        if major_version not in major_versions:
-            if major_version == '0' and len(major_versions) > 0:
-                pass
-            else:
-                major_versions.append(major_version)
-                version_tags.append(name)
-    
-    return version_tags
-
 def getTapData(setup_file):
     # Get the name of the tap and the current version from the setup file
 
@@ -186,7 +163,6 @@ def getFiles(repo, branch):
         # Delete tap folder        
         shutil.rmtree(zip_output)
 
-
 def getIntegrationVersions(integration):
 
     # To remove before going to prod
@@ -205,56 +181,9 @@ def getIntegrationVersions(integration):
         print('{} not found'.format(integration_path))
     return len(integration_versions)
 
-def getAllTaps(branch):
-    # To remove
-    issues = []
-
-    file = '../../_data/taps/integrations.yml'
-
-    with open(file, 'r') as f:
-        data = yaml.safe_load(f)
-        
-        integrations = data['integrations']
-        for i in integrations:
-            tap = integrations[i]['tap']
-            id = integrations[i]['id']
-
-            version_count = getIntegrationVersions(id)
-
-            if tap != '':
-                try:
-                    if branch == 'all' and version_count > 1:
-                        tags = getTags(tap)
-                        for tag in tags:
-                            getFiles(tap, tag)
-                    elif branch == 'all' and version_count <= 1:
-                        getFiles(tap, '')
-                    else:
-                        getFiles(tap, branch)
-                except:
-                    issues.append(tap)
-
-    print('Issues were found in the following repositories:')
-    print(*issues, sep='\n')
-
-if repo == 'all':
-    if branch == '':
-        print('Fetching schemas from the main/master branch of all tap repositories listed in _data/taps/integrations.yml')
-    elif branch == 'all':
-        print('Fetching schemas from each major version of all tap repositories listed in _data/taps/integrations.yml')
-    
-    getAllTaps(branch)
-
+if branch == '':
+    print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
 else:
-    if branch == 'all':
-        print('Fetching schemas from each major version of the {} repository'.format(repo))
-        tags = getTags(repo)
-        for tag in tags:
-            getFiles(repo, tag)
-    else:
-        if branch == '':
-            print('Fetching schemas from the main/master branch of the {} repository'.format(repo))
-        else:
-            print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
+    print('Fetching schemas from the {0} branch of the {1} repository'.format(branch, repo))
 
-        getFiles(repo, branch)
+getFiles(repo, branch)
