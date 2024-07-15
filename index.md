@@ -6,10 +6,8 @@ enterprise: false
 feedback: false
 permalink: index.html
 summary: "Guides and resources for setting up and managing your Stitch data pipeline."
-youtubeId: ma_zRadotOM
 ---
 
-{% include youtube-player.html id=page.youtubeId %}
 {% include misc/data-files.html %}
 
 <p class="intro">{{ site.description }} Not using Stitch yet? Start your <a href="https://www.stitchdata.com/signup/">free trial.</a></p>
