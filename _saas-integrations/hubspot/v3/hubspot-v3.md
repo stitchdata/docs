@@ -3,7 +3,6 @@ title: HubSpot (v3)
 permalink: /integrations/saas/hubspot
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
-input: false
 layout: singer
 key: "hubspot-setup"
 
