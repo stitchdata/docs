@@ -1,6 +1,6 @@
 ---
 title: HubSpot (v2)
-permalink: /integrations/saas/hubspot
+permalink: /integrations/saas/hubspot/v2
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
 input: false
