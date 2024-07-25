@@ -40,7 +40,7 @@ tables:
     replication-method: Key-based Incremental
     primary-key: listId
     replication-key: updatedAt
-    - name: contacts
+- name: contacts
   description: 'The `{{ table.name }}` table contains info about individual contacts
     in {{ integration.display_name }}.
 
