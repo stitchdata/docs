@@ -430,16 +430,6 @@ tables:
       foreign-key: portal-id
     - key: engagement.portalId
       foreign-key: form-submissions.portal-id
-  - table-name: owners
-    keys:
-    - key: engagement.ownerId
-      foreign-key: ownerId
-    - key: engagement.ownerId
-      foreign-key: remoteList.ownerId
-    - key: engagement.portalId
-      foreign-key: portalId
-    - key: engagement.portalId
-      foreign-key: remoteList.portalId
   - table-name: email_events
     keys:
     - key: engagement.portalId
@@ -448,6 +438,12 @@ tables:
     keys:
     - key: engagement.portalId
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: engagement.portalId
+      foreign-key: portalId
+    - key: engagement.portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: engagement.portalId
@@ -498,3 +494,119 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
+- table-name: owners
+  join:
+  - table-name: companies
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: contact_lists
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: contacts
+    keys:
+    - key: portalId
+      foreign-key: portal-id
+    - key: remoteList.portalId
+      foreign-key: portal-id
+    - key: portalId
+      foreign-key: form-submissions.portal-id
+    - key: remoteList.portalId
+      foreign-key: form-submissions.portal-id
+  - table-name: deals
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: email_events
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: engagements
+    keys:
+    - key: portalId
+      foreign-key: engagement.portalId
+    - key: remoteList.portalId
+      foreign-key: engagement.portalId
+  - table-name: forms
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: subscription_changes
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: changes.portalId
+    - key: remoteList.portalId
+      foreign-key: changes.portalId
+- table-name: subscription_changes
+  join:
+  - table-name: companies
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+  - table-name: contact_lists
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+  - table-name: contacts
+    keys:
+    - key: portalId
+      foreign-key: portal-id
+    - key: changes.portalId
+      foreign-key: portal-id
+    - key: portalId
+      foreign-key: form-submissions.portal-id
+    - key: changes.portalId
+      foreign-key: form-submissions.portal-id
+  - table-name: deals
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+  - table-name: email_events
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+  - table-name: engagements
+    keys:
+    - key: portalId
+      foreign-key: engagement.portalId
+    - key: changes.portalId
+      foreign-key: engagement.portalId
+  - table-name: forms
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
+    - key: changes.portalId
+      foreign-key: remoteList.portalId
