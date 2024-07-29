@@ -450,8 +450,6 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
-<<<<<<< HEAD
-=======
 - table-name: owners
   join:
   - table-name: companies
@@ -510,7 +508,6 @@ tables:
       foreign-key: changes.portalId
     - key: remoteList.portalId
       foreign-key: changes.portalId
->>>>>>> parent of 66ea00e5 (Removed foreign key)
 - table-name: subscription_changes
   join:
   - table-name: companies
