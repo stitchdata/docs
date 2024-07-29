@@ -68,11 +68,6 @@ keys:
   - table: contacts
     keys:
     - form-submissions.form-id
-  owners_ownerId:
-  - table: owners
-    keys:
-    - ownerId
-    - remoteList.ownerId
   _portalId:
   - table: companies
     keys:
@@ -96,6 +91,10 @@ keys:
   - table: forms
     keys:
     - portalId
+  - table: owners
+    keys:
+    - portalId
+    - remoteList.portalId
   - table: subscription_changes
     keys:
     - portalId
@@ -401,6 +400,12 @@ tables:
     keys:
     - key: engagement.portalId
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: engagement.portalId
+      foreign-key: portalId
+    - key: engagement.portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: engagement.portalId
@@ -445,6 +450,67 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
+<<<<<<< HEAD
+=======
+- table-name: owners
+  join:
+  - table-name: companies
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: contact_lists
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: contacts
+    keys:
+    - key: portalId
+      foreign-key: portal-id
+    - key: remoteList.portalId
+      foreign-key: portal-id
+    - key: portalId
+      foreign-key: form-submissions.portal-id
+    - key: remoteList.portalId
+      foreign-key: form-submissions.portal-id
+  - table-name: deals
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: email_events
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: engagements
+    keys:
+    - key: portalId
+      foreign-key: engagement.portalId
+    - key: remoteList.portalId
+      foreign-key: engagement.portalId
+  - table-name: forms
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+  - table-name: subscription_changes
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: remoteList.portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: changes.portalId
+    - key: remoteList.portalId
+      foreign-key: changes.portalId
+>>>>>>> parent of 66ea00e5 (Removed foreign key)
 - table-name: subscription_changes
   join:
   - table-name: companies
