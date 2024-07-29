@@ -68,6 +68,13 @@ keys:
   - table: contacts
     keys:
     - form-submissions.form-id
+  owners_Id:
+  - table: engagements
+    keys:
+    - engagement.Id
+  - table: owners
+    keys:
+    - Id
   _portalId:
   - table: companies
     keys:
@@ -91,10 +98,6 @@ keys:
   - table: forms
     keys:
     - portalId
-  - table: owners
-    keys:
-    - portalId
-    - remoteList.portalId
   - table: subscription_changes
     keys:
     - portalId
@@ -392,6 +395,10 @@ tables:
       foreign-key: portal-id
     - key: engagement.portalId
       foreign-key: form-submissions.portal-id
+  - table-name: owners
+    keys:
+    - key: engagement.Id
+      foreign-key: Id
   - table-name: email_events
     keys:
     - key: engagement.portalId
@@ -400,12 +407,6 @@ tables:
     keys:
     - key: engagement.portalId
       foreign-key: portalId
-  - table-name: owners
-    keys:
-    - key: engagement.portalId
-      foreign-key: portalId
-    - key: engagement.portalId
-      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: engagement.portalId
@@ -452,6 +453,10 @@ tables:
       foreign-key: changes.portalId
 - table-name: owners
   join:
+  - table-name: engagements
+    keys:
+    - key: Id
+      foreign-key: engagement.Id
   - table-name: companies
     keys:
     - key: portalId
@@ -486,12 +491,6 @@ tables:
       foreign-key: portalId
     - key: remoteList.portalId
       foreign-key: portalId
-  - table-name: engagements
-    keys:
-    - key: portalId
-      foreign-key: engagement.portalId
-    - key: remoteList.portalId
-      foreign-key: engagement.portalId
   - table-name: forms
     keys:
     - key: portalId
