@@ -147,6 +147,12 @@ tables:
     keys:
     - key: portalId
       foreign-key: engagement.portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: portalId
@@ -189,6 +195,12 @@ tables:
     keys:
     - key: portalId
       foreign-key: engagement.portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: portalId
@@ -243,6 +255,16 @@ tables:
       foreign-key: portalId
     - key: form-submissions.portal-id
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: portal-id
+      foreign-key: portalId
+    - key: form-submissions.portal-id
+      foreign-key: portalId
+    - key: portal-id
+      foreign-key: remoteList.portalId
+    - key: form-submissions.portal-id
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: portal-id
@@ -307,6 +329,12 @@ tables:
     keys:
     - key: portalId
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: portalId
@@ -353,6 +381,12 @@ tables:
     keys:
     - key: portalId
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: portalId
@@ -445,6 +479,12 @@ tables:
     keys:
     - key: portalId
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
   - table-name: subscription_changes
     keys:
     - key: portalId
@@ -555,3 +595,13 @@ tables:
       foreign-key: portalId
     - key: changes.portalId
       foreign-key: portalId
+  - table-name: owners
+    keys:
+    - key: portalId
+      foreign-key: portalId
+    - key: changes.portalId
+      foreign-key: portalId
+    - key: portalId
+      foreign-key: remoteList.portalId
+    - key: changes.portalId
+      foreign-key: remoteList.portalId
