@@ -124,8 +124,6 @@ tables:
     keys:
     - key: emailCampaignId
       foreign-key: leadNurturingCampaignId
-<<<<<<< HEAD
-=======
     - key: portalId
       foreign-key: portalId
   - table-name: companies
@@ -162,7 +160,6 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
 - table-name: forms
   join:
   - table-name: campaigns
@@ -177,8 +174,6 @@ tables:
     keys:
     - key: guid
       foreign-key: form-submissions.form-id
-<<<<<<< HEAD
-=======
     - key: portalId
       foreign-key: portal-id
     - key: portalId
@@ -211,7 +206,6 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
 - table-name: contacts
   join:
   - table-name: contacts_by_company
@@ -230,8 +224,6 @@ tables:
     keys:
     - key: form-submissions.form-id
       foreign-key: guid
-<<<<<<< HEAD
-=======
     - key: portal-id
       foreign-key: portalId
     - key: form-submissions.portal-id
@@ -274,7 +266,6 @@ tables:
       foreign-key: changes.portalId
     - key: form-submissions.portal-id
       foreign-key: changes.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
 - table-name: contacts_by_company
   join:
   - table-name: contacts
@@ -307,8 +298,6 @@ tables:
     keys:
     - key: companyId
       foreign-key: associations.companyIds
-<<<<<<< HEAD
-=======
     - key: portalId
       foreign-key: engagement.portalId
   - table-name: contact_lists
@@ -341,7 +330,6 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
 - table-name: deals
   join:
   - table-name: companies
@@ -360,8 +348,6 @@ tables:
       foreign-key: associations.dealIds
     - key: associations.associatedDealIds
       foreign-key: associations.dealIds
-<<<<<<< HEAD
-=======
     - key: portalId
       foreign-key: engagement.portalId
   - table-name: contact_lists
@@ -394,7 +380,6 @@ tables:
       foreign-key: portalId
     - key: portalId
       foreign-key: changes.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
 - table-name: engagements
   join:
   - table-name: companies
@@ -421,8 +406,6 @@ tables:
     keys:
     - key: associations.contactIds
       foreign-key: list-memberships.internal-list-id
-<<<<<<< HEAD
-=======
     - key: engagement.portalId
       foreign-key: portal-id
     - key: engagement.portalId
@@ -447,7 +430,6 @@ tables:
       foreign-key: portalId
     - key: engagement.portalId
       foreign-key: changes.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
 - table-name: contact_lists
   join:
   - table-name: contacts
@@ -458,8 +440,6 @@ tables:
     keys:
     - key: listId
       foreign-key: associations.contactIds
-<<<<<<< HEAD
-=======
     - key: portalId
       foreign-key: engagement.portalId
   - table-name: companies
@@ -606,4 +586,3 @@ tables:
       foreign-key: remoteList.portalId
     - key: changes.portalId
       foreign-key: remoteList.portalId
->>>>>>> parent of 41c80034 (Removed owner table)
