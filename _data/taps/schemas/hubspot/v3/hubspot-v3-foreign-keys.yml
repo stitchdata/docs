@@ -456,7 +456,7 @@ tables:
   - table-name: engagements
     keys:
     - key: Id
-      foreign-key: engagement.Id
+      foreign-key: engagement.ownerId
 - table-name: subscription_changes
   join:
   - table-name: companies
