@@ -71,7 +71,7 @@ keys:
   owners_Id:
   - table: engagements
     keys:
-    - engagement.Id
+    - engagement.ownerId
   - table: owners
     keys:
     - Id
@@ -397,8 +397,8 @@ tables:
       foreign-key: form-submissions.portal-id
   - table-name: owners
     keys:
-    - key: engagement.Id
-      foreign-key: Id
+    - key: engagement.ownerId
+      foreign-key: ownerId
   - table-name: email_events
     keys:
     - key: engagement.portalId
