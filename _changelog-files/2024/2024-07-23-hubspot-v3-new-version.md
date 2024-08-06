@@ -14,9 +14,8 @@ A new version (v3) of the Hubspot integration is now available!
 
 Changes in this version include:
 
-- Upgrading to V3 of the Hubspot API.
+- Upgrading `owners` API endpoint from v2 to v3.
 - Updating the primary key in the `owners` table from `ownerId` to `id`.
 - Schema modifications to align with the Hubspot API.
-- Updating of the Hubspot `owners` documentation link.
 
 Full details can be found on the pull request against the open sourced integration [here](https://github.com/singer-io/tap-hubspot/pull/256).
