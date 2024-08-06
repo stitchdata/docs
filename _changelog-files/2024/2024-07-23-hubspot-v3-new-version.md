@@ -1,5 +1,5 @@
 ---
-title: "Hubspot integration: New version (v3)"
+title: "Hubspot integration: New version (v3) now available!"
 content-type: "changelog-entry"
 date: 2024-07-23
 entry-type: new-feature
