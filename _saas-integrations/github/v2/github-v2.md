@@ -69,7 +69,7 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      5. In the **Base Url** field, enter the {{ integration.display_name }} URL to use. This is required only if you are using a custom base URL, such as `https://git.your-company.example.com`. The default value is `https://github.com`.
+      5. In the **Base Url** field, enter the {{ integration.display_name }} URL to use. This is required only if you are using a custom base URL, such as `https://git.your-company.example.com`. The default value is `https://api.github.com`.
       6. In the **GitHub Repository Name** field, enter the paths of the repositories you want to track. The path is relative to the base URL. For example: The path for the Stitch Docs repository is `stitchdata/docs`.
 
          - To track multiple repositories, enter a space delimited list of the repository paths. For example: `stitchdata/docs stitchdata/docs-about-docs`
