@@ -456,7 +456,7 @@ For example:
 ## _data/app.yml:
 
 menu-paths:
-  account-settings: "User menu (your icon) > Manage Account Settings"
+  account-settings: "User menu (your icon) > Edit User Settings"
   add-user: "In the Team Members section, click Add a Team Member.
     
 
@@ -469,7 +469,7 @@ menu-paths:
      
 ## Output (account-security/managing-team-members.md):
 
-  1. To add a new user, click the User menu (your icon) > Manage Account Settings.
+  1. To add a new user, click the User menu (your icon) > Edit User Settings.
   2. In the Team Members section, click Add a Team Member.
   ...
 ```
