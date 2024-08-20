@@ -78,7 +78,7 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **API URL** field, enter `https://gitlab.com/api/v3`
+      4. In the **API URL** field, enter `https://gitlab.com/api/v4`.
       5. In the **Private Token** field, paste the **Personal Access Token** you created in the previous section.
       6. In the **Projects** and **Groups to Track** fields, you'll enter the projects and/or groups you want to track as a **space-separated** list.
 
