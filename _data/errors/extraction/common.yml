@@ -22,7 +22,7 @@ time-limit: &time-limit
   category: "Extraction job limits"
   summary: "Extraction job time limit exceeded"
   cause: |
-    The extraction exceeded the maximum six hour limit set for individual extraction jobs.
+    The extraction exceeded the maximum 24 hours limit set for individual extraction jobs.
 
     Stitch sets a maximum limit of 24 hours for individual extraction jobs. This is done to balance resource usage across Stitch, and to help prevent unexpected or unintended continuations of connections against integrations.
   fix-it: |
