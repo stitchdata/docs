@@ -89,7 +89,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **A spreadsheet in your Google Drive**.
+      **A spreadsheet in your Google Drive**. This spreadsheet should not come from a Google Shared Drive.
   - item: |
       **A header row with unique column values in the first row of every sheet you want to replicate.** If there are multiple headers not in the first row, your worksheet data may not be replicated correctly. Headers that aren't in the first row may be extracted as column data.
   - item: |
