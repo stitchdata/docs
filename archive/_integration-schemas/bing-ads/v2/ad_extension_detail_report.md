@@ -1,7 +1,6 @@
 ---
-# Commenting out as this table isn't currently functional in the tap (12/15/2020)
-# tap: "bing-ads"
-# version: "2"
+tap: "bing-ads"
+version: "2"
 
 name: "ad_extension_detail_report"
 doc-link: https://docs.microsoft.com/en-us/advertising/reporting-service/adextensiondetailreportfilter?view=bingads-13
