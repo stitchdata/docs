@@ -167,7 +167,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: ad_performance_report
@@ -202,7 +202,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: age_gender_audience_report
@@ -221,7 +221,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: audience_performance_report
@@ -241,7 +241,7 @@ tables:
     primary-keys:
     - AccountId
     - AudienceId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: campaigns
@@ -317,7 +317,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: geographic_performance_report
@@ -337,7 +337,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: goals_and_funnels_report
@@ -358,7 +358,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: keyword_performance_report
@@ -403,7 +403,7 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
 - name: search_query_performance_report
@@ -427,6 +427,6 @@ tables:
     loading-behavior: Append-Only
     primary-keys:
     - AccountId
-    - '_sdc_report_datetime'
+    - _sdc_report_datetime
     - TimePeriod
     replication-key: TimePeriod
