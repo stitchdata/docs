@@ -554,7 +554,6 @@ sections:
 
       {{ page.display-table | replace:"[LIST]","data-science" | flatify }}
 
-  sections:
     -title: "Test"
     anchor: "test"
     content: |
