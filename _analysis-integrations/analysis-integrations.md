@@ -553,4 +553,17 @@ sections:
       Want to use your data for something other than creating charts or queries? From machine learning to statistical modeling, this list of data science clients will get you started.
 
       {{ page.display-table | replace:"[LIST]","data-science" | flatify }}
+
+  sections:
+    -title: "Test"
+    anchor: "test"
+    content: |
+    New paragraph for testing.
+  subsections:
+    -title: "Test - Subsection"
+    anchor: "Test-subsection"
+    content: |
+    New subsection for testing.
+
+
 ---
