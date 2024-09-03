@@ -554,13 +554,13 @@ sections:
 
       {{ page.display-table | replace:"[LIST]","data-science" | flatify }}
 
-    -title: "Test"
+    - title: "Test"
     anchor: "test"
     content: |
     New paragraph for testing.
   subsections:
-    -title: "Test - Subsection"
-    anchor: "Test-subsection"
+    - title: "Test - Subsection"
+    anchor: "test-subsection"
     content: |
     New subsection for testing.
 
