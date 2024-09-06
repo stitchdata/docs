@@ -1,19 +1,6 @@
 tap: google-sheets
 version: '3'
 tables:
-- name: file_metadata
-  description: 'The `{{ table.name }}` table contains metadata about the spreadsheet
-    defined in the integration''s settings.
-
-    '
-  links:
-    doc-link: https://developers.google.com/sheets/api/reference/rest
-    singer-schema: https://github.com/singer-io/tap-google-sheets/blob/master/tap_google_sheets/schemas/file_metadata.json
-    api-method: https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: id
-    replication-key: modifiedTime
 - name: sheets_loaded
   description: 'The `{{ table.name }}` table contains metadata about individual sheets
     loaded to your destination.
