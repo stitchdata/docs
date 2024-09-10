@@ -2,7 +2,7 @@
 title: "Google Sheets (v3) update: Deprecated the file_metadata stream"
 content-type: "changelog-entry"
 date: 2024-09-05
-entry-type: improvement
+entry-type: deprecation
 entry-category: integration
 connection-id: google-sheets
 connection-version: 3
