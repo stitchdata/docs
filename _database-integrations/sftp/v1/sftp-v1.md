@@ -133,6 +133,13 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include shared/database-connection-settings.html type="general" %}
+  
+  - title: "Select an encoding format"
+    anchor: "select-encoding-format"
+    content: |
+      The default encoding format is `utf-8`, but you can update it by entering the name of the format in the **Encoding Format** field.
+
+      **Note**: The selected format will be used for all files selected. If a file is encoded in a different format, an error may occur. If you need to replicate data from files with different encoding formats, you should consider creating a different connection for each format.
 
   - title: "Configure tables"
     anchor: "configure-tables"
@@ -142,7 +149,7 @@ setup-steps:
       In the following sections, we'll walk you through how to configure a table in Stitch:
 
       {% for substep in step.substeps %}
-      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
