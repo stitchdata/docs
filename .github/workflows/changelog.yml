@@ -36,14 +36,14 @@ jobs:
 
       - name: Create new branch
         run: |
-          git config --global user.email "lmilan@talend.com"
+          git config --global user.email "Melanie.Vistry@qlik.com"
           git fetch
           git checkout master
           git branch ${{ env.branch }}
       
       - name: Checkout branch
         run: |
-          git config --global user.email "lmilan@talend.com"
+          git config --global user.email "Melanie.Vistry@qlik.com"
           git checkout ${{ env.branch }}
 
       - name: Set up Python
@@ -69,8 +69,8 @@ jobs:
       - name: Commit changes
         if: steps.get_changes.outputs.changed != 0
         run: |
-          git config --global user.email "lmilan@talend.com"
-          git config --global user.name "Lucie Milan"
+          git config --global user.email "Melanie.Vistry@qlik.com"
+          git config --global user.name "Mélanie Vistry"
           git add -A 
           git commit -am "Automated commit: Create changelog files"
       
@@ -91,4 +91,4 @@ jobs:
           pr_label: "integration-changelog"
           pr_title: Changelog ${{ env.date }}
           pr_draft: true
-          pr_assignee: "Anaelle1"
+          pr_assignee: "mvistry"
