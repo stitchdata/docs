@@ -1,0 +1,127 @@
+{
+  "properties": {
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "maximize_conversion_value": {
+      "properties": {
+        "target_roas": {
+          "type": [
+            "singer.decimal"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "maximize_conversions": {
+      "properties": {
+        "target_cpa": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "owner_customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "owner_descriptive_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "resource_name": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "target_cpa": {
+      "properties": {
+        "target_cpa_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "target_impression_share": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "location": {
+          "type": [
+            "string"
+          ]
+        },
+        "location_fraction_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "target_roas": {
+      "properties": {
+        "target_roas": {
+          "type": [
+            "singer.decimal"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "target_spend": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "target_spend_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}
