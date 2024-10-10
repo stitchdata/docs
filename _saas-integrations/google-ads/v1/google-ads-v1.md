@@ -1,6 +1,6 @@
 ---
 title: Google Ads (v1)
-permalink: /integrations/saas/google-ads
+permalink: /integrations/saas/google-ads/v1
 tags: [saas_integrations]
 keywords: google ads, google ads data, etl google ads, google ads etl, google ads schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads integration."
