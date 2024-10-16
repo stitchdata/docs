@@ -130,7 +130,7 @@ setup-steps:
 
       1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google Ads data. **Note: We will only ever read your data.**
       2. Click **Authorize** to continue.
-      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile(s) you want to connect to Stitch.
+      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profiles you want to connect to Stitch.
 
          If you don't see the profile(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
       4. When selecting profiles, keep the following in mind:
