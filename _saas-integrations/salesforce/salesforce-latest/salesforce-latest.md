@@ -22,7 +22,7 @@ status-url: "https://trust.salesforce.com/trust/instances"
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"} and [{{ integration.display_name }} Bulk API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_asynch.meta/api_asynch/asynch_api_intro.htm){:target="new"}
+  [{{ integration.display_name }} Lightning Platform REST API (v61.0)](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"} and [{{ integration.display_name }} Bulk API (v61.0)](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
