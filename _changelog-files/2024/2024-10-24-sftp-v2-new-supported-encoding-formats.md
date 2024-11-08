@@ -1,11 +1,11 @@
 ---
-title: "SFTP (v2) update: Support for multiple encoding formats"
+title: "SFTP (v1) update: Support for multiple encoding formats"
 content-type: "changelog-entry"
 date: 2024-10-24
 entry-type: improvement
 entry-category: integration
 connection-id: sftp
-connection-version: 2
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-sftp/pull/44"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
