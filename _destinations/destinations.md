@@ -83,6 +83,6 @@ sections:
   - title: "Suggest a destination"
     anchor: "suggest-a-destinations"
     content: |
-      Don't see your destination of choice listed here? We'd love to hear from you! Please [reach out to us] ({{ site.support }}) with your suggestion.
+      Don't see your destination of choice listed here? We'd love to hear from you! Please [reach out to us]({{ site.support }}) with your suggestion.
 ---
 {% include misc/data-files.html %}
