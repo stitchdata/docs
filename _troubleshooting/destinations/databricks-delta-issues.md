@@ -32,4 +32,4 @@ To avoid this issue, make sure the `spark.databricks.delta.schema.autoMerge.enab
 
 ## Contact Support
 
-If you’re still running into problems with Databricks Delta in Stitch, reach out to [Stitch support](mailto:{{ site.support }}).
+If you’re still running into problems with Databricks Delta in Stitch, reach out to [support] ({{ site.support }}).

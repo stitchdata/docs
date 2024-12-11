@@ -360,7 +360,7 @@ If you need to include a Liquid variable (like `{{ site.stitch-support }}`) in t
 
 ```
 {% capture contact-support %}
-For assistance, contact [Stitch Support](mailto: {{site.stitch-support }}).
+For assistance, contact [Support]({{site.stitch-support }}).
 {% endcapture %}
 
 

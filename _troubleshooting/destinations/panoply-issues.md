@@ -30,6 +30,6 @@ If you’ve recently reset your password in Panoply, you’ll also need to updat
 
 ## Contact Support
 
-If you’re still running into problems with Panoply in Stitch, reach out to [Stitch support](mailto:{{ site.support }}).
+If you’re still running into problems with Panoply in Stitch, reach out to [support] ({{ site.support }}).
 
 If you’re experiencing issues inside of Panoply, [reach out to Panoply support](https://panoply.io){:target="new"}.

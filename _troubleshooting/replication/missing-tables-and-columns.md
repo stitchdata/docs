@@ -28,4 +28,4 @@ Verify the authorizing user's permissions. If the user's permissions can't be ch
 
 ## Contacting Support
 
-If you verify that all the correct permissions are in place and you still encounter issues, please [reach out to support](mailto: {{ site.support }}).
+If you verify that all the correct permissions are in place and you still encounter issues, please [reach out to support] ({{ site.support }}).

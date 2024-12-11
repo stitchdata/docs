@@ -59,7 +59,7 @@ sections:
   - title: "Suggest an integration"
     anchor: "suggest-an-integration"
     content: |
-      Don’t see your integration of choice listed here? We’d love to hear from you! [Reach out to us](mailto:{{ site.support }}) with your suggestion.
+      Don’t see your integration of choice listed here? We’d love to hear from you! [Reach out to us] ({{ site.support }}) with your suggestion.
 
 ---
 {% include misc/data-files.html %}

@@ -54,7 +54,7 @@ Stitch may also occasionally encounter performance issues. You can stay up-to-da
 
 ## Queries
 
-Before reporting a data discrepancy to Stitch support, we recommend that you double-check how you're querying the data.
+Before reporting a data discrepancy to Support, we recommend that you double-check how you're querying the data.
 
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
