@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-zendesk/pull/150"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to enhace the performance for large record counts.
+We've updated our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to enhance the performance for large record counts.
