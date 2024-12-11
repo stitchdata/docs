@@ -64,7 +64,7 @@ You can:
 - [Open an issue](https://github.com/stitchdata/docs/issues) and describe the feature, content, or improvement you want and why you need it. For features, please include how you expect them to work.
 - Submit a [pull request](#pull-requests) with the your suggested changes.
 
-## Please don't submit issues for Stitch support questions. Contact Stitch Support (stitchsupport@talend.com) if you need assistance.
+## Please don't submit issues for support questions. Contact Support (https://community.qlik.com/t5/Support/ct-p/qlikSupport) if you need assistance.
 
 ---
 
@@ -360,7 +360,7 @@ If you need to include a Liquid variable (like `{{ site.stitch-support }}`) in t
 
 ```
 {% capture contact-support %}
-For assistance, contact [Stitch Support](mailto: {{site.stitch-support }}).
+For assistance, contact [Support]({{site.stitch-support }}).
 {% endcapture %}
 
 

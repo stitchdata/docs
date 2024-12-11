@@ -363,7 +363,7 @@ sections:
 
       <tr id="noConnectionYet" style="display: none">
       <td id="noConnectionYetName" colspan="5" align="center">
-        <strong>Don't see the source you want?</strong> <a href="mailto:{{site.support}}">Let us know</a>!
+        <strong>Don't see the source you want?</strong> <a href="{{site.support}}">Let us know</a>!
       </td>
       </tr>
 
