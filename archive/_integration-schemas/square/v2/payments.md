@@ -9,13 +9,23 @@ singer-schema: "https://github.com/singer-io/tap-square/blob/master/tap_square/s
 description: |
   The `{{ table.name }}` table contains information about all payments taken in {{ integration.display_name }}.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "List payments (V2)"
   doc-link: "https://developer.squareup.com/reference/square/payments-api/list-payments"
 
 attributes:
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: ""    
+
+  - name: "created_at"
+    type: "date-time"
+    second-replication-key: true
+    description: ""
+
   - name: "amount_money"
     type: "object"
     description: ""
@@ -27,7 +37,6 @@ attributes:
     - name: "currency"
       type: "string"
       description: ""
-
 
   - name: "app_fee_money"
     type: "object"
