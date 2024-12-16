@@ -16,16 +16,6 @@ api-method:
   doc-link: "https://developer.squareup.com/reference/square/payments-api/list-payments"
 
 attributes:
-  - name: "updated_at"
-    type: "date-time"
-    replication-key: true
-    description: ""    
-
-  - name: "created_at"
-    type: "date-time"
-    second-replication-key: true
-    description: ""
-
   - name: "amount_money"
     type: "object"
     description: ""
