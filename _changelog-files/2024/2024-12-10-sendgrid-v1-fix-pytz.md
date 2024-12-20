@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2024-12-10
 entry-type: bug-fix
 entry-category: integration
-connection-id: sendgrid
+connection-id: sendgrid-core
 connection-version: 1
 pull-request: "https://github.com/singer-io/tap-sendgrid/pull/13"
 ---
