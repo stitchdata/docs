@@ -121,7 +121,7 @@ support-level: &support-level
   tooltip: "{{ site.data.tooltips.supported-by }}"
   field-value: |
     {% if integration.certified == true %}
-      [Stitch] ({{ site.support }})
+      [Stitch] ({{site.support}})
     {% else %}
       [Singer Community]({{ site.singer }}){:target="new"}
     {% endif %}
