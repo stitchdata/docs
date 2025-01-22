@@ -1,12 +1,12 @@
 ---
-title: "ActiveCampaign (v1) update: Requests library version upgrade"
+title: "Intercom (v2) update: Requests library version upgrade"
 content-type: "changelog-entry"
 date: 2025-01-09
 entry-type: updated-feature
 entry-category: integration
-connection-id: activecampaign
-connection-version: 1
-pull-request: "https://github.com/singer-io/tap-activecampaign/pull/43"
+connection-id: intercom
+connection-version: 2
+pull-request: "https://github.com/singer-io/tap-intercom/pull/62"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
