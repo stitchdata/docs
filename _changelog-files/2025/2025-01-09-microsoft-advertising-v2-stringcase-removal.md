@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2025-01-09
 entry-type: updated-feature
 entry-category: integration
-connection-id: microsfot-advertising
+connection-id: microsoft-advertising
 connection-version: 2
 pull-request: "https://github.com/singer-io/tap-bing-ads/pull/114"
 ---
