@@ -5,7 +5,7 @@ date: 2025-01-08
 entry-type: updated-feature
 entry-category: integration
 connection-id: mongodb
-connection-version: v3
+connection-version: 3
 pull-request: "https://github.com/singer-io/tap-mongodb/pull/121"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

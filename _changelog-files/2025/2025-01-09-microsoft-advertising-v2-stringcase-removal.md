@@ -1,11 +1,11 @@
 ---
-title: "Microsfot Advertising (v2) update: Stringcase removal"
+title: "Microsoft Advertising (v2) update: Stringcase removal"
 content-type: "changelog-entry"
 date: 2025-01-09
 entry-type: updated-feature
 entry-category: integration
 connection-id: microsfot-advertising
-connection-version: v2
+connection-version: 2
 pull-request: "https://github.com/singer-io/tap-bing-ads/pull/114"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

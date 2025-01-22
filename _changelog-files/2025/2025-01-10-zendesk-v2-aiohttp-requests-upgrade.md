@@ -5,7 +5,7 @@ date: 2025-01-10
 entry-type: improvement
 entry-category: integration
 connection-id: zendesk
-connection-version: v2
+connection-version: 2
 pull-request: "https://github.com/singer-io/tap-zendesk/pull/157"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

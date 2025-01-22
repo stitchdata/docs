@@ -5,7 +5,7 @@ date: 2025-01-09
 entry-type: updated-feature
 entry-category: integration
 connection-id: active-campaign
-connection-version: v1
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-activecampaign/pull/43"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

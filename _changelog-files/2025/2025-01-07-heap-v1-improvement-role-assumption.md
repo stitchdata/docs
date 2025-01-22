@@ -5,7 +5,7 @@ date: 2025-01-07
 entry-type: improvement
 entry-category: integration
 connection-id: heap
-connection-version: v1 
+connection-version: 1 
 pull-request: "https://github.com/singer-io/tap-heap/pull/21"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

@@ -5,7 +5,7 @@ date: 2025-01-09
 entry-type: updated-feature
 entry-category: integration
 connection-id: typeform
-connection-version: v2
+connection-version: 2
 pull-request: "https://github.com/singer-io/tap-typeform/pull/83"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
