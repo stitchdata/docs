@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: amazon-s3-csv
 connection-version: 1 
-pull-request: "https://github.com/singer-io/tap-heap/pull/21"
+pull-request: "hhttps://github.com/singer-io/tap-s3-csv/pull/69"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
