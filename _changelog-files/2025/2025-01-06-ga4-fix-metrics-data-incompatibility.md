@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-ga4/pull/106"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix metrics and data by  implementing `advertiserAdCostPerKeyEvent`.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix metrics and data incompatibility by  implementing `advertiserAdCostPerKeyEvent`.
