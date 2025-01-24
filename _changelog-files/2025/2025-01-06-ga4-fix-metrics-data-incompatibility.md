@@ -1,5 +1,5 @@
 ---
-title: "Google Analytics 4: Metrics and data incompatibility"
+title: "Google Analytics 4 (v1): Metrics and data incompatibility"
 content-type: "changelog-entry"
 date: 2025-01-06
 entry-type: bug-fix
