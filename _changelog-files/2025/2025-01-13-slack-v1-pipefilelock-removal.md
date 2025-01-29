@@ -1,5 +1,5 @@
 ---
-title: "Slack (v1) update: `pipefile.lock` removal"
+title: "Slack (v1) update: pipefile.lock removal"
 content-type: "changelog-entry"
 date: 2025-01-13
 entry-type: improvement

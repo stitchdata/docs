@@ -1,5 +1,5 @@
 ---
-title: "Impact (v1) update: `page_size` increased"
+title: "Impact (v1) update: page_size increased"
 content-type: "changelog-entry"
 date: 2025-01-16
 entry-type: updated-feature
