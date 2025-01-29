@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2025-01-16
 entry-type: bug-fix
 entry-category: integration
-connection-id: zendesk-chat
+connection-id: zendesk
 connection-version: 2
 pull-request: "https://github.com/singer-io/tap-zendesk-chat/pull/54"
 ---
