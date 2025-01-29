@@ -1,5 +1,5 @@
 ---
-title: "Amazon DynamoDB (v1): Deprecated `terminaltables` removal"
+title: "Amazon DynamoDB (v1): Deprecated terminaltables removal"
 content-type: "changelog-entry"
 date: 2024-12-19
 entry-type: improvement

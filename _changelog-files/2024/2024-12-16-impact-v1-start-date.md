@@ -1,5 +1,5 @@
 ---
-title: "Impact (v1): Update for `Actions` and `ActionUpdates`"
+title: "Impact (v1): Update for Actions and ActionUpdates"
 content-type: "changelog-entry"
 date: 2024-12-16
 entry-type: updated-feature

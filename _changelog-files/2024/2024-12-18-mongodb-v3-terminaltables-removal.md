@@ -1,5 +1,5 @@
 ---
-title: "MongoDB (v3): Deprecated `terminaltables` removal"
+title: "MongoDB (v3): Deprecated terminaltables removal"
 content-type: "changelog-entry"
 date: 2024-12-18
 entry-type: improvement
