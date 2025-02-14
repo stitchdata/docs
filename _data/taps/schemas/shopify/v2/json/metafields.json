@@ -1,30 +1,45 @@
 {
   "properties": {
-    "admin_graphql_api_id": {
+    "owner": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "ownerType": {
       "type": [
         "null",
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "description": {
+    "value_type": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "key": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "id": {
       "type": [
         "null",
         "string"
@@ -36,40 +51,29 @@
         "string"
       ]
     },
-    "owner_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "owner_resource": {
+    "description": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "updated_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "value": {
-      "properties": {},
       "type": [
         "null",
         "integer",
         "object",
         "string"
-      ]
+      ],
+      "properties": {}
     },
-    "value_type": {
+    "updatedAt": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "type": {
       "type": [
         "null",
         "string"

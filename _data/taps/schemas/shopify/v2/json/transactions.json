@@ -1,30 +1,6 @@
 {
   "properties": {
-    "admin_graphql_api_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "amount": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "authorization": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "currency": {
+    "error_code": {
       "type": [
         "null",
         "string"
@@ -36,43 +12,7 @@
         "integer"
       ]
     },
-    "error_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "gateway": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "kind": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "location_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "message": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "order_id": {
+    "user_id": {
       "type": [
         "null",
         "integer"
@@ -84,9 +24,77 @@
         "integer"
       ]
     },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "kind": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "amount": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "singer.decimal"
+    },
+    "authorization": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "source_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "payment_details": {
       "properties": {
-        "avs_result_code": {
+        "cvv_result_code": {
           "type": [
             "null",
             "string"
@@ -134,7 +142,7 @@
             "string"
           ]
         },
-        "cvv_result_code": {
+        "avs_result_code": {
           "type": [
             "null",
             "string"
@@ -146,30 +154,52 @@
         "object"
       ]
     },
-    "payment_id": {
+    "gateway": {
       "type": [
         "null",
         "string"
       ]
     },
-    "payments_refund_attributes": {
-      "properties": {
-        "acquirer_reference_number": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "status": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
+    "admin_graphql_api_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "receipt": {
       "type": [
         "null",
         "object"
+      ],
+      "properties": {
+        "fee_amount": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "singer.decimal"
+        },
+        "gross_amount": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "singer.decimal"
+        },
+        "tax_amount": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "singer.decimal"
+        }
+      },
+      "patternProperties": {".+": {}}
+    },
+    "location_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "processed_at": {
@@ -178,106 +208,57 @@
         "string"
       ]
     },
-    "receipt": {
-      "patternProperties": {
-        ".+": {}
-      },
-      "properties": {
-        "fee_amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "gross_amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "tax_amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        }
-      },
+    "payments_refund_attributes": {
       "type": [
         "null",
         "object"
-      ]
+      ],
+      "properties": {
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "acquirer_reference_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
     },
-    "source_name": {
+    "payment_id": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "status": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "test": {
-      "type": [
-        "null",
-        "boolean"
       ]
     },
     "total_unsettled_set": {
+      "type": ["null", "object"],
       "properties": {
         "presentment_money": {
+          "type": ["null", "object"],
           "properties": {
             "amount": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
+              "type": ["null", "string"],
+              "format": "singer.decimal"},
             "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
+              "type": ["null", "string"]
             }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
+          }
         },
         "shop_money": {
+          "type": ["null", "object"],
           "properties": {
             "amount": {
-              "type": [
-                "null",
-                "number"
-              ]
-            },
+              "type": ["null", "string"],
+              "format": "singer.decimal"},
             "currency": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
+              "type": ["null", "string"]}
+          }
         }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "user_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
+      }
     }
   },
   "type": "object"
