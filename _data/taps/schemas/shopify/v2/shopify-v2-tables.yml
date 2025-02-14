@@ -102,12 +102,11 @@ tables:
     replication-key: updated_at
 - name: locations
   description: 'The `{{ table.name }}` table contains info about .
-
-    '
+ '
   links:
-    doc-link: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#top
-    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/product_variants.json
-    api-method: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#get-products-product-id-variants
+    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/location#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/location#get-locations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -115,12 +114,11 @@ tables:
 - name: product_variants
   description: 'The `{{ table.name }}` table contains info about variants that can 
   be added to a product to represent one version of a product with several options.
-
-    '
+  '
   links:
-    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/location#top
-    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
-    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/location#get-locations
+    doc-link: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/product_variants.json
+    api-method: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#get-products-product-id-variants
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
