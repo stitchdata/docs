@@ -84,7 +84,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: inventory_levels
   description: 'The `{{ table.name }}` table contains info about quantities of an
     inventory item for a location.
@@ -122,7 +122,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: metafields
   description: 'The `{{ table.name }}` table contains info about resource metafields.
     These are arbitrary fields used to store additional information about resources.
@@ -150,7 +150,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: orders
   description: 'The `{{ table.name }}` table contains info about a shop''s completed
     orders.
@@ -201,7 +201,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: transactions
   description: 'The `{{ table.name }}` table contains info about transactions.
 
