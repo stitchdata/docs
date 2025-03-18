@@ -72,7 +72,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updatedAt
+    replication-key: created_at
 - name: inventory_items
   description: 'The `{{ table.name }}` table contains info about items in a shop.
 
@@ -110,7 +110,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updatedAt
+    replication-key: updated_at
 - name: product_variants
   description: 'The `{{ table.name }}` table contains info about variants that can 
   be added to a product to represent one version of a product with several options.
@@ -122,7 +122,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updatedAt
+    replication-key: updated_at
 - name: metafields
   description: 'The `{{ table.name }}` table contains info about resource metafields.
     These are arbitrary fields used to store additional information about resources.
@@ -182,7 +182,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updatedAt
+    replication-key: created_at
 - name: products
   description: 'The `{{ table.name }}` table contains info about a shop''s products.
 
