@@ -1,10 +1,9 @@
 ---
-title: Shopify (v1)
-permalink: /integrations/saas/shopify/v1
+title: Shopify (v2)
+permalink: /integrations/saas/shopify/v2
 keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
-input: false
 
 key: "shopify-setup"
 
@@ -19,10 +18,10 @@ singer: true
 tap-name: "Shopify"
 repo-url: https://github.com/singer-io/tap-shopify
 
-this-version: "1"
+this-version: "2"
 
 api: |
-  [{{ integration.display_name }} REST Admin API (v2024-01)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
+  [{{ integration.display_name }} REST Admin API (v2025-02)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #

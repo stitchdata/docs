@@ -1,0 +1,216 @@
+tap: shopify
+version: '2'
+tables:
+- name: abandoned_checkouts
+  description: 'The `{{ table.name }}` table contains info about abandoned checkouts.
+    {{ integration.display_name }} considers a checkout to be abandoned when a customer
+    has entered billing and shipping details, but hasn''t completed the purchase.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/abandoned_checkouts.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/abandoned-checkouts?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: collects
+  description: 'The `{{ table.name }}` table contains info about collects, which are
+    used to manage relationships between products and custom collections. For every
+    product in a custom collection, there''s a collect that tracks the ID of both
+    the product and the custom collection.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collects.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/collect?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: customers
+  description: 'The `{{ table.name }}` table contains info about the shop''s customers.
+    This includes their contact details, order history, and email marketing preferences.
+
+
+    #### Customer metafield data
+
+
+    To replicate customer metafield data, you must set this table and the [`metafields`](#metafields)
+    table to replicate.
+
+    '
+  links:
+    doc-link: https://shopify.dev/docs/admin-api/rest/reference/customers
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/customers.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/customers/customer?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: custom_collections
+  description: 'The `{{ table.name }}` table contains info about custom collections.
+    A custom collection is a grouping of products that a merchant creates to make
+    their store easier to browse.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/custom_collections.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/customcollection?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: events
+  description: 'The `{{ table.name }}` table contains info about events in the shop.
+
+    '
+  links:
+    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/event#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/events.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/event#get-events
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: inventory_items
+  description: 'The `{{ table.name }}` table contains info about items in a shop.
+
+    '
+  links:
+    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventoryitem#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/inventory_items.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventoryitem#get-inventory-items
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: inventory_levels
+  description: 'The `{{ table.name }}` table contains info about quantities of an
+    inventory item for a location.
+
+    '
+  links:
+    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/inventory_levels.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#get-inventory-levels
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - inventory_item_id
+    - location_id
+    replication-key: updated_at
+- name: locations
+  description: 'The `{{ table.name }}` table contains info about .
+ '
+  links:
+    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/location#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/location#get-locations
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: product_variants
+  description: 'The `{{ table.name }}` table contains info about variants that can 
+  be added to a product to represent one version of a product with several options.
+  '
+  links:
+    doc-link: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#top
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/product_variants.json
+    api-method: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#get-products-product-id-variants
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: metafields
+  description: 'The `{{ table.name }}` table contains info about resource metafields.
+    These are arbitrary fields used to store additional information about resources.
+
+
+    #### Metafield replication and resource types {#metafield-replication-and-resources}
+
+
+    **By default, this table will include only shop-level metafield data**. To replicate
+    the metafields for a given resource type, this table and the table for the resource
+    must be set to replicate.
+
+
+    For example: To replicate metafield data for Orders, the `orders` table must also
+    be set to replicate.
+
+
+    Metafield data is available for [`customers`](#customers), [`products`](#products),
+    and [`orders`](#orders).
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/metafield?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: orders
+  description: 'The `{{ table.name }}` table contains info about a shop''s completed
+    orders.
+
+
+    #### Order metafield data
+
+
+    To replicate order metafield data, you must set this table and the [`metafields`](#metafields)
+    table to replicate.
+
+    '
+  links:
+    doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/orders.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/order?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updated_at
+- name: order_refunds
+  description: 'The `{{ table.name }}` table contains info about refunds associated
+    with orders.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/order_refunds.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/refund?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+- name: products
+  description: 'The `{{ table.name }}` table contains info about a shop''s products.
+
+
+    #### Product metafield data
+
+
+    To replicate product metafield data, you must set this table and the [`metafields`](#metafields)
+    table to replicate.
+
+    '
+  links:
+    doc-link: https://shopify.dev/docs/admin-api/rest/reference/products
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/products.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/product?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: updatedAt
+- name: transactions
+  description: 'The `{{ table.name }}` table contains info about transactions.
+
+    '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/transactions.json
+    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/transaction?api[version]=2019-07
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: created_at
+tap-repo-schemas: true
