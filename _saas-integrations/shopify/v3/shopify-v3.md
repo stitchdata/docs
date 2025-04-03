@@ -21,7 +21,7 @@ repo-url: https://github.com/singer-io/tap-shopify
 this-version: "3"
 
 api: |
-  [{{ integration.display_name }} REST Admin API (v2025-02)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
+  [{{ integration.display_name }} GraphQL Admin API (v2025-04)](https://shopify.dev/docs/api/admin-graphql){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
