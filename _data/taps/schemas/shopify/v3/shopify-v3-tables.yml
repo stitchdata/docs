@@ -95,6 +95,42 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
+- name: metafields_collections
+  description: 'The `{{ table.name }}` table contains info about metafields for collections.
+ '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+  table-details:
+    replication-method: Key-based Incremental
+    replication-key: updatedAt
+- name: metafields_customers
+  description: 'The `{{ table.name }}` table contains info about metafields for customers.
+ '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+  table-details:
+    replication-method: Key-based Incremental
+    replication-key: updatedAt
+- name: metafields_orders
+  description: 'The `{{ table.name }}` table contains info about metafields for orders.
+ '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+  table-details:
+    replication-method: Key-based Incremental
+    replication-key: updatedAt
+- name: metafields_products
+  description: 'The `{{ table.name }}` table contains info about metafields for products.
+ '
+  links:
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
+    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+  table-details:
+    replication-method: Key-based Incremental
+    replication-key: updatedAt
 - name: product_variants
   description: 'The `{{ table.name }}` table contains info about variants that can 
   be added to a product to represent one version of a product with several options.
