@@ -102,10 +102,6 @@ tables:
     keys:
     - key: customer.last_order_id
       foreign-key: order_id
-  - table-name: collects
-    keys:
-    - key: line_items.product_id
-      foreign-key: product_id
   - table-name: products
     keys:
     - key: line_items.product_id
@@ -176,10 +172,6 @@ tables:
     keys:
     - key: order_id
       foreign-key: order_id
-  - table-name: collects
-    keys:
-    - key: refund_line_items.line_item.product_id
-      foreign-key: product_id
   - table-name: products
     keys:
     - key: refund_line_items.line_item.product_id
@@ -228,14 +220,6 @@ tables:
       foreign-key: order_id
     - key: refunds.order_adjustments.order_id
       foreign-key: order_id
-  - table-name: collects
-    keys:
-    - key: fulfillments.line_items.product_id
-      foreign-key: product_id
-    - key: refunds.refund_line_items.line_item.product_id
-      foreign-key: product_id
-    - key: line_items.product_id
-      foreign-key: product_id
   - table-name: products
     keys:
     - key: fulfillments.line_items.product_id
@@ -278,12 +262,6 @@ tables:
       foreign-key: line_items.product_id
     - key: options.product_id
       foreign-key: line_items.product_id
-  - table-name: collects
-    keys:
-    - key: id
-      foreign-key: product_id
-    - key: options.product_id
-      foreign-key: product_id
   - table-name: order_refunds
     keys:
     - key: id
