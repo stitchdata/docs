@@ -13,14 +13,14 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: collections
   description: 'The `{{ table.name }}` table contains info about the collections.
 
     '
   links:
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collections.json
-    api-method: https://shopify.dev/docs/api/admin-graphql/latest/queries/collections
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/collections
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -32,10 +32,6 @@ tables:
 
     #### Customer metafield data
 
-
-    To replicate customer metafield data, you must set this table and the [`metafields`](#metafields)
-    table to replicate.
-
     '
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/customers
@@ -44,7 +40,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: events
   description: 'The `{{ table.name }}` table contains info about events in the shop.
 
@@ -56,7 +52,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: created_at
+    replication-key: createdAt
 - name: inventory_items
   description: 'The `{{ table.name }}` table contains info about items in a shop.
 
@@ -80,10 +76,8 @@ tables:
     api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#get-inventory-levels
   table-details:
     replication-method: Key-based Incremental
-    primary-keys:
-    - inventory_item_id
-    - location_id
-    replication-key: updated_at
+    primary-keys: id
+    replication-key: updatedAt
 - name: locations
   description: 'The `{{ table.name }}` table contains info about .
  '
@@ -94,42 +88,46 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: createdAt
 - name: metafields_collections
   description: 'The `{{ table.name }}` table contains info about metafields for collections.
  '
   links:
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields_collections.json
-    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/objects/metafield
   table-details:
     replication-method: Key-based Incremental
+    primary-keys: id
     replication-key: updatedAt
 - name: metafields_customers
   description: 'The `{{ table.name }}` table contains info about metafields for customers.
  '
   links:
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields_customers.json
-    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/objects/metafield
   table-details:
     replication-method: Key-based Incremental
+    primary-keys: id
     replication-key: updatedAt
 - name: metafields_orders
   description: 'The `{{ table.name }}` table contains info about metafields for orders.
  '
   links:
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields_orders.json
-    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/objects/metafield
   table-details:
     replication-method: Key-based Incremental
+    primary-keys: id
     replication-key: updatedAt
 - name: metafields_products
   description: 'The `{{ table.name }}` table contains info about metafields for products.
  '
   links:
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/metafields_products.json
-    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/metafield
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/objects/metafield
   table-details:
     replication-method: Key-based Incremental
+    primary-keys: id
     replication-key: updatedAt
 - name: product_variants
   description: 'The `{{ table.name }}` table contains info about variants that can 
@@ -178,10 +176,6 @@ tables:
 
     #### Order metafield data
 
-
-    To replicate order metafield data, you must set this table and the [`metafields`](#metafields)
-    table to replicate.
-
     '
   links:
     doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/
@@ -190,7 +184,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
+    replication-key: updatedAt
 - name: order_refunds
   description: 'The `{{ table.name }}` table contains info about refunds associated
     with orders.
@@ -202,16 +196,12 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: created_at
+    replication-key: createdAt
 - name: products
   description: 'The `{{ table.name }}` table contains info about a shop''s products.
 
 
     #### Product metafield data
-
-
-    To replicate product metafield data, you must set this table and the [`metafields`](#metafields)
-    table to replicate.
 
     '
   links:
@@ -232,5 +222,5 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: created_at
+    replication-key: createdAt
 tap-repo-schemas: true
