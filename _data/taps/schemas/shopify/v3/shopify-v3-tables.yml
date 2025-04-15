@@ -34,9 +34,9 @@ tables:
 
     '
   links:
-    doc-link: https://shopify.dev/docs/admin-api/rest/reference/customers
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/customers
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/customers.json
-    api-method: https://shopify.dev/docs/admin-api/rest/reference/customers/customer?api[version]=2019-07
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/customers
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -46,9 +46,9 @@ tables:
 
     '
   links:
-    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/event#top
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/event
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/events.json
-    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/event#get-events
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/event
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -58,9 +58,9 @@ tables:
 
     '
   links:
-    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventoryitem#top
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/inventoryitems
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/inventory_items.json
-    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventoryitem#get-inventory-items
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/inventoryitems
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -71,9 +71,9 @@ tables:
 
     '
   links:
-    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#top
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/inventorylevel
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/inventory_levels.json
-    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/inventorylevel#get-inventory-levels
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/inventorylevel
   table-details:
     replication-method: Key-based Incremental
     primary-keys: id
@@ -82,9 +82,9 @@ tables:
   description: 'The `{{ table.name }}` table contains info about .
  '
   links:
-    doc-link: https://shopify.dev/api/admin-rest/2022-01/resources/location#top
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/locations
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/locations.json
-    api-method: https://shopify.dev/api/admin-rest/2022-01/resources/location#get-locations
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/locations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -134,9 +134,9 @@ tables:
   be added to a product to represent one version of a product with several options.
   '
   links:
-    doc-link: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#top
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/productvariants
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/product_variants.json
-    api-method: https://shopify.dev/docs/api/admin-rest/2025-01/resources/product-variant#get-products-product-id-variants
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/productvariants
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -178,9 +178,9 @@ tables:
 
     '
   links:
-    doc-link: https://shopify.dev/docs/admin-api/rest/reference/orders/
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/orders
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/orders.json
-    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/order?api[version]=2019-07
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/orders
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -205,9 +205,9 @@ tables:
 
     '
   links:
-    doc-link: https://shopify.dev/docs/admin-api/rest/reference/products
+    doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/products
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/products.json
-    api-method: https://shopify.dev/docs/admin-api/rest/reference/products/product?api[version]=2019-07
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/products
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
