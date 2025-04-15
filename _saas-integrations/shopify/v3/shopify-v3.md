@@ -23,15 +23,17 @@ this-version: "3"
 api: |
   [{{ integration.display_name }} GraphQL Admin API (v2025-01)](https://shopify.dev/docs/api/admin-graphql/2025-01){:target="new"}
 
-content: |
-  ### {{ integration.display_name }} is now powered by GraphQL
+sections:
+  - title: "{{ integration.display_name }} is now powered by GraphQL"
+    content: |
   We've have enhanced the Stitch's {{ integration.display_name }} integration by replacing REST Admin API byt the {{ integration.display_name }} GraphQL API.
   This provides:
   - More structured and complete data 
   - Better performance and scalibility
   - Access to new fields that are unvailable in REST
 
-  ### What has changed?
+- title: "What has changed?"
+    content: |
   The data structure has been reorganized for consistency and clarity. Some fields may look different or appear in new locations. Also, a few fields are deprecated from the {{ integration.display_name }} side.
 
   If you need help, you can compare the structures. Refer to {{ integration.display_name }} documentation:
