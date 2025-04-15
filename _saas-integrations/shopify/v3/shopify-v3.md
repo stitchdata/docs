@@ -61,14 +61,14 @@ row-usage-hog-reasons:
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-  ### {{ integration.display_name }} is now powered by GraphQL"
-  We've have enhanced the Stitch's {{ integration.display_name }} integration by replacing REST Admin API byt the {{ integration.display_name }} GraphQL API.
+  #### {{ integration.display_name }} is now powered by GraphQL
+  We've have enhanced the Stitch's {{ integration.display_name }} integration by replacing REST Admin API by the {{ integration.display_name }} GraphQL API.
   This provides:
   - More structured and complete data 
   - Better performance and scalibility
   - Access to new fields that are unvailable in REST
 
-  ### What has changed?
+  #### What has changed?
   The data structure has been reorganized for consistency and clarity. Some fields may look different or appear in new locations. Also, a few fields are deprecated from the {{ integration.display_name }} side.
 
   If you need help, you can compare the structures. Refer to {{ integration.display_name }} documentation:
