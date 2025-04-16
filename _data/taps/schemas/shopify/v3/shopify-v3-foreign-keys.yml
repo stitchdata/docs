@@ -5,7 +5,7 @@ keys:
   - table: abandoned_checkouts
     keys:
     - customer.default_address.customer_id
-    - customer.id
+    - customers.id
     - customer.addresses.customer_id
   - table: customers
     keys:
@@ -14,7 +14,7 @@ keys:
   orders_order_id:
   - table: abandoned_checkouts
     keys:
-    - customer.last_order_id
+    - customers.lastOrder.id
   - table: customers
     keys:
     - last_order_id
@@ -31,7 +31,7 @@ keys:
   order_refunds_refund_id:
   - table: order_refunds
     keys:
-    - id
+    - lastOrder.id
   - table: orders
     keys:
     - refunds.id
@@ -39,15 +39,15 @@ keys:
   product_product_id:
   - table: abandoned_checkouts
     keys:
-    - line_items.product_id
+    - lineItems.product.id
   - table: order_refunds
     keys:
-    - refund_line_items.line_item.product_id
+    - refundLineItems.lineItem.product.id
   - table: orders
     keys:
     - fulfillments.line_items.product_id
     - refunds.refund_line_items.line_item.product_id
-    - line_items.product_id
+    - lineItems.product.id 
   - table: products
     keys:
     - id
