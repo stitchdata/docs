@@ -17,17 +17,17 @@ keys:
     - customers.lastOrder.id
   - table: customers
     keys:
-    - last_order_id
+    - lastOrder.id
   - table: order_refunds
     keys:
-    - order_id
+    - order.id
   - table: orders
     keys:
     - id
     - refunds.order_adjustments.order_id
   - table: transactions
     keys:
-    - order_id
+    - order.id
   order_refunds_refund_id:
   - table: order_refunds
     keys:
