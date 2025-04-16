@@ -75,11 +75,11 @@ tables:
     - key: customer.addresses.customer_id
       foreign-key: addresses.id
     - key: customers.lastOrder.id
-      foreign-key: last_order_id
+      foreign-key: lastOrder.id
   - table-name: order_refunds
     keys:
     - key: customers.lastOrder.id
-      foreign-key: order_id
+      foreign-key: order.id
     - key: lineItems.product.id
       foreign-key: refundLineItems.lineItem.product.id
   - table-name: orders
@@ -97,7 +97,7 @@ tables:
   - table-name: transactions
     keys:
     - key: customers.lastOrder.id
-      foreign-key: order_id
+      foreign-key: order.id
   - table-name: products
     keys:
     - key: lineItems.product.id
@@ -120,39 +120,39 @@ tables:
       foreign-key: customer.addresses.customer_id
     - key: addresses.id
       foreign-key: customer.addresses.customer_id
-    - key: last_order_id
+    - key: lastOrder.id
       foreign-key: customers.lastOrder.id
   - table-name: order_refunds
     keys:
-    - key: last_order_id
-      foreign-key: order_id
+    - key: lastOrder.id
+      foreign-key: order.id
   - table-name: orders
     keys:
-    - key: last_order_id
+    - key: lastOrder.id
       foreign-key: id
-    - key: last_order_id
+    - key: lastOrder.id
       foreign-key: refunds.order_adjustments.order_id
   - table-name: transactions
     keys:
-    - key: last_order_id
-      foreign-key: order_id
+    - key: lastOrder.id
+      foreign-key: order.id
 - table-name: order_refunds
   join:
   - table-name: abandoned_checkouts
     keys:
-    - key: order_id
+    - key: order.id
       foreign-key: customers.lastOrder.id
     - key: refundLineItems.lineItem.product.id
       foreign-key: lineItems.product.id
   - table-name: customers
     keys:
-    - key: order_id
-      foreign-key: last_order_id
+    - key: order.id
+      foreign-key: lastOrder.id
   - table-name: orders
     keys:
-    - key: order_id
+    - key: order.id
       foreign-key: id
-    - key: order_id
+    - key: order.id
       foreign-key: refunds.order_adjustments.order_id
     - key: lastOrder.id
       foreign-key: refunds.id
@@ -166,8 +166,8 @@ tables:
       foreign-key: lineItems.product.id
   - table-name: transactions
     keys:
-    - key: order_id
-      foreign-key: order_id
+    - key: order.id
+      foreign-key: order.id
   - table-name: products
     keys:
     - key: refundLineItems.lineItem.product.id
@@ -191,15 +191,15 @@ tables:
   - table-name: customers
     keys:
     - key: id
-      foreign-key: last_order_id
+      foreign-key: lastOrder.id
     - key: refunds.order_adjustments.order_id
-      foreign-key: last_order_id
+      foreign-key: lastOrder.id
   - table-name: order_refunds
     keys:
     - key: id
-      foreign-key: order_id
+      foreign-key: order.id
     - key: refunds.order_adjustments.order_id
-      foreign-key: order_id
+      foreign-key: order.id
     - key: refunds.id
       foreign-key: lastOrder.id
     - key: refunds.order_adjustments.refund_id
@@ -213,9 +213,9 @@ tables:
   - table-name: transactions
     keys:
     - key: id
-      foreign-key: order_id
+      foreign-key: order.id
     - key: refunds.order_adjustments.order_id
-      foreign-key: order_id
+      foreign-key: order.id
   - table-name: products
     keys:
     - key: fulfillments.line_items.product_id
@@ -234,21 +234,21 @@ tables:
   join:
   - table-name: abandoned_checkouts
     keys:
-    - key: order_id
+    - key: order.id
       foreign-key: customers.lastOrder.id
   - table-name: customers
     keys:
-    - key: order_id
-      foreign-key: last_order_id
+    - key: order.id
+      foreign-key: lastOrder.id
   - table-name: order_refunds
     keys:
-    - key: order_id
-      foreign-key: order_id
+    - key: order.id
+      foreign-key: order.id
   - table-name: orders
     keys:
-    - key: order_id
+    - key: order.id
       foreign-key: id
-    - key: order_id
+    - key: order.id
       foreign-key: refunds.order_adjustments.order_id
 - table-name: products
   join:
