@@ -66,7 +66,7 @@ feature-summary: |
   This provides:
   - More structured and complete data 
   - Better performance and scalibility
-  - Access to new fields that are unvailable in REST
+  - Access to new fields that are unavailable in REST
 
   #### What has changed?
   The data structure has been reorganized for consistency and clarity. Some fields may look different or appear in new locations. Also, a few fields are deprecated from the {{ integration.display_name }} side.
