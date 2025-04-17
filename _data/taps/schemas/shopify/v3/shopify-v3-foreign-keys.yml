@@ -106,8 +106,6 @@ tables:
     keys:
     - key: order.id
       foreign-key: id
-    - key: lastOrder.id
-      foreign-key: refunds.id
     - key: refundLineItems.lineItem.product.id
       foreign-key: lineItems.product.id
   - table-name: transactions
@@ -134,8 +132,6 @@ tables:
     keys:
     - key: id
       foreign-key: order.id
-    - key: refunds.id
-      foreign-key: lastOrder.id
     - key: lineItems.product.id
       foreign-key: refundLineItems.lineItem.product.id
   - table-name: transactions
