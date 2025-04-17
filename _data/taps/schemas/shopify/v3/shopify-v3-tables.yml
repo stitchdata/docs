@@ -29,9 +29,6 @@ tables:
   description: 'The `{{ table.name }}` table contains info about the shop''s customers.
     This includes their contact details, order history, and email marketing preferences.
 
-
-    #### Customer metafield data
-
     '
   links:
     doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/customers
@@ -173,9 +170,6 @@ tables:
   description: 'The `{{ table.name }}` table contains info about a shop''s completed
     orders.
 
-
-    #### Order metafield data
-
     '
   links:
     doc-link: https://shopify.dev/docs/api/admin-graphql/2025-01/queries/orders
@@ -199,9 +193,6 @@ tables:
     replication-key: createdAt
 - name: products
   description: 'The `{{ table.name }}` table contains info about a shop''s products.
-
-
-    #### Product metafield data
 
     '
   links:
