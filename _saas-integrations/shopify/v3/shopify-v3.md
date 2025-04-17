@@ -1,10 +1,9 @@
 ---
-title: Shopify (v2)
-permalink: /integrations/saas/shopify/v2
+title: Shopify (v3)
+permalink: /integrations/saas/shopify/v3
 keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
-input: false
 
 key: "shopify-setup"
 
@@ -19,10 +18,10 @@ singer: true
 tap-name: "Shopify"
 repo-url: https://github.com/singer-io/tap-shopify
 
-this-version: "2"
+this-version: "3"
 
 api: |
-  [{{ integration.display_name }} REST Admin API (v2025-02)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
+  [{{ integration.display_name }} GraphQL Admin API (v2025-01)](https://shopify.dev/docs/api/admin-graphql/2025-01){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -62,6 +61,21 @@ row-usage-hog-reasons:
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
+  #### {{ integration.display_name }} is now powered by GraphQL
+  We've have enhanced the Stitch's {{ integration.display_name }} integration by replacing REST Admin API by the {{ integration.display_name }} GraphQL API.
+  This provides:
+  - More structured and complete data 
+  - Better performance and scalibility
+  - Access to new fields that are unavailable in REST
+
+  #### What has changed?
+  The data structure has been reorganized for consistency and clarity. Some fields may look different or appear in new locations. Also, a few fields are deprecated from the {{ integration.display_name }} side.
+
+  If you need help, you can compare the structures. Refer to {{ integration.display_name }} documentation:
+  - [REST Admin API](https://shopify.dev/docs/api/admin-rest){:target="new"}
+  - [GraphQL Admin API](https://shopify.dev/docs/api/admin-graphql){:target="new"}
+
+  Check out our updated {{ integration.display_name }} docs for stream-level details and examples.
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -80,7 +94,6 @@ setup-steps:
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **Shopify Shop** field, enter the name of the shop you want to connect to Stitch. For example: If the shop URL was `stitch-data.shopify.com`, you'd enter `stitch-data` into this field. 
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"

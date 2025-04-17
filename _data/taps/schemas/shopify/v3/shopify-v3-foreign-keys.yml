@@ -1,0 +1,176 @@
+tap: shopify
+version: '3'
+keys:
+  customers_customer_id:
+  - table: abandoned_checkouts
+    keys:
+    - customers.id
+  - table: customers
+    keys:
+    - id
+  orders_order_id:
+  - table: abandoned_checkouts
+    keys:
+    - customers.lastOrder.id
+  - table: customers
+    keys:
+    - lastOrder.id
+  - table: order_refunds
+    keys:
+    - order.id
+  - table: orders
+    keys:
+    - id
+  - table: transactions
+    keys:
+    - order.id
+  product_product_id:
+  - table: abandoned_checkouts
+    keys:
+    - lineItems.product.id
+  - table: order_refunds
+    keys:
+    - refundLineItems.lineItem.product.id
+  - table: orders
+    keys:
+    - lineItems.product.id
+  - table: products
+    keys:
+    - id
+  transactions_transaction_id:
+  - table: transactions
+    keys:
+    - id
+tables:
+- table-name: abandoned_checkouts
+  join:
+  - table-name: customers
+    keys:
+    - key: customers.id
+      foreign-key: id
+    - key: customers.lastOrder.id
+      foreign-key: lastOrder.id
+  - table-name: order_refunds
+    keys:
+    - key: customers.lastOrder.id
+      foreign-key: order.id
+    - key: lineItems.product.id
+      foreign-key: refundLineItems.lineItem.product.id
+  - table-name: orders
+    keys:
+    - key: customers.lastOrder.id
+      foreign-key: id
+    - key: lineItems.product.id
+      foreign-key: lineItems.product.id
+  - table-name: transactions
+    keys:
+    - key: customers.lastOrder.id
+      foreign-key: order.id
+  - table-name: products
+    keys:
+    - key: lineItems.product.id
+      foreign-key: id
+- table-name: customers
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: id
+      foreign-key: customers.id
+    - key: lastOrder.id
+      foreign-key: customers.lastOrder.id
+  - table-name: order_refunds
+    keys:
+    - key: lastOrder.id
+      foreign-key: order.id
+  - table-name: orders
+    keys:
+    - key: lastOrder.id
+      foreign-key: id
+  - table-name: transactions
+    keys:
+    - key: lastOrder.id
+      foreign-key: order.id
+- table-name: order_refunds
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: order.id
+      foreign-key: customers.lastOrder.id
+    - key: refundLineItems.lineItem.product.id
+      foreign-key: lineItems.product.id
+  - table-name: customers
+    keys:
+    - key: order.id
+      foreign-key: lastOrder.id
+  - table-name: orders
+    keys:
+    - key: order.id
+      foreign-key: id
+    - key: refundLineItems.lineItem.product.id
+      foreign-key: lineItems.product.id
+  - table-name: transactions
+    keys:
+    - key: order.id
+      foreign-key: order.id
+  - table-name: products
+    keys:
+    - key: refundLineItems.lineItem.product.id
+      foreign-key: id
+- table-name: orders
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: id
+      foreign-key: customers.lastOrder.id
+    - key: lineItems.product.id
+      foreign-key: lineItems.product.id
+  - table-name: customers
+    keys:
+    - key: id
+      foreign-key: lastOrder.id
+  - table-name: order_refunds
+    keys:
+    - key: id
+      foreign-key: order.id
+    - key: lineItems.product.id
+      foreign-key: refundLineItems.lineItem.product.id
+  - table-name: transactions
+    keys:
+    - key: id
+      foreign-key: order.id
+  - table-name: products
+    keys:
+    - key: lineItems.product.id
+      foreign-key: id
+- table-name: transactions
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: order.id
+      foreign-key: customers.lastOrder.id
+  - table-name: customers
+    keys:
+    - key: order.id
+      foreign-key: lastOrder.id
+  - table-name: order_refunds
+    keys:
+    - key: order.id
+      foreign-key: order.id
+  - table-name: orders
+    keys:
+    - key: order.id
+      foreign-key: id
+- table-name: products
+  join:
+  - table-name: abandoned_checkouts
+    keys:
+    - key: id
+      foreign-key: lineItems.product.id
+  - table-name: order_refunds
+    keys:
+    - key: id
+      foreign-key: refundLineItems.lineItem.product.id
+  - table-name: orders
+    keys:
+    - key: id
+      foreign-key: lineItems.product.id

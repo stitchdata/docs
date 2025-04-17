@@ -1,0 +1,181 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "createdAt": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "action": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "appTitle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attributeToApp": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "attributeToUser": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "criticalAlert": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "message": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subjectId": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "subjectType": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "additionalContent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "additionalData": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "arguments": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      }
+    },
+    "hasAdditionalContent": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "secondaryMessage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "attachments": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "fileExtension": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "size": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "url": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
+    },
+    "author": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "canDelete": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "canEdit": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "edited": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "rawMessage": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}
