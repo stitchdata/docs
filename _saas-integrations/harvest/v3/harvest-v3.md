@@ -96,11 +96,11 @@ setup-steps:
       3. Click **Connect.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
-      
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
       {% include integrations/shared-setup/data-selection/object-selection.html %}
+
 # -------------------------- #
 #        Table Schemas       #
 # -------------------------- #
