@@ -1,10 +1,9 @@
 ---
-title: Harvest (v2)
-permalink: /integrations/saas/harvest/v2
+title: Harvest (v3)
+permalink: /integrations/saas/harvest
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
 layout: singer
-input: false
 
 key: "harvest-setup"
 
@@ -17,7 +16,7 @@ display_name: "Harvest"
 singer: true
 repo-url: https://github.com/singer-io/tap-harvest
 
-this-version: "2"
+this-version: "3"
 
 api: |
   [{{ integration.display_name }} REST API V2](https://help.getharvest.com/api-v2/){:target="new"}
@@ -97,7 +96,11 @@ setup-steps:
       3. Click **Connect.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
-
+      
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 # -------------------------- #
 #        Table Schemas       #
 # -------------------------- #
