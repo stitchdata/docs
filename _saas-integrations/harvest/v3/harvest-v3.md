@@ -34,8 +34,8 @@ status-url: http://harveststatus.com/
 
 api-type: "platform.harvest"
 
-table-selection: false
-column-selection: false
+table-selection: true
+column-selection: true
 select-all: true
 select-all-reason: |
   As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
