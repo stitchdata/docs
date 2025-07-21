@@ -21,11 +21,11 @@ documented = []
 to_document = []
 to_ignore = []
 
-def createDir(): # Check if the drafts folder exists and create it if it doesn't
-    if os.path.exists(path) == False:
-        os.makedirs(path)
-    else: 
-        pass
+# def createDir(): # Check if the drafts folder exists and create it if it doesn't
+#     if os.path.exists(path) == False:
+#         os.makedirs(path)
+#     else: 
+#         pass
 
 def getPRsToIgnore(): # Check the ignore.txt file for PRs that shouldn't be documented
     with open('ignore.txt', 'r', encoding='utf8') as f:
@@ -47,7 +47,7 @@ def getDocumentedPRs(): # Get PRs that already have a changelog file
                     # Find the line that contains the PR URL
                     for line in changelog_lines:
                         if line.startswith('pull-request:'):
-                            link = re.search('^pull-request\:\s\"(.*)\"$', line).group(1)
+                            link = re.search(r'^pull-request\:\s\"(.*)\"$', line).group(1)
 
                             # Add the URL to the list of PRs already added in the changelog
                             documented.append(link)
@@ -178,9 +178,10 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
         print('No pull requests to document')
 
 
-createDir()
+# createDir()
 getDocumentedPRs()
-getPRsToIgnore()
-getRepoList()
-getPRList()
-getPRsToDocument()
+# print(documented)
+# getPRsToIgnore()
+# getRepoList()
+# getPRList()
+# getPRsToDocument()
