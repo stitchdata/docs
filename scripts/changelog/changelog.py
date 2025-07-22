@@ -172,25 +172,34 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Add the PR to the list of PRs to document
                                     to_document.append(pr)
 
-                                    # Get connection-id
+                                    # Get connection information from integrations.yaml
                                     connection_id_found = False
+                                    connection_name_found = False
                                     for key, value in integration_dict.items():
                                         if value['tap'] == tap_raw:
                                             connection_id = value['id']
                                             connection_id_found = True
+                                            connection_name = value['display_name']
+                                            connection_name_found = True
                                             break
                                     if not connection_id_found:
                                         connection_id = 'NOT FOUND'
+                                    if not connection_name_found:
+                                        connection_name = 'NOT FOUND'
 
                                     # Get latest connection version
                                     with open(f'../../_data/taps/versions/{connection_id}.yml', 'r') as file:
                                         yaml_data = yaml.safe_load(file)
                                         connection_version = yaml_data['latest-version']
 
+                                    # Process PR title
+                                    pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
+                                    pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
+                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-')
+
                                     # Create the filename and content of the changelog file and create it
-                                    # TODO Get version from the latest-version entry in the tap yaml (in _data/taps/versions/)
-                                    md_filename = path + '/' + pr_date + '-' + tap + '-' + pr_number + '.md'
-                                    md_text = f'---\ntitle: "{pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: \nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title}.'
+                                    md_filename = path + '/' + pr_date + '-' + tap + '-' + 'v' + connection_version + '-' + pr_title_for_md_filename + '.md'
+                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: \nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title_for_md_description}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
