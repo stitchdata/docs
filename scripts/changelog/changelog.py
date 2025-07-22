@@ -182,10 +182,15 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     if not connection_id_found:
                                         connection_id = 'NOT FOUND'
 
+                                    # Get latest connection version
+                                    with open(f'../../_data/taps/versions/{connection_id}.yml', 'r') as file:
+                                        yaml_data = yaml.safe_load(file)
+                                        connection_version = yaml_data['latest-version']
+
                                     # Create the filename and content of the changelog file and create it
                                     # TODO Get version from the latest-version entry in the tap yaml (in _data/taps/versions/)
                                     md_filename = path + '/' + pr_date + '-' + tap + '-' + pr_number + '.md'
-                                    md_text = f'---\ntitle: "{pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: \nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: \npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title}.'
+                                    md_text = f'---\ntitle: "{pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: \nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
