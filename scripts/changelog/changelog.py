@@ -1,4 +1,4 @@
-import requests, re, base64, json, datetime, os, pandas, sys
+import requests, re, base64, json, datetime, os, pandas, sys, yaml
 from datetime import datetime as dt
 
 # GitHub info
@@ -11,7 +11,8 @@ nb_days = int(sys.argv[2])
 
 
 # Folder for new files
-path = '../../_changelog-files/drafts'
+year = dt.today().strftime('%Y')
+path = f'../../_changelog-files/{year}'
 
 start_date = (dt.today() - datetime.timedelta(days=nb_days)).date()
 
@@ -20,12 +21,18 @@ pr_list = []
 documented = []
 to_document = []
 to_ignore = []
+integration_dict = {}
 
 # def createDir(): # Check if the drafts folder exists and create it if it doesn't
 #     if os.path.exists(path) == False:
 #         os.makedirs(path)
 #     else: 
 #         pass
+
+def createIntegrationDict(): # Create a dictionary of all integrations from the integrations.yml file
+    with open('../../_data/taps/integrations.yml', 'r') as file:
+        yaml_data = yaml.safe_load(file)
+        integration_dict.update(yaml_data['integrations'])
 
 def getPRsToIgnore(): # Check the ignore.txt file for PRs that shouldn't be documented
     with open('ignore.txt', 'r', encoding='utf8') as f:
@@ -155,7 +162,8 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     print(pr)
 
                                     # If the PR is not already in the list of PRs to document, get the name of the tap, and the PR number, title, URL and merge date from the DataFrame
-                                    tap = pr[0].replace('tap-', '')
+                                    tap_raw = pr[0]
+                                    tap = tap_raw.replace('tap-', '')
                                     pr_number = str(pr[1])
                                     pr_title = pr[2]
                                     pr_url = pr[3]
@@ -164,9 +172,20 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Add the PR to the list of PRs to document
                                     to_document.append(pr)
 
+                                    # Get connection-id
+                                    connection_id_found = False
+                                    for key, value in integration_dict.items():
+                                        if value['tap'] == tap_raw:
+                                            connection_id = value['id']
+                                            connection_id_found = True
+                                            break
+                                    if not connection_id_found:
+                                        connection_id = 'NOT FOUND'
+
                                     # Create the filename and content of the changelog file and create it
+                                    # TODO Get version from the latest-version entry in the tap yaml (in _data/taps/versions/)
                                     md_filename = path + '/' + pr_date + '-' + tap + '-' + pr_number + '.md'
-                                    md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: "changelog-entry"\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: \nconnection-version: \npull-request: "' + pr_url + '"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}'
+                                    md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: "changelog-entry"\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: ' + connection_id + '\nconnection-version: \npull-request: "' + pr_url + '"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
@@ -179,9 +198,9 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
 
 
 # createDir()
+createIntegrationDict()
 getDocumentedPRs()
-# print(documented)
-# getPRsToIgnore()
-# getRepoList()
-# getPRList()
-# getPRsToDocument()
+getPRsToIgnore()
+getRepoList()
+getPRList()
+getPRsToDocument()
