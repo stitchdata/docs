@@ -123,8 +123,8 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
     prs = pandas.DataFrame(pr_list, columns=['repository', 'pr_number', 'pr_title', 'pr_url', 'pr_merge_date'])
 
     for index, row in prs.iterrows():
-        name = row[0]
-        number = row[1]
+        name = row.iloc[0]
+        number = row.iloc[1]
 
         # For each PR, check the files updated
         api = 'https://api.github.com/repos/singer-io/' + name + '/pulls/' + str(number) + '/files'
