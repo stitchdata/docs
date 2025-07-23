@@ -23,6 +23,14 @@ to_document = []
 to_ignore = []
 integration_dict = {}
 
+# Lists of words to guess the entry type
+bug_fix = ['fix', 'fixed', 'fixing']
+deprecation = ['deprecate', 'deprecated','deprecating', 'deprecation']
+improvement = ['improve', 'improved', 'improving', 'improvement', 'enhance', 'enhanced', 'enhancing', 'enhancement', 'update', 'updated', 'updating', 'upgrade', 'upgraded', 'upgrading']
+issue_identified = ['identify', 'identified', 'identifying']
+new_feature = ['new version']
+removed = ['remove', 'removed', 'removing', 'removal']
+
 def createDir(): # Check if the target folder exists and create it if it doesn't
     if os.path.exists(path) == False:
         os.makedirs(path)
@@ -197,9 +205,25 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
                                     pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-')
 
+                                    # Guess the entry type from the PR title
+                                    entry_type = 'NOT FOUND'
+                                    pr_title_lower = pr_title.lower()
+                                    entry_types = [
+                                        ('bug-fix', bug_fix),
+                                        ('deprecation', deprecation),
+                                        ('improvement', improvement),
+                                        ('issue-identified', issue_identified),
+                                        ('new-feature', new_feature),
+                                        ('removed', removed)
+                                    ]
+                                    for type, keywords in entry_types:
+                                        if any(word in pr_title_lower for word in keywords):
+                                            entry_type = type
+                                            break
+
                                     # Create the filename and content of the changelog file and create it
                                     md_filename = f'{path}/{pr_date}-{tap}-v{connection_version}-{pr_title_for_md_filename}.md'
-                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: \nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title_for_md_description}.'
+                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title_for_md_description}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
