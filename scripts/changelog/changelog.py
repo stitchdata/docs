@@ -205,8 +205,10 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
 
     # Print results
     count = len(to_document)
-    if count > 0:
-        print(str(count) + ' pull requests to document')
+    if count > 1:
+        print(f'{str(count)} pull requests to document')
+    elif count == 1:
+        print('1 pull request to document')
     else: 
         print('No pull requests to document')
 
