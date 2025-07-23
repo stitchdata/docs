@@ -23,11 +23,11 @@ to_document = []
 to_ignore = []
 integration_dict = {}
 
-# def createDir(): # Check if the drafts folder exists and create it if it doesn't
-#     if os.path.exists(path) == False:
-#         os.makedirs(path)
-#     else: 
-#         pass
+def createDir(): # Check if the target folder exists and create it if it doesn't
+    if os.path.exists(path) == False:
+        os.makedirs(path)
+    else:
+        pass
 
 def createIntegrationDict(): # Create a dictionary of all integrations from the integrations.yml file
     with open('../../_data/taps/integrations.yml', 'r') as file:
@@ -211,7 +211,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
         print('No pull requests to document')
 
 
-# createDir()
+createDir()
 createIntegrationDict()
 getDocumentedPRs()
 getPRsToIgnore()
