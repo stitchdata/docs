@@ -2,7 +2,7 @@
 title: "Stripe (v1) update: New fields!"
 content-type: "changelog-entry"
 date: 2021-02-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: stripe
 connection-version: 1

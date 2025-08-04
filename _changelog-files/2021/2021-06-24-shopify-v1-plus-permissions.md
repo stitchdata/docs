@@ -2,7 +2,7 @@
 title: "Shopify (v1) update: Updated setup requirements for Shopify Plus plans"
 content-type: "changelog-entry"
 date: 2021-06-24
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "shopify"
 connection-version: "1"

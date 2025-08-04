@@ -2,7 +2,7 @@
 title: "[INTEGRATION] (vVERSION) update: New tables/fields!"
 #content-type: "changelog-entry"
 date: 2018-10-07
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: 
 connection-version: 

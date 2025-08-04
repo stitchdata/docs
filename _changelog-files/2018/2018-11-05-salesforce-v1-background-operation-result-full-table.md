@@ -2,7 +2,7 @@
 title: "Salesforce (v1) integrations: BackgroundOperationResult is now Full Table"
 content-type: "changelog-entry"
 date: 2018-11-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "salesforce"
 connection-version: "1"

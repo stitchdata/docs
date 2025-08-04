@@ -2,7 +2,7 @@
 title: "MongoDB (v3) update: Pymongo version upgrade"
 content-type: "changelog-entry"
 date: 2025-01-08
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: mongodb
 connection-version: 3

@@ -2,7 +2,7 @@
 title: "Outreach (v1) update: New tables and foreign key documentation"
 content-type: "changelog-entry"
 date: 2021-06-10
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "outreach"
 connection-version: "1"

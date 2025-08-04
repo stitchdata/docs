@@ -2,7 +2,7 @@
 title: "LinkedIn Ads (v1) update: Access token configurations"
 content-type: "changelog-entry"
 date: 2022-06-23
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: linkedin-ads
 connection-version: 1

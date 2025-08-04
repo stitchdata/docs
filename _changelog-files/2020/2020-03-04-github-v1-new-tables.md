@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: New tables!"
 content-type: "changelog-entry"
 date: 2020-03-04
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "github"
 connection-version: 1

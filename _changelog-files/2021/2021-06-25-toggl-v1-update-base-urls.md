@@ -2,7 +2,7 @@
 title: "Toggl (v1) update: Updated base API URLs"
 content-type: "changelog-entry"
 date: 2021-06-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: toggl
 connection-version: 1

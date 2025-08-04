@@ -2,7 +2,7 @@
 title: "Getting Stitched"
 content-type: "changelog-entry"
 date: 2016-08-01
-entry-type: updated-feature
+entry-type: improvement
 entry-category: app
 ---
 

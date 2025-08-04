@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) integrations: New ads_insights data"
 content-type: "changelog-entry"
 date: 2019-07-31
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "facebook-ads"
 connection-version: "1"

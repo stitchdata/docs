@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) integrations: API upgrade to v3.2"
 content-type: "changelog-entry"
 date: 2018-11-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

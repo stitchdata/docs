@@ -2,7 +2,7 @@
 title: "Google Analytics (v1) update: Remove searchKeyword as default Behavior Overview field"
 content-type: "changelog-entry"
 date: 2020-04-22
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "google-analytics" 
 connection-version: "1"

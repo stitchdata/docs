@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: New base branch data available for pull_requests"
 content-type: "changelog-entry"
 date: 2021-04-14
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: github
 connection-version: 1

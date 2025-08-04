@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1): Add conversions to insights streams"
 content-type: "changelog-entry"
 date: 2023-08-16
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

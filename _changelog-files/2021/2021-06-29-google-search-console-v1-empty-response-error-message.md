@@ -2,7 +2,7 @@
 title: "Google Search Console (v1) update: New empty response error exception"
 content-type: "changelog-entry"
 date: 2021-06-29
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "google-search-console"
 connection-version: 1

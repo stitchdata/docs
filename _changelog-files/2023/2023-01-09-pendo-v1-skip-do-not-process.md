@@ -2,7 +2,7 @@
 title: "Pendo (v1): Skip `Do Not Process` visitor records"
 content-type: "changelog-entry"
 date: 2023-01-09
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: pendo
 connection-version: 1

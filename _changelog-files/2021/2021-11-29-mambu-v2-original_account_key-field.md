@@ -2,7 +2,7 @@
 title: "Mambu (v2) update: New field in the loan_accounts stream"
 content-type: "changelog-entry"
 date: 2021-11-29
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "mambu"
 connection-version: "2"

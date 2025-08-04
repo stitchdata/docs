@@ -2,7 +2,7 @@
 title: "Github (v1) update: Fix team_members stream primary key"
 content-type: "changelog-entry"
 date: 2022-02-23
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: github
 connection-version: 1

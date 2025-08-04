@@ -2,7 +2,7 @@
 title: "Google Analytics (v1) update: Pre-made reports now available"
 content-type: "changelog-entry"
 date: 2020-04-07
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "google-analytics" 
 connection-version: "1"

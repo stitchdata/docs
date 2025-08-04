@@ -2,7 +2,7 @@
 title: "PostgreSQL (v15-10-2015) sunset"
 content-type: "changelog-entry"
 date: 2019-12-01
-entry-type: sunset
+entry-type: removed
 entry-category: "integration"
 connection-id: "postgres"
 connection-version: "15-10-2015"

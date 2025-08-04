@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) update: Increased replication job timeout"
 content-type: "changelog-entry"
 date: 2021-04-30
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "facebook-ads"
 connection-version: "1"

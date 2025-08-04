@@ -2,7 +2,7 @@
 title: "Google Ads (v1) update: Add request timeout to gas.search"
 content-type: "changelog-entry"
 date: 2022-06-30
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-ads
 connection-version: 1

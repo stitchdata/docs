@@ -2,7 +2,7 @@
 title: "Google AdWords (v1) integrations: API upgrade to v2.11"
 content-type: "changelog-entry"
 date: 2018-03-14
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-adwords
 connection-version: 1

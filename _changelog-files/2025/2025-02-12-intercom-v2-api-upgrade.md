@@ -2,7 +2,7 @@
 title: "Intercom (v2): API upgrade to version 2.12"
 content-type: "changelog-entry"
 date: 2025-02-12
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: intercom
 connection-version: 2

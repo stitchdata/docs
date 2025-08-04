@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) update: SDK version upgrade"
 content-type: "changelog-entry"
 date: 2024-03-06
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

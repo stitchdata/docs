@@ -2,7 +2,7 @@
 title: "PostgreSQL (v1) integrations: Expanded replication slot support"
 content-type: "changelog-entry"
 date: 2018-08-21
-entry-type: "updated-feature"
+entry-type: improvement
 entry-category: "integration" 
 connection-id: "postgres"
 connection-version: "1"

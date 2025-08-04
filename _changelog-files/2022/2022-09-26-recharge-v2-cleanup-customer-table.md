@@ -2,7 +2,7 @@
 title: "Recharge (v2) update: Cleanup customer table"
 content-type: "changelog-entry"
 date: 2022-09-26
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: recharge
 connection-version: 2

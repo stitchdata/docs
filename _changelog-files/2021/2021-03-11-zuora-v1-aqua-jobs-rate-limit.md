@@ -2,7 +2,7 @@
 title: "Zuora (v1) improvement: Updated discovery process for new enforced limit on AQuA jobs"
 content-type: "changelog-entry"
 date: 2021-03-11
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "zuora"
 connection-version: "1"

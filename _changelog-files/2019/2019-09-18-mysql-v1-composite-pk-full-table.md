@@ -2,7 +2,7 @@
 title: "MySQL (v1) integrations: Fix composite Primary Key sorting for Full Table Replication"
 content-type: "changelog-entry"
 date: 2019-09-18
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "mysql"
 connection-version: "1"

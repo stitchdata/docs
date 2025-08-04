@@ -2,7 +2,7 @@
 title: "Klaviyo (v1) update: API upgrade"
 content-type: "changelog-entry"
 date: 2024-05-23
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: tap-klaviyo
 connection-version: 1

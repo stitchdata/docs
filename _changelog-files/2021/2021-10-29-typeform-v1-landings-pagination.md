@@ -2,7 +2,7 @@
 title: "Typeform (v1) update: Pagination for landings"
 content-type: "changelog-entry"
 date: 2021-10-29
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: typeform
 connection-version: 1

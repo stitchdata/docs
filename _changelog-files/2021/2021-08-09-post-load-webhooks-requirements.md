@@ -2,7 +2,7 @@
 title: "Updated feature: Post-Load Webhooks API change"
 content-type: "changelog-entry"
 date: 2021-08-09
-entry-type: "updated-feature"
+entry-type: improvement
 entry-category: "app, connect-api"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

@@ -2,7 +2,7 @@
 title: "Deputy (v1) update: Requests library version upgrade"
 content-type: "changelog-entry"
 date: 2025-01-16
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: deputy
 connection-version: 1

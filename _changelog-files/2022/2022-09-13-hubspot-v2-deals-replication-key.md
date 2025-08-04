@@ -2,7 +2,7 @@
 title: "HubSpot (v2) update: Replication key automatically included"
 content-type: "changelog-entry"
 date: 2022-09-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: hubspot
 connection-version: 2

@@ -2,7 +2,7 @@
 title: "MongoDB (v2): PyMongo upgrade"
 content-type: "changelog-entry"
 date: 2022-07-01
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: mongodb
 connection-version: 2

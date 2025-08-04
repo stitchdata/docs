@@ -2,7 +2,7 @@
 title: "Google Analytics 4 update: bad metrics marked unsupported"
 content-type: "changelog-entry"
 date: 2022-11-22
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-analytics-4
 connection-version: 

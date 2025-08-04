@@ -2,7 +2,7 @@
 title: "GitHub (v2) update: `files` and `stats` fields from commit-related schemas"
 content-type: "changelog-entry"
 date: 2023-09-12
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: github
 connection-version: 2

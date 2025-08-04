@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) update: New ads_insights.unique_outbound_clicks data"
 content-type: "changelog-entry"
 date: 2021-03-08
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "facebook-ads"
 connection-version: "1"

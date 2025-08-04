@@ -2,7 +2,7 @@
 title: "ActiveCampaign (v1): New field"
 content-type: "changelog-entry"
 date: 2023-03-21
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: activecampaign
 connection-version: 1

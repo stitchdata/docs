@@ -2,7 +2,7 @@
 title: "LinkedIn Ads (v2) update: API upgrade and new fields"
 content-type: "changelog-entry"
 date: 2024-04-15
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: linkedin-ads
 connection-version: 2

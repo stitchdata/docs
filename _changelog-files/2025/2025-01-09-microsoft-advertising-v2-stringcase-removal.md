@@ -2,7 +2,7 @@
 title: "Microsoft Advertising (v2) update: Stringcase removal"
 content-type: "changelog-entry"
 date: 2025-01-09
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: bing-ads
 connection-version: 2
