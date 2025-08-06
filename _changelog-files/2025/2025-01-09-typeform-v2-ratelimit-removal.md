@@ -1,5 +1,5 @@
 ---
-title: "Typeform (v2) update: Rate limit removal"
+title: "Typeform (v2) update: Ratelimit removal"
 content-type: "changelog-entry"
 date: 2025-01-09
 entry-type: improvement
