@@ -2,7 +2,7 @@
 title: "Activecampaign (v1) bug fix: Fixed teh forms stream array error"
 content-type: "changelog-entry"
 date: 2022-03-04
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: activecampaign
 connection-version: 1

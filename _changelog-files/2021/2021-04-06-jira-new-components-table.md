@@ -2,7 +2,7 @@
 title: "JIRA (v2) update: New components table"
 content-type: "changelog-entry"
 date: 2021-04-06
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: jira
 connection-version: 2

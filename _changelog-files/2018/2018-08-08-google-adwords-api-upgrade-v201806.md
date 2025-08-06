@@ -2,7 +2,7 @@
 title: "Google AdWords (v1) integrations: API upgrade to v201806"
 content-type: "changelog-entry"
 date: 2018-08-08
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-ads
 connection-version: 1

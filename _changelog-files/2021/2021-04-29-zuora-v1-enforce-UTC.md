@@ -2,7 +2,7 @@
 title: "Zuora (v1) update: Enforce use of UTC"
 content-type: "changelog-entry"
 date: 2021-04-29
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "zuora"
 connection-version: "1"

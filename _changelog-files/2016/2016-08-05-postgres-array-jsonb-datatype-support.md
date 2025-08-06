@@ -2,7 +2,7 @@
 title: "PostgreSQL (v15-10-2015) integrations: ARRAY and JSONB data type support"
 content-type: "changelog-entry"
 date: 2016-08-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: postgres
 connection-version: "15-10-2015"

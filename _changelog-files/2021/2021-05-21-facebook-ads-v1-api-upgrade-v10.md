@@ -2,7 +2,7 @@
 title: Facebook Ads (v1) API upgrade to v10.0
 content-type: "changelog-entry"
 date: 2021-05-21
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

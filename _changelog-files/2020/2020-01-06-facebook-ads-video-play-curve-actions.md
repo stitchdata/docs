@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) integrations: New ads_insights.video_play_curve_actions data"
 content-type: "changelog-entry"
 date: 2020-01-06
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "facebook-ads"
 connection-version: "1"

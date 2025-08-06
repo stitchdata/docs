@@ -2,7 +2,7 @@
 title: "Intercom (v1): Identified issue with companies endpoint"
 content-type: "changelog-entry"
 date: 2021-05-13
-entry-type: issue-identified
+entry-type: bug-fix
 entry-category: "integration, documentation"
 connection-id: "intercom"
 connection-version: "1"

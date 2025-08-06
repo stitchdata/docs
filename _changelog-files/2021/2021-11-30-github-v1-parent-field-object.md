@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: Support of objects in the parent field"
 content-type: "changelog-entry"
 date: 2021-11-30
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: github
 connection-version: 1

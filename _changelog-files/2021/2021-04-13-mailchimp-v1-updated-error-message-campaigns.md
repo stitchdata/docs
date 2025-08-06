@@ -2,7 +2,7 @@
 title: "MailChimp (v1) improvement: Improved timeout message for campaigns"
 content-type: "changelog-entry"
 date: 2021-04-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: mailchimp
 connection-version: 1

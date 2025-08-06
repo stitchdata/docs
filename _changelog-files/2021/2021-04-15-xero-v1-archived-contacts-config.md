@@ -2,7 +2,7 @@
 title: "Xero (v1) update: Replicating archived contacts"
 content-type: "changelog-entry"
 date: 2021-04-15
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: xero
 connection-version: 1

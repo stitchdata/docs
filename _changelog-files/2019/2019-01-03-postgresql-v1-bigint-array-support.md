@@ -2,7 +2,7 @@
 title: "PostgreSQL (v1) integrations: BIGINT array support"
 content-type: "changelog-entry"
 date: 2019-01-03
-entry-type: "updated-feature"
+entry-type: improvement
 entry-category: "integration" 
 connection-id: "postgres"
 connection-version: "1"

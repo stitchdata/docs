@@ -2,7 +2,7 @@
 title: "Close.io (v1) update: Updated window size"
 content-type: "changelog-entry"
 date: 2022-05-02
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: closeio
 connection-version: 1

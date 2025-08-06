@@ -2,7 +2,7 @@
 title: "Mambu (v4) update: Update table to full table"
 content-type: "changelog-entry"
 date: 2024-02-20
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: mambu
 connection-version: 4

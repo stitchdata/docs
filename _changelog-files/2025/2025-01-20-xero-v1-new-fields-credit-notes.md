@@ -2,7 +2,7 @@
 title: "Xero (v1) update: New fields in the schema of credit_notes"
 content-type: "changelog-entry"
 date: 2025-01-20
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: xero
 connection-version: 1

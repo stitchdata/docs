@@ -2,7 +2,7 @@
 title: "Amazon DynamoDB (v1) update: Increased precision for decimals"
 content-type: "changelog-entry"
 date: 2021-11-02
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: amazon-dynamodb
 connection-version: 1

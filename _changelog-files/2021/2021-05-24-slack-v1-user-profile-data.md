@@ -2,7 +2,7 @@
 title: "Slack (v1) update: User email now available in users table"
 content-type: "changelog-entry"
 date: 2021-05-24
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "slack"
 connection-version: "1"

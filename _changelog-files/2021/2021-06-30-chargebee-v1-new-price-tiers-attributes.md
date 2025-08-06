@@ -2,7 +2,7 @@
 title: "Chargebee (v1) update: New fields!"
 content-type: "changelog-entry"
 date: 2021-06-30
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "chargebee"
 connection-version: "1"

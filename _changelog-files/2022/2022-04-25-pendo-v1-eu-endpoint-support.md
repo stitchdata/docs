@@ -2,7 +2,7 @@
 title: "Pendo (v1) update: Support for EU endpoints"
 content-type: "changelog-entry"
 date: 2022-04-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: pendo
 connection-version: 1

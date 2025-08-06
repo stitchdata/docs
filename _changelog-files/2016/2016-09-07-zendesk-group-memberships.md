@@ -2,7 +2,7 @@
 title: "Zendesk (v15-10-2015) integrations: New group membership table"
 content-type: "changelog-entry"
 date: 2016-09-07
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: zendesk
 connection-version: "15-10-2015"

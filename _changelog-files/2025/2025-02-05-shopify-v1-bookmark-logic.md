@@ -2,7 +2,7 @@
 title: "Shopify (v1): Update bookmark logic for transactions and order_refunds"
 content-type: "changelog-entry"
 date: 2025-02-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 1

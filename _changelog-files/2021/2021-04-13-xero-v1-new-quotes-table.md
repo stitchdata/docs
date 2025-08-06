@@ -2,7 +2,7 @@
 title: "Xero (v1) update: New quotes table"
 content-type: "changelog-entry"
 date: 2021-04-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: xero
 connection-version: 1

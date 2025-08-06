@@ -2,7 +2,7 @@
 title: "Pendo (v1) update: Primary Key changes"
 content-type: "changelog-entry"
 date: 2023-07-27
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: pendo
 connection-version: 1

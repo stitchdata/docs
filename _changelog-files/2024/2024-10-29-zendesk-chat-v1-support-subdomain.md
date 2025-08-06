@@ -2,7 +2,7 @@
 title: "Zendesk Chat (v1): Support for subdomain"
 content-type: "changelog-entry"
 date: 2024-10-29
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: zendesk
 connection-version: 1

@@ -2,7 +2,7 @@
 title: "New Stripe (v1) table: Disputes"
 content-type: "changelog-entry"
 date: 2019-06-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: stripe
 connection-version: 1

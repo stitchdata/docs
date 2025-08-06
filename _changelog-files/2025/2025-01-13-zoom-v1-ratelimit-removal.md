@@ -2,7 +2,7 @@
 title: "Zoom (v1) update: Ratelimit removal"
 content-type: "changelog-entry"
 date: 2025-01-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: zoom
 connection-version: 1

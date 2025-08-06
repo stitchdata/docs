@@ -2,7 +2,7 @@
 title: "PostgreSQL (v2) update: Key-based Incremental Replication now available!"
 content-type: "changelog-entry"
 date: 2021-03-30
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: postgres
 connection-version: 2

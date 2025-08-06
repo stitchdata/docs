@@ -2,7 +2,7 @@
 title: "Mambu (v2) update: Refactored seven streams"
 content-type: "changelog-entry"
 date: 2022-03-22
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: mambu
 connection-version: 2

@@ -2,7 +2,7 @@
 title: "Stripe (v1) update: Change events stream date window"
 content-type: "changelog-entry"
 date: 2022-02-17
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: stripe
 connection-version: 1

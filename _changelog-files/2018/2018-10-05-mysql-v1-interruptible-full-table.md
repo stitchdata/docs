@@ -2,7 +2,7 @@
 title: "MySQL (v1) integrations: Interruptible Full Table replication"
 content-type: "changelog-entry"
 date: 2018-10-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "mysql"
 connection-version: "1"

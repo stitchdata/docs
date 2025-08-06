@@ -2,7 +2,7 @@
 title: "Mambu (v1) update: New tables and updated API endpoints"
 content-type: "changelog-entry"
 date: 2020-12-18
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "mambu"
 connection-version: "1"

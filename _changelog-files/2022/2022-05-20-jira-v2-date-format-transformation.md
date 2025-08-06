@@ -2,7 +2,7 @@
 title: "JIRA (v2) update: Date format transformation"
 content-type: "changelog-entry"
 date: 2022-05-20
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: jira
 connection-version: 2

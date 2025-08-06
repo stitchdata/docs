@@ -2,7 +2,7 @@
 title: "Impact (v1) update: page_size increased"
 content-type: "changelog-entry"
 date: 2025-01-16
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: impact
 connection-version: 1

@@ -2,7 +2,7 @@
 title: Increased timeouts on integration extractions
 content-type: "changelog-entry"
 date: 2020-09-22
-entry-type: updated-feature
+entry-type: improvement
 entry-category: replication
 ---
 

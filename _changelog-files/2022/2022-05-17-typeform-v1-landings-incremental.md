@@ -2,7 +2,7 @@
 title: "Typeform (v1) update: Update table to incremental"
 content-type: "changelog-entry"
 date: 2022-05-17
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: typeform
 connection-version: 1

@@ -2,7 +2,7 @@
 title: "Outreach (v1) update: New field!"
 content-type: "changelog-entry"
 date: 2021-06-28
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "outreach"
 connection-version: "1"

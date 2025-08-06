@@ -2,7 +2,7 @@
 title: "Eloqua (v1) update: Email groups and additional contact data"
 content-type: "changelog-entry"
 date: 2021-03-19
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "eloqua"
 connection-version: "1"

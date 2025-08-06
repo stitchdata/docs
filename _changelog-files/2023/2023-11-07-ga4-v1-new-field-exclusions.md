@@ -2,7 +2,7 @@
 title: "Google Analytics 4 (v1) update: New field exclusions"
 content-type: "changelog-entry"
 date: 2023-11-07
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-analytics-4
 connection-version: 1

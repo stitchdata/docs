@@ -2,7 +2,7 @@
 title: "Shopify (v1) update: Migration to GraphQL Streams"
 content-type: "changelog-entry"
 date: 2025-01-24
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 1
