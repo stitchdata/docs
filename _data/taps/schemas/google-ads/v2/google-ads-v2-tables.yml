@@ -125,7 +125,7 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
-    replication-key: date*
+    replication-key: date
 - name: assets
   description: 'The `{{ table.name }}` table contains info about the assets such as image, video, etc.
 
