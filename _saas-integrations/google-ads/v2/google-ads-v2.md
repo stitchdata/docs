@@ -19,7 +19,7 @@ singer: true
 tap-name: "Google Ads"
 repo-url: https://github.com/singer-io/tap-google-ads
 
-this-version: "1"
+this-version: "2"
 
 api-name: "Google Ads API (v20)"
 api: |
