@@ -1,0 +1,191 @@
+{
+  "properties": {
+    "ad_group_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_network_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "campaign_labels": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "click_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "click_view_ad_group_ad": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "click_view_area_of_interest": {
+      "properties": {
+        "city": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "country": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "metro": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "most_specific": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "region": {
+          "type": [
+            "object",
+            " string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "click_view_campaign_location_target": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "click_view_gclid": {
+      "type": [
+        "string"
+      ]
+    },
+    "click_view_location_of_presence": {
+      "properties": {
+        "city": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "country": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "metro": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "most_specific": {
+          "type": [
+            "object",
+            " string"
+          ]
+        },
+        "region": {
+          "type": [
+            "object",
+            " string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "click_view_page_number": {
+      "type": [
+        "integer"
+      ]
+    },
+    "click_view_user_list": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "clicks": {
+      "type": [
+        "integer"
+      ]
+    },
+    "customer_descriptive_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "device": {
+      "type": [
+        "string"
+      ]
+    },
+    "month_of_year": {
+      "type": [
+        "string"
+      ]
+    },
+    "slot": {
+      "type": [
+        "string"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

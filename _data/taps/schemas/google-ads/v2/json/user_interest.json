@@ -1,0 +1,111 @@
+{
+  "properties": {
+    "availabilities": {
+      "properties": {
+        "availability": {
+          "properties": {
+            "channel": {
+              "properties": {
+                "advertising_channel_sub_type": {
+                  "properties": {
+                    "type": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "array"
+                  ]
+                },
+                "advertising_channel_type": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "availability_mode": {
+                  "type": [
+                    "string"
+                  ]
+                },
+                "include_default_channel_sub_type": {
+                  "type": [
+                    "boolean"
+                  ]
+                }
+              },
+              "type": [
+                "object"
+              ]
+            },
+            "locale": {
+              "properties": {
+                "item": {
+                  "properties": {
+                    "availability_mode": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "country_code": {
+                      "type": [
+                        "string"
+                      ]
+                    },
+                    "language_code": {
+                      "type": [
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "launched_to_all": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "resource_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "taxonomy_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "user_interest_parent": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,231 @@
+{
+  "properties": {
+    "ad_group_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "all_conversions_from_interactions_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "all_conversions_value": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpc": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpm": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "campaign_labels": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "clicks": {
+      "type": [
+        "integer"
+      ]
+    },
+    "conversion_action": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "conversion_action_category": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversion_action_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "conversions_from_interactions_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "conversions_value": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cost_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cost_per_all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cost_per_conversion": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cross_device_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "ctr": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "customer_currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_descriptive_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "customer_time_zone": {
+      "type": [
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "day_of_week": {
+      "type": [
+        "string"
+      ]
+    },
+    "dynamic_search_ads_search_term_view_headline": {
+      "type": [
+        "string"
+      ]
+    },
+    "dynamic_search_ads_search_term_view_landing_page": {
+      "type": [
+        "string"
+      ]
+    },
+    "dynamic_search_ads_search_term_view_page_url": {
+      "type": [
+        "string"
+      ]
+    },
+    "dynamic_search_ads_search_term_view_search_term": {
+      "type": [
+        "string"
+      ]
+    },
+    "external_conversion_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "month": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "month_of_year": {
+      "type": [
+        "string"
+      ]
+    },
+    "quarter": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "value_per_all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "value_per_conversion": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "webpage": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "week": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "year": {
+      "type": [
+        "integer"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}
