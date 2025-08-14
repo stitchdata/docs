@@ -69,7 +69,8 @@ setup-steps:
       4. On the **API Keys** page, click the **Create API Key** button to create an API key.
       5. In the **Label** column, click the pencil icon next to the API key you just created.
       6. Enter a label for the API key. For example: `Stitch integration`.
-      7. Click **Save API Key**.
+      7. Select **Full Access Key** as **Access Level**.
+      8. Click **Save API Key**.
 
       ![Klaviyo API key]({{ site.baseurl }}/images/integrations/klaviyo-api-key.png)
 
