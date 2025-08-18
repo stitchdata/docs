@@ -37,16 +37,9 @@ jobs:
       - name: Create new branch
         run: |
           git config --global user.email "Melanie.Vistry@qlik.com"
-          git fetch origin
-          if git show-ref --verify --quiet refs/remotes/origin/${{ env.branch }}; then
-            echo "Branch ${{ env.branch }} exists. Checking out and pulling latest."
-            git checkout ${{ env.branch }} || git checkout -b ${{ env.branch }} origin/${{ env.branch }}
-            git pull origin ${{ env.branch }}
-          else
-            echo "Branch ${{ env.branch }} does not exist. Creating new branch."
-            git checkout master
-            git checkout -b ${{ env.branch }}
-          fi
+          git fetch
+          git checkout master
+          git branch ${{ env.branch }}
       
       - name: Checkout branch
         run: |
