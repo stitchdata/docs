@@ -1,0 +1,275 @@
+{
+  "properties": {
+    "ad_group": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "approval_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "bid_modifier": {
+      "type": [
+        "double"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cpc_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cpm_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cpv_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "criterion": {
+      "type": [
+        "object"
+      ]
+    },
+    "criterion_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "disapproval_reasons": {
+      "properties": {
+        "reason": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "display_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "effective_cpc_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "effective_cpc_bid_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "effective_cpm_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "effective_cpm_bid_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "effective_cpv_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "effective_cpv_bid_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "effective_percent_cpc_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "effective_percent_cpc_bid_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "final_mobile_urls": {
+      "properties": {
+        "url": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "final_url_suffix": {
+      "type": [
+        "string"
+      ]
+    },
+    "final_urls": {
+      "properties": {
+        "url": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "labels": {
+      "properties": {
+        "label": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    },
+    "negative": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "percent_cpc_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "position_estimates": {
+      "properties": {
+        "estimated_add_clicks_at_first_position_cpc": {
+          "type": [
+            "integer"
+          ]
+        },
+        "estimated_add_cost_at_first_position_cpc": {
+          "type": [
+            "integer"
+          ]
+        },
+        "first_page_cpc_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "first_position_cpc_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "top_of_page_cpc_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "quality_info": {
+      "properties": {
+        "creative_quality_score": {
+          "type": [
+            "string"
+          ]
+        },
+        "post_click_quality_score": {
+          "type": [
+            "string"
+          ]
+        },
+        "quality_score": {
+          "type": [
+            "integer"
+          ]
+        },
+        "search_predicted_ctr": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "resource_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "system_serving_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "tracking_url_template": {
+      "type": [
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    },
+    "url_custom_parameters": {
+      "properties": {
+        "parameter": {
+          "properties": {
+            "key": {
+              "type": [
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "array"
+      ]
+    }
+  }
+}
