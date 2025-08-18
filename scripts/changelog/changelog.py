@@ -41,6 +41,40 @@ def createIntegrationDict(): # Create a dictionary of all integrations from the 
     with open('../../_data/taps/integrations.yml', 'r') as file:
         yaml_data = yaml.safe_load(file)
         integration_dict.update(yaml_data['integrations'])
+    # Hardcode some integration entries
+    hardcoded_integration_dict = {
+        'amazon-dynamodb': 'dynamodb',
+        'amazon-s3-csv': 's3',
+        }
+    # Update entries with their hardcoded value
+    for key, value in hardcoded_integration_dict.items():
+        integration_dict[key]['id'] = value
+    # Remove entries that are a duplication of a generic entry
+    keys_to_be_removed_list = [
+        'aurora-postgresql-rds',
+        'aurora-rds',
+        'cloudsql-mysql',
+        'cloudsql-postgres',
+        'magento',
+        'mariadb',
+        'microsoft-azure-mysql',
+        'mongodb-atlas',
+        'mysql-rds',
+        'oracle-rds',
+        'postgresql-rds',
+        'sql-server-rds'
+        ]
+    # Loop on the integration dictionary to create a list of keys to be removed
+    # The keys to be removed are the ones that don't have any tap associated
+    for key,value in integration_dict.items():
+        if value['tap'] == '':
+            keys_to_be_removed_list.append(key)
+    # Remove the keys that don't have any tap
+    for key in keys_to_be_removed_list:
+        integration_dict.pop(key)
+    # Manually remove keys that don't have any associated documentation (leftover?)
+    integration_dict.pop('amazon-dsp')
+    integration_dict.pop('insided')
 
 def getPRsToIgnore(): # Check the ignore.txt file for PRs that shouldn't be documented
     with open('ignore.txt', 'r', encoding='utf8') as f:
@@ -181,24 +215,21 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     to_document.append(pr)
 
                                     # Get connection information from integrations.yaml
-                                    connection_id_found = False
-                                    connection_name_found = False
+                                    ## Set default values
+                                    connection_id = 'NOT FOUND'
+                                    connection_name = 'NOT FOUND'
+                                    connection_version = 'NOT FOUND'
+                                    ## Lookup on integration_dict
                                     for key, value in integration_dict.items():
                                         if value['tap'] == tap_raw:
+                                            ## Get values
                                             connection_id = value['id']
-                                            connection_id_found = True
                                             connection_name = value['display_name']
-                                            connection_name_found = True
+                                            ## Get latest connection version
+                                            with open(f'../../_data/taps/versions/{connection_id}.yml', 'r') as file:
+                                                yaml_data = yaml.safe_load(file)
+                                                connection_version = yaml_data['latest-version']
                                             break
-                                    if not connection_id_found:
-                                        connection_id = 'NOT FOUND'
-                                    if not connection_name_found:
-                                        connection_name = 'NOT FOUND'
-
-                                    # Get latest connection version
-                                    with open(f'../../_data/taps/versions/{connection_id}.yml', 'r') as file:
-                                        yaml_data = yaml.safe_load(file)
-                                        connection_version = yaml_data['latest-version']
 
                                     # Process PR title
                                     pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
