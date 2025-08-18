@@ -1,0 +1,454 @@
+{
+  "properties": {
+    "active_view_cpm": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "active_view_ctr": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "active_view_impressions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "active_view_measurability": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "active_view_measurable_cost_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "active_view_measurable_impressions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "active_view_viewability": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "ad_group_base_ad_group": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "ad_group_criterion_age_range": {
+      "properties": {
+        "type": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "ad_group_criterion_bid_modifier": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "ad_group_criterion_criterion_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_criterion_effective_cpc_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_criterion_effective_cpc_bid_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_criterion_effective_cpm_bid_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_criterion_effective_cpm_bid_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_criterion_final_mobile_urls": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_criterion_final_urls": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_criterion_negative": {
+      "type": [
+        "boolean"
+      ]
+    },
+    "ad_group_criterion_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_criterion_tracking_url_template": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_criterion_url_custom_parameters": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "ad_group_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_targeting_setting": {
+      "properties": {
+        "target_restrictions": {
+          "type": [
+            "object",
+            " string"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "ad_network_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "all_conversions_from_interactions_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "all_conversions_value": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cost": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpc": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpe": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpm": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpv": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "bidding_strategy_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_base_campaign": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "campaign_bidding_strategy": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "campaign_bidding_strategy_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "click_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "clicks": {
+      "type": [
+        "integer"
+      ]
+    },
+    "conversion_action": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "conversion_action_category": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversion_action_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "conversions_from_interactions_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "conversions_value": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cost_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cost_per_all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cost_per_conversion": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cross_device_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "ctr": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "customer_currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_descriptive_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "customer_time_zone": {
+      "type": [
+        "string"
+      ]
+    },
+    "date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "day_of_week": {
+      "type": [
+        "string"
+      ]
+    },
+    "device": {
+      "type": [
+        "string"
+      ]
+    },
+    "engagement_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "engagements": {
+      "type": [
+        "integer"
+      ]
+    },
+    "external_conversion_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "gmail_forwards": {
+      "type": [
+        "integer"
+      ]
+    },
+    "gmail_saves": {
+      "type": [
+        "integer"
+      ]
+    },
+    "gmail_secondary_clicks": {
+      "type": [
+        "integer"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "interaction_event_types": {
+      "type": [
+        "string"
+      ]
+    },
+    "interaction_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "interactions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "month": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "month_of_year": {
+      "type": [
+        "string"
+      ]
+    },
+    "quarter": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "value_per_all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "value_per_conversion": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "video_quartile_p100_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "video_quartile_p25_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "video_quartile_p50_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "video_quartile_p75_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "video_view_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "video_views": {
+      "type": [
+        "integer"
+      ]
+    },
+    "view_through_conversions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "week": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "year": {
+      "type": [
+        "integer"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

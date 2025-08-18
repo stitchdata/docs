@@ -1,0 +1,352 @@
+{
+  "properties": {
+    "ad_group_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "ad_group_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_group_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "ad_network_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "all_conversions_from_interactions_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "all_conversions_value": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "average_cpc": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "campaign_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "campaign_labels": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "campaign_status": {
+      "type": [
+        "string"
+      ]
+    },
+    "click_type": {
+      "type": [
+        "string"
+      ]
+    },
+    "clicks": {
+      "type": [
+        "integer"
+      ]
+    },
+    "conversion_action": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "conversion_action_category": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversion_action_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "conversions_from_interactions_rate": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "conversions_value": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cost_micros": {
+      "type": [
+        "integer"
+      ]
+    },
+    "cost_per_all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cost_per_conversion": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "cross_device_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "ctr": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "customer_descriptive_name": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "date": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "day_of_week": {
+      "type": [
+        "string"
+      ]
+    },
+    "device": {
+      "type": [
+        "string"
+      ]
+    },
+    "external_conversion_source": {
+      "type": [
+        "string"
+      ]
+    },
+    "impressions": {
+      "type": [
+        "integer"
+      ]
+    },
+    "month": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "product_aggregator_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "product_category_level1": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_category_level2": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_category_level3": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_category_level4": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_category_level5": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_brand": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_channel": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_channel_exclusivity": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_condition": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_country": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_custom_attribute0": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_custom_attribute1": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_custom_attribute2": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_custom_attribute3": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_custom_attribute4": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_item_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_language": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "product_merchant_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "product_store_id": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_title": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_type_l1": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_type_l2": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_type_l3": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_type_l4": {
+      "type": [
+        "string"
+      ]
+    },
+    "product_type_l5": {
+      "type": [
+        "string"
+      ]
+    },
+    "quarter": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "search_absolute_top_impression_share": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "search_click_share": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "search_impression_share": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "value_per_all_conversions": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "value_per_conversion": {
+      "type": [
+        "singer.decimal"
+      ]
+    },
+    "week": {
+      "type": [
+        "date-time"
+      ]
+    },
+    "year": {
+      "type": [
+        "integer"
+      ]
+    },
+    "{{ system-column.record-hash }}": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}

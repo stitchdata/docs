@@ -1,0 +1,188 @@
+{
+  "properties": {
+    "campaign_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "effective_currency_code": {
+      "type": [
+        "string"
+      ]
+    },
+    "enhanced_cpc": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "id": {
+      "type": [
+        "integer"
+      ]
+    },
+    "maximize_conversion_value": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "cpc_bid_floor_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "target_roas": {
+          "type": [
+            "singer.decimal"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "maximize_conversions": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "cpc_bid_floor_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "target_cpa": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "name": {
+      "type": [
+        "string"
+      ]
+    },
+    "non_removed_campaign_count": {
+      "type": [
+        "integer"
+      ]
+    },
+    "resource_name": {
+      "type": [
+        "object",
+        " string"
+      ]
+    },
+    "status": {
+      "type": [
+        "string"
+      ]
+    },
+    "target_cpa": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "cpc_bid_floor_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "target_cpa_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "target_impression_share": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "location": {
+          "type": [
+            "string"
+          ]
+        },
+        "location_fraction_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "target_roas": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "cpc_bid_floor_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "target_roas": {
+          "type": [
+            "singer.decimal"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "target_spend": {
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer"
+          ]
+        },
+        "target_spend_micros": {
+          "type": [
+            "integer"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "type": {
+      "type": [
+        "string"
+      ]
+    }
+  }
+}
