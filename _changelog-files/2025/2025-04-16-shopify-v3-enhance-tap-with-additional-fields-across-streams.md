@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-shopify/pull/209"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to enhance tap with additional fields across streams.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to enhance tap with additional fields across streams.

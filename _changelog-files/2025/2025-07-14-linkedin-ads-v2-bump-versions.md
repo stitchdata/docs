@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-linkedin-ads/pull/78"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade different bump versions to fix errors.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade different bump versions to fix errors.

@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-braintree/pull/57"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade circleCI, swap from pyenv to UV and from nose to pytest, and more updates.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade circleCI, swap from pyenv to UV and from nose to pytest, and more updates.

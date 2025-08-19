@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-shopify/pull/231"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to query and extract multiple pages of products for each collection.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to query and extract multiple pages of products for each collection.

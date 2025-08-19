@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-outreach/pull/39"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to fix the error: Only `data` or `links` expected in relationships.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix the error: Only `data` or `links` expected in relationships.

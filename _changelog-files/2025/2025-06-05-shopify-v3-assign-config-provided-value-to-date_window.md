@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-shopify/pull/221"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to assign config provided value to date_window.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to assign config provided value to date_window.

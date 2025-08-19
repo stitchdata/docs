@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-shopify/pull/222"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to add new stream fulfillment orders.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add new stream fulfillment orders.

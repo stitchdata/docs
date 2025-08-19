@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-github/pull/218"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to remove Sunset Projects, ProjectCards, and ProjectColumns streams.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to remove Sunset Projects, ProjectCards, and ProjectColumns streams.

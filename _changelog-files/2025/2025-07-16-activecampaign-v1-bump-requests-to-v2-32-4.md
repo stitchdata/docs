@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-activecampaign/pull/46"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade bump requests to v2.32.4.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade bump requests to v2.32.4.
