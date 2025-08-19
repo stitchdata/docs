@@ -2,7 +2,7 @@
 title: "GitHub (v2): Remove Sunset Projects, ProjectCards, and ProjectColumns streams"
 content-type: "changelog-entry"
 date: 2025-07-21
-entry-type: removed
+entry-type: improvement
 entry-category: integration
 connection-id: github
 connection-version: 2

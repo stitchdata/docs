@@ -1,8 +1,8 @@
 ---
-title: "Mixpanel (v1): make mp_reserved_insert_id available in export stream"
+title: "Mixpanel (v1): Make mp_reserved_insert_id available in export stream"
 content-type: "changelog-entry"
 date: 2025-02-17
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: mixpanel
 connection-version: 1

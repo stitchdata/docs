@@ -2,7 +2,7 @@
 title: "Shopify (v3): Assign config provided value to date_window"
 content-type: "changelog-entry"
 date: 2025-06-05
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 3

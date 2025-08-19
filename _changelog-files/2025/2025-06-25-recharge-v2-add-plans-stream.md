@@ -2,7 +2,7 @@
 title: "Recharge (v2): Add plans stream"
 content-type: "changelog-entry"
 date: 2025-06-25
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: recharge
 connection-version: 2

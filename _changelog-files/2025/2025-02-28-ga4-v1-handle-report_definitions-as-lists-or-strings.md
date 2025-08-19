@@ -1,8 +1,8 @@
 ---
-title: "Google Analytics 4 (v1): handle report_definitions as lists or strings"
+title: "Google Analytics 4 (v1): Handle report_definitions as lists or strings"
 content-type: "changelog-entry"
 date: 2025-02-28
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: google-analytics-4
 connection-version: 1

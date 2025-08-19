@@ -2,7 +2,7 @@
 title: "Google Analytics 4 (v1): Make report_definitions optional"
 content-type: "changelog-entry"
 date: 2025-03-06
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: google-analytics-4
 connection-version: 1

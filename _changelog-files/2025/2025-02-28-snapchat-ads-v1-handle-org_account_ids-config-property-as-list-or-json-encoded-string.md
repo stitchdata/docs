@@ -1,8 +1,8 @@
 ---
-title: "Snapchat Ads (v1): handle org_account_ids config property as list or json-encoded string"
+title: "Snapchat Ads (v1): Handle org_account_ids config property as list or json-encoded string"
 content-type: "changelog-entry"
 date: 2025-02-28
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: snapchat-ads
 connection-version: 1

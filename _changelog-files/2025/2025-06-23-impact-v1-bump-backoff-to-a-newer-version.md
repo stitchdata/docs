@@ -1,8 +1,8 @@
 ---
-title: "Impact (v1): Bump backoff to a newer version"
+title: "Impact (v1): Upgrade bump backoff"
 content-type: "changelog-entry"
 date: 2025-06-23
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: impact
 connection-version: 1
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-impact/pull/39"
 ---
 { site.data.changelog.metadata.single-integration | flatify }
 
-We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to bump backoff to a newer version.
+We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade bump backoff.

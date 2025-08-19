@@ -2,7 +2,7 @@
 title: "Shopify (v3): Optimize Shopify Metafields Sync Performance"
 content-type: "changelog-entry"
 date: 2025-02-19
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 3

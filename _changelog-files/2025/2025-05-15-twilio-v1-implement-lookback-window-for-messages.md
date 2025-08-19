@@ -2,7 +2,7 @@
 title: "Twilio (v1): Implement lookback window for messages"
 content-type: "changelog-entry"
 date: 2025-05-15
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: twilio
 connection-version: 1

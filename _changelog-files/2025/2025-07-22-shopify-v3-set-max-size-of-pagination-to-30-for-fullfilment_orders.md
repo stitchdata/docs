@@ -1,8 +1,8 @@
 ---
-title: "Shopify (v3): Set max size of pagination to 30 for fullfilment_orders"
+title: "Shopify (v3): Set max size of pagination"
 content-type: "changelog-entry"
 date: 2025-07-22
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 3

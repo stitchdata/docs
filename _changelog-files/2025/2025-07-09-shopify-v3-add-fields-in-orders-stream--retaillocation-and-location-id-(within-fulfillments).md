@@ -2,7 +2,7 @@
 title: "Shopify (v3): Add fields in orders stream - retailLocation and location ID (within fulfillments)"
 content-type: "changelog-entry"
 date: 2025-07-09
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 3

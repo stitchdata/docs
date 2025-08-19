@@ -2,7 +2,7 @@
 title: "Shopify (v3): Query and extract multiple pages of products for each collection"
 content-type: "changelog-entry"
 date: 2025-08-07
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 3

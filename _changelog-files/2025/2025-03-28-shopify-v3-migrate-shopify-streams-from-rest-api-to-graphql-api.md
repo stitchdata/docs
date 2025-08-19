@@ -2,7 +2,7 @@
 title: "Shopify (v3): Migrate Shopify Streams from REST API to GraphQL API"
 content-type: "changelog-entry"
 date: 2025-03-28
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 3

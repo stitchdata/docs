@@ -2,7 +2,7 @@
 title: "Pendo (v1): Use replication_key in last_processed instead of primary_key"
 content-type: "changelog-entry"
 date: 2025-07-31
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: pendo
 connection-version: 1

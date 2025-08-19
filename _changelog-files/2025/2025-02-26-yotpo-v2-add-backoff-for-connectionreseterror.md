@@ -2,7 +2,7 @@
 title: "Yotpo (v2): Add backoff for ConnectionResetError"
 content-type: "changelog-entry"
 date: 2025-02-26
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: yotpo
 connection-version: 2
