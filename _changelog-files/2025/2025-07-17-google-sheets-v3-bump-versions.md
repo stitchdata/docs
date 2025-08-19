@@ -8,6 +8,6 @@ connection-id: google-sheets
 connection-version: 3
 pull-request: "https://github.com/singer-io/tap-google-sheets/pull/98"
 ---
-{ site.data.changelog.metadata.single-integration | flatify }
+{{ site.data.changelog.metadata.single-integration | flatify }}
 
 We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade different bump versions to fix errors.

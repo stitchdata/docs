@@ -8,6 +8,6 @@ connection-id: google-ads
 connection-version: 2
 pull-request: "https://github.com/singer-io/tap-google-ads/pull/97"
 ---
-{ site.data.changelog.metadata.single-integration | flatify }
+{{ site.data.changelog.metadata.single-integration | flatify }}
 
 We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade API version to v20.

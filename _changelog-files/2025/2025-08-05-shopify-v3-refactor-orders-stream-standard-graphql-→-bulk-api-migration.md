@@ -8,6 +8,6 @@ connection-id: shopify
 connection-version: 3
 pull-request: "https://github.com/singer-io/tap-shopify/pull/227"
 ---
-{ site.data.changelog.metadata.single-integration | flatify }
+{{ site.data.changelog.metadata.single-integration | flatify }}
 
 We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to refactor Orders Stream: standard GraphQL to Bulk API Migration.

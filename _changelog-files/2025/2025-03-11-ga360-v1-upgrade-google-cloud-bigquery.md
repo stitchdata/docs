@@ -8,6 +8,6 @@ connection-id: google-analytics-360
 connection-version: 1
 pull-request: "https://github.com/singer-io/tap-ga360/pull/7"
 ---
-{ site.data.changelog.metadata.single-integration | flatify }
+{{ site.data.changelog.metadata.single-integration | flatify }}
 
 We've improved our { this-connection.display_name } (v{ this-connection.this-version }) integration to upgrade google-cloud-bigquery.
