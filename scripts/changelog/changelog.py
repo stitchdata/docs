@@ -26,7 +26,7 @@ integration_dict = {}
 # Lists of words to guess the entry type
 bug_fix = ['fix', 'fixed', 'fixing']
 deprecation = ['deprecate', 'deprecated','deprecating', 'deprecation']
-improvement = ['improve', 'improved', 'improving', 'improvement', 'enhance', 'enhanced', 'enhancing', 'enhancement', 'update', 'updated', 'updating', 'upgrade', 'upgraded', 'upgrading']
+improvement = ['improve', 'improved', 'improving', 'improvement', 'enhance', 'enhanced', 'enhancing', 'enhancement', 'update', 'updated', 'updating', 'upgrade', 'upgraded', 'upgrading', 'add', 'added', 'adding', 'migrate', 'migrated', 'migrating', 'bump', 'bumps']
 issue_identified = ['identify', 'identified', 'identifying']
 new_feature = ['new version']
 removed = ['remove', 'removed', 'removing', 'removal']
@@ -254,7 +254,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
 
                                     # Create the filename and content of the changelog file and create it
                                     md_filename = f'{path}/{pr_date}-{tap}-v{connection_version}-{pr_title_for_md_filename}.md'
-                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}\n\nWe\'ve improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to {pr_title_for_md_description}.'
+                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{{{ site.data.changelog.metadata.single-integration | flatify }}}}\n\nWe\'ve improved our {{{{ this-connection.display_name }}}} (v{{{{ this-connection.this-version }}}}) integration to {pr_title_for_md_description}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
