@@ -22,15 +22,15 @@ repo-url: https://github.com/singer-io/tap-google-ads
 
 this-version: "1"
 
-api-name: "Google Ads API (v17)"
+api-name: "Google Ads API (v18)"
 api: |
-  [Google Ads API (v17)](https://developers.google.com/google-ads/api/reference/rpc/v17/overview){:target='new'}
+  [Google Ads API (v18)](https://developers.google.com/google-ads/api/reference/rpc/v18/overview){:target='new'}
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-api-version: "v17"
+api-version: "v18"
 
 certified: true
 
