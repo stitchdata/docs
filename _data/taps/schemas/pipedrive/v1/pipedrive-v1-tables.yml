@@ -9,7 +9,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/activities.json
-    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+    api-method: https://developers.pipedrive.com/docs/api/v1/Activities#getActivities
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -24,8 +24,9 @@ tables:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/activity_types.json
     api-method: https://developers.pipedrive.com/docs/api/v1/#!/ActivityTypes/get_activityTypes
   table-details:
-    replication-method: Full Table
+    replication-method: Key-based Incremental
     primary-key: id
+    replication-key: update_time
 - name: currency
   description: 'The `{{ table.name }}` table contains info about the currencies listed
     in your {{ integration.display_name }} account.
@@ -55,8 +56,8 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/deals.json
-    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/deals.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/Deals
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -105,8 +106,9 @@ tables:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/filters.json
     api-method: https://developers.pipedrive.com/docs/api/v1/#!/Filters
   table-details:
-    replication-method: Full Table
+    replication-method: Key-based Incremental
     primary-key: id
+    replication-key: update_time
 - name: notes
   description: 'The `{{ table.name }}` table contains info about recent notes in your
     {{ integration.display_name }} account. Notes are pieces of textual (HTML-formatted)
@@ -115,8 +117,8 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/notes.json
-    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/notes.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/Notes#getNotes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -128,8 +130,8 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/organizations.json
-    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/organizations.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations
   table-details:
     replication-method: ''
     primary-key: id
@@ -141,8 +143,8 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/persons.json
-    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/persons.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/Persons
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -156,16 +158,17 @@ tables:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/pipelines.json
     api-method: https://developers.pipedrive.com/docs/api/v1/#!/Pipelines
   table-details:
-    replication-method: Full Table
+    replication-method: Key-based Incremental
     primary-key: id
+    replication-key: update_time
 - name: products
   description: 'The `{{ table.name }}` table contains info about the recent products
     in your {{ integration.display_name }} account.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/recents/dynamic_typing/products.json
-    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Recents
+    singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/products.json
+    api-method: https://developers.pipedrive.com/docs/api/v1/Products
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -179,8 +182,9 @@ tables:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/stages.json
     api-method: https://developers.pipedrive.com/docs/api/v1/#!/Stages/get_stages
   table-details:
-    replication-method: Full Table
+    replication-method: Key-based Incremental
     primary-key: id
+    replication-key: update_time
 - name: users
   description: 'The `{{ table.name }}` table contains info about the users associated
     with your {{ integration.display_name }} account. **Note**: This table contains

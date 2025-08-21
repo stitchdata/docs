@@ -1,22 +1,8 @@
 {
+  "type": "object",
   "properties": {
-    "active_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "add_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "assigned_to_user_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
+    "id": {
+      "type": "integer"
     },
     "company_id": {
       "type": [
@@ -24,34 +10,34 @@
         "integer"
       ]
     },
-    "created_by_user_id": {
+    "user_id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "deal_dropbox_bcc": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "deal_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "deal_title": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "done": {
       "type": [
         "null",
         "boolean"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reference_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "due_date": {
@@ -72,37 +58,30 @@
         "string"
       ]
     },
-    "gcal_event_id": {
+    "add_time": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "google_calendar_etag": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "google_calendar_id": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": "integer"
+      ],
+      "format": "date-time"
     },
     "marked_as_done_time": {
       "type": [
-        "date-time",
+        "string",
         "null"
-      ]
+      ],
+      "format": "date-time"
     },
-    "note": {
+    "subject": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "deal_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "org_id": {
@@ -111,20 +90,38 @@
         "integer"
       ]
     },
-    "org_name": {
+    "person_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "update_time": {
       "type": [
         "null",
         "string"
-      ]
+      ],
+      "format": "date-time"
     },
-    "owner_name": {
+    "note": {
       "type": [
         "null",
         "string"
       ]
     },
     "participants": {
+      "type": [
+        "null",
+        "array"
+      ],
       "items": {
+        "type": "object",
         "properties": {
           "person_id": {
             "type": "integer"
@@ -132,68 +129,177 @@
           "primary_flag": {
             "type": "boolean"
           }
+        }
+      }
+    },
+    "owner_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "creator_user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "location": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
         },
-        "type": "object"
-      },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "admin_area_level_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "admin_area_level_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "route": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "street_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "attendees": {
       "type": [
         "null",
         "array"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "is_organizer": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "person_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "org_id": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          }
+        }
+      }
+    },
+    "busy": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
-    "person_dropbox_bcc": {
+    "public_description": {
       "type": [
         "null",
         "string"
       ]
     },
-    "person_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "person_name": {
+    "lead_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "reference_id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "reference_type": {
+    "project_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "subject": {
+    "priority": {
       "type": [
         "null",
         "string"
       ]
     },
-    "type": {
+    "conference_meeting_client": {
       "type": [
         "null",
         "string"
       ]
     },
-    "update_time": {
+    "conference_meeting_url": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "user_id": {
+    "conference_meeting_id": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     }
-  },
-  "type": "object"
+  }
 }
