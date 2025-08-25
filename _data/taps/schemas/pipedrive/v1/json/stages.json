@@ -1,15 +1,31 @@
 {
+  "type": "object",
   "properties": {
-    "active_flag": {
+    "id": {
+      "type": "integer"
+    },
+    "order_nr": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_deleted": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "add_time": {
+    "is_deal_rot_enabled": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
       ]
     },
     "deal_probability": {
@@ -18,16 +34,7 @@
         "integer"
       ]
     },
-    "id": {
-      "type": "integer"
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "order_nr": {
+    "days_to_rotten": {
       "type": [
         "null",
         "integer"
@@ -39,30 +46,19 @@
         "integer"
       ]
     },
-    "pipeline_name": {
+    "add_time": {
       "type": [
         "null",
         "string"
-      ]
-    },
-    "rotten_days": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "rotten_flag": {
-      "type": [
-        "null",
-        "boolean"
-      ]
+      ],
+      "format": "date-time"
     },
     "update_time": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     }
-  },
-  "type": "object"
+  }
 }
