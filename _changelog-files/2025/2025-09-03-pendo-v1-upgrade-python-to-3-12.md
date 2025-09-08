@@ -1,5 +1,5 @@
 ---
-title: "Pendo (v1): upgrade python to 3.12"
+title: "Pendo (v1): Upgrade python to 3.12"
 content-type: "changelog-entry"
 date: 2025-09-03
 entry-type: improvement

@@ -1,5 +1,5 @@
 ---
-title: "Intercom (v2): update to python 3.12"
+title: "Intercom (v2): Update to python 3.12"
 content-type: "changelog-entry"
 date: 2025-09-02
 entry-type: improvement
