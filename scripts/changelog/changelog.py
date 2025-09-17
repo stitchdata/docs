@@ -234,7 +234,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Process PR title
                                     pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
                                     pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
-                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-')
+                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-').replace('/', '-').replace('\'', '-')
 
                                     # Guess the entry type from the PR title
                                     entry_type = 'NOT FOUND'
