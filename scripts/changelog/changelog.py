@@ -11,10 +11,10 @@ nb_days = int(sys.argv[2])
 
 
 # Folder for new files
-year = dt.today().strftime('%Y')
+year = dt.now(datetime.timezone.utc).strftime('%Y')
 path = f'../../_changelog-files/{year}'
 
-start_date = (dt.today() - datetime.timedelta(days=nb_days)).date()
+start_date = (dt.now(datetime.timezone.utc) - datetime.timedelta(days=nb_days)).date()
 
 repo_list = []
 pr_list = []
@@ -234,7 +234,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Process PR title
                                     pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
                                     pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
-                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-')
+                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-').replace('/', '-').replace('\'', '-')
 
                                     # Guess the entry type from the PR title
                                     entry_type = 'NOT FOUND'
