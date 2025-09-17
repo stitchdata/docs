@@ -11,10 +11,10 @@ nb_days = int(sys.argv[2])
 
 
 # Folder for new files
-year = dt.today().strftime('%Y')
+year = datetime.datetime.now(datetime.timezone.utc).strftime('%Y')
 path = f'../../_changelog-files/{year}'
 
-start_date = (dt.today() - datetime.timedelta(days=nb_days)).date()
+start_date = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=nb_days)).date()
 
 repo_list = []
 pr_list = []
