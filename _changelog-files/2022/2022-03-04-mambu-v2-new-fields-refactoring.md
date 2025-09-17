@@ -2,7 +2,7 @@
 title: "Mambu (v2) update: Continued refactoring, new fields added"
 content-type: "changelog-entry"
 date: 2022-03-04
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: mambu
 connection-version: 2

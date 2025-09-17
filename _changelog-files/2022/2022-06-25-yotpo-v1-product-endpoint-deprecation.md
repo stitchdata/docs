@@ -2,7 +2,7 @@
 title: "Yotpo (v1) update: Products table endpoint changes"
 content-type: "changelog-entry"
 date: 2022-06-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: yotpo
 connection-version: 1

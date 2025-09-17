@@ -2,7 +2,7 @@
 title: "Documentation update: Parent and child table info now available"
 content-type: "changelog-entry"
 date: 2021-05-27
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "documentation"
 pull-request: "https://github.com/stitchdata/docs/pull/646"
 ---

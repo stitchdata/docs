@@ -2,7 +2,7 @@
 title: "Zendesk Support (v1) update: Increase sync limit for users stream"
 content-type: "changelog-entry"
 date: 2023-05-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: zendesk
 connection-version: 1

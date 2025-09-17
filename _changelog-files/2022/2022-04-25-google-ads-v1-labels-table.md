@@ -2,7 +2,7 @@
 title: "Google Ads update: New  labels table"
 content-type: "changelog-entry"
 date: 2022-04-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-ads
 connection-version: 1

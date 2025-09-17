@@ -2,7 +2,7 @@
 title: Facebook Ads (v1) API upgrade to v8.0
 content-type: "changelog-entry"
 date: 2020-08-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

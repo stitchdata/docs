@@ -2,7 +2,7 @@
 title: "Twilio (v1): New stream, fields, and bug fixes"
 content-type: "changelog-entry"
 date: 2023-03-20
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: twilio
 connection-version: 1

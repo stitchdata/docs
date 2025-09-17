@@ -2,7 +2,7 @@
 title: "Chargify (v1) update: New transaction data!"
 content-type: "changelog-entry"
 date: 2021-06-01
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: chargify
 connection-version: 1

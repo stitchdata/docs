@@ -2,7 +2,7 @@
 title: "Zendesk Chat (v1) update: New table"
 content-type: "changelog-entry"
 date: 2022-04-27
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: zendesk-chat
 connection-version: 1

@@ -2,7 +2,7 @@
 title: "Google Ads (v1) update: Add limit clause to core table queries"
 content-type: "changelog-entry"
 date: 2022-07-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-ads
 connection-version: 1

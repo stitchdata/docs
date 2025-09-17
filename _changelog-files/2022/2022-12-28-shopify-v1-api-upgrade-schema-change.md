@@ -2,7 +2,7 @@
 title: "Shopify (v1) update: API version upgrade and schema changes"
 content-type: "changelog-entry"
 date: 2022-12-28
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 1

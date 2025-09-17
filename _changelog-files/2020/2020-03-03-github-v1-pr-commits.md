@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: Squashed pull request commit data now available!"
 content-type: "changelog-entry"
 date: 2020-03-03
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "github"
 connection-version: 1

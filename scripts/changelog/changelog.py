@@ -1,4 +1,4 @@
-import requests, re, base64, json, datetime, os, pandas, sys
+import requests, re, base64, json, datetime, os, pandas, sys, yaml
 from datetime import datetime as dt
 
 # GitHub info
@@ -11,7 +11,8 @@ nb_days = int(sys.argv[2])
 
 
 # Folder for new files
-path = '../../_changelog-files/drafts'
+year = dt.today().strftime('%Y')
+path = f'../../_changelog-files/{year}'
 
 start_date = (dt.today() - datetime.timedelta(days=nb_days)).date()
 
@@ -20,12 +21,60 @@ pr_list = []
 documented = []
 to_document = []
 to_ignore = []
+integration_dict = {}
 
-def createDir(): # Check if the drafts folder exists and create it if it doesn't
+# Lists of words to guess the entry type
+bug_fix = ['fix', 'fixed', 'fixing']
+deprecation = ['deprecate', 'deprecated','deprecating', 'deprecation']
+improvement = ['improve', 'improved', 'improving', 'improvement', 'enhance', 'enhanced', 'enhancing', 'enhancement', 'update', 'updated', 'updating', 'upgrade', 'upgraded', 'upgrading', 'add', 'added', 'adding', 'migrate', 'migrated', 'migrating', 'bump', 'bumps']
+issue_identified = ['identify', 'identified', 'identifying']
+new_feature = ['new version']
+removed = ['remove', 'removed', 'removing', 'removal']
+
+def createDir(): # Check if the target folder exists and create it if it doesn't
     if os.path.exists(path) == False:
         os.makedirs(path)
-    else: 
+    else:
         pass
+
+def createIntegrationDict(): # Create a dictionary of all integrations from the integrations.yml file
+    with open('../../_data/taps/integrations.yml', 'r') as file:
+        yaml_data = yaml.safe_load(file)
+        integration_dict.update(yaml_data['integrations'])
+    # Hardcode some integration entries
+    hardcoded_integration_dict = {
+        'amazon-dynamodb': 'dynamodb',
+        'amazon-s3-csv': 's3',
+        }
+    # Update entries with their hardcoded value
+    for key, value in hardcoded_integration_dict.items():
+        integration_dict[key]['id'] = value
+    # Remove entries that are a duplication of a generic entry
+    keys_to_be_removed_list = [
+        'aurora-postgresql-rds',
+        'aurora-rds',
+        'cloudsql-mysql',
+        'cloudsql-postgres',
+        'magento',
+        'mariadb',
+        'microsoft-azure-mysql',
+        'mongodb-atlas',
+        'mysql-rds',
+        'oracle-rds',
+        'postgresql-rds',
+        'sql-server-rds'
+        ]
+    # Loop on the integration dictionary to create a list of keys to be removed
+    # The keys to be removed are the ones that don't have any tap associated
+    for key,value in integration_dict.items():
+        if value['tap'] == '':
+            keys_to_be_removed_list.append(key)
+    # Remove the keys that don't have any tap
+    for key in keys_to_be_removed_list:
+        integration_dict.pop(key)
+    # Manually remove keys that don't have any associated documentation (leftover?)
+    integration_dict.pop('amazon-dsp')
+    integration_dict.pop('insided')
 
 def getPRsToIgnore(): # Check the ignore.txt file for PRs that shouldn't be documented
     with open('ignore.txt', 'r', encoding='utf8') as f:
@@ -47,7 +96,7 @@ def getDocumentedPRs(): # Get PRs that already have a changelog file
                     # Find the line that contains the PR URL
                     for line in changelog_lines:
                         if line.startswith('pull-request:'):
-                            link = re.search('^pull-request\:\s\"(.*)\"$', line).group(1)
+                            link = re.search(r'^pull-request\:\s\"(.*)\"$', line).group(1)
 
                             # Add the URL to the list of PRs already added in the changelog
                             documented.append(link)
@@ -116,8 +165,8 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
     prs = pandas.DataFrame(pr_list, columns=['repository', 'pr_number', 'pr_title', 'pr_url', 'pr_merge_date'])
 
     for index, row in prs.iterrows():
-        name = row[0]
-        number = row[1]
+        name = row.iloc[0]
+        number = row.iloc[1]
 
         # For each PR, check the files updated
         api = 'https://api.github.com/repos/singer-io/' + name + '/pulls/' + str(number) + '/files'
@@ -155,7 +204,8 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     print(pr)
 
                                     # If the PR is not already in the list of PRs to document, get the name of the tap, and the PR number, title, URL and merge date from the DataFrame
-                                    tap = pr[0].replace('tap-', '')
+                                    tap_raw = pr[0]
+                                    tap = tap_raw.replace('tap-', '')
                                     pr_number = str(pr[1])
                                     pr_title = pr[2]
                                     pr_url = pr[3]
@@ -164,21 +214,62 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Add the PR to the list of PRs to document
                                     to_document.append(pr)
 
+                                    # Get connection information from integrations.yaml
+                                    ## Set default values
+                                    connection_id = 'NOT FOUND'
+                                    connection_name = 'NOT FOUND'
+                                    connection_version = 'NOT FOUND'
+                                    ## Lookup on integration_dict
+                                    for key, value in integration_dict.items():
+                                        if value['tap'] == tap_raw:
+                                            ## Get values
+                                            connection_id = value['id']
+                                            connection_name = value['display_name']
+                                            ## Get latest connection version
+                                            with open(f'../../_data/taps/versions/{connection_id}.yml', 'r') as file:
+                                                yaml_data = yaml.safe_load(file)
+                                                connection_version = yaml_data['latest-version']
+                                            break
+
+                                    # Process PR title
+                                    pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
+                                    pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
+                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-')
+
+                                    # Guess the entry type from the PR title
+                                    entry_type = 'NOT FOUND'
+                                    pr_title_lower = pr_title.lower()
+                                    entry_types = [
+                                        ('bug-fix', bug_fix),
+                                        ('deprecation', deprecation),
+                                        ('improvement', improvement),
+                                        ('issue-identified', issue_identified),
+                                        ('new-feature', new_feature),
+                                        ('removed', removed)
+                                    ]
+                                    for type, keywords in entry_types:
+                                        if any(word in pr_title_lower for word in keywords):
+                                            entry_type = type
+                                            break
+
                                     # Create the filename and content of the changelog file and create it
-                                    md_filename = path + '/' + pr_date + '-' + tap + '-' + pr_number + '.md'
-                                    md_text = '---\ntitle: "' + pr_title + '"\ncontent-type: "changelog-entry"\ndate: ' + pr_date + '\nentry-type: \nentry-category: integration\nconnection-id: \nconnection-version: \npull-request: "' + pr_url + '"\n---\n{{ site.data.changelog.metadata.single-integration | flatify }}'
+                                    md_filename = f'{path}/{pr_date}-{tap}-v{connection_version}-{pr_title_for_md_filename}.md'
+                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{{{ site.data.changelog.metadata.single-integration | flatify }}}}\n\nWe\'ve improved our {{{{ this-connection.display_name }}}} (v{{{{ this-connection.this-version }}}}) integration to {pr_title_for_md_description}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
     # Print results
     count = len(to_document)
-    if count > 0:
-        print(str(count) + ' pull requests to document')
+    if count > 1:
+        print(f'{str(count)} pull requests to document')
+    elif count == 1:
+        print('1 pull request to document')
     else: 
         print('No pull requests to document')
 
 
 createDir()
+createIntegrationDict()
 getDocumentedPRs()
 getPRsToIgnore()
 getRepoList()

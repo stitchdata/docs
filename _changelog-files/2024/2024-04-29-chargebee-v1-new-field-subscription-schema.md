@@ -2,7 +2,7 @@
 title: "Chargebee (v1) update: New field in subscriptions schema"
 content-type: "changelog-entry"
 date: 2024-04-29
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: chargebee
 connection-version: 1

@@ -2,7 +2,7 @@
 title: "Harvest (v2) update: Updated API request headers"
 content-type: "changelog-entry"
 date: 2021-06-07
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: harvest
 connection-version: 2

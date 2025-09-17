@@ -2,7 +2,7 @@
 title: "Mixpanel (v1) update: Switch from multipleOf to singer.decimal"
 content-type: "changelog-entry"
 date: 2021-10-27
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "mixpanel"
 connection-version: "1"

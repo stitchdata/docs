@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) upgrade: API to 21.0.5"
 content-type: "changelog-entry"
 date: 2025-01-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

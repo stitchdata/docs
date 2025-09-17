@@ -2,7 +2,7 @@
 title: "Campaign Manager (v1) update: API version upgrade"
 content-type: "changelog-entry"
 date: 2021-06-21
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "campaign-manager"
 connection-version: 1

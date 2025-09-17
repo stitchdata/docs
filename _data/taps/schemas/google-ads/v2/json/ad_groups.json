@@ -1,0 +1,427 @@
+{
+  "properties": {
+    "adRotationMode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "baseAdGroup": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "cpcBidMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cpmBidMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cpvBidMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "definitions": {
+      "properties": {
+        "CustomParameter": {
+          "properties": {
+            "key": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "ExplorerAutoOptimizerSetting": {
+          "properties": {
+            "optIn": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "TargetRestriction": {
+          "properties": {
+            "bidOnly": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "targetingDimension": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "TargetRestrictionOperation": {
+          "properties": {
+            "operator": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "properties": {
+                "bidOnly": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "targetingDimension": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "object"
+          ]
+        },
+        "TargetingSetting": {
+          "properties": {
+            "targetRestrictionOperations": {
+              "items": {
+                "operator": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "value": {
+                  "properties": {
+                    "bidOnly": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "targetingDimension": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            },
+            "targetRestrictions": {
+              "items": {
+                "properties": {
+                  "bidOnly": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "targetingDimension": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "type": [
+                "null",
+                "array"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
+    "displayCustomBidDimension": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "effectiveTargetCpaMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "effectiveTargetCpaSource": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "effectiveTargetRoas": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "effectiveTargetRoasSource": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "excludedParentAssetFieldTypes": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "explorerAutoOptimizerSetting": {
+      "properties": {
+        "optIn": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "finalUrlSuffix": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "labels": {
+      "items": {
+        "type": [
+          "null",
+          "string"
+        ]
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "percentCpcBidMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "resourceName": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "targetCpaMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "targetCpmMicros": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "targetRoas": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "targetingSetting": {
+      "properties": {
+        "targetRestrictionOperations": {
+          "items": {
+            "operator": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "value": {
+              "properties": {
+                "bidOnly": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "targetingDimension": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        },
+        "targetRestrictions": {
+          "items": {
+            "properties": {
+              "bidOnly": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "targetingDimension": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": [
+              "null",
+              "object"
+            ]
+          },
+          "type": [
+            "null",
+            "array"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "trackingUrlTemplate": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "urlCustomParameters": {
+      "items": {
+        "key": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "array"
+      ]
+    }
+  },
+  "type": [
+    "null",
+    "object"
+  ]
+}

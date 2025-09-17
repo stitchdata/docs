@@ -2,7 +2,7 @@
 title: "Chargebee (v1) update: New item tables for Chargebee Product Catalog v2!"
 content-type: "changelog-entry"
 date: 2021-06-14
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "chargebee"
 connection-version: "1"

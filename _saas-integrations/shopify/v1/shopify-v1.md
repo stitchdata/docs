@@ -1,9 +1,10 @@
 ---
 title: Shopify (v1)
-permalink: /integrations/saas/shopify
+permalink: /integrations/saas/shopify/v1
 keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
+input: false
 
 key: "shopify-setup"
 

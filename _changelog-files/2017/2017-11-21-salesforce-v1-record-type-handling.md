@@ -2,7 +2,7 @@
 title: "Salesforce (v1): Improved record type handling"
 content-type: "changelog-entry"
 date: 2017-11-21
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "salesforce"
 connection-version: "1"

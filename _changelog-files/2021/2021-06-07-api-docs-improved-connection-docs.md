@@ -2,7 +2,7 @@
 title: "API documentation update: Improved connection property docs"
 content-type: "changelog-entry"
 date: 2021-06-07
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "documentation, connect-api"
 pull-request: "https://github.com/stitchdata/docs/pull/649"
 ---

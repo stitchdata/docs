@@ -2,7 +2,7 @@
 title: "Mambu (v2) update: Changes in the gl_journal_entries stream"
 content-type: "changelog-entry"
 date: 2021-11-03
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "mambu"
 connection-version: "2"

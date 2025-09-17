@@ -2,7 +2,7 @@
 title: "GitHub (v2) update: New bookmark format"
 content-type: "changelog-entry"
 date: 2025-01-13
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: github
 connection-version: 2

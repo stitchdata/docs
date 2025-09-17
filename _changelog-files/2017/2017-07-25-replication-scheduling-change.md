@@ -2,7 +2,7 @@
 title: Replication scheduling change for non-database integrations
 content-type: "changelog-entry"
 date: 2017-07-25
-entry-type: updated-feature
+entry-type: improvement
 entry-category: replication
 ---
 

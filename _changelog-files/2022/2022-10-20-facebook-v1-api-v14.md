@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1) update: Updated API version"
 content-type: "changelog-entry"
 date: 2022-10-20
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

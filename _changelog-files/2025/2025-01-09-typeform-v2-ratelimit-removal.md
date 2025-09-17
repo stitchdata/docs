@@ -2,7 +2,7 @@
 title: "Typeform (v2) update: Ratelimit removal"
 content-type: "changelog-entry"
 date: 2025-01-09
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: typeform
 connection-version: 2

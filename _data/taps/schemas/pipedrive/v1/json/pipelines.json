@@ -1,17 +1,6 @@
 {
+  "type": "object",
   "properties": {
-    "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "add_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "id": {
       "type": "integer"
     },
@@ -27,24 +16,37 @@
         "integer"
       ]
     },
-    "selected": {
+    "is_deleted": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "update_time": {
+    "is_deal_probability_enabled": {
       "type": [
         "null",
-        "date-time"
+        "boolean"
       ]
     },
-    "url_title": {
+    "add_time": {
       "type": [
         "null",
         "string"
+      ],
+      "format": "date-time"
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "selected": {
+      "type": [
+        "null",
+        "boolean"
       ]
     }
-  },
-  "type": "object"
+  }
 }

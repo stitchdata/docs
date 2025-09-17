@@ -57,6 +57,7 @@ jobs:
           packages: |
             requests
             pandas
+            pyyaml
 
       - name: Generate draft changelog files
         run: python changelog.py ${{ secrets.GITHUB_TOKEN }} ${{ env.range }}

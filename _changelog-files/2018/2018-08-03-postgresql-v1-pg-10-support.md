@@ -2,7 +2,7 @@
 title: "PostgreSQL (v1) integrations: PG 10 now supported for Logical Replication"
 content-type: "changelog-entry"
 date: 2018-08-03
-entry-type: "updated-feature"
+entry-type: improvement
 entry-category: "integration" 
 connection-id: "postgres"
 connection-version: "1"

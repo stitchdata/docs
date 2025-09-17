@@ -2,7 +2,7 @@
 title: "Google Analytics (v14-09-2016) integrations: New default Replication Frequency"
 content-type: "changelog-entry"
 date: 2017-02-09
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: google-analytics
 connection-version: "14-09-2016"

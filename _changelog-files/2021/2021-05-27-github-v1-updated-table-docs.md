@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: New table documentation now available"
 content-type: "changelog-entry"
 date: 2021-05-27
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "github"
 connection-version: 1

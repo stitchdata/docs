@@ -2,7 +2,7 @@
 title: "Shopify (v1) update: Product status now available!"
 content-type: "changelog-entry"
 date: 2021-05-28
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: shopify
 connection-version: 1

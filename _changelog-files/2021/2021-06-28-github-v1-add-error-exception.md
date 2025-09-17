@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: New empty response error exception"
 content-type: "changelog-entry"
 date: 2021-06-28
-entry-type: updated-feature
+entry-type: improvement
 entry-category: "integration"
 connection-id: "github"
 connection-version: 1

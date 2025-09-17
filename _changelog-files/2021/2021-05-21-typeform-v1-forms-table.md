@@ -2,7 +2,7 @@
 title: "Typeform (v1) update: New forms table!"
 content-type: "changelog-entry"
 date: 2021-05-21
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: typeform
 connection-version: 1

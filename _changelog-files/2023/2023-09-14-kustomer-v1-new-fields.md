@@ -2,7 +2,7 @@
 title: "Kustomer (v1) update: New fields"
 content-type: "changelog-entry"
 date: 2023-09-14
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: kustomer
 connection-version: 1

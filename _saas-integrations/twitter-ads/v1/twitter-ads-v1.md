@@ -12,9 +12,9 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Twitter Ads (v1)
+title: Twitter Ads (X) (v1)
 permalink: /integrations/saas/twitter-ads
-keywords: twitter-ads, integration, schema, etl twitter-ads, twitter-ads etl, twitter-ads schema
+keywords: twitter-ads, integration, schema, etl twitter-ads, twitter-ads etl, twitter-ads schema, x-ads, x
 layout: singer
 # input: false
 

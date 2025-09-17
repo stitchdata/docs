@@ -2,7 +2,7 @@
 title: "Trello (v1) update: Added configurable parameter to cards table"
 content-type: "changelog-entry"
 date: 2022-09-28
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: trello
 connection-version: 1

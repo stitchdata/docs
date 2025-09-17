@@ -2,7 +2,7 @@
 title: "GitHub (v1) update: Team memberships and new fields now available!"
 content-type: "changelog-entry"
 date: 2020-04-06
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: "github"
 connection-version: 1

@@ -2,7 +2,7 @@
 title: "ReCharge (v1) update: New rate limit handling"
 content-type: "changelog-entry"
 date: 2021-06-03
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: recharge
 connection-version: 1

@@ -2,7 +2,7 @@
 title: "ActiveCampaign (v1): Updated the bounce_logs schema"
 content-type: "changelog-entry"
 date: 2024-09-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: activecampaign
 connection-version: 1

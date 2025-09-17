@@ -2,7 +2,7 @@
 title: "Amazon S3 CSV (v1) update: Add credentials_cache_path property"
 content-type: "changelog-entry"
 date: 2025-02-05
-entry-type: updated-feature
+entry-type: improvement
 entry-category: integration
 connection-id: amazon-s3-csv
 connection-version: 1
