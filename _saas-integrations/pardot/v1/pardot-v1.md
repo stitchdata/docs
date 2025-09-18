@@ -101,7 +101,7 @@ setup-steps:
       1. Sign into your Salesforce account.
       2. Navigate to the **Setup** page.
       3. Go to **Account Engagement** > **Business Unit Setup**.
-      4. The {{ integration.display_name }} setup page will display. Copy your {{ integration.display_name }} Business Unit ID and keep it readily available for the next step.
+      4. The setup page will display. Copy your {{ integration.display_name }} Business Unit ID and keep it readily available for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
