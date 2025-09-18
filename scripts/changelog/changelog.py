@@ -156,11 +156,10 @@ def getPRList(): # Get a list of PRs merged in the past week on all repos
                     date = dt.strptime(merged, "%Y-%m-%dT%H:%M:%SZ").date()
 
                     # If a PR was merged in the past week, add it to the list of PRs to check
-                    if date > start_date:
+                    if date >= start_date:
                         pr_list.append([name, number, title, url, date])
 
 def getPRsToDocument(): # Find PRs that need to be documented and create draft changelog files
-
     # Make the PR list into a DataFrame
     prs = pandas.DataFrame(pr_list, columns=['repository', 'pr_number', 'pr_title', 'pr_url', 'pr_merge_date'])
 
