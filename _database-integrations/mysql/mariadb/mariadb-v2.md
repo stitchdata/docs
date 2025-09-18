@@ -106,6 +106,8 @@ requirements-list:
       **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
   - item: |
       **The `SUPER` privilege in {{ integration.display_name }}.** If using binlog replication, the [`SUPER` privilege](https://dev.mysql.com/doc/refman/5.6/en/privileges-provided.html#priv_super){:target="new"} is required to define the appropriate server settings.
+  - item: |
+      **The binlog retention hours in {{ integration.display_name }}.** When using binlog replication, the value of the [binlog retention hours parameter](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-stored-proc-configuring.html){:target="new"} must be 168.
 
 # -------------------------- #
 #     Setup Instructions     #
