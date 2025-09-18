@@ -107,7 +107,7 @@ requirements-list:
   - item: |
       **The `SUPER` privilege in {{ integration.display_name }}.** If using binlog replication, the [`SUPER` privilege](https://dev.mysql.com/doc/refman/5.6/en/privileges-provided.html#priv_super){:target="new"} is required to define the appropriate server settings.
   - item: |
-      **The binlog retention hours in {{ integration.display_name }}.** When using binlog replication, the value of the [binlog retention hours parameter](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-stored-proc-configuring.html){:target="new"} should be 168.
+      **The binlog retention hours in {{ integration.display_name }}.** When using binlog replication, the value of the [binlog retention hours parameter](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-stored-proc-configuring.html){:target="new"} must be 168.
 
 # -------------------------- #
 #     Setup Instructions     #
