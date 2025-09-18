@@ -119,19 +119,17 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-- name: products
-  description: 'The `{{ table.name }}` table contains info about your products. This
-    table uses the 2021-01 API version.
+- name: plans
+  description: 'The `{{ table.name }}` table contains info about your plans.
 
     '
   links:
-    doc-link: https://developer.rechargepayments.com/2021-11/products/products_list
-    singer-schema: https://github.com/singer-io/tap-recharge/tree/master/tap_recharge/schemas/products.json
-    api-method: https://developer.rechargepayments.com/2021-01/products/products_list
+    doc-link: https://developer.rechargepayments.com/2021-11/plans/plans_list
+    singer-schema: https://github.com/singer-io/tap-recharge/blob/master/tap_recharge/schemas/plans.json
+    api-method: https://developer.rechargepayments.com/2021-11/plans/plans_list
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
-    replication-key: updated_at
 - name: store
   description: 'The `{{ table.name }}` table contains info about your store.
 
