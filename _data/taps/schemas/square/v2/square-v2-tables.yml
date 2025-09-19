@@ -137,8 +137,7 @@ tables:
     api-method: https://developer.squareup.com/reference/square/payments-api/list-payments
   table-details:
     replication-method: Key-based Incremental
-    replication-key: updated_at
-    second-replication-key: created_at
+    replication-key: updated_at,created_at
 - name: payouts
   description: The `{{ table.name }}` table contains information about all payouts
     made in {{ integration.display_name }}.
