@@ -74,7 +74,7 @@ column-selection: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. To access the {{ integration.display_name }} API documentation, you will need [your API key](#obtain-api-key). Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-  Starting March 19th, 2025, {{ integration.display_name }} changes their retrieve, and list charge endpoints on API versions 2021-01 and 2021-11. Success, refunded, or partially- refunded processed charges over 90 days ago will no longer appear in the results. Please review your integration accordingly. For more details, see [{{ integration.display_name }} changelog](https://changelog.getrecharge.com/upcoming-change-to-recharge-api---90-day-lookback-limit-for-processed-charges-1t2zjW){:target="new"}
+  Starting March 19th, 2025, {{ integration.display_name }} changes their retrieve, and list charge endpoints on API versions 2021-01 and 2021-11. Success, refunded, or partially- refunded processed charges over 90 days ago will no longer appear in the results. Please review your integration accordingly. For more details, see [{{ integration.display_name }} changelog](https://changelog.getrecharge.com/upcoming-change-to-recharge-api---90-day-lookback-limit-for-processed-charges-1t2zjW){:target="new"}.
 
 
 # -------------------------- #
