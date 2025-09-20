@@ -1,9 +1,8 @@
 ---
-title: HubSpot (v3)
-permalink: /integrations/saas/hubspot/v3
+title: HubSpot (v4)
+permalink: /integrations/saas/hubspot
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
-input: false
 layout: singer
 key: "hubspot-setup"
 
@@ -17,7 +16,7 @@ display_name: "HubSpot"
 singer: true
 repo-url: https://github.com/singer-io/tap-hubspot
 
-this-version: "3"
+this-version: "4"
 
 api: |
   [{{ integration.display_name }} REST API](https://developers.hubspot.com/docs/overview){:target="new"}
