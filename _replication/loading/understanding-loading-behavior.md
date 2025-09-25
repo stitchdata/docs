@@ -58,6 +58,18 @@ sections:
         content: |
           {{ site.data.tooltips.append-only }}
 
+      - title: "History Mode"
+        anchor: "loading-behavior-types--history-mode"
+        content: |
+          When data is loaded using the History mode, records are appended to the end of the table as new rows.
+
+          When a record is added, the `_sdc_start_date` column is set to the loading date, and the `sdc_end_date` column is set to `9999-12-31` (UTC time). 
+          When a new verson of the same record is added, the `_sdc_end_date` value of the previous version is updated to the loading date of the new version. 
+          
+          Multiple versions of a row can exist in a table, creating a log of how a record has changed over time. This means you can create a query that returns the version of the record for a specific date or date range.
+
+          **Note**: Since this loading type adds two system columns in the destination table, it will decrease the maximum number of columns available for your data if the destination has a limited number of columns per table.
+
   - title: "Determining loading behavior"
     anchor: "loading-behavior-determined"
     summary: "How loading behavior is determined"
@@ -88,6 +100,11 @@ sections:
           - The destination only supports or is configured to use Append-Only loading, **or**
           - The data doesn't have defined Primary Keys in the source **or** destination, **or**
           - The integration or table is pre-configured to use Append-Only loading
+
+      - title: "History mode"
+        anchor: "history-mode-conditions"
+        content: |
+          History mode is only used when the destination is configured to use History mode.
 
   - title: "Examples"
     anchor: "examples"
@@ -130,6 +147,26 @@ sections:
           When source data that doesn't have a Primary Key is replicated, Stitch appends an `{{ system-column.primary-key }}` to the data to function as a Primary Key. Data will be loaded using Append-Only loading, regardless of what loading behavior the destination supports or is configured to use.
 
           {% include layout/image.html enlarge=true file="/replication/append-only-no-primary-key.png" alt="Click to enlarge: Append-Only loading as a result of no defined Primary Keys" %}
+
+      - title: "History mode example"
+        anchor: "example--history-mode-loading"
+        summary: "History mode"
+        content: |
+          In this example, the destination is configured to use History mode. The `id` column is the table's Primary Key.
+
+          The following record is added to the destination table in a first replication job. The `_sdc_end_date` column is set to `9999-12-31` to indicate that this is the latest version of this record:
+
+          |id|status|_sdc_start_date|_sdc_end_date|
+          |---|---|---|---|
+          |abc-123|Pending|2022-10-21|**9999-12-31**|
+
+          
+          The record is then updated in the source. A second replication job creates a new version of the existing record on December 14, 2022. The previous version's `_sdc_end_date` value is updated and the new version is added to the table. The destination table now looks like this:
+          
+          |id|status|_sdc_start_date|_sdc_end_date|
+          |---|---|---|---|
+          |abc-123|Pending|2022-10-21|**2022-12-14**|
+          |abc-123|In progress|**2022-12-14**|9999-12-31|
 
   - title: "Reference"
     anchor: "reference"
