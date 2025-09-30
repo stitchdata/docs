@@ -1,5 +1,5 @@
 ---
-title: "Mambu (v4): Upgrade api version to v2"
+title: "Mambu (v4): Upgrade API version to v2"
 content-type: "changelog-entry"
 date: 2025-09-24
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-mambu/pull/132"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade api version to v2.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade API version to v2.
