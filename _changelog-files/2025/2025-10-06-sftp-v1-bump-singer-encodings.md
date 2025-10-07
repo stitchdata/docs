@@ -1,5 +1,5 @@
 ---
-title: "SFTP (v1): Bump singer-encodings"
+title: "SFTP (v1): Upgrade bump version"
 content-type: "changelog-entry"
 date: 2025-10-06
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-sftp/pull/51"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump singer-encodings.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade the bump version of `singer-encodings`.
