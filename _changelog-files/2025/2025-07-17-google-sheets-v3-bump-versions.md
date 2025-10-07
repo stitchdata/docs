@@ -1,5 +1,5 @@
 ---
-title: "Google Sheets (v3): upgrade versions"
+title: "Google Sheets (v3): Upgrade versions"
 content-type: "changelog-entry"
 date: 2025-07-17
 entry-type: improvement

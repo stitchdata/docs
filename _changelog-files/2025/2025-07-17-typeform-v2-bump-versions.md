@@ -1,5 +1,5 @@
 ---
-title: "Typeform (v2): upgrade versions"
+title: "Typeform (v2): Upgrade versions"
 content-type: "changelog-entry"
 date: 2025-07-17
 entry-type: improvement

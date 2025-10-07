@@ -1,5 +1,5 @@
 ---
-title: "Mailshake (v1): upgrade versions"
+title: "Mailshake (v1): Upgrade versions"
 content-type: "changelog-entry"
 date: 2025-07-21
 entry-type: improvement

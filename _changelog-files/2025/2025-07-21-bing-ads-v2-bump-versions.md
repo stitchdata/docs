@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Advertising (v2): upgrade versions"
+title: "Microsoft Advertising (v2): Upgrade versions"
 content-type: "changelog-entry"
 date: 2025-07-21
 entry-type: improvement

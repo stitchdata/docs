@@ -1,5 +1,5 @@
 ---
-title: "Twilio (v1): upgrade versions"
+title: "Twilio (v1): Upgrade versions"
 content-type: "changelog-entry"
 date: 2025-07-14
 entry-type: improvement

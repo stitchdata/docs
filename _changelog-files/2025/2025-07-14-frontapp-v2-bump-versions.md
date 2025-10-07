@@ -1,5 +1,5 @@
 ---
-title: "Front (v2): upgrade versions"
+title: "Front (v2): Upgrade versions"
 content-type: "changelog-entry"
 date: 2025-07-14
 entry-type: improvement
