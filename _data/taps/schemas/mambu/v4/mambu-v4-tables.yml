@@ -20,7 +20,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://support.mambu.com/docs/audit-trail-v2
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/audit_trail.json
     api-method: https://support.mambu.com/docs/audit-trail
   table-details:
@@ -31,7 +31,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-branches
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/branches.json
     api-method: https://api.mambu.com/?http#branches-getall
   table-details:
@@ -43,7 +43,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-cards
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/cards.json
     api-method: https://api.mambu.com/?http#depositaccounts-getallcards
   table-details:
@@ -57,7 +57,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-centres
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/centres.json
     api-method: https://api.mambu.com/?http#centres-getall
   table-details:
@@ -69,7 +69,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-clients
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/clients.json
     api-method: https://api.mambu.com/?http#clients-search
   table-details:
@@ -80,7 +80,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-communications
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/communications.json
     api-method: https://api.mambu.com/?http#communications-search
   table-details:
@@ -92,7 +92,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-credit-arrangements
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/credit_arrangements.json
     api-method: https://api.mambu.com/?http#creditarrangements-getall
   table-details:
@@ -104,7 +104,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-custom-field-sets
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/custom_field_sets.json
     api-method: https://api.mambu.com/v1/#custom-field-sets-get-custom-field-sets
   table-details:
@@ -115,7 +115,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-deposit-accounts
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/deposit_accounts.json
     api-method: https://api.mambu.com/?http#deposit-accounts-search
   table-details:
@@ -127,7 +127,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-deposit-products
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/deposit_products.json
     api-method: https://api.mambu.com/v1/#savings-products-get-savings-products
   table-details:
@@ -139,7 +139,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-deposit-transactions
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/deposit_transactions.json
     api-method: https://api.mambu.com/?http#deposittransactions-search
   table-details:
@@ -151,7 +151,7 @@ tables:
 
     '
   links:
-    doc-link: https://support.mambu.com/docs/gl-accounts-api
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-gl-accounts
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/gl_accounts.json
     api-method: https://api.mambu.com/v1/#general-ledger-accounts-get-all-gl-accounts
   table-details:
@@ -175,7 +175,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-groups
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/groups.json
     api-method: https://api.mambu.com/?http#groups-search
   table-details:
@@ -187,6 +187,7 @@ tables:
 
     '
   links:
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-index-rate-sources
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/index_rate_sources.json
     api-method: https://api.mambu.com/#mambu-api-v2-index-rate-sources
   table-details:
@@ -207,7 +208,7 @@ tables:
 - name: loan_accounts
   description: This table contains information about Loan Accounts.
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-loan-accounts
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/loan_accounts.json
     api-method: https://api.mambu.com/?http#loan-accounts-search
   table-details:
@@ -231,7 +232,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-loan-transactions
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/loan_transactions.json
     api-method: https://api.mambu.com/?http#loantransactions-getall
   table-details:
@@ -243,7 +244,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-tasks
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/tasks.json
     api-method: https://api.mambu.com/?http#tasks-getall
   table-details:
@@ -255,7 +256,7 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-users
     singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/users.json
     api-method: https://api.mambu.com/?http#users-getall
   table-details:
