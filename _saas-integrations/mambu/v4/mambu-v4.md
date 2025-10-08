@@ -34,7 +34,7 @@ repo-url: https://github.com/singer-io/tap-mambu
 this-version: "4"
 
 api: |
-  [{{ integration.display_name }} v2.0](https://api.mambu.com/?shell#Welcome){:target="new"}.
+  [{{ integration.display_name }} v2.0](https://api.mambu.com/?shell#Welcome){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
