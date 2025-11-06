@@ -1,5 +1,5 @@
 ---
-title: "Mambu (v4): Revert "Upgrade api version to v2 (#132)""
+title: "Mambu (v4): Reverted the 'Upgrade api version to v2'"
 content-type: "changelog-entry"
 date: 2025-10-14
 entry-type: improvement
