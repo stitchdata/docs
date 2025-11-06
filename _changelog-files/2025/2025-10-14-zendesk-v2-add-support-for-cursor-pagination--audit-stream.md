@@ -1,5 +1,5 @@
 ---
-title: "Zendesk Support (v2): add support for cursor pagination - audit stream"
+title: "Zendesk Support (v2): Add support for cursor pagination - audit stream"
 content-type: "changelog-entry"
 date: 2025-10-14
 entry-type: improvement
