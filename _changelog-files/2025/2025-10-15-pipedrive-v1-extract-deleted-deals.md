@@ -2,7 +2,7 @@
 title: "Pipedrive (v1): Extract deleted deals"
 content-type: "changelog-entry"
 date: 2025-10-15
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: pipedrive
 connection-version: 1
