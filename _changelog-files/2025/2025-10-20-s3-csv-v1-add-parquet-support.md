@@ -1,5 +1,5 @@
 ---
-title: "Amazon S3 CSV (v1): add parquet support"
+title: "Amazon S3 CSV (v1): Add Parquet support"
 content-type: "changelog-entry"
 date: 2025-10-20
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-s3-csv/pull/80"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add parquet support.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add Parquet support.

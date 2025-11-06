@@ -2,7 +2,7 @@
 title: "Amazon S3 CSV (v1): Refactor JSONL sampling/syncing to use singer-encodings"
 content-type: "changelog-entry"
 date: 2025-10-20
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: s3
 connection-version: 1

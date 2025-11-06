@@ -2,7 +2,7 @@
 title: "MongoDB (v3): Handle Non-finite values (NaN, Infinity)"
 content-type: "changelog-entry"
 date: 2025-10-22
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: mongodb
 connection-version: 3
