@@ -1,5 +1,5 @@
 ---
-title: "Heap (v1): add integration tests"
+title: "Heap (v1): Add integration tests"
 content-type: "changelog-entry"
 date: 2025-10-27
 entry-type: improvement
