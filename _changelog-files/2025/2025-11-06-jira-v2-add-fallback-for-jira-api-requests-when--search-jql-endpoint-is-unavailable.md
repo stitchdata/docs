@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-jira/pull/131"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add fallback for JIRA API requests when /search/jql endpoint is unavailable.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add fallback for JIRA API requests when `/search/jql` endpoint is unavailable.
