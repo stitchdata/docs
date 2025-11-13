@@ -215,7 +215,7 @@ replication-sections:
       - title: "Replication Method"
         anchor: "replication-method"
         content: |
-          Custom reports in {{ integration.display_name }} are replicated using Key-based Incremental Replication with `start_date` as a Replication Key. A `start_date` value is a date in `YYYY-MM-DD` format.
+          Custom reports in {{ integration.display_name }} are replicated using Key-based Incremental Replication with `last_report_date` as a Replication Key. A `last_report_date` value is a date in `YYYY-MM-DD` format.
 
       - title: "Renamed reports"
         anchor: "renamed-reports"

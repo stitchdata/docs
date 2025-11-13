@@ -12,8 +12,8 @@ tables:
 
       - The account ID, web property ID, and profile ID of the associated report
       - Pairs of `ga:dimension_name` and `dimension_value`
-      - The `start_date` and `end_date` values for the record, in `YYYY-mm-dd` format
+      - The `start_date` and `end_date` values for the record, in `YYYY-MM-DD` format
   table-details:
     replication-method: Key-based Incremental
     primary-key: _sdc_record_hash
-    replication-key: start_date
+    replication-key: last_report_date
