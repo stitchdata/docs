@@ -87,9 +87,11 @@ snowflake:
   - copy: |
       [Grant database privileges to the Stitch role]({{ site.data.destinations[destination.type]user-privileges.defaults.doc-links.all-on-database }}){:target="_blank"}, using the name of the database you created for Stitch.
 
-      **Note**: This will grant all privileges except `OWNERSHIP`, and only apply to the database(s) you specify.
+      **Note**: This will grant all privileges except `OWNERSHIP`, and only apply to the databases you specify.
     command: *grant-database-sql
 
   - copy: |
       Create the Stitch user and grant the Stitch role to the user:
     command: *create-grant-user-sql
+    **Note**: You can use key-pair authentication. Select this option in Stitch and copy-paste the content of the `rsa_key.p8` file. For more information about the Snowflake key-pair authentication, see [Key-pair authentication and key-pair rotation
+](https://docs.snowflake.com/en/user-guide/key-pair-auth){target="new"}.
