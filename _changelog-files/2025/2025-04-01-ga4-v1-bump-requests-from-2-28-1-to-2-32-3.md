@@ -1,5 +1,5 @@
 ---
-title: "Google Analytics 4 (v1): Upgrade bump requests from 2.28.1 to 2.32.3"
+title: "Google Analytics 4 (v1): Bump requests from 2.28.1 to 2.32.3"
 content-type: "changelog-entry"
 date: 2025-04-01
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-ga4/pull/112"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade bump requests from 2.28.1 to 2.32.3.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump requests from 2.28.1 to 2.32.3.

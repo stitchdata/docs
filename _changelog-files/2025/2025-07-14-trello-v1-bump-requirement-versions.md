@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-trello/pull/35"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade bump requirement versions.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump requirement versions.
