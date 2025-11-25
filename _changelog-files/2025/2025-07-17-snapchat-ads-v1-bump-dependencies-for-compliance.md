@@ -1,5 +1,5 @@
 ---
-title: "Snapchat Ads (v1): Upgrade bump dependencies for compliance"
+title: "Snapchat Ads (v1): Bump dependencies for compliance"
 content-type: "changelog-entry"
 date: 2025-07-17
 entry-type: improvement 
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-snapchat-ads/pull/31"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade bump dependencies for compliance.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump dependencies for compliance.
