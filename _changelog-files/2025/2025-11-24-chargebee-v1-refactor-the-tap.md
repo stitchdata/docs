@@ -2,7 +2,7 @@
 title: "Chargebee (v1): Refactor the tap"
 content-type: "changelog-entry"
 date: 2025-11-24
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: chargebee
 connection-version: 1
