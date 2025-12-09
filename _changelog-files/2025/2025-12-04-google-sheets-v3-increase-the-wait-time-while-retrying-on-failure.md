@@ -1,8 +1,8 @@
 ---
-title: "Google Sheets (v3): increase the wait time while retrying on failure"
+title: "Google Sheets (v3): Increase the wait time while retrying on failure"
 content-type: "changelog-entry"
 date: 2025-12-04
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: google-sheets
 connection-version: 3
