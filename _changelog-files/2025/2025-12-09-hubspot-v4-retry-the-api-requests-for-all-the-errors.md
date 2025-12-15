@@ -2,7 +2,7 @@
 title: "HubSpot (v4): Retry the API requests for all the errors"
 content-type: "changelog-entry"
 date: 2025-12-09
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: hubspot
 connection-version: 4

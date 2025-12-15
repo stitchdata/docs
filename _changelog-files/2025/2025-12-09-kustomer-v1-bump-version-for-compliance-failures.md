@@ -1,5 +1,5 @@
 ---
-title: "Kustomer (v1): bump version for compliance failures"
+title: "Kustomer (v1): Bump version for compliance failures"
 content-type: "changelog-entry"
 date: 2025-12-09
 entry-type: improvement

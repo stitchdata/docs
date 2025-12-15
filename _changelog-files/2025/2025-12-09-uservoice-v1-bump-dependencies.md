@@ -1,5 +1,5 @@
 ---
-title: "UserVoice (v1): bump dependencies"
+title: "UserVoice (v1): Bump dependencies"
 content-type: "changelog-entry"
 date: 2025-12-09
 entry-type: improvement

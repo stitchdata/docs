@@ -1,5 +1,5 @@
 ---
-title: "Harvest Forecast (v1): bump dependency versions for compliance failures"
+title: "Harvest Forecast (v1): Bump dependency versions for compliance failures"
 content-type: "changelog-entry"
 date: 2025-12-09
 entry-type: improvement
