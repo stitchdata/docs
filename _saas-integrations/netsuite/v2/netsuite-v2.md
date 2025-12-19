@@ -470,7 +470,7 @@ schema-sections:
   - content: |
       To ensure we can provide you with up-to-date documentation, this section will only cover a few of the most popular tables Stitch's {{ integration.display_name }} integration offers.
 
-      Refer to the [{{ integration.display_name }} SuiteTalk Schema Browser](https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_2/schema/index.html){:target="new"} for info on objects not listed here, including the fields available in each object.
+      Refer to the [{{ integration.display_name }} SuiteTalk Schema Browser](https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2024_2/schema/record/account.html ){:target="new"} for info on objects not listed here, including the fields available in each object.
 
       **Note**: Stitch currently supports the replication of the majority of {{ integration.display_name }} objects, with the exception of those listed in the [Unsupported Objects section](#unsupported-objects).
 ---
