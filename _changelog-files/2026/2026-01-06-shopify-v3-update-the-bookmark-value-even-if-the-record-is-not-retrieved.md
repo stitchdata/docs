@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v3): update the bookmark value even if the record is not retrieved"
+title: "Shopify (v3): Update the bookmark value even if the record is not retrieved"
 content-type: "changelog-entry"
 date: 2026-01-06
 entry-type: improvement
