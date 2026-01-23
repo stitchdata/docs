@@ -10,7 +10,7 @@ tables:
     singer-schema: https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/accounts.json
     api-method: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts?view=li-lms-2022-07&tabs=http#search-for-accounts
   table-details:
-    replication-method: Key-based Incremental
+    replication-method: Key-based
     primary-key: id
     replication-key: last_modified_time
 - name: account_users
