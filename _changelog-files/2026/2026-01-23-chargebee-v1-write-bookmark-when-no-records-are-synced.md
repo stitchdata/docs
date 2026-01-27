@@ -2,7 +2,7 @@
 title: "Chargebee (v1): Write bookmark when no records are synced"
 content-type: "changelog-entry"
 date: 2026-01-23
-entry-type: imrpovement
+entry-type: improvement
 entry-category: integration
 connection-id: chargebee
 connection-version: 1
