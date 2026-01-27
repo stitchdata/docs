@@ -1,5 +1,5 @@
 ---
-title: "Zendesk Support (v2): bump aiohttp version"
+title: "Zendesk Support (v2): Bump aiohttp version"
 content-type: "changelog-entry"
 date: 2026-01-23
 entry-type: improvement
