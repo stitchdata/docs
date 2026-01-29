@@ -160,7 +160,7 @@ setup-steps:
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
 
       {% for substep in step.substeps %}
-      - [Step 5.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      - [Step 6.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
