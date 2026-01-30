@@ -1,5 +1,15 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "attempt_count": {
       "type": [
         "null",
@@ -24,12 +34,6 @@
         "boolean"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "currency": {
       "type": [
         "null",
@@ -45,21 +49,22 @@
     "date": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "discounts": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "draft": {
       "type": [
@@ -70,34 +75,29 @@
     "due_date": {
       "type": [
         "null",
-        "date-time"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "items": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "metadata": {
-      "properties": {},
       "type": [
         "null",
         "object"
-      ]
+      ],
+      "properties": {}
     },
     "name": {
       "type": [
@@ -105,17 +105,12 @@
         "string"
       ]
     },
-    "needs_attention": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "next_payment_attempt": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "notes": {
       "type": [
@@ -160,17 +155,17 @@
       ]
     },
     "taxes": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "total": {
       "type": [
@@ -178,15 +173,62 @@
         "number"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
     "updated_at": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "purchase_order": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ship_to": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {}
+    },
+    "payment_plan": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pdf_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

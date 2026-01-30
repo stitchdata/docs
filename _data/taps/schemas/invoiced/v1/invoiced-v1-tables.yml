@@ -65,18 +65,6 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: updated_at
-- name: transactions
-  description: 'The `{{ table.name }}` table contains info about the transactions
-    in your {{ integration.display_name }} account.
-
-    '
-  links:
-    singer-schema: https://github.com/singer-io/tap-invoiced/blob/master/tap_invoiced/schemas/transactions.json
-    api-method: https://developer.invoiced.com/api/#list-all-transactions
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: id
-    replication-key: updated_at
 - name: estimates
   description: 'The `{{ table.name }}` table contains info about the estimates in
     your {{ integration.display_name }} account.
