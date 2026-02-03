@@ -1,5 +1,5 @@
 ---
-title: "Listrak (v1): Bug Fix for subscribed contacts"
+title: "Listrak (v1): Bug fix for subscribed contacts"
 content-type: "changelog-entry"
 date: 2026-01-28
 entry-type: bug-fix
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-listrak/pull/26"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bug Fix for subscribed contacts.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bug fix for subscribed contacts.
