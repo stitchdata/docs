@@ -1,9 +1,10 @@
 ---
 title: Braintree (v1)
-permalink: /integrations/saas/braintree
+permalink: /integrations/saas/braintree/v1
 keywords: braintree, integration, schema, etl braintree, braintree etl, braintree schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Braintree integration."
 layout: singer
+input: false
 
 key: "braintree-setup"
 
