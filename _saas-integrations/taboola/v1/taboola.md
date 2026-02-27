@@ -1,6 +1,6 @@
 ---
 title: Taboola (v1)
-permalink: /integrations/saas/taboola
+permalink: /integrations/saas/taboola/v1
 keywords: taboola, taboola integration, schema, etl taboola, taboola etl, taboola schema
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
