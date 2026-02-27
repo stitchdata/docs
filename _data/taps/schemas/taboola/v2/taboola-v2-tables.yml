@@ -1,5 +1,5 @@
 tap: taboola
-version: '1'
+version: '2'
 tap-repo-schemas: false
 tables:
 - name: campaign
@@ -51,7 +51,7 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-taboola/blob/master/tap_taboola/schemas.py#L2
+    singer-schema: https://github.com/singer-io/tap-taboola/blob/master/tap_taboola/schemas/campaigns.json
     api-method: https://github.com/taboola/Backstage-API/blob/master/Backstage%20API%20-%20Campaigns.pdf
   table-details:
     replication-method: Full Table
@@ -62,8 +62,8 @@ tables:
 
     '
   links:
-    doc-link: https://github.com/taboola/Backstage-API/blob/master/Backstage%20API%20-%20Reports.pdf
-    singer-schema: https://github.com/singer-io/tap-taboola/blob/master/tap_taboola/schemas.py#L117
+    singer-schema: https://github.com/singer-io/tap-taboola/blob/master/tap_taboola/schemas/campaign_performance.json
+    api-method: https://github.com/taboola/Backstage-API/blob/master/Backstage%20API%20-%20Campaign%20Performance.pdf
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
