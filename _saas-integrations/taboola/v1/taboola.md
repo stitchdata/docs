@@ -4,6 +4,7 @@ permalink: /integrations/saas/taboola
 keywords: taboola, taboola integration, schema, etl taboola, taboola etl, taboola schema
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
+input: false
 
 key: "taboola-setup"
 
