@@ -2,7 +2,7 @@
 title: "Klaviyo (v1): Use safe gets on state dictionary"
 content-type: "changelog-entry"
 date: 2026-03-12
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: klaviyo
 connection-version: 1
