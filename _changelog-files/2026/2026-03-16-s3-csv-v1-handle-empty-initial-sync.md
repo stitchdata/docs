@@ -1,8 +1,8 @@
 ---
-title: "Amazon S3 CSV (v1): handle empty initial sync"
+title: "Amazon S3 CSV (v1): Handle empty initial sync"
 content-type: "changelog-entry"
 date: 2026-03-16
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: s3
 connection-version: 1
