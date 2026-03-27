@@ -62,10 +62,10 @@ feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
   #### {{ integration.display_name }} is now powered by GraphQL
-  We've have enhanced the Stitch's {{ integration.display_name }} integration by replacing REST Admin API by the {{ integration.display_name }} GraphQL API.
+  We've enhanced the Stitch's {{ integration.display_name }} integration by replacing REST Admin API by the {{ integration.display_name }} GraphQL API.
   This provides:
   - More structured and complete data 
-  - Better performance and scalibility
+  - Better performance and scalability
   - Access to new fields that are unavailable in REST
 
   #### What has changed?
