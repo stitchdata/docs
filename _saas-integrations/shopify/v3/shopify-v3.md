@@ -125,22 +125,22 @@ setup-steps:
       7. In the **Configuration** tab, click **Admin API access scopes**.
       8. Select the following required scopes:
 
-      | Scope | Purpose |
-      |-------|---------|
-      | `read_orders` | Replicate order data |
-      | `read_all_orders` | Replicate historical order data |
-      | `read_customers` | Replicate customer information |
-      | `read_products` | Replicate product catalog |
-      | `read_checkouts` | Replicate checkout data |
-      | `read_inventory` | Replicate inventory levels |
-      | `read_locations` | Replicate store locations |
-      | `read_assigned_fulfillment_orders` | Replicate assigned fulfillment orders |
-      | `read_merchant_managed_fulfillment_orders` | Replicate merchant-managed fulfillment orders |
-      | `read_third_party_fulfillment_orders` | Replicate third-party fulfillment orders |
+         | Scope | Purpose |
+         |-------|---------|
+         | `read_orders` | Replicate order data |
+         | `read_all_orders` | Replicate historical order data |
+         | `read_customers` | Replicate customer information |
+         | `read_products` | Replicate product catalog |
+         | `read_checkouts` | Replicate checkout data |
+         | `read_inventory` | Replicate inventory levels |
+         | `read_locations` | Replicate store locations |
+         | `read_assigned_fulfillment_orders` | Replicate assigned fulfillment orders |
+         | `read_merchant_managed_fulfillment_orders` | Replicate merchant-managed fulfillment orders |
+         | `read_third_party_fulfillment_orders` | Replicate third-party fulfillment orders |
 
       9. Click **Save**.
-      10. In the **API credentials** tab, under **Admin API access token**, click **Reveal token once**.
-      11. You'll see your **Client ID** and **Client Secret**. Store these securely—you'll need them in the next step.
+      10. In the **API credentials** tab, under **Admin API access token**, click **Reveal token once**. You'll see your **Client ID** and **Client Secret**.
+      11. Store these credentials securely. You need them in the next step.
 
       {% include warning.html content="Your Client Secret will only be visible once after initial creation. Store it securely before navigating away." %}
 
