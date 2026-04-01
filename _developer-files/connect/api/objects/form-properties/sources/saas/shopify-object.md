@@ -62,19 +62,31 @@ object-attributes:
 
 
 # -------------------------- #
-#       OAUTH PROPERTIES     #
+#  CLIENT CREDENTIALS PROPERTIES     #
 # -------------------------- #
 
-oauth-link: "https://shopify.dev/tutorials/authenticate-with-oauth#the-oauth-flow"
+client-credentials-link: "https://shopify.dev/docs/apps/build/authentication-authorization/access-tokens/client-credentials-grant"
 
-oauth-description: ""
+client-credentials-description: "Client Credentials authentication uses a custom app created in your {{ form-property.display-name }} Developer Dashboard."
 
-oauth-attributes:
-  - name: "api_key"
+client-credentials-attributes:
+  - name: "client_id"
     type: "string"
     required: true
     credential: true
     description: |
-      The API key for your {{ form-property.display-name }} shop, generated via an OAuth handshake.
-    value: "<API_KEY>"
+      The Client ID for your {{ form-property.display-name }} custom app.
+
+      You'll find this in your custom app's **API credentials** section in the {{ form-property.display-name }} Developer Dashboard.
+    value: "<CLIENT_ID>"
+
+  - name: "client_secret"
+    type: "string"
+    required: true
+    credential: true
+    description: |
+      The Client Secret for your {{ form-property.display-name }} custom app.
+
+      You'll find this in your custom app's **API credentials** section in the {{ form-property.display-name }} Developer Dashboard. Store this securely—it's only visible once after initial creation.
+    value: "<CLIENT_SECRET>"
 ---
