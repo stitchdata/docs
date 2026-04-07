@@ -1,5 +1,5 @@
 ---
-title: "Quick Base (v1): Added 5xx exception handling"
+title: "Quick Base (v1): Add 5xx exception handling"
 content-type: "changelog-entry"
 date: 2026-03-31
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-quickbase/pull/37"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to added 5xx exception handling.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add 5xx exception handling.
