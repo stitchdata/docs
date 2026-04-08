@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": ["null", "integer"]
+    },
+    "created_at": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "campaign_id": {
+      "type": [ "null", "integer"]
+    },
+    "date": {
+      "type": [ "null", "string"],
+      "format": "date"
+    },
+    "impressions": {
+      "type": [ "null", "integer"]
+    },
+    "campaign_name": {
+      "type": [ "null", "string"]
+    },
+    "ctr": {
+      "type": [ "null", "number"]
+    },
+    "clicks": {
+      "type": [ "null", "integer"]
+    },
+    "cpc": {
+      "type": [ "null", "number"]
+    },
+    "cpm": {
+      "type": [ "null", "number"]
+    },
+    "cpa_conversion_rate": {
+      "type": [ "null", "number"]
+    },
+    "cpa_actions_num": {
+      "type": [ "null", "integer"]
+    },
+    "cpa": {
+      "type": [ "null", "number"]
+    },
+    "spent": {
+      "type": [ "null", "number"]
+    },
+    "conversions_value": {
+      "type": [ "null", "number"]
+    },
+    "currency": {
+      "type": [ "null", "string"]
+    }
+  },
+  "additionalProperties": false
+}
