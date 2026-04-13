@@ -53,7 +53,7 @@ sections:
     anchor: "stitch-access"
     content: |
       - Stitch strictly controls access to data and credentials and requires them to be encrypted using industry-standard methods both at rest and in transit within our [environment](#environment).
-      - Stitch's secure infrastructure is a closed network protected by multi-factor authentication and accessible only to qualified members of our engineering team. On the rare occassion that a Stitch engineer needs to read or move data to investigate an issue, your data will never leave our infrastructure.
+      - Stitch's secure infrastructure is a closed network protected by multi-factor authentication and access is limited on a need-to-know basis.
 
          Additionally, all members of the Stitch team - not just engineers - have signed non-disclosure agreements.
       - Stitch's data centers are protected by electronic security, intrusion detection systems, and a 24/7/365 human staff. 
@@ -63,16 +63,11 @@ sections:
   - title: "PII stored by Stitch"
     anchor: "stitch-pii-stored"
     content: |
-        Stitch stores some PII (Personal Identifiable Information) related to your account. This PII is provided during signup and includes:
-          - First and last name
-          - Email address
-          - Company name
-          - Country and state
-          - Phone number
-          - Billing address
-        
-        The only PII that goes through Stitch is the data sent from your source. This data is not stored outside of our [retention window](#data-retention).
-        Additionally, Stitch collects performance metrics, but these do not include any customer-provided information. Stitch also stores table names for functional reasons.
+        Stitch processes personal data related to your account. For more information on what personal data we process, see the [Qlik Privacy & Cookie Notice](https://www.qlik.com/us/legal/privacy-and-cookie-notice).
+
+        You may send customer data that includes personal data through Stitch from your source. Stitch does not retain customer data long-term. It extracts data from your connected source systems, temporarily buffers that data in Qlik/Stitch-controlled storage to complete processing and loading, and then loads it into the destination you specify. Data held in this intermediate storage is automatically deleted once it's no longer needed for replication.
+
+        Data is not stored outside of our [retention window](#data-retention).
 
 
 
@@ -272,7 +267,7 @@ sections:
             {% endfor %}
           </table>
 
-          To summarize, all data that Stitch processes for customers will be deleted from our systems within 30 days.
+          To summarize, all data that Stitch processes within the product for customers will be deleted from our systems within 30 days.
 
   - title: "Protocols and recommendations"
     anchor: "stitch-protocols-recommendations"
@@ -293,7 +288,7 @@ sections:
     content: |
       If our team verifies a security vulnerability in our system, our first priority is to prevent its exploitation. After it’s contained, we do a thorough analysis to determine the scope of impact and notify affected users within 24 hours.
 
-      If you believe you’ve found a security vulnerability in Stitch, we encourage you to let us know right away by emailing [security@stitchdata.com](mailto: security@stitchdata.com). We request that you do not publicly disclose the issue until we have a chance to address it. We won’t pursue legal action as long as you make a good-faith effort to avoid privacy violations and destructive exploitation of the vulnerability.
+      If you believe you’ve found a security vulnerability in Stitch, we encourage you to let us know right away by emailing [security@qlik.com](mailto: security@qlik.com). We request that you do not publicly disclose the issue until we have a chance to address it. We won’t pursue legal action as long as you make a good-faith effort to avoid privacy violations and destructive exploitation of the vulnerability.
       
       We will respond as quickly as we can and reward the confidential and non-destructive disclosure of any design or implementation issue that could be used to compromise the confidentiality or integrity of our users' data (such as bypassing our login process, injecting code into another user's session, or acting on another user's behalf) with some swag. Other issues may be rewarded at our discretion.
 ---
