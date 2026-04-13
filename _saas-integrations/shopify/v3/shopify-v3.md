@@ -99,6 +99,35 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
 
+  - title: "Request access from Shopify"
+    anchor: "request-access-from-shopify"
+    content: |
+      To access certain {{ integration.display_name }} API scopes, you must request access from {{ integration.display_name }} before installing your custom app. The following scopes require explicit approval:
+
+      ##### `read_all_orders` scope
+
+      By default, you only have access to the last 60 days of orders. To access all historical orders, you must request the `read_all_orders` scope in the {{ integration.display_name }} Partners dashboard.
+
+      **To request the `read_all_orders` scope:**
+
+      1. Go to the [{{ integration.display_name }} Partners dashboard](https://partners.shopify.com/){:target="new"}.
+      2. Navigate to **Apps** and select your app.
+      3. Open the **API access requests** section.
+      4. In the **Read all orders** section, click **Request access**.
+      5. In the access request justification, specify that the app needs full read-only access to historical orders for long-term analytics, reconciliation, and reporting.
+      6. Submit the request and wait for {{ integration.display_name }} approval.
+
+      After {{ integration.display_name }} approves the request, you can add the `read_all_orders` scope to your app scope list. If the app was already installed before this permission was granted, you must uninstall and reinstall the app for the new scope to take effect.
+
+      ##### `read_users` scope
+
+      To use the `read_users` scope, one of the following conditions must be true:
+
+      - The app must be a finance embedded app.
+      - The app must be installed on a {{ integration.display_name }} Plus or Advanced store.
+
+      Contact {{ integration.display_name }} Support to enable this scope if required.
+
   - title: "Create a {{ integration.display_name }} custom app"
     anchor: "create-shopify-custom-app"
     content: |
@@ -134,35 +163,6 @@ setup-steps:
       10. In the **API credentials** tab, under **Admin API access token**, click **Reveal token once**. You'll see your **Client ID** and **Client Secret**.
       11. Store these credentials securely. You need them in the next step. Your Client Secret will only be visible once after initial creation. Store it securely before navigating away.
       12. Click **Install app**.
-
-  - title: "Request access from Shopify"
-    anchor: "request-access-from-shopify"
-    content: |
-      To access certain {{ integration.display_name }} API scopes, you must request access from {{ integration.display_name }} before installing your custom app. The following scopes require explicit approval:
-
-      ##### `read_all_orders` scope
-
-      By default, you only have access to the last 60 days of orders. To access all historical orders, you must request the `read_all_orders` scope in the {{ integration.display_name }} Partners dashboard.
-
-      **To request the `read_all_orders` scope:**
-
-      1. Go to the [{{ integration.display_name }} Partners dashboard](https://partners.shopify.com/){:target="new"}.
-      2. Navigate to **Apps** and select your app.
-      3. Open the **API access requests** section.
-      4. In the **Read all orders** section, click **Request access**.
-      5. In the access request justification, specify that the app needs full read-only access to historical orders for long-term analytics, reconciliation, and reporting.
-      6. Submit the request and wait for {{ integration.display_name }} approval.
-
-      After {{ integration.display_name }} approves the request, you can add the `read_all_orders` scope to your app scope list. If the app was already installed before this permission was granted, you must uninstall and reinstall the app for the new scope to take effect.
-
-      ##### `read_users` scope
-
-      To use the `read_users` scope, one of the following conditions must be true:
-
-      - The app must be a finance embedded app.
-      - The app must be installed on a {{ integration.display_name }} Plus or Advanced store.
-
-      Contact {{ integration.display_name }} Support to enable this scope if required.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
