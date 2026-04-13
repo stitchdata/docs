@@ -1,45 +1,13 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
-    "active": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "admin": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "email": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "id": {
       "type": [
         "null",
         "integer"
-      ]
-    },
-    "invite_url": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
       ]
     },
     "uid": {
@@ -53,10 +21,168 @@
         "null",
         "integer"
       ]
+    },
+    "admin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "email": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "inactive": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "group_ids": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "integer"
+        ]
+      }
+    },
+    "invite_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "role": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "2fa_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "avatar_file_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "invitation_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_direct": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "labor_cost": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "labor_cost_last_updated": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization_admin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rate_last_updated": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "role_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "timezone": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "view_edit_billable_rates": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "view_edit_labor_costs": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "working_hours_in_minutes": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "workspace_admin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "workspace_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

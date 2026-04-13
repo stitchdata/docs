@@ -1,5 +1,45 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "workspace_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_private": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "active": {
       "type": [
         "null",
@@ -9,37 +49,130 @@
     "at": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
-    "billable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "cid": {
+    "actual_hours": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "id": {
+    "actual_seconds": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "is_private": {
+    "auto_estimates": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "name": {
+    "can_track_time": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "client_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "client_name": {
       "type": [
         "null",
         "string"
+      ]
+    },
+    "color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "estimated_hours": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "estimated_seconds": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "fixed_fee": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "pinned": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rate_last_updated": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "start_date": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "template": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "template_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "wid": {
@@ -47,10 +180,92 @@
         "null",
         "integer"
       ]
+    },
+    "gid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "group_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "labor_cost": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "labor_cost_last_updated": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "manager": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "active_tasks": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "archieved": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "creator": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "project_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "visibility": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }
