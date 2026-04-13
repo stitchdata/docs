@@ -114,7 +114,8 @@ setup-steps:
       6. Click **Create app**.
       7. In the **Configuration** tab, click **Admin API access scopes**.
       8. Select or copy-paste the following required scopes:
-          `read_orders`,`read_all_orders`,`read_customers`,`read_products`,`read_checkouts`,`read_inventory`,`read_locations`,`read_assigned_fulfillment_orders`,`read_merchant_managed_fulfillment_orders`,`read_third_party_fulfillment_orders`.
+          `read_orders`,`read_all_orders`,`read_customers`,`read_products`,`read_checkouts`,`read_inventory`,`read_locations`,
+          `read_assigned_fulfillment_orders`,`read_merchant_managed_fulfillment_orders`,`read_third_party_fulfillment_orders`.
 
          | Scope | Purpose |
          |-------|---------|
