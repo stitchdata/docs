@@ -99,16 +99,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
 
-  - title: "Define the historical replication start date"
-    anchor: "define-historical-sync"
-    content: |
-      {% include integrations/saas/setup/historical-sync.html %}
-  
-  - title: "Create a replication schedule"
-    anchor: "define-rep-frequency"
-    content: |
-      {% include integrations/shared-setup/replication-frequency.html %}
-
   - title: "Create a {{ integration.display_name }} custom app"
     anchor: "create-shopify-custom-app"
     content: |
@@ -123,7 +113,8 @@ setup-steps:
       5. Enter a name for your app (for example: `Stitch`).
       6. Click **Create app**.
       7. In the **Configuration** tab, click **Admin API access scopes**.
-      8. Select the following required scopes:
+      8. Select or copy-paste the following required scopes:
+          `read_orders`,`read_all_orders`,`read_customers`,`read_products`,`read_checkouts`,`read_inventory`,`read_locations`,`read_assigned_fulfillment_orders`,`read_merchant_managed_fulfillment_orders`,`read_third_party_fulfillment_orders`.
 
          | Scope | Purpose |
          |-------|---------|
@@ -140,63 +131,47 @@ setup-steps:
 
       9. Click **Save**.
       10. In the **API credentials** tab, under **Admin API access token**, click **Reveal token once**. You'll see your **Client ID** and **Client Secret**.
-      11. Store these credentials securely. You need them in the next step.
-
-      {% include warning.html content="Your Client Secret will only be visible once after initial creation. Store it securely before navigating away." %}
-
+      11. Store these credentials securely. You need them in the next step. Your Client Secret will only be visible once after initial creation. Store it securely before navigating away.
       12. Click **Install app**.
 
-  - title: "Authorize Stitch to access {{ integration.display_name }}"
-    anchor: "grant-stitch-authorization"
+  - title: "Request access from Shopify"
+    anchor: "request-access-from-shopify"
     content: |
-      Next, you'll enter your {{ integration.display_name }} credentials into Stitch. You'll use the credentials from the custom app you created in the previous step.
+      To access certain {{ integration.display_name }} API scopes, you must request access from {{ integration.display_name }} before installing your custom app. The following scopes require explicit approval:
 
-      **Choose the setup path that matches your situation:**
+      ##### `read_all_orders` scope
 
-      - [For individual store owners](#for-individual-store-owners)
-      - [For multiple stores in the same organization ({{ integration.display_name }} Plus)](#for-multiple-stores)
-      - [For {{ integration.display_name }} Partners](#for-shopify-partners)
+      By default, you only have access to the last 60 days of orders. To access all historical orders, you must request the `read_all_orders` scope in the {{ integration.display_name }} Partners dashboard.
 
-      #### For individual store owners {#for-individual-store-owners}
+      **To request the `read_all_orders` scope:**
 
-      **When to use this path:** You own a single {{ integration.display_name }} store and are connecting it directly to Stitch.
+      1. Go to the [{{ integration.display_name }} Partners dashboard](https://partners.shopify.com/){:target="new"}.
+      2. Navigate to **Apps** and select your app.
+      3. Open the **API access requests** section.
+      4. In the **Read all orders** section, click **Request access**.
+      5. In the access request justification, specify that the app needs full read-only access to historical orders for long-term analytics, reconciliation, and reporting.
+      6. Submit the request and wait for {{ integration.display_name }} approval.
 
-      1. In Stitch, enter the following information from your custom app:
-         - **Shop:** Your store name without the domain. For example, if your store URL is `stitch-data.shopify.com`, enter `stitch-data`.
-         - **Client ID:** Paste your Client ID from the custom app's **API credentials** section.
-         - **Client Secret:** Paste your Client Secret from the custom app's **API credentials** section.
-      2. Click {{ app.buttons.finish-int-setup }}.
+      After {{ integration.display_name }} approves the request, you can add the `read_all_orders` scope to your app scope list. If the app was already installed before this permission was granted, you must uninstall and reinstall the app for the new scope to take effect.
 
-      #### For multiple stores in the same organization ({{ integration.display_name }} Plus) {#for-multiple-stores}
+      ##### `read_users` scope
 
-      **When to use this path:** You have multiple {{ integration.display_name }} stores within your organization (Shopify Plus plan) and want to use a single app for all of them.
+      To use the `read_users` scope, one of the following conditions must be true:
 
-      **Important:** The app is organization-scoped. Stores outside your organization will require a separate app.
+      - The app must be a finance embedded app.
+      - The app must be installed on a {{ integration.display_name }} Plus or Advanced store.
 
-      1. Follow the steps in [Create a {{ integration.display_name }} custom app](#create-shopify-custom-app) to create a single app.
-      2. In your {{ integration.display_name }} Admin Dashboard, go to **Settings** > **Apps and integrations** > **Develop apps**.
-      3. For each store you want to connect:
-         - Switch to that store's Admin Dashboard context (if not already there).
-         - Note the store's handle (shop name).
-      4. In Stitch, create a separate connection for each store, entering:
-         - **Shop:** The store's handle (shop name).
-         - **Client ID:** Paste your Client ID from the shared custom app.
-         - **Client Secret:** Paste your Client Secret from the shared custom app.
-      5. Click {{ app.buttons.finish-int-setup }} for each connection.
+      Contact {{ integration.display_name }} Support to enable this scope if required.
 
-      #### For {{ integration.display_name }} Partners {#for-shopify-partners}
-
-      **When to use this path:** You're a {{ integration.display_name }} Partner creating apps for your clients' stores, or you're a client of a partner agency.
-
-      1. As a partner, create your custom app via [partners.shopify.com](https://partners.shopify.com){:target="new"} with **Custom distribution** selected.
-      2. Generate an installation link for your client (the link expires after 7 days).
-      3. The client accesses the installation link and installs the app to their store.
-      4. Provide the client with the **Client ID** and **Client Secret** from the app's **API credentials** section.
-      5. The client enters the following information in Stitch:
-         - **Shop:** Their store handle (shop name).
-         - **Client ID:** The Client ID provided by their partner.
-         - **Client Secret:** The Client Secret provided by their partner.
-      6. Click {{ app.buttons.finish-int-setup }}.
+  - title: "Define the historical replication start date"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+  
+  - title: "Create a replication schedule"
+    anchor: "define-rep-frequency"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
@@ -209,8 +184,8 @@ setup-steps:
 
 replication-sections:  
   - title: "Replicating order refunds"
-  - anchor: "order-refunds"
-  - content: |
+    anchor: "order-refunds"
+    content: |
       To extract order refund data, Stitch queries every order in your account. If you have the `order_refunds` table selected for replication, the process can potentially be very slow depending on how many orders and refunds exist in your {{ integration.display_name }} account. As tables are extracted one at a time, this could cause extraction to not proceed for days at a time. To ensure timely replication of your other selected tables, consider creating a separate integration for only the `order_refunds` table.
 
       **Note**: Creating a separate integration for your `order_refunds` table may negatively affect your {{ integration.display_name }} API quota.
