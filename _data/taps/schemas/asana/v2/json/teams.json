@@ -1,58 +1,11 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "additionalProperties": false,
   "properties": {
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "gid": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "html_description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "name": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "organization": {
-      "additionalProperties": false,
-      "properties": {
-        "gid": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "name": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "resource_type": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "permalink_url": {
       "type": [
         "null",
         "string"
@@ -64,17 +17,70 @@
         "string"
       ]
     },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "html_description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "organization": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "gid": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "resource_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "permalink_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "users": {
+      "type": [
+        "null",
+        "array"
+      ],
       "items": {
+        "type": [
+          "null",
+          "object"
+        ],
         "additionalProperties": false,
         "properties": {
           "gid": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "name": {
             "type": [
               "null",
               "string"
@@ -85,27 +91,45 @@
               "null",
               "string"
             ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ]
           }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
+        }
+      }
     },
     "visibility": {
       "type": [
         "null",
         "string"
       ]
+    },
+    "edit_team_name_or_description_access_level": {
+      "type": ["null", "string"]
+    },
+    "edit_team_visibility_or_trash_team_access_level": {
+      "type": ["null", "string"]
+    },
+    "member_invite_management_access_level": {
+      "type": ["null", "string"]
+    },
+    "guest_invite_management_access_level": {
+      "type": ["null", "string"]
+    },
+    "join_request_management_access_level": {
+      "type": ["null", "string"]
+    },
+    "team_member_removal_access_level": {
+      "type": ["null", "string"]
+    },
+    "team_content_management_access_level": {
+      "type": ["null", "string"]
+    },
+    "endorsed": {
+      "type": ["null", "boolean"]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }
