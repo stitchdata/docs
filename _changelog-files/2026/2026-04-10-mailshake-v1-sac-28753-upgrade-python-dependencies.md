@@ -1,5 +1,5 @@
 ---
-title: "Mailshake (v1): Sac 28753/upgrade python dependencies"
+title: "Mailshake (v1): Upgrade python dependencies"
 content-type: "changelog-entry"
 date: 2026-04-10
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-mailshake/pull/17"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to sac 28753/upgrade python dependencies.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade python dependencies.
