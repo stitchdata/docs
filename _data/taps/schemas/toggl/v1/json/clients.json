@@ -1,27 +1,25 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
-    "at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "cur": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "hrate": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "id": {
       "type": [
         "null",
         "integer"
+      ]
+    },
+    "wid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "archived": {
+      "type": [
+        "null",
+        "boolean"
       ]
     },
     "name": {
@@ -30,21 +28,60 @@
         "string"
       ]
     },
+    "at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
     "notes": {
       "type": [
         "null",
         "string"
       ]
     },
-    "wid": {
+    "creator_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "external_reference": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "integration_ext_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "integration_ext_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "integration_provider": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "permissions": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_count": {
       "type": [
         "null",
         "integer"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

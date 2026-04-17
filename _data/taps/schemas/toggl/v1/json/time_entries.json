@@ -1,85 +1,16 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
-    "billable": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "client": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "cur": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "description": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "dur": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "end": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "is_billable": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "pid": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "project": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "start": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "tags": {
-      "items": {},
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "task": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "tid": {
       "type": [
         "null",
         "integer"
@@ -91,27 +22,174 @@
         "integer"
       ]
     },
-    "updated": {
+    "description": {
       "type": [
         "null",
-        "date-time"
+        "string"
       ]
     },
-    "use_stop": {
+    "start": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "billable": {
       "type": [
         "null",
         "boolean"
       ]
     },
-    "user": {
+    "duration": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "duronly": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "stop": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "tag_ids": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "integer"
+        ]
+      }
+    },
+    "tags": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "string"
+        ]
+      }
+    },
+    "task_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "wid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "workspace_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "client_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expense_ids": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "permissions": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "project_active": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "project_billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "project_color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "shared_with": {
+      "type": [
+        "null",
+        "array"
+      ]
+    },
+    "task_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tid": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_avatar_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_name": {
       "type": [
         "null",
         "string"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }
