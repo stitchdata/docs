@@ -99,6 +99,22 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
 
+  - title: "Create a {{ integration.display_name }} custom app"
+    anchor: "create-shopify-custom-app"
+    content: |
+      A custom app allows you to securely generate credentials that Stitch will use to authenticate and replicate data from your {{ integration.display_name }} store.
+      
+      **To create a custom app:**
+
+      1. Log into your [{{ integration.display_name }} Admin Dashboard](https://admin.shopify.com){:target="new"}.
+      2. In the sidebar, go to **Settings** > **Apps and integrations**.
+      3. Click **Develop apps** (or **App and sales channel settings** if using Shopify Plus).
+      4. Click **Create an app**.
+      5. Enter a name for your app (for example: `Stitch`).
+      6. Click **Create app**.
+      
+      The app is created. Do not install it. You need to request some {{ integration.display_name }} access first. See the next step.
+
   - title: "Request access from Shopify"
     anchor: "request-access-from-shopify"
     content: |
@@ -128,21 +144,14 @@ setup-steps:
 
       Contact {{ integration.display_name }} Support to enable this scope if required.
 
-  - title: "Create a {{ integration.display_name }} custom app"
-    anchor: "create-shopify-custom-app"
+  - title: "Install the {{ integration.display_name }} custom app"
+    anchor: "install-shopify-custom-app"
     content: |
-      A custom app allows you to securely generate credentials that Stitch will use to authenticate and replicate data from your {{ integration.display_name }} store.
+      Follow this step only if you've created the app and requested access from {{ integration.display_name }}. See the previous steps.
 
-      **To create a custom app:**
-
-      1. Log into your [{{ integration.display_name }} Admin Dashboard](https://admin.shopify.com){:target="new"}.
-      2. In the sidebar, go to **Settings** > **Apps and integrations**.
-      3. Click **Develop apps** (or **App and sales channel settings** if using Shopify Plus).
-      4. Click **Create an app**.
-      5. Enter a name for your app (for example: `Stitch`).
-      6. Click **Create app**.
-      7. In the **Configuration** tab, click **Admin API access scopes**.
-      8. Select or copy-paste the following required scopes:
+      1. Go to the [{{ integration.display_name }} Partners dashboard](https://partners.shopify.com/){:target="new"}.
+      2. In the **Configuration** tab, click **Admin API access scopes**.
+      3. Select or copy-paste the following required scopes:
           `read_orders`,`read_all_orders`,`read_customers`,`read_products`,`read_checkouts`,`read_inventory`,`read_locations`,
           `read_assigned_fulfillment_orders`,`read_merchant_managed_fulfillment_orders`,`read_third_party_fulfillment_orders`.
 
@@ -159,10 +168,10 @@ setup-steps:
          | `read_merchant_managed_fulfillment_orders` | Replicate merchant-managed fulfillment orders |
          | `read_third_party_fulfillment_orders` | Replicate third-party fulfillment orders |
 
-      9. Click **Save**.
-      10. In the **API credentials** tab, under **Admin API access token**, click **Reveal token once**. You'll see your **Client ID** and **Client Secret**.
-      11. Store these credentials securely. You need them in the next step. Your Client Secret will only be visible once after initial creation. Store it securely before navigating away.
-      12. Click **Install app**.
+      4. Click **Save**.
+      5. In the **API credentials** tab, under **Admin API access token**, click **Reveal token once**. You'll see your **Client ID** and **Client Secret**.
+      6. Store these credentials securely. You need them in the next step. Your Client Secret will only be visible once after initial creation. Store it securely before navigating away.
+      7. Click **Install app**.
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
