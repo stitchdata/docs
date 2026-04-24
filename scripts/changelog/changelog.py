@@ -31,6 +31,14 @@ issue_identified = ['identify', 'identified', 'identifying']
 new_feature = ['new version']
 removed = ['remove', 'removed', 'removing', 'removal']
 
+def slugify(text): # Replicate Jekyll's slugify filter to match generated IDs
+    text = text.lower()
+    text = text.replace(' ', '-')
+    text = re.sub(r'[^\w\-]', '', text)  # Remove special characters except hyphens and word chars
+    text = re.sub(r'-+', '-', text)  # Replace multiple hyphens with single hyphen
+    text = text.strip('-')  # Strip hyphens from start and end
+    return text
+
 def createDir(): # Check if the target folder exists and create it if it doesn't
     if os.path.exists(path) == False:
         os.makedirs(path)
@@ -233,7 +241,6 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Process PR title
                                     pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
                                     pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
-                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-').replace('/', '-').replace('\'', '-')
 
                                     # Guess the entry type from the PR title
                                     entry_type = 'NOT FOUND'
@@ -251,9 +258,15 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                             entry_type = type
                                             break
 
-                                    # Create the filename and content of the changelog file and create it
-                                    md_filename = f'{path}/{pr_date}-{tap}-v{connection_version}-{pr_title_for_md_filename}.md'
-                                    md_text = f'---\ntitle: "{connection_name} (v{connection_version}): {pr_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{{{ site.data.changelog.metadata.single-integration | flatify }}}}\n\nWe\'ve improved our {{{{ this-connection.display_name }}}} (v{{{{ this-connection.this-version }}}}) integration to {pr_title_for_md_description}.'
+                                    # Create the YAML title (this matches what goes in the file)
+                                    yaml_title = f"{connection_name} (v{connection_version}): {pr_title}"
+                                    
+                                    # Generate filename by slugifying the full title + date (matching Jekyll's ID generation)
+                                    # Jekyll generates: entry.date | date: "%F" | append: "-" | append: entry.title | slugify
+                                    entry_id_base = f"{pr_date}-{yaml_title}"
+                                    entry_id_slug = slugify(entry_id_base)
+                                    md_filename = f'{path}/{entry_id_slug}.md'
+                                    md_text = f'---\ntitle: "{yaml_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{{{ site.data.changelog.metadata.single-integration | flatify }}}}\n\nWe\'ve improved our {{{{ this-connection.display_name }}}} (v{{{{ this-connection.this-version }}}}) integration to {pr_title_for_md_description}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 
