@@ -111,11 +111,11 @@
 				</strong>
 
 			<!-- If the entry has a pull request value, display it -->
-				{% if entry.pull-request %}
+				{% if entry.pull_request %}
 					<p></p>
 					<p>
-						<a href="{{ entry.pull-request }}">
-							{{ entry.pull-request | remove: "https://github.com/singer-io/" | remove: "https://github.com/stitchdata/" | replace: "/pull/", " #" | upcase }}
+						<a href="{{ entry.pull_request }}">
+							{{ entry.pull_request | remove: "https://github.com/singer-io/" | remove: "https://github.com/stitchdata/" | replace: "/pull/", " #" | upcase }}
 						</a>
 					</p>
 				{% endif %}
