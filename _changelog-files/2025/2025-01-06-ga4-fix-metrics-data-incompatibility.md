@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: google-analytics-4
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-ga4/pull/106"
+pull-request: "https://github.com/singer-io/tap-ga4/pull/106"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: "github"
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-github/pull/75"
+pull-request: "https://github.com/singer-io/tap-github/pull/75"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

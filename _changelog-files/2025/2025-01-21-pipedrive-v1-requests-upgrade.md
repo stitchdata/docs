@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: pipedrive
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-pipedrive/pull/140"
+pull-request: "https://github.com/singer-io/tap-pipedrive/pull/140"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

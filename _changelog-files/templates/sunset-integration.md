@@ -6,7 +6,7 @@ entry-type: removed
 entry-category: "integration"
 connection-id: ""
 connection-version: ""
-# pull_request: "" UNCOMMENT IF THERE'S A PR
+# pull-request: "" UNCOMMENT IF THERE'S A PR
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

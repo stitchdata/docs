@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: salesforce-marketing-cloud
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-exacttarget/pull/104"
+pull-request: "https://github.com/singer-io/tap-exacttarget/pull/104"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

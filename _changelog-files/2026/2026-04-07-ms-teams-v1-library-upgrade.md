@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: ms-teams
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-ms-teams/pull/9"
+pull-request: "https://github.com/singer-io/tap-ms-teams/pull/9"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

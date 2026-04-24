@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-facebook/pull/239"
+pull-request: "https://github.com/singer-io/tap-facebook/pull/239"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

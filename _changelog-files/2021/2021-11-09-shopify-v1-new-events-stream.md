@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: shopify
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-shopify/pull/127"
+pull-request: "https://github.com/singer-io/tap-shopify/pull/127"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: sendgrid-core
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-sendgrid/pull/15"
+pull-request: "https://github.com/singer-io/tap-sendgrid/pull/15"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

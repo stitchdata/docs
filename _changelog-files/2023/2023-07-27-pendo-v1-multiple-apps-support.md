@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: pendo
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-pendo/pull/94"
+pull-request: "https://github.com/singer-io/tap-pendo/pull/94"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: "recharge"
 connection-version: "2"
-#pull_request: ""
+#pull-request: ""
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

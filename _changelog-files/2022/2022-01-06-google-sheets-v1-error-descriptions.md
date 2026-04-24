@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: google-sheets
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-google-sheets/pull/59"
+pull-request: "https://github.com/singer-io/tap-google-sheets/pull/59"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

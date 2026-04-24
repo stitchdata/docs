@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: mongodb
 connection-version: 3
-pull_request: "https://github.com/singer-io/tap-mongodb/pull/112"
+pull-request: "https://github.com/singer-io/tap-mongodb/pull/112"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

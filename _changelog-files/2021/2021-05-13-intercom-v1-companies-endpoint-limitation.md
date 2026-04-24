@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: "integration, documentation"
 connection-id: "intercom"
 connection-version: "1"
-pull_request: ""
+pull-request: ""
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

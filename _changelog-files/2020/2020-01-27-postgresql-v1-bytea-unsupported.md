@@ -6,7 +6,7 @@ entry-type: "bug-fix"
 entry-category: "integration" 
 connection-id: "postgres"
 connection-version: "1"
-pull_request: "https://github.com/singer-io/tap-postgres/pull/76"
+pull-request: "https://github.com/singer-io/tap-postgres/pull/76"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

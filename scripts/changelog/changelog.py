@@ -266,7 +266,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     entry_id_base = f"{pr_date}-{yaml_title}"
                                     entry_id_slug = slugify(entry_id_base)
                                     md_filename = f'{path}/{entry_id_slug}.md'
-                                    md_text = f'---\ntitle: "{yaml_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull_request: "{pr_url}"\n---\n{{{{ site.data.changelog.metadata.single-integration | flatify }}}}\n\nWe\'ve improved our {{{{ this-connection.display_name }}}} (v{{{{ this-connection.this-version }}}}) integration to {pr_title_for_md_description}.'
+                                    md_text = f'---\ntitle: "{yaml_title}"\ncontent-type: "changelog-entry"\ndate: {pr_date}\nentry-type: {entry_type}\nentry-category: integration\nconnection-id: {connection_id}\nconnection-version: {connection_version}\npull-request: "{pr_url}"\n---\n{{{{ site.data.changelog.metadata.single-integration | flatify }}}}\n\nWe\'ve improved our {{{{ this-connection.display_name }}}} (v{{{{ this-connection.this-version }}}}) integration to {pr_title_for_md_description}.'
                                     with open(md_filename, 'w') as out:
                                         out.write(md_text)
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: quick-base
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-quickbase/pull/37"
+pull-request: "https://github.com/singer-io/tap-quickbase/pull/37"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

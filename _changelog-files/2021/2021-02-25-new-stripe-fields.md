@@ -7,7 +7,7 @@ entry-category: integration
 connection-id: stripe
 connection-version: 1
 full-connection-version: "1.4.5"
-pull_request: "https://github.com/singer-io/tap-stripe/pull/77"
+pull-request: "https://github.com/singer-io/tap-stripe/pull/77"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

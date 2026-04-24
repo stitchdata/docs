@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: zendesk-chat
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-zendesk-chat/pull/41"
+pull-request: "https://github.com/singer-io/tap-zendesk-chat/pull/41"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

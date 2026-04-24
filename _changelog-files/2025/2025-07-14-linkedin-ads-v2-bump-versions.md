@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: linkedin-ads
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-linkedin-ads/pull/78"
+pull-request: "https://github.com/singer-io/tap-linkedin-ads/pull/78"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

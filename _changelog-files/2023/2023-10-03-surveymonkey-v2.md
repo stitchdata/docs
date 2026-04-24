@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: surveymonkey
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-surveymonkey/pull/27"
+pull-request: "https://github.com/singer-io/tap-surveymonkey/pull/27"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

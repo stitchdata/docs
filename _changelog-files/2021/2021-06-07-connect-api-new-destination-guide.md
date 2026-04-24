@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2021-06-07
 entry-type: new-feature
 entry-category: "documentation, connect-api"
-pull_request: "https://github.com/stitchdata/docs/pull/649"
+pull-request: "https://github.com/stitchdata/docs/pull/649"
 ---
 
 We've added a new guide to the Connect API resources!

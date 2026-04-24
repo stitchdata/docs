@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2021-04-13
 entry-type: new-feature
 entry-category: "account, documentation"
-pull_request: "https://github.com/stitchdata/docs/pull/631"
+pull-request: "https://github.com/stitchdata/docs/pull/631"
 ---
 We've expanded our list of supported Identity Providers to include PingFederate!
 

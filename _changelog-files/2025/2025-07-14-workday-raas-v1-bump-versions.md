@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: workday-raas
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-workday-raas/pull/18"
+pull-request: "https://github.com/singer-io/tap-workday-raas/pull/18"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

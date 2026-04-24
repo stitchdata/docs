@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: "integration, documentation"
 connection-id: "salesforce"
 connection-version: "1"
-pull_request: "https://github.com/stitchdata/docs/pull/642"
+pull-request: "https://github.com/stitchdata/docs/pull/642"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

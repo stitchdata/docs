@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: ebay
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-ebay/pull/14"
+pull-request: "https://github.com/singer-io/tap-ebay/pull/14"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

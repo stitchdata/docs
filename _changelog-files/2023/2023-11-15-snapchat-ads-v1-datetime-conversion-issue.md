@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: snapchat-ads
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-snapchat-ads/pull/28"
+pull-request: "https://github.com/singer-io/tap-snapchat-ads/pull/28"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

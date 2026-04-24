@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: postgres
 connection-version: 2
-pull_request: "https://github.com/stitchdata/docs/pull/624"
+pull-request: "https://github.com/stitchdata/docs/pull/624"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

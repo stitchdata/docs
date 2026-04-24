@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: google-search-console
 connection-version: 0
-pull_request: "https://github.com/singer-io/tap-google-search-console/pull/38"
+pull-request: "https://github.com/singer-io/tap-google-search-console/pull/38"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

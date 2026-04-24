@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: tiktok-ads
 connection-version: 0
-pull_request: "https://github.com/singer-io/tap-tiktok-ads/pull/21"
+pull-request: "https://github.com/singer-io/tap-tiktok-ads/pull/21"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

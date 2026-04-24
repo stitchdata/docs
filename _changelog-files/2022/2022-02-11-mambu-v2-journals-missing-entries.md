@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: mambu
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-mambu/pull/66"
+pull-request: "https://github.com/singer-io/tap-mambu/pull/66"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

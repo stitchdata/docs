@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: eloqua
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-eloqua/pull/47"
+pull-request: "https://github.com/singer-io/tap-eloqua/pull/47"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

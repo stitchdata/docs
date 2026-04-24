@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: yotpo
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-yotpo/pull/23"
+pull-request: "https://github.com/singer-io/tap-yotpo/pull/23"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

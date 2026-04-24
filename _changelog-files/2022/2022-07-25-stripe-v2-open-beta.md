@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: "stripe"
 connection-version: "2"
-#pull_request: "https://github.com/singer-io/tap-stripe/blob/master/CHANGELOG.md"
+#pull-request: "https://github.com/singer-io/tap-stripe/blob/master/CHANGELOG.md"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

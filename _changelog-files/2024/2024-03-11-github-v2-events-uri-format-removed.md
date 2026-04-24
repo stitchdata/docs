@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: github
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-github/pull/205"
+pull-request: "https://github.com/singer-io/tap-github/pull/205"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

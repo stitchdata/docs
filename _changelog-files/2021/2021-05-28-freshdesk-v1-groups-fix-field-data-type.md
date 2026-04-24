@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: freshdesk
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-freshdesk/pull/42"
+pull-request: "https://github.com/singer-io/tap-freshdesk/pull/42"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

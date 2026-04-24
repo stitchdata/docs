@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: salesforce
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-salesforce/pull/197"
+pull-request: "https://github.com/singer-io/tap-salesforce/pull/197"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

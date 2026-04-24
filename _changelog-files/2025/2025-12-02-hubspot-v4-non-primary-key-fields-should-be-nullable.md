@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: hubspot
 connection-version: 4
-pull_request: "https://github.com/singer-io/tap-hubspot/pull/281"
+pull-request: "https://github.com/singer-io/tap-hubspot/pull/281"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

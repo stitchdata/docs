@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: hubspot
 connection-version: 3
-pull_request: "https://github.com/singer-io/tap-hubspot/pull/266"
+pull-request: "https://github.com/singer-io/tap-hubspot/pull/266"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

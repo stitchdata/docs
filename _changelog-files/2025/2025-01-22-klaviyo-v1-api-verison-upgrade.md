@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: klaviyo
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-klaviyo/pull/74"
+pull-request: "https://github.com/singer-io/tap-klaviyo/pull/74"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: shopify
 connection-version: 3
-pull_request: "https://github.com/singer-io/tap-shopify/pull/218"
+pull-request: "https://github.com/singer-io/tap-shopify/pull/218"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

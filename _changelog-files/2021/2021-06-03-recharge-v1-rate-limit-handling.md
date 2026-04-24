@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: recharge
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-recharge/pull/8"
+pull-request: "https://github.com/singer-io/tap-recharge/pull/8"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

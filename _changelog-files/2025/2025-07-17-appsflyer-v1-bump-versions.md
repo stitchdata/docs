@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: appsflyer
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-appsflyer/pull/49"
+pull-request: "https://github.com/singer-io/tap-appsflyer/pull/49"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

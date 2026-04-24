@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "github"
 connection-version: 1
-pull_request: "https://github.com/stitchdata/docs/pull/646"
+pull-request: "https://github.com/stitchdata/docs/pull/646"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

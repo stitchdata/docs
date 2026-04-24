@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: "integration"
 connection-id: "chargebee"
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-chargebee/pull/48"
+pull-request: "https://github.com/singer-io/tap-chargebee/pull/48"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

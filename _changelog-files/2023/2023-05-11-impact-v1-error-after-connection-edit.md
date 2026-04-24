@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: impact
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-impact/pull/22"
+pull-request: "https://github.com/singer-io/tap-impact/pull/22"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

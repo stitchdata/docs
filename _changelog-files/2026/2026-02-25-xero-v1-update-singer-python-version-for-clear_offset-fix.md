@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: xero
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-xero/pull/127"
+pull-request: "https://github.com/singer-io/tap-xero/pull/127"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

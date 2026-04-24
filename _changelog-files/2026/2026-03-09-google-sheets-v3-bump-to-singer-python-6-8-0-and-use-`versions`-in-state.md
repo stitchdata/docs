@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: google-sheets
 connection-version: 3
-pull_request: "https://github.com/singer-io/tap-google-sheets/pull/105"
+pull-request: "https://github.com/singer-io/tap-google-sheets/pull/105"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

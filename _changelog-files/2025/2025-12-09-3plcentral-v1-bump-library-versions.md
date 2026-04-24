@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: 3plcentral
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-3plcentral/pull/12"
+pull-request: "https://github.com/singer-io/tap-3plcentral/pull/12"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

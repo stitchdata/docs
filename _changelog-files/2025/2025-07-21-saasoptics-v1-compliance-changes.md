@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: saasoptics
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-saasoptics/pull/10"
+pull-request: "https://github.com/singer-io/tap-saasoptics/pull/10"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

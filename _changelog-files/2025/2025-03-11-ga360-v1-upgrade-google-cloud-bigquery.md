@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: google-analytics-360
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-ga360/pull/7"
+pull-request: "https://github.com/singer-io/tap-ga360/pull/7"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

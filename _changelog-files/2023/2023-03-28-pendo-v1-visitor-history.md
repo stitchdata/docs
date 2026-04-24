@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: pendo
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-pendo/pull/119"
+pull-request: "https://github.com/singer-io/tap-pendo/pull/119"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

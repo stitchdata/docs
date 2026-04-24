@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: zuora
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-zuora/pull/73"
+pull-request: "https://github.com/singer-io/tap-zuora/pull/73"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

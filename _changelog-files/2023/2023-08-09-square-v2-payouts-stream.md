@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: square
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-square/pull/109"
+pull-request: "https://github.com/singer-io/tap-square/pull/109"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

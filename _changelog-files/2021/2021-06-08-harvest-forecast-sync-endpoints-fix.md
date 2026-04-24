@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: "harvest-forecast"
 connection-version: 1
-pull_request: "https://github.com/singer-io/tap-harvest-forecast/pull/21"
+pull-request: "https://github.com/singer-io/tap-harvest-forecast/pull/21"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

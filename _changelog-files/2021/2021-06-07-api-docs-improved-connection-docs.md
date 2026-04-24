@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2021-06-07
 entry-type: improvement
 entry-category: "documentation, connect-api"
-pull_request: "https://github.com/stitchdata/docs/pull/649"
+pull-request: "https://github.com/stitchdata/docs/pull/649"
 ---
 
 We've moved the documentation for connection property objects out of the Connect API reference and into their own reference: [Destination and Source Connection Property API Reference]({{ site.home | append: site.baseurl | append: site.data.urls.connect.guides.connection-reference }})

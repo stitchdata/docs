@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: zoom
 connection-version: 2
-pull_request: "https://github.com/singer-io/tap-zoom/pull/40"
+pull-request: "https://github.com/singer-io/tap-zoom/pull/40"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
