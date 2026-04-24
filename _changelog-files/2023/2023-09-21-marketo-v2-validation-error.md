@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: marketo
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-marketo/pull/84"
+pull_request: "https://github.com/singer-io/tap-marketo/pull/84"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

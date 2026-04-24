@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: asana
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-asana/pull/61"
+pull_request: "https://github.com/singer-io/tap-asana/pull/61"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

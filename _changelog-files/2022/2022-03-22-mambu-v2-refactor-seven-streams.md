@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: mambu
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-mambu/pull/72"
+pull_request: "https://github.com/singer-io/tap-mambu/pull/72"
 ---
 We've refactored seven more of our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration streams. See the list below for the streams:
 

@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: amazon-s3-csv
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-s3-csv/pull/67"
+pull_request: "https://github.com/singer-io/tap-s3-csv/pull/67"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

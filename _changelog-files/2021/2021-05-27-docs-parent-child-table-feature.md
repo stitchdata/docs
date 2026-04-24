@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2021-05-27
 entry-type: improvement
 entry-category: "documentation"
-pull-request: "https://github.com/stitchdata/docs/pull/646"
+pull_request: "https://github.com/stitchdata/docs/pull/646"
 ---
 
 We've updated the integration schema documentation to include info about parent and child tables. Now you can tell, at a glance, if a table is dependent upon another table for replication:

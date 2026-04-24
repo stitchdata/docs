@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: pardot
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-pardot/pull/48"
+pull_request: "https://github.com/singer-io/tap-pardot/pull/48"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

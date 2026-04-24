@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: frontapp
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-frontapp/pull/31"
+pull_request: "https://github.com/singer-io/tap-frontapp/pull/31"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

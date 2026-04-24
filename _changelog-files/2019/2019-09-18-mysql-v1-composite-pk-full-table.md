@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: "integration"
 connection-id: "mysql"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-mysql/pull/108"
+pull_request: "https://github.com/singer-io/tap-mysql/pull/108"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

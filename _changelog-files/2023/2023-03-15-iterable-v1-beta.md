@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: iterable-core
 connection-version: 1
-# pull-request: ""
+# pull_request: ""
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

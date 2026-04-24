@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: google-ads
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-google-ads/pull/58"
+pull_request: "https://github.com/singer-io/tap-google-ads/pull/58"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

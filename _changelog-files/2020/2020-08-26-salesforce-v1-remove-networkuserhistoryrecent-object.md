@@ -6,7 +6,7 @@ entry-type: removed
 entry-category: integration
 connection-id: "salesforce"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-salesforce/pull/86"
+pull_request: "https://github.com/singer-io/tap-salesforce/pull/86"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

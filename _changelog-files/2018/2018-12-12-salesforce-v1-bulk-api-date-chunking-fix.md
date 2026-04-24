@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: "salesforce"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-salesforce/pull/60"
+pull_request: "https://github.com/singer-io/tap-salesforce/pull/60"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

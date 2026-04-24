@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: mixpanel
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-mixpanel/pull/56"
+pull_request: "https://github.com/singer-io/tap-mixpanel/pull/56"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

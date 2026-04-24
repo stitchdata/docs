@@ -17,7 +17,7 @@ connections:
     version: "1"
   - id: "salesforce"
     version: "1"
-pull-request: "https://github.com/stitchdata/docs/pull/620"
+pull_request: "https://github.com/stitchdata/docs/pull/620"
 ---
 
 Introducing: Integration changelogs!

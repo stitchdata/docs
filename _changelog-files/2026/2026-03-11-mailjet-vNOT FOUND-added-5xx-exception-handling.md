@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: mailjet
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-mailjet/pull/8"
+pull_request: "https://github.com/singer-io/tap-mailjet/pull/8"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: "integration"
 connection-id: "mysql"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-mysql/pull/45"
+pull_request: "https://github.com/singer-io/tap-mysql/pull/45"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

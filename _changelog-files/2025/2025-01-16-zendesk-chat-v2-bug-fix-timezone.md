@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: zendesk
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-zendesk-chat/pull/54"
+pull_request: "https://github.com/singer-io/tap-zendesk-chat/pull/54"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

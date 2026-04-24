@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: kustomer
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-kustomer/pull/34"
+pull_request: "https://github.com/singer-io/tap-kustomer/pull/34"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

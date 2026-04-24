@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: helpscout
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-helpscout/pull/34"
+pull_request: "https://github.com/singer-io/tap-helpscout/pull/34"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

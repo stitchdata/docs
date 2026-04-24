@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: chargify
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-chargify/pull/49"
+pull_request: "https://github.com/singer-io/tap-chargify/pull/49"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: snapchat-ads
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-snapchat-ads/pull/30"
+pull_request: "https://github.com/singer-io/tap-snapchat-ads/pull/30"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

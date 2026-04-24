@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: amazon-dynamodb
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-dynamodb/pull/59"
+pull_request: "https://github.com/singer-io/tap-dynamodb/pull/59"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

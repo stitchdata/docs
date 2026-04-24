@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: fullstory
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-fullstory/pull/13"
+pull_request: "https://github.com/singer-io/tap-fullstory/pull/13"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: twilio
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-twilio/pull/10"
+pull_request: "https://github.com/singer-io/tap-twilio/pull/10"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: "new-feature"
 entry-category: "integration" 
 connection-id: "postgres"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-postgres/pull/19"
+pull_request: "https://github.com/singer-io/tap-postgres/pull/19"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

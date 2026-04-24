@@ -7,7 +7,7 @@ entry-category: integration
 connection-id: shopify
 connection-version: 1
 full-connection-version: "1.2.7"
-pull-request: "https://github.com/singer-io/tap-shopify/pull/84"
+pull_request: "https://github.com/singer-io/tap-shopify/pull/84"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

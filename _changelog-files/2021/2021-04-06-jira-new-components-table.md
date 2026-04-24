@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: jira
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-jira/pull/59"
+pull_request: "https://github.com/singer-io/tap-jira/pull/59"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

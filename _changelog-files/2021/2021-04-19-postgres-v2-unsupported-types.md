@@ -6,7 +6,7 @@ entry-type: removed
 entry-category: integration
 connection-id: postgres
 connection-version: 2
-pull-request: "https://github.com/stitchdata/tap-hp-postgres/pull/73"
+pull_request: "https://github.com/stitchdata/tap-hp-postgres/pull/73"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

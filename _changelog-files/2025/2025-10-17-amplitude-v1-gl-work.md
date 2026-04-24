@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: amplitude
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-amplitude/pull/14"
+pull_request: "https://github.com/singer-io/tap-amplitude/pull/14"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

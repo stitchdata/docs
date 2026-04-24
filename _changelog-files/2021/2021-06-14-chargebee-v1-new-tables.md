@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "chargebee"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-chargebee/pull/42"
+pull_request: "https://github.com/singer-io/tap-chargebee/pull/42"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

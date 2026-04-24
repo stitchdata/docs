@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: activecampaign
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-activecampaign/pull/28"
+pull_request: "https://github.com/singer-io/tap-activecampaign/pull/28"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

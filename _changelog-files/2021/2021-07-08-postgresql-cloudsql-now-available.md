@@ -6,7 +6,7 @@ entry-type: new-feature
 entry-category: integration
 connection-id: "postgres"
 connection-version: "2"
-# pull-request: ""
+# pull_request: ""
 ---
 {% assign this-connection = site.database-integrations | find:"key","cloudsql-postgres-integration" %}
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: "mambu"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-mambu/pull/25"
+pull_request: "https://github.com/singer-io/tap-mambu/pull/25"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

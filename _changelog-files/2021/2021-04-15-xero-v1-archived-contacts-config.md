@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: xero
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-xero/pull/84"
+pull_request: "https://github.com/singer-io/tap-xero/pull/84"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

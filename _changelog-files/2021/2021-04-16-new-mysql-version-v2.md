@@ -6,7 +6,7 @@ entry-type: beta
 entry-category: integration
 connection-id: mysql
 connection-version: 2
-pull-request: "https://github.com/stitchdata/docs/pull/629"
+pull_request: "https://github.com/stitchdata/docs/pull/629"
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

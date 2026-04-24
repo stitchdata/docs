@@ -6,6 +6,6 @@ entry-type: new-feature
 entry-category: 
 connection-id: 
 connection-version: 
-# pull-request: ""
+# pull_request: ""
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

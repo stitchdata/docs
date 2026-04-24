@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: pipedrive
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-pipedrive/pull/146"
+pull_request: "https://github.com/singer-io/tap-pipedrive/pull/146"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

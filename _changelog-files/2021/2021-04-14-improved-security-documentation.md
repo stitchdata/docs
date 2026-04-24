@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2021-04-14
 entry-type: improvement
 entry-category: "documentation, security"
-pull-request: "https://github.com/stitchdata/docs/pull/626"
+pull_request: "https://github.com/stitchdata/docs/pull/626"
 ---
 
 We've been working hard to improve our security documentation - here's a high-level look at the changes:

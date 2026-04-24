@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: sendgrid-core
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-sendgrid/pull/13"
+pull_request: "https://github.com/singer-io/tap-sendgrid/pull/13"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

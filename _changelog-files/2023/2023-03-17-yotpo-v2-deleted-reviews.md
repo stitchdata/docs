@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: yotpo
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-yotpo/pull/55"
+pull_request: "https://github.com/singer-io/tap-yotpo/pull/55"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: "integration, documentation"
 connection-id: "outreach"
 connection-version: "1"
-pull-request: "https://github.com/singer-io/tap-outreach/pull/12"
+pull_request: "https://github.com/singer-io/tap-outreach/pull/12"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

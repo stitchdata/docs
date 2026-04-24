@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: listrak
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-listrak/pull/21"
+pull_request: "https://github.com/singer-io/tap-listrak/pull/21"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

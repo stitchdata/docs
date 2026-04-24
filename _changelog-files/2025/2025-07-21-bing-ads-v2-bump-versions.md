@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: bing-ads
 connection-version: 2
-pull-request: "https://github.com/singer-io/tap-bing-ads/pull/119"
+pull_request: "https://github.com/singer-io/tap-bing-ads/pull/119"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

@@ -6,7 +6,7 @@ entry-type: bug-fix
 entry-category: integration
 connection-id: klaviyo
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-klaviyo/pull/83"
+pull_request: "https://github.com/singer-io/tap-klaviyo/pull/83"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

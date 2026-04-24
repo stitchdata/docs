@@ -6,7 +6,7 @@ entry-type: improvement
 entry-category: integration
 connection-id: mailchimp
 connection-version: 1
-pull-request: "https://github.com/singer-io/tap-mailchimp/pull/38"
+pull_request: "https://github.com/singer-io/tap-mailchimp/pull/38"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
