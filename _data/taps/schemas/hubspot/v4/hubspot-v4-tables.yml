@@ -30,6 +30,8 @@ tables:
   description: 'The `{{ table.name }}` table contains info about the contacts lists
     in your {{ integration.display_name }} account. Contact lists are used to segment
     contacts into groups, and there are two types: dynamic (smart lists) and static.
+    **Note:** You might need to create new connections to continue to replicate contacts_lists data after April 30th 2026. For more information, see [HubSpot''s documentation](https://developers.hubspot.com/docs/api/crm/contacts#update-contact-connection-deprecation){:target="new"}.
+
 
     '
   links:
@@ -43,6 +45,7 @@ tables:
 - name: contacts
   description: 'The `{{ table.name }}` table contains info about individual contacts
     in {{ integration.display_name }}.
+    **Note:** You might need to create new connections to continue to replicate contacts data after April 30th 2026. For more information, see [HubSpot''s documentation](https://developers.hubspot.com/docs/api/crm/contacts#update-contact-connection-deprecation){:target="new"}.
 
 
     ### Contact properties
