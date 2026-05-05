@@ -1,5 +1,5 @@
 ---
-title: "Invoiced (v1): Feature/tap invoiced version upgrade"
+title: "Invoiced (v1): Upgrade invoiced version"
 content-type: "changelog-entry"
 date: 2026-04-27
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-invoiced/pull/11"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to feature/tap invoiced version upgrade.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade the invoiced version.

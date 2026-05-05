@@ -1,5 +1,5 @@
 ---
-title: "Pipedrive (v1): Update bookmakring for ordered streams"
+title: "Pipedrive (v1): Update bookmarking for ordered streams"
 content-type: "changelog-entry"
 date: 2026-05-04
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-pipedrive/pull/157"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to update bookmakring for ordered streams.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to update bookmarking for ordered streams.

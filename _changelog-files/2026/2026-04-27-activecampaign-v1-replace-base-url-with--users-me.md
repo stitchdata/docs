@@ -2,7 +2,7 @@
 title: "ActiveCampaign (v1): Replace base url with /users/me"
 content-type: "changelog-entry"
 date: 2026-04-27
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: activecampaign
 connection-version: 1
