@@ -1,0 +1,135 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "unit": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "tax": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "category": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_linkable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "visible_to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "add_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "prices": {
+      "type": [
+        "null",
+        "object",
+        "array"
+      ],
+      "items": {
+        "type": "object"
+      },
+      "properties": {
+        "USD": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "product_id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "price": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "currency": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "cost": {
+              "type": [
+                "null",
+                "number"
+              ]
+            },
+            "overhead_cost": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
