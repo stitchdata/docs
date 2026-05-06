@@ -41,7 +41,7 @@ anchor-scheduling: true
 cron-scheduling: true
 
 table-selection: true
-column-selection: false
+column-selection: true
 select-all: true
 
 extraction-logs: true
