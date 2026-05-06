@@ -116,21 +116,7 @@ setup-steps:
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      The last step is to select the tables and columns you want to replicate. Refer to the [Schema](#schema) section for more info about available tables.
-
-      {% include note.html type="single-line" content="If a replication job is currently in progress, new selections won't be used until the next job starts." %}
-
-      **Selection options**
-
-      For {{ integration.display_name }} integrations, you can select:
-
-      1. **Individual tables and columns**
-
-         You can select specific tables to replicate. For each table you select, all available columns will be replicated.
-
-      2. **All tables and columns**
-
-         Replicate all available tables and all columns from {{ integration.display_name }}. This is the default selection.
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
