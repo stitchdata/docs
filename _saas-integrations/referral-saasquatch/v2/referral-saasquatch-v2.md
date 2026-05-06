@@ -4,6 +4,7 @@ permalink: /integrations/saas/referral-saasquatch
 keywords: referral saasquatch, integration, schema, etl referral saasquatch, referral saasquatch etl, referral saasquatch schema
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
 layout: singer
+# input: false
 
 key: "referral-saasquatch-setup"
 
