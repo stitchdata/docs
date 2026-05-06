@@ -1,6 +1,6 @@
 ---
-title: Referral SaaSquatch (v2)
-permalink: /integrations/saas/referral-saasquatch
+title: Referral SaaSquatch (v1)
+permalink: /integrations/saas/referral-saasquatch/v1
 keywords: referral saasquatch, integration, schema, etl referral saasquatch, referral saasquatch etl, referral saasquatch schema
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
 layout: singer
@@ -17,7 +17,7 @@ display_name: "Referral SaaSquatch"
 singer: true
 repo-url: https://github.com/singer-io/tap-referral-saasquatch
 
-this-version: "2"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://docs.referralsaasquatch.com/api/){:target="new"}
@@ -38,8 +38,11 @@ api-type: "platform.referral-saasquatch"
 anchor-scheduling: true
 cron-scheduling: true
 
-table-selection: true
+table-selection: false
 column-selection: false
+select-all: false
+select-all-reason: |
+  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -73,10 +76,6 @@ setup-steps:
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **Tenant Alias** field, paste your Referral SaaSquatch Tenant Alias.
       5. In the **API Key** field, paste your Referral SaaSquatch API Key.
-  - title: "Set objects to replicate"
-    anchor: "setting-data-to-replicate"
-    content: |
-      {% include integrations/shared-setup/data-selection/object-selection.html %}
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
