@@ -3,7 +3,7 @@ tap: "gitlab"
 version: "1"
 
 name: "branches"
-doc-link: https://gitlab.com/help/api/branches.html
+doc-link: https://docs.gitlab.com/ee/api/branches.html
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/branches.json
 description: |
   The `{{ table.name }}` table contains high-level info about repository branches in your projects.
@@ -16,7 +16,7 @@ replication-key:
 
 api-method:
   name: "listRepositoryBranches"
-  doc-link: https://gitlab.com/help/api/branches.html#list-repository-branches
+  doc-link: https://docs.gitlab.com/ee/api/branches.html#list-repository-branches
 
 attributes:
   - name: "project_id"

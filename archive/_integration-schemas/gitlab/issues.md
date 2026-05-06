@@ -3,7 +3,7 @@ tap: "gitlab"
 version: "1"
 
 name: "issues"
-doc-link: https://gitlab.com/help/api/issues.md#list-project-issues
+doc-link: https://docs.gitlab.com/ee/api/issues.html#list-project-issues
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/issues.json
 description: |
   The `{{ table.name }}` table contains info about issues contained within projects.
@@ -11,7 +11,7 @@ description: |
 replication-method: "Key-based Incremental"
 api-method:
   name: "listProjectIssues"
-  doc-link: https://gitlab.com/help/api/issues.md#list-project-issues
+  doc-link: https://docs.gitlab.com/ee/api/issues.html#list-project-issues
 
 attributes:
   - name: "id"

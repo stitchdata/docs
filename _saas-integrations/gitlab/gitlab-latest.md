@@ -38,11 +38,8 @@ api-type: "platform.gitlab"
 anchor-scheduling: true
 cron-scheduling: true
 
-table-selection: false
+table-selection: true
 column-selection: false
-select-all: false
-select-all-reason: |
-  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
 
 extraction-logs: true
 loading-reports: true
@@ -99,6 +96,11 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #

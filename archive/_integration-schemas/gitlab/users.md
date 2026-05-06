@@ -3,7 +3,7 @@ tap: "gitlab"
 version: "1"
 
 name: "users"
-doc-link: https://gitlab.com/help/api/users.md#list-users
+doc-link: https://docs.gitlab.com/ee/api/users.html#list-users
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/users.json
 description: |
   The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
@@ -11,7 +11,7 @@ description: |
 replication-method: "Full Table"
 api-method:
   name: "listUsers"
-  doc-link: https://gitlab.com/help/api/users.md#list-users
+  doc-link: https://docs.gitlab.com/ee/api/users.html#list-users
 
 attributes:
   - name: "id"

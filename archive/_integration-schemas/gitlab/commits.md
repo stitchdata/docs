@@ -3,7 +3,7 @@ tap: "gitlab"
 version: "1"
 
 name: "commits"
-doc-link: https://gitlab.com/help/api/commits.md
+doc-link: https://docs.gitlab.com/ee/api/commits.html
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/commits.json
 description: |
   The `{{ table.name }}` table contains info about repository commits in a project.
@@ -16,7 +16,7 @@ replication-key:
 
 api-method:
   name: "listRepositoryCommits"
-  doc-link: https://gitlab.com/help/api/commits.md#list-repository-commits
+  doc-link: https://docs.gitlab.com/ee/api/commits.html#list-repository-commits
 
 attributes:
   - name: "id"
