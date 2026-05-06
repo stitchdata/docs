@@ -40,14 +40,9 @@ api-type: "platform.appsflyer"
 anchor-scheduling: true
 cron-scheduling: true
 
-table-selection: false
+table-selection: true
 column-selection: false
-select-all: false
-select-all-reason: |
-  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
-select-all: false
-select-all-reason: |
-  As this integration doesn't support table or column selection, all available tables and columns are automatically replicated.
+select-all: true
 
 extraction-logs: true
 loading-reports: true
@@ -118,6 +113,25 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      The last step is to select the tables and columns you want to replicate. Refer to the [Schema](#schema) section for more info about available tables.
+
+      {% include note.html type="single-line" content="If a replication job is currently in progress, new selections won't be used until the next job starts." %}
+
+      **Selection options**
+
+      For {{ integration.display_name }} integrations, you can select:
+
+      1. **Individual tables and columns**
+
+         You can select specific tables to replicate. For each table you select, all available columns will be replicated.
+
+      2. **All tables and columns**
+
+         Replicate all available tables and all columns from {{ integration.display_name }}. This is the default selection.
+
 
 # -------------------------- #
 #     Integration Tables     #
@@ -139,7 +153,7 @@ replication-sections:
     content: |
       In addition to historical limitations, {{ integration.display_name }} also [imposes a limit on the number of raw data API calls](https://support.appsflyer.com/hc/en-us/articles/207034366-API-Policy#2-raw-data-reports-via-pull-api) that can be made per day. Currently, the maximum is **10 API calls per day, per app** and increases when upgrading to a higher {{ integration.display_name }} tier.
 
-      Each time Stitch requests data for an app - or a single {{ integration.display_name }} integration - two API calls will be used: One to replicate `in_app_events`, and one for `installations`.
+      Each time Stitch requests data for an app - or a single {{ integration.display_name }} integration - two API calls will be used: One to replicate `in_app_events`, and one for `installs`.
 
       If your Stitch {{ integration.display_name }} integration is set to replicate frequently (ex: every 30 minutes), you may quickly consume your {{ integration.display_name }} API quota. When this occurs, Stitch will pause replication and resume where it left off when more quota is available.
 
