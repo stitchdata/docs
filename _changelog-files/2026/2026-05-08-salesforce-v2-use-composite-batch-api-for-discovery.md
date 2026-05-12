@@ -1,8 +1,8 @@
 ---
-title: "Salesforce (v2): use composite batch API for discovery"
+title: "Salesforce (v2): Use composite batch API for discovery"
 content-type: "changelog-entry"
 date: 2026-05-08
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: salesforce
 connection-version: 2

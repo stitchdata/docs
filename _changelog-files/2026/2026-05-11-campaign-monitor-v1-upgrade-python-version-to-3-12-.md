@@ -1,5 +1,5 @@
 ---
-title: "Campaign Monitor (v1): upgrade python version to 3.12 "
+title: "Campaign Monitor (v1): Upgrade python version to 3.12 "
 content-type: "changelog-entry"
 date: 2026-05-11
 entry-type: improvement

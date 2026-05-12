@@ -1,5 +1,5 @@
 ---
-title: "Front (v2): add unittests and integrationt tests"
+title: "Front (v2): Add unittests and integrationt tests"
 content-type: "changelog-entry"
 date: 2026-05-05
 entry-type: improvement

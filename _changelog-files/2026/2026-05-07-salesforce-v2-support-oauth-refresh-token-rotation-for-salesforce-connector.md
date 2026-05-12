@@ -2,7 +2,7 @@
 title: "Salesforce (v2): Support OAuth refresh token rotation for Salesforce connector"
 content-type: "changelog-entry"
 date: 2026-05-07
-entry-type: NOT FOUND
+entry-type: improvement
 entry-category: integration
 connection-id: salesforce
 connection-version: 2

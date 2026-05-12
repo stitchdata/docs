@@ -1,5 +1,5 @@
 ---
-title: "UserVoice (v1): upgrade python version to 3.12"
+title: "UserVoice (v1): Upgrade python version to 3.12"
 content-type: "changelog-entry"
 date: 2026-05-06
 entry-type: improvement
