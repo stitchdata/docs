@@ -1,9 +1,10 @@
 ---
 title: Referral SaaSquatch (v1)
-permalink: /integrations/saas/referral-saasquatch
+permalink: /integrations/saas/referral-saasquatch/v1
 keywords: referral saasquatch, integration, schema, etl referral saasquatch, referral saasquatch etl, referral saasquatch schema
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
 layout: singer
+input: false
 
 key: "referral-saasquatch-setup"
 

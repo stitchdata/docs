@@ -72,9 +72,9 @@
 {% capture selection-options %}
 For {{ integration.display_name }} integrations, you can select:
 
-1. **Individual {{ object }}s {% if integration.column-selection == true %} and {{ col }}s{% endif %}**
+1. **Individual {{ object }}s{% if integration.column-selection == true %} and {{ col }}s{% endif %}**
 {% if select-all == true %}
-2. **All {{ object }}s and {{ col }}s** {% if integration.collection == "database-integrations" and view-selection == true %}(except views){% endif %}
+2. **All {{ object }}s{% if integration.column-selection == true %} and {{ col }}s{% endif %}** {% if integration.collection == "database-integrations" and view-selection == true %}(except views){% endif %}
 {% endif %}
 
 {% if view-selection == true %}
