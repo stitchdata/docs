@@ -1,5 +1,5 @@
 ---
-title: "GitHub (v2): fix malformed URL causing 'since' filter to be dropped for Issues and Comments streams"
+title: "GitHub (v2): Fix malformed URL causing 'since' filter to be dropped for Issues and Comments streams"
 content-type: "changelog-entry"
 date: 2026-05-13
 entry-type: bug-fix
