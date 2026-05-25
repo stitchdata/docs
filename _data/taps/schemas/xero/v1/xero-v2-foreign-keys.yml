@@ -74,9 +74,6 @@ keys:
   - table: prepayments
     keys:
     - Contact.ContactID
-  - table: receipts
-    keys:
-    - Contact.ContactID
   - table: repeating_invoices
     keys:
     - Contact.ContactID
@@ -112,14 +109,6 @@ keys:
   - table: repeating_invoices
     keys:
     - CurrencyCode
-  employees_EmployeeID:
-  - table: employees
-    keys:
-    - EmployeeID
-  expense_claims_ExpenseClaimID:
-  - table: expense_claims
-    keys:
-    - ExpenseClaimID
   invoices_InvoiceID:
   - table: invoices
     keys:
@@ -171,9 +160,6 @@ keys:
     keys:
     - Overpayment.OverpaymentID
   payments_PaymentID:
-  - table: expense_claims
-    keys:
-    - Payments.PaymentID
   - table: invoices
     keys:
     - Payments.PaymentID
@@ -200,13 +186,6 @@ keys:
   - table: purchase_orders
     keys:
     - PurchaseOrderID
-  receipts_ReceiptID:
-  - table: expense_claims
-    keys:
-    - Receipts.ReceiptID
-  - table: receipts
-    keys:
-    - ReceiptID
   repeating_invoices_RepeatingInvoiceID:
   - table: repeating_invoices
     keys:
@@ -251,9 +230,6 @@ keys:
   - table: purchase_orders
     keys:
     - LineItems.Tracking.TrackingCategoryID
-  - table: receipts
-    keys:
-    - LineItems.Tracking.TrackingCategoryID
   - table: repeating_invoices
     keys:
     - LineItems.Tracking.TrackingCategoryID
@@ -261,12 +237,9 @@ keys:
     keys:
     - TrackingCategoryID
   users_UserID:
-  - table: expense_claims
+  - table: users
     keys:
-    - User.UserID
-  - table: receipts
-    keys:
-    - User.UserID
+    - UserID
 tables:
 - table-name: accounts
   join:
@@ -460,10 +433,6 @@ tables:
     keys:
     - key: JournalLines.TrackingCategories.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: JournalLines.TrackingCategories.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: repeating_invoices
     keys:
     - key: JournalLines.TrackingCategories.TrackingCategoryID
@@ -526,10 +495,6 @@ tables:
       foreign-key: Allocations.Invoice.InvoiceID
     - key: Prepayments.PrepaymentID
       foreign-key: PrepaymentID
-  - table-name: expense_claims
-    keys:
-    - key: PaymentID
-      foreign-key: Payments.PaymentID
 - table-name: linked_transactions
   join:
   - table-name: bank_transactions
@@ -568,10 +533,6 @@ tables:
       foreign-key: Allocations.Invoice.InvoiceID
     - key: TargetTransactionID
       foreign-key: Allocations.Invoice.InvoiceID
-  - table-name: receipts
-    keys:
-    - key: ContactID
-      foreign-key: Contact.ContactID
   - table-name: repeating_invoices
     keys:
     - key: ContactID
@@ -672,14 +633,6 @@ tables:
       foreign-key: LineItems.Tracking.TrackingCategoryID
     - key: PurchasesTrackingCategories.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: ContactID
-      foreign-key: Contact.ContactID
-    - key: SalesTrackingCategories.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-    - key: PurchasesTrackingCategories.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: journals
     keys:
     - key: SalesTrackingCategories.TrackingCategoryID
@@ -760,12 +713,6 @@ tables:
       foreign-key: Contact.ContactID
     - key: CurrencyCode
       foreign-key: CurrencyCode
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: accounts
@@ -870,12 +817,6 @@ tables:
       foreign-key: PrepaymentID
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: accounts
     keys:
     - key: CurrencyCode
@@ -904,10 +845,6 @@ tables:
       foreign-key: PaymentID
     - key: Prepayments.PrepaymentID
       foreign-key: Prepayments.PrepaymentID
-  - table-name: expense_claims
-    keys:
-    - key: Payments.PaymentID
-      foreign-key: Payments.PaymentID
   - table-name: journals
     keys:
     - key: LineItems.Tracking.TrackingCategoryID
@@ -988,10 +925,6 @@ tables:
     keys:
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: tracking_categories
     keys:
     - key: LineItems.Tracking.TrackingCategoryID
@@ -1056,12 +989,6 @@ tables:
       foreign-key: Contact.ContactID
     - key: CurrencyCode
       foreign-key: CurrencyCode
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: accounts
@@ -1138,12 +1065,6 @@ tables:
       foreign-key: Allocations.Invoice.InvoiceID
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: repeating_invoices
     keys:
     - key: Contact.ContactID
@@ -1162,10 +1083,6 @@ tables:
     keys:
     - key: OverpaymentID
       foreign-key: OverpaymentID
-  - table-name: expense_claims
-    keys:
-    - key: Payments.PaymentID
-      foreign-key: Payments.PaymentID
   - table-name: journals
     keys:
     - key: LineItems.Tracking.TrackingCategoryID
@@ -1228,12 +1145,6 @@ tables:
       foreign-key: Allocations.Invoice.InvoiceID
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: repeating_invoices
     keys:
     - key: Contact.ContactID
@@ -1280,72 +1191,6 @@ tables:
     keys:
     - key: LineItems.Tracking.TrackingCategoryID
       foreign-key: TrackingCategoryID
-- table-name: receipts
-  join:
-  - table-name: contacts
-    keys:
-    - key: Contact.ContactID
-      foreign-key: ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: SalesTrackingCategories.TrackingCategoryID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: PurchasesTrackingCategories.TrackingCategoryID
-  - table-name: credit_notes
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: invoices
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: linked_transactions
-    keys:
-    - key: Contact.ContactID
-      foreign-key: ContactID
-  - table-name: overpayments
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: prepayments
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: repeating_invoices
-    keys:
-    - key: Contact.ContactID
-      foreign-key: Contact.ContactID
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: expense_claims
-    keys:
-    - key: ReceiptID
-      foreign-key: Receipts.ReceiptID
-    - key: User.UserID
-      foreign-key: User.UserID
-  - table-name: journals
-    keys:
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: JournalLines.TrackingCategories.TrackingCategoryID
-  - table-name: manual_journals
-    keys:
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: JournalLines.Tracking.TrackingCategoryID
-  - table-name: purchase_orders
-    keys:
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: tracking_categories
-    keys:
-    - key: LineItems.Tracking.TrackingCategoryID
-      foreign-key: TrackingCategoryID
 - table-name: currencies
   join:
   - table-name: accounts
@@ -1376,26 +1221,6 @@ tables:
     keys:
     - key: Code
       foreign-key: CurrencyCode
-- table-name: expense_claims
-  join:
-  - table-name: invoices
-    keys:
-    - key: Payments.PaymentID
-      foreign-key: Payments.PaymentID
-  - table-name: overpayments
-    keys:
-    - key: Payments.PaymentID
-      foreign-key: Payments.PaymentID
-  - table-name: payments
-    keys:
-    - key: Payments.PaymentID
-      foreign-key: PaymentID
-  - table-name: receipts
-    keys:
-    - key: Receipts.ReceiptID
-      foreign-key: ReceiptID
-    - key: User.UserID
-      foreign-key: User.UserID
 - table-name: tax_rates
   join:
   - table-name: journals
@@ -1431,10 +1256,6 @@ tables:
     - key: JournalLines.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: purchase_orders
-    keys:
-    - key: JournalLines.Tracking.TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
     keys:
     - key: JournalLines.Tracking.TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
@@ -1479,10 +1300,6 @@ tables:
     - key: TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID
   - table-name: purchase_orders
-    keys:
-    - key: TrackingCategoryID
-      foreign-key: LineItems.Tracking.TrackingCategoryID
-  - table-name: receipts
     keys:
     - key: TrackingCategoryID
       foreign-key: LineItems.Tracking.TrackingCategoryID

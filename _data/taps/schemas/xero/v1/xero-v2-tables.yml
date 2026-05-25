@@ -97,41 +97,6 @@ tables:
   table-details:
     replication-method: Full Table
     primary-key: Code
-- name: employees
-  description: 'The `{{ table.name }}` table contains info about employees.
-
-
-    **Note**: According to [{{ integration.display_name }}''s documentation](https://developer.xero.com/documentation/api/employees),
-    the endpoint that produces this table is:
-
-
-    > Used for an [employee type](https://help.xero.com/int/Contacts_EmployeeAdd)
-    used exclusively by the global Payrun functionality in {{ integration.display_name
-    }} core accounting.
-
-
-    As a result, this table may not contain all employee data. Refer to the `contacts`
-    table if you believe you are missing records.
-
-    '
-  links:
-    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/employees.json
-    api-method: https://developer.xero.com/documentation/api/employees
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: EmployeeID
-    replication-key: UpdatedDateUTC
-- name: expense_claims
-  description: 'The `{{ table.name }}` table contains info about expense claims.
-
-    '
-  links:
-    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/expense_claims.json
-    api-method: https://developer.xero.com/documentation/api/expense-claims
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: ExpenseClaimID
-    replication-key: UpdatedDateUTC
 - name: invoices
   description: 'The `{{ table.name }}` table contains info about sales invoices, which
     are requests for payment for goods and services.
@@ -262,18 +227,6 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     primary-key: QuoteID
-    replication-key: UpdatedDateUTC
-- name: receipts
-  description: 'The `{{ table.name }}` table contains info about invoice receipts,
-    which are receipts sent to customers after an invoice has been received.
-
-    '
-  links:
-    singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/receipts.json
-    api-method: https://developer.xero.com/documentation/api/receipts
-  table-details:
-    replication-method: Key-based Incremental
-    primary-key: ReceiptID
     replication-key: UpdatedDateUTC
 - name: repeating_invoices
   description: 'The `{{ table.name }}` table contains info about invoices set up to
