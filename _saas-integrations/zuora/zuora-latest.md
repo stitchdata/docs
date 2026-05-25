@@ -114,20 +114,17 @@ setup-steps:
          - **Basic (recommended)**: Use if you have created a Stitch {{ integration.display_name }} user with username and password credentials.
          - **OAuth**: Use if your {{ integration.display_name }} administrator has created an OAuth application and provided you with client ID and client secret.
 
-      **If you selected Basic Authentication:**
-      6. In the **{{ integration.display_name }} Username** field, enter the Stitch {{ integration.display_name }} user's username. This is the email address that was in the **Login Name** field when you created the user.
-      7. In the **{{ integration.display_name }} Password** field, enter the password associated with the Stitch {{ integration.display_name }} user.
+         **If you selected Basic Authentication:**
+         6. In the **{{ integration.display_name }} Username** field, enter the Stitch {{ integration.display_name }} user's username. This is the email address that was in the **Login Name** field when you created the user.
+         7. In the **{{ integration.display_name }} Password** field, enter the password associated with the Stitch {{ integration.display_name }} user.
+
+         **If you selected OAuth:**
+         8. Your {{ integration.display_name }} administrator must create an OAuth application in {{ integration.display_name }} to obtain the **{{ integration.display_name }} Client ID** and **{{ integration.display_name }} Client Secret**. If you don't have these credentials yet, refer to [{{ integration.display_name }} documentation](https://developer.zuora.com/docs/get-started/oauth-client-setup-steps).
       
-      **If you selected OAuth:**
-      8. Your {{ integration.display_name }} administrator must create an OAuth application in {{ integration.display_name }} to obtain the **{{ integration.display_name }} Client ID** and **{{ integration.display_name }} Client Secret**. If you don't have these credentials yet, see [{{ integration.display_name }} documentation](https://developer.zuora.com/docs/get-started/oauth-client-setup-steps).
-      
-      {% capture client-secret-note %}
-      This value will be securely stored by Stitch and will not be displayed again. Keep it secure and do not share it via email or unsecured channels.
-      {% endcapture %}
+      {% capture client-secret-note %}This value will be securely stored by Stitch and will not be displayed again. Keep it secure and do not share it via email or unsecured channels.{% endcapture %}
 
       {% include important.html first-line="**Security Note**" content=client-secret-note %}
-      
-      **For both authentication methods:**
+
       9. If the {{ integration.display_name }} instance you want to connect to Stitch is **based in Europe**, check the **Connect to a European endpoint** box. If you aren't sure if this is applicable to you, [refer to Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Zuora_Data_Centers).
 
   - title: "Select a {{ integration.display_name }} extraction API"
