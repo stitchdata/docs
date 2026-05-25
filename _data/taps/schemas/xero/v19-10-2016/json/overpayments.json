@@ -846,7 +846,7 @@
                 "exclusiveMinimum": true,
                 "maximum": 1e+33,
                 "minimum": -1e+33,
-                "multipleOf": 1e-10,
+                "multipleOf": 1e-06,
                 "type": [
                   "null",
                   "number"
@@ -2027,7 +2027,7 @@
       "exclusiveMinimum": true,
       "maximum": 1e+33,
       "minimum": -1e+33,
-      "multipleOf": 1e-10,
+      "multipleOf": 1e-06,
       "type": [
         "null",
         "number"
@@ -2271,6 +2271,11 @@
         "array"
       ]
     },
+    "OverpaymentID": {
+      "type": [
+        "string"
+      ]
+    },
     "Payments": {
       "items": {
         "properties": {
@@ -2435,7 +2440,7 @@
             "exclusiveMinimum": true,
             "maximum": 1e+33,
             "minimum": -1e+33,
-            "multipleOf": 1e-10,
+            "multipleOf": 1e-06,
             "type": [
               "null",
               "number"
@@ -3284,7 +3289,7 @@
                 "exclusiveMinimum": true,
                 "maximum": 1e+33,
                 "minimum": -1e+33,
-                "multipleOf": 1e-10,
+                "multipleOf": 1e-06,
                 "type": [
                   "null",
                   "number"
@@ -3745,11 +3750,6 @@
         "array"
       ]
     },
-    "PrepaymentID": {
-      "type": [
-        "string"
-      ]
-    },
     "Reference": {
       "type": [
         "null",
@@ -3820,10 +3820,10 @@
     }
   },
   "tap_schema_dependencies": [
-    "allocations",
     "contacts",
     "line_items",
-    "payments"
+    "payments",
+    "allocations"
   ],
   "type": [
     "null",
