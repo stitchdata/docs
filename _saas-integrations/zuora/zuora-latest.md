@@ -120,12 +120,12 @@ setup-steps:
 
          **If you selected OAuth:**
          8. Your {{ integration.display_name }} administrator must create an OAuth application in {{ integration.display_name }} to obtain the **{{ integration.display_name }} Client ID** and **{{ integration.display_name }} Client Secret**. If you don't have these credentials yet, refer to [{{ integration.display_name }} documentation](https://developer.zuora.com/docs/get-started/oauth-client-setup-steps).
-      
-      {% capture client-secret-note %}This value will be securely stored by Stitch and will not be displayed again. Keep it secure and do not share it via email or unsecured channels.{% endcapture %}
 
-      {% include important.html first-line="**Security Note**" content=client-secret-note %}
+         {% capture client-secret-note %}This value will be securely stored by Stitch and will not be displayed again. Keep it secure and do not share it via email or unsecured channels.{% endcapture %}
 
-      9. If the {{ integration.display_name }} instance you want to connect to Stitch is **based in Europe**, check the **Connect to a European endpoint** box. If you aren't sure if this is applicable to you, [refer to Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Zuora_Data_Centers).
+         {% include important.html first-line="**Security Note**" content=client-secret-note %}
+
+         9. If the {{ integration.display_name }} instance you want to connect to Stitch is **based in Europe**, check the **Connect to a European endpoint** box. If you aren't sure if this is applicable to you, [refer to Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Zuora_Data_Centers).
 
   - title: "Select a {{ integration.display_name }} extraction API"
     anchor: "rest-vs-aqua-api"
