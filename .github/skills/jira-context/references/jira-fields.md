@@ -2,7 +2,7 @@
 
 ## Issue fields
 
-Returned by `getJiraIssue` (Jira MCP) with the ticket key:
+Returned by `getJiraIssue` (Jira MCP) with the issue key:
 
 | Field path | Description |
 |---|---|
@@ -13,9 +13,11 @@ Returned by `getJiraIssue` (Jira MCP) with the ticket key:
 | `fields.priority.name` | Priority level |
 | `fields.labels` | Array of label strings |
 | `fields.comment.comments` | Array of comment objects (`body`, `author.displayName`, `created`) |
+| `fields.duedate` | Due date of the issue |
 | `fields.fixVersions` | Planned release versions |
 | `fields.customfield_10178` | Product value |
 | `fields.customfield_10177` | Release type value |
+| `fields.customfield_10478` | What's New content |
 | `fields.subtasks` | Array of child/sub-task issues (`key`, `fields.summary`, `fields.status.name`) |
 | `fields.issuelinks` | Array of linked issues (see below) |
 
@@ -37,7 +39,7 @@ Each entry in `fields.issuelinks`:
 
 ## Remotelinks
 
-Returned by `getJiraIssueRemoteIssueLinks` (Jira MCP) with the ticket key:
+Returned by `getJiraIssueRemoteIssueLinks` (Jira MCP) with the issue key:
 
 | Field path | Description |
 |---|---|
