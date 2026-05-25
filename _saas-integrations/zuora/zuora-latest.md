@@ -111,30 +111,16 @@ setup-steps:
       4. If the {{ integration.display_name }} instance you want to connect to Stitch is a sandbox, check the **Connect to a Sandbox Environment** checkbox.
       
       5. Select your authentication method using the radio button selector:
-         - **Basic Authentication**: Use if you have created a Stitch {{ integration.display_name }} user with username and password credentials.
+         - **Basic (recommended)**: Use if you have created a Stitch {{ integration.display_name }} user with username and password credentials.
          - **OAuth**: Use if your {{ integration.display_name }} administrator has created an OAuth application and provided you with client ID and client secret.
 
       **If you selected Basic Authentication:**
-      6. In the **Username** field, enter the Stitch {{ integration.display_name }} user's username. This is the email address that was in the **Login Name** field when you created the user.
-      7. In the **Password** field, enter the password associated with the Stitch {{ integration.display_name }} user.
+      6. In the **{{ integration.display_name }} Username** field, enter the Stitch {{ integration.display_name }} user's username. This is the email address that was in the **Login Name** field when you created the user.
+      7. In the **{{ integration.display_name }} Password** field, enter the password associated with the Stitch {{ integration.display_name }} user.
       
       **If you selected OAuth:**
       {% capture oauth-setup-info %}
-      Your {{ integration.display_name }} administrator must create an OAuth application in {{ integration.display_name }} to obtain the Client ID and Client Secret. If you don't have these credentials yet:
-
-      1. Have your {{ integration.display_name }} administrator sign into their account with administrator permissions.
-      2. Navigate to **Administration** > **API** (or **OAuth**, depending on {{ integration.display_name }} version).
-      3. Click **New App** or **Create Application**.
-      4. Enter an application name (for example: `Stitch`).
-      5. Configure the application permissions to include **full API access**.
-      6. Click **Create** or **Save** to generate the OAuth credentials.
-      7. {{ integration.display_name }} will display the **Client ID** and **Client Secret**. Your administrator should provide these values securely.
-      {% endcapture %}
-
-      {% include note.html first-line="**Obtain OAuth credentials**" content=oauth-setup-info %}
-
-      6. In the **Client ID** field, enter the client ID from the OAuth application.
-      7. In the **Client Secret** field, enter the client secret from the OAuth application. 
+      Your {{ integration.display_name }} administrator must create an OAuth application in {{ integration.display_name }} to obtain the **{{ integration.display_name }} Client ID** and **{{ integration.display_name }} Client Secret**. If you don't have these credentials yet, see [{{ integration.display_name }} documentation](https://developer.zuora.com/docs/get-started/oauth-client-setup-steps).
       
       {% capture client-secret-note %}
       This value will be securely stored by Stitch and will not be displayed again. Keep it secure and do not share it via email or unsecured channels.
