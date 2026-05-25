@@ -74,9 +74,6 @@ keys:
   - table: prepayments
     keys:
     - Contact.ContactID
-  - table: receipts
-    keys:
-    - Contact.ContactID
   - table: repeating_invoices
     keys:
     - Contact.ContactID
@@ -112,14 +109,6 @@ keys:
   - table: repeating_invoices
     keys:
     - CurrencyCode
-  employees_EmployeeID:
-  - table: employees
-    keys:
-    - EmployeeID
-  expense_claims_ExpenseClaimID:
-  - table: expense_claims
-    keys:
-    - ExpenseClaimID
   invoices_InvoiceID:
   - table: invoices
     keys:
@@ -171,9 +160,6 @@ keys:
     keys:
     - Overpayment.OverpaymentID
   payments_PaymentID:
-  - table: expense_claims
-    keys:
-    - Payments.PaymentID
   - table: invoices
     keys:
     - Payments.PaymentID
@@ -200,13 +186,6 @@ keys:
   - table: purchase_orders
     keys:
     - PurchaseOrderID
-  receipts_ReceiptID:
-  - table: expense_claims
-    keys:
-    - Receipts.ReceiptID
-  - table: receipts
-    keys:
-    - ReceiptID
   repeating_invoices_RepeatingInvoiceID:
   - table: repeating_invoices
     keys:
@@ -251,9 +230,6 @@ keys:
   - table: purchase_orders
     keys:
     - LineItems.Tracking.TrackingCategoryID
-  - table: receipts
-    keys:
-    - LineItems.Tracking.TrackingCategoryID
   - table: repeating_invoices
     keys:
     - LineItems.Tracking.TrackingCategoryID
@@ -261,12 +237,9 @@ keys:
     keys:
     - TrackingCategoryID
   users_UserID:
-  - table: expense_claims
+  - table: users
     keys:
-    - User.UserID
-  - table: receipts
-    keys:
-    - User.UserID
+    - UserID
 tables:
 - table-name: accounts
   join:
