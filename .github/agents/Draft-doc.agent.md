@@ -39,9 +39,15 @@ For each documentation request (update, addition, or creation):
    - Review the documentation plan, if provided.
    - Review any additional input provided in the chat for relevant information about the product change.
 3. **Draft Documentation**:  
-   - Update the documentation based on input and analysis, applying the style, structure, accessibility, localization, and legal/product naming rules defined in the repository’s copilot-instructions.md.
-    - Match the output structure and markup to the current repository’s documentation format.
-   - Use [ASSUMED] placeholders for any missing or ambiguous data, noting these in the follow-up section.
+   - Invoke the **qlik-writing-guidelines** skill to load style, structure, accessibility, localization, and legal/product naming rules.
+   - Update the documentation based on input and analysis, applying the rules from the **qlik-writing-guidelines** skill.
+    - Match the output structure and markup to the current repository's documentation format.
+
+   - For unresolved links, cross-references, and images, follow the `[ASSUMED-*]` pattern documented in copilot-instructions.md:
+     - Use empty `href=""` or `src=""` attributes (never dummy/placeholder values that will break the build)
+     - Place `[ASSUMED-LINK]`, `[ASSUMED-XREF]`, or `[ASSUMED-IMAGE]` labels visibly in the content text
+     - List all placeholders in the Follow-up section with context hints
+   - Use [ASSUMED] placeholders for any other missing or ambiguous data, noting these in the follow-up section.
 4. **Validate Structure**:
    - Identify the target format (Flare HTM, DITA XML, or Markdown)
    - Load and follow the corresponding validation skill:

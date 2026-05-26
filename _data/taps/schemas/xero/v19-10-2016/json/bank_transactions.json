@@ -1,18 +1,123 @@
 {
   "additionalProperties": false,
   "properties": {
-    "Attachments": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
+    "BankAccount": {
+      "properties": {
+        "AccountID": {
+          "type": [
+            "string"
+          ]
+        },
+        "BankAccountNumber": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "BankAccountType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Class": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "CurrencyCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "EnablePaymentsToAccount": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "HasAttachments": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "Name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ReportingCode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ReportingCodeName": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ShowInExpenseClaims": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "Status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "SystemAccount": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "TaxType": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "Type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "UpdatedDateUTC": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        }
       },
       "type": [
-        "null",
-        "array"
+        "object"
+      ]
+    },
+    "BankTransactionID": {
+      "type": [
+        "string"
       ]
     },
     "Contact": {
@@ -788,10 +893,39 @@
         "object"
       ]
     },
+    "CurrencyCode": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "CurrencyRate": {
+      "exclusiveMaximum": true,
+      "exclusiveMinimum": true,
+      "maximum": 1e+33,
+      "minimum": -1e+33,
+      "multipleOf": 1e-06,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "Date": {
       "type": [
         "null",
         "date-time"
+      ]
+    },
+    "DateString": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ExternalLinkProviderName": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "HasAttachments": {
@@ -800,10 +934,10 @@
         "boolean"
       ]
     },
-    "ID": {
+    "IsReconciled": {
       "type": [
         "null",
-        "string"
+        "boolean"
       ]
     },
     "LineAmountTypes": {
@@ -1020,15 +1154,16 @@
         "array"
       ]
     },
-    "ReceiptID": {
+    "OverpaymentID": {
       "type": [
+        "null",
         "string"
       ]
     },
-    "ReceiptNumber": {
+    "PrepaymentID": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "Reference": {
@@ -1048,7 +1183,7 @@
       "exclusiveMinimum": true,
       "maximum": 1e+33,
       "minimum": -1e+33,
-      "multipleOf": 1e-05,
+      "multipleOf": 1e-06,
       "type": [
         "null",
         "number"
@@ -1059,7 +1194,7 @@
       "exclusiveMinimum": true,
       "maximum": 1e+33,
       "minimum": -1e+33,
-      "multipleOf": 1e-05,
+      "multipleOf": 1e-06,
       "type": [
         "null",
         "number"
@@ -1070,10 +1205,16 @@
       "exclusiveMinimum": true,
       "maximum": 1e+33,
       "minimum": -1e+33,
-      "multipleOf": 1e-05,
+      "multipleOf": 1e-06,
       "type": [
         "null",
         "number"
+      ]
+    },
+    "Type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "UpdatedDateUTC": {
@@ -1087,104 +1228,12 @@
         "null",
         "string"
       ]
-    },
-    "User": {
-      "properties": {
-        "EmailAddress": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "FirstName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "IsSubscriber": {
-          "type": [
-            "null",
-            "boolean"
-          ]
-        },
-        "LastName": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "OrganisationRole": {
-          "type": [
-            "null",
-            "string"
-          ]
-        },
-        "UpdatedDateUTC": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "UserID": {
-          "type": [
-            "string"
-          ]
-        },
-        "ValidationErrors": {
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "Message": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              }
-            },
-            "type": [
-              "null",
-              "object"
-            ]
-          },
-          "type": [
-            "null",
-            "array"
-          ]
-        }
-      },
-      "type": [
-        "object"
-      ]
-    },
-    "ValidationErrors": {
-      "items": {
-        "additionalProperties": false,
-        "properties": {
-          "Message": {
-            "type": [
-              "null",
-              "string"
-            ]
-          }
-        },
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
     }
   },
   "tap_schema_dependencies": [
+    "accounts",
     "contacts",
-    "line_items",
-    "users",
-    "validation_errors",
-    "attachments"
+    "line_items"
   ],
   "type": [
     "null",
