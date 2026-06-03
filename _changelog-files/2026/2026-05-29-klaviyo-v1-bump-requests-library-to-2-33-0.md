@@ -1,5 +1,5 @@
 ---
-title: "Klaviyo (v1): bump requests library to 2.33.0"
+title: "Klaviyo (v1): Bump requests library to 2.33.0"
 content-type: "changelog-entry"
 date: 2026-05-29
 entry-type: improvement

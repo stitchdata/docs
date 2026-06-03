@@ -1,5 +1,5 @@
 ---
-title: "CircleCI (v1): Gl Work"
+title: "CircleCI (v1): Update raise_for_error to handle exception"
 content-type: "changelog-entry"
 date: 2026-05-29
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-circle-ci/pull/30"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to gl Work.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to raise_for_error to handle exception.

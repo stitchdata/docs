@@ -1,8 +1,8 @@
 ---
-title: "QuickBooks (v2): remove misplaced patternProperties from schema files"
+title: "QuickBooks (v2): Remove misplaced patternProperties from schema files"
 content-type: "changelog-entry"
 date: 2026-05-28
-entry-type: removed
+entry-type: improvement
 entry-category: integration
 connection-id: quickbooks
 connection-version: 2
