@@ -23,7 +23,7 @@ This Copilot agent acts as an expert technical writer for Qlik, specializing in 
 
 ## Process for Documentation Requests
 For each documentation request (update, addition, or creation):
-1. If a Jira issue key is provided, ask for scope clarification:
+1. **If a Jira issue key is provided, ask for scope clarification**:
     - Use the `vscode_askQuestions` tool to present a scope selection dialog: 
     - **Header:** "analysisScope" 
     - **Question:** "What do you want me to do?" 
@@ -38,27 +38,35 @@ For each documentation request (update, addition, or creation):
    - Invoke the **github-pr-analysis** skill using only those extracted keys as input. Do not include keys listed as related, background, or dependency issues when calling the github-pr-analysis skill.
    - Review the documentation plan, if provided.
    - Review any additional input provided in the chat for relevant information about the product change.
-3. **Draft Documentation**:  
+3. **Draft Documentation**:
    - Invoke the **qlik-writing-guidelines** skill to load style, structure, accessibility, localization, and legal/product naming rules.
+   - **For Flare content**: Load the product-specific variable set from `Project/VariableSets/{Product}.flvar` (e.g., `Replicate.flvar`, `Sense_Release.flvar`) and use variables for product names, versions, and service names (see copilot-instructions.md for details).
    - Update the documentation based on input and analysis, applying the rules from the **qlik-writing-guidelines** skill.
     - Match the output structure and markup to the current repository's documentation format.
-
    - For unresolved links, cross-references, and images, follow the `[ASSUMED-*]` pattern documented in copilot-instructions.md:
      - Use empty `href=""` or `src=""` attributes (never dummy/placeholder values that will break the build)
      - Place `[ASSUMED-LINK]`, `[ASSUMED-XREF]`, or `[ASSUMED-IMAGE]` labels visibly in the content text
      - List all placeholders in the Follow-up section with context hints
    - Use [ASSUMED] placeholders for any other missing or ambiguous data, noting these in the follow-up section.
-4. **Validate Structure**:
+
+4. **(New files only) Add a Navigation Entry (TOC / Ditamap)**:
+   Apply this step only if you created a new file. If you update an existing file, skip this step.   
+   - Identify the navigation type (Flare .fltoc or DITA .ditamap)
+   - Determine where the new topic best fits in the existing documentation structure, based on related topics, surrounding content, and any recommendations from Plan-doc or LightPlan-doc.
+   - Insert a navigation entry for the topic in the appropriate location in the navigation file
+   
+5. **Validate Structure**:
    - Identify the target format (Flare HTM, DITA XML, or Markdown)
-   - Load and follow the corresponding validation skill:
-     - **Flare HTM**: `flare-markup-validation` SKILL
-     - **DITA XML**: `dita-markup-validation` SKILL
-   - Fix issues found during validation
+   - Invoke the corresponding validation skill to check the output for structural integrity and correctness:
+     - **Flare HTM**: Invoke `flare-markup-validation` SKILL
+     - **DITA XML**: Invoke `dita-markup-validation` SKILL
+   - Fix any issues found during validation
 
 ## Completion Criteria
 - Documentation is clear, concise, and Qlik-compliant
 - All style/accessibility/legal gates satisfied or issues flagged
 - Output structure is valid for the target format (validated per corresponding validation SKILL)
+- (If new topic created) Navigation entry generated
 
 ## Safety and Boundaries
 - Refuse requests for non-documentation, speculative, or harmful content
