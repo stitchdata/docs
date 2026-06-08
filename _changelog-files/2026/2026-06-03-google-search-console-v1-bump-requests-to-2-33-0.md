@@ -1,5 +1,5 @@
 ---
-title: "Google Search Console (v1): bump requests to 2.33.0"
+title: "Google Search Console (v1): Bump requests to 2.33.0"
 content-type: "changelog-entry"
 date: 2026-06-03
 entry-type: improvement

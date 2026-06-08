@@ -1,5 +1,5 @@
 ---
-title: "LinkedIn Ads (v2): bump requests 2.33.0"
+title: "LinkedIn Ads (v2): Bump requests 2.33.0"
 content-type: "changelog-entry"
 date: 2026-06-03
 entry-type: improvement

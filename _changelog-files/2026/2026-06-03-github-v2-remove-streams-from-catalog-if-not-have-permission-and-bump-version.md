@@ -1,5 +1,5 @@
 ---
-title: "GitHub (v2): remove streams from catalog if not have permission and bump version"
+title: "GitHub (v2): Remove streams from catalog if not have permission and bump version"
 content-type: "changelog-entry"
 date: 2026-06-03
 entry-type: improvement

@@ -1,11 +1,11 @@
 ---
-title: "NOT FOUND (vNOT FOUND): remove stream from catalog"
+title: "Customer.io (v1): Remove stream from catalog"
 content-type: "changelog-entry"
 date: 2026-06-03
-entry-type: removed
+entry-type: improvement
 entry-category: integration
-connection-id: NOT FOUND
-connection-version: NOT FOUND
+connection-id: customerio
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-customerio/pull/16"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
