@@ -1,0 +1,33 @@
+tap: outbrain
+version: '2'
+tap-repo-schemas: false
+tables:
+- name: campaigns
+  description: 'The `{{ table.name }}` table contains info about your {{ integration.display_name
+    }} campaigns.
+
+    '
+  links:
+    doc-link: http://developer.outbrain.com/docs/amplify-v2/api-reference/#campaigns
+    singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrain/schemas.py#L86
+    api-method: http://developer.outbrain.com/docs/amplify-v2/api-reference/#campaigns
+  table-details:
+    replication-method: Full Table
+    primary-key: id
+- name: campaign_performance
+  description: 'The `{{ table.name }}` table contains performance metrics for your
+    {{ integration.display_name }} campaigns.
+
+    '
+  links:
+    doc-link: http://developer.outbrain.com/docs/amplify-v2/api-reference/#campaign-performance
+    singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrain/schemas/campaign_performance.json
+    api-method: http://developer.outbrain.com/docs/amplify-v2/api-reference/#campaign-performance
+  table-details:
+    replication-method: Key-based Incremental
+    primary-keys:
+    - campaignId
+    - fromDate
+    replication-key: fromDate
+    notes: |
+      The `fromDate` replication key uses timestamp (date-time) format in V2, allowing granular replication tracking.
