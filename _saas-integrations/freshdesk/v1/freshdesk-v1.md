@@ -1,9 +1,10 @@
 ---
 title: Freshdesk (v1)
-permalink: /integrations/saas/freshdesk
+permalink: /integrations/saas/freshdesk/v1
 keywords: freshdesk, integration, schema, etl freshdesk, freshdesk etl, freshdesk schema
 summary: "Connection instructions and schema details for Stitch's Freshdesk integration."
 layout: singer
+input: false
 
 key: "freshdesk-setup"
 
