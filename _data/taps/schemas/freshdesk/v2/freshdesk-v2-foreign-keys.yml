@@ -77,51 +77,153 @@ tables:
     keys:
     - key: id
       foreign-key: agent_ids
-  - table-name: roles
+    - key: group_ids
+      foreign-key: id
+  - table-name: satisfaction_ratings
     keys:
     - key: id
-      foreign-key: role_ids
-- table-name: conversations
-  join:
+      foreign-key: agent_id
+    - key: group_ids
+      foreign-key: group_id
   - table-name: tickets
     keys:
     - key: id
-      foreign-key: ticket_id
+      foreign-key: responder_id
+    - key: group_ids
+      foreign-key: group_id
+  - table-name: time_entries
+    keys:
+    - key: id
+      foreign-key: agent_id
+  - table-name: roles
+    keys:
+    - key: role_ids
+      foreign-key: id
+- table-name: groups
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_ids
+      foreign-key: id
+    - key: id
+      foreign-key: group_ids
+  - table-name: satisfaction_ratings
+    keys:
+    - key: agent_ids
+      foreign-key: agent_id
+    - key: id
+      foreign-key: group_id
+  - table-name: tickets
+    keys:
+    - key: agent_ids
+      foreign-key: responder_id
+    - key: id
+      foreign-key: group_id
+  - table-name: time_entries
+    keys:
+    - key: agent_ids
+      foreign-key: agent_id
 - table-name: satisfaction_ratings
   join:
   - table-name: agents
     keys:
-    - key: id
-      foreign-key: agent_id
+    - key: agent_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: group_ids
   - table-name: groups
     keys:
-    - key: id
-      foreign-key: group_id
+    - key: agent_id
+      foreign-key: agent_ids
+    - key: group_id
+      foreign-key: id
   - table-name: tickets
     keys:
-    - key: id
+    - key: agent_id
+      foreign-key: responder_id
+    - key: group_id
+      foreign-key: group_id
+    - key: ticket_id
+      foreign-key: id
+  - table-name: time_entries
+    keys:
+    - key: agent_id
+      foreign-key: agent_id
+  - table-name: conversations
+    keys:
+    - key: ticket_id
       foreign-key: ticket_id
 - table-name: tickets
   join:
-  - table-name: companies
-    keys:
-    - key: id
-      foreign-key: company_id
   - table-name: agents
     keys:
-    - key: id
-      foreign-key: responder_id
+    - key: responder_id
+      foreign-key: id
+    - key: group_id
+      foreign-key: group_ids
   - table-name: groups
     keys:
-    - key: id
+    - key: responder_id
+      foreign-key: agent_ids
+    - key: group_id
+      foreign-key: id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: responder_id
+      foreign-key: agent_id
+    - key: group_id
       foreign-key: group_id
+    - key: id
+      foreign-key: ticket_id
+  - table-name: time_entries
+    keys:
+    - key: responder_id
+      foreign-key: agent_id
+  - table-name: companies
+    keys:
+    - key: company_id
+      foreign-key: id
+  - table-name: conversations
+    keys:
+    - key: id
+      foreign-key: ticket_id
 - table-name: time_entries
+  join:
+  - table-name: agents
+    keys:
+    - key: agent_id
+      foreign-key: id
+  - table-name: groups
+    keys:
+    - key: agent_id
+      foreign-key: agent_ids
+  - table-name: satisfaction_ratings
+    keys:
+    - key: agent_id
+      foreign-key: agent_id
+  - table-name: tickets
+    keys:
+    - key: agent_id
+      foreign-key: responder_id
+- table-name: companies
   join:
   - table-name: tickets
     keys:
     - key: id
+      foreign-key: company_id
+- table-name: conversations
+  join:
+  - table-name: tickets
+    keys:
+    - key: ticket_id
+      foreign-key: id
+  - table-name: satisfaction_ratings
+    keys:
+    - key: ticket_id
       foreign-key: ticket_id
+- table-name: roles
+  join:
   - table-name: agents
     keys:
     - key: id
-      foreign-key: agent_id
+      foreign-key: role_ids
