@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": ["null", "string"]
+    },
+    "name": {
+      "type": ["null", "string"]
+    },
+    "campaignOnAir": {
+      "type": ["null", "boolean"]
+    },
+    "onAirReason": {
+      "type": ["null", "string"]
+    },
+    "enabled": {
+      "type": ["null", "boolean"]
+    },
+    "budget": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "string"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "shared": {
+          "type": ["null", "boolean"]
+        },
+        "amount": {
+          "type": ["null", "number"]
+        },
+        "currency": {
+          "type": ["null", "string"]
+        },
+        "amountRemaining": {
+          "type": ["null", "number"]
+        },
+        "amountSpent": {
+          "type": ["null", "number"]
+        },
+        "creationTime": {
+          "type": ["null", "string"],
+          "format": "date-time"
+        },
+        "lastModified": {
+          "type": ["null", "string"],
+          "format": "date-time"
+        },
+        "startDate": {
+          "type": ["null", "string"],
+          "format": "date"
+        },
+        "endDate": {
+          "type": ["null", "string"],
+          "format": "date"
+        },
+        "runForever": {
+          "type": ["null", "boolean"]
+        },
+        "type": {
+          "type": ["null", "string"]
+        },
+        "pacing": {
+          "type": ["null", "string"]
+        },
+        "dailyTarget": {
+          "type": ["null", "number"]
+        },
+        "maximumAmount": {
+          "type": ["null", "number"]
+        }
+      }
+    },
+    "cpc": {
+      "type": ["null", "number"]
+    }
+  }
+}

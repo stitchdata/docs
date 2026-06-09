@@ -1,9 +1,10 @@
 ---
 title: Outbrain (v1)
-permalink: /integrations/saas/outbrain
+permalink: /integrations/saas/outbrain/v1
 keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain schema
 summary: "Connection instructions and schema details for Stitch's Outbrain integration."
 layout: singer
+input: false
 
 key: "outbrain-setup"
 
