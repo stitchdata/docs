@@ -134,13 +134,64 @@ sections:
       - title: "Advanced connectivity"
         anchor: "advanced-connectivity"
         content: |
-          Additional connection options are available as part of an {{ site.data.stitch.subscription-plans.premium.name }} plan. This includes:
+          {{ site.data.stitch.subscription-plans.premium.name }} plans include additional connection options to help you securely connect Stitch to your data sources or destinations. These options are useful when your infrastructure uses network isolation, IP restrictions, or other security controls that prevent direct connections.
 
-          - Virtual Private Network (VPN)
-          - [Reverse SSH tunneling]({{ link.security.reverse-ssh | prepend: site.baseurl }})
-          - [Amazon Web Services (AWS) Private Link](https://aws.amazon.com/privatelink/){:target="new"}
+          **Limitation:** Advanced connectivity options are not available for Snowflake and BigQuery destinations.
 
-          Reach out to [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+          #### General requirements
+
+          To set up any advanced connectivity option, you will need to provide:
+
+          - Client ID and company name
+          - Region of your Stitch account AND the region where your database or warehouse resides
+          - [Stitch SSH key]({{ link.security.encryption | prepend: site.baseurl | append: "#stitch-application" }})
+
+          #### Reverse SSH tunneling
+
+          [Reverse SSH tunneling]({{ link.security.reverse-ssh | prepend: site.baseurl }}) secures connections by allowing your server to initiate a connection to Stitch, rather than Stitch connecting directly to your server. Use this option when your infrastructure does not allow inbound connections or when you prefer to control the direction of connection initiation.
+
+          **Requirements:**
+          - CIDR (IP address range) of the public IP address(es) that your server will connect from
+          - SSH public key that your server will use to establish the connection
+          - (Optional) SSH login name in lowercase
+
+          #### VPC Peering
+
+          VPC Peering creates a direct, private connection between your Amazon Virtual Private Cloud (VPC) and Stitch's VPC. Use this option when your data sources or destinations are deployed in AWS and you want to avoid routing traffic over the public internet.
+
+          **Requirements:**
+          - Your AWS VPC ID (example: vpc-0441e28e3b5461e62)
+          - CIDR blocks on your network (example: 10.1.2.0/28, 10.2.2.0/28)
+          - Your AWS account ID (example: 253441582756)
+          - The AWS region where your VPC resides
+
+          **Note:** Peering can be established to any AWS Region or Availability Zone, but data will flow through Stitch's network in the region associated with your Stitch account (either us-east-1 or eu-central-1).
+
+          #### Site-to-site VPN
+
+          Site-to-site VPN creates a secure, encrypted connection between your network and Stitch's network using industry-standard VPN protocols. Use this option when you want to establish a VPN tunnel between your on-premises or cloud-hosted infrastructure and Stitch.
+
+          **Requirements:**
+          - CIDR blocks on your network (example: 10.1.2.0/28, 10.2.2.0/28)
+          - VPN IP address to connect to
+          - BGP ASN number (defaults to 65400 if not specified)
+          - (Optional) Pre-shared key to establish the VPN connection (if not provided, one can be generated)
+          - (Optional) Custom tunnel options for IKE version, encryption algorithms, integrity algorithms, and tunnel CIDR. Refer to the [AWS VPN documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html){:target="new"} for supported options.
+
+          #### Amazon Web Services (AWS) PrivateLink
+
+          [AWS PrivateLink](https://aws.amazon.com/privatelink/){:target="new"} enables secure, private connections between Stitch and your AWS infrastructure without traversing the public internet. Use this option when your data sources or destinations are deployed in AWS VPCs in the same region as your Stitch account.
+
+          **Requirements:**
+          - You must first set up the VPC endpoint on your AWS account following the [AWS PrivateLink setup guide](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-share-your-services.html){:target="new"}
+          - CIDR block(s) on your network (example: 10.1.2.0/28, 10.2.2.0/28)
+          - Service name for the VPC endpoint (example: com.amazonaws.vpce.us-east-1.vpce-svc-0626d1982ea6ca5a7)
+
+          **Important:** PrivateLink connections are only available within the AWS regions where Stitch operates (us-east-1 and eu-central-1). Cross-region connections are not currently supported.
+
+          #### Next steps
+
+          Contact [Stitch Sales]({{ site.sales }}){:target="new"} to discuss which advanced connectivity option best fits your security and infrastructure requirements. Be prepared to provide the requirements listed above for your chosen option.
 
   - title: "Encryption at rest"
     anchor: "data-at-rest"
