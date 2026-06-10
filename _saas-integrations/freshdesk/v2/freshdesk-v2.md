@@ -98,7 +98,7 @@ setup-steps:
   - title: "Set objects to replicate"
     anchor: "setting-data-to-replicate"
     content: |
-      {% include integrations/saas/setup/table-selection.html %}
+      {% include integrations/shared-setup/data-selection/saas-object-selection.html %}
 
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
