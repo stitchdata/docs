@@ -95,11 +95,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
 
-  - title: "Set objects to replicate"
-    anchor: "setting-data-to-replicate"
-    content: |
-      {% include integrations/shared-setup/data-selection/object-selection.html %}
-
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
@@ -109,6 +104,11 @@ setup-steps:
     anchor: "define-rep-frequency"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Set objects to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/shared-setup/data-selection/object-selection.html %}
 
 
 # -------------------------- #
