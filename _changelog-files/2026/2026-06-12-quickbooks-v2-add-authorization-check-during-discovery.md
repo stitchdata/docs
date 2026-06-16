@@ -1,5 +1,5 @@
 ---
-title: "QuickBooks (v2): add authorization check during discovery"
+title: "QuickBooks (v2): Add authorization check during discovery"
 content-type: "changelog-entry"
 date: 2026-06-12
 entry-type: improvement

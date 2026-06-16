@@ -1,5 +1,5 @@
 ---
-title: "Amazon S3 CSV (v1): bump urllib3 to 2.7.0"
+title: "Amazon S3 CSV (v1): Bump urllib3 to 2.7.0"
 content-type: "changelog-entry"
 date: 2026-06-09
 entry-type: improvement

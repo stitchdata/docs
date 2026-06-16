@@ -1,12 +1,12 @@
 ---
-title: "NOT FOUND (vNOT FOUND): Bump requests to 2.33.0"
+title: "Aftership (v1): Bump requests to 2.33.0"
 content-type: "changelog-entry"
 date: 2026-06-09
 entry-type: improvement
 entry-category: integration
-connection-id: NOT FOUND
-connection-version: NOT FOUND
-pull-request: "https://github.com/singer-io/tap-workday/pull/23"
+connection-id: aftership
+connection-version: 1
+pull-request: "https://github.com/singer-io/tap-aftership/pull/8"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 

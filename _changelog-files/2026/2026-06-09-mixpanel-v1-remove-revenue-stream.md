@@ -1,8 +1,8 @@
 ---
-title: "Mixpanel (v1): remove revenue stream"
+title: "Mixpanel (v1): Remove revenue stream"
 content-type: "changelog-entry"
 date: 2026-06-09
-entry-type: removed
+entry-type: improvement
 entry-category: integration
 connection-id: mixpanel
 connection-version: 1
