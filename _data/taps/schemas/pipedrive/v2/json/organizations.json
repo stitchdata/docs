@@ -1,0 +1,225 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "org_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "owner_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "open_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "related_open_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "closed_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "related_closed_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "email_messages_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "people_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "activities_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "done_activities_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "undone_activities_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "files_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "notes_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "followers_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "won_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "related_won_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "lost_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "related_lost_deals_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "is_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "first_char": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "add_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "visible_to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "next_activity_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "last_activity_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "address": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "admin_area_level_1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "admin_area_level_2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "locality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "sublocality": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "route": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "street_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    }
+  }
+}
