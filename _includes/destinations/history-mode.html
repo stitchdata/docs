@@ -1,0 +1,15 @@
+{% capture loading-setting-note %}
+**Note**: Loading behavior can't be changed after the destination is created. To change {{ destination.display_name }} loading behavior, you'll need to [delete and re-create the destination]({{ link.destinations.switch-destinations | prepend: site.baseurl }}).
+{% endcapture %}
+
+{% include note.html type="single-line" content=loading-setting-note %}
+
+The last step is to define how Stitch will handle changes to existing records in your {{ destination.display_name }} destination:
+
+- **Upsert**: Existing rows will be updated with the most recent version of the record from the source. With this option, only the most recent version of a record will exist in {{ destination.display_name }}. 
+
+- **History Mode**: Newer versions of existing records are added as new rows to the end of tables. Each time a new version of a record is added, the `_sdc_end_date` column is updated in the previous version of the same record to indicate that it is no longer the most recent version.
+
+Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
+
+**Note**: This setting may impact your {{ destination.display_name }} costs. [Learn more]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}).
