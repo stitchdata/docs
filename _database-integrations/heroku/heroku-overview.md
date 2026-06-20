@@ -9,9 +9,9 @@ input: false
 key: "heroku-integration"
 content-type: "database-category"
 
-microsites:
-  - title: "{{ page.display_name }} to Postgres"
-    url: "http://postgres.topostgres.com/"
+#microsites:
+ # - title: "{{ page.display_name }} to Postgres"
+  #  url: "http://postgres.topostgres.com/"
 
 show-in-menus: true
 has-versions: true
