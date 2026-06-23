@@ -1,5 +1,5 @@
 ---
-title: "Marketo (v2): resume download on broken pipe"
+title: "Marketo (v2): Resume download on broken pipe"
 content-type: "changelog-entry"
 date: 2026-06-18
 entry-type: improvement

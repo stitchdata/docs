@@ -1,5 +1,5 @@
 ---
-title: "Braintree (v2): bump requests to 2.33.0"
+title: "Braintree (v2): Bump requests to 2.33.0"
 content-type: "changelog-entry"
 date: 2026-06-15
 entry-type: improvement

@@ -1,5 +1,5 @@
 ---
-title: "Marketo (v2): bulk request window shrinking"
+title: "Marketo (v2): Bulk request window shrinking"
 content-type: "changelog-entry"
 date: 2026-06-15
 entry-type: improvement
