@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SurveyMonkey (v2)
-permalink: /integrations/saas/surveymonkey/v2
+title: SurveyMonkey (v3)
+permalink: /integrations/saas/surveymonkey
 keywords: surveymonkey, integration, schema, etl surveymonkey, surveymonkey etl, surveymonkey schema
 layout: singer
-input: false
+# input: false
 
 key: "surveymonkey-setup"
 
@@ -34,7 +34,7 @@ status-url: "https://developer.surveymonkey.com/tools/api_status/"
 tap-name: "SurveyMonkey"
 repo-url: https://github.com/singer-io/tap-surveymonkey
 
-this-version: "2"
+this-version: "3"
 
 api: |
   [{{ integration.display_name }} REST API v3](https://developer.surveymonkey.com/api/v3/){:target="new"}
