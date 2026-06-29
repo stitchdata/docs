@@ -190,8 +190,9 @@ sections:
           **Important:** PrivateLink connections are only available within the AWS regions where Stitch operates (us-east-1 and eu-central-1). Cross-region connections are not currently supported.
 
           #### Next steps
+          If you need help with setup, reach out to [the Support]({{ site.support }}){:target="new"}.
 
-          Contact [Stitch Sales]({{ site.sales }}){:target="new"} to discuss which advanced connectivity option best fits your security and infrastructure requirements. Be prepared to provide the requirements listed above for your chosen option.
+          Reach out to [Stitch Sales]({{ site.sales }}){:target="new"} to discuss which advanced connectivity option best fits your security and infrastructure requirements. Be prepared to provide the requirements listed above for your chosen option.
 
   - title: "Encryption at rest"
     anchor: "data-at-rest"
