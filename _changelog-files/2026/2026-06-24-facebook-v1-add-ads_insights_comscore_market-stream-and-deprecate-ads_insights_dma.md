@@ -2,7 +2,7 @@
 title: "Facebook Ads (v1): Add ads_insights_comscore_market stream and deprecate ads_insights_dma"
 content-type: "changelog-entry"
 date: 2026-06-24
-entry-type: deprecation
+entry-type: improvement
 entry-category: integration
 connection-id: facebook-ads
 connection-version: 1

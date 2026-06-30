@@ -1,5 +1,5 @@
 ---
-title: "Marketo (v2): check for JSON from csv endpoint to handle error response"
+title: "Marketo (v2): Check for JSON from csv endpoint to handle error response"
 content-type: "changelog-entry"
 date: 2026-06-22
 entry-type: improvement
