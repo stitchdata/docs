@@ -188,6 +188,23 @@ schema-sections:
   - content: |
       There are two types of tables in Stitch’s {{ integration.display_name }} integration: Core Object and Insights.
 
+      **Note**: The `ads_insights_dma` table is deprecated because Meta removed DMA support on June 22, 2026. Use `ads_insights_comscore_market` for market-level geographic reporting.
+
+      ### DMA to Comscore migration
+
+      **What changed:**
+
+      - Old table: `ads_insights_dma` with `dma` field
+      - New table: `ads_insights_comscore_market` with `comscore_market` field
+
+      **Migration steps:**
+
+      1. In your Facebook Ads integration, deselect `ads_insights_dma`.
+      2. Select `ads_insights_comscore_market`.
+      3. Update any downstream queries and reports to use the new table and field name.
+
+      **Note**: Comscore Market IDs differ from DMA codes. Refer to [Meta's DMA to Comscore mapping table](https://www.facebook.com/business/help/709868688063859) if needed.
+
       - **Core Object** tables contain foundational data that's useful for analysis. These are the [`adcreative`](#adcreative), [`ads`](#ads), [`adsets`](#adsets), and [`campaigns`](#campaigns) tables. To learn more about how Facebook Ads data is structured, we recommend checking out their [API guide](https://developers.facebook.com/docs/marketing-api/buying-api).
       - **Insights** tables contain performance data for every campaign/adset/ad combination, segmented by day and demographics specific to each table. For example: The [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) table is segmented by day, age, and gender.
 
