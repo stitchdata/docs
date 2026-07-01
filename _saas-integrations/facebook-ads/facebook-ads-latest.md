@@ -188,9 +188,9 @@ schema-sections:
   - content: |
       There are two types of tables in Stitch’s {{ integration.display_name }} integration: Core Object and Insights.
 
-      **Note**: The `ads_insights_dma` table is deprecated because Meta removed DMA support on June 22, 2026. Use `ads_insights_comscore_market` for market-level geographic reporting.
-
       ### DMA to Comscore migration
+      
+      **Note**: The `ads_insights_dma` table is deprecated because Meta removed DMA support on June 22, 2026. Use `ads_insights_comscore_market` for market-level geographic reporting.
 
       **What changed:**
 
