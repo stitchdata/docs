@@ -197,6 +197,10 @@ tables:
     keys:
     - key: account_id
       foreign-key: account_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: account_id
+      foreign-key: account_id
   - table-name: ads_insights_platform_and_device
     keys:
     - key: account_id
@@ -260,6 +264,16 @@ tables:
     - key: campaign_id
       foreign-key: campaign_id
   - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
     keys:
     - key: account_id
       foreign-key: account_id
@@ -347,6 +361,16 @@ tables:
       foreign-key: ad_id
     - key: campaign_id
       foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
   - table-name: ads_insights_platform_and_device
     keys:
     - key: account_id
@@ -414,6 +438,16 @@ tables:
     - key: campaign_id
       foreign-key: campaign_id
   - table-name: ads_insights_dma
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
     keys:
     - key: account_id
       foreign-key: account_id
@@ -499,6 +533,16 @@ tables:
       foreign-key: ad_id
     - key: campaign_id
       foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
   - table-name: ads_insights_platform_and_device
     keys:
     - key: account_id
@@ -575,6 +619,16 @@ tables:
       foreign-key: ad_id
     - key: campaign_id
       foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
   - table-name: ads_insights_platform_and_device
     keys:
     - key: account_id
@@ -642,6 +696,16 @@ tables:
     - key: campaign_id
       foreign-key: campaign_id
   - table-name: ads_insights_country
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
+  - table-name: ads_insights_dma
     keys:
     - key: account_id
       foreign-key: account_id
@@ -737,6 +801,16 @@ tables:
       foreign-key: ad_id
     - key: campaign_id
       foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
   - table-name: ads_insights_region
     keys:
     - key: account_id
@@ -813,6 +887,16 @@ tables:
       foreign-key: ad_id
     - key: campaign_id
       foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: account_id
+      foreign-key: account_id
+    - key: adset_id
+      foreign-key: adset_id
+    - key: ad_id
+      foreign-key: ad_id
+    - key: campaign_id
+      foreign-key: campaign_id
   - table-name: ads_insights_platform_and_device
     keys:
     - key: account_id
@@ -871,6 +955,10 @@ tables:
     keys:
     - key: id
       foreign-key: adset_id
+  - table-name: ads_insights_comscore_market
+    keys:
+    - key: id
+      foreign-key: adset_id
   - table-name: ads_insights_platform_and_device
     keys:
     - key: id
@@ -906,6 +994,12 @@ tables:
     - key: id
       foreign-key: campaign_id
   - table-name: ads_insights_dma
+    keys:
+    - key: ads.data.id
+      foreign-key: ad_id
+    - key: id
+      foreign-key: campaign_id
+  - table-name: ads_insights_comscore_market
     keys:
     - key: ads.data.id
       foreign-key: ad_id
