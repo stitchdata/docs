@@ -12,12 +12,12 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Front (v2)
-permalink: /integrations/saas/front/v2
+title: Front (v3)
+permalink: /integrations/saas/front
 keywords: front, integration, schema, etl front, front etl, front schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Front integration."
 layout: singer
-input: false
+# input: false
 
 key: "frontapp-setup"
 
@@ -32,7 +32,7 @@ singer: true
 tap-name: "FrontApp"
 repo-url: https://github.com/singer-io/tap-frontapp
 
-this-version: "2"
+this-version: "3"
 
 api: |
   [Front API](https://dev.frontapp.com/){:target="new"}
@@ -106,6 +106,9 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. In the **API Token** field, paste the {{ integration.display_name }} API token you generated in [Step 1](#generate-front-api-token).
+      5. From the **Incremental Range** dropdown, select one of the following options:
+         - **Daily** - Data will be aggregated on a daily basis.
+         - **Hourly** - Data will be aggregated on an hourly basis.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |
