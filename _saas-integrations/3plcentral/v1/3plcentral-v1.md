@@ -16,7 +16,7 @@ title: 3PL Central (v1)
 permalink: /integrations/saas/3plcentral/v1
 keywords: 3plcentral, integration, schema, etl 3plcentral, 3plcentral etl, 3plcentral schema
 layout: singer
-# input: false
+input: false
 
 key: "3plcentral-setup"
 
