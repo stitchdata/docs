@@ -1,9 +1,9 @@
 ---
-title: Iterable Core (v1)
-permalink: /integrations/saas/iterable-core/v1
+title: Iterable Core (v2)
+permalink: /integrations/saas/iterable-core
 keywords: iterable, integration, schema, etl iterable, iterable etl, iterable schema
 layout: singer
-input: false
+# input: false
 
 key: "iterable-setup"
 
@@ -21,7 +21,7 @@ status-url: "https://status.iterable.com/"
 tap-name: "Iterable"
 repo-url: https://github.com/singer-io/tap-iterable
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [Iterable API 1.8](https://api.iterable.com/api){:target="new"}
