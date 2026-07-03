@@ -1,0 +1,311 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "cost": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "customer_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "expiration_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "inventory_unit_of_measure_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "sku": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "is_on_hold": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "item_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "sku": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "location_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name_key": {
+          "additionalProperties": false,
+          "properties": {
+            "facility_identifier": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "lot_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "on_hand": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "pallet_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name_key": {
+          "additionalProperties": false,
+          "properties": {
+            "facility_identifier": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "po_num": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "qualifier": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "quarantined": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "receive_item_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "received": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "received_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "receiver_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "reference_num": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "saved_elements": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "serial_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "supplier_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "trailer_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  },
+  "type": "object"
+}
