@@ -1,5 +1,5 @@
 ---
-title: "Impact (v1): add new metadata"
+title: "Impact (v1): Add new metadata"
 content-type: "changelog-entry"
 date: 2026-06-30
 entry-type: improvement

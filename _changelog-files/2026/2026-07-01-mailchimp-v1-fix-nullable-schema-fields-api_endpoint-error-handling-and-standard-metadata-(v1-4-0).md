@@ -1,5 +1,5 @@
 ---
-title: "MailChimp (v1): fix: nullable schema fields, api_endpoint error handling, and standard metadata (v1.4.0)"
+title: "MailChimp (v1): Fix nullable schema fields, api_endpoint error handling, and standard metadata"
 content-type: "changelog-entry"
 date: 2026-07-01
 entry-type: bug-fix
