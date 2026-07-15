@@ -1,5 +1,5 @@
 ---
-title: "Marketo (v2): preserve quota-exceeded error message when aborting window shrinking"
+title: "Marketo (v2): Preserve quota-exceeded error message when aborting window shrinking"
 content-type: "changelog-entry"
 date: 2026-07-09
 entry-type: improvement
