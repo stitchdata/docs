@@ -236,7 +236,7 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-').replace('/', '-').replace('\'', '-')
 
                                     # Guess the entry type from the PR title
-                                    entry_type = 'NOT FOUND'
+                                    entry_type = 'improvement'
                                     pr_title_lower = pr_title.lower()
                                     entry_types = [
                                         ('bug-fix', bug_fix),
