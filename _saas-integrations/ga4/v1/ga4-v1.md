@@ -175,6 +175,7 @@ setup-steps:
       3. Select the metrics and dimensions you want to include in the report. When making your selections, keep the following in mind:
 
          - **You can select up to 10 metrics and 9 dimensions per report.** This limit is imposed by Google and can't be changed or worked around.
+         - **To identify the day each row belongs to, include the `date` dimension.** The `date` dimension returns the event date in `YYYYMMDD` format.
          - **Metric and dimension combinations are subject to Google's compatibility rules.** To test your combos before selecting them in Stitch, use [Google's Dimensions & Metrics Explorer](https://ga-dev-tools.web.app/ga4/dimensions-metrics-explorer/){:target="new"}.
          - **Custom metrics and dimensions** will display as either `ga:metric` or `ga:dimension`.
 
