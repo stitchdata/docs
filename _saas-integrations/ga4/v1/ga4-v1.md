@@ -263,7 +263,21 @@ replication-sections:
       - title: "Compatibility rules"
         anchor: "compatibility-rules"
         content: |
-          The metrics and dimensions you select in custom reports are subject to [Google's compatibility rules](https://support.google.com/analytics/answer/1033861?hl=en#ValidDimensionMetricCombinations){:target="new"}. Refer to [Google's Dimensions and Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets){:target="new"} for a list of valid dimension and metric pairs.
+          The metrics and dimensions you select in custom reports are subject to [Google's compatibility rules](https://support.google.com/analytics/answer/1033861?hl=en#ValidDimensionMetricCombinations){:target="new"}. Refer to [Google's Dimensions and Metrics Explorer](https://ga-dev-tools.google/ga4/dimensions-metrics-explorer/){:target="new"} for a list of valid dimension and metric pairs.
+
+          **Note**: The following metrics and dimensions have dynamic field exclusions. Their incompatible fields change depending on what else is selected in the custom report. As Stitch can't determine incompatible combinations for these fields, it doesn't restrict them during field selection. Verify compatibility manually using [Google's Dimensions and Metrics Explorer](https://ga-dev-tools.google/ga4/dimensions-metrics-explorer/){:target="new"}. Google uses camel case names such as `organicGoogleSearchImpressions`, while Stitch uses snake case equivalents such as `organic_google_search_impressions`.
+
+          - `advertiser_ad_clicks`
+          - `advertiser_ad_cost`
+          - `advertiser_ad_cost_per_click`
+          - `advertiser_ad_cost_per_key_event`
+          - `advertiser_ad_impressions`
+          - `organic_google_search_average_position`
+          - `organic_google_search_click_through_rate`
+          - `organic_google_search_impressions`
+          - `organic_google_search_clicks`
+          - `return_on_ad_spend`
+          - `comparison`
 
 
 # -------------------------- #
