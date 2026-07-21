@@ -1,5 +1,5 @@
 ---
-title: "SurveyMonkey (v3): Added fix for unauthorized access"
+title: "SurveyMonkey (v3): Fix for unauthorized access"
 content-type: "changelog-entry"
 date: 2026-07-20
 entry-type: bug-fix
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-surveymonkey/pull/51"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to added fix for unauthorized access.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix unauthorized access.
