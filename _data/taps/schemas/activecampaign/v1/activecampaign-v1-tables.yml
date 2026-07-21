@@ -462,9 +462,8 @@ tables:
   links:
     singer-schema: https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/email_activities.json
   table-details:
-    replication-method: Key-based Incremental
+    replication-method: Full Table
     primary-key: id
-    replication-key: tstamp
 - name: forms
   description: 'The `{{ table.name }}` table contains information about forms in your
     {{ integration.display_name }} account.
