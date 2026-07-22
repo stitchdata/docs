@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Pipedrive (v1)
-permalink: /integrations/saas/pipedrive/v1
+title: Pipedrive (v2)
+permalink: /integrations/saas/pipedrive
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 layout: singer
-input: false
+# input: false
 
 key: "pipedrive-setup"
 
@@ -31,10 +31,10 @@ singer: true
 tap-name: "Pipedrive"
 repo-url: https://github.com/singer-io/tap-pipedrive
 
-this-version: "1"
+this-version: "2"
 
 api: |
-  [{{ integration.display_name }} REST API](https://developers.pipedrive.com/docs/api/v1/){:target="new"}
+  [{{ integration.display_name }} REST API](https://developers.pipedrive.com/docs/api/v2/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
