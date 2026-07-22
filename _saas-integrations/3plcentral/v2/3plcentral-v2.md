@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: 3PL Central (v1)
-permalink: /integrations/saas/3plcentral/v1
+title: 3PL Central (v2)
+permalink: /integrations/saas/3plcentral
 keywords: 3plcentral, integration, schema, etl 3plcentral, 3plcentral etl, 3plcentral schema
 layout: singer
-input: false
+# input: false
 
 key: "3plcentral-setup"
 
@@ -32,7 +32,7 @@ singer: true
 tap-name: "3PL Central"
 repo-url: https://github.com/singer-io/tap-3plcentral
 
-this-version: "1"
+this-version: "2"
 
 # -------------------------- #
 #       Stitch Details       #
