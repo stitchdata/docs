@@ -105,9 +105,6 @@ tables:
     - [`ads_insights_comscore_market`](#ads-insights-comscore-market) - Data segmented
     by Comscore Market
 
-    - [`ads_insights_dma`](#ads-insights-dma) - Data segmented by DMA (Designated
-    Market Area). This table is deprecated.
-
     - [`ads_insights_platform_and_device`](#ads-insights-platform-and-device) - Data
     segmented by platform and device
 
@@ -178,37 +175,6 @@ tables:
     - campaign_id
     - date_start
     - country
-    replication-key: date_start
-- name: ads_insights_dma
-  description: 'The `ads_insights_dma` table contains entries for each campaign/set/ad
-    combination for each day, along with detailed statistics, segmented by DMA (Designated
-    Market Area).
-
-
-    **Deprecated**: As of June 22, 2026, Meta no longer supports DMA breakdowns.
-    Use [`ads_insights_comscore_market`](#ads-insights-comscore-market) instead.
-
-
-    This table contains the same fields as the [`ads_insights`](#ads_insights) table,
-    with the exception of `dma`.
-
-
-    **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
-    table even if the **Include data from deleted campaigns, ads, and adsets** option
-    in the integration''s settings is enabled.
-
-    '
-  links:
-    doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
-    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_dma.json
-  table-details:
-    replication-method: Key-based Incremental
-    primary-keys:
-    - ad_id
-    - adset_id
-    - campaign_id
-    - dma
-    - date_start
     replication-key: date_start
 - name: ads_insights_comscore_market
   description: 'The `ads_insights_comscore_market` table contains entries for each
