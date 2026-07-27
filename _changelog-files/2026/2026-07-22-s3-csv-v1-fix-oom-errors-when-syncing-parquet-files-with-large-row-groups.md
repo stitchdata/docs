@@ -1,5 +1,5 @@
 ---
-title: "Amazon S3 CSV (v1): Fix OOM errors when syncing Parquet files with large row groups"
+title: "Amazon S3 CSV (v1): Fix out-of-memory errors when syncing Parquet files with large row groups"
 content-type: "changelog-entry"
 date: 2026-07-22
 entry-type: bug-fix
