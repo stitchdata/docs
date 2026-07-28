@@ -37,13 +37,13 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: clicked_sms
+- name: clicked_text_message
   description: 'The `{{ table.name }}` table contains metrics related to `Clicked
-    SMS` events.
+    Text Message` events.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/clicked_sms.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/clicked_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
@@ -74,25 +74,25 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: failed_to_deliver
+- name: failed_to_deliver_text_message
   description: 'The `{{ table.name }}` table contains metrics related to `Failed to
-    Deliver SMS` events.
+    Deliver Text Message` events.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/failed_to_deliver.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/failed_to_deliver_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: failed_to_deliver_automated_response
+- name: failed_to_deliver_automated_response_text_message
   description: 'The `{{ table.name }}` table contains metrics related to `Failed to
-    Deliver Automated Response SMS` events.
+    Deliver Automated Response Text Message` events.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/failed_to_deliver_automated_response.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/failed_to_deliver_automated_response_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
@@ -156,37 +156,37 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: received_automated_response
+- name: received_automated_response_text_message
   description: 'The `{{ table.name }}` table contains metrics related to `Received
-    Automated Response SMS` events.
+    Automated Response Text Message` events.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/received_automated_response.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/received_automated_response_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: received_sms
+- name: received_text_message
   description: 'The `{{ table.name }}` table contains metrics related to `Received
-    SMS` events.
+    Text Message` events.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/received_sms.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/received_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: sent_sms
-  description: 'The `{{ table.name }}` table contains metrics related to `Sent SMS`
+- name: sent_text_message
+  description: 'The `{{ table.name }}` table contains metrics related to `Sent Text Message`
     events.
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/sent_sms.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/sent_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
@@ -236,21 +236,41 @@ tables:
   table-details:
     replication-method: Key-based Incremental
     replication-key: timestamp
-- name: unsubscribed_from_sms
+- name: unsubscribed_from_text_message
   description: The `{{ table.name }}` table contains metrics related to `Unsubscribed
-    from SMS` events.
+    from Text Messaging Marketing` events.
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/unsubscribed_from_sms.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/unsubscribed_from_text_message.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: timestamp
-- name: subscribed_to_sms
+- name: subscribed_to_text_message
   description: The `{{ table.name }}` table contains metrics related to `Subscribed
-    from SMS` events.
+    to Text Messaging Marketing` events.
   links:
-    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/subscribed_to_sms.json
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/subscribed_to_text_message.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timestamp
+- name: subscribed_to_text_message_transactional
+  description: The `{{ table.name }}` table contains metrics related to `Subscribed
+    to Text Messaging Transactional` events.
+  links:
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/subscribed_to_text_message_transactional.json
+    api-method: https://www.klaviyo.com/docs/api/metrics
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
+    replication-key: timestamp
+- name: unsubscribed_from_text_message_transactional
+  description: The `{{ table.name }}` table contains metrics related to `Unsubscribed
+    from Text Messaging Transactional` events.
+  links:
+    singer-schema: https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/unsubscribed_from_text_message_transactional.json
     api-method: https://www.klaviyo.com/docs/api/metrics
   table-details:
     replication-method: Key-based Incremental
