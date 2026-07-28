@@ -1,5 +1,45 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "workspace_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "recurring": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
     "active": {
       "type": [
         "null",
@@ -9,8 +49,16 @@
     "at": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "server_deleted_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
     },
     "estimated_seconds": {
       "type": [
@@ -18,39 +66,95 @@
         "integer"
       ]
     },
-    "id": {
+    "tracked_seconds": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "name": {
+    "toggl_accounts_id": {
       "type": [
         "null",
         "string"
       ]
     },
-    "pid": {
+    "user_name": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "uid": {
+    "avatar_url": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
-    "wid": {
+    "client_name": {
       "type": [
         "null",
-        "integer"
+        "string"
+      ]
+    },
+    "integration_ext_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "integration_ext_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "integration_provider": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "permissions": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "project_color": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "project_is_private": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "project_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rate": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "rate_last_updated": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

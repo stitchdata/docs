@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: SurveyMonkey (v2)
-permalink: /integrations/saas/surveymonkey
+permalink: /integrations/saas/surveymonkey/v2
 keywords: surveymonkey, integration, schema, etl surveymonkey, surveymonkey etl, surveymonkey schema
 layout: singer
-# input: false
+input: false
 
 key: "surveymonkey-setup"
 

@@ -1,0 +1,13 @@
+---
+title: "ActiveCampaign (v1): Replace base url with /users/me"
+content-type: "changelog-entry"
+date: 2026-04-27
+entry-type: improvement
+entry-category: integration
+connection-id: activecampaign
+connection-version: 1
+pull-request: "https://github.com/singer-io/tap-activecampaign/pull/53"
+---
+{{ site.data.changelog.metadata.single-integration | flatify }}
+
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to replace base url with /users/me.

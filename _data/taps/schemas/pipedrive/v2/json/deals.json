@@ -1,0 +1,310 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "creator_user_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "owner_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "person_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "org_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "stage_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "title": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "value": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "add_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "update_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "archive_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "stage_change_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "is_archived": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "is_deleted": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "probability": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "next_activity_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "last_activity_id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "origin": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "origin_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "channel": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "channel_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "lost_reason": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "visible_to": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "close_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "pipeline_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "won_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "first_won_time": {
+      "anyOf": [
+        {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      ]
+    },
+    "lost_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "local_won_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "local_lost_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "local_close_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "acv": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "arr": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "mrr": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "products_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "files_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "notes_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "followers_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "email_messages_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "activities_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "done_activities_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "undone_activities_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "participants_count": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "expected_close_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_incoming_mail_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "last_outgoing_mail_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    }
+  }
+}

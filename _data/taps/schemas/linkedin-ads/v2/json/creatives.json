@@ -1,4 +1,8 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "additionalProperties": false,
   "properties": {
     "account": {
@@ -6,6 +10,27 @@
         "null",
         "string"
       ]
+    },
+    "name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "review": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
     },
     "account_id": {
       "type": [
@@ -26,6 +51,10 @@
       ]
     },
     "content": {
+      "type": [
+        "null",
+        "object"
+      ],
       "additionalProperties": false,
       "properties": {
         "reference": {
@@ -35,15 +64,19 @@
           ]
         },
         "text_ad": {
+          "type": [
+            "null",
+            "object"
+          ],
           "additionalProperties": false,
           "properties": {
-            "description": {
+            "headline": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "headline": {
+            "description": {
               "type": [
                 "null",
                 "string"
@@ -55,25 +88,31 @@
                 "string"
               ]
             }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
+          }
         }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
+      }
     },
     "created_at": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "created_by": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "last_modified_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "last_modified_by": {
       "type": [
         "null",
         "string"
@@ -103,33 +142,17 @@
         "boolean"
       ]
     },
-    "last_modified_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "last_modified_by": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "serving_hold_reasons": {
+      "type": [
+        "null",
+        "array"
+      ],
       "items": {
         "type": [
           "null",
           "string"
         ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
+      }
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

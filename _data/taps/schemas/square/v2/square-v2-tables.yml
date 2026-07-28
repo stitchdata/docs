@@ -136,7 +136,8 @@ tables:
     singer-schema: https://github.com/singer-io/tap-square/blob/master/tap_square/schemas/payments.json
     api-method: https://developer.squareup.com/reference/square/payments-api/list-payments
   table-details:
-    replication-method: Full Table
+    replication-method: Key-based Incremental
+    replication-key: updated_at,created_at
 - name: payouts
   description: The `{{ table.name }}` table contains information about all payouts
     made in {{ integration.display_name }}.

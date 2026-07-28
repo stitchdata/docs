@@ -10,7 +10,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/AccessibleBiddingStrategy
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/AccessibleBiddingStrategy
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -19,7 +19,7 @@ tables:
     \ Ads account(s) you\u2019ve connected to Stitch.\n\n[This is a **Core Object**\
     \ table](#replication).\n"
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CustomerService
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CustomerService
     singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/accounts.json
   table-details:
     replication-method: Full Table
@@ -34,7 +34,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -48,7 +48,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/AdService
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/AdService
     singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/ads.json
   table-details:
     replication-method: Full Table
@@ -62,7 +62,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/AdGroupService
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/AdGroupService
     singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/ad_groups.json
   table-details:
     replication-method: Full Table
@@ -75,7 +75,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/AdGroupCriterion
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/AdGroupCriterion
   table-details:
     replication-method: Full Table
     primary-keys:
@@ -91,7 +91,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -106,7 +106,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -121,7 +121,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -134,11 +134,11 @@ tables:
     information on how data is replicated and loaded for this table.
 
 
-    The schema details are available in [Google documentation](https://developers.google.com/google-ads/api/reference/rpc/v20/Asset).
+    The schema details are available in [Google documentation](https://developers.google.com/google-ads/api/reference/rpc/v24/Asset).
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v20/Asset
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/Asset
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -151,7 +151,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/BiddingStrategyService
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/BiddingStrategyService
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -164,7 +164,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CallView
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CallView
   table-details:
     replication-method: Full Table
     primary-key: resource_name
@@ -177,7 +177,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CampaignService
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CampaignService
     singer-schema: https://github.com/singer-io/tap-google-ads/blob/main/tap_google_ads/schemas/campaigns.json
   table-details:
     replication-method: Full Table
@@ -192,7 +192,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -206,7 +206,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CampaignBudgetService
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CampaignBudgetService
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -218,7 +218,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CampaignCriterion
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CampaignCriterion
   table-details:
     replication-method: Full Table
     primary-key: criterion_id
@@ -231,7 +231,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CampaignLabel
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CampaignLabel
   table-details:
     replication-method: Full Table
     primary-key: resource_name
@@ -245,7 +245,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -254,7 +254,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about carrier criteria\
     \ that can be used in campaign targeting.\n\n[This is a **Core Object** table](#replication)."
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/CarrierConstant
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/CarrierConstant
   table-details:
     replication-method: Full Table
     parent-table: campaign_criterion
@@ -268,7 +268,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -283,7 +283,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -298,7 +298,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -308,7 +308,7 @@ tables:
     \ See the **Replication** section for information on how data is replicated and\
     \ loaded for this table.\n"
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -323,7 +323,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -338,7 +338,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -353,7 +353,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -368,7 +368,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -381,7 +381,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/Label
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/Label
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -390,7 +390,7 @@ tables:
     \ See the **Replication** section for information on how data is replicated and\
     \ loaded for this table.\n"
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -399,7 +399,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about about languages.\n\
     \n[This is a **Core Object** table](#replication)."
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/LanguageConstant
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/LanguageConstant
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -408,7 +408,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about mobile application\
     \ categories.\n\n[This is a **Core Object** table](#replication). "
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/MobileAppCategoryConstant
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/MobileAppCategoryConstant
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -419,7 +419,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about mobile devices.\n\
     \n[This is a **Core Object** table](#replication)."
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/MobileDeviceConstant
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/MobileDeviceConstant
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -428,7 +428,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about mobile operating\
     \ system versions.\n\n[This is a **Core Object** table](#replication)."
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/OperatingSystemVersionConstant
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/OperatingSystemVersionConstant
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -438,7 +438,7 @@ tables:
     \ See the **Replication** section for information on how data is replicated and\
     \ loaded for this table.\n"
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -453,7 +453,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -463,7 +463,7 @@ tables:
     \ See the **Replication** section for information on how data is replicated and\
     \ loaded for this table.\n"
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -472,7 +472,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about topics.\n\n[This\
     \ is a **Core Object** table](#replication)."
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/TopicConstant
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/TopicConstant
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -483,7 +483,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about user interests to\
     \ be targeted.\n\n[This is a **Core Object** table](#replication). "
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/UserInterest
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/UserInterest
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -494,7 +494,7 @@ tables:
   description: "The `{{ table.name }}` table contains info about lists of user that\
     \ can be targeted.\n\n[This is a **Core Object** table](#replication)."
   links:
-    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v15/UserList
+    doc-link: https://developers.google.com/google-ads/api/reference/rpc/v24/UserList
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -506,7 +506,7 @@ tables:
     \ See the **Replication** section for information on how data is replicated and\
     \ loaded for this table.\n"
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'
@@ -521,7 +521,7 @@ tables:
 
     '
   links:
-    doc-link: https://developers.google.com/google-ads/api/fields/v15/overview
+    doc-link: https://developers.google.com/google-ads/api/fields/v24/overview
   table-details:
     replication-method: Key-based Incremental
     primary-key: '{{ system-column.record-hash }}'

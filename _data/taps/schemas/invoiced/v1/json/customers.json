@@ -1,5 +1,15 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "address1": {
       "type": [
         "null",
@@ -48,12 +58,6 @@
         "string"
       ]
     },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "credit_hold": {
       "type": [
         "null",
@@ -72,12 +76,6 @@
         "string"
       ]
     },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "language": {
       "type": [
         "null",
@@ -85,11 +83,11 @@
       ]
     },
     "metadata": {
-      "properties": {},
       "type": [
         "null",
         "object"
-      ]
+      ],
+      "properties": {}
     },
     "name": {
       "type": [
@@ -122,11 +120,11 @@
       ]
     },
     "payment_source": {
-      "properties": {},
       "type": [
         "null",
         "object"
-      ]
+      ],
+      "properties": {}
     },
     "payment_terms": {
       "type": [
@@ -171,17 +169,17 @@
       ]
     },
     "taxes": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "type": {
       "type": [
@@ -189,15 +187,79 @@
         "string"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
     "updated_at": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "owner": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "avalara_entity_use_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "avalara_exemption_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sign_up_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "statement_pdf_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ach_gateway": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "cc_gateway": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "autopay_delay_days": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

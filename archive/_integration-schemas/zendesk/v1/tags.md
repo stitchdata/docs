@@ -6,7 +6,7 @@ name: "tags"
 doc-link: https://developer.zendesk.com/rest_api/docs/support/tags
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/tags.json
 description: |
-  The `{{ table.name }}` table the names and total number of applications of the tags in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains the names and total number of applications of tags in your {{ integration.display_name }} account. Only the 20,000 most popular tags used in the last 60 days are extracted.
 
   **Note**: Retrieving tag data requires {{ integration.display_name }} Admin permissions.
 

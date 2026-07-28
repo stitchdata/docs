@@ -109,8 +109,8 @@ tables:
     replication-method: Full Table
     primary-key: id
 - name: tags
-  description: 'The `{{ table.name }}` table the names and total number of applications
-    of the tags in your {{ integration.display_name }} account.
+  description: 'The `{{ table.name }}` table contains the names and total number of applications
+    of tags in your {{ integration.display_name }} account. Only the 20,000 most popular tags used in the last 60 days are extracted.
 
 
     **Note**: Retrieving tag data requires {{ integration.display_name }} Admin permissions.

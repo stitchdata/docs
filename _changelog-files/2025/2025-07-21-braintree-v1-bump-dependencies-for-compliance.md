@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-braintree/pull/56"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade bump dependencies for compliance.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump dependencies for compliance.

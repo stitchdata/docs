@@ -1,39 +1,19 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
-    "admin": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "at": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "default_currency": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "default_hourly_rate": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "id": {
       "type": [
         "null",
         "integer"
       ]
     },
-    "logo_url": {
+    "organization_id": {
       "type": [
         "null",
-        "string"
+        "integer"
       ]
     },
     "name": {
@@ -42,19 +22,37 @@
         "string"
       ]
     },
-    "only_admins_may_create_projects": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "only_admins_see_billable_rates": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
     "premium": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "business_ws": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "admin": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "default_hourly_rate": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "default_currency": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "only_admins_may_create_projects": {
       "type": [
         "null",
         "boolean"
@@ -71,10 +69,192 @@
         "null",
         "integer"
       ]
+    },
+    "at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "logo_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ical_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "disable_approvals": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "disable_timesheet_view": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "hide_start_end_times": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "ical_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "limit_public_project_data": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "only_admins_may_create_tags": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "only_admins_see_team_dashboard": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "projects_billable_by_default": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "projects_enforce_billable": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "projects_private_by_default": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "rate_last_updated": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "reports_collapse": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "role": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "server_deleted_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+
+    },
+    "profile": {
+        "type": [
+          "null",
+          "integer"
+        ]
+      },
+    "active_users": {
+        "type": [
+          "null",
+          "integer"
+        ]
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "deleted_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "organization_name": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "role_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "role_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "role_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_users": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "updated_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "user_status": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

@@ -34,7 +34,7 @@ repo-url: https://github.com/singer-io/tap-mambu
 this-version: "4"
 
 api: |
-  [{{ integration.display_name }} v2.0](https://api.mambu.com/?shell#Welcome){:target="new"} and [v1.0 APIs](https://support.mambu.com/docs/rest-apis-overview){:target="new"}
+  [{{ integration.display_name }} v2.0](https://api.mambu.com/?shell#Welcome){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -93,6 +93,7 @@ setup-steps:
       {% include integrations/shared-setup/connection-setup.html %}
       5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain. For example: If the subdomain were `stitch.{{ integration.name }}.com`, only `stitch` would be entered into this field.
       6. In the **Username** and **Password** fields, enter the username and password of the {{ integration.display_name }} user with {{ integration.display_name }} API access.
+      7. In the **Time zone** field, enter the time zone defined in {{ integration.display_name }}. To find the time zone, connect to {{ integration.display_name }} and go to **Administration** > **General Setup** > **Organization Details**. For more information, see the [{{ integration.display_name }} documentation](https://support.mambu.com/docs/organization-contact-currency-and-timezone){:target="new"}.
   - title: "Define the historical replication start date"
     anchor: "define-historical-sync"
     content: |

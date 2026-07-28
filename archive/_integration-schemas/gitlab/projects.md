@@ -3,7 +3,7 @@ tap: "gitlab"
 version: "1"
 
 name: "projects"
-doc-link: https://gitlab.com/help/api/projects.md#list-all-projects
+doc-link: https://docs.gitlab.com/ee/api/projects.html#list-all-projects
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/projects.json
 description: |
   The `{{ table.name }}` table contains info about specific projects.
@@ -11,7 +11,7 @@ description: |
 replication-method: "Key-based Incremental"
 api-method:
   name: "listAllProjects"
-  doc-link: https://gitlab.com/help/api/projects.md#list-all-projects
+  doc-link: https://docs.gitlab.com/ee/api/projects.html#list-all-projects
 
 attributes:
   - name: "id"

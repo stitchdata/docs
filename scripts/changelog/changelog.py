@@ -11,10 +11,10 @@ nb_days = int(sys.argv[2])
 
 
 # Folder for new files
-year = dt.today().strftime('%Y')
+year = dt.now(datetime.timezone.utc).strftime('%Y')
 path = f'../../_changelog-files/{year}'
 
-start_date = (dt.today() - datetime.timedelta(days=nb_days)).date()
+start_date = (dt.now(datetime.timezone.utc) - datetime.timedelta(days=nb_days)).date()
 
 repo_list = []
 pr_list = []
@@ -156,11 +156,10 @@ def getPRList(): # Get a list of PRs merged in the past week on all repos
                     date = dt.strptime(merged, "%Y-%m-%dT%H:%M:%SZ").date()
 
                     # If a PR was merged in the past week, add it to the list of PRs to check
-                    if date > start_date:
+                    if date >= start_date:
                         pr_list.append([name, number, title, url, date])
 
 def getPRsToDocument(): # Find PRs that need to be documented and create draft changelog files
-
     # Make the PR list into a DataFrame
     prs = pandas.DataFrame(pr_list, columns=['repository', 'pr_number', 'pr_title', 'pr_url', 'pr_merge_date'])
 
@@ -234,10 +233,10 @@ def getPRsToDocument(): # Find PRs that need to be documented and create draft c
                                     # Process PR title
                                     pr_title = re.sub(r'\w*-\d*\s?:\s?', '', pr_title)
                                     pr_title_for_md_description = pr_title[0].lower() + pr_title[1:]
-                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-')
+                                    pr_title_for_md_filename = pr_title.lower().replace(' ', '-').replace(':', '-').replace(',', '-').replace('.', '-').replace('--', '-').replace('/', '-').replace('\'', '-')
 
                                     # Guess the entry type from the PR title
-                                    entry_type = 'NOT FOUND'
+                                    entry_type = 'improvement'
                                     pr_title_lower = pr_title.lower()
                                     entry_types = [
                                         ('bug-fix', bug_fix),

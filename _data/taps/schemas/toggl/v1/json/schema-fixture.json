@@ -1,0 +1,125 @@
+{
+  "workspaces": {
+    "id": "integer",
+    "name": "string",
+    "premium": "boolean",
+    "admin": "boolean",
+    "default_hourly_rate": "integer",
+    "default_currency": "string",
+    "only_admins_may_create_projects": "boolean",
+    "only_admins_see_billable_rates": "boolean",
+    "rounding": "integer",
+    "rounding_minutes": "integer",
+    "at": "date-time",
+    "logo_url": "string"
+  },
+  "clients": {
+    "id": "integer",
+    "wid": "integer",
+    "name": "string",
+    "at": "date-time",
+    "notes": "string",
+    "hrate": "integer",
+    "cur": "string"
+  },
+  "groups": {
+    "id": "integer",
+    "wid": "integer",
+    "name": "string",
+    "at": "date-time"
+  },
+  "projects": {
+    "id": "integer",
+    "wid": "integer",
+    "cid": "integer",
+    "name": "string",
+    "billable": "boolean",
+    "is_private": "boolean",
+    "active": "boolean",
+    "at": "date-time"
+  },
+  "tasks": {
+    "name": "string",
+    "id": "integer",
+    "wid": "integer",
+    "pid": "integer",
+    "uid": "integer",
+    "active": "boolean",
+    "at": "date-time",
+    "estimated_seconds": "integer"
+  },
+  "tags": {
+    "id": "integer",
+    "wid": "integer",
+    "name": "string"
+  },
+  "users": {
+    "id": "integer",
+    "default_wid": "integer",
+    "email": "string",
+    "fullname": "string",
+    "jquery_timeofday_format": "string",
+    "jquery_date_format": "string",
+    "timeofday_format": "string",
+    "date_format": "string",
+    "store_start_and_stop_time": "boolean",
+    "beginning_of_week": "integer",
+    "language": "string",
+    "image_url": "string",
+    "sidebar_piechart": "boolean",
+    "at": "date-time",
+    "retention": "integer",
+    "record_timeline": "boolean",
+    "render_timeline": "boolean",
+    "timeline_enabled": "boolean",
+    "timeline_experiment": "boolean",
+    "new_blog_post": "string",
+    "should_upgrade": "boolean",
+    "invitation": "string"
+  },
+  "workspace_users": {
+    "id": "integer",
+    "uid": "integer",
+    "wid": "integer",
+    "admin": "boolean",
+    "active": "boolean",
+    "email": "string",
+    "at": "date-time",
+    "name": "string",
+    "invite_url": "string"
+  },
+  "time_entries": {
+    "total_grand": "integer",
+    "total_billable": "integer",
+    "total_count": "integer",
+    "per_page": "integer",
+    "total_currencies":[
+      {
+        "currency": "string",
+        "amount": "integer"
+      }
+    ],
+    "data":[
+      {
+        "id": "integer",
+        "pid": "integer",
+        "tid": "integer",
+        "uid": "integer",
+        "description": "string",
+        "start": "date-time",
+        "end": "date-time",
+        "updated": "date-time",
+        "dur": "integer",
+        "user": "string",
+        "use_stop": "boolean",
+        "client": "string",
+        "project": "string",
+        "task": "string",
+        "billable": "number",
+        "is_billable": "boolean",
+        "cur": "string",
+        "tags": ["string"]
+      }
+    ]
+  }
+}

@@ -1,24 +1,27 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "addons": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
-    },
-    "approval": {
-      "properties": {},
-      "type": [
-        "null",
-        "object"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "cancel_at_period_end": {
       "type": [
@@ -29,20 +32,23 @@
     "canceled_at": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "contract_period_end": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "contract_period_start": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "contract_renewal_cycles": {
       "type": [
@@ -54,12 +60,6 @@
       "type": [
         "null",
         "string"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "customer": {
@@ -75,30 +75,24 @@
       ]
     },
     "discounts": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "metadata": {
-      "properties": {},
       "type": [
         "null",
         "object"
-      ]
+      ],
+      "properties": {}
     },
     "mrr": {
       "type": [
@@ -109,14 +103,16 @@
     "period_end": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "period_start": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "plan": {
       "type": [
@@ -127,7 +123,7 @@
     "quantity": {
       "type": [
         "null",
-        "number"
+        "integer"
       ]
     },
     "recurring_total": {
@@ -136,23 +132,12 @@
         "number"
       ]
     },
-    "renewed_last": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "renews_next": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
     "start_date": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "status": {
       "type": [
@@ -161,27 +146,74 @@
       ]
     },
     "taxes": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
+    },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
     },
     "updated_at": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ],
+      "format": "date-time"
+    },
+
+    "amount": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bill_in": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bill_in_advance_days": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "paused": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ship_to": {
+      "type": [
+        "null",
+        "object"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

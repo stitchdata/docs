@@ -8,7 +8,7 @@ tables:
     '
   links:
     doc-link: https://support.mambu.com/docs/activities-api
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/activities.json
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/activities.json
     api-method: https://api.mambu.com/v1/#activities-get-all-activities
   table-details:
     replication-method: Key-based Incremental
@@ -20,8 +20,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/audit_trail.json
+    doc-link: https://support.mambu.com/docs/audit-trail-v2
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/audit_trail.json
     api-method: https://support.mambu.com/docs/audit-trail
   table-details:
     replication-method: Key-based Incremental
@@ -31,8 +31,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/branches.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-branches
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/branches.json
     api-method: https://api.mambu.com/?http#branches-getall
   table-details:
     replication-method: Key-based Incremental
@@ -43,8 +43,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/cards.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-cards
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/cards.json
     api-method: https://api.mambu.com/?http#depositaccounts-getallcards
   table-details:
     replication-method: Full Table
@@ -57,8 +57,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/centres.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-centres
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/centres.json
     api-method: https://api.mambu.com/?http#centres-getall
   table-details:
     replication-method: Key-based Incremental
@@ -69,8 +69,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/clients.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-clients
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/clients.json
     api-method: https://api.mambu.com/?http#clients-search
   table-details:
     replication-method: Full Table
@@ -80,8 +80,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/communications.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-communications
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/communications.json
     api-method: https://api.mambu.com/?http#communications-search
   table-details:
     replication-method: Key-based Incremental
@@ -92,8 +92,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/credit_arrangements.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-credit-arrangements
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/credit_arrangements.json
     api-method: https://api.mambu.com/?http#creditarrangements-getall
   table-details:
     replication-method: Key-based Incremental
@@ -104,8 +104,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/custom_field_sets.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-custom-field-sets
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/custom_field_sets.json
     api-method: https://api.mambu.com/v1/#custom-field-sets-get-custom-field-sets
   table-details:
     replication-method: Full Table
@@ -115,8 +115,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_accounts.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-deposit-accounts
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/deposit_accounts.json
     api-method: https://api.mambu.com/?http#deposit-accounts-search
   table-details:
     replication-method: Key-based Incremental
@@ -127,8 +127,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-deposit-products
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/deposit_products.json
     api-method: https://api.mambu.com/v1/#savings-products-get-savings-products
   table-details:
     replication-method: Key-based Incremental
@@ -139,8 +139,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_transactions.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-deposit-transactions
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/deposit_transactions.json
     api-method: https://api.mambu.com/?http#deposittransactions-search
   table-details:
     replication-method: Key-based Incremental
@@ -151,8 +151,8 @@ tables:
 
     '
   links:
-    doc-link: https://support.mambu.com/docs/gl-accounts-api
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/gl_accounts.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-gl-accounts
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/gl_accounts.json
     api-method: https://api.mambu.com/v1/#general-ledger-accounts-get-all-gl-accounts
   table-details:
     replication-method: Key-based Incremental
@@ -164,7 +164,7 @@ tables:
     '
   links:
     doc-link: https://support.mambu.com/docs/gl-journal-entries-api
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/gl_journal_entries.json
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/gl_journal_entries.json
     api-method: https://api.mambu.com/v1/#gl-journal-entries-search-for-gl-journal-entries
   table-details:
     replication-method: Key-based Incremental
@@ -175,8 +175,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/groups.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-groups
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/groups.json
     api-method: https://api.mambu.com/?http#groups-search
   table-details:
     replication-method: Key-based Incremental
@@ -187,7 +187,8 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/index_rate_sources.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-index-rate-sources
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/index_rate_sources.json
     api-method: https://api.mambu.com/#mambu-api-v2-index-rate-sources
   table-details:
     replication-method: Full Table
@@ -198,7 +199,7 @@ tables:
     '
   links:
     doc-link: https://api.mambu.com/#mambu-api-v2-installments
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/installments.json
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/installments.json
     api-method: https://api.mambu.com/#installments-getall
   table-details:
     replication-method: Key-based Incremental
@@ -207,8 +208,8 @@ tables:
 - name: loan_accounts
   description: This table contains information about Loan Accounts.
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_accounts.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-loan-accounts
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/loan_accounts.json
     api-method: https://api.mambu.com/?http#loan-accounts-search
   table-details:
     replication-method: Key-based Incremental
@@ -220,8 +221,8 @@ tables:
 
     '
   links:
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_repayments.json
-    api-method: https://api.mambu.com/v1/#loan-accounts-get-repayments-for-a-loan-account
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/loan_repayments.json
+    api-method: https://api.mambu.com/#mambu-api-v2-loan-accounts
   table-details:
     replication-method: Full Table
     primary-key: encoded_key
@@ -231,8 +232,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/loan_transactions.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-loan-transactions
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/loan_transactions.json
     api-method: https://api.mambu.com/?http#loantransactions-getall
   table-details:
     replication-method: Key-based Incremental
@@ -243,8 +244,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/tasks.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-tasks
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/tasks.json
     api-method: https://api.mambu.com/?http#tasks-getall
   table-details:
     replication-method: Key-based Incremental
@@ -255,8 +256,8 @@ tables:
 
     '
   links:
-    doc-link: https://api.mambu.com/?shell#welcome
-    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/users.json
+    doc-link: https://api.mambu.com/?shell#mambu-api-v2-users
+    singer-schema: https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/helpers/schemas/users.json
     api-method: https://api.mambu.com/?http#users-getall
   table-details:
     replication-method: Key-based Incremental

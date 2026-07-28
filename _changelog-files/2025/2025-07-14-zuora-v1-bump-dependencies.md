@@ -1,5 +1,5 @@
 ---
-title: "Zuora (v1): Upgrade bump dependencies"
+title: "Zuora (v1): Bump dependencies"
 content-type: "changelog-entry"
 date: 2025-07-14
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-zuora/pull/82"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade bump dependencies.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump dependencies.

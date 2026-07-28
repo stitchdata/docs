@@ -1,17 +1,315 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "additionalProperties": false,
   "properties": {
-    "account": {
+    "targeting": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "included_targeting_facets": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "values": {
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "excluded_targeting_facets": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "type": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "values": {
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "targeting_criteria": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "include": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "and": {
+              "anyOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "type": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "values": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "exclude": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "or": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "urn:li:ad_targeting_facet:titles": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "urn:li:ad_targeting_facet:staff_count_ranges": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "urn:li:ad_targeting_facet:followed_companies": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "urn:li:ad_targeting_facet:seniorities": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "serving_statuses": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "type": {
       "type": [
         "null",
         "string"
       ]
     },
-    "account_id": {
+    "story_delivery_enabled": {
       "type": [
         "null",
-        "integer"
+        "boolean"
       ]
+    },
+    "connected_television_only": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "political_intent": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_budget": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "currency_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "amount": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "singer.decimal"
+        }
+      }
+    },
+    "version_tag": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "locale": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "language": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "version": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version_tag": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
     },
     "associated_entity": {
       "type": [
@@ -31,11 +329,89 @@
         "string"
       ]
     },
-    "audience_expansion_enabled": {
+    "run_schedule": {
       "type": [
         "null",
-        "boolean"
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "date-time"
+        },
+        "end": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "optimization_target_type": {
+      "type": [
+        "null",
+        "string"
       ]
+    },
+    "change_audit_stamps": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          }
+        },
+        "last_modified": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "time": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "created_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "last_modified_time": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
     },
     "campaign_group": {
       "type": [
@@ -49,71 +425,19 @@
         "integer"
       ]
     },
-    "change_audit_stamps": {
-      "additionalProperties": false,
-      "properties": {
-        "created": {
-          "additionalProperties": false,
-          "properties": {
-            "time": {
-              "type": [
-                "null",
-                "date-time"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "last_modified": {
-          "additionalProperties": false,
-          "properties": {
-            "time": {
-              "type": [
-                "null",
-                "date-time"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        }
-      },
+    "daily_budget": {
       "type": [
         "null",
         "object"
-      ]
-    },
-    "cost_type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "created_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "creative_selection": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "daily_budget": {
+      ],
       "additionalProperties": false,
       "properties": {
         "amount": {
           "type": [
             "null",
-            "number"
-          ]
+            "string"
+          ],
+          "format": "singer.decimal"
         },
         "currency_code": {
           "type": [
@@ -121,49 +445,40 @@
             "string"
           ]
         }
-      },
+      }
+    },
+    "unit_cost": {
       "type": [
         "null",
         "object"
-      ]
-    },
-    "format": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "id": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "last_modified_time": {
-      "type": [
-        "null",
-        "date-time"
-      ]
-    },
-    "locale": {
+      ],
       "additionalProperties": false,
       "properties": {
-        "country": {
+        "amount": {
           "type": [
             "null",
             "string"
-          ]
+          ],
+          "format": "singer.decimal"
         },
-        "language": {
+        "currency_code": {
           "type": [
             "null",
             "string"
           ]
         }
-      },
+      }
+    },
+    "creative_selection": {
       "type": [
         "null",
-        "object"
+        "string"
+      ]
+    },
+    "cost_type": {
+      "type": [
+        "null",
+        "string"
       ]
     },
     "name": {
@@ -185,72 +500,90 @@
       ]
     },
     "offsite_preferences": {
-      "additionalProperties": false,
-      "properties": {
-        "iab_categories": {
-          "additionalProperties": false,
-          "properties": {
-            "exclude": {
-              "additionalProperties": false,
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": [
-                "null",
-                "array"
-              ]
-            },
-            "include": {
-              "additionalProperties": false,
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": [
-                "null",
-                "array"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "publisher_restriction_files": {
-          "additionalProperties": false,
-          "properties": {
-            "exclude": {
-              "additionalProperties": false,
-              "items": {
-                "type": [
-                  "null",
-                  "string"
-                ]
-              },
-              "type": [
-                "null",
-                "array"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        }
-      },
       "type": [
         "null",
         "object"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "iab_categories": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "exclude": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "additionalProperties": false,
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "include": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "additionalProperties": false,
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        },
+        "publisher_restriction_files": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "exclude": {
+              "type": [
+                "null",
+                "array"
+              ],
+              "additionalProperties": false,
+              "items": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
-    "optimization_target_type": {
+    "audience_expansion_enabled": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "test": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "format": {
       "type": [
         "null",
         "string"
@@ -262,38 +595,16 @@
         "string"
       ]
     },
-    "run_schedule": {
-      "additionalProperties": false,
-      "properties": {
-        "end": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        },
-        "start": {
-          "type": [
-            "null",
-            "date-time"
-          ]
-        }
-      },
+    "account": {
       "type": [
         "null",
-        "object"
+        "string"
       ]
     },
-    "serving_statuses": {
-      "anyOf": [
-        {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        {
-          "type": "null"
-        }
+    "account_id": {
+      "type": [
+        "null",
+        "integer"
       ]
     },
     "status": {
@@ -301,290 +612,6 @@
         "null",
         "string"
       ]
-    },
-    "targeting": {
-      "additionalProperties": false,
-      "properties": {
-        "excluded_targeting_facets": {
-          "anyOf": [
-            {
-              "items": {
-                "additionalProperties": false,
-                "properties": {
-                  "type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "values": {
-                    "anyOf": [
-                      {
-                        "items": {
-                          "type": "string"
-                        },
-                        "type": "array"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                },
-                "type": [
-                  "null",
-                  "object"
-                ]
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "included_targeting_facets": {
-          "anyOf": [
-            {
-              "items": {
-                "additionalProperties": false,
-                "properties": {
-                  "type": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "values": {
-                    "anyOf": [
-                      {
-                        "items": {
-                          "type": "string"
-                        },
-                        "type": "array"
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                },
-                "type": [
-                  "null",
-                  "object"
-                ]
-              },
-              "type": "array"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "targeting_criteria": {
-      "additionalProperties": false,
-      "properties": {
-        "exclude": {
-          "properties": {
-            "or": {
-              "properties": {
-                "urn:li:ad_targeting_facet:followed_companies": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "urn:li:ad_targeting_facet:seniorities": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "urn:li:ad_targeting_facet:staff_count_ranges": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                },
-                "urn:li:ad_targeting_facet:titles": {
-                  "items": {
-                    "type": [
-                      "null",
-                      "string"
-                    ]
-                  },
-                  "type": [
-                    "null",
-                    "array"
-                  ]
-                }
-              },
-              "type": [
-                "null",
-                "object"
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        },
-        "include": {
-          "additionalProperties": false,
-          "properties": {
-            "and": {
-              "anyOf": [
-                {
-                  "items": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "type": {
-                        "type": [
-                          "null",
-                          "string"
-                        ]
-                      },
-                      "values": {
-                        "anyOf": [
-                          {
-                            "items": {
-                              "type": "string"
-                            },
-                            "type": "array"
-                          },
-                          {
-                            "type": "null"
-                          }
-                        ]
-                      }
-                    },
-                    "type": [
-                      "null",
-                      "object"
-                    ]
-                  },
-                  "type": "array"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "type": [
-            "null",
-            "object"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "test": {
-      "type": [
-        "null",
-        "boolean"
-      ]
-    },
-    "total_budget": {
-      "additionalProperties": false,
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "currency_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "type": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "unit_cost": {
-      "additionalProperties": false,
-      "properties": {
-        "amount": {
-          "type": [
-            "null",
-            "number"
-          ]
-        },
-        "currency_code": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "version": {
-      "additionalProperties": false,
-      "properties": {
-        "version_tag": {
-          "type": [
-            "null",
-            "string"
-          ]
-        }
-      },
-      "type": [
-        "null",
-        "object"
-      ]
-    },
-    "version_tag": {
-      "type": [
-        "null",
-        "string"
-      ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

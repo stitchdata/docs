@@ -3,7 +3,7 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Pipeline Monitoring Overview
+title: Pipeline Monitoring Overview (Beta)
 permalink: /replication/pipeline-monitoring
 keywords: data structure, schema, data load, loading data, observability, monitoring, pipeline monitoring
 

@@ -1,5 +1,15 @@
 {
+  "type": [
+    "null",
+    "object"
+  ],
   "properties": {
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
     "balance": {
       "type": [
         "null",
@@ -10,12 +20,6 @@
       "type": [
         "null",
         "boolean"
-      ]
-    },
-    "created_at": {
-      "type": [
-        "null",
-        "date-time"
       ]
     },
     "currency": {
@@ -33,21 +37,22 @@
     "date": {
       "type": [
         "null",
-        "date-time"
-      ]
+        "string"
+      ],
+      "format": "date-time"
     },
     "discounts": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "draft": {
       "type": [
@@ -55,11 +60,18 @@
         "boolean"
       ]
     },
-    "id": {
+    "items": {
       "type": [
         "null",
-        "integer"
-      ]
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "invoice": {
       "type": [
@@ -67,25 +79,12 @@
         "integer"
       ]
     },
-    "items": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
-      "type": [
-        "null",
-        "array"
-      ]
-    },
     "metadata": {
-      "properties": {},
       "type": [
         "null",
         "object"
-      ]
+      ],
+      "properties": {}
     },
     "name": {
       "type": [
@@ -124,17 +123,17 @@
       ]
     },
     "taxes": {
-      "items": {
-        "properties": {},
-        "type": [
-          "null",
-          "object"
-        ]
-      },
       "type": [
         "null",
         "array"
-      ]
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {}
+      }
     },
     "total": {
       "type": [
@@ -142,15 +141,43 @@
         "number"
       ]
     },
+    "created_at": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
     "updated_at": {
       "type": [
         "null",
-        "date-time"
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "purchase_order": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "pdf_url": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "object": {
+      "type": [
+        "null",
+        "string"
       ]
     }
-  },
-  "type": [
-    "null",
-    "object"
-  ]
+  }
 }

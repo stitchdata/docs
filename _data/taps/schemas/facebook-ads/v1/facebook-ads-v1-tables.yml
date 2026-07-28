@@ -102,8 +102,8 @@ tables:
 
     - [`ads_insights_country`](#ads-insights-country) - Data segmented by country
 
-    - [`ads_insights_dma`](#ads-insights-dma) - Data segmented by DMA (Designated
-    Market Area)
+    - [`ads_insights_comscore_market`](#ads-insights-comscore-market) - Data segmented
+    by Comscore Market
 
     - [`ads_insights_platform_and_device`](#ads-insights-platform-and-device) - Data
     segmented by platform and device
@@ -176,14 +176,14 @@ tables:
     - date_start
     - country
     replication-key: date_start
-- name: ads_insights_dma
-  description: 'The `ads_insights_dma` table contains entries for each campaign/set/ad
-    combination for each day, along with detailed statistics, segmented by DMA (Designated
-    Market Area).
+- name: ads_insights_comscore_market
+  description: 'The `ads_insights_comscore_market` table contains entries for each
+    campaign/set/ad combination for each day, along with detailed statistics, segmented
+    by Comscore Market.
 
 
     This table contains the same fields as the [`ads_insights`](#ads_insights) table,
-    with the exception of `dma`.
+    with the exception of `comscore_market`.
 
 
     **Note**: Data for deleted ads, adsets, and campaigns will not appear in this
@@ -193,14 +193,14 @@ tables:
     '
   links:
     doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
-    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_dma.json
+    singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_comscore_market.json
   table-details:
     replication-method: Key-based Incremental
     primary-keys:
     - ad_id
     - adset_id
     - campaign_id
-    - dma
+    - comscore_market
     - date_start
     replication-key: date_start
 - name: ads_insights_hourly_advertiser

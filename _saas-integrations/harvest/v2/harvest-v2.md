@@ -1,9 +1,10 @@
 ---
 title: Harvest (v2)
-permalink: /integrations/saas/harvest
+permalink: /integrations/saas/harvest/v2
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
 layout: singer
+input: false
 
 key: "harvest-setup"
 

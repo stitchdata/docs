@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "campaignId": {
+      "type": ["null", "string"]
+    },
+    "fromDate": {
+      "type": ["null", "string"],
+      "format": "date-time"
+    },
+    "impressions": {
+      "type": ["null", "number"]
+    },
+    "clicks": {
+      "type": ["null", "number"]
+    },
+    "ctr": {
+      "type": ["null", "number"]
+    },
+    "spend": {
+      "type": ["null", "number"]
+    },
+    "ecpc": {
+      "type": ["null", "number"]
+    },
+    "conversions": {
+      "type": ["null", "number"]
+    },
+    "conversionRate": {
+      "type": ["null", "number"]
+    },
+    "cpa": {
+      "type": ["null", "number"]
+    }
+  }
+}

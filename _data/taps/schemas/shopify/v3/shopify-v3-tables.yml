@@ -50,6 +50,17 @@ tables:
     replication-method: Key-based Incremental
     primary-key: id
     replication-key: createdAt
+- name: fulfillment_orders
+  description: 'The `{{ table.name }}` table contains datails about fulfillment orders.
+
+    '
+  links:
+    doc-link: https://shopify.dev/docs/api/admin-graphql/latest/queries/fulfillmentorders
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/fulfillment_orders.json
+    api-method: https://shopify.dev/docs/api/admin-graphql/latest/queries/fulfillmentorders
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id    
 - name: inventory_items
   description: 'The `{{ table.name }}` table contains info about items in a shop.
 
@@ -126,6 +137,17 @@ tables:
     replication-method: Key-based Incremental
     primary-keys: id
     replication-key: updatedAt
+- name: order_shipping_lines
+  description: 'The `{{ table.name }}` table contains the shipping details that the customer chose for their order.
+  
+    '
+  links:
+    doc-link: https://shopify.dev/docs/api/admin-graphql/latest/objects/ShippingLine
+    singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/order_shipping_lines.json
+    api-method: https://shopify.dev/docs/api/admin-graphql/latest/objects/ShippingLine
+  table-details:
+    replication-method: Key-based Incremental
+    primary-key: id
 - name: product_variants
   description: 'The `{{ table.name }}` table contains info about variants that can 
   be added to a product to represent one version of a product with several options.
