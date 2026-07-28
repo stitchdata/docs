@@ -20,7 +20,7 @@
     		{% assign latest-heroku-version = site.data.taps.versions.heroku.latest-version %}
     		{% assign heroku-doc-url = "/integrations/databases/heroku/v" | append: latest-heroku-version %}
     		<a href="{{ heroku-doc-url | prepend: site.baseurl }}">
-		    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
+		    	Upgrade to the latest version (v{{ latest-heroku-version | remove: ".0" }}) to 
 		    	{% if page.connection-type == "integration" %}
 		    		continue replicating data.
 		    	{% else %}

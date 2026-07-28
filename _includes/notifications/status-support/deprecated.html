@@ -37,7 +37,7 @@
 			{% assign heroku-doc-url = "/integrations/databases/heroku/v" | append: latest-heroku-version %}
 			<p>
 				<a href="{{ heroku-doc-url | prepend: site.baseurl }}">
-					Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to continue replicating data.
+					Upgrade to the latest version (v{{ latest-heroku-version | remove: ".0" }}) to continue replicating data.
 				</a>
 			</p>
 			{% else %}
