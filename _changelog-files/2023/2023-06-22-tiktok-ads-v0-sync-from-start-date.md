@@ -5,7 +5,7 @@ date: 2023-06-22
 entry-type: bug-fix
 entry-category: integration
 connection-id: tiktok-ads
-connection-version: 0
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-tiktok-ads/pull/22"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2022-01-14
 entry-type: beta
 entry-category: integration
-connection-id: aurora-rds
+connection-id: cloudsql-mysql
 connection-version: 2
 ---
 

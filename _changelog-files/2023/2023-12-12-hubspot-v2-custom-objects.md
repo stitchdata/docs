@@ -5,7 +5,7 @@ date: 2023-12-12
 entry-type: new-feature
 entry-category: integration
 connection-id: hubspot
-connection-version: 2
+connection-version: 4
 pull-request: "https://github.com/singer-io/tap-hubspot/pull/242"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

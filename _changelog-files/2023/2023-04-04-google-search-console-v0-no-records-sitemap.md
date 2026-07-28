@@ -5,7 +5,7 @@ date: 2023-04-04
 entry-type: bug-fix
 entry-category: integration
 connection-id: google-search-console
-connection-version: 0
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-google-search-console/pull/38"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
