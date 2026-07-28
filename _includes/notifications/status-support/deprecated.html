@@ -32,6 +32,14 @@
 					Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to continue replicating data.
 				</a>
 			</p>
+			{% elsif page.db-type == "postgres" and page.name == "heroku" %}
+			{% assign latest-heroku-version = site.data.taps.versions.heroku.latest-version %}
+			{% assign heroku-doc-url = "/integrations/databases/heroku/v" | append: latest-heroku-version %}
+			<p>
+				<a href="{{ heroku-doc-url | prepend: site.baseurl }}">
+					Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to continue replicating data.
+				</a>
+			</p>
 			{% else %}
 			<p>
 				<a href="{{ latest-version-doc.url | prepend: site.baseurl }}">
