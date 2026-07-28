@@ -24857,31 +24857,6 @@ examples:
           "upgrade_available": null
         },
         {
-          "type": "webhook.delighted",
-          "current_step": 2,
-          "current_step_type": "fully_configured",
-          "steps": [
-            {
-              "type": "form",
-              "properties": []
-            },
-            {
-              "type": "fully_configured",
-              "properties": []
-            }
-          ],
-          "details": {
-            "pricing_tier": "standard",
-            "pipeline_state": "released",
-            "default_start_date": "-1 year",
-            "default_scheduling_interval": 60,
-            "protocol": "incoming-webhook",
-            "access": true,
-            "image_version": "0.latest"
-          },
-          "upgrade_available": null
-        },
-        {
           "type": "webhook.drip",
           "current_step": 2,
           "current_step_type": "fully_configured",
