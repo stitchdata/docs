@@ -16,13 +16,26 @@
 	</p>
 
     <p>
-    	<a href="{{ latest-version-doc.url | prepend: site.baseurl }}">
-	    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
-	    	{% if page.connection-type == "integration" %}
-	    		continue replicating data.
-	    	{% else %}
-	    		take advantage of the new enhancements.
-	    	{% endif %}
-	    </a>
+    	{% if page.db-type == "postgres" and page.name == "heroku" %}
+    		{% assign latest-heroku-version = site.data.taps.versions.heroku.latest-version %}
+    		{% assign heroku-doc-url = "/integrations/databases/heroku/v" | append: latest-heroku-version %}
+    		<a href="{{ heroku-doc-url | prepend: site.baseurl }}">
+		    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
+		    	{% if page.connection-type == "integration" %}
+		    		continue replicating data.
+		    	{% else %}
+		    		take advantage of the new enhancements.
+		    	{% endif %}
+		    </a>
+    	{% else %}
+    		<a href="{{ latest-version-doc.url | prepend: site.baseurl }}">
+		    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
+		    	{% if page.connection-type == "integration" %}
+		    		continue replicating data.
+		    	{% else %}
+		    		take advantage of the new enhancements.
+		    	{% endif %}
+		    </a>
+    	{% endif %}
     </p>
 </div>
