@@ -10,4 +10,4 @@ pull-request: "https://github.com/stitchdata/connections-service/pull/1994"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've removed our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) webhook integration due to the Delighted service sunset announcement.
+We've removed our Delighted (v1) webhook integration due to the Delighted service sunset announcement.
