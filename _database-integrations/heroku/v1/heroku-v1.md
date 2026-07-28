@@ -3,9 +3,9 @@ title: Heroku (v1)
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
 permalink: /integrations/databases/heroku/v1
 summary: "Connect and replicate data from your Heroku database using Stitch's Heroku integration."
-microsites:
-  - title: "{{ page.display_name }} to Postgres"
-    url: "http://postgres.topostgres.com/"
+#microsites:
+ # - title: "{{ page.display_name }} to Postgres"
+  #  url: "http://postgres.topostgres.com/"
 
 key: "heroku-integration"
 
