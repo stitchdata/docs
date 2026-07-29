@@ -20,6 +20,9 @@ connections:
   - id: "delighted"
     type: "integration"
     version: "1"
+    display_name: "Delighted"
+    no_link: true
+    copy: "This version has been removed."
 
   - id: "drip"
     type: "integration"
