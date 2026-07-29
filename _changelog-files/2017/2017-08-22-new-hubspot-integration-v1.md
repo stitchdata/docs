@@ -5,7 +5,7 @@ date: 2017-08-22
 entry-type: new-feature
 entry-category: integration
 connection-id: hubspot
-connection-version: 4
+connection-version: 1
 ---
 
 {{ site.data.changelog.metadata.single-integration | flatify }}

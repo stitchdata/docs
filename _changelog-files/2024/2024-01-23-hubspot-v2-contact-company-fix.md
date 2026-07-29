@@ -5,7 +5,7 @@ date: 2024-01-23
 entry-type: bug-fix
 entry-category: integration
 connection-id: hubspot
-connection-version: 4
+connection-version: 2
 pull-request: "https://github.com/singer-io/tap-hubspot/pull/250"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
