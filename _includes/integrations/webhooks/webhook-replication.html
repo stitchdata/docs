@@ -21,9 +21,6 @@ Because {{ integration.display_name }} data is sent to Stitch in real-time, this
 {% when 'segment' %}
 Segment, however, has a [historical replay feature](https://help.segment.com/hc/en-us/articles/206227946-Will-Segment-sync-my-historical-data-){:target="new"} available on some of their plans. **Reach out to their support team if you have questions about replaying your historical data.**
 
-{% when 'delighted' %}
-{{ integration.display_name }}, however, has the ability to push historical webhook data upon request. Reach out to the {{ integration.display_name }} Customer Concierge team at [hello@delighted.com](mailto:hello@delighted.com) to request your historical webhook data.
-
 {% endcase %}
 
 In the event that our webhook service experiences downtime, you may notice some lag between an event occurring and the data appearing in your destination.
