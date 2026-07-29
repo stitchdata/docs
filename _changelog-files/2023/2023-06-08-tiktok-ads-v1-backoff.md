@@ -1,11 +1,11 @@
 ---
-title: "TikTok Ads (v0) bug fix: Backoff for errors"
+title: "TikTok Ads (v1) bug fix: Backoff for errors"
 content-type: "changelog-entry"
 date: 2023-06-08
 entry-type: bug-fix
 entry-category: integration
 connection-id: tiktok-ads
-connection-version: 0
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-tiktok-ads/pull/21"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-delighted/pull/12"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our Delighted (v1) integration to bump requests version to 2.34.2.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump requests version to 2.34.2.

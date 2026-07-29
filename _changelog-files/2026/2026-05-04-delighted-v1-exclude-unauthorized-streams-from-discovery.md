@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-delighted/pull/10"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our Delighted (v1) integration to exclude unauthorized streams from discovery.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to exclude unauthorized streams from discovery.
