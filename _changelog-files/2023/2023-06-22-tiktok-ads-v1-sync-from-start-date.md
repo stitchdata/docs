@@ -1,5 +1,5 @@
 ---
-title: "TikTok Ads (v0) bug fix: Sync records from start date"
+title: "TikTok Ads (v1) bug fix: Sync records from start date"
 content-type: "changelog-entry"
 date: 2023-06-22
 entry-type: bug-fix

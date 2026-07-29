@@ -1,5 +1,5 @@
 ---
-title: "TikTok Ads (v0) bug fix: Backoff for errors"
+title: "TikTok Ads (v1) bug fix: Backoff for errors"
 content-type: "changelog-entry"
 date: 2023-06-08
 entry-type: bug-fix

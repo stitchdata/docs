@@ -1,5 +1,5 @@
 ---
-title: "Google Search COnsole (v0) bug fix: Handle no data exception for sitemaps stream"
+title: "Google Search Console (v1) bug fix: Handle no data exception for sitemaps stream"
 content-type: "changelog-entry"
 date: 2023-04-04
 entry-type: bug-fix
