@@ -1,5 +1,5 @@
 ---
-title: "Salesforce (v2): refresh Bulk session token per result file"
+title: "Salesforce (v2): Refresh Bulk session token per result file"
 content-type: "changelog-entry"
 date: 2026-07-27
 entry-type: improvement
