@@ -45,6 +45,7 @@ For each documentation request (update, addition, or creation):
      - List all placeholders in the Follow-up section with context hints
    - Use [ASSUMED] placeholders for any other missing or ambiguous data, noting these in the follow-up section.
    - **For Flare content with TLV tickets**: Invoke the **flare-whats-new-authoring** skill only for Qlik Cloud changes.
+   - For DITA content: invoke the **talend-release-notes** skill.
 
 3. **(New files only) Add a Navigation Entry (TOC / Ditamap)**:
    Apply this step only if you created a new file. If you update an existing file, skip this step.   
