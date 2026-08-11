@@ -50,10 +50,6 @@ sections:
         content: |
           The following integrations are **Community Supported** and are maintained by the [Singer community]({{ site.singer }}){:target="new"}. {{ site.data.tooltips.community-integration }}
 
-          For support, visit the integration's GitHub repo (linked below) or [join the Singer Slack]({{ site.singer-slack }}){:target="new"}.
-
-          **Note**: Commercial Stitch support contracts are available for all Community integrations. For more info, contact the [Stitch Sales team]({{ site.sales }}){:target="new"}.
-
           {% include integrations/templates/integration-category-tiles.html type="saas" which-integrations="community" %}
 
   - title: "Suggest an integration"
