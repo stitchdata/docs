@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v3): fix serialized metafield value to JSON string to prevent target type errors"
+title: "Shopify (v3): Fix serialized metafield value to JSON string to prevent target type errors"
 content-type: "changelog-entry"
 date: 2026-08-04
 entry-type: bug-fix
