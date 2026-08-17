@@ -15,12 +15,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Git clone the repository
-      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
-#    - name: Build with Hugo
-#      uses: jakejarvis/hugo-build-action@eba25f02a13bdbcd8e637e0daac2487456c74d9d # v0.85.0
-#      with:
-#        args: --minify --buildDrafts
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build
+        uses: actions/jekyll-build-pages@v1
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
 
 
