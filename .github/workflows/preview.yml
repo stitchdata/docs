@@ -1,0 +1,85 @@
+name: Deploy PR previews
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Which Pull Request to publish"
+        required: true
+  #pull_request:
+  #  types: [opened, reopened, synchronize, closed]
+
+env:
+  AWS_REGION: "us-east-1"
+  PREVIEW_DOMAIN: "dyokhwe5tb1zx.cloudfront.net"
+  PR_NUMBER: ${{ github.event.inputs.pr }} # ${{ github.event.pull_request.number }}
+
+concurrency:
+  group: preview-${{ github.event.inputs.pr }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    # Fork PRs don't get AWS credentials, so skip them explicitly rather than let the job fail
+    # if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git clone the repository
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c #v6.2.3
+      with:
+        role-to-assume: arn:aws:iam::389712312597:role/Stitch
+        role-session-name: GitHub_to_AWS_via_FederationOIDC
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+
+    - name: Build Jekyll site
+      run: bundle exec jekyll build --baseurl "/pr-${{ env.PR_NUMBER }}/"
+      env:
+        JEKYLL_ENV: production
+
+    - name: Upload preview to AWS
+      run: |
+        aws sts get-caller-identity
+        aws s3 sync ./public s3://qlikhelp-stitch-preview/pr-${{ env.PR_NUMBER }} --delete
+        # aws cloudfront create-invalidation --distribution-id E2SLWKG7EVQCVB --paths "/*"
+
+    - name: Comment preview info on PR
+      uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+      with:
+        number: ${{ env.PR_NUMBER }}
+        message: |
+          ### 📖 Preview deployed
+          S3 path: `s3://qlikhelp-stitch-preview/pr-${{ env.PR_NUMBER }}/`
+
+          [https://dyokhwe5tb1zx.cloudfront.net/pr-${{ env.PR_NUMBER }}/](https://dyokhwe5tb1zx.cloudfront.net/pr-${{ env.PR_NUMBER }}/)
+
+  cleanup-preview:
+    # if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c #v6.2.3
+      with:
+        role-to-assume: arn:aws:iam::389712312597:role/Stitch
+        role-session-name: GitHub_to_AWS_via_FederationOIDC
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: Remove preview from AWS
+      run: aws s3 rm s3://qlikhelp-stitch-preview/pr-${{ env.PR_NUMBER }} --recursive
+
+    - name: Update PR comment
+      uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+      with:
+        number: ${{ env.PR_NUMBER }}
+        message: 🗑️ Preview removed.
