@@ -1,5 +1,5 @@
 ---
-title: "Lever (v1): PR 1 - Libraries and metadata updates"
+title: "Lever (v1): Update libraries and metadata"
 content-type: "changelog-entry"
 date: 2026-08-11
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-lever/pull/43"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to pR 1 - Libraries and metadata updates.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to update ibraries and metadata.

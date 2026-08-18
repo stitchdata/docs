@@ -1,5 +1,5 @@
 ---
-title: "Snapchat Ads (v1): update metadata for child parent relationship"
+title: "Snapchat Ads (v1): Update metadata for child parent relationship"
 content-type: "changelog-entry"
 date: 2026-08-14
 entry-type: improvement

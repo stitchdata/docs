@@ -1,5 +1,5 @@
 ---
-title: "Amplitude (v1): Python upgrade 3.12 & Unit Tests"
+title: "Amplitude (v1): Upgrade python version to 3.12"
 content-type: "changelog-entry"
 date: 2026-08-13
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-amplitude/pull/20"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to python upgrade 3.12 & Unit Tests.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade python version to 3.12.
