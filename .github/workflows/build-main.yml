@@ -3,10 +3,10 @@ permissions:
   id-token: write
   contents: read
 on:
-#  push:
-#    branches:
-#      - master
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+#  workflow_dispatch:
 
 env:
   AWS_REGION: "us-east-1"
