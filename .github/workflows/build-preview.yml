@@ -4,21 +4,21 @@ permissions:
   contents: read
   pull-requests: write
 on:
-  workflow_dispatch:
-    inputs:
-      pr:
-        description: "Which Pull Request to publish"
-        required: true
-  #pull_request:
-  #  types: [opened, reopened, synchronize, closed]
+  #workflow_dispatch:
+  #  inputs:
+  #    pr:
+  #      description: "Which Pull Request to publish"
+  #      required: true
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
 
 env:
   AWS_REGION: "us-east-1"
   PREVIEW_DOMAIN: "dyokhwe5tb1zx.cloudfront.net"
-  PR_NUMBER: ${{ github.event.inputs.pr }} # ${{ github.event.pull_request.number }}
+  PR_NUMBER: ${{ github.event.pull_request.number }} # ${{ github.event.inputs.pr }}
 
 concurrency:
-  group: preview-${{ github.event.inputs.pr }}
+  group: preview-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 jobs:
