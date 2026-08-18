@@ -24,7 +24,7 @@ concurrency:
 jobs:
   deploy-preview:
     # Fork PRs don't get AWS credentials, so skip them explicitly rather than let the job fail
-    # if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
@@ -65,7 +65,7 @@ jobs:
             [https://${{ env.PREVIEW_DOMAIN }}/pr-${{ env.PR_NUMBER }}/](https://${{ env.PREVIEW_DOMAIN }}/pr-${{ env.PR_NUMBER }}/)
 
   cleanup-preview:
-    # if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials
