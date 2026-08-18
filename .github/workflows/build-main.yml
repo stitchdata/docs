@@ -1,7 +1,7 @@
 name: Build and deploy master
 permissions:
   id-token: write
-  contents: write
+  contents: read
 on:
 #  push:
 #    branches:
@@ -39,7 +39,7 @@ jobs:
       - name: Upload to AWS
         run: |
           aws sts get-caller-identity
-          aws s3 sync ./_site s3://qlikhelp-stitch --delete 
+          aws s3 sync ./_site s3://qlikhelp-stitch --delete
           # aws cloudfront create-invalidation --distribution-id ECSW2C236F46Q --paths "/*"
 
       - name: Upload build artifact
