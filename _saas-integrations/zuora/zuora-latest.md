@@ -63,16 +63,22 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: "**Administrator permissions in {{ integration.display_name }}.** These permissions are required to create a {{ integration.display_name }} user for Stitch."
+  - item: "**Administrator permissions in {{ integration.display_name }}.** These permissions are required to create a {{ integration.display_name }} user (for Basic Auth) or OAuth application (for OAuth)."
 
 setup-steps:
   - title: "Create a Stitch {{ integration.display_name }} user"
     anchor: "#create-stitch-zuora-user"
     content: |
+      {% capture basic-auth-note %}
+      This section applies only if you plan to use **Basic Authentication** as your authentication method. If using **OAuth**, skip to the next step.
+      {% endcapture %}
+
+      {% include note.html first-line="**Basic Auth only**" content=basic-auth-note %}
+
       In this step, you'll create a {{ integration.display_name }} user for Stitch. Creating a Stitch-specific user will ensure that Stitch is distinguishable in any logs or audits.
 
       {% capture zuora-user-requirements %}
-      To replicate your {{ integration.display_name }} data, Stitch requires a user that:
+      To replicate your {{ integration.display_name }} data using Basic Authentication, Stitch requires a user that:
 
       1. **Has Standard user permissions.** While Stitch will only ever read your data, these permissions are required to access certain objects in {{ integration.display_name }}.
       2. **Has two-factor authentication disabled.** If this is enabled, connection and replication issues will occur after setup. Refer to the **Disable or Reset Two-Factor Authentication** section [in this {{ integration.display_name }} documentation](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/Two-Factor_Authentication) for help disabling this setting.
@@ -103,10 +109,21 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
       4. If the {{ integration.display_name }} instance you want to connect to Stitch is a sandbox, check the **Connect to a Sandbox Environment** checkbox.
-      5. In the **Username** field, enter the Stitch {{ integration.display_name }} user's username. This is the email address that was in the **Login Name** field when you created the user.
-      6. In the **Password** field, enter the password associated with the Stitch {{ integration.display_name }} user.
-      7. If the {{ integration.display_name }} instance you want to connect to Stitch is a **sandbox**, check the **Connect to a Sandbox Environment** box.
-      8. If the {{ integration.display_name }} instance you want to connect to Stitch is **based in Europe**, check the **Connect to a European endpoint** box. If you aren't sure if this is applicable to you, [refer to Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Zuora_Data_Centers).
+      
+      5. Select your authentication method using the radio button selector:
+         - **Basic (recommended)**: Use if you have created a Stitch {{ integration.display_name }} user with username and password credentials.
+         - **OAuth**: Use if your {{ integration.display_name }} administrator has created an OAuth application and provided you with client ID and client secret.
+
+         **If you selected Basic (recommended):**
+         6. In the **{{ integration.display_name }} Username** field, enter the Stitch {{ integration.display_name }} user's username. This is the email address that was in the **Login Name** field when you created the user.
+         7. In the **{{ integration.display_name }} Password** field, enter the password associated with the Stitch {{ integration.display_name }} user.
+
+         **If you selected OAuth:**
+         8. Your {{ integration.display_name }} administrator must create an OAuth application in {{ integration.display_name }} to obtain the **{{ integration.display_name }} Client ID** and **{{ integration.display_name }} Client Secret**. If you don't have these credentials yet, refer to [{{ integration.display_name }} documentation](https://developer.zuora.com/docs/get-started/oauth-client-setup-steps).
+
+         **Note:** This value will be securely stored by Stitch and will not be displayed again. Keep it secure and do not share it via email or unsecured channels.
+
+      9. If the {{ integration.display_name }} instance you want to connect to Stitch is **based in Europe**, check the **Connect to a European endpoint** box. If you aren't sure if this is applicable to you, [refer to Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Zuora_Data_Centers).
 
   - title: "Select a {{ integration.display_name }} extraction API"
     anchor: "rest-vs-aqua-api"
