@@ -36,13 +36,16 @@ For each documentation request (update, addition, or creation):
 2. **Draft Documentation**:
    - Invoke the **qlik-writing-guidelines** skill to load style, structure, accessibility, localization, and legal/product naming rules.
    - **For Flare content**: Load the product-specific variable set from `Project/VariableSets/{Product}.flvar` (e.g., `Replicate.flvar`, `Sense_Release.flvar`) and use variables for product names, versions, and service names (see copilot-instructions.md for details).
+   - **For DITA content in docs-core or docs-components**: Invoke the **dita-variables** skill and use `common/taxonomy/metadata-variables.dita` `<keyword conref>` references for product names, module names, and brand names.
    - Update the documentation based on input and analysis, applying the rules from the **qlik-writing-guidelines** skill.
-    - Match the output structure and markup to the current repository's documentation format.
+     - Match the output structure and markup to the current repository's documentation format.
    - For unresolved links, cross-references, and images, follow the `[ASSUMED-*]` pattern documented in copilot-instructions.md:
      - Use empty `href=""` or `src=""` attributes (never dummy/placeholder values that will break the build)
      - Place `[ASSUMED-LINK]`, `[ASSUMED-XREF]`, or `[ASSUMED-IMAGE]` labels visibly in the content text
      - List all placeholders in the Follow-up section with context hints
    - Use [ASSUMED] placeholders for any other missing or ambiguous data, noting these in the follow-up section.
+   - **For Flare content with TLV tickets**: Invoke the **flare-whats-new-authoring** skill only for Qlik Cloud changes.
+   - For DITA content: invoke the **talend-release-notes** skill.
 
 3. **(New files only) Add a Navigation Entry (TOC / Ditamap)**:
    Apply this step only if you created a new file. If you update an existing file, skip this step.   

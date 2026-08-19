@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2018-03-14
 entry-type: improvement
 entry-category: integration
-connection-id: google-adwords
+connection-id: google-ads
 connection-version: 1
 ---
 

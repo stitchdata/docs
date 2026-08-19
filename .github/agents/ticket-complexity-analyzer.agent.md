@@ -1,6 +1,6 @@
 ---
 name: ticket-complexity-analyzer
-description: "Classify Jira documentation tickets by complexity (simple/moderate/complex) using structured analysis. Use when: you need to assess documentation effort, plan ticket prioritization, route work to the right agent, or evaluate scope quickly. Input: Jira ticket key, link, or full ticket details."
+description: "Classify Jira documentation tickets by complexity (simple/moderate/complex) with recommended workflow path and review tier. Use when: you need to assess documentation effort, plan prioritization, route work to the right agent, or determine workflow path and review requirements. Outputs complexity score, change trigger, confidence, recommended review tier, and suggested documentation workflow. Input: Jira ticket key, link, or full ticket details."
 workflow: single-stage
 ---
 
@@ -254,7 +254,75 @@ Confidence reflects **evidence quality**, not task difficulty.
 
 ---
 
-### Phase 7: Provide Structured Output
+### Phase 7: Determine Suggested Workflow Path & Review Tier
+
+Map Complexity + Change Trigger + Risk Signals to actionable recommendations for documentation workflow and review rigor.
+
+#### Decision Logic: Suggested Documentation Workflow
+
+Use this table to determine the recommended documentation workflow path:
+
+| Complexity | Change Trigger | Impact/Risk Score | Suggested Workflow Path |
+|---|---|---|---|
+| **Simple** | Documentation-only Correction | 0–1 (Low) | AI-only draft; writer optional review |
+| **Simple** | Product Change / UI Text / Support | 0–1 (Low) | AI draft; writer review optional |
+| **Moderate** | Product Change / Support | 1–2 (Medium) | AI early draft at Ready for implementation; writer review at Ready for verification |
+| **Moderate** | Any + Terminology-heavy / Multi-area | 2+ (Medium–High) | Early writer engagement; coordinate terminology review; staged AI drafts |
+| **Complex** | Any + High coordination/risk | 2+ (High) | Early writer assignment during design; staged AI drafts; milestone-based reviews; explicit ownership |
+| **Complex** | Compliance / Release Lifecycle / Major terminology | 2+ (High) | Dedicated documentation plan; early writer engagement; multi-stakeholder review; risk tracking |
+
+**Interpretation guide:**
+- **AI-only draft**: No writer intervention planned; AI produces first draft; optional for SME/writer to review.
+- **AI + writer at verification**: AI produces drafts when implementation is Ready for verification; writer reviews for structure, terminology, user task flow.
+- **Early writer engagement + staged drafts**: Writer joins during design or planning phases for terminology/conceptual framing; AI drafts staged (conceptual draft at Ready for implementation, full draft at Ready for verification); writer participates in milestone reviews.
+- **Dedicated plan + early writer + multi-stakeholder**: Large capability with explicit documentation ownership, milestone tracking, and involvement of multiple review stakeholders (technical PO, product manager, design, etc.).
+
+#### Decision Logic: Recommended Review Tier
+
+Use this logic to determine the technical review tier required:
+
+```
+IF Complexity = Simple
+  AND Change-Trigger = Documentation-only-Correction
+    → TIER: No formal SME review
+       (Writer review is sufficient; typo/clarity fixes only)
+
+  AND (Change-Trigger = Product-Change OR Support-Driven)
+  AND Impact-Score = 0 (low user risk)
+  AND Scope-Score ≤ 1 (one page/string set or few related pages)
+    → TIER: Targeted SME review
+       (SME reviews only changed technical claims or procedure steps)
+
+ELSIF Complexity = Moderate
+  AND Scope-Score ≤ 1
+  AND Coordination-Score ≤ 1
+  AND Change-Trigger = (Product-Change OR Support-Driven)
+    → TIER: Targeted SME review
+
+  AND (Scope-Score = 2 OR Risk-Signals include: API/endpoints, permissions, setup procedures, data movement, multi-area impact)
+  AND Coordination-Score ≥ 1
+    → TIER: Full technical review
+       (New behavior, new procedures, API changes, setup changes, data flows)
+
+ELSIF Complexity = Complex
+    → TIER: Full technical review (baseline for complex tickets)
+    
+  IF Change-Trigger = (Compliance OR Release-Lifecycle)
+  OR Risk-Signals include: Security, Privacy, Compliance, Legal
+  OR Coordination-Score = 2 (multiple teams)
+    → TIER: Multi-stakeholder review
+       (Technical product owner + product manager + design/QA as needed)
+```
+
+**Tier Definitions:**
+- **No formal SME review**: Writer review is sufficient. Use for minor corrections, typo fixes, non-technical wording updates.
+- **Targeted SME review**: SME reviews only changed technical claims or new procedure steps. Use for localized feature updates or small procedural changes.
+- **Full technical review**: SME validates all technical correctness before publication. Use for new behavior, new procedures, API changes, permissions, setup, data movement, or multi-area impact.
+- **Multi-stakeholder review**: Technical product owner and product manager both review; Design or QA may also be involved. Use for large capabilities, preview releases, cross-product dependencies, or major terminology changes.
+
+---
+
+### Phase 8: Provide Structured Output
 
 Return classification in this format:
 
@@ -275,6 +343,16 @@ Return classification in this format:
 - Ambiguity: [0-2]
 - Coordination: [0-2]
 - **Total: [0-8]**
+
+**Recommended Review Tier:** [No formal SME review | Targeted SME review | Full technical review | Multi-stakeholder review]
+
+**Review Tier Rationale:**
+[1–2 lines explaining why this tier, based on complexity/impact/coordination]
+
+**Suggested Documentation Workflow:** [AI-only draft | AI + writer at verification | Early writer engagement + staged drafts | Dedicated plan + early writer + multi-stakeholder]
+
+**Workflow Rationale:**
+[1–2 lines explaining why this workflow path, based on complexity/trigger/risk signals]
 
 **Reasoning Summary:**
 [2–4 short bullets explaining the classification]
@@ -335,6 +413,16 @@ Tools not needed:
 - Coordination: 0 (no coordination)
 - **Total: 0**
 
+**Recommended Review Tier:** No formal SME review
+
+**Review Tier Rationale:**
+Typo fix with no technical content; writer review is sufficient.
+
+**Suggested Documentation Workflow:** AI-only draft
+
+**Workflow Rationale:**
+Minor correction, obvious from ticket; no writer engagement needed unless workflow involves mandatory review.
+
 **Reasoning Summary:**
 - Single-word typo correction
 - No product code change
@@ -381,6 +469,16 @@ Tools not needed:
 - Ambiguity: 0 (PR linked, clear change)
 - Coordination: 1 (likely UX/dev sign-off, dev input on edge cases)
 - **Total: 3**
+
+**Recommended Review Tier:** Targeted SME review
+
+**Review Tier Rationale:**
+Product API change with clear scope; SME validates new parameter behavior and default value; developer confirms applicability.
+
+**Suggested Documentation Workflow:** AI + writer at verification
+
+**Workflow Rationale:**
+Moderate complexity, product-linked change; AI generates draft when Ready for verification; writer reviews structure and technical accuracy.
 
 **Reasoning Summary:**
 - Product API expanded (new optional parameter)
@@ -431,6 +529,16 @@ Tools not needed:
 - Ambiguity: 1 (in design phase, some product details pending)
 - Coordination: 2 (involves PM, engineering, UX, support teams)
 - **Total: 7**
+
+**Recommended Review Tier:** Multi-stakeholder review
+
+**Review Tier Rationale:**
+Complex ticket affecting major user workflow and involving legal/compliance concerns (data residency, migration timelines, rollback). Requires technical PO, product manager, and support stakeholder review.
+
+**Suggested Documentation Workflow:** Dedicated plan + early writer + multi-stakeholder
+
+**Workflow Rationale:**
+Large capability with cross-product impact; assign dedicated writer during design; staged AI drafts (conceptual at Ready for implementation, full at Ready for verification); coordinate terminology with UX/Design; multi-stakeholder milestone reviews.
 
 **Reasoning Summary:**
 - Large feature area: multi-step migration journey
@@ -488,6 +596,16 @@ Tools not needed:
 - Ambiguity: 0 (parent story clarifies feature scope + release target)
 - Coordination: 1 (product + dev executed; docs in execution phase)
 - **Total: 3**
+
+**Recommended Review Tier:** Targeted SME review
+
+**Review Tier Rationale:**
+Moderate complexity, localized feature update; SME reviews admin UI procedure steps and tenant configuration; product team confirms user journey.
+
+**Suggested Documentation Workflow:** AI + writer at verification
+
+**Workflow Rationale:**
+Moderate product change with clear parent context; AI generates draft when Ready for verification; writer validates admin workflow and user task flow.
 
 **Reasoning Summary:**
 - Product feature: Customer opt-in for release cadence (quarterly vs monthly)

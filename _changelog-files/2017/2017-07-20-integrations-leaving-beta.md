@@ -36,6 +36,9 @@ connections:
   - id: "hubspot"
     type: "integration"
     version: "01-03-2017"
+    display_name: "HubSpot"
+    no_link: true
+    copy: "This version has been removed."
 
   - id: "jira"
     type: "integration"

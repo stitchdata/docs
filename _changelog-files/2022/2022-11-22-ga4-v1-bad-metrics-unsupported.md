@@ -5,7 +5,7 @@ date: 2022-11-22
 entry-type: improvement
 entry-category: integration
 connection-id: google-analytics-4
-connection-version: 
+connection-version: 1
 pull-request: "https://github.com/singer-io/tap-ga4/pull/28"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

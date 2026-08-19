@@ -1,0 +1,49 @@
+name: Build and deploy master
+permissions:
+  id-token: write
+  contents: read
+on:
+  push:
+    branches:
+      - master
+#  workflow_dispatch:
+
+env:
+  AWS_REGION: "us-east-1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@e6de054238d6b7531b4efff3b6587d9aade6a06c #v6.2.3
+        with:
+          role-to-assume: arn:aws:iam::389712312597:role/Stitch
+          role-session-name: GitHub_to_AWS_via_FederationOIDC
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload to AWS
+        run: |
+          aws sts get-caller-identity
+          aws s3 sync ./_site s3://qlikhelp-stitch --delete
+          # aws cloudfront create-invalidation --distribution-id ECSW2C236F46Q --paths "/*"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site/

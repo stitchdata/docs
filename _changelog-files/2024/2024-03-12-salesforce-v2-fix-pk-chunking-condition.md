@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2024-03-12
 entry-type: bug-fix
 entry-category: integration
-connection-id: tap-salesforce
+connection-id: salesforce
 connection-version: 2
 pull-request: "https://github.com/singer-io/tap-salesforce/pull/176"
 ---
