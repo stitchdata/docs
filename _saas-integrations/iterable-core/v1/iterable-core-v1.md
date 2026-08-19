@@ -1,9 +1,9 @@
 ---
 title: Iterable Core (v1)
-permalink: /integrations/saas/iterable-core
+permalink: /integrations/saas/iterable-core/v1
 keywords: iterable, integration, schema, etl iterable, iterable etl, iterable schema
 layout: singer
-# input: false
+input: false
 
 key: "iterable-setup"
 

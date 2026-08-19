@@ -1,10 +1,10 @@
 ---
-title: "Intaact (v1) update: Match more input filenames"
+title: "Intacct (v1) update: Match more input filenames"
 content-type: "changelog-entry"
 date: 2023-08-14
 entry-type: improvement
 entry-category: integration
-connection-id: intaact
+connection-id: intacct
 connection-version: 1
 pull-request: "https://github.com/singer-io/tap-intacct/pull/11"
 ---

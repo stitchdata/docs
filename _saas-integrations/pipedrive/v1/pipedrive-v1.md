@@ -13,10 +13,10 @@
 # -------------------------- #
 
 title: Pipedrive (v1)
-permalink: /integrations/saas/pipedrive
+permalink: /integrations/saas/pipedrive/v1
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 layout: singer
-# input: false
+input: false
 
 key: "pipedrive-setup"
 

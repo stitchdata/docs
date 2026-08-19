@@ -8,7 +8,7 @@ doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-activecampaign/blob/master/tap_activecampaign/schemas/email_activities.json"
 description: ""
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
     name: ""
@@ -24,7 +24,6 @@ attributes:
   - name: "tstamp"
     type: "date-time"
     description: "The email activity timestamp."
-    replication-key: true
 
   - name: "account"
     type: "integer"

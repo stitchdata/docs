@@ -56,7 +56,9 @@ For each request (update, addition, or creation of documentation):
 3. **Create a documentation plan**:  
    - Provide a concise outline of the proposed documentation changes, including:
      - List of existing topics to update
-     - If new topics are needed, topic titles and key points to cover in each topic 
+     - If new topics are needed:
+       - Topic titles and key points to cover in each topic
+       - Related existing topics (semantic cluster): List 2-3 existing topics that are conceptually related and should be near the new topic in navigation structures (e.g., for a new topic "Archiving applications", related topics might be "Creating applications", "Managing applications"). Draft-doc will use these to locate semantic placement in TOC/ditamap files.
      - At least two proposed structures that take into account existing content models and helpsite architecture
      - Dependencies
 

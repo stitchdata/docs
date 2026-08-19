@@ -1,0 +1,2098 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "add_freight_to_cod": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "asn_candidate": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "asn_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "asn_sent": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "asn_sent_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "batch_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name_key": {
+          "additionalProperties": false,
+          "properties": {
+            "customer_identifier": {
+              "additionalProperties": false,
+              "properties": {
+                "external_id": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "id": {
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "bill_to": {
+      "additionalProperties": false,
+      "properties": {
+        "address1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "contact_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "dept": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fax": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_quick_lookup": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "retailer_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "same_as": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "billing": {
+      "additionalProperties": false,
+      "properties": {
+        "billing_charges": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "charge_type": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "details": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "charge_label": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "charge_per_unit": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "gl_acct_num": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "num_units": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "pt_ar_acct": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "pt_item": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "pt_item_description": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "sku": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "system_generated": {
+                              "type": [
+                                "null",
+                                "boolean"
+                              ]
+                            },
+                            "unit_description": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "warehouse_transaction_price_calc_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "subtotal": {
+                    "multipleOf": 1e-16,
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "billing_code": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_by_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "creation_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "customer_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "external_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "defer_notification": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "description": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "earliest_ship_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "export_channel_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "export_module_ids": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "external_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "facility_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "fulfill_inv_info": {
+      "additionalProperties": false,
+      "properties": {
+        "fulfill_inv_amount": {
+          "multipleOf": 1e-16,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "fulfill_inv_discount_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fulfill_inv_message": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fulfill_inv_shipping_and_handling": {
+          "multipleOf": 1e-16,
+          "type": [
+            "null",
+            "number"
+          ]
+        },
+        "fulfill_inv_tax": {
+          "multipleOf": 1e-16,
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "fully_allocated": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "import_channel_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "invoice_delivered_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "invoice_exported_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "invoice_number": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "is_closed": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "labels_exported": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "last_modified_by_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "last_modified_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "load_out_done_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "loaded_state": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "master_billing_of_lading_id": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "num_units": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "order_id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "order_items": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "expiration_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "external_id": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fulfill_inv_discount_amt": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "fulfill_inv_discount_pct": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "fulfill_inv_note": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "fulfill_inv_sale_price": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "item_identifier": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "sku": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "lot_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "notes": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "order_item_packages": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "package_number": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "quantity": {
+                          "multipleOf": 1e-16,
+                          "type": [
+                            "null",
+                            "number"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "proposed_allocations": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "qty": {
+                          "multipleOf": 1e-16,
+                          "type": [
+                            "null",
+                            "number"
+                          ]
+                        },
+                        "receive_item_id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "qty": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "qualifier": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "read_only": {
+                "additionalProperties": false,
+                "properties": {
+                  "allocations": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "detail": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "expiration_date": {
+                                  "type": [
+                                    "null",
+                                    "date-time"
+                                  ]
+                                },
+                                "item_traits": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "id": {
+                                      "type": [
+                                        "null",
+                                        "integer"
+                                      ]
+                                    },
+                                    "sku": {
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    }
+                                  },
+                                  "type": [
+                                    "null",
+                                    "object"
+                                  ]
+                                },
+                                "location_identifier": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "id": {
+                                      "type": [
+                                        "null",
+                                        "integer"
+                                      ]
+                                    },
+                                    "name_key": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "facility_identifier": {
+                                          "additionalProperties": false,
+                                          "properties": {
+                                            "id": {
+                                              "type": [
+                                                "null",
+                                                "integer"
+                                              ]
+                                            },
+                                            "name": {
+                                              "type": [
+                                                "null",
+                                                "string"
+                                              ]
+                                            }
+                                          },
+                                          "type": [
+                                            "null",
+                                            "object"
+                                          ]
+                                        },
+                                        "name": {
+                                          "type": [
+                                            "null",
+                                            "string"
+                                          ]
+                                        }
+                                      },
+                                      "type": [
+                                        "null",
+                                        "object"
+                                      ]
+                                    }
+                                  },
+                                  "type": [
+                                    "null",
+                                    "object"
+                                  ]
+                                },
+                                "lot_number": {
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ]
+                                },
+                                "pallet_identifier": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "id": {
+                                      "type": [
+                                        "null",
+                                        "integer"
+                                      ]
+                                    },
+                                    "name_key": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "facility_identifier": {
+                                          "additionalProperties": false,
+                                          "properties": {
+                                            "id": {
+                                              "type": [
+                                                "null",
+                                                "integer"
+                                              ]
+                                            },
+                                            "name": {
+                                              "type": [
+                                                "null",
+                                                "string"
+                                              ]
+                                            }
+                                          },
+                                          "type": [
+                                            "null",
+                                            "object"
+                                          ]
+                                        },
+                                        "name": {
+                                          "type": [
+                                            "null",
+                                            "string"
+                                          ]
+                                        }
+                                      },
+                                      "type": [
+                                        "null",
+                                        "object"
+                                      ]
+                                    }
+                                  },
+                                  "type": [
+                                    "null",
+                                    "object"
+                                  ]
+                                },
+                                "qualifier": {
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ]
+                                },
+                                "serial_number": {
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ]
+                                }
+                              },
+                              "type": [
+                                "null",
+                                "object"
+                              ]
+                            },
+                            "loaded_out": {
+                              "type": [
+                                "null",
+                                "boolean"
+                              ]
+                            },
+                            "properly_picked_primary": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "properly_picked_secondary": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "qty": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "receive_item_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "estimated_qty": {
+                    "multipleOf": 1e-16,
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "estimated_secondary_qty": {
+                    "multipleOf": 1e-16,
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "full_allocated": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "is_order_qty_secondary": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "order_item_id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "pick_exceptions": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "expiration_date": {
+                              "type": [
+                                "null",
+                                "date-time"
+                              ]
+                            },
+                            "location_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            },
+                            "lot_number": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "order_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            },
+                            "order_item_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            },
+                            "order_item_pick_exception_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            },
+                            "picked_primary_qty": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "picked_secondary_qty": {
+                              "multipleOf": 1e-16,
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "reason": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            "receive_item_id": {
+                              "type": [
+                                "null",
+                                "integer"
+                              ]
+                            },
+                            "serial_number": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "secondary_unit_identifier": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  },
+                  "unit_identifier": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": {
+                        "type": [
+                          "null",
+                          "integer"
+                        ]
+                      },
+                      "name": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "null",
+                      "object"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "saved_elements": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "value": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "secondary_qty": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "serial_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "weight_imperial": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "weight_metric": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "outbound_serial_numbers": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "item_identifier": {
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": [
+                      "null",
+                      "integer"
+                    ]
+                  },
+                  "sku": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                },
+                "type": [
+                  "null",
+                  "object"
+                ]
+              },
+              "qualifier": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "serial_numbers": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pack_done_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "packages": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "cod": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "cod_amount": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "create_date": {
+                "type": [
+                  "null",
+                  "date-time"
+                ]
+              },
+              "description": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "height": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "insured_amount": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "label": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "length": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "oversize": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "package_contents": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "create_date": {
+                          "type": [
+                            "null",
+                            "date-time"
+                          ]
+                        },
+                        "expiration_date": {
+                          "type": [
+                            "null",
+                            "date-time"
+                          ]
+                        },
+                        "lot_number": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "order_item_id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "order_item_pick_exception_id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "package_content_id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "package_id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "qty": {
+                          "multipleOf": 1e-16,
+                          "type": [
+                            "null",
+                            "number"
+                          ]
+                        },
+                        "receive_item_id": {
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "serial_number": {
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "serial_numbers": {
+                          "anyOf": [
+                            {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "package_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "package_type_id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "tracking_number": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "ucc128": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "weight": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "width": {
+                "multipleOf": 1e-16,
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "parcel_label_type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "pick_done_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "pick_ticket_print_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "pkgs_exported": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "po_num": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "process_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "reallocated_after_pick_ticket_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "reference_num": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "route_candidate": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "route_pickup_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "route_sent": {
+      "type": [
+        "null",
+        "boolean"
+      ]
+    },
+    "routing_info": {
+      "additionalProperties": false,
+      "properties": {
+        "account": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "bill_of_lading": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "capacity_identifier": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "carrier": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "door_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_cod": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "is_insurance": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "load_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "mode": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "pickup_date": {
+          "type": [
+            "null",
+            "date-time"
+          ]
+        },
+        "required_delivery_conf": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "required_return_receipt": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "scac_code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "seal_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ship_point_zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "tracking_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "trailer_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "saved_elements": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "value": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ship_cancel_date": {
+      "type": [
+        "null",
+        "date-time"
+      ]
+    },
+    "ship_to": {
+      "additionalProperties": false,
+      "properties": {
+        "address1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "contact_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "dept": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fax": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_quick_lookup": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "retailer_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "retailer_info": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "name_key": {
+              "additionalProperties": false,
+              "properties": {
+                "customer_identifier": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "external_id": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "id": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": [
+                    "null",
+                    "object"
+                  ]
+                },
+                "name": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "number": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              },
+              "type": [
+                "null",
+                "object"
+              ]
+            }
+          },
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "same_as": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "shipping_notes": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "sold_to": {
+      "additionalProperties": false,
+      "properties": {
+        "address1": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address2": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address_status": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "city": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "company_name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "contact_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "country": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "dept": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "email_address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "fax": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "is_quick_lookup": {
+          "type": [
+            "null",
+            "boolean"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "phone_number": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "retailer_id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "same_as": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "state": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "title": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "zip": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "status": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "total_volume": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_weight": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "transaction_entry_type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "unit2_identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "type": [
+        "null",
+        "object"
+      ]
+    },
+    "up_service_option_charge": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "up_transportation_charge": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "ups_is_residential": {
+      "multipleOf": 1e-16,
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "warehouse_transaction_source_type": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    }
+  },
+  "type": "object"
+}

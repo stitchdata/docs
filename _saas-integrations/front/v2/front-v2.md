@@ -13,11 +13,11 @@
 # -------------------------- #
 
 title: Front (v2)
-permalink: /integrations/saas/front
+permalink: /integrations/saas/front/v2
 keywords: front, integration, schema, etl front, front etl, front schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Front integration."
 layout: singer
-# input: false
+input: false
 
 key: "frontapp-setup"
 
