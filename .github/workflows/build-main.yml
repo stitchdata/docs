@@ -32,14 +32,14 @@ jobs:
           bundler-cache: true
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --baseurl /docs_v2
         env:
           JEKYLL_ENV: production
 
       - name: Upload to AWS
         run: |
           aws sts get-caller-identity
-          aws s3 sync ./_site s3://qlikhelp-stitch --delete
+          aws s3 sync ./_site/docs s3://qlikhelp-stitch/docs_v2 --delete
           # aws cloudfront create-invalidation --distribution-id ECSW2C236F46Q --paths "/*"
 
       - name: Upload build artifact
