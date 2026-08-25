@@ -1,0 +1,650 @@
+name: Jira PR Link Comment
+
+# -----------------------------------------------------------------------------
+# Companion to the agentic `jira-to-docs.md` AND `create-doc-draft.md`
+# workflows.
+#
+# Both agentic workflows open their documentation PR in a downstream
+# safe-outputs job, so no step there can know the PR URL or number. This
+# workflow posts an ADF comment to the Jira ticket linking to the pull
+# request, requests a real GitHub review from the suggested reviewer, and
+# then transitions the ticket to "Ready for Verification" (warns and skips if
+# that transition is not available from the ticket's current status; genuine
+# Jira API errors fail).
+#
+# Distinguishing the two source workflows:
+#   `github.event.workflow_run.name` tells us which workflow triggered this
+#   run, which in turn tells us the branch prefix to expect
+#   (`branch-qcs-docs/` for jira-to-docs, `branch-qcs-docs-new/` for
+#   create-doc-draft — see each workflow's own comments) and lets the PR-link
+#   comment body use wording appropriate to which one ran.
+#
+# Why the reviewer request lives here and not in jira-to-docs.md:
+#   gh-aw's `add-reviewer` safe-output requires a literal numeric PR number,
+#   but jira-to-docs.md only ever has a `#aw_ID` temporary_id for the PR it's
+#   creating in the same deferred batch (create-pull-request resolves the real
+#   PR number only after the agent's run finishes) — `add-reviewer` doesn't
+#   support that temporary_id form the way add_labels/assign_milestone do, so
+#   every such call there hard-fails. By the time this workflow runs, the PR
+#   genuinely exists with a real number, so the request can be made directly.
+#
+# Why `workflow_run` (not `pull_request`):
+#   A `pull_request`-triggered workflow shows up as a PR check and is subject to
+#   the "Approve and run" gate, so it needs manual approval. `workflow_run` fires
+#   when the agentic workflow finishes, runs from the default branch, and is NOT
+#   subject to that gate — so it runs automatically with no manual step.
+#
+# How it finds the right PR:
+#   `workflow_run` does not hand us the PR, so we download the `agent` artifact
+#   and look at its `aw-<branch>.patch`/`.bundle` filename, which gh-aw names
+#   after the exact branch the PR was opened from (e.g. `aw-branch-qcs-docs-doc-5331.patch`
+#   for branch `branch-qcs-docs/DOC-5331`, or `aw-branch-qcs-docs-new-doc-5370.patch`
+#   for branch `branch-qcs-docs-new/DOC-5370`) — a verified, human-observed
+#   filename convention. We extract the ticket from the trailing
+#   `-<project>-<number>` segment (works for either branch prefix) and
+#   reconstruct the exact source branch using the prefix that corresponds to
+#   `github.event.workflow_run.name`, then look up its PR by that branch,
+#   which is exact. Matching on a label alone is NOT enough — it returns every
+#   open agentic PR, so a run for one ticket would also comment on and
+#   transition unrelated tickets. If the ticket or its PR cannot be resolved
+#   we skip rather than guess.
+#
+# How it finds the reviewer to request:
+#   The PR body already contains a plain-text `Suggested reviewer: @username`
+#   line (written by the agentic workflow from the Jira assignee mapping). This
+#   workflow parses that line and, if the username is on the trusted allowlist
+#   below, requests a real review from them via the GitHub API.
+#
+# Idempotency / self-healing:
+#   Before commenting we check the ticket's existing comments and skip if one
+#   already links to that PR. Before requesting review we check existing review
+#   requests/reviews and skip if the reviewer is already involved. This makes
+#   re-runs safe and also back-fills any PR that previously missed either step.
+#
+# Agent reasoning trail:
+#   The rendered step summary isn't exposed by the REST API, so we rebuild the
+#   turn-by-turn trail from the structured engine logs in the run's `agent`
+#   artifact and post it as its own Jira comment (separate from the PR-link
+#   comment) with a link to the full run. `agent-stdio.log` is deliberately not
+#   used: it carries only container bootstrap noise plus the final report, and
+#   that report is already in the PR description.
+#
+# Requires the secrets:
+#   - JIRA_CLOUD_ID                  Jira Cloud instance identifier (UUID).
+#   - JIRA_SERVICE_ACCESS_TOKEN_POST Bearer token, Jira API v3 (write).
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_run:
+    workflows: ["Jira to Documentation", "Create DOC Draft"]
+    types: [completed]
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment-on-jira:
+    runs-on: ubuntu-latest
+    # Only act when the agentic run succeeded (a failed run has no PR to link).
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Resolve run context
+        id: run-context
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          WORKFLOW_NAME: ${{ github.event.workflow_run.name }}
+        run: |
+          set -euo pipefail
+
+          ARTIFACT_ID=$(gh api "repos/${REPOSITORY}/actions/runs/${RUN_ID}/artifacts" --jq '.artifacts[] | select(.name=="agent") | .id' | head -n1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::warning::No 'agent' artifact found for run ${RUN_ID}; skipping Jira updates."
+            exit 0
+          fi
+
+          mkdir -p /tmp/agent_artifact
+          gh api "repos/${REPOSITORY}/actions/artifacts/${ARTIFACT_ID}/zip" > /tmp/agent_artifact.zip
+          unzip -o -q /tmp/agent_artifact.zip -d /tmp/agent_artifact
+
+          # gh-aw names the patch/bundle after the exact branch, e.g.
+          # aw-branch-qcs-docs-doc-5331.patch for branch-qcs-docs/DOC-5331
+          # (jira-to-docs), or aw-branch-qcs-docs-new-doc-5370.patch for
+          # branch-qcs-docs-new/DOC-5370 (create-doc-draft).
+          PATCH_FILE=$(find /tmp/agent_artifact -maxdepth 1 \( -name 'aw-*.patch' -o -name 'aw-*.bundle' \) | head -n1)
+          if [ -z "$PATCH_FILE" ]; then
+            echo "::warning::No aw-*.patch/aw-*.bundle file found in the 'agent' artifact for run ${RUN_ID}; skipping Jira updates."
+            exit 0
+          fi
+
+          # Ticket is the trailing "-<project>-<number>" segment before the
+          # extension — this is agnostic to which branch prefix precedes it,
+          # so it matches both source workflows' branch naming.
+          TICKET=$(PATCH_BASENAME="$(basename "$PATCH_FILE")" python3 - <<'PYEOF'
+          import os, re
+          m = re.search(r'-([a-z]+)-([0-9]+)\.(patch|bundle)$', os.environ["PATCH_BASENAME"])
+          print(f'{m.group(1).upper()}-{m.group(2)}' if m else '')
+          PYEOF
+          )
+          if [ -z "$TICKET" ]; then
+            echo "::warning::Could not derive a Jira ticket id from patch filename '${PATCH_FILE}' for run ${RUN_ID}; skipping Jira updates."
+            exit 0
+          fi
+
+          # Branch prefix depends on which workflow triggered this run.
+          case "$WORKFLOW_NAME" in
+            "Create DOC Draft")
+              PR_BRANCH="branch-qcs-docs-new/${TICKET}"
+              ;;
+            "Jira to Documentation")
+              PR_BRANCH="branch-qcs-docs/${TICKET}"
+              ;;
+            *)
+              echo "::warning::Unrecognized source workflow '${WORKFLOW_NAME}' for run ${RUN_ID}; skipping Jira updates."
+              exit 0
+              ;;
+          esac
+          echo "workflow_name=${WORKFLOW_NAME}" >> "$GITHUB_OUTPUT"
+
+          PR_NUMBER=$(gh pr list --repo "$REPOSITORY" --head "$PR_BRANCH" --state open --json number --jq '.[0].number // empty')
+          if [ -z "$PR_NUMBER" ]; then
+            echo "::warning::No open PR found on branch ${PR_BRANCH} for run ${RUN_ID}; skipping Jira updates."
+            exit 0
+          fi
+
+          echo "Run ${RUN_ID} (ticket ${TICKET}) resolved to PR #${PR_NUMBER}"
+          echo "pr_number=${PR_NUMBER}" >> "$GITHUB_OUTPUT"
+
+          python3 - <<'PYEOF'
+          import glob, json, os, re
+
+          LOG_GLOB = "/tmp/agent_artifact/sandbox/agent/logs/**/*"
+          TS_PREFIX = re.compile(r"^\d{4}-\d{2}-\d{2}T[^ ]+ \[(DEBUG|INFO|WARNING|ERROR)\] ?")
+
+          events = []
+          seen = set()
+          pending_tools = []
+
+          def normalize(text):
+              return " ".join(str(text).split())
+
+          def add_event(text):
+              text = normalize(text)
+              if not text:
+                  return
+              if len(text) > 600:
+                  text = text[:600] + " ..."
+              if text in seen:
+                  return
+              seen.add(text)
+              events.append(text)
+
+          def add_tool(name):
+              name = normalize(name)
+              if not name:
+                  return
+              if name not in pending_tools:
+                  pending_tools.append(name)
+
+          def flush_tools():
+              if pending_tools:
+                  add_event("used tools: " + ", ".join(pending_tools))
+                  pending_tools.clear()
+
+          def collect_structured(node):
+              """Walk request/response JSON for reasoning content. Tool call names and
+              arguments (shell commands, file paths) are deliberately not surfaced
+              here — only the model's own reasoning/decision narrative."""
+              if isinstance(node, list):
+                  for item in node:
+                      collect_structured(item)
+                  return
+              if not isinstance(node, dict):
+                  return
+
+              if node.get("role") == "assistant":
+                  # reasoning_text carries the model's own decision narrative
+                  # (e.g. how it handled an incomplete Jira description) and is
+                  # the most writer-relevant signal available in these logs.
+                  reasoning = node.get("reasoning_text")
+                  if isinstance(reasoning, str):
+                      add_event(reasoning)
+                  content = node.get("content")
+                  if isinstance(content, str):
+                      add_event(content)
+
+              kind = node.get("type")
+              if kind == "thinking" and isinstance(node.get("thinking"), str):
+                  add_event(node["thinking"])
+                  return
+              if kind == "text" and isinstance(node.get("text"), str):
+                  add_event(node["text"])
+                  return
+              if kind == "tool_use" and isinstance(node.get("name"), str):
+                  add_tool(node["name"])
+                  return
+
+              for value in node.values():
+                  collect_structured(value)
+
+          def extract_from_response_payload(obj):
+              """Extract assistant-facing text from completion payloads when available."""
+              if not isinstance(obj, dict):
+                  return
+              choices = obj.get("choices")
+              if not isinstance(choices, list):
+                  return
+
+              for choice in choices:
+                  if not isinstance(choice, dict):
+                      continue
+
+                  # OpenAI-compatible shapes.
+                  msg = choice.get("message")
+                  if isinstance(msg, dict):
+                      content = msg.get("content")
+                      if isinstance(content, str):
+                          add_event(content)
+
+                  delta = choice.get("delta")
+                  if isinstance(delta, dict):
+                      content = delta.get("content")
+                      if isinstance(content, str):
+                          add_event(content)
+
+                  # Fallback for provider-specific text fields.
+                  text = choice.get("text")
+                  if isinstance(text, str):
+                      add_event(text)
+
+          def extract_text_signals(msg):
+              lower = msg.lower()
+
+              if "custom agent markdown frontmatter is malformed" in lower:
+                  add_event("Agent configuration issue detected: malformed custom agent frontmatter.")
+                  return
+              if "unknown field ignored" in lower and ".agent.md" in lower:
+                  add_event("Agent configuration warning detected: unsupported frontmatter field ignored.")
+                  return
+              if msg.startswith("create: "):
+                  created_path = msg.split("create:", 1)[1].strip()
+                  add_event(f"Created documentation file: {created_path}")
+                  return
+              if "tool invocation result:" in lower:
+                  payload = msg.split(":", 1)[1].strip()
+                  try:
+                      data = json.loads(payload)
+                  except Exception:
+                      return
+                  if isinstance(data, dict) and data.get("result") == "success":
+                      patch = (data.get("patch") or {}).get("path")
+                      bundle = (data.get("bundle") or {}).get("path")
+                      if patch:
+                          add_event(f"Prepared patch artifact: {patch}")
+                      if bundle:
+                          add_event(f"Prepared bundle artifact: {bundle}")
+                  return
+              if "runpromptmode: exiting with code 0" in lower:
+                  add_event("Agent run completed successfully.")
+                  return
+
+          files = sorted(glob.glob(LOG_GLOB, recursive=True))
+          for path in files:
+              if not os.path.isfile(path):
+                  continue
+
+              expecting_payload_json = False
+              collecting_json = False
+              brace_depth = 0
+              json_buf = []
+              json_context = ""
+
+              with open(path, encoding="utf-8", errors="replace") as f:
+                  for raw_line in f:
+                      line = raw_line.rstrip("\n")
+                      if not line:
+                          continue
+
+                      msg = TS_PREFIX.sub("", line).strip()
+                      if not msg:
+                          continue
+
+                      if collecting_json:
+                          json_buf.append(msg)
+                          brace_depth += msg.count("{") - msg.count("}")
+                          if brace_depth <= 0:
+                              collecting_json = False
+                              payload = "\n".join(json_buf)
+                              json_buf = []
+                              try:
+                                  obj = json.loads(payload)
+                              except Exception:
+                                  obj = None
+                              if isinstance(obj, (dict, list)):
+                                  collect_structured(obj)
+                                  if json_context == "response-data":
+                                      extract_from_response_payload(obj)
+                          continue
+
+                      if msg == "data:":
+                          expecting_payload_json = True
+                          json_context = "response-data"
+                          continue
+
+                      # "Wire request: {...}" carries the full conversation history
+                      # (including reasoning_text from earlier turns) with the JSON
+                      # starting on the same line, unlike "data:" which precedes it
+                      # on the next line.
+                      if msg.startswith("Wire request:"):
+                          brace_idx = msg.find("{")
+                          if brace_idx == -1:
+                              continue
+                          remainder = msg[brace_idx:]
+                          json_context = "wire-request"
+                          brace_depth = remainder.count("{") - remainder.count("}")
+                          json_buf = [remainder]
+                          if brace_depth <= 0:
+                              try:
+                                  obj = json.loads(remainder)
+                              except Exception:
+                                  obj = None
+                              if isinstance(obj, (dict, list)):
+                                  collect_structured(obj)
+                              json_buf = []
+                          else:
+                              collecting_json = True
+                          continue
+
+                      if expecting_payload_json and msg.startswith("{"):
+                          expecting_payload_json = False
+                          collecting_json = True
+                          brace_depth = msg.count("{") - msg.count("}")
+                          json_buf = [msg]
+                          if brace_depth <= 0:
+                              collecting_json = False
+                              try:
+                                  obj = json.loads(msg)
+                              except Exception:
+                                  obj = None
+                              if isinstance(obj, (dict, list)):
+                                  collect_structured(obj)
+                                  if json_context == "response-data":
+                                      extract_from_response_payload(obj)
+                          continue
+
+                      # Single-line structured JSON logs (if any).
+                      if msg.startswith("{") and msg.endswith("}"):
+                          try:
+                              obj = json.loads(msg)
+                          except Exception:
+                              obj = None
+                          if isinstance(obj, (dict, list)):
+                              collect_structured(obj)
+                              continue
+
+                      extract_text_signals(msg)
+
+          flush_tools()
+
+          # Remove boilerplate/system prompts and infra noise if captured from payloads.
+          filtered = []
+          noise_fragments = (
+              "you are the github copilot cli",
+              "immutable security policy",
+              "custom provider configured settings",
+              "completion request configuration",
+              "tools:",
+              "wire request:",
+          )
+          for item in events:
+              low = item.lower()
+              if any(n in low for n in noise_fragments):
+                  continue
+              filtered.append(item)
+
+          lines = [f"{idx}. {text}" for idx, text in enumerate(filtered, 1)]
+          excerpt = "\n".join(lines).strip()
+          if len(excerpt) > 9000:
+              excerpt = excerpt[:9000] + "\n... (truncated; see full run log)"
+
+          if excerpt:
+              with open("/tmp/agent_summary.txt", "w", encoding="utf-8") as f:
+                  f.write(excerpt)
+          else:
+              print(f"::warning::No actionable agent reasoning found in artifact logs for run {os.environ.get('RUN_ID', '')}; skipping reasoning trail.")
+              print(f"::notice::Searched files: {files}")
+          PYEOF
+
+      - name: Request review from suggested reviewer
+        if: steps.run-context.outputs.pr_number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.run-context.outputs.pr_number }}
+          # Same trusted usernames as .github/skills/finalize-draft-pr/references/user-mapping.json
+          # and jira-to-docs.md's PR-body reviewer suggestion — keep these three in sync.
+          ALLOWED_REVIEWERS: "saraholvid jamesknottqlik tklkan ManonClement19 lorenawestman charltonbook ralfnarfeldt mvistry lgaudens mpeyvel ahervy gregralston nrioseco LauraBaribaud ychen f-bischoff toblea bgudna martinhqh"
+        run: |
+          set -euo pipefail
+
+          gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json number,body,author,reviewRequests,reviews > /tmp/pr_for_review.json
+          python3 -c 'import json; json.dump([json.load(open("/tmp/pr_for_review.json"))], open("/tmp/prs_for_review.json", "w"))'
+
+          python3 - <<'PYEOF'
+          import json, os, re, subprocess
+
+          repository = os.environ["REPOSITORY"]
+          allowed = set(os.environ["ALLOWED_REVIEWERS"].split())
+          prs = json.load(open("/tmp/prs_for_review.json"))
+
+          for pr in prs:
+              num = pr["number"]
+              m = re.search(r"(?m)^Suggested reviewer:\s*@([A-Za-z0-9][A-Za-z0-9-]*)\s*$", pr.get("body") or "")
+              if not m:
+                  continue
+              reviewer = m.group(1)
+              if reviewer not in allowed:
+                  print(f"::warning::PR #{num}: suggested reviewer '{reviewer}' is not on the trusted allowlist; skipping.")
+                  continue
+              author = (pr.get("author") or {}).get("login")
+              if reviewer == author:
+                  print(f"PR #{num}: suggested reviewer '{reviewer}' is the PR author; skipping.")
+                  continue
+              existing = {r.get("login") for r in pr.get("reviewRequests") or []}
+              existing |= {(r.get("author") or {}).get("login") for r in pr.get("reviews") or []}
+              if reviewer in existing:
+                  print(f"PR #{num}: '{reviewer}' is already a reviewer; skipping.")
+                  continue
+              subprocess.run(
+                  ["gh", "pr", "edit", str(num), "--repo", repository, "--add-reviewer", reviewer],
+                  check=True,
+              )
+              print(f"PR #{num}: requested review from '{reviewer}'.")
+          PYEOF
+
+      - name: Comment PR links on Jira tickets
+        if: steps.run-context.outputs.pr_number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.run-context.outputs.pr_number }}
+          WORKFLOW_NAME: ${{ steps.run-context.outputs.workflow_name }}
+          JIRA_CLOUD_ID: ${{ secrets.JIRA_CLOUD_ID }}
+          JIRA_ACCESS_TOKEN: ${{ secrets.JIRA_SERVICE_ACCESS_TOKEN_POST }}
+        run: |
+          set -euo pipefail
+
+          # Just the PR this run opened — not every open agentic PR.
+          gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json number,title,url > /tmp/pr.json
+          python3 -c 'import json; json.dump([json.load(open("/tmp/pr.json"))], open("/tmp/prs.json", "w"))'
+
+          echo "Resolved PR #${PR_NUMBER}."
+
+          python3 - <<'PYEOF'
+          import json, os, re, sys, urllib.request, urllib.error
+
+          cloud_id = os.environ["JIRA_CLOUD_ID"]
+          token = os.environ["JIRA_ACCESS_TOKEN"]
+          api_base = f"https://api.atlassian.com/ex/jira/{cloud_id}/rest/api/3"
+
+          def jira(method, path, payload=None):
+              url = f"{api_base}{path}"
+              data = json.dumps(payload).encode() if payload is not None else None
+              req = urllib.request.Request(url, data=data, method=method)
+              req.add_header("Authorization", f"Bearer {token}")
+              req.add_header("Accept", "application/json")
+              if data is not None:
+                  req.add_header("Content-Type", "application/json")
+              with urllib.request.urlopen(req) as resp:
+                  body = resp.read().decode()
+                  return json.loads(body) if body else {}
+
+          def ticket_from_title(title):
+              m = re.search(r"\b[A-Z][A-Z0-9]+-[0-9]+\b", title or "")
+              return m.group(0) if m else None
+
+          def already_commented(ticket, pr_url):
+              data = jira("GET", f"/issue/{ticket}/comment?maxResults=100")
+              return any(pr_url in json.dumps(c.get("body", {})) for c in data.get("comments", []))
+
+          def comment_body(pr_url):
+              if os.environ.get("WORKFLOW_NAME") == "Create DOC Draft":
+                  text = "The DOC draft is ready for review. Review the pull request here: "
+              else:
+                  text = "Documentation changes have been prepared through the GitHub Copilot orchestrator workflow. Review the pull request here: "
+              return {"body": {"type": "doc", "version": 1, "content": [
+                  {"type": "paragraph", "content": [
+                      {"type": "text", "text": text},
+                      {"type": "inlineCard", "attrs": {"url": pr_url}},
+                  ]}
+              ]}}
+
+          def transition_to(ticket, target_names):
+              """Transition the ticket to the first available target status
+              (case-insensitive). Warns and skips if none is available from the
+              current status; a Jira API error propagates and fails the job."""
+              wanted = [n.strip().lower() for n in target_names]
+              trans = jira("GET", f"/issue/{ticket}/transitions").get("transitions", [])
+              by_name = {t["name"].strip().lower(): t for t in trans}
+              for w in wanted:
+                  if w in by_name:
+                      t = by_name[w]
+                      jira("POST", f"/issue/{ticket}/transitions", {"transition": {"id": t["id"]}})
+                      print(f"{ticket}: transitioned to '{t['name']}'")
+                      return
+              avail = [t["name"] for t in trans]
+              print(f"::warning::{ticket}: no transition to {target_names} from current status; leaving unchanged. Available: {avail}")
+
+          prs = json.load(open("/tmp/prs.json"))
+          hard_error = False
+          for pr in prs:
+              pr_url = pr["url"]
+              ticket = ticket_from_title(pr["title"])
+              if not ticket:
+                  print(f"::warning::PR #{pr['number']} has no ticket id in its title; skipping.")
+                  continue
+              try:
+                  if already_commented(ticket, pr_url):
+                      print(f"{ticket}: comment already links to {pr_url}; skipping.")
+                      continue
+                  jira("POST", f"/issue/{ticket}/comment", comment_body(pr_url))
+                  print(f"{ticket}: added comment linking to {pr_url}")
+                  # After the PR link is posted, move the ticket forward.
+                  transition_to(ticket, ["Ready for Verification"])
+              except urllib.error.HTTPError as e:
+                  hard_error = True
+                  print(f"::error::{ticket}: Jira API error {e.code} for {pr_url}: {e.read().decode()[:300]}")
+              except urllib.error.URLError as e:
+                  hard_error = True
+                  print(f"::error::{ticket}: Jira API request failed for {pr_url}: {e}")
+
+          # Fail the job on genuine API errors, after attempting every PR.
+          if hard_error:
+              sys.exit(1)
+          PYEOF
+
+      - name: Post agent reasoning trail to Jira
+        if: steps.run-context.outputs.pr_number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          PR_NUMBER: ${{ steps.run-context.outputs.pr_number }}
+          JIRA_CLOUD_ID: ${{ secrets.JIRA_CLOUD_ID }}
+          JIRA_ACCESS_TOKEN: ${{ secrets.JIRA_SERVICE_ACCESS_TOKEN_POST }}
+        run: |
+          set -euo pipefail
+
+          if [ ! -f /tmp/agent_summary.txt ]; then
+            echo "No agent reasoning trail available; skipping."
+            exit 0
+          fi
+
+          gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json title > /tmp/pr_for_log.json
+          python3 -c 'import json; json.dump([json.load(open("/tmp/pr_for_log.json"))], open("/tmp/prs_for_log.json", "w"))'
+
+          python3 - <<'PYEOF'
+          import json, os, re, sys, urllib.request, urllib.error
+
+          cloud_id = os.environ["JIRA_CLOUD_ID"]
+          token = os.environ["JIRA_ACCESS_TOKEN"]
+          run_url = f"https://github.com/{os.environ['REPOSITORY']}/actions/runs/{os.environ['RUN_ID']}"
+          api_base = f"https://api.atlassian.com/ex/jira/{cloud_id}/rest/api/3"
+
+          with open("/tmp/agent_summary.txt", encoding="utf-8") as f:
+              excerpt = f.read()
+
+          def jira(method, path, payload=None):
+              url = f"{api_base}{path}"
+              data = json.dumps(payload).encode() if payload is not None else None
+              req = urllib.request.Request(url, data=data, method=method)
+              req.add_header("Authorization", f"Bearer {token}")
+              req.add_header("Accept", "application/json")
+              if data is not None:
+                  req.add_header("Content-Type", "application/json")
+              with urllib.request.urlopen(req) as resp:
+                  body = resp.read().decode()
+                  return json.loads(body) if body else {}
+
+          def ticket_from_title(title):
+              m = re.search(r"\b[A-Z][A-Z0-9]+-[0-9]+\b", title or "")
+              return m.group(0) if m else None
+
+          def already_commented(ticket):
+              data = jira("GET", f"/issue/{ticket}/comment?maxResults=100")
+              return any(run_url in json.dumps(c.get("body", {})) for c in data.get("comments", []))
+
+          def comment_body():
+              return {"body": {"type": "doc", "version": 1, "content": [
+                  {"type": "paragraph", "content": [
+                      {"type": "text", "text": "Agent reasoning trail from the documentation run. Full log: "},
+                      {"type": "inlineCard", "attrs": {"url": run_url}},
+                  ]},
+                  {"type": "codeBlock", "content": [{"type": "text", "text": excerpt}]},
+              ]}}
+
+          prs = json.load(open("/tmp/prs_for_log.json"))
+          hard_error = False
+          for pr in prs:
+              ticket = ticket_from_title(pr["title"])
+              if not ticket:
+                  continue
+              try:
+                  if already_commented(ticket):
+                      print(f"{ticket}: reasoning trail for {run_url} already posted; skipping.")
+                      continue
+                  jira("POST", f"/issue/{ticket}/comment", comment_body())
+                  print(f"{ticket}: added agent reasoning trail linking to {run_url}")
+              except urllib.error.HTTPError as e:
+                  hard_error = True
+                  print(f"::error::{ticket}: Jira API error {e.code} posting reasoning trail: {e.read().decode()[:300]}")
+              except urllib.error.URLError as e:
+                  hard_error = True
+                  print(f"::error::{ticket}: Jira API request failed posting reasoning trail: {e}")
+
+          if hard_error:
+              sys.exit(1)
+          PYEOF
