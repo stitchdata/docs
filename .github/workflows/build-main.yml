@@ -40,7 +40,7 @@ jobs:
         run: |
           aws sts get-caller-identity
           aws s3 sync ./_site/docs s3://qlikhelp-stitch/docs --delete
-          # aws cloudfront create-invalidation --distribution-id ECSW2C236F46Q --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ECSW2C236F46Q --paths "/*"
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
