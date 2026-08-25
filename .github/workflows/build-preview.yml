@@ -14,7 +14,7 @@ on:
 
 env:
   AWS_REGION: "us-east-1"
-  PREVIEW_DOMAIN: "dyokhwe5tb1zx.cloudfront.net"
+  PREVIEW_DOMAIN: "stitch-preview.qlik.click"
   PR_NUMBER: ${{ github.event.pull_request.number }} # ${{ github.event.inputs.pr }}
 
 concurrency:
