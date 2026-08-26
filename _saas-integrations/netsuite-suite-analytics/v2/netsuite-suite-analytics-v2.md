@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite Suite Analytics (v1)
-permalink: /integrations/saas/netsuite-suite-analytics/v1
+title: NetSuite Suite Analytics (v2)
+permalink: /integrations/saas/netsuite-suite-analytics
 keywords: netsuite suite analytics, integration, schema, etl netsuite suite analytics, netsuite suite analytics etl, netsuite suite analytics schema
 layout: singer
-input: false
+# input: false
 
 key: "netsuite-analytics-setup"
 
@@ -34,7 +34,7 @@ status-url: ""
 tap-name: "NetSuite Suite Analytics"
 
 
-this-version: "1"
+this-version: "2"
 
 api: |
   SuiteAnalytics Connect JDBC driver
