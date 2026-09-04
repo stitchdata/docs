@@ -35,7 +35,10 @@ For each documentation request (update, addition, or creation):
    - **If jira-context was already executed (e.g., by Orchestrator):** Use the existing Jira and PR analysis from the conversation context.
 2. **Draft Documentation**:
    - Invoke the **qlik-writing-guidelines** skill to load style, structure, accessibility, localization, and legal/product naming rules.
-   - **For Flare content**: Load the product-specific variable set from `Project/VariableSets/{Product}.flvar` (e.g., `Replicate.flvar`, `Sense_Release.flvar`) and use variables for product names, versions, and service names (see copilot-instructions.md for details).
+    - **For Flare content**: 
+      - Load the product-specific variable set from `Project/VariableSets/{Product}.flvar` (e.g., `Replicate.flvar`, `Sense_Release.flvar`) and use variables for product names, versions, and service names (see copilot-instructions.md for details).
+      - Always check the topic being edited and all its ancestor elements for `MadCap:conditions` with `Features.<ticket-id>` or `Features.NotIn<ticket-id>` before editing. If found, invoke the **flare-feature-conditions** skill and follow its decision table.
+      - Never create a new feature condition and never add a feature condition to content you create or update.
    - **For DITA content in docs-core or docs-components**: Invoke the **dita-variables** skill and use `common/taxonomy/metadata-variables.dita` `<keyword conref>` references for product names, module names, and brand names.
    - Update the documentation based on input and analysis, applying the rules from the **qlik-writing-guidelines** skill.
      - Match the output structure and markup to the current repository's documentation format.
