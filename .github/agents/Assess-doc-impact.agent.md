@@ -70,7 +70,29 @@ Evaluate whether the ticket contains enough information — directly stated or r
 
 ---
 
-### Step 3: Assess Documentation Impact
+### Step 3: Classify Target Repository
+
+Invoke the **repository-classifier** skill to determine which documentation repository (or repositories) should handle this ticket.
+
+**Pass to the skill:**
+- Product field value from Step 1: `fields.customfield_10178`
+- Description: `fields.description`
+- Summary: `fields.summary`
+- What's New content: `fields.customfield_10478`
+
+**The skill returns:**
+```json
+{
+  "labels": ["repository-label"],
+  "note": ""
+}
+```
+
+**Record the `labels` and `note` values for use in later steps.**
+
+---
+
+### Step 4: Assess Documentation Impact
 
 Always attempt this step, even if input quality is incomplete. Use whatever information is available.
 
@@ -93,6 +115,8 @@ Evaluate the ticket separately for **help.qlik.com** (end-user documentation) an
 - Adds or changes extension framework APIs or interfaces
 - Modifies integration points, embed patterns, or developer tools
 - Changes API rate limits, quotas, or error codes
+
+**Note:** Don't infer Qlik.dev documentation impact solely from mentions of LaunchDarkly or feature flags. Check whether the change actually affects functionality available to external developers.
 
 #### Signals that indicate no doc impact for both (all of these = NO for both):
 - Purely internal or backend change with no user-visible effect
@@ -198,6 +222,7 @@ The assessment report should contain:
 
 **Additional considerations:**
 [Include this section only if any of the following apply:]
+- **Repository classification:** [If `note` from Step 3 is not empty: include the note text here]
 - **Availability:** [If not explicitly stated in ticket: "Assumed available to all subscription tiers and regions (not explicitly stated in ticket)" OR if stated: summarize tier/edition/region restrictions and enablement method]
 - **AI/GenAI feature:** [If detected: "This feature uses AI/ML capabilities and requires GenAI disclaimers and responsible AI documentation"]
 - **Migration impact:** [If detected: briefly describe the impact on existing users, migration requirements, or breaking changes]
@@ -215,11 +240,13 @@ The assessment report should contain:
 
 #### Labels to apply
 
+Apply documentation impact labels AND repository labels from Step 3.
+
 | Outcome | Labels to add |
 |---|---|
-| Both impacts = no | `DocImpact-no` |
-| Either impact = yes, complexity = low or medium | `DocImpact-yes`, `DocAutomation-valid` |
-| Either impact = yes, complexity = high or unknown | `DocImpact-yes` |
+| Both impacts = no | `DocImpact-no`, [repository labels from Step 3] |
+| Either impact = yes, complexity = low or medium | `DocImpact-yes`, `DocAutomation-valid`, [repository labels from Step 3] |
+| Either impact = yes, complexity = high or unknown | `DocImpact-yes`, [repository labels from Step 3] |
 
 #### TLV-specific checklist updates
 
@@ -262,11 +289,25 @@ If error handling is invoked: log a warning but do not fail the agent run. The c
 
 ## Labels Reference
 
+### Documentation Impact Labels
+
 | Label | Applied when |
 |---|---|
 | `DocImpact-no` | No user-facing documentation impact detected |
 | `DocImpact-yes` | Documentation impact confirmed |
 | `DocAutomation-valid` | Doc impact is low or medium complexity — safe for automated draft |
+
+### Repository Labels
+
+Applied by the **repository-classifier** skill based on Product field:
+
+| Label | Repository | Content Type |
+|---|---|---|
+| `help-documentation` | qlik-trial/help-documentation | Qlik Cloud and client-managed products (Flare) |
+| `docs-core-80` | Talend/docs-core (80-main branch) | Talend on-premises products (DITA) |
+| `docs-core-cloud` | Talend/docs-core (cloud-main branch) | Talend cloud products (DITA) |
+| `docs-components` | Talend/docs-components | Talend Studio reusable components (DITA) |
+| `stitch-docs` | stitchdata/docs | Stitch Heritage documentation (Markdown)|
 
 ## Safety and Boundaries
 
