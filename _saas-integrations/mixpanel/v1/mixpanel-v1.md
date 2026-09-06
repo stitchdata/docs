@@ -107,31 +107,51 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Admin privileges**. These are required to retrieve your API secret in your {{ integration.display_name }} account.
+      **Admin privileges**. These are required to retrieve your API secret in your {{ integration.display_name }} account or to create a service account.
 
 setup-steps:
-  - title: "Retrieve your {{ integration.display_name }} project timezone and API secret"
-    anchor: "retrieve-timezone-api-secret"
+
+  - title: "Retrieve your {{ integration.display_name }} project timezone"
+    anchor: "retrieve-timezone"
     content: |
       1. Login to your {{ integration.display_name }} account.
       2. In the dropdown menu in the upper left corner of the page, select the project you want to replicate data from.
       3. Hover over the **Settings** icon in the upper right corner. In the **PROJECT SETTINGS** portion of the dropdown menu, click on the link with the name of your project.
-      4. Copy the **Project Timezone** and **API Secret**, and paste those values someplace safe to use for the next step.
+      4. Copy the **Project Timezone** and paste this value someplace safe to use in a later step.
+
+  - title: "Retrieve your {{ integration.display_name }} API secret"
+    anchor: "retrieve-api-secret"
+    content: |
+      If you want to authenticate to {{ integration.display_name }} using an API Secret, follow these steps. Otherwise, you can go to the next step to use a [service account](#create-service-account).
+
+      1. In your {{ integration.display_name }} account, go to the same page as the previous step. 
+      2. Copy the **API Secret** and paste this value someplace safe to use for the next step.
+
+  - title: "Create your {{ integration.display_name }} service account"
+    anchor: "create-service-account"
+    content: |
+      If you want to authenticate to {{ integration.display_name }} using a service account, follow these steps. Otherwise, you can skip this step and use an [API Secret](#retrieve-api-secret).
+
+      1. Follow the steps in the [{{ integration.display_name }} documentation](https://developer.mixpanel.com/reference/service-accounts#managing-service-accounts) to create a new service account. You can select the **Consumer** role for this account, that will be sufficient to allow Stitch to extract data.
+      2. Copy the **Username** and **Secret** and paste them someplace safe to use for the next step. You won't be able to access them again.
+      3. In your {{ integration.display_name }} account, open your project settings, copy your **Project ID** and paste it someplace safe to use for the next step.
 
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
       {% include integrations/shared-setup/connection-setup.html %}
-      4. In the **API Secret** field, paste the **API Secret** you retrieved from [Step 1](#retrieve-timezone-api-secret).
-      5. In the **Attribution Window** field, enter the number of days you want your tables' attribution window to be. For more information on attribution windows, refer to the [Replication section](#attribution-windows-extraction).
-      6. In the **Date Window Size** field, enter the number of days desired for a date looping window for the `exports`, `funnels`, and `revenues` tables.
+      4. Select your authentication method.
+          - If you selected **API Secret**, paste the API secret you retrieved from [Step 2](#retrieve-api-secret) in the **API Secret** field.
+          - If you selected **Service Account**, paste the service account username, the service account secret, and the project ID you retrieved from [Step 3](#create-service-account) in the corresponding fields.
+      7. In the **Attribution Window** field, enter the number of days you want your tables' attribution window to be. For more information on attribution windows, refer to the [Replication section](#attribution-windows-extraction).
+      8. In the **Date Window Size** field, enter the number of days desired for a date looping window for the `exports`, `funnels`, and `revenues` tables.
 
          Date looping will return records whose `from_date` and `to_date` fall between the number of days in the defined window size.
 
          **Note**: If your project has large volumes of events, you may want to set the number of days to `14`, `7`, or even to `1` or `2` days.
-      7. **Optional**: To fetch specific events, enter a comma-separated list of events in the **Export Events** field. For example: `Page Viewed, Signed Up`.
-      8. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone-api-secret).
-      9. **Optional**: To capture new properties automatically in the `events` and `engage` tables, check the **Select Properties By Default** box. Otherwise, new properties will be ignored.
+      9. **Optional**: To fetch specific events, enter a comma-separated list of events in the **Export Events** field. For example: `Page Viewed, Signed Up`.
+      10. In the **Project Timezone** field, paste the **Project Timezone** you retrieved from [Step 1](#retrieve-timezone).
+      11. **Optional**: To capture new properties automatically in the `events` and `engage` tables, check the **Select Properties By Default** box. Otherwise, new properties will be ignored.
 
 ## Max start date: https://github.com/singer-io/tap-mixpanel/blob/master/tap_mixpanel/sync.py#L151
   - anchor: "define-historical-sync"
