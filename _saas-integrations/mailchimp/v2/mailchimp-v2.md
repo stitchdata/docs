@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: MailChimp (v1)
-permalink: /integrations/saas/mailchimp/v1
+title: MailChimp (v2)
+permalink: /integrations/saas/mailchimp
 keywords: mailchimp, integration, schema, etl mailchimp, mailchimp etl, mailchimp schema
 layout: singer
-input: false
+# input: false
 
 key: "mailchimp-setup"
 
@@ -31,7 +31,7 @@ singer: true
 tap-name: "MailChimp"
 repo-url: https://github.com/singer-io/tap-mailchimp
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} API 3.0](https://developer.mailchimp.com/documentation/mailchimp/reference/overview/){:target="new"}
