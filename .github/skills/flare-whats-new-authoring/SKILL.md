@@ -6,7 +6,7 @@ description: "Use when: drafting Qlik Cloud What's new changelog entries in help
 # Flare What's New Authoring Skill
 
 ## Overview
-Use this skill to add or update Qlik Cloud What's new changelog entries in the help-documentation repository for TLV tickets.
+Use this skill to add or update Qlik Cloud What's new changelog entries in the help-documentation repository for TLV tickets!
 
 ## When to Use
 Use this skill only when all of the following conditions are true:
