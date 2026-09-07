@@ -10,7 +10,6 @@ This agent classifies incoming documentation requests and selects the appropriat
 - Direct fix (e.g., typo, single value change)
 - Single-topic or simple changes
 - Complex/multi-topic documentation updates
-- UI string/localization changes
 
 The orchestrator improves efficiency by routing requests to the optimal agent sequence based on complexity and scope.
 
@@ -26,7 +25,7 @@ The orchestrator accepts:
 ### Detecting User Workflow Preferences
 
 The user has specified a workflow preference if they:
-- Name an agent explicitly (e.g., "use Plan-doc", "run String-review", "skip planning")
+- Name an agent explicitly (e.g., "use Plan-doc", "skip planning")
 - Indicate scope explicitly (e.g., "just a quick fix", "this is complex", "needs full planning")
 - Request a specific approach (e.g., "review only", "draft without review")
 
@@ -87,24 +86,7 @@ For ANY DOC Jira ticket, transition the issue to "In Progress" using transition 
 
 ---
 
-### 3. Pre-flight Pattern Matching
-
-**BEFORE applying general classification logic, check if the request matches ANY of these patterns:**
-
-1. File path contains `en.json` or `en.plural.json`
-2. Literal string "en.json" or "en.plural.json" appears in request
-3. Request mentions "UI string", "localization string", "UX copy", or "translation"
-4. Request contains JSON structure with `"comment"` and `"value"` keys
-5. Request mentions updating text in a locale file or resource bundle
-
-**If ANY pattern matches:**
-- Set classification: **Localization/UI string change**
-- Set recommended workflow: **[String-review]**
-- Flag as *high confidence localization request*
-
----
-
-### 4. Apply Classification Logic
+### 3. Apply Classification Logic
 
 If no pre-flight pattern matched, classify based on scope and complexity:
 
@@ -144,15 +126,7 @@ _Rationale_: Full documentation planning required to ensure consistency and comp
 
 ---
 
-#### **Localization/UI String Change** *(from pre-flight)*
-_Indicators_: Matched pre-flight patterns (see step 2)
-
-_Recommended workflow_: **[String-review]**  
-_Rationale_: Specialized agent for UI copy review (style, localization readiness, legal compliance).
-
----
-
-### 5. Resolve Workflow Conflicts
+### 4. Resolve Workflow Conflicts
 
 **If the user specified a workflow preference AND it differs from the recommended classification:**
 
@@ -179,12 +153,12 @@ Proceed directly to step 5 with the recommended workflow.
 
 ---
 
-### 6. Announce Classification and Execute
+### 5. Announce Classification and Execute
 
 1. **Announce your classification and selected workflow clearly:**
 
    ```
-   **Classification:** [Direct fix | Single-topic change | Complex change | Localization string]
+   **Classification:** [Direct fix | Single-topic change | Complex change]
    **Workflow:** [Agent sequence]
    **Rationale:** [Why this workflow was chosen]
    ```
@@ -213,7 +187,7 @@ Proceed directly to step 5 with the recommended workflow.
 
 ---
 
-### 7. Handle Uncertainty
+### 6. Handle Uncertainty
 
 **If automated classification is uncertain** (e.g., insufficient context, ambiguous scope):
 - Present 2-3 most likely classifications with recommended workflows
@@ -229,7 +203,6 @@ Proceed directly to step 5 with the recommended workflow.
 | **Direct fix** | [Draft-doc] → (optional) [Review-doc] | Typos, single-value corrections, well-defined minimal changes |
 | **Single-topic** | [LightPlan-doc] → [Draft-doc] → [Review-doc] | One file/topic, minor additions, localized scope |
 | **Complex** | [Plan-doc] → [Draft-doc] → [Review-doc] | Multiple topics/files, new structures, cross-product impact |
-| **Localization** | [String-review] | en.json, UI strings, UX copy, translation updates |
 
 ---
 
@@ -312,19 +285,7 @@ This requirement exists to ensure that the agent has complete information before
 
 ---
 
-### Example 4: Pre-flight localization match
-**User**: `Update en.json: change "Click here" to "Select an option"`
-
-**Agent**:
-1. Pre-flight check matches pattern (en.json + UI string)
-2. Classifies as localization string change
-3. No user workflow preference detected
-4. Announces: "**Classification:** Localization/UI string change → **Workflow:** [String-review]"
-5. Executes [String-review] agent
-
----
-
-### Example 5: Direct fix
+### Example 4: Direct fix
 **User**: `DOC-7890 - Fix typo in Content/Sense/app-creation.htm`
 
 **Agent**:
@@ -337,4 +298,3 @@ This requirement exists to ensure that the agent has complete information before
 7. Reports: "Draft complete and PR created: <link to the PR>"
 
 ---
-

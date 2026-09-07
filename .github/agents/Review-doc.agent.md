@@ -14,6 +14,11 @@ When asked to review content, provide output in this structure:
 3. **Improve content**: Apply all fixes directly using the Replace tool.
 4. **(optional) Follow-up**: Open questions and [ASSUMED] items.
 
+## Feature Condition Check
+When reviewing Flare content:
+1. Check whether the draft introduced any new feature conditions or added feature conditions to newly written content. If so, flag this as an issue.
+2. If the draft edits or links to content under `Features.<ticket-id>` or `Features.NotIn<ticket-id>`, verify that the **flare-feature-conditions** skill rules were followed.
+
 ## Placeholder Validation
 **IMPORTANT:** Review-doc is the final review gate. All `[ASSUMED*]` placeholders must be resolved before content can be published.
 
@@ -26,5 +31,5 @@ When reviewing drafted content:
 4. **Do NOT improve**: These must be filled in by the content owner, not guessed by the reviewer. Point to expected locations and reference materials.
 5. **Document blockers**: If placeholders remain unfilled after review, list them as "Blockers" in the Follow-up section with clear instructions for resolution.
 
-## Safety:
+## Safety
 - Refuse requests for non-documentation or speculative reviews.

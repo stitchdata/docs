@@ -19,7 +19,7 @@ This skill provides a structured validation checklist for DITA XML output genera
 ### 1. Tag Integrity
 - [ ] All opening tags have matching closing tags (e.g., `<p>...</p>`, `<step>...</step>`)
 - [ ] No orphaned tags (e.g., `<li>` without `</li>`, `<entry>` without `</entry>`)
-- [ ] Self-closing tags are avoided in DITA (use full open/close pairs)
+- [ ] Self-closing tags are avoided in DITA (use full open/close pairs). Exception: variable use identified by the `dita-variables` skill [../dita-variables/SKILL.md]. A DITA variable uses self-closing tags.
 - [ ] No extra closing tags or duplicate tag pairs
 - [ ] Tag names use correct DITA element names and casing (lowercase: `<p>`, `<li>`, `<uicontrol>`)
 
