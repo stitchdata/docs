@@ -15,9 +15,9 @@ Use this template when posting comments to GitHub pull requests with `mcp_github
 
 Preview the updated documentation on alphahelp (after build completes):
 
-- [{file1-display-name}]({alphahelp-url-1})
-- [{file2-display-name}]({alphahelp-url-2})
-- [{file3-display-name}]({alphahelp-url-3})
+- [{page1-title}]({alphahelp-url-1})
+- [{page2-title}]({alphahelp-url-2})
+- [{page3-title}]({alphahelp-url-3})
 
 ### Changes Summary
 
@@ -40,20 +40,18 @@ _This comment was posted automatically by the documentation automation system._
 
 | Variable | Description | Example |
 |---|---|---|
-| `{file1-display-name}` | Relative path from `Content/` (Flare) or feature folder (DITA) | `Sense_Hub/Introduction/creating-analytics.htm` |
+| `{page1-title}` | Title displayed on the rendered page | `Creating analytics and visualizing data` |
 | `{alphahelp-url-1}` | Full alphahelp URL for the file | `https://alphahelp.qliktech.com/rc/en-US/...` |
 | `{brief-summary-from-plan-or-commit-message}` | 1-3 sentence summary of changes | "Added documentation for new Azure Blob Storage connector configuration options including authentication methods and connection string parameters." |
 
-### File Display Name Format
+### Preview Link Label Format
 
-Keep display names concise and readable:
-- Use relative paths that make sense to reviewers
-- Omit `Content/` prefix for clarity
-- Keep folder context when helpful
-- Examples:
-  - `Connectors/Azure/Configuration.htm`
-  - `engines/configure-docker-registry.dita`
-  - `Introduction/creating-analytics.htm`
+Use the title displayed on the rendered page as each link label. Do not use a file name, path, topic ID, or page ID.
+
+- For DITA, resolve the topic's `<title>`, including referenced variables.
+- For Flare, use the title displayed as the page heading.
+- Preserve the title's capitalization and product names.
+- If the title cannot be resolved, flag it for manual review.
 
 ---
 

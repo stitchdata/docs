@@ -114,7 +114,7 @@ https://alphahelp.qliktech.com/rc/en-US/{site-segment}/{transformed-path}
 - **Path**: `Content/AnalyticsMigrationTool/...` (no transformation)
 - **Final URL**:
   ```
-  https://alphahelp.qliktech.com/rc/en-US/migration-DOC-2686-unified-tagging-tests-ld/Content/AnalyticsMigrationTool/Qlik-Analytics-Migration-Tool-Overview.htm
+  https://alphahelp.qliktech.com/rc/en-US/migration-DOC-2686-unified-tagging-tests-rc/Content/AnalyticsMigrationTool/Qlik-Analytics-Migration-Tool-Overview.htm
   ```
 
 #### Example 2: Qlik Cloud Services (QCS)
@@ -161,12 +161,29 @@ Example: `cloud-DOC-4764-DE-1-6-persistence-storage`
 
 ### Step 2: Extract mapid from DITAMAP
 
-**Simple Rule:** The mapid is always the ditamap filename without the `.ditamap` extension.
+Use the value of the map's mapid element: `<othermeta name="mapid" content="..."/>`.
 
 Examples:
 - `installation-guide.ditamap` → mapid: `installation-guide`
 - `debug-jobs.ditamap` → mapid: `debug-jobs`
 - `dynamic-engine-configuration-guide.ditamap` → mapid: `dynamic-engine-configuration-guide`
+
+#### Operating-system build flavors
+
+The build appends an operating-system flavor to these map IDs:
+
+- `installation-guide`
+- `hybrid-installation-guide`
+- `remote-engine-user-guide`
+
+A URL that uses one of these base map IDs without a flavor is invalid.
+
+- Append `-linux` by default. The Linux build contains the most content.
+- If all relevant changes are specific to Windows, append `-windows`.
+- If all relevant changes are specific to macOS, append `-mac`.
+- If the changes apply to multiple operating systems, provide one Linux preview link. Do not provide all flavor variants.
+
+Determine whether a change is operating-system-specific from the changed content's profiling attributes and surrounding topic references. When this cannot be determined, use the Linux flavor and flag the assumption for review.
 
 #### Finding Which DITAMAP References Your Topic
 
@@ -211,7 +228,7 @@ Example DITA file:
 </concept>
 ```
 
-The `pageid` is `configure-docker-registry`.
+The `pageid` is `r2026-05-studio-new-features`.
 
 ### Step 4: Assemble Final URL
 
@@ -226,7 +243,7 @@ https://alphahelp.qliktech.com/talend/en-US/{mapid}/{branch-name}/{pageid}
 - **Branch**: `cloud-DOC-4764-DE-1-6-persistence-storage`
 - **File**: `en/engines/configure-docker-registry-task.dita`
 - **DITAMAP**: `dynamic-engine-configuration-guide.ditamap` (mapid: `dynamic-engine-configuration-guide`)
-- **DITA file id**: `configure-docker-registry`
+- **DITA pageid**: `configure-docker-registry`
 - **Final URL**:
   ```
   https://alphahelp.qliktech.com/talend/en-US/dynamic-engine-configuration-guide/cloud-DOC-4764-DE-1-6-persistence-storage/configure-docker-registry
@@ -235,6 +252,21 @@ https://alphahelp.qliktech.com/talend/en-US/{mapid}/{branch-name}/{pageid}
 ---
 
 ## Edge Cases and Special Handling
+
+### Preview link labels
+
+Use the page title as the link label in PR descriptions and Jira comments. Do not use the file name, file path, topic ID, or page ID as the label.
+
+- For DITA, resolve the topic's `<title>`, including referenced variables, so the label matches the rendered page title.
+- For Flare, use the title displayed as the page heading.
+- Preserve the title's capitalization and product names.
+- If the title cannot be resolved, flag the label for manual review instead of substituting a file path.
+
+Example:
+
+```markdown
+- [Installing and configuring MongoDB](https://alphahelp.qliktech.com/talend/en-US/installation-guide-linux/cloud-DOC-1234-example/installing-and-configuring-mongodb)
+```
 
 ### Multiple Files Changed
 
@@ -314,6 +346,8 @@ After generating URLs:
 3. **Incorrect product code mapping** (e.g., using `qcs` instead of `cloud-services`)
 4. **Posting URLs before build completes** (URLs won't work until Jenkins finishes)
 5. **For DITA**: Confusing filename with pageid (pageid comes from `pageid` attribute, not filename)
+6. **Using `installation-guide`, `hybrid-installation-guide`, or `remote-engine-user-guide` without a build flavor** (append `-linux` by default)
+7. **Using a file path or ID as the link label** (use the rendered page title)
 
 ---
 
