@@ -315,7 +315,11 @@ Generate URLs only for reviewable content files:
 
 **Limit:** If more than 10 files changed, include only the top 10 most significant files to avoid overwhelming the comment.
 
-#### Step 3c — Handle edge cases
+#### Step 3c — Create preview link labels
+
+For each preview URL, use the title displayed on the rendered page as the link label. Do not use the file name, file path, topic ID, or page ID. Follow the label rules in `references/alphahelp-url-construction.md`, including resolving DITA variables in `<title>` elements.
+
+#### Step 3d — Handle edge cases
 
 **Snippets only:**
 - If only snippets changed, note: "Updated shared snippets (no direct preview URL)"
@@ -374,9 +378,9 @@ Use `mcp_github_create_pull_request` with:
 
 Preview on alphahelp (after build completes):
 
-- [{file1-display-name}]({alphahelp-url-1})
-- [{file2-display-name}]({alphahelp-url-2})
-- [{file3-display-name}]({alphahelp-url-3})
+- [{page1-title}]({alphahelp-url-1})
+- [{page2-title}]({alphahelp-url-2})
+- [{page3-title}]({alphahelp-url-3})
 
 ### Changes
 
@@ -479,9 +483,9 @@ Use `mcp_jira_addCommentToJiraIssue` with:
 Pull request: [PR #{pr_number}]({pr_url})
 
 Preview on alphahelp:
-* [{file1}]({url1})
-* [{file2}]({url2})
-* [{file3}]({url3})
+* [{page1-title}]({url1})
+* [{page2-title}]({url2})
+* [{page3-title}]({url3})
 ```
 
 **That's it.** Just PR link + alphahelp URLs. No extra formatting, no build notes, no automation disclaimer.
