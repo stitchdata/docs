@@ -9,7 +9,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/activities.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/Activities#getActivities
+    api-method: https://developers.pipedrive.com/docs/api/v1/Activities#getActivities
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -20,9 +20,9 @@ tables:
 
     '
   links:
-    doc-link: https://developers.pipedrive.com/docs/api/v2/#!/ActivityTypes
+    doc-link: https://developers.pipedrive.com/docs/api/v1/#!/ActivityTypes
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/activity_types.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/ActivityTypes/get_activityTypes
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/ActivityTypes/get_activityTypes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -34,7 +34,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/currency.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/Currencies
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Currencies
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -45,7 +45,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/dealflow.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/Deals/get_deals_id_flow
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_id_flow
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -57,7 +57,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/deals.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/Deals
+    api-method: https://developers.pipedrive.com/docs/api/v1/Deals
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -68,7 +68,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/deal_fields.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/DealFields#getDealFields
+    api-method: https://developers.pipedrive.com/docs/api/v1/DealFields#getDealFields
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -79,9 +79,9 @@ tables:
 
     '
   links:
-    doc-link: https://developers.pipedrive.com/docs/api/v2/#!/Deals
+    doc-link: https://developers.pipedrive.com/docs/api/v1/#!/Deals
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/deal_products.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/Deals/get_deals_id_products
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Deals/get_deals_id_products
   table-details:
     replication-method: Full Table
     primary-key: id
@@ -104,7 +104,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/filters.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/Filters
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Filters
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -118,7 +118,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/notes.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/Notes#getNotes
+    api-method: https://developers.pipedrive.com/docs/api/v1/Notes#getNotes
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -131,7 +131,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/organizations.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/Organizations#getOrganizations
+    api-method: https://developers.pipedrive.com/docs/api/v1/Organizations#getOrganizations
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -144,7 +144,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/persons.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/Persons
+    api-method: https://developers.pipedrive.com/docs/api/v1/Persons
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -156,7 +156,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/pipelines.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/Pipelines
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Pipelines
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -168,7 +168,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/products.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/Products
+    api-method: https://developers.pipedrive.com/docs/api/v1/Products
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
@@ -180,7 +180,7 @@ tables:
     '
   links:
     singer-schema: https://github.com/singer-io/tap-pipedrive/blob/master/tap_pipedrive/schemas/stages.json
-    api-method: https://developers.pipedrive.com/docs/api/v2/#!/Stages/get_stages
+    api-method: https://developers.pipedrive.com/docs/api/v1/#!/Stages/get_stages
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
