@@ -39,9 +39,12 @@ For each documentation request (update, addition, or creation):
       - Load the product-specific variable set from `Project/VariableSets/{Product}.flvar` (e.g., `Replicate.flvar`, `Sense_Release.flvar`) and use variables for product names, versions, and service names (see copilot-instructions.md for details).
       - Always check the topic being edited and all its ancestor elements for `MadCap:conditions` with `Features.<ticket-id>` or `Features.NotIn<ticket-id>` before editing. If found, invoke the **flare-feature-conditions** skill and follow its decision table.
       - Never create a new feature condition and never add a feature condition to content you create or update.
-   - **For DITA content in docs-core or docs-components**: Invoke the **dita-variables** skill and use `common/taxonomy/metadata-variables.dita` `<keyword conref>` references for product names, module names, and brand names.
+   - **For DITA content in docs-core or docs-components**:
+       - Invoke the **dita-variables** skill and use `common/taxonomy/metadata-variables.dita` `<keyword conref>` references for product names, module names, and brand names.
+       - Treat prompt, handoff, Jira, and SME wording as factual input, not markup-ready text. Do not carry hardcoded product, module, service, engine, or brand names from those sources into DITA. Resolve each name by invoking the **dita-variables** skill before drafting.
+       - Before delivery, scan every new or edited DITA topic for hardcoded names that require variables. XML parsing alone is not sufficient validation.
    - Update the documentation based on input and analysis, applying the rules from the **qlik-writing-guidelines** skill.
-     - Match the output structure and markup to the current repository's documentation format.
+   - Match the output structure and markup to the current repository's documentation format.
    - For unresolved links, cross-references, and images, follow the `[ASSUMED-*]` pattern documented in copilot-instructions.md:
      - Use empty `href=""` or `src=""` attributes (never dummy/placeholder values that will break the build)
      - Place `[ASSUMED-LINK]`, `[ASSUMED-XREF]`, or `[ASSUMED-IMAGE]` labels visibly in the content text
