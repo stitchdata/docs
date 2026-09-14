@@ -30,58 +30,33 @@ First, determine which repository the changes are in:
 https://alphahelp.qliktech.com/rc/en-US/{site-segment}/{file-path}
 ```
 
-### Step 1: Extract Branch Components
+### Step 1: Identify the Product URL Pattern
 
-Branch name format: `branch-{product}-{remainder}`
+Use the product route and build type shown in the table. The path after the route is either a feature-branch identifier, a release identifier, or omitted for a daily build.
 
-Examples:
-- `branch-qcs-DOC-4341-mega-validator` → product: `qcs`, remainder: `DOC-4341-mega-validator`
-- `branch-migration-DOC-2686-unified-tagging-tests` → product: `migration`, remainder: `DOC-2686-unified-tagging-tests`
-- `branch-onboarding-DOC-4294-recipe-applied-example` → product: `onboarding`, remainder: `DOC-4294-recipe-applied-example`
-
-### Step 2: Map Product Code to URL Segment
-
-| Branch Prefix | URL Segment | Notes |
+| Product | Feature branch | Daily or release build |
 |---|---|---|
-| `branch-qcs-` | `cloud-services` | Qlik Cloud Services |
-| `branch-sense-` | `sense` | Qlik Sense (general) |
-| `branch-senseDeployAdmin-` | `sense-deployAdmin` | Qlik Sense Deploy/Admin |
-| `branch-qv12-` | `qlikview` | QlikView |
-| `branch-nprinting-` | `nprinting` | NPrinting |
-| `branch-connectors-` | `connectors` | Connectors |
-| `branch-migration-` | `migration` | Migration tools |
-| `branch-onboarding-` | `onboarding` | Onboarding |
-| `branch-automl-` | `automl` | AutoML |
-| `branch-qlikalerting-` | `qlik-alerting` | Qlik Alerting |
-| `branch-qc-` | `qlik-catalog` | Qlik Catalog |
-| `branch-qlikcompose-` | `qlik-compose` | Qlik Compose |
-| `branch-replicate-` | `replicate` | Replicate |
-| `branch-enterprisemanager-` | `enterprise-manager` | Enterprise Manager |
-| `branch-geoanalytics-` | `geoanalytics` | GeoAnalytics |
-| `branch-govDashboard-` | `governance-dashboard` | Governance Dashboard |
-| `branch-portal-` | `help-portal` | Help Portal |
-| `branch-insight-bot-` | `insight-bot` | Insight Bot |
-| `branch-nodegraph-` | `nodegraph` | NodeGraph |
-| `branch-upsolverclassic-` | `upsolver-classic` | Upsolver Classic |
-| `branch-upsolversqlake-` | `upsolver-sqlake` | Upsolver SQLake |
-| `branch-edl-` | `edl` | EDL (internal guidelines) |
+| Replicate | `replicate/{branch}-rc` | `replicate/latestDev-...-rc` |
+| Qlik Connectors | `connectors-{branch}-rc` | `connectors` |
+| Qlik NPrinting | `nprinting/{branch}-rc` | `nprinting/{release}` |
+| Qlik Alerting | `alerting/{branch}-rc` | `alerting/{release}` |
+| QlikView for Developers | `qlikview-developer/{branch}-rc` | `qlikview-developer/latestDev-...-rc` |
+| QlikView | `qlikview/{branch}-rc` | `qlikview/{release}` |
+| Qlik Enterprise Manager | Not confirmed | `enterprise-manager/latestDev-...-rc` |
+| Qlik Cloud | `cloud-services-{branch}-rc` | `cloud-services` |
+| Onboarding | `onboarding-{branch}-rc` | Use the published route. |
+| Qlik Sense on Windows | `sense/{release}` | `sense/{release}` |
+| Qlik Sense for administrators | `sense-admin/{release}` | `sense-admin/{release}` |
+| Qlik Sense for developers | `sense-developer/{release}` | `sense-developer/{release}` |
+| Migration Center | Not applicable | `migration/{page}` |
 
-**If product code doesn't match any pattern above**, use the product code as-is (lowercase with hyphens).
+For products without a confirmed pattern, do not infer the route from the branch name. Use a verified URL or flag the route for review.
 
-### Step 3: Determine Build Type Suffix
+### Step 2: Apply the Build Identifier
 
-By default, branch builds are **Release Candidate (RC)** builds: `-rc`
+For feature branches, use the identifier after the product route and preserve the `-rc` suffix. For release builds, use the release name, such as `May2026`, `September2026`, or `NextIR`. Daily builds omit the identifier when the product examples show no identifier.
 
-### Step 4: Construct Site Segment
-
-Format: `{url-segment}-{remainder}-{suffix}`
-
-Examples:
-- `cloud-services-DOC-4341-mega-validator-rc`
-- `migration-DOC-2686-unified-tagging-tests-rc`
-- `onboarding-DOC-4294-recipe-applied-example-rc`
-
-### Step 5: Transform File Path
+### Step 3: Transform File Path
 
 File path transformation depends on the content location:
 
@@ -92,54 +67,39 @@ File path transformation depends on the content location:
 | `Content/Sense_Hub/**` | Insert `Subsystems/Hub/` before `Content/` | `Subsystems/Hub/Content/Sense_Hub/**` |
 | `Content/Sense_DeployAdminister/**` | Insert `Subsystems/DeployAdminister/` before `Content/` | `Subsystems/DeployAdminister/Content/Sense_DeployAdminister/**` |
 | `Content/QlikView/**` | Insert `Subsystems/QlikView/` before `Content/` | `Subsystems/QlikView/Content/QlikView/**` |
+| `Content/QV_QlikView/**` on Qlik Cloud | Map to the Hub subsystem | `Subsystems/Hub/Content/Sense_Hub/**` |
 | Any other `Content/**` | No transformation | `Content/**` |
 
 **Why this matters:** Qlik Sense and QlikView content is organized into subsystems during the build process. Other products don't have this structure.
 
-### Step 6: Assemble Final URL
+### Step 4: Assemble Final URL
 
 Format:
 ```
-https://alphahelp.qliktech.com/rc/en-US/{site-segment}/{transformed-path}
+https://alphahelp.qliktech.com/rc/en-US/{product-route}/{transformed-path}
 ```
 
-### Complete Examples
+### Verified Examples
 
-#### Example 1: Migration Product
-- **Branch**: `branch-migration-DOC-2686-unified-tagging-tests`
-- **File**: `Content/AnalyticsMigrationTool/Qlik-Analytics-Migration-Tool-Overview.htm`
-- **Product code**: `migration`
-- **URL segment**: `migration` (no transformation)
-- **Site segment**: `migration-DOC-2686-unified-tagging-tests-rc`
-- **Path**: `Content/AnalyticsMigrationTool/...` (no transformation)
-- **Final URL**:
-  ```
-  https://alphahelp.qliktech.com/rc/en-US/migration-DOC-2686-unified-tagging-tests-rc/Content/AnalyticsMigrationTool/Qlik-Analytics-Migration-Tool-Overview.htm
-  ```
+Feature branch:
+```
+https://alphahelp.qliktech.com/rc/en-US/replicate/DOC-3730-created-by-copilot-rc/Content/Replicate/Main/Introduction/Home.htm
+```
 
-#### Example 2: Qlik Cloud Services (QCS)
-- **Branch**: `branch-qcs-DOC-4341-mega-validator`
-- **File**: `Content/Sense_Hub/Introduction/creating-analytics-and-visualizing-data.htm`
-- **Product code**: `qcs`
-- **URL segment**: `cloud-services`
-- **Site segment**: `cloud-services-DOC-4341-mega-validator-rc`
-- **Path**: `Content/Sense_Hub/...` → `Subsystems/Hub/Content/Sense_Hub/...`
-- **Final URL**:
-  ```
-  https://alphahelp.qliktech.com/rc/en-US/cloud-services-DOC-4341-mega-validator-rc/Subsystems/Hub/Content/Sense_Hub/Introduction/creating-analytics-and-visualizing-data.htm
-  ```
+Daily build:
+```
+https://alphahelp.qliktech.com/rc/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Introduction/analyzing-data.htm
+```
 
-#### Example 3: Onboarding
-- **Branch**: `branch-onboarding-DOC-4294-recipe-applied-example`
-- **File**: `Content/Onboarding/qlik-cloud-analytics-consumer.htm`
-- **Product code**: `onboarding`
-- **URL segment**: `onboarding` (no transformation)
-- **Site segment**: `onboarding-DOC-4294-recipe-applied-example-rc`
-- **Path**: `Content/Onboarding/...` (no transformation)
-- **Final URL**:
-  ```
-  https://alphahelp.qliktech.com/rc/en-US/onboarding-DOC-4294-recipe-applied-example-rc/Content/Onboarding/qlik-cloud-analytics-consumer.htm
-  ```
+Release build:
+```
+https://alphahelp.qliktech.com/rc/en-US/sense/May2026/Content/Sense_Helpsites/Home.htm
+```
+
+Migration Center:
+```
+https://alphahelp.qliktech.com/rc/en-US/migration/installing-qtcmt
+```
 
 ---
 
@@ -294,7 +254,6 @@ Some files don't have a direct alphahelp URL:
 - Variable definition files
 
 For these, note in the comment: "Configuration/structure changes only—no direct preview URL"
-
 ---
 
 ## Archive and Listing Pages
@@ -323,11 +282,10 @@ https://alphahelp.qliktech.com/talend/admin/list
 ### Quick Validation Checklist
 
 Before posting URLs, verify:
-- [ ] Branch name format matches expected pattern
-- [ ] Product code correctly mapped to URL segment
+- [ ] Product route and build type match a verified product pattern
 - [ ] File path exists in the repository
 - [ ] Subsystem insertion applied correctly (for Sense/QlikView)
-- [ ] Build type suffix appropriate (`-rc` for most branches)
+- [ ] `-rc` is present only where the product pattern requires it
 - [ ] For DITA: mapid and pageid extracted correctly
 
 ### Testing URLs
@@ -342,8 +300,8 @@ After generating URLs:
 ## Common Mistakes to Avoid
 
 1. **Forgetting subsystem insertion** for Sense_Hub content
-2. **Including the full branch prefix** in the site segment (should remove `branch-`)
-3. **Incorrect product code mapping** (e.g., using `qcs` instead of `cloud-services`)
+2. **Applying one product's route pattern to another product**
+3. **Guessing a route from the branch name** instead of using a verified product pattern
 4. **Posting URLs before build completes** (URLs won't work until Jenkins finishes)
 5. **For DITA**: Confusing filename with pageid (pageid comes from `pageid` attribute, not filename)
 6. **Using `installation-guide`, `hybrid-installation-guide`, or `remote-engine-user-guide` without a build flavor** (append `-linux` by default)
@@ -355,7 +313,12 @@ After generating URLs:
 
 ### Flare URL Template
 ```
-https://alphahelp.qliktech.com/rc/en-US/{url-segment}-{doc-ticket}-{description}-rc/{path}
+https://alphahelp.qliktech.com/rc/en-US/{product-route}/{transformed-path}
+```
+
+Feature-branch routes may combine the product and branch identifier or use separate path segments, depending on the product:
+```
+https://alphahelp.qliktech.com/rc/en-US/{product-route}/{branch}-rc/{transformed-path}
 ```
 
 ### DITA URL Template
@@ -364,8 +327,10 @@ https://alphahelp.qliktech.com/talend/en-US/{mapid}/{branch-name}/{pageid}
 ```
 
 ### Most Common Products
-- `branch-qcs-*` → `cloud-services-*-rc`
-- `branch-sense-*` → `sense-*-rc` (with Subsystems/Hub/ path insertion)
-- `branch-nprinting-*` → `nprinting-*-rc`
+- Qlik Cloud feature branch → `cloud-services-{branch}-rc`
+- Qlik Cloud daily → `cloud-services`
+- Replicate feature branch → `replicate/{branch}-rc`
+- Qlik Connectors feature branch → `connectors-{branch}-rc`
+- Qlik Sense release → `sense/{release}` (with subsystem path insertion where applicable)
 - `cloud-*` → Talend DITA cloud content
 - `80-*` → Talend DITA on-prem content
