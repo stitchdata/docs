@@ -12,11 +12,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: LinkedIn Ads (v2)
-permalink: /integrations/saas/linkedin-ads/v2
+title: LinkedIn Ads (v3)
+permalink: /integrations/saas/linkedin-ads
 keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl, linkedin ads schema, linkedin, 
 layout: singer
-input: false
+input: true
 
 key: "linkedin-ads-setup"
 
@@ -31,7 +31,7 @@ singer: true
 tap-name: "LinkedIn Ads"
 repo-url: https://github.com/singer-io/tap-linkedin-ads
 
-this-version: "2"
+this-version: "3"
 
 # -------------------------- #
 #       Stitch Details       #
