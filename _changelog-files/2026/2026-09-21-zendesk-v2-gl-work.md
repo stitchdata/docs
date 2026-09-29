@@ -1,5 +1,5 @@
 ---
-title: "Zendesk Support (v2): GL-Work"
+title: "Zendesk Support (v2): Add API streams and more improvements"
 content-type: "changelog-entry"
 date: 2026-09-21
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-zendesk/pull/176"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to gL-Work.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to add API streams and more improvements.

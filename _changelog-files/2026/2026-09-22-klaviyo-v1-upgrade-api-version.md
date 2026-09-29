@@ -1,5 +1,5 @@
 ---
-title: "Klaviyo (v1): Klaviyo api version upgrade"
+title: "Klaviyo (v1): Upgrade API version"
 content-type: "changelog-entry"
 date: 2026-09-22
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-klaviyo/pull/93"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to klaviyo api version upgrade.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to upgrade API version.
