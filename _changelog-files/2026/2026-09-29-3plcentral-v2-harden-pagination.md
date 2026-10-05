@@ -1,5 +1,5 @@
 ---
-title: "3PL Central (v2): SAC-32171 Harden Pagination"
+title: "3PL Central (v2): Harden pagination"
 content-type: "changelog-entry"
 date: 2026-09-29
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-3plcentral/pull/19"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to sAC-32171 Harden Pagination.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to harden pagination.
