@@ -18,7 +18,7 @@ hosting-type: "mongodb-atlas"
 this-version: "3"
 
 driver: |
-  [PyMongo 4.4.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
+  [PyMongo 4.18.2](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
 
 setup-name: "MongoDB"
 
@@ -37,7 +37,7 @@ db-type: "mongodb"
 
 ## Stitch features
 api-type: "platform.mongodb"
-versions: "3.6 through 7.0"
+versions: "4.4 through 7.0"
 ssh: false
 ssl: true
 
