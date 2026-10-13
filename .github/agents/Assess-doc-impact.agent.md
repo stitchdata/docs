@@ -30,6 +30,8 @@ Invoke the **jira-context** skill to fetch the Jira ticket. Extract the followin
 | Description | `fields.description` |
 | Issue type | `fields.issuetype.name` |
 | Status | `fields.status.name` |
+| Reporter display name | `fields.reporter.displayName` |
+| Reporter account ID | `fields.reporter.accountId` |
 | Assignee display name | `fields.assignee.displayName` |
 | Assignee account ID | `fields.assignee.accountId` |
 | Labels already applied | `fields.labels` |
@@ -147,7 +149,7 @@ Only run this step if either help.qlik.com or Qlik.dev impact = `yes`.
 
 Build a single structured comment from all gathered findings and post it to the Jira ticket using **ADF (Atlassian Document Format)**. Then apply labels.
 
-**Assignee notification:** If either impact is `yes` and the ticket has an assignee (`fields.assignee.accountId` is present), include a mention node inline with the call-to-action text.
+**Notification:** If input quality is `incomplete` and the ticket has a reporter (`fields.reporter.accountId` is present), include a mention node for the reporter inline with the call-to-action text. Otherwise, if either impact is `yes` and the ticket has an assignee (`fields.assignee.accountId` is present), include a mention node for the assignee inline with the call-to-action text.
 
 #### ADF comment structure
 
@@ -160,9 +162,34 @@ The comment should contain paragraphs for:
 4. Qlik.dev impact
 5. Complexity
 6. Additional considerations (only if availability assumptions, AI/GenAI features, or migration impact detected)
-7. Call to action (with inline assignee mention if applicable)
+7. Call to action (with inline reporter mention if input quality is incomplete; otherwise, with inline assignee mention if applicable)
 
-**Call-to-action paragraph with assignee mention (when assignee exists and either impact is yes):**
+**Call-to-action paragraph with reporter mention (when input quality is incomplete):**
+```json
+{
+  "type": "paragraph",
+  "content": [
+    {
+      "type": "text",
+      "text": "Call to action: ",
+      "marks": [{"type": "strong"}]
+    },
+    {
+      "type": "mention",
+      "attrs": {
+        "id": "<fields.reporter.accountId>",
+        "text": "@<fields.reporter.displayName>"
+      }
+    },
+    {
+      "type": "text",
+      "text": " [call-to-action text based on outcome]"
+    }
+  ]
+}
+```
+
+**Call-to-action paragraph with assignee mention (when input quality is good, assignee exists, and either impact is yes):**
 ```json
 {
   "type": "paragraph",
@@ -187,7 +214,7 @@ The comment should contain paragraphs for:
 }
 ```
 
-**Call-to-action paragraph without assignee mention:**
+**Call-to-action paragraph without a mention (when the applicable reporter or assignee is not available):**
 ```json
 {
   "type": "paragraph",
@@ -227,7 +254,7 @@ The assessment report should contain:
 - **AI/GenAI feature:** [If detected: "This feature uses AI/ML capabilities and requires GenAI disclaimers and responsible AI documentation"]
 - **Migration impact:** [If detected: briefly describe the impact on existing users, migration requirements, or breaking changes]
 
-**Call to action:** [@assignee if applicable] [see call-to-action rules below]
+**Call to action:** [@reporter if input quality is incomplete; otherwise @assignee if applicable] [see call-to-action rules below]
 
 #### Call-to-action rules
 
