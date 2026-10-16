@@ -261,9 +261,9 @@ The assessment report should contain:
 | Input quality | Any doc impact | Complexity | Call to action |
 |---|---|---|---|
 | good | no (both) | — | No documentation impact identified for this ticket. |
-| good | yes (either) | low or medium | Documentation changes are identified for this ticket. Run the Create DOC draft automation when the work for this ticket is done and validated by QA. The DOC agent will use JIRA context and code in related PRs as input. |
-| good | yes (either) | high | Documentation changes with high complexity are identified for this ticket. Contact a writer in PCG to verify the documentation impact. |
-| incomplete | — | — | More input is required to assess documentation impact. Add the missing input listed here to the ticket, and rerun the Assess DOC impact automation. |
+| good | yes (either) | low or medium | Documentation changes are identified for this ticket. When the work for this ticket is done and validated by QA, run the Create DOC draft automation manually. It will create a DOC ticket, and then it will use JIRA context and code in related PRs as input to generate a first draft. For more information about the doc automations and how to run them, see https://alphahelp.qliktech.com/ld/en-US/edl/Content/EDL/Writing/Doc%20automation%20in%20Jira%20for%20dev%20teams.htm. |
+| good | yes (either) | high | Documentation changes with high complexity are identified for this ticket. The documentation checklist item is now set to TO DO and the doc team can plan to work on it. There is no specific action for you at this time. |
+| incomplete | — | — | More input is required to assess documentation impact. Add the missing input listed here to the ticket, and rerun the Assess DOC impact automation. For more information about the doc automations and how to run them, see https://alphahelp.qliktech.com/ld/en-US/edl/Content/EDL/Writing/Doc%20automation%20in%20Jira%20for%20dev%20teams.htm. |
 
 #### Labels to apply
 
@@ -273,7 +273,8 @@ Apply documentation impact labels AND repository labels from Step 3.
 |---|---|
 | Both impacts = no | `DocImpact-no`, [repository labels from Step 3] |
 | Either impact = yes, complexity = low or medium | `DocImpact-yes`, `DocAutomation-valid`, [repository labels from Step 3] |
-| Either impact = yes, complexity = high or unknown | `DocImpact-yes`, [repository labels from Step 3] |
+| Either impact = yes, complexity = high | `DocImpact-yes`, `DocComplexity-high`, [repository labels from Step 3] |
+| Either impact = yes, complexity = unknown | `DocImpact-yes`, [repository labels from Step 3] |
 
 #### TLV-specific checklist updates
 
