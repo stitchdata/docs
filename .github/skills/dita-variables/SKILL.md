@@ -8,6 +8,8 @@ tags: ["dita", "conref", "product-names", "talend", "qlik"]
 
 # DITA Variables Skill
 
+**Last Verified:** 2026-10-20
+
 ## Scope
 
 **DITA variables in docs-core means one thing:** `<keyword conref>` references to
@@ -64,8 +66,8 @@ the resolved text matches the table.
 - If all values match: gate passes. Proceed with confidence.
 - If any ID does not match or is missing: go to Step 4.
 
-**Step 4: Handle discrepancy**
-
+**Step 4: Handle discrepancy**    
+**Note**: All skill updates must be done in https://github.com/qlik-trial/help-content-tools/tree/main/.github/skills/dita-variables
 1. Report:
    ```
    VARIABLE AUDIT DISCREPANCY
@@ -73,8 +75,9 @@ the resolved text matches the table.
    Skill value: "<old product name>"
    File value: "<new product name>" (metadata-variables.dita:<line>)
    ```
-2. Update the reference table in this SKILL.md.
-3. Update `Last Verified` to today.
+2. Check out https://github.com/qlik-trial/help-content-tools/tree/main/.github/skills/dita-variables
+2. Update the reference table in this https://github.com/qlik-trial/help-content-tools/blob/main/.github/skills/dita-variables/SKILL.md.
+3. Still in that skill file, update `Last Verified` to today.
 4. Create a new DDR file in `decisions/`.
 5. Append the audit result to `profiles/` as a new timestamped entry.
 6. Proceed using the value from metadata-variables.dita.
@@ -85,6 +88,7 @@ If no discrepancies were found, still:
 - Update `Last Verified` to today.
 - Append a pass entry to `profiles/` with timestamp and scope checked.
 
+**Note**: All skill updates must be done in https://github.com/qlik-trial/help-content-tools/tree/main/.github/skills/dita-variables
 
 
 **Gate failure mode:** If `metadata-variables.dita` cannot be read, stop.
@@ -140,39 +144,39 @@ The `Section` column identifies which `<section id="...">` in the file contains 
 
 | ID | Resolved Value | Section | Usage Context | Last Verified |
 |---|---|---|---|---|
-| `13` | Talend Cloud | Products_list | Generic name for the Talend Cloud SaaS platform; first choice for Talend Cloud references | 2026-06-29 |
-| `183` | Talend Data Fabric | Products_list | On-premises platform product name | 2026-06-29 |
-| `790` | Qlik Cloud | Products_list | Qlik Cloud platform references (post-acquisition branding) | 2026-06-29 |
-| `794` | Qlik Talend Cloud | Products_list | Combined Qlik + Talend Cloud product name | 2026-06-29 |
-| `785` | Qlik Talend Cloud Starter Edition | Products_list | Specific edition tier | 2026-06-29 |
-| `786` | Qlik Talend Cloud Standard Edition | Products_list | Specific edition tier | 2026-06-29 |
-| `787` | Qlik Talend Cloud Premium Edition | Products_list | Specific edition tier | 2026-06-29 |
-| `788` | Qlik Talend Cloud Enterprise Edition | Products_list | Specific edition tier | 2026-06-29 |
+| `13` | Talend Cloud | Products_list | Generic name for the Talend Cloud SaaS platform; first choice for Talend Cloud references | 2026-10-20 |
+| `183` | Talend Data Fabric | Products_list | On-premises platform product name | 2026-10-20 |
+| `790` | Qlik Cloud | Products_list | Qlik Cloud platform references (post-acquisition branding) | 2026-10-20 |
+| `794` | Qlik Talend Cloud | Products_list | Combined Qlik + Talend Cloud product name | 2026-10-20 |
+| `785` | Qlik Talend Cloud Starter Edition | Products_list | Specific edition tier | 2026-10-20 |
+| `786` | Qlik Talend Cloud Standard Edition | Products_list | Specific edition tier | 2026-10-20 |
+| `787` | Qlik Talend Cloud Premium Edition | Products_list | Specific edition tier | 2026-10-20 |
+| `788` | Qlik Talend Cloud Enterprise Edition | Products_list | Specific edition tier | 2026-10-20 |
 
 ### Modules (engines, apps, components)
 
 | ID | Resolved Value | Section | Usage Context | Last Verified |
 |---|---|---|---|---|
-| `42` | Talend Studio | Modules_list | Studio authoring environment; use for all Studio references | 2026-06-29 |
-| `50` | Talend JobServer | Modules_list | On-premises job execution server | 2026-06-29 |
-| `51` | Talend Runtime | Modules_list | ESB/OSGi runtime container | 2026-06-29 |
-| `52` | Talend ESB | Modules_list | Enterprise Service Bus product/module | 2026-06-29 |
-| `184` | Talend Integration Cloud | Modules_list | Legacy cloud integration module | 2026-06-29 |
-| `185` | Talend Remote Engine | Modules_list | Remote Engine (non-Gen2) module | 2026-06-29 |
-| `194` | Talend Cloud Pipeline Designer | Modules_list | Pipeline Designer cloud module | 2026-06-29 |
-| `625` | Talend Management Console | Modules_list | TMC UI module; use for all TMC references in body text | 2026-06-29 |
-| `641` | Talend Pipeline Designer | Modules_list | On-premises pipeline designer | 2026-06-29 |
-| `642` | Remote Engine Gen2 | Modules_list | Second-generation Remote Engine | 2026-06-29 |
-| `653` | Talend Data Catalog | Modules_list | Data Catalog module | 2026-06-29 |
-| `677` | Dynamic Engine | Modules_list | Kubernetes-based Dynamic Engine; use for all Dynamic Engine references | 2026-06-29 |
-| `729` | Qlik Talend Cloud Migration Toolkit | Modules_list | Migration toolkit module | 2026-06-29 |
+| `42` | Talend Studio | Modules_list | Studio authoring environment; use for all Studio references | 2026-10-20 |
+| `50` | Talend JobServer | Modules_list | On-premises job execution server | 2026-10-20 |
+| `51` | Talend Runtime | Modules_list | ESB/OSGi runtime container | 2026-10-20 |
+| `52` | Talend ESB | Modules_list | Enterprise Service Bus product/module | 2026-10-20 |
+| `184` | Talend Integration Cloud | Modules_list | Legacy cloud integration module | 2026-10-20 |
+| `185` | Talend Remote Engine | Modules_list | Remote Engine (non-Gen2) module | 2026-10-20 |
+| `194` | Talend Cloud Pipeline Designer | Modules_list | Pipeline Designer cloud module | 2026-10-20 |
+| `625` | Talend Management Console | Modules_list | TMC UI module; use for all TMC references in body text | 2026-10-20 |
+| `641` | Talend Pipeline Designer | Modules_list | On-premises pipeline designer | 2026-10-20 |
+| `642` | Remote Engine Gen2 | Modules_list | Second-generation Remote Engine | 2026-10-20 |
+| `653` | Talend Data Catalog | Modules_list | Data Catalog module | 2026-10-20 |
+| `677` | Dynamic Engine | Modules_list | Kubernetes-based Dynamic Engine; use for all Dynamic Engine references | 2026-10-20 |
+| `729` | Qlik Talend Cloud Migration Toolkit | Modules_list | Migration toolkit module | 2026-10-20 |
 
 ### Resources (company / brand names)
 
 | ID | Resolved Value | Section | Usage Context | Last Verified |
 |---|---|---|---|---|
-| `442` | Talend | Resources_list | Standalone "Talend" brand reference; use when referring to the company/brand, not a specific product | 2026-06-29 |
-| `774` | Qlik | Resources_list | Standalone "Qlik" brand reference | 2026-06-29 |
+| `442` | Talend | Resources_list | Standalone "Talend" brand reference; use when referring to the company/brand, not a specific product | 2026-10-20 |
+| `774` | Qlik | Resources_list | Standalone "Qlik" brand reference | 2026-10-20 |
 
 ---
 
