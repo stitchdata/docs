@@ -1,5 +1,5 @@
 ---
-title: "Shopify (v3): add refundShippingLines to order_refunds"
+title: "Shopify (v3): Add refundShippingLines to order_refunds"
 content-type: "changelog-entry"
 date: 2026-10-15
 entry-type: improvement

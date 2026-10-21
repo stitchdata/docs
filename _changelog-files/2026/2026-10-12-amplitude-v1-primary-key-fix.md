@@ -1,5 +1,5 @@
 ---
-title: "Amplitude (v1): Primary key fix"
+title: "Amplitude (v1): Fix primary key"
 content-type: "changelog-entry"
 date: 2026-10-12
 entry-type: bug-fix
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-amplitude/pull/21"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to primary key fix.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fix primary key.

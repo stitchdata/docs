@@ -1,5 +1,5 @@
 ---
-title: "Pendo (v1): request Pendo events in bounded time windows"
+title: "Pendo (v1): Request Pendo events in bounded time windows"
 content-type: "changelog-entry"
 date: 2026-10-16
 entry-type: improvement
