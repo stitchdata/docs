@@ -18,7 +18,7 @@ hosting-type: "mongodb-atlas"
 this-version: "3"
 
 driver: |
-  [PyMongo 4.18.2](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
+  [PyMongo 4.18.3](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
 
 setup-name: "MongoDB"
 

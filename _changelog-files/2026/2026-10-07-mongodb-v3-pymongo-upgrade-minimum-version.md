@@ -10,6 +10,6 @@ pull-request: "https://github.com/singer-io/tap-mongodb/pull/136"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've upgraded the `pymongo` version used by our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to 4.18.2.
+We've upgraded the `pymongo` version used by our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to 4.18.3.
 
 PyMongo 4.18 no longer supports {{ this-connection.display_name }} versions below `4.4`. As a result, this integration now supports {{ this-connection.display_name }} `4.4` through `7.0`. Connections to databases running `3.6`, `4.0`, or `4.2` will fail. All three of these versions have reached end of life with MongoDB.
