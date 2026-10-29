@@ -134,7 +134,7 @@ Evaluate the ticket separately for **help.qlik.com** (end-user documentation) an
 
 ---
 
-### Step 4: Assess Documentation Complexity
+### Step 5: Assess Documentation Complexity
 
 Only run this step if either help.qlik.com or Qlik.dev impact = `yes`.
 
@@ -145,9 +145,9 @@ Only run this step if either help.qlik.com or Qlik.dev impact = `yes`.
 
 ---
 
-### Step 5: Compose and Post the Assessment Report
+### Step 6: Compose and Post the Assessment Report
 
-Build a single structured comment from all gathered findings and post it to the Jira ticket using **ADF (Atlassian Document Format)**. Then apply labels.
+Build a single structured comment from all gathered findings and post it to the Jira ticket using **ADF (Atlassian Document Format)**.
 
 **Notification:** If input quality is `incomplete` and the ticket has a reporter (`fields.reporter.accountId` is present), include a mention node for the reporter inline with the call-to-action text. Otherwise, if either impact is `yes` and the ticket has an assignee (`fields.assignee.accountId` is present), include a mention node for the assignee inline with the call-to-action text.
 
@@ -265,9 +265,11 @@ The assessment report should contain:
 | good | yes (either) | high | Documentation changes with high complexity are identified for this ticket. The documentation checklist item is now set to TO DO and the doc team can plan to work on it. There is no specific action for you at this time. |
 | incomplete | — | — | More input is required to assess documentation impact. Add the missing input listed here to the ticket, and rerun the Assess DOC impact automation. For more information about the doc automations and how to run them, see https://alphahelp.qliktech.com/ld/en-US/edl/Content/EDL/Writing/Doc%20automation%20in%20Jira%20for%20dev%20teams.htm. |
 
-#### Labels to apply
+---
 
-Apply documentation impact labels AND repository labels from Step 3.
+### Step 7: Verify and Apply Labels
+
+After posting the assessment report, apply documentation impact labels AND repository labels from Step 3.
 
 | Outcome | Labels to add |
 |---|---|
@@ -276,11 +278,15 @@ Apply documentation impact labels AND repository labels from Step 3.
 | Either impact = yes, complexity = high | `DocImpact-yes`, `DocComplexity-high`, [repository labels from Step 3] |
 | Either impact = yes, complexity = unknown | `DocImpact-yes`, [repository labels from Step 3] |
 
-#### TLV-specific checklist updates
+**Reconcile labels on every run, including reruns:** Fetch the ticket's current labels before updating them. Treat `DocImpact-no`, `DocImpact-yes`, `DocAutomation-valid`, and `DocComplexity-high` as assessment-managed labels: add any required by the current outcome above and remove any that are no longer applicable. Preserve all other existing labels and add any missing repository labels from Step 3. For example, when complexity changes from medium to high with documentation impact, retain `DocImpact-yes`, add `DocComplexity-high`, and remove `DocAutomation-valid`. After saving, fetch the labels again and verify that the assessment-managed labels exactly match the current outcome; do not report the label update as successful if they do not.
 
-**Only for tickets in the TLV Jira space** (ticket key starts with `TLV-`):
+---
 
-TLV tickets include template checklist items for documentation tracking. After posting the assessment report and applying labels, update the following checklist items:
+### Step 8: Update TLV Documentation Checklists
+
+**Only for tickets in the TLV Jira space** (ticket key starts with `TLV-`). Skip this step for all other projects.
+
+TLV tickets include template checklist items for documentation tracking. After posting the assessment report and reconciling labels, update the following checklist items:
 
 **Checklist items to update:**
 - "Product Documentation - help.qlik.com"
