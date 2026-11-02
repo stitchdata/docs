@@ -1,5 +1,5 @@
 ---
-title: "Amazon S3 CSV (v1): Bump s3fs for twistlock"
+title: "Amazon S3 CSV (v1): Bump s3fs for Twistlock"
 content-type: "changelog-entry"
 date: 2026-10-26
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-s3-csv/pull/95"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump s3fs for twistlock.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to bump s3fs for Twistlock.

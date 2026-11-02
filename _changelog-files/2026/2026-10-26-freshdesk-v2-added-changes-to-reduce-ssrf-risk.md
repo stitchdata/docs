@@ -1,5 +1,5 @@
 ---
-title: "Freshdesk (v2): Added changes to reduce ssrf risk"
+title: "Freshdesk (v2): Reduce SSRF risk"
 content-type: "changelog-entry"
 date: 2026-10-26
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-freshdesk/pull/73"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to added changes to reduce ssrf risk.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to reduce SSRF risk.
