@@ -202,13 +202,13 @@ tables:
     primary-key: id
     replication-key: updatedAt
 - name: order_refunds
-  description: 'The `{{ table.name }}` table contains info about refunds associated
-    with orders.
+  description: 'The `{{ table.name }}` table contains info about refunds and refunded shipping
+    associated with orders.
 
     '
   links:
     singer-schema: https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/order_refunds.json
-    api-method: https://shopify.dev/docs/admin-api/rest/reference/orders/refund?api[version]=2019-07
+    api-method: https://shopify.dev/docs/api/admin-graphql/2025-07/objects/Refund
   table-details:
     replication-method: Key-based Incremental
     primary-key: id
