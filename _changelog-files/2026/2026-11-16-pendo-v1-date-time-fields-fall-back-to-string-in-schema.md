@@ -1,5 +1,5 @@
 ---
-title: "Pendo (v1): date-time fields fall back to string in schema"
+title: "Pendo (v1): Fall back to string for date-time fields in schema"
 content-type: "changelog-entry"
 date: 2026-11-16
 entry-type: improvement
@@ -10,4 +10,4 @@ pull-request: "https://github.com/singer-io/tap-pendo/pull/146"
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to date-time fields fall back to string in schema.
+We've improved our {{ this-connection.display_name }} (v{{ this-connection.this-version }}) integration to fall back to string for date-time fields in the schema.
