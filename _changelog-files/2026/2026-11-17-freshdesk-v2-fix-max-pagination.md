@@ -1,5 +1,5 @@
 ---
-title: "Freshdesk (v2): fix max pagination"
+title: "Freshdesk (v2): Fix max pagination"
 content-type: "changelog-entry"
 date: 2026-11-17
 entry-type: bug-fix
